@@ -1,0 +1,20 @@
+# .gitignore
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 环境变量 (绝对不能上传!)
+.env
+.venv
+env/
+venv/
+
+# 你的本地 IDE 配置
+.vscode/
+.idea/
+
+# 实验数据 (太大，不要上传 Git，用云盘或 NAS 传)
+data/
+experiments/logs/
+*.pth
+*.pt
