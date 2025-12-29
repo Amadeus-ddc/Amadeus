@@ -1,0 +1,1113 @@
+{
+  "sample_id": "conv-44",
+  "avg_score": 0.43902439024390244,
+  "qa_results": [
+    {
+      "question": "Which year did Audrey adopt the first three of her dogs?",
+      "category": 2,
+      "ground_truth": "2020",
+      "prediction": "Audrey adopted Pepper, Precious, and Panda in 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Andrew start his new job as a financial analyst?",
+      "category": 2,
+      "ground_truth": "The week before March 27, 2023",
+      "prediction": "Andrew started his new job as a financial analyst.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of indoor activities has Andrew pursued with his girlfriend?",
+      "category": 1,
+      "ground_truth": "boardgames, volunteering at pet shelter, wine tasting, growing flowers",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of places have Andrew and his girlfriend checked out around the city?",
+      "category": 1,
+      "ground_truth": "cafes, new places to eat, open space for hikes, pet shelter, wine tasting event, park",
+      "prediction": "Based on the exploration history, Andrew and his girlfriend have checked out hiking spots and parks around the city.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Audrey make muffins for herself?",
+      "category": 2,
+      "ground_truth": "The week of April 3rd to 9th",
+      "prediction": "The user's question 'When did Audrey make muffins for herself?' does not have a direct answer in the provided exploration history. However, based on the context, there is no mention of Audrey making muffins for herself at any point.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Audrey see a hummingbird?",
+      "category": 2,
+      "ground_truth": "first week of May 2023",
+      "prediction": "There is no specific mention of Audrey seeing a hummingbird in the given information.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Audrey adopt Pixie?",
+      "category": 2,
+      "ground_truth": "around April 2, 2023",
+      "prediction": "2023-04-15",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How many years passed between Audrey adopting Pixie and her other three dogs?",
+      "category": 2,
+      "ground_truth": "three years",
+      "prediction": "Audrey adopted Pixie on April 15, 2023, and she already had three dogs named Pepper, Precious, and Panda before that. Since Pepper, Precious, and Panda have been owned for 3 years, and assuming they were adopted around the same time, the years passed between Audrey adopting Pixie and her other three dogs is 3 years.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Did Andrew have a pet dog during March 2023?",
+      "category": 2,
+      "ground_truth": "No",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of classes or groups has Audrey joined to take better care of her dogs?",
+      "category": 1,
+      "ground_truth": "positive reinforcement training workshop to bond with pets, dog training course, agility training course, grooming course, dog-owners group",
+      "prediction": "Audrey has joined a positive reinforcement training class to take better care of her dogs.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Audrey's positive reinforcement training course for dogs take place?",
+      "category": 2,
+      "ground_truth": "June, 2023",
+      "prediction": "Signed up for a positive reinforcement training class for bonding with pets next month. [Time: 2023-05-06]",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Andrew go rock climbing?",
+      "category": 2,
+      "ground_truth": "June 11, 2023",
+      "prediction": "Andrew went rock climbing and made it to the top, according to his statement: 'Rock climbing was awesome. Made it to the top. View was stunning.'",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What outdoor activities has Andrew done other than hiking in nature?",
+      "category": 1,
+      "ground_truth": "rock climbing, fishing, camping",
+      "prediction": "Based on the exploration history, Andrew has also done rock climbing and is interested in trying kayaking and bungee jumping. Therefore, the outdoor activities Andrew has done other than hiking in nature include rock climbing.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Audrey move to a new place?",
+      "category": 2,
+      "ground_truth": "June 2023",
+      "prediction": "Audrey moved to a new place where she got a new puppy named Pixie on April 15, 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is something that Andrew really misses while working in the city?",
+      "category": 1,
+      "ground_truth": "being in nature",
+      "prediction": "Andrew misses being outdoors and surrounded by nature while working in the city.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is a shared frustration regarding dog ownership for Audrey and Andrew?",
+      "category": 1,
+      "ground_truth": "Not being able to find pet friendly spots.",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When is Andrew going to go hiking with Audrey?",
+      "category": 2,
+      "ground_truth": "August",
+      "prediction": "Andrew is planning to go hiking with Audrey and her dogs on Saturday, October 25th.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How many times did Audrey and Andew plan to hike together?",
+      "category": 1,
+      "ground_truth": "three times",
+      "prediction": "Andrew and Audrey planned to hike together once, on Saturday.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Audrey get Pixie from?",
+      "category": 1,
+      "ground_truth": "breeder",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is an indoor activity that Andrew would enjoy doing while make his dog happy?",
+      "category": 3,
+      "ground_truth": "cook dog treats",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which meat does Audrey prefer eating more than others?",
+      "category": 3,
+      "ground_truth": "chicken",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What are the classes that Audrey took for her dogs to?",
+      "category": 1,
+      "ground_truth": "Positive reinforcement training class for bonding, dog training course, agility class",
+      "prediction": "Teaches her dogs obedience and tricks like sit, stay, shake, and roll over.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Andrew go during the first weekend of August 2023?",
+      "category": 2,
+      "ground_truth": "camping with girlfriend",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What are some problems that Andrew faces before he adopted Toby?",
+      "category": 1,
+      "ground_truth": "Finding the right dog and pet-friendly apartments close to open spaces",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Did Audrey and Andrew grow up with a pet dog?",
+      "category": 1,
+      "ground_truth": "Yes",
+      "prediction": "Based on the exploration history, Audrey has several dogs including Pepper, Precious, and Panda, but there is no information indicating that Andrew has grown up with a pet dog.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Andrew and his girlfriend go fishing?",
+      "category": 2,
+      "ground_truth": "weekend before August 24, 2023",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the biggest stressor in Andrew's life besides not being able to hike frequently?",
+      "category": 1,
+      "ground_truth": "work",
+      "prediction": "The biggest stressor in Andrew's life besides not being able to hike frequently is his work, which has been tough and stressful, making outdoor activities take a backseat.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Andrew feel about his current work?",
+      "category": 1,
+      "ground_truth": "Stressful",
+      "prediction": "Andrew feels that his current work has been tough and stressful, which has made it challenging to engage in outdoor activities that he enjoys. He is finding ways to manage stress by adding simple things to his day, such as grabbing a coffee in the morning or going for a walk at lunch.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is something that Audrey often dresses up her dogs with?",
+      "category": 1,
+      "ground_truth": "Hats",
+      "prediction": "Audrey often dresses up her dogs with cute sweaters.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What are the names of Audrey's dogs?",
+      "category": 1,
+      "ground_truth": "Pepper, Precious, Panda, and Pixie",
+      "prediction": "Audrey's dogs are named Pepper, Precious, and Panda.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When is Andrew planning to go to the beach with his girlfriend?",
+      "category": 2,
+      "ground_truth": "November 2023",
+      "prediction": "Andrew is planning to go to the beach with his girlfriend on October 25th.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What has Andrew done with his dogs?",
+      "category": 1,
+      "ground_truth": "Taking walks and hiking",
+      "prediction": "Andrew has been browsing websites, visiting shelters, and asking friends about adopting a dog. He has also been considering getting a dog and looking for a dog-friendly spot to live.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of tattoo does Audrey have on her arm?",
+      "category": 1,
+      "ground_truth": "Tattoos of her four dogs.",
+      "prediction": "Audrey has a tattoo of her four dogs on her arm.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What can Andrew potentially do to improve his stress and accomodate his living situation with his dogs?",
+      "category": 3,
+      "ground_truth": "Change to a hybrid or remote job so he can move away from the city to the suburbs to have a larger living space and be closer to nature.",
+      "prediction": "Andrew can improve his stress and accommodate his living situation with his dogs by engaging in outdoor activities such as hiking and rock climbing, which he enjoys and finds relaxing. He should also consider adopting a dog, as it can provide companionship and reduce stress. Additionally, he can look for a dog-friendly place to live, ensuring access to nature and a larger living space for his pets. Andrew can also join Audrey and her dogs for walks and playdates, which can help him connect with nature and build a stronger bond with his dogs.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How many months passed between Andrew adopting Toby and Buddy?",
+      "category": 2,
+      "ground_truth": "three months",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What are the names of Andrew's dogs?",
+      "category": 1,
+      "ground_truth": "Toby, Scout, Buddy",
+      "prediction": "Andrew's dogs are named Buddy and Scout.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What are some foods that Audrey likes eating?",
+      "category": 1,
+      "ground_truth": "chicken pot pie, chicken roast, blueberry muffins, sushi",
+      "prediction": "Audrey's dogs, Pepper, Precious, and Pixie, enjoy various foods. While specific food preferences are not mentioned, Audrey encourages Andrew to try sushi and provides tips on enjoying it.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Audrey get into an accident in the park?",
+      "category": 2,
+      "ground_truth": "between October 19 and 24, 2023",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Andrew and his girlfriend go on a wine tasting trip?",
+      "category": 2,
+      "ground_truth": "the weekend before October 24, 2023",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey get wtih having so many dogs?",
+      "category": 1,
+      "ground_truth": "Companionship",
+      "prediction": "Having many dogs brought Audrey several benefits, including getting new tattoos of her dogs, organizing doggy playdates, providing extra comfort for her dogs with new beds, and making sure her dogs have fun and are well-groomed. Audrey also takes her dogs for walks multiple times a day, teaches them obedience and tricks, and ensures they have a safe and fun space in her home.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is a good place for dogs to run around freely and meet new friends?",
+      "category": 1,
+      "ground_truth": "The dog park",
+      "prediction": "Dog Park",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What are the breeds of Audrey's dogs?",
+      "category": 1,
+      "ground_truth": "Mongrel mixed with Lab for Pepper and Panda. Mongrel mixed with Chihuahua for Precious and Pixie.",
+      "prediction": "Audrey's dogs are named Pepper, Precious, and Panda. They are Jack Russell mixes and Chihuahua mixes.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What technique is Audrey using to discipline her dogs?",
+      "category": 1,
+      "ground_truth": "Positive reinforcement",
+      "prediction": "Audrey uses positive reinforcement techniques to discipline her dogs.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which US state do Audrey and Andrew potentially live in?",
+      "category": 3,
+      "ground_truth": "Minnesota",
+      "prediction": "Audrey and Andrew are both interested in finding a dog-friendly place to live, and they frequently discuss hiking and outdoor activities. This suggests they might live in a state with many parks and natural areas, such as California, Colorado, or Washington.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which national park could Audrey and Andrew be referring to in their conversations?",
+      "category": 3,
+      "ground_truth": "Voyageurs National Park",
+      "prediction": "Audrey and Andrew could be referring to a national park where Audrey takes her dogs for walks and hikes. Specifically, Audrey mentioned taking her dogs to a national park and reaching a beautiful peak during sunset.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How many pets will Andrew have, as of December 2023?",
+      "category": 2,
+      "ground_truth": "three",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How many pets did Andrew have, as of September 2023?",
+      "category": 2,
+      "ground_truth": "one",
+      "prediction": "As of September 2023, Andrew had one pet, a German Shepherd named Toby.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How many months passed between Andrew adopting Buddy and Scout",
+      "category": 2,
+      "ground_truth": "one month",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Andrew view his pets as?",
+      "category": 1,
+      "ground_truth": "Family",
+      "prediction": "Andrew views his pets as friends and confidantes, bringing him joy, comfort, and unconditional love. He is currently considering adopting a dog but doesn't have any pets of his own yet.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Audrey view her pets as?",
+      "category": 1,
+      "ground_truth": "Family",
+      "prediction": "Audrey views her pets as more than just pets - they become friends and confidantes, bringing her joy, comfort, and unconditional love.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is a skill that Audrey learned to take care of her dogs?",
+      "category": 1,
+      "ground_truth": "Grooming",
+      "prediction": "Audrey learned obedience and various tricks like sit, stay, shake, and roll over to take care of her dogs.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What items has Audrey bought or made for her dogs?",
+      "category": 1,
+      "ground_truth": "dog tags, toys, dog beds, collars",
+      "prediction": "Audrey has bought or made new beds for her dogs to provide extra comfort as the weather cools down, and she has made goodies to thank neighbors for pup-friendly homes.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is something that Andrew could do to make birdwatching hobby to fit in his city schedule?",
+      "category": 3,
+      "ground_truth": "Install a bird feeder outside where he can see the birds without going outdoors.",
+      "prediction": "Andrew could make birdwatching fit into his city schedule by finding a local park or green space with bird feeders or a bird-watching club that meets in the city. This way, he can enjoy birdwatching without needing to travel far from his urban environment.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is a career that Andrew could potentially pursue with his love for animals and nature?",
+      "category": 3,
+      "ground_truth": "Park ranger or a similar position working for the National Park Services.",
+      "prediction": "Based on Andrew's love for animals and nature, a suitable career for him could be a **pet trainer** or **animal behaviorist**, focusing on positive reinforcement training. This career would allow him to work closely with animals and contribute to their well-being while also enjoying the outdoors and nature.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What activity do Audrey's dogs like to do in the dog park?",
+      "category": 1,
+      "ground_truth": "Play fetch with ball and frisbee, run around and meet other dogs",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Andrew make his dogs a fun indoor area?",
+      "category": 2,
+      "ground_truth": "few days before November 22, 2023",
+      "prediction": "2023-06-26",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Has Andrew moved into a new apartment for his dogs?",
+      "category": 1,
+      "ground_truth": "No",
+      "prediction": "No Andrew has not moved into",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Andrew adopt Scout?",
+      "category": 2,
+      "ground_truth": "few days before November 2023",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey eat for dinner on October 24, 2023?",
+      "category": 2,
+      "ground_truth": "sushi",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How long has it been since Andrew adopted his first pet, as of November 2023?",
+      "category": 2,
+      "ground_truth": "4 months",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How many dogs does Andrew have?",
+      "category": 1,
+      "ground_truth": "3",
+      "prediction": "Andrew is considering adopting a dog but currently does not have any dogs.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which specific type of bird mesmerizes Andrew?",
+      "category": 4,
+      "ground_truth": "Eagles",
+      "prediction": "Andrew is mesmerized by eagles.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Andrew express missing about exploring nature trails with his family's dog?",
+      "category": 4,
+      "ground_truth": "The peaceful moments",
+      "prediction": "Andrew expressed missing being outdoors and surrounded by nature while exploring nature trails with his family's dog.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of pastries did Andrew and his girlfriend have at the cafe?",
+      "category": 4,
+      "ground_truth": "croissants, muffins, and tarts",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of flowers does Audrey have a tattoo of?",
+      "category": 4,
+      "ground_truth": "sunflowers",
+      "prediction": "Audrey has a tattoo of her four dogs, which include Pepper, Precious, Panda, and Pixie.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Audrey do during dog playdates in the park?",
+      "category": 4,
+      "ground_truth": "chat with people while dogs make new friends",
+      "prediction": "During dog playdates in the park, Audrey organizes playdates with the neighbors' dogs and observes them having fun together. She also takes her dogs for walks and ensures they get plenty of exercise and socialization.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of dog was Andrew looking to adopt based on his living space?",
+      "category": 4,
+      "ground_truth": "smaller dog",
+      "prediction": "Based on his living space, Andrew is considering getting a smaller dog suitable for apartment living and a larger dog for active individuals. He is also looking for a pet-friendly place to live near a park or woods for easy access to nature and a large open space for the dog.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where does Andrew want to live to give their dog a large, open space to run around?",
+      "category": 4,
+      "ground_truth": "near a park or woods",
+      "prediction": "Andrew wants to live in a place with a large, open space to give his dog, Buddy, a place to run around.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did Audrey sign up for a workshop about bonding with pets?",
+      "category": 4,
+      "ground_truth": "Strengthen the bond with her pets",
+      "prediction": "Audrey signed up for a workshop about bonding with pets because she wanted to learn positive reinforcement training methods to better bond with her dogs and address any behavior issues they might have.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How did Audrey hear about the workshop on bonding with pets?",
+      "category": 4,
+      "ground_truth": "Saw a workshop flyer at the local pet store",
+      "prediction": "Audrey heard about the workshop on bonding with pets via Andrew from the pet shelter.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of training was the workshop Audrey signed up for in May 2023?",
+      "category": 4,
+      "ground_truth": "Positive reinforcement training",
+      "prediction": "The workshop Audrey signed up for in May 2023 was a Positive Reinforcement Training Class.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How did Audrey describe she dog he met at the pet store?",
+      "category": 4,
+      "ground_truth": "Friendly and playful",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did Audrey think positive reinforcement training is important for pets?",
+      "category": 4,
+      "ground_truth": "To have pets learn how to behave in a positive way",
+      "prediction": "Audrey thinks positive reinforcement training is important for pets because it helps build a strong bond with her dogs, addresses behavior issues effectively, and ensures her dogs feel loved and safe. She uses positive reinforcement techniques to teach her dogs obedience and tricks, and sees progress with this new approach.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What challenge is Andrew facing in their search for a pet?",
+      "category": 4,
+      "ground_truth": "Finding a pet-friendly spot in the city",
+      "prediction": "Andrew is facing the challenge of finding a dog-friendly place to live.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Andrew feel about their search for a pet-friendly place?",
+      "category": 4,
+      "ground_truth": "Discouraged but determined",
+      "prediction": "Andrew is still working on finding a dog-friendly place to live and feels that nature makes him feel alive and centered, which is important to him.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What outdoor activities does Andrew plan on trying after the rock climbing class?",
+      "category": 4,
+      "ground_truth": "kayaking and bungee jumping",
+      "prediction": "Kayaking and bungee jumping.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How long does Audrey typically walk her dogs for?",
+      "category": 4,
+      "ground_truth": "about an hour",
+      "prediction": "Audrey typically walks her dogs for about an hour, letting them explore at their own pace.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey set up in the backyard for their dogs on June 26, 2023?",
+      "category": 4,
+      "ground_truth": "a doggy play area with agility stuff and toys",
+      "prediction": "Set up a doggy play area with agility stuff and toys.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey and her friends stumble across during a hike a few years back, as mentioned on June 26, 2023?",
+      "category": 4,
+      "ground_truth": "a stunning lake in the mountains",
+      "prediction": "Stumbled across a stunning lake in the mountains.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Audrey's favorite recipe that she shares with Andrew on 3 July, 2023?",
+      "category": 4,
+      "ground_truth": "Chicken Pot Pie",
+      "prediction": "Audrey's favorite recipe that she shares with Andrew on 3 July, 2023 is the Chicken Pot Pie Recipe.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What dish is one of Audrey's favorite dishes that includes garlic and is shared with Andrew on 3 July, 2023?",
+      "category": 4,
+      "ground_truth": "Roasted Chicken",
+      "prediction": "One of Audrey's favorite dishes that includes garlic and is shared with Andrew on 3 July, 2023 is Chicken Pot Pie Recipe.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Andrew and his GF do on the Monday before July 24, 2023?",
+      "category": 4,
+      "ground_truth": "volunteered at a pet shelter",
+      "prediction": "On the Monday before July 24, 2023, Andrew and his girlfriend volunteered at a pet shelter.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the name of Audrey's childhood dog?",
+      "category": 4,
+      "ground_truth": "Max",
+      "prediction": "Audrey's childhood dog's name is Max.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What special memories does Audrey have with her childhood dog, Max?",
+      "category": 4,
+      "ground_truth": "Long walks in the neighborhood, exploring new paths, sharing worries and hopes",
+      "prediction": "Audrey has many special memories with her childhood dog, Max. They would take long walks in the neighborhood and Max was a great listener when Audrey shared her worries and hopes.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What are some of the personalities of Audrey's four fur babies?",
+      "category": 4,
+      "ground_truth": "oldest is relaxed, second is playful, third can be naughty but loves cuddles, youngest is full of life",
+      "prediction": "Audrey's four fur babies, Pepper, Precious, and Panda, are Jack Russell mixes and Chihuahua mixes. They enjoy playing together, cuddling, and exploring their garden. They also love playing fetch and frisbee at the park.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of classes did Audrey start with her pups recently on 4 August, 2023?",
+      "category": 4,
+      "ground_truth": "Agility classes",
+      "prediction": "Audrey started taking a positive reinforcement training class with her pups recently on 4 August, 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How often does Audrey take her pups to the park for practice?",
+      "category": 4,
+      "ground_truth": "Twice a week",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How long did the trail hike that Audrey went on with her pups take?",
+      "category": 4,
+      "ground_truth": "Two hours",
+      "prediction": "The trail hike that Audrey went on with her pups took place on June 1, 2023, and they reached a beautiful peak during sunset.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What advice did Audrey give to Andrew regarding grooming Toby?",
+      "category": 4,
+      "ground_truth": "Grooming slowly and gently, paying attention to sensitive areas like ears and paws. And remember to stay patient and positive throughout the grooming process.",
+      "prediction": "Audrey gave advice to Andrew regarding grooming Toby by mentioning that regular grooming is essential to keep Toby looking good. This includes daily brushing, regular baths, nail trims, and lots of love.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is essential to keep the dogs looking good according to Audrey?",
+      "category": 4,
+      "ground_truth": "Daily brushing, regular baths, nail trims, and lots of love",
+      "prediction": "taking her dogs to the pet salon and having them look great after grooming is essential to keep the dogs looking good.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey organize with the neighbors' dogs?",
+      "category": 4,
+      "ground_truth": "a doggy playdate",
+      "prediction": "Audrey organized a doggy playdate with the neighbors' dogs, and saw all the dogs having fun together.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey do to give her dogs extra comfort as the weather cooled down?",
+      "category": 4,
+      "ground_truth": "Got new beds for them",
+      "prediction": "Audrey got new beds for the dogs to provide extra comfort as the weather cooled down.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Audrey describe the new beds for her dogs?",
+      "category": 4,
+      "ground_truth": "Super cozy and comfy",
+      "prediction": "Audrey got new beds for her dogs to provide extra comfort as the weather cools down.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How did Audrey calm down her dog after the leash incident?",
+      "category": 4,
+      "ground_truth": "Petted, hugged, spoke calmly and slowly walked the dog",
+      "prediction": "Audrey calmed down her dogs after the leash incident by using petting, hugging, and calm speech.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How often does Audrey take her dogs for walks?",
+      "category": 4,
+      "ground_truth": "Multiple times a day",
+      "prediction": "Audrey takes her dogs for walks multiple times a day for exercise and bonding.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of flowers does Audrey take care of?",
+      "category": 4,
+      "ground_truth": "Peruvian Lilies",
+      "prediction": "Audrey takes care of dogs named Pepper, Precious, and Panda. She also recently adopted a new puppy named Pixie.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Andrew learn from reading books about ecological systems?",
+      "category": 4,
+      "ground_truth": "about animals, plants, and ecosystems and how they work together",
+      "prediction": "From the exploration, it seems that Andrew learned about the importance of spending time in nature and the benefits it brings, such as reducing stress and encouraging outdoor activities. He also gained insights into the joys and responsibilities of owning a dog, including the need for regular exercise, training, and socialization.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Andrew suggest as a way to reduce carbon footprint?",
+      "category": 4,
+      "ground_truth": "biking or using public transport",
+      "prediction": "Andrew suggested hiking as a way to reduce carbon footprint.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Andrew suggest helping the planet while also training the body?",
+      "category": 4,
+      "ground_truth": "by biking",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey do with her pups over the weekend before 4th October, 2023?",
+      "category": 4,
+      "ground_truth": "Took them to the beach",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was the reason Audrey couldn't walk her dogs for a period of time?",
+      "category": 4,
+      "ground_truth": "Knee injury",
+      "prediction": "Audrey couldn't walk her dogs for a period of time because she had a knee injury.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of jewelry does Audrey make?",
+      "category": 4,
+      "ground_truth": "Jewelry made from recycled objects",
+      "prediction": "Audrey makes jewelry out of recycled objects as a hobby and sells it to support a cause.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Why does Audrey make jewelry out of recycled objects?",
+      "category": 4,
+      "ground_truth": "To show love for creativity and sustainability",
+      "prediction": "Audrey makes jewelry out of recycled objects as a hobby and sells it to support a cause.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What organization does Audrey donate a portion of his profits to?",
+      "category": 4,
+      "ground_truth": "Animal shelter",
+      "prediction": "Audrey donates a portion of her profits to an animal shelter.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Audrey help out the animal shelter?",
+      "category": 4,
+      "ground_truth": "By donating a portion of his profits frmo selling jwelery",
+      "prediction": "Audrey helps out the animal shelter by sharing her experiences and advice with Andrew, encouraging him to take care of himself and find ways to manage stress. She also organizes doggy playdates with neighbors' dogs and takes her own dogs for walks, which can inspire others to get involved with their local animal shelters.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of games do Audrey's dogs like to play at the park?",
+      "category": 4,
+      "ground_truth": "Fetch and Frisbee",
+      "prediction": "Audrey's dogs, Pepper, Precious, and Panda, enjoy playing fetch and frisbee at the park.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey make to thank her neighbors?",
+      "category": 4,
+      "ground_truth": "Goodies",
+      "prediction": "Audrey made goodies to thank her neighbors for pup-friendly homes.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How do Audrey's dogs react to snow?",
+      "category": 4,
+      "ground_truth": "Confused",
+      "prediction": "Audrey's dogs, Pepper, Precious, and Panda, do not enjoy playing in the snow. They prefer other activities such as exploring parks and trails, playing fetch, and relaxing in their favorite spots.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Audrey describe her dogs' response to snow?",
+      "category": 4,
+      "ground_truth": "They definitely prefer nice, sunny days in the grass.",
+      "prediction": "Audrey's dogs do not enjoy the snow. They hate playing in it.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of experiences are Audrey's dogs the best companions for?",
+      "category": 4,
+      "ground_truth": "Exploring the great outdoors",
+      "prediction": "Audrey's dogs are best companions for activities such as hiking, exploring parks and trails, playing in the garden, and taking walks multiple times a day. They also enjoy socialization through doggy playdates and mental stimulation through training and puzzles.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What activity do Andrew and Buddy enjoy doing together?",
+      "category": 4,
+      "ground_truth": "Walking",
+      "prediction": "Buddy and Toby enjoy walks together.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What do Andrew and Buddy like doing on walks?",
+      "category": 4,
+      "ground_truth": "Checking out new hiking trails",
+      "prediction": "Based on the exploration, Buddy enjoys hiking trails and taking walks with Toby. Buddy and Toby often go for walks together and Buddy loves hiking spots.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What cuisine did Andrew recently try at a new spot in town?",
+      "category": 4,
+      "ground_truth": "sushi",
+      "prediction": "Andrew recently tried sushi at a new cafe in town.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which type of sushi did Audrey suggest trying first to someone new to sushi?",
+      "category": 4,
+      "ground_truth": "California or salmon roll",
+      "prediction": "Audrey suggested trying California or salmon rolls first to someone new to sushi.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of date is Andrew going on Sunday?",
+      "category": 4,
+      "ground_truth": "picnic date",
+      "prediction": "Andrew is planning to have a picnic with his girlfriend on Sunday.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Andrew and Audrey plan to do on the Saturday after October 28, 2023?",
+      "category": 4,
+      "ground_truth": "Go hiking",
+      "prediction": "Plan to hike with Andrew and his dogs on Saturday.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What aspect of autumn does Andrew find beautiful?",
+      "category": 4,
+      "ground_truth": "The autumn colors",
+      "prediction": "Andrew finds the beautiful sunset during his hike in autumn to be one of the aspects he appreciates.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey do in November 2023 to better take care of her dogs?",
+      "category": 4,
+      "ground_truth": "Joined a dog owners group",
+      "prediction": "In November 2023, Audrey took several actions to better take care of her dogs Pepper, Precious, and Panda. She organized a doggy playdate with the neighbors' dogs, got new beds for the dogs to provide extra comfort as the weather cooled down, and took her dogs for walks multiple times a day for exercise and bonding.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How often does Audrey meet up with other dog owners for tips and playdates?",
+      "category": 4,
+      "ground_truth": "Once a week",
+      "prediction": "Audrey meets up with other dog owners once a week for tips and playtime.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Audrey share to show ways to keep dogs active in the city?",
+      "category": 4,
+      "ground_truth": "photography of a basket full of stuffed animals",
+      "prediction": "Audrey shared that dogs enjoy exploring parks and trails, taking a dog training course, and taking walks multiple times a day for exercise and bonding as ways to keep dogs active in the city.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of activities does Audrey suggest for mental stimulation of the dogs?",
+      "category": 4,
+      "ground_truth": "puzzles, training, hide-and-seek",
+      "prediction": "Audrey suggests activities like fetch and frisbee, hide-and-seek, and training for mental stimulation of the dogs.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Andrew planning to do with Scout, Toby, and Buddy?",
+      "category": 4,
+      "ground_truth": "Take them to a nearby park",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Andrew get for Scout to create a safe and fun space for them?",
+      "category": 4,
+      "ground_truth": "essentials like a bed, toys, and puppy pads",
+      "prediction": "Andrew created a safe and fun space for Scout with a bed, toys, and puppy pads.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    }
+  ]
+}

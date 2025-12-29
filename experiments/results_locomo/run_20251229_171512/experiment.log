@@ -1,0 +1,1631 @@
+2025-12-29 17:15:12,293 - Experiment - INFO - Using local embedding model: /home/ubuntu/hzy/crl/Amadeus/amadeus/models/all-MiniLM-L6-v2
+2025-12-29 17:15:15,578 - Experiment - INFO - ✅ 成功加载 10 个样本
+2025-12-29 17:15:15,578 - Experiment - INFO - 
+========================================
+🚀 Running Sample [1/10]: conv-26
+========================================
+2025-12-29 17:15:15,622 - Experiment - INFO - 🧠 Phase 1: Building Memory (19 contextual sessions)...
+2025-12-29 17:15:19,002 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:19,317 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:15:19,321 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Inspiring and empowering--> Support Group (Time: 2023-05-07)
+2025-12-29 17:15:19,324 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Planning to continue education--> Education (Time: 2023-05-08)
+2025-12-29 17:15:19,327 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Interested in counseling or mental health--> Career Options (Time: 2023-05-08)
+2025-12-29 17:15:19,329 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-29 17:15:19,332 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Relaxing and expressive outlet--> Painting (Time: 2023-05-08)
+2025-12-29 17:15:19,334 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Swimming with kids--> Kids (Time: 2023-05-08)
+2025-12-29 17:15:22,537 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:22,541 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Participated in a charity race for mental health--> Charity Race (Time: 2023-05-20)
+2025-12-29 17:15:22,543 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Prioritizing self-care through activities like running, reading, and playing violin--> Self-Care (Time: 2023-05-25)
+2025-12-29 17:15:22,546 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Researching adoption agencies to adopt children--> Adoption Agency (Time: 2023-05-25)
+2025-12-29 17:15:22,548 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Dreaming of giving a loving home to LGBTQ+ kids--> Adoption Goal (Time: 2023-05-25)
+2025-12-29 17:15:22,548 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Picked an adoption agency that supports LGBTQ+ families--> Adoption Agency (Time: 2023-05-25)
+2025-12-29 17:15:22,549 - Amadeus.Builder - INFO - ⏳ WAIT: Excited for the adoption proce...
+2025-12-29 17:15:22,552 - Amadeus.Buffer - INFO - 🔄 Buffer carrying over 1 items (WAIT).
+2025-12-29 17:15:25,128 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:25,132 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:15:25,135 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Has been transitioning for three years--> Transition (Time: 2023-06-09)
+2025-12-29 17:15:25,137 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Friends have been supporting her since she moved from her home country--> Friends (Time: 2023-06-09)
+2025-12-29 17:15:25,140 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Family has been supporting her, especially after a tough breakup--> Family (Time: 2023-06-09)
+2025-12-29 17:15:25,142 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-29 17:15:29,708 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:29,712 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:15:29,715 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Got a hand-painted bowl for her 18th birthday--> Hand-Painted Bowl (Time: 10 years ago)
+2025-12-29 17:15:29,718 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Interested in pursuing a career in counseling and mental health--> Counseling and Mental Health (Time: 2023-06-27)
+2025-12-29 17:15:29,721 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Attended an LGBTQ+ counseling workshop on 2023-06-23--> LGBTQ+ Counseling Workshop (Time: 2023-06-23)
+2025-12-29 17:15:29,721 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Has been transitioning for four years--> Transition (Time: 2023-06-27)
+2025-12-29 17:15:29,721 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Family has been supporting her, especially after a tougher breakup--> Family (Time: 2023-06-27)
+2025-12-29 17:15:29,721 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Friends have been supporting her since she moved from her home country--> Friends (Time: 2023-06-27)
+2025-12-29 17:15:29,724 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Passionate about creating a safe, inviting place for trans people to grow--> Supporting Trans People (Time: 2023-06-27)
+2025-12-29 17:15:29,726 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Dedicated to helping others through mental health support--> Passionate About Mental Health (Time: 2023-06-27)
+2025-12-29 17:15:33,325 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:33,329 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:15:33,329 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Still interested in pursuing a career in counseling and mental health--> Counseling and Mental Health (Time: 2023-07-03)
+2025-12-29 17:15:33,332 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Learning the piano--> Piano (Time: 2023-07-03)
+2025-12-29 17:15:33,334 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Taking a pottery class--> Pottery (Time: 2023-05-08)
+2025-12-29 17:15:33,334 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Made a hand-painted bowl--> Hand-Painted Bowl (Time: 2023-05-08)
+2025-12-29 17:15:33,334 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Pottery is a huge part of her life, not just a hobby - it helps her express her emotions--> Pottery (Time: 2023-07-03)
+2025-12-29 17:15:33,337 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Attending a transgender conference this month--> Transgender Conference (Time: 2023-07-03)
+2025-12-29 17:15:38,070 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:38,070 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Passionate about helping people and making a positive impact--> Counseling and Mental Health (Time: 2023-07-06)
+2025-12-29 17:15:38,074 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Creating a library for when she has kids--> Library (Time: 2023-07-06)
+2025-12-29 17:15:38,076 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Kids' books- classics, stories from different cultures, educational books--> Books (Time: 2023-07-06)
+2025-12-29 17:15:38,076 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Support network has been amazing, giving her love, guidance, and acceptance--> Friends (Time: 2023-07-06)
+2025-12-29 17:15:38,076 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Supportive during her transition--> Family (Time: 2023-07-06)
+2025-12-29 17:15:38,076 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Spending time with kids at the museum--> Family (Time: 2023-07-06)
+2025-12-29 17:15:38,076 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Stoked about the dinosaur exhibit--> Kids (Time: 2023-07-06)
+2025-12-29 17:15:38,077 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Favorite book from childhood: 'Charlotte's Web'--> Books (Time: 2023-07-06)
+2025-12-29 17:15:38,077 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Supportive during Caroline's transition--> Family (Time: 2023-07-06)
+2025-12-29 17:15:38,077 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Camping at the beach--> Family (Time: 2023-07-06)
+2025-12-29 17:15:41,588 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:41,772 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:15:41,772 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Still interested in pursuing a career in counseling and mental health--> Counseling and Mental Health (Time: 2023-07-06)
+2025-12-29 17:15:41,775 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Read the book 'Becoming Nicole' by Amy Ellis Nutt--> Becoming Nicole (Time: 2023-07-06)
+2025-12-29 17:15:41,775 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Lessons from 'Becoming Nicole': self-acceptance, finding support, tough times don't last, hope and love exist, pets bring joy--> Passionate About Mental Health (Time: 2023-07-06)
+2025-12-29 17:15:41,778 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Has a dog named Luna--> Dog (Time: 2023-07-06)
+2025-12-29 17:15:41,781 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Has a cat named Oliver--> Cat (Time: 2023-07-06)
+2025-12-29 17:15:41,783 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Started running longer to de-stress--> Running (Time: 2023-07-06)
+2025-12-29 17:15:48,563 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:48,567 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Took kids to a pottery workshop where they all made their own pots--> Pottery Workshop (Time: 2023-07-14)
+2025-12-29 17:15:48,567 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Painting nature-inspired works with kids--> Painting (Time: 2023-07-06)
+2025-12-29 17:15:48,569 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Found flowers while painting with kids--> Flowers (Time: 2023-07-06)
+2025-12-29 17:15:48,572 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Wedding with partner, special day full of love and joy--> Wedding (Time: 2023-07-06)
+2025-12-29 17:15:48,574 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Sunflowers symbolize growth, beauty, and joy--> Sunflowers (Time: 2023-07-06)
+2025-12-29 17:15:48,577 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Roses symbolize love and beauty--> Roses (Time: 2023-07-06)
+2025-12-29 17:15:48,577 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Flowers are an important part of wedding decor--> Flowers (Time: 2023-07-06)
+2025-12-29 17:15:48,577 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family has been supportive during transition--> Family (Time: 2023-07-06)
+2025-12-29 17:15:48,580 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Camping trips in the forest with family--> Camping (Time: 2023-07-06)
+2025-12-29 17:15:48,582 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Enjoy hiking in the mountains and exploring forests with family--> Hiking (Time: 2023-07-06)
+2025-12-29 17:15:48,585 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Attended an adoption council meeting for creating loving homes for children in need--> Adoption Council Meeting (Time: 2023-07-14)
+2025-12-29 17:15:48,587 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Attended a pride parade, feeling accepted and surrounded by a supportive community--> Pride Parade (Time: 2023-07-06)
+2025-12-29 17:15:48,587 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Realized the importance of expressing herself authentically and having people back her up--> Transition (Time: 2023-07-06)
+2025-12-29 17:15:48,590 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Community provides acceptance and support--> Community (Time: 2023-07-06)
+2025-12-29 17:15:48,590 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Family has been supportive during transition--> Family (Time: 2023-07-06)
+2025-12-29 17:15:51,995 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:51,999 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:15:52,002 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Working on building up confidence and finding positive strategies--> Mentoring (Time: 2023-07-15)
+2025-12-29 17:15:52,004 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Upcoming art show featuring paintings--> LGBTQ Art Show (Time: 2023-07-15)
+2025-12-29 17:15:52,004 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Painting for the upcoming LGBTQ art show--> Painting (Time: 2023-07-15)
+2025-12-29 17:15:52,007 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Visited a LGBTQ center for inspiration--> LGBTQ Center (Time: 2023-07-15)
+2025-12-29 17:15:52,009 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Painting capturing everyone's unity and strength--> Unity and Strength (Time: 2023-07-15)
+2025-12-29 17:15:52,009 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Finished another painting with kids--> Painting (Time: 2023-07-15)
+2025-12-29 17:15:56,727 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:15:56,736 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:15:56,739 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Group Description: Made of all kinds of people investing in positive changes. Regular meetings, plan events and campaigns to support each other.--> Connected LGBTQ Activists (Time: 2023-07-11)
+2025-12-29 17:15:56,739 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Attended a pride parade, feeling accepted and surrounded by a supportive community--> Pride Parade (Time: 2023-07-09)
+2025-12-29 17:15:56,739 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family includes children and a supportive partner--> Family (Time: 2023-07-06)
+2025-12-29 17:15:56,742 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Recent beach trip with kids--> Beach Trip (Time: 2023-07-06)
+2025-12-29 17:15:56,744 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family camping trip with marshmallow roasting and storytelling--> Camping Trip (Time: 2023-07-06)
+2025-12-29 17:15:56,747 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family witnessed the Perseid meteor shower last year, making wishes and feeling connected to the universe--> Perseid Meteor Shower (Time: 2023-07-06)
+2025-12-29 17:15:56,749 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Youngest child took first steps, a significant milestone--> First Steps (Time: 2023-07-06)
+2025-12-29 17:15:56,752 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family brings joy and love--> Family Love (Time: 2023-07-06)
+2025-12-29 17:16:00,717 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:16:00,721 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:16:00,723 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Expresses her trans experience and speaks up for the LGBTQ+ community--> Art (Time: 2023-08-14)
+2025-12-29 17:16:00,726 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Painting about finding comfort and love in being oneself--> Embracing Identity (Time: 2023-08-14)
+2025-12-29 17:16:00,726 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Helps with self-discovery and acceptance journey, allows exploration of transition and changing body--> Art (Time: 2023-08-14)
+2025-12-29 17:16:00,726 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Teaches to accept the beauty of imperfections--> Art (Time: 2023-08-14)
+2025-12-29 17:16:00,729 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Performed at a concert last night--> Matt Patterson (Time: 2023-08-14)
+2025-12-29 17:16:00,731 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Had a birthday celebration with a concert--> Daughter (Time: 2023-08-14)
+2025-12-29 17:16:00,731 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Enjoyed a family camping trip--> Family (Time: 2023-08-14)
+2025-12-29 17:16:08,041 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:16:08,045 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:16:08,048 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-29 17:16:08,050 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Made a bowl with vibrant colors and patterns.--> Bowl (Time: 2023-08-17)
+2025-12-29 17:16:08,050 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Pottery is a huge part of her life, not just a hobby - it helps her express her emotions and is a source of self-expression and growth.--> Pottery (Time: 2023-08-17)
+2025-12-29 17:16:08,050 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Appreciates Melanie's pottery project and the effort and passion behind it.--> Melanie (Time: 2023-08-17)
+2025-12-29 17:16:08,050 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Appreciates Caroline's words and the support she provides.--> Caroline (Time: 2023-08-17)
+2025-12-29 17:16:08,051 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Acknowledges the importance of surrounding oneself with things that bring joy.--> Melanie (Time: 2023-08-17)
+2025-12-29 17:16:08,051 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Agrees with Caroline and emphasizes the importance of finding happiness in life.--> Caroline (Time: 2023-08-17)
+2025-12-29 17:16:08,051 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Expresses gratitude for their friendship and the support it provides.--> Melanie (Time: 2023-08-17)
+2025-12-29 17:16:08,051 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Expresses gratitude for Caroline and acknowledges the support she provides.--> Caroline (Time: 2023-08-17)
+2025-12-29 17:16:08,051 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Invites Melanie to plan a family outing this summer.--> Melanie (Time: 2023-08-17)
+2025-12-29 17:16:08,051 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Agrees to plan a family outing this summer.--> Caroline (Time: 2023-08-17)
+2025-12-29 17:16:08,051 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Excited about the upcoming trip and looking forward to creating memories together.--> Melanie (Time: 2023-08-17)
+2025-12-29 17:16:08,051 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Excited about the upcoming trip and looking forward to creating memories together.--> Caroline (Time: 2023-08-17)
+2025-12-29 17:16:12,495 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:16:12,495 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Applied to adoption agencies--> Adoption Agency (Time: 2023-08-23)
+2025-12-29 17:16:12,499 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Attended an adoption advice/assistance group--> Adoption Advice/Assistance Group (Time: 2023-08-23)
+2025-12-29 17:16:12,499 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Has been transitioning for five years--> Transition (Time: 2023-08-23)
+2025-12-29 17:16:12,502 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Guinea pig--> Oscar (Time: 2023-08-23)
+2025-12-29 17:16:12,504 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Cat--> Bailey (Time: 2023-08-23)
+2025-12-29 17:16:12,507 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Cat--> Oliver (Time: 2023-08-23)
+2025-12-29 17:16:12,507 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Guinea pig--> Oscar (Time: 2023-08-23)
+2025-12-29 17:16:12,509 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Painting--> Horse (Time: 2023-08-23)
+2025-12-29 17:16:12,512 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Painted a self-portrait--> Self-Portrait (Time: 2023-08-23)
+2025-12-29 17:16:18,031 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute dates from the context. Step 2: Identify entities and relationships. Step 3: Compare with the Graph. Step 4: Resolve conflicts and add new information.
+2025-12-29 17:16:18,031 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Went hiking last week and got into a bad spot with some people. Tried to apologize.--> Hiking (Time: 2023-08-25)
+2025-12-29 17:16:18,032 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Made a hand-painted bowl in pottery class yesterday.--> Pottery (Time: 2023-08-25)
+2025-12-29 17:16:18,032 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Painted a sunset scene after visiting the beach last week.--> Painting (Time: 2023-08-25)
+2025-12-29 17:16:18,035 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Important to her as it reflects the courage and strength of the trans community. Eagle symbolizes freedom and pride.--> Rainbow Flag Mural (Time: 2023-08-25)
+2025-12-29 17:16:18,038 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Made for a local church showing time changing our lives. Represents her own journey as a transgender woman.--> Stained Glass Window (Time: 2023-08-25)
+2025-12-29 17:16:18,040 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Found a vibrant rainbow sidewalk for Pride Month in her neighborhood. It reminds us that love and acceptance are everywhere.--> Rainbow Sidewalk (Time: 2023-08-25)
+2025-12-29 17:16:18,043 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Drawn flowers to appreciate nature and share its beauty.--> Drawing (Time: 2023-08-25)
+2025-12-29 17:16:18,045 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Volunteered at a homeless shelter yesterday, felt good to make a difference.--> Volunteering (Time: 2023-08-25)
+2025-12-29 17:16:18,045 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Painting landscapes and still life is her favorite. Recently completed a painting inspired by autumn.--> Painting (Time: 2023-08-25)
+2025-12-29 17:16:18,045 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Putting together an LGBTQ art show next month and planning to show her paintings.--> LGBTQ Art Show (Time: 2023-08-25)
+2025-12-29 17:16:22,557 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:16:22,561 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:16:22,561 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Volunteering at an LGBTQ+ youth center, putting together a talent show for the kids next month--> Volunteering (Time: 2023-08-28)
+2025-12-29 17:16:22,564 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Organizing a talent show for kids at the youth center--> Talent Show (Time: 2023-08-28)
+2025-12-29 17:16:22,567 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Playing acoustic guitar--> Guitar (Time: 2023-08-28)
+2025-12-29 17:16:22,569 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Favoring the song 'Brave'--> Sara Bareilles (Time: 2023-08-28)
+2025-12-29 17:16:22,572 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Playing clarinet--> Clarinet (Time: 2023-08-28)
+2025-12-29 17:16:22,574 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Favoring classical music like Bach and Mozart--> Classical Music (Time: 2023-08-28)
+2025-12-29 17:16:22,577 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Favoring modern music like Ed Sheeran's 'Perfect'--> Modern Music (Time: 2023-08-28)
+2025-12-29 17:16:27,554 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:16:27,558 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:16:27,561 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Sent a picture of the biking trip--> Pic (Time: 2023-09-10)
+2025-12-29 17:16:27,563 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-29 17:16:27,563 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Sent a picture of the camping trip--> Pic (Time: 2023-08-25)
+2025-12-29 17:16:27,563 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Inspired by her work in the LGBTQ+ community--> Volunteering (Time: 2023-09-10)
+2025-12-29 17:16:27,563 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Painting to show her path as a trans woman--> Art (Time: 2023-09-10)
+2025-12-29 17:16:27,564 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Pottery creation--> Art (Time: 2023-08-23)
+2025-12-29 17:16:27,564 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Painting to show her path as a trans woman--> Art (Time: 2023-09-10)
+2025-12-29 17:16:27,566 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Changed relationships due to transition--> Relationships (Time: 2023-09-10)
+2025-12-29 17:16:27,569 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Thoughtful sign at the café--> Sign (Time: 2023-09-10)
+2025-12-29 17:16:32,554 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:16:32,559 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:16:32,562 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-29 17:16:32,562 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Offered to help with adoption process--> Melanie (Time: 2023-10-13)
+2025-12-29 17:16:32,564 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-29 17:16:32,567 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-29 17:16:32,570 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:16:32,573 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:16:32,573 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Used pottery for self-expression and peace--> Pottery (Time: 2023-10-13)
+2025-12-29 17:16:32,576 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Ready to adopt and provide a safe, loving home for kids--> Adoption (Time: 2023-10-13)
+2025-12-29 17:16:32,576 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Considering adoption and seeking advice--> Adoption (Time: 2023-10-13)
+2025-12-29 17:16:38,580 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify the absolute date from the context. Step 2: Identify entities and relationships. Step 3: Compare with the existing graph. Step 4: Resolve conflicts and add new information.
+2025-12-29 17:16:38,585 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:16:38,588 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-29 17:16:38,588 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family provided support and reassurance during the accident--> Family (Time: 2023-10-06)
+2025-12-29 17:16:38,590 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Son involved in a car accident but is okay--> Son (Time: 2023-10-06)
+2025-12-29 17:16:38,590 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family enjoyed camping at the Grand Canyon--> Family (Time: 2023-10-06)
+2025-12-29 17:16:38,590 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Kids handled the accident well and enjoyed the camping trip--> Kids (Time: 2023-10-06)
+2025-12-29 17:16:38,593 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family visited the Grand Canyon for camping--> Grand Canyon (Time: 2023-10-06)
+2025-12-29 17:16:38,595 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family enjoys bonding over nature during camping trips--> Nature (Time: 2023-10-06)
+2025-12-29 17:16:38,598 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Family enjoys campfires during camping trips--> Campfire (Time: 2023-10-06)
+2025-12-29 17:16:38,600 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Enjoy waking up to the sound of birds during camping trips--> Birds (Time: 2023-10-06)
+2025-12-29 17:16:38,603 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Enjoy the smell of fresh air during camping trips--> Fresh Air (Time: 2023-10-06)
+2025-12-29 17:16:42,798 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-29 17:16:42,803 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-29 17:16:42,803 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Dreams of creating a safe and loving home for kids who haven't had that before--> Adoption Goal (Time: 2023-10-22)
+2025-12-29 17:16:42,803 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Finding self-acceptance was a long process, but now ready to offer love and support to those who need it--> Transition (Time: 2023-10-22)
+2025-12-29 17:16:42,803 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Friends provided support and boosted Caroline through tough times--> Friends (Time: 2023-10-22)
+2025-12-29 17:16:42,803 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Family provided support and acceptance during transition--> Family (Time: 2023-10-22)
+2025-12-29 17:16:42,805 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Supports Caroline in her journey and dreams--> Support (Time: 2023-10-22)
+2025-12-29 17:16:42,806 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Considering adoption and seeking advice--> Adoption (Time: 2023-10-13)
+2025-12-29 17:16:42,829 - Experiment - INFO - 📊 Graph Ready. Nodes: 81, Edges: 142
+2025-12-29 17:16:42,830 - Experiment - INFO - 🔍 Phase 2: Evaluation...
+2025-12-29 17:16:42,830 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline go to the LGBTQ support group?
+2025-12-29 17:16:43,032 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline LGBTQ support group', 'mode': 'hybrid'}
+2025-12-29 17:16:43,604 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Support Group'}
+2025-12-29 17:16:43,820 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline went to LGBTQ support group', 'mode': 'hybrid'}
+2025-12-29 17:16:44,391 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Support Group'}
+2025-12-29 17:16:44,601 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline attended LGBTQ support group', 'mode': 'hybrid'}
+2025-12-29 17:16:45,275 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Caroline attended an LGBTQ+ counseling workshop on 2023-06-23.'}
+2025-12-29 17:16:47,432 - Experiment - INFO - 
+Q: When did Caroline go to the LGBTQ support group?
+Category: 2
+GT: 7 May 2023
+Pred: Caroline attended an LGBTQ+ counseling workshop on 2023-06-23.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:16:47,432 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie paint a sunrise?
+2025-12-29 17:16:47,629 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie paint sunrise', 'mode': 'hybrid'}
+2025-12-29 17:16:48,507 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Painting'}
+2025-12-29 17:16:48,705 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie painting sunrise', 'mode': 'hybrid'}
+2025-12-29 17:16:49,584 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Painting'}
+2025-12-29 17:16:49,783 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie paint sunrise', 'mode': 'hybrid'}
+2025-12-29 17:16:50,693 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Melanie painted a lake sunrise last year.'}
+2025-12-29 17:16:51,577 - Experiment - INFO - 
+Q: When did Melanie paint a sunrise?
+Category: 2
+GT: 2022
+Pred: Melanie painted a lake sunrise last year.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:16:51,577 - Amadeus.Answerer - INFO - ❓ Question: What fields would Caroline be likely to pursue in her educaton?
+2025-12-29 17:16:51,774 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline education fields', 'mode': 'hybrid'}
+2025-12-29 17:16:52,651 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Career Options'}
+2025-12-29 17:16:52,849 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline career options', 'mode': 'hybrid'}
+2025-12-29 17:16:54,025 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Caroline is likely to pursue fields such as counseling and mental health, given her interest in helping others and her involvement in LGBTQ+ support groups and conferences. She also shows a passion for art and activism, which could lead her to careers in visual arts or social advocacy.'}
+2025-12-29 17:16:55,228 - Experiment - INFO - 
+Q: What fields would Caroline be likely to pursue in her educaton?
+Category: 3
+GT: Psychology, counseling certification
+Pred: Caroline is likely to pursue fields such as counseling and mental health, given her interest in helping others and her involvement in LGBTQ+ support groups and conferences. She also shows a passion for art and activism, which could lead her to careers in visual arts or social advocacy.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:16:55,229 - Amadeus.Answerer - INFO - ❓ Question: What did Caroline research?
+2025-12-29 17:16:55,420 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline research', 'mode': 'hybrid'}
+2025-12-29 17:16:56,297 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Support Group'}
+2025-12-29 17:16:56,501 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline research support group', 'mode': 'hybrid'}
+2025-12-29 17:16:57,151 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Caroline researched adoption agencies to adopt children, particularly those that support LGBTQ+ families.'}
+2025-12-29 17:16:58,024 - Experiment - INFO - 
+Q: What did Caroline research?
+Category: 1
+GT: Adoption agencies
+Pred: Caroline researched adoption agencies to adopt children, particularly those that support LGBTQ+ families.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:16:58,024 - Amadeus.Answerer - INFO - ❓ Question: What is Caroline's identity?
+2025-12-29 17:16:58,215 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline identity', 'mode': 'hybrid'}
+2025-12-29 17:16:59,448 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline is an individual who has been actively involved in the LGBTQ+ community, attending support groups, speaking at events, mentoring a transgender teen, and participating in various activism efforts. She has also been working towards adopting children and has expressed a strong sense of identity and self-acceptance through her art and advocacy.'}
+2025-12-29 17:17:02,211 - Experiment - INFO - 
+Q: What is Caroline's identity?
+Category: 1
+GT: Transgender woman
+Pred: Caroline is an individual who has been actively involved in the LGBTQ+ community, attending support groups, speaking at events, mentoring a transgender teen, and participating in various activism efforts. She has also been working towards adopting children and has expressed a strong sense of identity and self-acceptance through her art and advocacy.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:17:02,211 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie run a charity race?
+2025-12-29 17:17:02,408 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race', 'mode': 'hybrid'}
+2025-12-29 17:17:02,919 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race', 'mode': 'hybrid'}
+2025-12-29 17:17:03,429 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race', 'mode': 'hybrid'}
+2025-12-29 17:17:03,941 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race', 'mode': 'hybrid'}
+2025-12-29 17:17:04,454 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race', 'mode': 'hybrid'}
+2025-12-29 17:17:04,964 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race', 'mode': 'hybrid'}
+2025-12-29 17:17:05,148 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race', 'mode': 'hybrid'}
+2025-12-29 17:17:05,332 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race', 'mode': 'hybrid'}
+2025-12-29 17:17:05,338 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:17:06,481 - Experiment - INFO - 
+Q: When did Melanie run a charity race?
+Category: 2
+GT: The sunday before 25 May 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:17:06,481 - Amadeus.Answerer - INFO - ❓ Question: When is Melanie planning on going camping?
+2025-12-29 17:17:06,679 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping plans', 'mode': 'hybrid'}
+2025-12-29 17:17:07,147 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Camping Trip'}
+2025-12-29 17:17:07,352 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping plans details', 'mode': 'hybrid'}
+2025-12-29 17:17:07,815 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Camping Trip'}
+2025-12-29 17:17:08,019 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping trip date', 'mode': 'hybrid'}
+2025-12-29 17:17:08,994 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Melanie is planning a camping trip, but the exact date is not specified in the available information.'}
+2025-12-29 17:17:09,970 - Experiment - INFO - 
+Q: When is Melanie planning on going camping?
+Category: 2
+GT: June 2023
+Pred: Melanie is planning a camping trip, but the exact date is not specified in the available information.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:17:09,970 - Amadeus.Answerer - INFO - ❓ Question: What is Caroline's relationship status?
+2025-12-29 17:17:10,168 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline relationship status', 'mode': 'hybrid'}
+2025-12-29 17:17:11,045 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Relationships'}
+2025-12-29 17:17:11,244 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline relationship status', 'mode': 'hybrid'}
+2025-12-29 17:17:12,121 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Relationships'}
+2025-12-29 17:17:12,349 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline relationship status Melanie Becoming Nicole Wedding', 'mode': 'hybrid'}
+2025-12-29 17:17:13,447 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "Caroline's relationship status is that she is in a supportive relationship with Melanie, and they are planning a family outing together."}
+2025-12-29 17:17:14,167 - Experiment - INFO - 
+Q: What is Caroline's relationship status?
+Category: 1
+GT: Single
+Pred: Caroline's relationship status is that she is in a supportive relationship with Melanie, and they are planning a family outing together.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:17:14,168 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline give a speech at a school?
+2025-12-29 17:17:14,366 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline speech school', 'mode': 'hybrid'}
+2025-12-29 17:17:15,248 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Support Group'}
+2025-12-29 17:17:15,447 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline speech school', 'mode': 'hybrid'}
+2025-12-29 17:17:16,325 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Support Group'}
+2025-12-29 17:17:16,523 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline speech school', 'mode': 'hybrid'}
+2025-12-29 17:17:17,468 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline speech school', 'mode': 'hybrid'}
+2025-12-29 17:17:18,412 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline speech school', 'mode': 'hybrid'}
+2025-12-29 17:17:19,348 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline speech school', 'mode': 'hybrid'}
+2025-12-29 17:17:19,355 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:17:20,846 - Experiment - INFO - 
+Q: When did Caroline give a speech at a school?
+Category: 2
+GT: The week before 9 June 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:17:20,846 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline meet up with her friends, family, and mentors?
+2025-12-29 17:17:21,068 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline meeting friends, family, mentors', 'mode': 'hybrid'}
+2025-12-29 17:17:21,631 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Friends'}
+2025-12-29 17:17:21,859 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline meeting friends, family, mentors timeline', 'mode': 'hybrid'}
+2025-12-29 17:17:22,425 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Friends'}
+2025-12-29 17:17:22,653 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline meeting friends, family, mentors timeline', 'mode': 'hybrid'}
+2025-12-29 17:17:23,307 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline meeting friends, family, mentors timeline', 'mode': 'hybrid'}
+2025-12-29 17:17:23,967 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline meeting friends, family, mentors timeline', 'mode': 'hybrid'}
+2025-12-29 17:17:24,629 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline meeting friends, family, mentors timeline', 'mode': 'hybrid'}
+2025-12-29 17:17:24,635 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:17:27,439 - Experiment - INFO - 
+Q: When did Caroline meet up with her friends, family, and mentors?
+Category: 2
+GT: The week before 9 June 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:17:27,439 - Amadeus.Answerer - INFO - ❓ Question: How long has Caroline had her current group of friends for?
+2025-12-29 17:17:27,655 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline current group of friends duration', 'mode': 'hybrid'}
+2025-12-29 17:17:28,528 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Friends'}
+2025-12-29 17:17:28,745 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline duration of current friends group', 'mode': 'hybrid'}
+2025-12-29 17:17:29,805 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Caroline's friends have been supporting her since she moved from her home country, which indicates that she has had her current group of friends for at least a few years."}
+2025-12-29 17:17:30,687 - Experiment - INFO - 
+Q: How long has Caroline had her current group of friends for?
+Category: 2
+GT: 4 years
+Pred: Caroline's friends have been supporting her since she moved from her home country, which indicates that she has had her current group of friends for at least a few years.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:17:30,688 - Amadeus.Answerer - INFO - ❓ Question: Where did Caroline move from 4 years ago?
+2025-12-29 17:17:30,903 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline moved 4 years ago', 'mode': 'hybrid'}
+2025-12-29 17:17:31,775 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Transition'}
+2025-12-29 17:17:31,991 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline transition 4 years ago', 'mode': 'hybrid'}
+2025-12-29 17:17:32,866 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Transition'}
+2025-12-29 17:17:33,088 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline transition location 4 years ago', 'mode': 'hybrid'}
+2025-12-29 17:17:34,046 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline moved 4 years ago location', 'mode': 'hybrid'}
+2025-12-29 17:17:35,018 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline moved 4 years ago location', 'mode': 'hybrid'}
+2025-12-29 17:17:35,991 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline moved 4 years ago location', 'mode': 'hybrid'}
+2025-12-29 17:17:35,997 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:17:38,015 - Experiment - INFO - 
+Q: Where did Caroline move from 4 years ago?
+Category: 1
+GT: Sweden
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:17:38,016 - Amadeus.Answerer - INFO - ❓ Question: How long ago was Caroline's 18th birthday?
+2025-12-29 17:17:38,232 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline 18th birthday', 'mode': 'hybrid'}
+2025-12-29 17:17:39,212 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline received a hand-painted bowl for her 18th birthday 10 years ago.'}
+2025-12-29 17:17:40,115 - Experiment - INFO - 
+Q: How long ago was Caroline's 18th birthday?
+Category: 2
+GT: 10 years ago
+Pred: Caroline received a hand-painted bowl for her 18th birthday 10 years ago.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:17:40,115 - Amadeus.Answerer - INFO - ❓ Question: What career path has Caroline decided to persue?
+2025-12-29 17:17:40,314 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline career path', 'mode': 'hybrid'}
+2025-12-29 17:17:41,438 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline has shown interest in pursuing a career in counseling and mental health, particularly focusing on supporting the LGBTQ+ community. She has attended an LGBTQ+ counseling workshop and expressed a passion for helping people and making a positive impact.'}
+2025-12-29 17:17:42,540 - Experiment - INFO - 
+Q: What career path has Caroline decided to persue?
+Category: 1
+GT: counseling or mental health for Transgender people
+Pred: Caroline has shown interest in pursuing a career in counseling and mental health, particularly focusing on supporting the LGBTQ+ community. She has attended an LGBTQ+ counseling workshop and expressed a passion for helping people and making a positive impact.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:17:42,540 - Amadeus.Answerer - INFO - ❓ Question: Would Caroline still want to pursue counseling as a career if she hadn't received support growing up?
+2025-12-29 17:17:42,755 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline counseling career support growing up', 'mode': 'hybrid'}
+2025-12-29 17:17:43,611 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Based on the information available, Caroline is still interested in pursuing a career in counseling and mental health, even if she hadn't received support growing up. Her experiences, including attending support groups and speaking at events, have inspired her to help others through mental health support."}
+2025-12-29 17:17:44,555 - Experiment - INFO - 
+Q: Would Caroline still want to pursue counseling as a career if she hadn't received support growing up?
+Category: 3
+GT: Likely no
+Pred: Caroline is still interested in pursuing a career in counseling and mental health, even if she hadn't received support growing up. Her experiences, including attending support groups and speaking at events, have inspired her to help others through mental health support.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:17:44,555 - Amadeus.Answerer - INFO - ❓ Question: What activities does Melanie partake in?
+2025-12-29 17:17:44,751 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie activities', 'mode': 'hybrid'}
+2025-12-29 17:17:45,422 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Melanie partakes in various activities such as painting, pottery, camping with her kids, and spending time with her family. She also enjoys reading books, supporting her loved ones, and occasionally volunteering.'}
+2025-12-29 17:17:46,313 - Experiment - INFO - 
+Q: What activities does Melanie partake in?
+Category: 1
+GT: pottery, camping, painting, swimming
+Pred: Melanie partakes in various activities such as painting, pottery, camping with her kids, and spending time with her family. She also enjoys reading books, supporting her loved ones, and occasionally volunteering.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:17:46,313 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie sign up for a pottery class?
+2025-12-29 17:17:46,522 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie pottery class sign up', 'mode': 'hybrid'}
+2025-12-29 17:17:46,986 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pottery Workshop'}
+2025-12-29 17:17:47,203 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie pottery class sign up workshop', 'mode': 'hybrid'}
+2025-12-29 17:17:47,670 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Pottery Workshop'}
+2025-12-29 17:17:47,894 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie pottery class sign up workshop details', 'mode': 'hybrid'}
+2025-12-29 17:17:48,368 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Pottery Workshop'}
+2025-12-29 17:17:48,600 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie pottery class sign up date', 'mode': 'hybrid'}
+2025-12-29 17:17:49,072 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Pottery Workshop'}
+2025-12-29 17:17:49,072 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:17:50,162 - Experiment - INFO - 
+Q: When did Melanie sign up for a pottery class?
+Category: 2
+GT: 2 July 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:17:50,162 - Amadeus.Answerer - INFO - ❓ Question: When is Caroline going to the transgender conference?
+2025-12-29 17:17:50,361 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline transgender conference', 'mode': 'hybrid'}
+2025-12-29 17:17:51,250 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Transgender Conference'}
+2025-12-29 17:17:51,457 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline transgender conference date', 'mode': 'hybrid'}
+2025-12-29 17:17:52,439 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ+ counseling workshop on 2023-06-23'}
+2025-12-29 17:17:53,417 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ+ counseling workshop on 2023-06-23'}
+2025-12-29 17:17:54,396 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ+ counseling workshop on 2023-06-23'}
+2025-12-29 17:17:55,388 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ+ counseling workshop on 2023-06-23'}
+2025-12-29 17:17:56,379 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ+ counseling workshop on 2023-06-23'}
+2025-12-29 17:17:56,379 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:17:58,301 - Experiment - INFO - 
+Q: When is Caroline going to the transgender conference?
+Category: 2
+GT: July 2023
+Pred: Attended a transgender conference this month [Time: 2023-07-03]--> 🔭 Candidate: [Transgender Conference] (Created by relation)
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:17:58,302 - Amadeus.Answerer - INFO - ❓ Question: Where has Melanie camped?
+2025-12-29 17:17:58,495 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping', 'mode': 'hybrid'}
+2025-12-29 17:17:58,952 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Camping'}
+2025-12-29 17:17:59,152 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping location', 'mode': 'hybrid'}
+2025-12-29 17:17:59,611 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Camping'}
+2025-12-29 17:17:59,811 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping location', 'mode': 'hybrid'}
+2025-12-29 17:18:00,357 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Melanie has camped at the beach, in the forest, and at the Grand Canyon.'}
+2025-12-29 17:18:01,416 - Experiment - INFO - 
+Q: Where has Melanie camped?
+Category: 1
+GT: beach, mountains, forest
+Pred: Melanie has camped at the beach, in the forest, and at the Grand Canyon.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:18:01,416 - Amadeus.Answerer - INFO - ❓ Question: What do Melanie's kids like?
+2025-12-29 17:18:01,624 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Melanie's kids likes", 'mode': 'hybrid'}
+2025-12-29 17:18:02,076 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Kids'}
+2025-12-29 17:18:02,282 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Melanie's kids interests", 'mode': 'hybrid'}
+2025-12-29 17:18:02,798 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Melanie's kids interests", 'mode': 'hybrid'}
+2025-12-29 17:18:03,251 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Kids'}
+2025-12-29 17:18:03,456 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Melanie's kids interests", 'mode': 'hybrid'}
+2025-12-29 17:18:03,985 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "Melanie's kids activities", 'mode': 'hybrid'}
+2025-12-29 17:18:04,445 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Kids'}
+2025-12-29 17:18:04,445 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:18:05,501 - Experiment - INFO - 
+Q: What do Melanie's kids like?
+Category: 1
+GT: dinosaurs, nature
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:05,501 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie go to the museum?
+2025-12-29 17:18:05,700 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie museum visit', 'mode': 'hybrid'}
+2025-12-29 17:18:06,279 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Spending time with kids at the museum [Time: 2023-07-06]'}
+2025-12-29 17:18:06,849 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Spending time with kids at the museum [Time: 2023-07-06]'}
+2025-12-29 17:18:07,418 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Spending time with kids at the museum [Time: 2023-07-06]'}
+2025-12-29 17:18:07,991 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Spending time with kids at the museum [Time: 2023-07-06]'}
+2025-12-29 17:18:08,564 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Spending time with kids at the museum [Time: 2023-07-06]'}
+2025-12-29 17:18:09,155 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Spending time with kids at the museum [Time: 2023-07-06]'}
+2025-12-29 17:18:09,401 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Spending time with kids at the museum [Time: 2023-07-06]'}
+2025-12-29 17:18:09,401 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:18:11,020 - Experiment - INFO - 
+Q: When did Melanie go to the museum?
+Category: 2
+GT: 5 July 2023
+Pred: 2023-07-06
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:11,020 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline have a picnic?
+2025-12-29 17:18:11,213 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline picnic', 'mode': 'hybrid'}
+2025-12-29 17:18:12,140 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'picnic Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:13,068 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'picnic Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:13,997 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'picnic Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:14,926 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'picnic Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:15,856 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'picnic Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:16,800 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'picnic Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:16,988 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'picnic Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:16,994 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:18:18,472 - Experiment - INFO - 
+Q: When did Caroline have a picnic?
+Category: 2
+GT: The week before 6 July 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:18,472 - Amadeus.Answerer - INFO - ❓ Question: Would Caroline likely have Dr. Seuss books on her bookshelf?
+2025-12-29 17:18:18,686 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline Dr. Seuss books', 'mode': 'hybrid'}
+2025-12-29 17:18:19,556 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Books'}
+2025-12-29 17:18:19,774 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline Dr. Seuss books', 'mode': 'hybrid'}
+2025-12-29 17:18:20,645 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Books'}
+2025-12-29 17:18:20,861 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline Dr. Seuss books', 'mode': 'hybrid'}
+2025-12-29 17:18:21,733 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Books'}
+2025-12-29 17:18:21,955 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline Dr. Seuss books', 'mode': 'hybrid'}
+2025-12-29 17:18:22,088 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Books'}
+2025-12-29 17:18:22,088 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:18:23,626 - Experiment - INFO - 
+Q: Would Caroline likely have Dr. Seuss books on her bookshelf?
+Category: 3
+GT: Yes, since she collects classic children's books
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:23,626 - Amadeus.Answerer - INFO - ❓ Question: What books has Melanie read?
+2025-12-29 17:18:23,823 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie read books', 'mode': 'hybrid'}
+2025-12-29 17:18:24,711 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Becoming Nicole'}
+2025-12-29 17:18:24,909 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie read books', 'mode': 'hybrid'}
+2025-12-29 17:18:25,851 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Melanie read the book 'Becoming Nicole' recommended by Caroline."}
+2025-12-29 17:18:26,816 - Experiment - INFO - 
+Q: What books has Melanie read?
+Category: 1
+GT: "Nothing is Impossible", "Charlotte's Web"
+Pred: Melanie read the book 'Becoming Nicole' recommended by Caroline.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:26,816 - Amadeus.Answerer - INFO - ❓ Question: What does Melanie do to destress?
+2025-12-29 17:18:27,013 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie destress', 'mode': 'hybrid'}
+2025-12-29 17:18:27,617 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Melanie destresses through activities such as painting, pottery, and spending time with her family. She also started running longer to de-stress.'}
+2025-12-29 17:18:28,567 - Experiment - INFO - 
+Q: What does Melanie do to destress?
+Category: 1
+GT: Running, pottery
+Pred: Melanie destresses through activities such as painting, pottery, and spending time with her family. She also started running longer to de-stress.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:18:28,567 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline go to the LGBTQ conference?
+2025-12-29 17:18:28,764 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline LGBTQ conference', 'mode': 'hybrid'}
+2025-12-29 17:18:29,353 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline attended an LGBTQ conference.'}
+2025-12-29 17:18:30,486 - Experiment - INFO - 
+Q: When did Caroline go to the LGBTQ conference?
+Category: 2
+GT: 10 July 2023
+Pred: Caroline attended an LGBTQ conference.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:30,486 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie read the book "nothing is impossible"?
+2025-12-29 17:18:30,695 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie read nothing is impossible', 'mode': 'hybrid'}
+2025-12-29 17:18:31,565 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Books'}
+2025-12-29 17:18:31,775 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie read nothing is impossible', 'mode': 'hybrid'}
+2025-12-29 17:18:32,725 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie read nothing is impossible Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:33,679 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie read nothing is impossible Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:34,635 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie read nothing is impossible Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:35,603 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie read nothing is impossible Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:36,570 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie read nothing is impossible Caroline', 'mode': 'hybrid'}
+2025-12-29 17:18:36,577 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:18:38,095 - Experiment - INFO - 
+Q: When did Melanie read the book "nothing is impossible"?
+Category: 2
+GT: 2022
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:38,095 - Amadeus.Answerer - INFO - ❓ Question: Would Caroline pursue writing as a career option?
+2025-12-29 17:18:38,292 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline writing career', 'mode': 'hybrid'}
+2025-12-29 17:18:39,168 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Art'}
+2025-12-29 17:18:39,371 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline writing career art', 'mode': 'hybrid'}
+2025-12-29 17:18:40,665 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Based on the information available, Caroline seems to be passionate about expressing herself through art, particularly painting. Given her interest in creating art and her involvement in an upcoming LGBTQ art show, it is plausible that Caroline would consider pursuing writing as a career option, as both writing and visual arts can serve as powerful forms of self-expression and advocacy for the LGBTQ+ community.'}
+2025-12-29 17:18:41,372 - Experiment - INFO - 
+Q: Would Caroline pursue writing as a career option?
+Category: 3
+GT: LIkely no; though she likes reading, she wants to be a counselor
+Pred: Caroline seems to be passionate about expressing herself through art, particularly painting. Given her interest in creating art and her involvement in an upcoming LGBTQ art show, it is plausible that Caroline would consider pursuing writing as a career option, as both writing and visual arts can serve as powerful forms of self-expression and advocacy for the LGBTQ+ community.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:41,372 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline go to the adoption meeting?
+2025-12-29 17:18:41,572 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption meeting', 'mode': 'hybrid'}
+2025-12-29 17:18:42,155 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Adoption Council Meeting'}
+2025-12-29 17:18:42,360 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption meeting date', 'mode': 'hybrid'}
+2025-12-29 17:18:42,945 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Adoption Council Meeting'}
+2025-12-29 17:18:43,150 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption meeting date', 'mode': 'hybrid'}
+2025-12-29 17:18:43,737 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Adoption Council Meeting'}
+2025-12-29 17:18:43,954 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption meeting date', 'mode': 'hybrid'}
+2025-12-29 17:18:44,544 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Adoption Council Meeting'}
+2025-12-29 17:18:44,544 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:18:46,187 - Experiment - INFO - 
+Q: When did Caroline go to the adoption meeting?
+Category: 2
+GT: The friday before 15 July 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:46,187 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie go to the pottery workshop?
+2025-12-29 17:18:46,407 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie pottery workshop', 'mode': 'hybrid'}
+2025-12-29 17:18:47,035 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Took kids to a pottery workshop where they all made their own pots [Time: 2023-07-14]'}
+2025-12-29 17:18:47,581 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Melanie went to the pottery workshop on 2023-07-14.'}
+2025-12-29 17:18:48,402 - Experiment - INFO - 
+Q: When did Melanie go to the pottery workshop?
+Category: 2
+GT: The Friday before 15 July 2023
+Pred: Melanie went to the pottery workshop on 2023-07-14.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:18:48,402 - Amadeus.Answerer - INFO - ❓ Question: Would Melanie be considered a member of the LGBTQ community?
+2025-12-29 17:18:48,599 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie LGBTQ community', 'mode': 'hybrid'}
+2025-12-29 17:18:49,111 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie LGBTQ support', 'mode': 'hybrid'}
+2025-12-29 17:18:49,628 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie LGBTQ support group', 'mode': 'hybrid'}
+2025-12-29 17:18:50,088 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Support Group'}
+2025-12-29 17:18:50,293 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie support group LGBTQ', 'mode': 'hybrid'}
+2025-12-29 17:18:51,015 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Based on the information available, Melanie does not explicitly identify as part of the LGBTQ community. However, she supports her friend Caroline, who likely identifies as part of the LGBTQ community, and participates in LGBTQ-related activities such as support groups and workshops.'}
+2025-12-29 17:18:53,106 - Experiment - INFO - 
+Q: Would Melanie be considered a member of the LGBTQ community?
+Category: 3
+GT: Likely no, she does not refer to herself as part of it
+Pred: Melanie does not explicitly identify as part of the LGBTQ community. However, she supports her friend Caroline, who likely identifies as part of the LGBTQ community, and participates in LGBTQ-related activities such as support groups and workshops.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:18:53,107 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie go camping in June?
+2025-12-29 17:18:53,315 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping June', 'mode': 'hybrid'}
+2025-12-29 17:18:53,821 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Family'}
+2025-12-29 17:18:54,025 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping June family', 'mode': 'hybrid'}
+2025-12-29 17:18:54,546 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping June family trip', 'mode': 'hybrid'}
+2025-12-29 17:18:55,065 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping June trip', 'mode': 'hybrid'}
+2025-12-29 17:18:56,005 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping June', 'mode': 'hybrid'}
+2025-12-29 17:18:56,478 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Camping Trip'}
+2025-12-29 17:18:56,698 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping June date', 'mode': 'hybrid'}
+2025-12-29 17:18:56,704 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:18:57,943 - Experiment - INFO - 
+Q: When did Melanie go camping in June?
+Category: 2
+GT: The week before 27 June 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:18:57,943 - Amadeus.Answerer - INFO - ❓ Question: What LGBTQ+ events has Caroline participated in?
+2025-12-29 17:18:58,147 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline LGBTQ+ events', 'mode': 'hybrid'}
+2025-12-29 17:18:59,091 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Caroline has participated in several LGBTQ+ events including attending an LGBTQ+ counseling workshop, an LGBTQ Art Show, an LGBTQ Center, and joining a new LGBTQ activist group called 'Connected LGBTQ Activists'. She has also attended pride parades, an LGBTQ conference, volunteered at an LGBTQ+ youth center, and mentored a transgender teen."}
+2025-12-29 17:18:59,859 - Experiment - INFO - 
+Q: What LGBTQ+ events has Caroline participated in?
+Category: 1
+GT: Pride parade, school speech, support group
+Pred: Caroline has participated in several LGBTQ+ events including attending an LGBTQ+ counseling workshop, an LGBTQ Art Show, an LGBTQ Center, and joining a new LGBTQ activist group called 'Connected LGBTQ Activists'. She has also attended pride parades, an LGBTQ conference, volunteered at an LGBTQ+ youth center, and mentored a transgender teen.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:18:59,859 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline go to a pride parade during the summer?
+2025-12-29 17:19:00,063 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline pride parade summer', 'mode': 'hybrid'}
+2025-12-29 17:19:00,971 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline attended a pride parade last Friday.'}
+2025-12-29 17:19:01,769 - Experiment - INFO - 
+Q: When did Caroline go to a pride parade during the summer?
+Category: 2
+GT: The week before 3 July 2023
+Pred: Caroline attended a pride parade last Friday.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:19:01,769 - Amadeus.Answerer - INFO - ❓ Question: What events has Caroline participated in to help children?
+2025-12-29 17:19:01,968 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline children events', 'mode': 'hybrid'}
+2025-12-29 17:19:02,855 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:19:03,067 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline children events Pride Parade', 'mode': 'hybrid'}
+2025-12-29 17:19:03,953 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:19:04,165 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline children events Pride Parade', 'mode': 'hybrid'}
+2025-12-29 17:19:05,052 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:19:05,273 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline children events Pride Parade', 'mode': 'hybrid'}
+2025-12-29 17:19:06,173 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:19:06,173 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:19:07,949 - Experiment - INFO - 
+Q: What events has Caroline participated in to help children?
+Category: 1
+GT: Mentoring program, school speech
+Pred: Caroline has volunteered at an LGBTQ+ youth center, where she put together a talent show for the kids. This event likely helped children by providing them with a platform to showcase their talents and feel supported.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:19:07,949 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie go camping in July?
+2025-12-29 17:19:08,148 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping July', 'mode': 'hybrid'}
+2025-12-29 17:19:08,615 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Camping Trip'}
+2025-12-29 17:19:08,826 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping July trip details', 'mode': 'hybrid'}
+2025-12-29 17:19:09,709 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Camping Trip'}
+2025-12-29 17:19:09,920 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping July trip details', 'mode': 'hybrid'}
+2025-12-29 17:19:10,808 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Camping Trip'}
+2025-12-29 17:19:11,027 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping July details', 'mode': 'hybrid'}
+2025-12-29 17:19:11,495 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Camping Trip'}
+2025-12-29 17:19:11,495 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:19:12,835 - Experiment - INFO - 
+Q: When did Melanie go camping in July?
+Category: 2
+GT: two weekends before 17 July 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:19:12,835 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline join a mentorship program?
+2025-12-29 17:19:13,038 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline mentorship program', 'mode': 'hybrid'}
+2025-12-29 17:19:13,922 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Mentoring'}
+2025-12-29 17:19:14,132 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline mentorship program details', 'mode': 'hybrid'}
+2025-12-29 17:19:15,075 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline mentorship program joined', 'mode': 'hybrid'}
+2025-12-29 17:19:16,020 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline mentorship program joined', 'mode': 'hybrid'}
+2025-12-29 17:19:16,966 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline mentorship program joined', 'mode': 'hybrid'}
+2025-12-29 17:19:17,925 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline joined mentorship program', 'mode': 'hybrid'}
+2025-12-29 17:19:18,884 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline joined mentorship program', 'mode': 'hybrid'}
+2025-12-29 17:19:18,890 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:19:20,444 - Experiment - INFO - 
+Q: When did Caroline join a mentorship program?
+Category: 2
+GT: The weekend before 17 July 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:19:20,445 - Amadeus.Answerer - INFO - ❓ Question: What did Melanie paint recently?
+2025-12-29 17:19:20,642 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie recent paintings', 'mode': 'hybrid'}
+2025-12-29 17:19:21,098 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Painting'}
+2025-12-29 17:19:21,317 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie recent paintings LGBTQ Art Show', 'mode': 'hybrid'}
+2025-12-29 17:19:21,809 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Melanie recently painted a sunset-inspired painting.'}
+2025-12-29 17:19:22,587 - Experiment - INFO - 
+Q: What did Melanie paint recently?
+Category: 1
+GT: sunset
+Pred: Melanie recently painted a sunset-inspired painting.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:19:22,587 - Amadeus.Answerer - INFO - ❓ Question: What activities has Melanie done with her family?
+2025-12-29 17:19:22,784 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family activities', 'mode': 'hybrid'}
+2025-12-29 17:19:23,655 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Family'}
+2025-12-29 17:19:23,854 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family activities', 'mode': 'hybrid'}
+2025-12-29 17:19:24,916 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Melanie has done various activities with her family, including camping with kids a few weeks ago, taking a pottery class, and enjoying a family camping trip at the Grand Canyon.'}
+2025-12-29 17:19:26,105 - Experiment - INFO - 
+Q: What activities has Melanie done with her family?
+Category: 1
+GT: Pottery, painting, camping, museum, swimming, hiking
+Pred: Melanie has done various activities with her family, including camping with kids a few weeks ago, taking a pottery class, and enjoying a family camping trip at the Grand Canyon.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:19:26,105 - Amadeus.Answerer - INFO - ❓ Question: In what ways is Caroline participating in the LGBTQ community?
+2025-12-29 17:19:26,308 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline LGBTQ community participation', 'mode': 'hybrid'}
+2025-12-29 17:19:27,144 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline is participating in the LGBTQ community by attending support groups, speaking at events, mentoring a transgender teen, joining an LGBTQ activist group, volunteering at an LGBTQ+ youth center, organizing a talent show, and participating in pride parades and conferences.'}
+2025-12-29 17:19:27,855 - Experiment - INFO - 
+Q: In what ways is Caroline participating in the LGBTQ community?
+Category: 1
+GT: Joining activist group, going to pride parades, participating in an art show, mentoring program
+Pred: Caroline is participating in the LGBTQ community by attending support groups, speaking at events, mentoring a transgender teen, joining an LGBTQ activist group, volunteering at an LGBTQ+ youth center, organizing a talent show, and participating in pride parades and conferences.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:19:27,855 - Amadeus.Answerer - INFO - ❓ Question: How many times has Melanie gone to the beach in 2023?
+2025-12-29 17:19:28,075 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie beach 2023', 'mode': 'hybrid'}
+2025-12-29 17:19:28,617 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie beach trip 2023', 'mode': 'hybrid'}
+2025-12-29 17:19:29,577 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie beach 2023', 'mode': 'hybrid'}
+2025-12-29 17:19:30,118 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie beach trip 2023', 'mode': 'hybrid'}
+2025-12-29 17:19:31,076 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie beach 2023', 'mode': 'hybrid'}
+2025-12-29 17:19:31,618 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie beach trip 2023', 'mode': 'hybrid'}
+2025-12-29 17:19:32,599 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie beach trip 2023', 'mode': 'hybrid'}
+2025-12-29 17:19:33,558 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie beach 2023', 'mode': 'hybrid'}
+2025-12-29 17:19:33,564 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:19:35,237 - Experiment - INFO - 
+Q: How many times has Melanie gone to the beach in 2023?
+Category: 1
+GT: 2
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:19:35,237 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline join a new activist group?
+2025-12-29 17:19:35,440 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline activist group joined', 'mode': 'hybrid'}
+2025-12-29 17:19:36,389 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Caroline joined the new LGBTQ activist group called 'Connected LGBTQ Activists'."}
+2025-12-29 17:19:37,264 - Experiment - INFO - 
+Q: When did Caroline join a new activist group?
+Category: 2
+GT: The Tuesday before 20 July 2023
+Pred: Caroline joined the new LGBTQ activist group called 'Connected LGBTQ Activists'.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:19:37,264 - Amadeus.Answerer - INFO - ❓ Question: Would Melanie be more interested in going to a national park or a theme park?
+2025-12-29 17:19:37,479 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie interests national park theme park', 'mode': 'hybrid'}
+2025-12-29 17:19:37,935 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Grand Canyon'}
+2025-12-29 17:19:38,145 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie interests hiking Grand Canyon', 'mode': 'hybrid'}
+2025-12-29 17:19:39,280 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Based on Melanie's interests and activities, she would likely be more interested in going to a national park like the Grand Canyon. Her involvement in hiking, camping, and spending time in nature suggests a preference for outdoor activities in natural settings."}
+2025-12-29 17:19:40,083 - Experiment - INFO - 
+Q: Would Melanie be more interested in going to a national park or a theme park?
+Category: 3
+GT: National park; she likes the outdoors
+Pred: Based on Melanie's interests and activities, she would likely be more interested in going to a national park like the Grand Canyon. Her involvement in hiking, camping, and spending time in nature suggests a preference for outdoor activities in natural settings.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:19:40,083 - Amadeus.Answerer - INFO - ❓ Question: What kind of art does Caroline make?
+2025-12-29 17:19:40,275 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline art', 'mode': 'hybrid'}
+2025-12-29 17:19:41,152 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Painting'}
+2025-12-29 17:19:41,345 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline painting', 'mode': 'hybrid'}
+2025-12-29 17:19:42,366 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Caroline makes paintings that often represent themes of freedom, embracing womanhood, and the trans community. She also creates hand-painted bowls.'}
+2025-12-29 17:19:44,047 - Experiment - INFO - 
+Q: What kind of art does Caroline make?
+Category: 1
+GT: abstract art
+Pred: Caroline makes paintings that often represent themes of freedom, embracing womanhood, and the trans community. She also creates hand-painted bowls.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:19:44,047 - Amadeus.Answerer - INFO - ❓ Question: When is Melanie's daughter's birthday?
+2025-12-29 17:19:44,246 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie daughter birthday', 'mode': 'hybrid'}
+2025-12-29 17:19:44,755 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie daughter birthday', 'mode': 'hybrid'}
+2025-12-29 17:19:45,265 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie daughter birthday', 'mode': 'hybrid'}
+2025-12-29 17:19:45,776 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie daughter birthday', 'mode': 'hybrid'}
+2025-12-29 17:19:46,290 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie daughter birthday', 'mode': 'hybrid'}
+2025-12-29 17:19:46,802 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie daughter birthday', 'mode': 'hybrid'}
+2025-12-29 17:19:46,986 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie daughter birthday', 'mode': 'hybrid'}
+2025-12-29 17:19:47,169 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie daughter birthday', 'mode': 'hybrid'}
+2025-12-29 17:19:47,175 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:19:48,224 - Experiment - INFO - 
+Q: When is Melanie's daughter's birthday?
+Category: 2
+GT: 13 August
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:19:48,225 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline attend a pride parade in August?
+2025-12-29 17:19:48,427 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline pride parade August', 'mode': 'hybrid'}
+2025-12-29 17:19:49,310 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:19:49,515 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline pride parade August', 'mode': 'hybrid'}
+2025-12-29 17:19:50,401 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:19:50,611 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline pride parade August details', 'mode': 'hybrid'}
+2025-12-29 17:19:51,497 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:19:51,716 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline pride parade August date', 'mode': 'hybrid'}
+2025-12-29 17:19:52,609 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:19:52,609 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:19:54,404 - Experiment - INFO - 
+Q: When did Caroline attend a pride parade in August?
+Category: 2
+GT: The Friday before 14 August 2023
+Pred: Attended a pride parade, feeling accepted and surrounded by a supportive community [Time: 2023-07-06]  
+Attended a pride parade, feeling accepted and surrounded by a supportive community [Time: 2023-07-09]
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:19:54,404 - Amadeus.Answerer - INFO - ❓ Question: Would Melanie be considered an ally to the transgender community?
+2025-12-29 17:19:54,601 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie transgender ally', 'mode': 'hybrid'}
+2025-12-29 17:19:55,478 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Caroline'}
+2025-12-29 17:19:56,069 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Connected LGBTQ Activists'}
+2025-12-29 17:19:56,296 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie transgender ally Connected LGBTQ Activists', 'mode': 'hybrid'}
+2025-12-29 17:19:56,780 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Supporting Trans People'}
+2025-12-29 17:19:56,998 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie transgender ally Supporting Trans People', 'mode': 'hybrid'}
+2025-12-29 17:19:57,895 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Supporting Trans People'}
+2025-12-29 17:19:58,125 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie transgender ally Supporting Trans People', 'mode': 'hybrid'}
+2025-12-29 17:19:58,131 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:19:58,837 - Experiment - INFO - 
+Q: Would Melanie be considered an ally to the transgender community?
+Category: 3
+GT: Yes, she is supportive
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:19:58,837 - Amadeus.Answerer - INFO - ❓ Question: Who supports Caroline when she has a negative experience?
+2025-12-29 17:19:59,039 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline negative experience support', 'mode': 'hybrid'}
+2025-12-29 17:19:59,959 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Melanie supports Caroline when she has a negative experience.'}
+2025-12-29 17:20:00,655 - Experiment - INFO - 
+Q: Who supports Caroline when she has a negative experience?
+Category: 1
+GT: Her mentors, family, and friends
+Pred: Melanie supports Caroline when she has a negative experience.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:00,655 - Amadeus.Answerer - INFO - ❓ Question: What types of pottery have Melanie and her kids made?
+2025-12-29 17:20:00,864 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie and her kids pottery', 'mode': 'hybrid'}
+2025-12-29 17:20:01,326 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pottery Workshop'}
+2025-12-29 17:20:01,542 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie and her kids pottery types', 'mode': 'hybrid'}
+2025-12-29 17:20:02,004 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Pottery Workshop'}
+2025-12-29 17:20:02,231 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'types of pottery made by Melanie and her kids', 'mode': 'hybrid'}
+2025-12-29 17:20:02,698 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Pottery Workshop'}
+2025-12-29 17:20:02,948 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'types of pottery made by Melanie and her kids', 'mode': 'hybrid'}
+2025-12-29 17:20:03,476 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Pottery Workshop'}
+2025-12-29 17:20:03,477 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:20:04,799 - Experiment - INFO - 
+Q: What types of pottery have Melanie and her kids made?
+Category: 1
+GT: bowls, cup
+Pred: Based on the exploration history, Melanie and her kids have made Hand-Painted Bowls and participated in a pottery workshop where they all made their own pots. Therefore, the types of pottery they have made include Hand-Painted Bowls.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:20:04,799 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline and Melanie go to a pride fesetival together?
+2025-12-29 17:20:05,009 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline and Melanie pride festival', 'mode': 'hybrid'}
+2025-12-29 17:20:05,953 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline and Melanie pride festival', 'mode': 'hybrid'}
+2025-12-29 17:20:06,839 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:20:07,057 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline and Melanie at Pride Parade', 'mode': 'hybrid'}
+2025-12-29 17:20:07,944 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:20:08,161 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline and Melanie at Pride Parade', 'mode': 'hybrid'}
+2025-12-29 17:20:09,125 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline and Melanie at Pride Parade', 'mode': 'hybrid'}
+2025-12-29 17:20:10,026 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Pride Parade'}
+2025-12-29 17:20:10,026 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:20:11,641 - Experiment - INFO - 
+Q: When did Caroline and Melanie go to a pride fesetival together?
+Category: 2
+GT: 2022
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:11,641 - Amadeus.Answerer - INFO - ❓ Question: What would Caroline's political leaning likely be?
+2025-12-29 17:20:11,839 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline political leaning', 'mode': 'hybrid'}
+2025-12-29 17:20:12,958 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Based on the information available, Caroline's political leaning is likely progressive or liberal, given her strong involvement in the LGBTQ+ community, advocacy for LGBTQ+ rights, and support for initiatives such as adoption for LGBTQ+ families."}
+2025-12-29 17:20:13,602 - Experiment - INFO - 
+Q: What would Caroline's political leaning likely be?
+Category: 3
+GT: Liberal
+Pred: Caroline's political leaning is likely progressive or liberal, given her strong involvement in the LGBTQ+ community, advocacy for LGBTQ+ rights, and support for initiatives such as adoption for LGBTQ+ families.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:20:13,602 - Amadeus.Answerer - INFO - ❓ Question: What has Melanie painted?
+2025-12-29 17:20:13,795 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie paintings', 'mode': 'hybrid'}
+2025-12-29 17:20:14,252 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Painting'}
+2025-12-29 17:20:14,447 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie paintings', 'mode': 'hybrid'}
+2025-12-29 17:20:15,012 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Melanie has painted a lake sunrise, a sunset-inspired painting, and other nature-inspired works with her kids.'}
+2025-12-29 17:20:17,019 - Experiment - INFO - 
+Q: What has Melanie painted?
+Category: 1
+GT: Horse, sunset, sunrise
+Pred: Melanie has painted a lake sunrise, a sunset-inspired painting, and other nature-inspired works with her kids.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:20:17,019 - Amadeus.Answerer - INFO - ❓ Question: What are Melanie's pets' names?
+2025-12-29 17:20:17,218 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie pets names', 'mode': 'hybrid'}
+2025-12-29 17:20:17,728 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Melanie has a dog named Luna and a cat named Oliver.'}
+2025-12-29 17:20:19,219 - Experiment - INFO - 
+Q: What are Melanie's pets' names?
+Category: 1
+GT: Oliver, Luna, Bailey
+Pred: Melanie has a dog named Luna and a cat named Oliver.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:19,219 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline apply to adoption agencies?
+2025-12-29 17:20:19,423 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption agencies application', 'mode': 'hybrid'}
+2025-12-29 17:20:20,084 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline applied to adoption agencies on 2023-08-23.'}
+2025-12-29 17:20:21,055 - Experiment - INFO - 
+Q: When did Caroline apply to adoption agencies?
+Category: 2
+GT: The week of 23 August 2023
+Pred: Caroline applied to adoption agencies on 2023-08-23.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:20:21,055 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline draw a self-portrait?
+2025-12-29 17:20:21,259 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline self-portrait', 'mode': 'hybrid'}
+2025-12-29 17:20:22,142 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Painting'}
+2025-12-29 17:20:22,353 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline self-portrait painting', 'mode': 'hybrid'}
+2025-12-29 17:20:23,323 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Caroline drew a self-portrait on August 23, 2023.'}
+2025-12-29 17:20:24,135 - Experiment - INFO - 
+Q: When did Caroline draw a self-portrait?
+Category: 2
+GT: The week before 23 August 2023
+Pred: Caroline drew a self-portrait on August 23, 2023.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:20:24,135 - Amadeus.Answerer - INFO - ❓ Question: What subject have Caroline and Melanie both painted?
+2025-12-29 17:20:24,341 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline and Melanie paintings', 'mode': 'hybrid'}
+2025-12-29 17:20:25,222 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Painting'}
+2025-12-29 17:20:25,433 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline and Melanie paintings subjects', 'mode': 'hybrid'}
+2025-12-29 17:20:26,313 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Painting'}
+2025-12-29 17:20:26,530 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline and Melanie common painting subjects', 'mode': 'hybrid'}
+2025-12-29 17:20:27,411 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Painting'}
+2025-12-29 17:20:27,584 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Hand-Painted Bowl'}
+2025-12-29 17:20:27,798 - Amadeus.Answerer - INFO - Step 8: READ - {'tool': 'READ', 'answer': 'Caroline and Melanie have both painted Hand-Painted Bowls.'}
+2025-12-29 17:20:28,628 - Experiment - INFO - 
+Q: What subject have Caroline and Melanie both painted?
+Category: 1
+GT: Sunsets
+Pred: Caroline and Melanie have both painted Hand-Painted Bowls.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:28,628 - Amadeus.Answerer - INFO - ❓ Question: What symbols are important to Caroline?
+2025-12-29 17:20:28,821 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline symbols', 'mode': 'hybrid'}
+2025-12-29 17:20:29,856 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'The important symbols to Caroline include the rainbow flag, which represents the LGBTQ+ community, and flowers, which she appreciates for their beauty and symbolism.'}
+2025-12-29 17:20:30,775 - Experiment - INFO - 
+Q: What symbols are important to Caroline?
+Category: 1
+GT: Rainbow flag, transgender symbol
+Pred: The important symbols to Caroline include the rainbow flag, which represents the LGBTQ+ community, and flowers, which she appreciates for their beauty and symbolism.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:30,775 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline encounter people on a hike and have a negative experience?
+2025-12-29 17:20:30,991 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline encounter people negative hiking experience', 'mode': 'hybrid'}
+2025-12-29 17:20:31,870 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:20:32,087 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline encounter people negative hiking experience', 'mode': 'hybrid'}
+2025-12-29 17:20:32,967 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:20:33,184 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline encounter people negative hiking experience', 'mode': 'hybrid'}
+2025-12-29 17:20:34,066 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:20:34,293 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline encounter people negative hiking experience', 'mode': 'hybrid'}
+2025-12-29 17:20:34,435 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:20:34,435 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:20:36,075 - Experiment - INFO - 
+Q: When did Caroline encounter people on a hike and have a negative experience?
+Category: 2
+GT: The week before 25 August 2023
+Pred: Caroline had a not-so-great experience on a hike due to encountering religious conservatives who were closed-minded.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:36,075 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie make a plate in pottery class?
+2025-12-29 17:20:36,280 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie pottery class plate', 'mode': 'hybrid'}
+2025-12-29 17:20:36,779 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Made a bowl with vibrant colors and patterns.'}
+2025-12-29 17:20:37,266 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Made a bowl with vibrant colors and patterns.'}
+2025-12-29 17:20:37,754 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Made a bowl with vibrant colors and patterns.'}
+2025-12-29 17:20:38,243 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Made a bowl with vibrant colors and patterns.'}
+2025-12-29 17:20:38,727 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Made a bowl with vibrant colors and patterns.'}
+2025-12-29 17:20:39,263 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie made a plate in pottery class', 'mode': 'hybrid'}
+2025-12-29 17:20:39,841 - Amadeus.Answerer - INFO - Step 8: READ - {'tool': 'READ', 'answer': 'Melanie made a hand-painted bowl in pottery class on 2023-05-08.'}
+2025-12-29 17:20:40,899 - Experiment - INFO - 
+Q: When did Melanie make a plate in pottery class?
+Category: 2
+GT: 24 August 2023
+Pred: Melanie made a hand-painted bowl in pottery class on 2023-05-08.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:40,900 - Amadeus.Answerer - INFO - ❓ Question: Would Caroline be considered religious?
+2025-12-29 17:20:41,092 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline religious', 'mode': 'hybrid'}
+2025-12-29 17:20:42,181 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Based on the information available, Caroline is not considered religious. Her activities and interests revolve around the LGBTQ+ community, support groups, activism, and personal growth, rather than religious affiliations.'}
+2025-12-29 17:20:42,860 - Experiment - INFO - 
+Q: Would Caroline be considered religious?
+Category: 3
+GT: Somewhat, but not extremely religious
+Pred: Caroline is not considered religious. Her activities and interests revolve around the LGBTQ+ community, support groups, activism, and personal growth, rather than religious affiliations.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:42,860 - Amadeus.Answerer - INFO - ❓ Question: What instruments does Melanie play?
+2025-12-29 17:20:43,053 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie instruments', 'mode': 'hybrid'}
+2025-12-29 17:20:43,510 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clarinet'}
+2025-12-29 17:20:43,710 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Clarinet', 'mode': 'hybrid'}
+2025-12-29 17:20:44,244 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Melanie plays the clarinet, piano, and favors both classical and modern music.'}
+2025-12-29 17:20:45,389 - Experiment - INFO - 
+Q: What instruments does Melanie play?
+Category: 1
+GT: clarinet and violin
+Pred: Melanie plays the clarinet, piano, and favors both classical and modern music.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:20:45,389 - Amadeus.Answerer - INFO - ❓ Question: What musical artists/bands has Melanie seen?
+2025-12-29 17:20:45,599 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie seen musical artists bands', 'mode': 'hybrid'}
+2025-12-29 17:20:46,122 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie seen musical artists bands', 'mode': 'hybrid'}
+2025-12-29 17:20:46,655 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie seen musical artists bands performances', 'mode': 'hybrid'}
+2025-12-29 17:20:47,185 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie seen musical artists bands performances', 'mode': 'hybrid'}
+2025-12-29 17:20:47,715 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie seen musical artists bands performances', 'mode': 'hybrid'}
+2025-12-29 17:20:48,245 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie seen musical artists bands performances', 'mode': 'hybrid'}
+2025-12-29 17:20:48,782 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie seen musical artists bands performances', 'mode': 'hybrid'}
+2025-12-29 17:20:49,325 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie seen musical artists bands performances', 'mode': 'hybrid'}
+2025-12-29 17:20:49,331 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:20:50,469 - Experiment - INFO - 
+Q: What musical artists/bands has Melanie seen?
+Category: 1
+GT: Summer Sounds, Matt Patterson
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:50,469 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie go to the park?
+2025-12-29 17:20:50,667 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie park visit', 'mode': 'hybrid'}
+2025-12-29 17:20:51,181 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie park visit', 'mode': 'hybrid'}
+2025-12-29 17:20:51,694 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie park visit', 'mode': 'hybrid'}
+2025-12-29 17:20:52,206 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie park visit', 'mode': 'hybrid'}
+2025-12-29 17:20:52,720 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie park visit', 'mode': 'hybrid'}
+2025-12-29 17:20:53,237 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie park visit', 'mode': 'hybrid'}
+2025-12-29 17:20:53,423 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie park visit', 'mode': 'hybrid'}
+2025-12-29 17:20:53,609 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie park visit', 'mode': 'hybrid'}
+2025-12-29 17:20:53,615 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:20:55,830 - Experiment - INFO - 
+Q: When did Melanie go to the park?
+Category: 2
+GT: 27 August 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:20:55,830 - Amadeus.Answerer - INFO - ❓ Question: When is Caroline's youth center putting on a talent show?
+2025-12-29 17:20:56,046 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Caroline's youth center talent show", 'mode': 'hybrid'}
+2025-12-29 17:20:56,624 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Volunteering'}
+2025-12-29 17:20:56,842 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Caroline's youth center talent show", 'mode': 'hybrid'}
+2025-12-29 17:20:57,423 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Volunteering'}
+2025-12-29 17:20:57,647 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Caroline's youth center talent show date", 'mode': 'hybrid'}
+2025-12-29 17:20:58,229 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Volunteering'}
+2025-12-29 17:20:58,464 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "Caroline's youth center talent show date", 'mode': 'hybrid'}
+2025-12-29 17:20:59,046 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Volunteering'}
+2025-12-29 17:20:59,046 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:21:00,372 - Experiment - INFO - 
+Q: When is Caroline's youth center putting on a talent show?
+Category: 2
+GT: September 2023
+Pred: Volunteering at an LGBTQ+ youth center, putting together a talent show for the kids next month.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:00,372 - Amadeus.Answerer - INFO - ❓ Question: Would Melanie likely enjoy the song "The Four Seasons" by Vivaldi?
+2025-12-29 17:21:00,593 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Vivaldi The Four Seasons', 'mode': 'hybrid'}
+2025-12-29 17:21:01,055 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Classical Music'}
+2025-12-29 17:21:01,289 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Vivaldi The Four Seasons Classical Music', 'mode': 'hybrid'}
+2025-12-29 17:21:01,805 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie classical music preference', 'mode': 'hybrid'}
+2025-12-29 17:21:02,403 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Given that Melanie favors classical music like Bach and Mozart, it is likely that she would enjoy 'The Four Seasons' by Vivaldi."}
+2025-12-29 17:21:03,298 - Experiment - INFO - 
+Q: Would Melanie likely enjoy the song "The Four Seasons" by Vivaldi?
+Category: 3
+GT: Yes; it's classical music
+Pred: Given that Melanie favors classical music like Bach and Mozart, it is likely that she would enjoy 'The Four Seasons' by Vivaldi.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:21:03,299 - Amadeus.Answerer - INFO - ❓ Question: What are some changes Caroline has faced during her transition journey?
+2025-12-29 17:21:03,499 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline transition journey', 'mode': 'hybrid'}
+2025-12-29 17:21:04,371 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Transition'}
+2025-12-29 17:21:04,570 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline transition experiences', 'mode': 'hybrid'}
+2025-12-29 17:21:05,442 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Transition'}
+2025-12-29 17:21:05,642 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline transition experiences', 'mode': 'hybrid'}
+2025-12-29 17:21:07,026 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'During her transition journey, Caroline faced several changes including attending LGBTQ support groups, speaking at events, mentoring a transgender teen, and volunteering at an LGBTQ+ youth center. She also had a not-so-great experience on a hike due to encountering religious conservatives who were closed-minded. Additionally, Caroline has been involved in various activities such as joining LGBTQ activist groups, participating in pride parades, and creating art that represents her journey and identity.'}
+2025-12-29 17:21:07,792 - Experiment - INFO - 
+Q: What are some changes Caroline has faced during her transition journey?
+Category: 1
+GT: Changes to her body, losing unsupportive friends
+Pred: During her transition journey, Caroline faced several changes including attending LGBTQ support groups, speaking at events, mentoring a transgender teen, and volunteering at an LGBTQ+ youth center. She also had a not-so-great experience on a hike due to encountering religious conservatives who were closed-minded. Additionally, Caroline has been involved in various activities such as joining LGBTQ activist groups, participating in pride parades, and creating art that represents her journey and identity.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:07,793 - Amadeus.Answerer - INFO - ❓ Question: What does Melanie do with her family on hikes?
+2025-12-29 17:21:07,992 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family hikes', 'mode': 'hybrid'}
+2025-12-29 17:21:08,870 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:21:09,076 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family hikes activities', 'mode': 'hybrid'}
+2025-12-29 17:21:09,955 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:21:10,160 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family hikes activities', 'mode': 'hybrid'}
+2025-12-29 17:21:11,068 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:21:11,297 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family hikes activities', 'mode': 'hybrid'}
+2025-12-29 17:21:12,194 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:21:12,194 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:21:14,137 - Experiment - INFO - 
+Q: What does Melanie do with her family on hikes?
+Category: 1
+GT: Roast marshmallows, tell stories
+Pred: Melanie enjoys hiking with her family.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:14,137 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline go biking with friends?
+2025-12-29 17:21:14,341 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline biking with friends', 'mode': 'hybrid'}
+2025-12-29 17:21:15,334 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Sent a picture of the biking trip [Time: 2023-09-10]'}
+2025-12-29 17:21:16,261 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline biking trip', 'mode': 'hybrid'}
+2025-12-29 17:21:17,260 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline biking trip 2023-09-10', 'mode': 'hybrid'}
+2025-12-29 17:21:18,294 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline biking trip 2023-09-10', 'mode': 'hybrid'}
+2025-12-29 17:21:19,319 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline biking trip 2023-09-10', 'mode': 'hybrid'}
+2025-12-29 17:21:20,333 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline biking trip 2023-09-10', 'mode': 'hybrid'}
+2025-12-29 17:21:21,223 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Pic'}
+2025-12-29 17:21:21,223 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:21:22,920 - Experiment - INFO - 
+Q: When did Caroline go biking with friends?
+Category: 2
+GT: The weekend before 13 September 2023
+Pred: Last weekend
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:21:22,920 - Amadeus.Answerer - INFO - ❓ Question: How long has Melanie been practicing art?
+2025-12-29 17:21:23,123 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie art practice duration', 'mode': 'hybrid'}
+2025-12-29 17:21:23,638 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie art practice duration', 'mode': 'hybrid'}
+2025-12-29 17:21:24,153 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie art practice duration', 'mode': 'hybrid'}
+2025-12-29 17:21:24,762 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Based on the available information, Melanie has been actively practicing art, including painting and pottery, for some time, but the exact duration is not specified.'}
+2025-12-29 17:21:25,413 - Experiment - INFO - 
+Q: How long has Melanie been practicing art?
+Category: 2
+GT: Since 2016
+Pred: Based on the available information, Melanie has been actively practicing art, including painting and pottery, for some time, but the exact duration is not specified.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:25,413 - Amadeus.Answerer - INFO - ❓ Question: What personality traits might Melanie say Caroline has?
+2025-12-29 17:21:25,610 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie says Caroline', 'mode': 'hybrid'}
+2025-12-29 17:21:26,762 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Melanie might say that Caroline has personality traits such as being inspiring, empowering, supportive, and passionate about helping others and creating a safe environment for the LGBTQ+ community. Caroline also values self-acceptance, resilience, and the importance of family.'}
+2025-12-29 17:21:27,648 - Experiment - INFO - 
+Q: What personality traits might Melanie say Caroline has?
+Category: 3
+GT: Thoughtful, authentic, driven
+Pred: Melanie might say that Caroline has personality traits such as being inspiring, empowering, supportive, and passionate about helping others and creating a safe environment for the LGBTQ+ community. Caroline also values self-acceptance, resilience, and the importance of family.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:27,649 - Amadeus.Answerer - INFO - ❓ Question: What transgender-specific events has Caroline attended?
+2025-12-29 17:21:27,846 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline transgender events', 'mode': 'hybrid'}
+2025-12-29 17:21:28,729 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Transgender Conference'}
+2025-12-29 17:21:28,939 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline Transgender Conference attendance', 'mode': 'hybrid'}
+2025-12-29 17:21:29,825 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Transgender Conference'}
+2025-12-29 17:21:30,036 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline Transgender Conference attendance', 'mode': 'hybrid'}
+2025-12-29 17:21:30,941 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Caroline attended the Transgender Conference.'}
+2025-12-29 17:21:31,981 - Experiment - INFO - 
+Q: What transgender-specific events has Caroline attended?
+Category: 1
+GT: Poetry reading, conference
+Pred: Caroline attended the Transgender Conference.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:21:31,982 - Amadeus.Answerer - INFO - ❓ Question: What book did Melanie read from Caroline's suggestion?
+2025-12-29 17:21:32,196 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Melanie read from Caroline's suggestion", 'mode': 'hybrid'}
+2025-12-29 17:21:33,072 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Support Group'}
+2025-12-29 17:21:33,276 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Support Group Melanie Caroline book', 'mode': 'hybrid'}
+2025-12-29 17:21:34,232 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "The book that Melanie read from Caroline's suggestion is 'Becoming Nicole'."}
+2025-12-29 17:21:34,941 - Experiment - INFO - 
+Q: What book did Melanie read from Caroline's suggestion?
+Category: 1
+GT: "Becoming Nicole"
+Pred: The book that Melanie read from Caroline's suggestion is 'Becoming Nicole'.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:21:34,942 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie's friend adopt a child?
+2025-12-29 17:21:35,145 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie friend adopt child', 'mode': 'hybrid'}
+2025-12-29 17:21:35,668 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie friend adopt child timeline', 'mode': 'hybrid'}
+2025-12-29 17:21:36,189 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie friend adopt child timeline', 'mode': 'hybrid'}
+2025-12-29 17:21:36,717 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie friend adopt child timeline', 'mode': 'hybrid'}
+2025-12-29 17:21:37,241 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie friend adopt child timeline', 'mode': 'hybrid'}
+2025-12-29 17:21:37,763 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie friend adopt child timeline', 'mode': 'hybrid'}
+2025-12-29 17:21:38,305 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie friend adopt child timeline', 'mode': 'hybrid'}
+2025-12-29 17:21:38,501 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie friend adopt child timeline', 'mode': 'hybrid'}
+2025-12-29 17:21:38,507 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:21:39,990 - Experiment - INFO - 
+Q: When did Melanie's friend adopt a child?
+Category: 2
+GT: 2022
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:39,990 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie get hurt?
+2025-12-29 17:21:40,187 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie got hurt', 'mode': 'hybrid'}
+2025-12-29 17:21:40,637 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Son'}
+2025-12-29 17:21:40,836 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie got hurt', 'mode': 'hybrid'}
+2025-12-29 17:21:41,387 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Melanie experienced a car accident with her son on October 6, 2023.'}
+2025-12-29 17:21:42,085 - Experiment - INFO - 
+Q: When did Melanie get hurt?
+Category: 2
+GT: September 2023
+Pred: Melanie experienced a car accident with her son on October 6, 2023.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:42,085 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie's family go on a roadtrip?
+2025-12-29 17:21:42,288 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family roadtrip', 'mode': 'hybrid'}
+2025-12-29 17:21:43,159 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Family'}
+2025-12-29 17:21:43,363 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family roadtrip', 'mode': 'hybrid'}
+2025-12-29 17:21:44,235 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Family'}
+2025-12-29 17:21:44,440 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family roadtrip', 'mode': 'hybrid'}
+2025-12-29 17:21:45,316 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Family'}
+2025-12-29 17:21:45,533 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie family roadtrip date', 'mode': 'hybrid'}
+2025-12-29 17:21:46,411 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Family'}
+2025-12-29 17:21:46,412 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:21:47,968 - Experiment - INFO - 
+Q: When did Melanie's family go on a roadtrip?
+Category: 2
+GT: The weekend before 20 October 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:47,968 - Amadeus.Answerer - INFO - ❓ Question: How many children does Melanie have?
+2025-12-29 17:21:48,160 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie children', 'mode': 'hybrid'}
+2025-12-29 17:21:48,614 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Kids'}
+2025-12-29 17:21:48,807 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie children', 'mode': 'hybrid'}
+2025-12-29 17:21:49,316 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie children number', 'mode': 'hybrid'}
+2025-12-29 17:21:49,826 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie children number', 'mode': 'hybrid'}
+2025-12-29 17:21:50,458 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "The information provided does not specify the exact number of children Melanie has. However, it mentions 'Kids' and 'Daughter', suggesting she has at least one child."}
+2025-12-29 17:21:51,246 - Experiment - INFO - 
+Q: How many children does Melanie have?
+Category: 1
+GT: 3
+Pred: The information provided does not specify the exact number of children Melanie has. However, it mentions 'Kids' and 'Daughter', suggesting she has at least one child.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:51,247 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie go on a hike after the roadtrip?
+2025-12-29 17:21:51,455 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie hike after roadtrip', 'mode': 'hybrid'}
+2025-12-29 17:21:52,333 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:21:52,549 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie hike after roadtrip hiking', 'mode': 'hybrid'}
+2025-12-29 17:21:53,429 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:21:53,652 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie hike after roadtrip hiking details', 'mode': 'hybrid'}
+2025-12-29 17:21:54,536 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Hiking'}
+2025-12-29 17:21:54,764 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie hike after roadtrip details', 'mode': 'hybrid'}
+2025-12-29 17:21:55,726 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie hike after roadtrip', 'mode': 'hybrid'}
+2025-12-29 17:21:55,734 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:21:57,217 - Experiment - INFO - 
+Q: When did Melanie go on a hike after the roadtrip?
+Category: 1
+GT: 19 October 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:21:57,217 - Amadeus.Answerer - INFO - ❓ Question: Would Melanie go on another roadtrip soon?
+2025-12-29 17:21:57,420 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie roadtrip', 'mode': 'hybrid'}
+2025-12-29 17:21:57,888 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Beach Trip'}
+2025-12-29 17:21:58,089 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie roadtrip', 'mode': 'hybrid'}
+2025-12-29 17:21:58,558 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Beach Trip'}
+2025-12-29 17:21:58,766 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie future roadtrip', 'mode': 'hybrid'}
+2025-12-29 17:21:59,235 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Beach Trip'}
+2025-12-29 17:21:59,457 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie future roadtrip', 'mode': 'hybrid'}
+2025-12-29 17:21:59,932 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Beach Trip'}
+2025-12-29 17:21:59,932 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:22:01,011 - Experiment - INFO - 
+Q: Would Melanie go on another roadtrip soon?
+Category: 3
+GT: Likely no; since this one went badly
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:22:01,012 - Amadeus.Answerer - INFO - ❓ Question: What items has Melanie bought?
+2025-12-29 17:22:01,210 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie purchases', 'mode': 'hybrid'}
+2025-12-29 17:22:01,727 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie bought', 'mode': 'hybrid'}
+2025-12-29 17:22:02,264 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Based on the available information, Melanie has bought flowers and attended a wedding.'}
+2025-12-29 17:22:03,113 - Experiment - INFO - 
+Q: What items has Melanie bought?
+Category: 1
+GT: Figurines, shoes
+Pred: Based on the available information, Melanie has bought flowers and attended a wedding.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:22:03,113 - Amadeus.Answerer - INFO - ❓ Question: When did Caroline pass the adoption interview?
+2025-12-29 17:22:03,316 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption interview', 'mode': 'hybrid'}
+2025-12-29 17:22:03,921 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline passed the adoption agency interviews.'}
+2025-12-29 17:22:04,828 - Experiment - INFO - 
+Q: When did Caroline pass the adoption interview?
+Category: 2
+GT: The Friday before 22 October 2023
+Pred: Caroline passed the adoption agency interviews.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:22:04,828 - Amadeus.Answerer - INFO - ❓ Question: When did Melanie buy the figurines?
+2025-12-29 17:22:05,045 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie buy figurines', 'mode': 'hybrid'}
+2025-12-29 17:22:05,574 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie buy figurines', 'mode': 'hybrid'}
+2025-12-29 17:22:06,091 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie buy figurines', 'mode': 'hybrid'}
+2025-12-29 17:22:06,557 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Pottery Workshop'}
+2025-12-29 17:22:06,781 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie buy figurines Pottery Workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:07,319 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie buy figurines Pottery Workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:07,862 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie buy figurines Pottery Workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:08,404 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie buy figurines Pottery Workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:08,410 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:22:09,674 - Experiment - INFO - 
+Q: When did Melanie buy the figurines?
+Category: 2
+GT: 21 October 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:22:09,674 - Amadeus.Answerer - INFO - ❓ Question: Would Caroline want to move back to her home country soon?
+2025-12-29 17:22:09,876 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline home country', 'mode': 'hybrid'}
+2025-12-29 17:22:11,153 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Based on the information available, Caroline seems to be deeply involved in her community and has strong support from her friends and family. Given her focus on adoption and providing a safe home for LGBTQ+ children, it is unlikely that she would want to move back to her home country soon, as her current environment and support system appear to be very important to her.'}
+2025-12-29 17:22:11,972 - Experiment - INFO - 
+Q: Would Caroline want to move back to her home country soon?
+Category: 3
+GT: No; she's in the process of adopting children.
+Pred: Caroline seems to be deeply involved in her community and has strong support from her friends and family. Given her focus on adoption and providing a safe home for LGBTQ+ children, it is unlikely that she would want to move back to her home country soon, as her current environment and support system appear to be very important to her.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:11,972 - Amadeus.Answerer - INFO - ❓ Question: What did the charity race raise awareness for?
+2025-12-29 17:22:12,176 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'charity race raise awareness', 'mode': 'hybrid'}
+2025-12-29 17:22:12,754 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Charity Race'}
+2025-12-29 17:22:12,959 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Charity Race raise awareness', 'mode': 'hybrid'}
+2025-12-29 17:22:13,597 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'The charity race raised awareness for supporting trans people and the LGBTQ+ community.'}
+2025-12-29 17:22:14,364 - Experiment - INFO - 
+Q: What did the charity race raise awareness for?
+Category: 4
+GT: mental health
+Pred: The charity race raised awareness for supporting trans people and the LGBTQ+ community.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:22:14,364 - Amadeus.Answerer - INFO - ❓ Question: What did Melanie realize after the charity race?
+2025-12-29 17:22:14,567 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race realization', 'mode': 'hybrid'}
+2025-12-29 17:22:15,085 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race realization', 'mode': 'hybrid'}
+2025-12-29 17:22:15,601 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie charity race realization', 'mode': 'hybrid'}
+2025-12-29 17:22:16,202 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Melanie realized the importance of family and support during a car accident with her son, reflecting on the significance of loved ones in her life.'}
+2025-12-29 17:22:17,114 - Experiment - INFO - 
+Q: What did Melanie realize after the charity race?
+Category: 4
+GT: self-care is important
+Pred: Melanie realized the importance of family and support during a car accident with her son, reflecting on the significance of loved ones in her life.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:22:17,114 - Amadeus.Answerer - INFO - ❓ Question: How does Melanie prioritize self-care?
+2025-12-29 17:22:17,312 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie self-care', 'mode': 'hybrid'}
+2025-12-29 17:22:17,777 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Self-Care'}
+2025-12-29 17:22:17,985 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie self-care practices', 'mode': 'hybrid'}
+2025-12-29 17:22:18,713 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Melanie prioritizes self-care through various activities such as painting, pottery, spending time with her family, and engaging in outdoor activities like camping and hiking. These activities serve as her relaxing and expressive outlets, helping her manage stress and express her emotions.'}
+2025-12-29 17:22:19,663 - Experiment - INFO - 
+Q: How does Melanie prioritize self-care?
+Category: 4
+GT: by carving out some me-time each day for activities like running, reading, or playing the violin
+Pred: Melanie prioritizes self-care through various activities such as painting, pottery, spending time with her family, and engaging in outdoor activities like camping and hiking. These activities serve as her relaxing and expressive outlets, helping her manage stress and express her emotions.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:22:19,663 - Amadeus.Answerer - INFO - ❓ Question: What are Caroline's plans for the summer?
+2025-12-29 17:22:19,861 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline summer plans', 'mode': 'hybrid'}
+2025-12-29 17:22:20,745 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Beach Trip'}
+2025-12-29 17:22:20,950 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline beach trip plans', 'mode': 'hybrid'}
+2025-12-29 17:22:21,835 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Beach Trip'}
+2025-12-29 17:22:22,041 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline beach trip details', 'mode': 'hybrid'}
+2025-12-29 17:22:22,927 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Beach Trip'}
+2025-12-29 17:22:23,146 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline beach trip details', 'mode': 'hybrid'}
+2025-12-29 17:22:24,044 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Beach Trip'}
+2025-12-29 17:22:24,044 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:22:27,819 - Experiment - INFO - 
+Q: What are Caroline's plans for the summer?
+Category: 4
+GT: researching adoption agencies
+Pred: Caroline's plans for the summer include camping with her family.
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:22:27,819 - Amadeus.Answerer - INFO - ❓ Question: What type of individuals does the adoption agency Caroline is considering support?
+2025-12-29 17:22:28,118 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'adoption agency Caroline supports', 'mode': 'hybrid'}
+2025-12-29 17:22:28,878 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'The adoption agency Caroline is considering supports LGBTQ+ families.'}
+2025-12-29 17:22:29,663 - Experiment - INFO - 
+Q: What type of individuals does the adoption agency Caroline is considering support?
+Category: 4
+GT: LGBTQ+ individuals
+Pred: The adoption agency Caroline is considering supports LGBTQ+ families.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:29,664 - Amadeus.Answerer - INFO - ❓ Question: Why did Caroline choose the adoption agency?
+2025-12-29 17:22:29,920 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption agency reasons', 'mode': 'hybrid'}
+2025-12-29 17:22:30,541 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Adoption Agency'}
+2025-12-29 17:22:30,930 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption agency reasons', 'mode': 'hybrid'}
+2025-12-29 17:22:31,564 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Adoption Agency'}
+2025-12-29 17:22:31,830 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption agency reasons', 'mode': 'hybrid'}
+2025-12-29 17:22:32,487 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Adoption Agency'}
+2025-12-29 17:22:32,755 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption agency reasons', 'mode': 'hybrid'}
+2025-12-29 17:22:32,946 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Adoption Agency'}
+2025-12-29 17:22:32,946 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:22:34,430 - Experiment - INFO - 
+Q: Why did Caroline choose the adoption agency?
+Category: 4
+GT: because of their inclusivity and support for LGBTQ+ individuals
+Pred: Caroline chose the adoption agency that supports LGBTQ+ families because she is dedicated to helping others through her transition and experiences, and she dreams of giving a loving home to LGBTQ+ kids.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:34,430 - Amadeus.Answerer - INFO - ❓ Question: What is Caroline excited about in the adoption process?
+2025-12-29 17:22:34,680 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoption process excited', 'mode': 'hybrid'}
+2025-12-29 17:22:35,412 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline is excited about the adoption process, particularly about researching adoption agencies to adopt children and picking an adoption agency that supports LGBTQ+ families.'}
+2025-12-29 17:22:36,189 - Experiment - INFO - 
+Q: What is Caroline excited about in the adoption process?
+Category: 4
+GT: creating a family for kids who need one
+Pred: Caroline is excited about the adoption process, particularly about researching adoption agencies to adopt children and picking an adoption agency that supports LGBTQ+ families.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:36,189 - Amadeus.Answerer - INFO - ❓ Question: What does Melanie think about Caroline's decision to adopt?
+2025-12-29 17:22:36,403 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Caroline adoption decision', 'mode': 'hybrid'}
+2025-12-29 17:22:37,300 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Adoption Council Meeting'}
+2025-12-29 17:22:37,506 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Caroline adoption decision', 'mode': 'hybrid'}
+2025-12-29 17:22:38,401 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Adoption Council Meeting'}
+2025-12-29 17:22:38,643 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Caroline adoption decision at Adoption Council Meeting', 'mode': 'hybrid'}
+2025-12-29 17:22:38,898 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Caroline adoption decision at Adoption Council Meeting', 'mode': 'hybrid'}
+2025-12-29 17:22:39,164 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Caroline adoption decision at Adoption Council Meeting', 'mode': 'hybrid'}
+2025-12-29 17:22:39,425 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Caroline adoption decision at Adoption Council Meeting', 'mode': 'hybrid'}
+2025-12-29 17:22:39,432 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:22:40,171 - Experiment - INFO - 
+Q: What does Melanie think about Caroline's decision to adopt?
+Category: 4
+GT: she thinks Caroline is doing something amazing and will be an awesome mom
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:22:40,171 - Amadeus.Answerer - INFO - ❓ Question: How long have Mel and her husband been married?
+2025-12-29 17:22:40,380 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Mel and her husband marriage duration', 'mode': 'hybrid'}
+2025-12-29 17:22:40,883 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Mel and her husband have been married for five years.'}
+2025-12-29 17:22:41,896 - Experiment - INFO - 
+Q: How long have Mel and her husband been married?
+Category: 4
+GT: Mel and her husband have been married for 5 years.
+Pred: Mel and her husband have been married for five years.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:41,897 - Amadeus.Answerer - INFO - ❓ Question: What does Caroline's necklace symbolize?
+2025-12-29 17:22:42,241 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline necklace symbolize', 'mode': 'hybrid'}
+2025-12-29 17:22:43,150 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Rainbow Flag Mural'}
+2025-12-29 17:22:43,376 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline necklace symbolize rainbow flag mural', 'mode': 'hybrid'}
+2025-12-29 17:22:44,647 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Caroline's necklace symbolizes her journey and the importance of self-acceptance and resilience. She received the necklace from her grandma in Sweden, which likely represents her family's support and the values they instilled in her. The necklace serves as a reminder of her personal growth and the love and encouragement she received from her family and community."}
+2025-12-29 17:22:45,527 - Experiment - INFO - 
+Q: What does Caroline's necklace symbolize?
+Category: 4
+GT: love, faith, and strength
+Pred: Caroline's necklace symbolizes her journey and the importance of self-acceptance and resilience. She received the necklace from her grandma in Sweden, which likely represents her family's support and the values they instilled in her. The necklace serves as a reminder of her personal growth and the love and encouragement she received from her family and community.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:45,528 - Amadeus.Answerer - INFO - ❓ Question: What country is Caroline's grandma from?
+2025-12-29 17:22:45,736 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Caroline's grandma country", 'mode': 'hybrid'}
+2025-12-29 17:22:46,305 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Sweden'}
+2025-12-29 17:22:46,902 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Caroline received a necklace from her grandma in Sweden.'}
+2025-12-29 17:22:47,771 - Experiment - INFO - 
+Q: What country is Caroline's grandma from?
+Category: 4
+GT: Sweden
+Pred: Caroline received a necklace from her grandma in Sweden.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:47,772 - Amadeus.Answerer - INFO - ❓ Question: What was grandma's gift to Caroline?
+2025-12-29 17:22:47,982 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "grandma's gift to Caroline", 'mode': 'hybrid'}
+2025-12-29 17:22:48,588 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Grandma's gift to Caroline was a necklace."}
+2025-12-29 17:22:49,274 - Experiment - INFO - 
+Q: What was grandma's gift to Caroline?
+Category: 4
+GT: necklace
+Pred: Grandma's gift to Caroline was a necklace.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:49,274 - Amadeus.Answerer - INFO - ❓ Question: What is Melanie's hand-painted bowl a reminder of?
+2025-12-29 17:22:49,490 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie hand-painted bowl reminder', 'mode': 'hybrid'}
+2025-12-29 17:22:50,099 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Melanie's hand-painted bowl is a reminder of her pottery work and her ability to use art as a form of self-expression and peace."}
+2025-12-29 17:22:51,068 - Experiment - INFO - 
+Q: What is Melanie's hand-painted bowl a reminder of?
+Category: 4
+GT: art and self-expression
+Pred: Melanie's hand-painted bowl is a reminder of her pottery work and her ability to use art as a form of self-expression and peace.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:51,068 - Amadeus.Answerer - INFO - ❓ Question: What did Melanie and her family do while camping?
+2025-12-29 17:22:51,276 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping family activities', 'mode': 'hybrid'}
+2025-12-29 17:22:51,738 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Camping Trip'}
+2025-12-29 17:22:51,955 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie camping family activities during trip', 'mode': 'hybrid'}
+2025-12-29 17:22:52,560 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'While camping, Melanie and her family engaged in various activities such as painting, spending time with kids, enjoying nature, and bonding over campfires.'}
+2025-12-29 17:22:53,724 - Experiment - INFO - 
+Q: What did Melanie and her family do while camping?
+Category: 4
+GT: explored nature, roasted marshmallows, and went on a hike
+Pred: While camping, Melanie and her family engaged in various activities such as painting, spending time with kids, enjoying nature, and bonding over campfires.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:53,724 - Amadeus.Answerer - INFO - ❓ Question: What kind of counseling and mental health services is Caroline interested in pursuing?
+2025-12-29 17:22:53,940 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline counseling mental health services', 'mode': 'hybrid'}
+2025-12-29 17:22:55,073 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline is interested in pursuing a career in counseling and mental health, specifically focusing on supporting the LGBTQ+ community. She attended an LGBTQ+ counseling workshop and is passionate about creating a safe, inviting place for trans people to grow.'}
+2025-12-29 17:22:55,905 - Experiment - INFO - 
+Q: What kind of counseling and mental health services is Caroline interested in pursuing?
+Category: 4
+GT: working with trans people, helping them accept themselves and supporting their mental health
+Pred: Caroline is interested in pursuing a career in counseling and mental health, specifically focusing on supporting the LGBTQ+ community. She attended an LGBTQ+ counseling workshop and is passionate about creating a safe, inviting place for trans people to grow.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:55,905 - Amadeus.Answerer - INFO - ❓ Question: What workshop did Caroline attend recently?
+2025-12-29 17:22:56,103 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline recent workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:57,083 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Caroline attended an LGBTQ+ counseling workshop on 2023-06-23.'}
+2025-12-29 17:22:58,168 - Experiment - INFO - 
+Q: What workshop did Caroline attend recently?
+Category: 4
+GT: LGBTQ+ counseling workshop
+Pred: Caroline attended an LGBTQ+ counseling workshop on 2023-06-23.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:22:58,168 - Amadeus.Answerer - INFO - ❓ Question: What was discussed in the LGBTQ+ counseling workshop?
+2025-12-29 17:22:58,378 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'LGBTQ+ counseling workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:58,620 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'LGBTQ+ counseling workshop discussion', 'mode': 'hybrid'}
+2025-12-29 17:22:58,863 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'topics discussed in LGBTQ+ counseling workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:59,107 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'topics discussed in LGBTQ+ counseling workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:59,350 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'topics discussed in LGBTQ+ counseling workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:59,594 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'topics discussed in LGBTQ+ counseling workshop', 'mode': 'hybrid'}
+2025-12-29 17:22:59,857 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'topics discussed in LGBTQ+ counseling workshop', 'mode': 'hybrid'}
+2025-12-29 17:23:00,120 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'topics discussed in LGBTQ+ counseling workshop', 'mode': 'hybrid'}
+2025-12-29 17:23:00,126 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:23:00,965 - Experiment - INFO - 
+Q: What was discussed in the LGBTQ+ counseling workshop?
+Category: 4
+GT: therapeutic methods and how to best work with trans people
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:23:00,965 - Amadeus.Answerer - INFO - ❓ Question: What motivated Caroline to pursue counseling?
+2025-12-29 17:23:01,163 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline counseling motivation', 'mode': 'hybrid'}
+2025-12-29 17:23:02,043 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Support Group'}
+2025-12-29 17:23:02,255 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline counseling motivation support group', 'mode': 'hybrid'}
+2025-12-29 17:23:03,204 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Caroline was motivated to pursue counseling because she attended an LGBTQ+ support group where she spoke about her journey and encouraged students to get involved in the LGBTQ community. She also expressed a passion for helping people and making a positive impact, which led her to attend an LGBTQ+ counseling workshop and become dedicated to helping others through mental health support.'}
+2025-12-29 17:23:03,944 - Experiment - INFO - 
+Q: What motivated Caroline to pursue counseling?
+Category: 4
+GT: her own journey and the support she received, and how counseling improved her life
+Pred: Caroline was motivated to pursue counseling because she attended an LGBTQ+ support group where she spoke about her journey and encouraged students to get involved in the LGBTQ community. She also expressed a passion for helping people and making a positive impact, which led her to attend an LGBTQ+ counseling workshop and become dedicated to helping others through mental health support.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:23:03,944 - Amadeus.Answerer - INFO - ❓ Question: What kind of place does Caroline want to create for people?
+2025-12-29 17:23:04,171 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline wants to create a place for people', 'mode': 'hybrid'}
+2025-12-29 17:23:05,139 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Caroline wants to create a safe and loving home for kids who haven't had that before."}
+2025-12-29 17:23:05,896 - Experiment - INFO - 
+Q: What kind of place does Caroline want to create for people?
+Category: 4
+GT: a safe and inviting place for people to grow
+Pred: Caroline wants to create a safe and loving home for kids who haven't had that before.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:23:05,897 - Amadeus.Answerer - INFO - ❓ Question: Did Melanie make the black and white bowl in the photo?
+2025-12-29 17:23:06,112 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie black and white bowl photo', 'mode': 'hybrid'}
+2025-12-29 17:23:06,584 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Hand-Painted Bowl'}
+2025-12-29 17:23:06,795 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Hand-Painted Bowl', 'mode': 'hybrid'}
+2025-12-29 17:23:07,265 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Hand-Painted Bowl'}
+2025-12-29 17:23:07,481 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Hand-Painted Bowl photo', 'mode': 'hybrid'}
+2025-12-29 17:23:07,962 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Hand-Painted Bowl'}
+2025-12-29 17:23:08,195 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie black and white bowl photo', 'mode': 'hybrid'}
+2025-12-29 17:23:08,725 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie black and white bowl', 'mode': 'hybrid'}
+2025-12-29 17:23:08,731 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:23:09,820 - Experiment - INFO - 
+Q: Did Melanie make the black and white bowl in the photo?
+Category: 4
+GT: Yes
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:23:09,820 - Amadeus.Answerer - INFO - ❓ Question: What kind of books does Caroline have in her library?
+2025-12-29 17:23:10,019 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline library books', 'mode': 'hybrid'}
+2025-12-29 17:23:10,891 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Library'}
+2025-12-29 17:23:11,090 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline library books', 'mode': 'hybrid'}
+2025-12-29 17:23:11,963 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Library'}
+2025-12-29 17:23:12,162 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline library books', 'mode': 'hybrid'}
+2025-12-29 17:23:13,036 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Library'}
+2025-12-29 17:23:13,243 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline library books', 'mode': 'hybrid'}
+2025-12-29 17:23:13,379 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Library'}
+2025-12-29 17:23:13,379 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-29 17:23:14,954 - Experiment - INFO - 
+Q: What kind of books does Caroline have in her library?
+Category: 4
+GT: kids' books - classics, stories from different cultures, educational books
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2025-12-29 17:23:14,954 - Amadeus.Answerer - INFO - ❓ Question: What was Melanie's favorite book from her childhood?
+2025-12-29 17:23:15,158 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie favorite book childhood', 'mode': 'hybrid'}
+2025-12-29 17:23:15,676 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Melanie's favorite book from her childhood was 'Charlotte's Web'."}
+2025-12-29 17:23:16,625 - Experiment - INFO - 
+Q: What was Melanie's favorite book from her childhood?
+Category: 4
+GT: "Charlotte's Web"
+Pred: Melanie's favorite book from her childhood was 'Charlotte's Web'.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:23:16,625 - Amadeus.Answerer - INFO - ❓ Question: What book did Caroline recommend to Melanie?
+2025-12-29 17:23:16,834 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline recommended book to Melanie', 'mode': 'hybrid'}
+2025-12-29 17:23:17,725 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Becoming Nicole'}
+2025-12-29 17:23:17,959 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline recommended book to Melanie and Becoming Nicole', 'mode': 'hybrid'}
+2025-12-29 17:23:18,900 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Caroline recommended the book 'Becoming Nicole' to Melanie."}
+2025-12-29 17:23:19,711 - Experiment - INFO - 
+Q: What book did Caroline recommend to Melanie?
+Category: 4
+GT: "Becoming Nicole"
+Pred: Caroline recommended the book 'Becoming Nicole' to Melanie.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:23:19,712 - Amadeus.Answerer - INFO - ❓ Question: What did Caroline take away from the book "Becoming Nicole"?
+2025-12-29 17:23:19,916 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline Becoming Nicole', 'mode': 'hybrid'}
+2025-12-29 17:23:21,045 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "From the book 'Becoming Nicole', Caroline took away several lessons including self-acceptance, finding support, and understanding that tough times don't last. She also learned that hope and love exist, and pets bring joy."}
+2025-12-29 17:23:21,819 - Experiment - INFO - 
+Q: What did Caroline take away from the book "Becoming Nicole"?
+Category: 4
+GT: Lessons on self-acceptance and finding support
+Pred: From the book 'Becoming Nicole', Caroline took away several lessons including self-acceptance, finding support, and understanding that tough times don't last. She also learned that hope and love exist, and pets bring joy.
+Result: ✅ (Score: 1.00)
+Reason: 
+2025-12-29 17:23:21,819 - Amadeus.Answerer - INFO - ❓ Question: What are the new shoes that Melanie got used for?

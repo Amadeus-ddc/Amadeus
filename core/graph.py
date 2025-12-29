@@ -2,138 +2,181 @@ import networkx as nx
 import json
 import logging
 import os
-from datetime import datetime
-from typing import List, Dict, Any, Optional
+import re
+import numpy as np
+from typing import List, Any
 
-# 设置日志
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("Amadeus.Graph")
 
 class MemoryGraph:
-    """
-    Amadeus 的长期记忆核心。
-    这是一个基于 NetworkX 的轻量级图数据库实现，完全白盒化。
-    """
-    def __init__(self, storage_path: str = "data/memory_graph.json"):
+    def __init__(self, storage_path: str = "data/memory_graph.json", embedder: Any = None):
         self.storage_path = storage_path
-        # 使用多重有向图 (MultiDiGraph)，允许两点间存在多种关系
         self.graph = nx.MultiDiGraph()
+        self.embedder = embedder
         self._ensure_storage()
         self.load()
 
     def _ensure_storage(self):
         os.makedirs(os.path.dirname(self.storage_path), exist_ok=True)
 
-    # --- 核心原语 (Primitives) ---
-
     def add_node(self, name: str, type: str, description: str):
-        """
-        [ADD/UPDATE] 算子的底层实现。
-        如果节点存在，融合描述；如果不存在，创建。
-        """
-        now = datetime.now().isoformat()
+        if not name: return
         
+        # Helper to update embedding
+        def update_embedding(n, desc):
+            if self.embedder:
+                try:
+                    text = f"{n}: {desc}"
+                    emb = self.embedder.embed(text)
+                    if emb is not None:
+                        self.graph.nodes[n]["embedding"] = np.array(emb)
+                except Exception as e:
+                    logger.warning(f"Failed to embed node {n}: {e}")
+
         if self.graph.has_node(name):
-            # 追加描述而不是覆盖
             old_desc = self.graph.nodes[name].get("description", "")
-            if description and description not in old_desc:
-                new_desc = f"{old_desc}; {description}"
+            
+            if description and len(description) > 2 and description not in old_desc:
+                # 智能合并：简单的字符串拼接，实际可升级为 LLM 摘要
+                new_desc = f"{old_desc} | {description}".strip(" | ")
                 self.graph.nodes[name]["description"] = new_desc
-                self.graph.nodes[name]["updated_at"] = now
-                logger.info(f"🔄 Node Updated: {name}")
+                update_embedding(name, new_desc)
         else:
-            self.graph.add_node(
-                name, 
-                type=type, 
-                description=description,
-                created_at=now,
-                updated_at=now
-            )
-            logger.info(f"➕ Node Created: {name} ({type})")
+            self.graph.add_node(name, type=type, description=description)
+            update_embedding(name, description)
 
-    def add_edge(self, source: str, target: str, relation: str):
-        """
-        [ADD] 关系的底层实现。
-        """
-        # 确保端点存在 (防御性编程)
-        if not self.graph.has_node(source):
-            self.add_node(source, "Unknown", "Created implicitly by relation")
-        if not self.graph.has_node(target):
-            self.add_node(target, "Unknown", "Created implicitly by relation")
+    def add_edge(self, source: str, target: str, relation: str, timestamp: str = None):
+        if not source or not target: return
+        if not self.graph.has_node(source): self.add_node(source, "Unknown", "Created by relation")
+        if not self.graph.has_node(target): self.add_node(target, "Unknown", "Created by relation")
+        
+        # Normalize timestamp
+        if timestamp == "None" or timestamp == "Unknown Date": timestamp = None
 
-        # 检查是否已存在完全相同的边，避免重复
-        if not self.graph.has_edge(source, target, key=relation):
-            self.graph.add_edge(
-                source, 
-                target, 
-                key=relation, 
-                relation=relation,
-                created_at=datetime.now().isoformat()
-            )
-            logger.info(f"🔗 Edge Created: {source} --[{relation}]--> {target}")
+        # Check for existing edges to update or deduplicate
+        if self.graph.has_edge(source, target):
+            edges = self.graph[source][target]
+            for key, attrs in edges.items():
+                if attrs.get('relation') == relation:
+                    old_ts = attrs.get('timestamp')
+                    if old_ts == "None" or old_ts == "Unknown Date": old_ts = None
+                    
+                    # Update if refining date (Unknown -> Known)
+                    if not old_ts and timestamp:
+                        self.graph[source][target][key]['timestamp'] = timestamp
+                        return
+                    
+                    # Deduplicate (Same relation, same date)
+                    if old_ts == timestamp:
+                        return
+        
+        # Add new edge (allow NetworkX to generate unique key)
+        self.graph.add_edge(source, target, relation=relation, timestamp=timestamp)
 
     def delete_node(self, name: str):
-        """
-        [DELETE] 算子。
-        """
         if self.graph.has_node(name):
             self.graph.remove_node(name)
             logger.info(f"❌ Node Deleted: {name}")
 
-    # --- 检索与上下文构建 (Retrieval) ---
+    def delete_edge(self, source: str, target: str):
+        if self.graph.has_edge(source, target):
+            # Remove all edges between source and target
+            keys = list(self.graph[source][target].keys())
+            for k in keys:
+                self.graph.remove_edge(source, target, key=k)
+            logger.info(f"✂️ Edge Deleted: {source} -> {target}")
 
     def get_full_state(self) -> str:
-        """
-        将图序列化为文本，作为 Builder 的 context。
-        """
-        if self.graph.number_of_nodes() == 0:
-            return "Memory Graph is empty."
-
-        text_representation = ["Current Long-term Memory:"]
+        if self.graph.number_of_nodes() == 0: return "Graph is empty."
+        nodes = []
+        for n, d in self.graph.nodes(data=True):
+            desc = d.get('description', '')
+            nodes.append(f"{n}: {desc}")
         
-        # 1. 列出实体
-        text_representation.append("\n[Entities]")
-        for node, data in self.graph.nodes(data=True):
-            desc = data.get('description', 'No description')
-            dtype = data.get('type', 'Entity')
-            text_representation.append(f"- {node} ({dtype}): {desc}")
+        edges = []
+        for u, v, d in self.graph.edges(data=True):
+            rel = d.get('relation')
+            ts = d.get('timestamp')
+            ts_str = f" [Time: {ts}]" if ts else ""
+            edges.append(f"{u} --{rel}{ts_str}--> {v}")
+        
+        return "Nodes:\n" + "\n".join(nodes[:500]) + "\nEdges:\n" + "\n".join(edges[:500])
 
-        # 2. 列出关系
-        text_representation.append("\n[Relationships]")
-        for u, v, data in self.graph.edges(data=True):
-            relation = data.get('relation', 'related_to')
-            text_representation.append(f"- {u} --{relation}--> {v}")
+    def primitive_search(self, query: str) -> List[str]:
+        # If embedder is available, use semantic search
+        if self.embedder:
+            return self.semantic_search(query)
 
-        return "\n".join(text_representation)
-
-    def search(self, query: str) -> str:
-        """
-        简单的关键词搜索，模拟 Search 算子。
-        """
-        # 后续接入 Vector DB (Chroma/FAISS) 做真正的语义检索
         hits = []
+        stop_words = {"what", "which", "who", "where", "when", "how", "is", "are", "was", "were", "the", "a", "an", "to", "of", "in", "on", "at", "did", "does", "do"}
+        keywords = [k.lower() for k in re.findall(r'\w+', query) if k.lower() not in stop_words]
+        
         for node, data in self.graph.nodes(data=True):
-            if query.lower() in node.lower() or query.lower() in data.get("description", "").lower():
-                hits.append(node)
+            content = f"{node} {data.get('description', '')}".lower()
+            score = 0
+            for k in keywords:
+                if k in node.lower(): score += 10 # 节点名匹配权重高
+                elif k in content: score += 1
+            if score > 0:
+                hits.append((node, score))
         
-        if not hits:
-            return "No direct memory found."
-        
-        # 返回命中节点的一跳邻居 (1-hop sub-graph)
-        result_text = []
-        for hit in hits:
-            result_text.append(f"Found Entity: {hit}")
-            neighbors = self.graph[hit]
-            for neighbor, edge_data in neighbors.items():
-                for _, edge_attr in edge_data.items():
-                    result_text.append(f"  -> {edge_attr['relation']} -> {neighbor}")
-        
-        return "\n".join(result_text)
+        hits.sort(key=lambda x: x[1], reverse=True)
+        return [h[0] for h in hits[:10]]
 
-    # --- 持久化 ---
+    def semantic_search(self, query: str, top_k: int = 10) -> List[str]:
+        try:
+            query_vec = self.embedder.embed(query)
+            if query_vec is None: return []
+            query_vec = np.array(query_vec)
+            
+            candidates = []
+            for node, data in self.graph.nodes(data=True):
+                if "embedding" in data:
+                    vec = data["embedding"]
+                    # Cosine similarity
+                    score = np.dot(query_vec, vec) / (np.linalg.norm(query_vec) * np.linalg.norm(vec) + 1e-9)
+                    candidates.append((node, score))
+            
+            candidates.sort(key=lambda x: x[1], reverse=True)
+            return [c[0] for c in candidates[:top_k]]
+        except Exception as e:
+            logger.error(f"Semantic search failed: {e}")
+            return []
+
+    def primitive_get_neighbors(self, node_names: List[str]) -> str:
+        view = []
+        for name in node_names:
+            if not self.graph.has_node(name): continue
+            desc = self.graph.nodes[name].get("description", "")
+            
+            view.append(f"📍 At Node: [{name}] - {desc}")
+            neighbors = self.graph.out_edges(name, data=True)
+            for _, target, data in neighbors:
+                rel = data.get('relation', 'related')
+                # Show Edge timestamp
+                edge_ts = data.get('timestamp')
+                edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
+                
+                t_desc = self.graph.nodes[target].get("description", "")
+                preview = t_desc[:50] + "..." if len(t_desc) > 50 else t_desc
+                view.append(f"   --[{rel}{edge_ts_str}]--> 🔭 Candidate: [{target}] ({preview})")
+        return "\n".join(view)
+
+    def primitive_read(self, node_names: List[str]) -> str:
+        content = []
+        for name in node_names:
+            if self.graph.has_node(name):
+                d = self.graph.nodes[name]
+                content.append(f"Entity: {name} ({d.get('type','Unknown')})\nDesc: {d.get('description','')}")
+        return "\n".join(content)
 
     def save(self):
-        data = nx.node_link_data(self.graph, edges="links")
+        # Convert embeddings to lists for JSON serialization
+        for _, data in self.graph.nodes(data=True):
+            if "embedding" in data and isinstance(data["embedding"], np.ndarray):
+                data["embedding"] = data["embedding"].tolist()
+
+        data = nx.node_link_data(self.graph)
         with open(self.storage_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
@@ -141,9 +184,9 @@ class MemoryGraph:
         if os.path.exists(self.storage_path):
             try:
                 with open(self.storage_path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                self.graph = nx.node_link_graph(data, edges="links")
-                logger.info(f"Loaded graph with {self.graph.number_of_nodes()} nodes.")
-            except Exception as e:
-                logger.error(f"Failed to load graph: {e}")
-                self.graph = nx.MultiDiGraph()
+                    self.graph = nx.node_link_graph(json.load(f))
+                    # Convert embeddings back to numpy arrays
+                    for _, node_data in self.graph.nodes(data=True):
+                        if "embedding" in node_data:
+                            node_data["embedding"] = np.array(node_data["embedding"])
+            except: pass

@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from amadeus.core.graph import MemoryGraph
-from amadeus.agent.builder import BuilderAgent
+from amadeus.agents.builder import BuilderAgent
 
 def main():
     # 加载环境变量
