@@ -4,8 +4,8 @@ import re
 from typing import List, Optional
 from enum import Enum
 from pydantic import BaseModel, Field
-from openai import OpenAI
 from amadeus.core.graph import MemoryGraph
+from amadeus.agents.base import BaseAgent
 
 logger = logging.getLogger("Amadeus.Builder")
 
@@ -27,14 +27,11 @@ class BuilderOutput(BaseModel):
     chain_of_thought: str = Field(..., description="Step-by-step reasoning about Buffer vs Graph.")
     operations: List[MemoryOperation] = Field(..., description="Sequence of atomic operations.")
 
-class BuilderAgent:
+class BuilderAgent(BaseAgent):
     def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo"):
+        super().__init__(model_name)
         self.graph = graph
-        self.client = OpenAI()
-        self.model_name = model_name
-
-    def _get_system_prompt(self) -> str:
-        return """You are 'The Builder', the state manager of the Amadeus Memory System.
+        self.static_prompt = """You are 'The Builder', the state manager of the Amadeus Memory System.
 Your goal is to maintain a **High-Fidelity Knowledge Graph** by synchronizing the **Short-term Buffer** (New Reality) with the **Long-term Graph** (Past Memory).
 
 **CORE PHILOSOPHY:**
@@ -93,14 +90,14 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
 }
 """
 
-    def process_buffer(self, buffer_content: str) -> List[str]:
+    def process_buffer(self, buffer_content: str) -> tuple[List[str], List[str]]:
         context = self.graph.get_full_state()
         
         try:
             response = self.client.chat.completions.create(
                 model=self.model_name,
                 messages=[
-                    {"role": "system", "content": self._get_system_prompt()},
+                    {"role": "system", "content": self.get_full_prompt()},
                     {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== NEW BUFFER ===\n{buffer_content}"}
                 ],
                 response_format={"type": "json_object"},
@@ -110,7 +107,7 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
             raw_content = response.choices[0].message.content
             if not raw_content:
                 logger.error("Empty response from Builder LLM")
-                return []
+                return [], []
                 
             clean_json = re.sub(r'^```json\s*|\s*```$', '', raw_content.strip(), flags=re.MULTILINE)
             data = json.loads(clean_json)
@@ -119,61 +116,111 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
             logger.info(f"🤔 Builder CoT: {cot}")
 
             ops_data = data.get("operations", [])
-            if not isinstance(ops_data, list):
-                return []
-
-            kept_items = []
-            for i, op_dict in enumerate(ops_data):
-                try:
-                    if not isinstance(op_dict, dict): continue
-                    
-                    # 标准化 Key
-                    normalized_op = {k.lower(): v for k, v in op_dict.items()}
-                    
-                    # 修复 null 字符串
-                    for key in ["object", "content", "timestamp"]:
-                        if key in normalized_op and isinstance(normalized_op[key], str):
-                            if normalized_op[key].lower() in ["null", "none", "undefined"]:
-                                normalized_op[key] = None
-
-                    # 修复缺失 subject
-                    if "subject" not in normalized_op:
-                        for alt_key in ["entity", "source", "node", "from"]:
-                            if alt_key in normalized_op:
-                                normalized_op["subject"] = normalized_op.pop(alt_key)
-                                break
-                    
-                    op = MemoryOperation(**normalized_op)
-                    
-                    # ADD / UPDATE
-                    if op.action in [ActionType.ADD, ActionType.UPDATE]:
-                        if op.object: 
-                            rel = op.content if op.content else "related to"
-                            self.graph.add_edge(op.subject, op.object, rel, timestamp=op.timestamp)
-                            logger.info(f"🔗 LINK: {op.subject} --{rel}--> {op.object} (Time: {op.timestamp})")
-                        else:
-                            self.graph.add_node(op.subject, "Entity", op.content or "")
-                            logger.info(f"➕ NODE: {op.subject}")
-
-                    # DELETE
-                    elif op.action == ActionType.DELETE:
-                        if op.object:
-                            self.graph.delete_edge(op.subject, op.object)
-                        else:
-                            self.graph.delete_node(op.subject)
-
-                    # WAIT
-                    elif op.action == ActionType.WAIT:
-                        if op.content:
-                            kept_items.append(op.content)
-                            logger.info(f"⏳ WAIT: {op.content[:30]}...")
-
-                except Exception as e:
-                    logger.warning(f"Op {i} skipped: {e}")
-
-            self.graph.save()
-            return kept_items
+            return self._execute_operations(ops_data)
 
         except Exception as e:
             logger.error(f"Builder Failed: {e}")
-            return []
+            return [], []
+
+    def force_update(self, instruction: str) -> bool:
+        """
+        Directly apply a fix instruction from the Optimizer.
+        This bypasses the normal buffer processing to fix specific graph errors.
+        """
+        logger.info(f"🔧 FORCE UPDATE TRIGGERED: {instruction}")
+        context = self.graph.get_full_state()
+        
+        prompt = f"""
+{self.get_full_prompt()}
+
+**EMERGENCY FIX MODE:**
+You are receiving a direct instruction to fix the graph.
+Instruction: "{instruction}"
+
+**TASK:**
+Generate the necessary operations (ADD/UPDATE/DELETE) to execute this instruction.
+Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the Current Graph.
+"""
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== INSTRUCTION ===\n{instruction}"}
+                ],
+                response_format={"type": "json_object"},
+                temperature=0.0
+            )
+            content = response.choices[0].message.content
+            data = json.loads(content)
+            ops = data.get("operations", [])
+            self._execute_operations(ops)
+            return True
+        except Exception as e:
+            logger.error(f"Force Update Failed: {e}")
+            return False
+
+    def _execute_operations(self, ops_data: List[dict]) -> tuple[List[str], List[str]]:
+        kept_items = []
+        action_log = []
+        if not isinstance(ops_data, list):
+            return [], []
+
+        for i, op_dict in enumerate(ops_data):
+            try:
+                if not isinstance(op_dict, dict): continue
+                
+                # Normalize Key
+                normalized_op = {k.lower(): v for k, v in op_dict.items()}
+                
+                # Fix null strings
+                for key in ["object", "content", "timestamp"]:
+                    if key in normalized_op and isinstance(normalized_op[key], str):
+                        if normalized_op[key].lower() in ["null", "none", "undefined"]:
+                            normalized_op[key] = None
+
+                # Fix missing subject
+                if "subject" not in normalized_op:
+                    for alt_key in ["entity", "source", "node", "from"]:
+                        if alt_key in normalized_op:
+                            normalized_op["subject"] = normalized_op.pop(alt_key)
+                            break
+                
+                op = MemoryOperation(**normalized_op)
+                
+                # ADD / UPDATE
+                if op.action in [ActionType.ADD, ActionType.UPDATE]:
+                    if op.object: 
+                        rel = op.content if op.content else "related to"
+                        self.graph.add_edge(op.subject, op.object, rel, timestamp=op.timestamp)
+                        msg = f"🔗 LINK: {op.subject} --{rel}--> {op.object} (Time: {op.timestamp})"
+                        logger.info(msg)
+                        action_log.append(msg)
+                    else:
+                        self.graph.add_node(op.subject, "Entity", op.content or "")
+                        msg = f"➕ NODE: {op.subject}"
+                        logger.info(msg)
+                        action_log.append(msg)
+
+                # DELETE
+                elif op.action == ActionType.DELETE:
+                    if op.object:
+                        self.graph.delete_edge(op.subject, op.object)
+                        msg = f"❌ UNLINK: {op.subject} --x--> {op.object}"
+                        action_log.append(msg)
+                    else:
+                        self.graph.delete_node(op.subject)
+                        msg = f"❌ DELETE: {op.subject}"
+                        action_log.append(msg)
+
+                # WAIT
+                elif op.action == ActionType.WAIT:
+                    if op.content:
+                        kept_items.append(op.content)
+                        logger.info(f"⏳ WAIT: {op.content[:30]}...")
+
+            except Exception as e:
+                logger.warning(f"Op {i} skipped: {e}")
+
+        self.graph.save()
+        return kept_items, action_log

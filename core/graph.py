@@ -167,7 +167,19 @@ class MemoryGraph:
         for name in node_names:
             if self.graph.has_node(name):
                 d = self.graph.nodes[name]
-                content.append(f"Entity: {name} ({d.get('type','Unknown')})\nDesc: {d.get('description','')}")
+                
+                # Collect temporal context from incoming edges
+                temporal_context = []
+                in_edges = self.graph.in_edges(name, data=True)
+                for u, _, data in in_edges:
+                    ts = data.get('timestamp')
+                    if ts:
+                        rel = data.get('relation', 'related')
+                        temporal_context.append(f"   <-[{rel} at {ts}]-- {u}")
+                
+                temporal_str = "\n" + "\n".join(temporal_context) if temporal_context else ""
+                
+                content.append(f"Entity: {name} ({d.get('type','Unknown')})\nDesc: {d.get('description','')}{temporal_str}")
         return "\n".join(content)
 
     def save(self):

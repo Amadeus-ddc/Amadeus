@@ -22,6 +22,8 @@ from amadeus.core.graph import MemoryGraph
 from amadeus.core.buffer import TimeWindowBuffer
 from amadeus.agents.builder import BuilderAgent
 from amadeus.agents.answerer import AnswererAgent
+from amadeus.agents.questioner import QuestionerAgent
+from amadeus.engine.optimizer import AdversarialOptimizer
 
 class HuggingFaceEmbedder:
     def __init__(self, model_path, device="cuda"):
@@ -285,6 +287,8 @@ def main():
         buffer = TimeWindowBuffer(trigger_threshold=1) # 每一个Session都是完整上下文，直接触发
         builder = BuilderAgent(graph, model_name=args.model_name)
         answerer = AnswererAgent(graph, model_name=args.model_name)
+        questioner = QuestionerAgent(model_name=args.model_name)
+        optimizer = AdversarialOptimizer(questioner, builder, answerer, model_name=args.model_name)
 
         logger.info(f"🧠 Phase 1: Building Memory ({len(chunks)} contextual sessions)...")
         for i, chunk in enumerate(chunks):
@@ -292,7 +296,18 @@ def main():
             # 每个 Chunk 都是一个独立的 Session/Source，应当立即处理
             if buffer.is_full() or True: 
                 content = buffer.get_content()
-                kept_items = builder.process_buffer(content)
+                
+                # 1. Builder 构建
+                kept_items, action_log = builder.process_buffer(content)
+                
+                # 2. Optimizer 自博弈 (Self-Play)
+                # 只有当图谱中有内容时才进行博弈，避免空图报错
+                if graph.graph.number_of_nodes() > 0:
+                    try:
+                        optimizer.step(content, action_log)
+                    except Exception as e:
+                        logger.warning(f"Optimizer step failed (skipping): {e}")
+                
                 buffer.clear(keep_items=kept_items)
 
         logger.info(f"📊 Graph Ready. Nodes: {graph.graph.number_of_nodes()}, Edges: {graph.graph.number_of_edges()}")

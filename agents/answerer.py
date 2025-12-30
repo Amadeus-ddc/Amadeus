@@ -4,15 +4,55 @@ import re
 from typing import List, Literal
 from openai import OpenAI
 from amadeus.core.graph import MemoryGraph
+from amadeus.agents.base import BaseAgent
 
 logger = logging.getLogger("Amadeus.Answerer")
 
-class AnswererAgent:
+class AnswererAgent(BaseAgent):
     def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo"):
+        super().__init__(model_name)
         self.graph = graph
-        self.client = OpenAI()
-        self.model_name = model_name
         self.max_steps = 8  # Increased steps for deeper exploration in granular graphs
+        self.static_prompt = """You are an intelligent Graph RAG Agent.
+**Goal**: Answer the user's question by exploring the knowledge graph.
+
+**STRATEGY**:
+1. **SEARCH**: Start here! Use 'hybrid' mode to find multiple entry nodes using both keyword and semantic search.
+2. **WALK**: Explore the neighborhood of your current nodes to find relevant connections.
+3. **READ**: Once you have enough information, generate the final answer.
+
+**AVAILABLE TOOLS**:
+
+1. **SEARCH**: Find entry nodes or jump to new nodes.
+   - `query`: The search text.
+   - `mode`: "hybrid" (RECOMMENDED: combines keyword and semantic), "keyword", or "semantic".
+   - *Condition*: Use this if you are nowhere, lost, or need to find a specific entity.
+
+2. **WALK**: Move to a connected node.
+   - `node`: The target node name from "Visible Neighbors".
+   - *Condition*: Use this to follow a path that might lead to the answer.
+
+3. **READ**: Finish and answer.
+   - `answer`: The final concise answer.
+   - *Condition*: Use this when you have found the answer in "Current Node Content" **OR in the 'Visible Neighbors' (e.g., timestamps on edges)**.
+
+**RESPONSE FORMAT (JSON ONLY)**:
+{
+  "tool": "SEARCH",
+  "query": "...",
+  "mode": "hybrid"
+}
+OR
+{
+  "tool": "WALK",
+  "node": "TargetNodeName"
+}
+OR
+{
+  "tool": "READ",
+  "answer": "Final Answer Here"
+}
+"""
 
     def _clean_answer(self, text: str) -> str:
         """
@@ -91,13 +131,8 @@ class AnswererAgent:
                 status_str = f"Status: You are at nodes: {current_nodes}"
                 view_str = f"**Current Node Content**:\n{current_content}\n\n**Visible Neighbors**:\n{neighbors_view}"
                 
-            prompt = f"""You are an intelligent Graph RAG Agent.
-**Goal**: Answer the user's question by exploring the knowledge graph.
-
-**STRATEGY**:
-1. **SEARCH**: Start here! Use 'hybrid' mode to find multiple entry nodes using both keyword and semantic search.
-2. **WALK**: Explore the neighborhood of your current nodes to find relevant connections.
-3. **READ**: Once you have enough information, generate the final answer.
+            prompt = f"""
+{self.get_full_prompt()}
 
 **User Question**: "{question}"
 
@@ -106,38 +141,6 @@ class AnswererAgent:
 
 **{status_str}**
 {view_str}
-
-**AVAILABLE TOOLS**:
-
-1. **SEARCH**: Find entry nodes or jump to new nodes.
-   - `query`: The search text.
-   - `mode`: "hybrid" (RECOMMENDED: combines keyword and semantic), "keyword", or "semantic".
-   - *Condition*: Use this if you are nowhere, lost, or need to find a specific entity.
-
-2. **WALK**: Move to a connected node.
-   - `node`: The target node name from "Visible Neighbors".
-   - *Condition*: Use this to follow a path that might lead to the answer.
-
-3. **READ**: Finish and answer.
-   - `answer`: The final concise answer.
-   - *Condition*: Use this ONLY when you have found the answer in "Current Node Content".
-
-**RESPONSE FORMAT (JSON ONLY)**:
-{{
-  "tool": "SEARCH",
-  "query": "...",
-  "mode": "hybrid"
-}}
-OR
-{{
-  "tool": "WALK",
-  "node": "TargetNodeName"
-}}
-OR
-{{
-  "tool": "READ",
-  "answer": "Final Answer Here"
-}}
 """
             # --- 2. LLM Decision ---
             try:
