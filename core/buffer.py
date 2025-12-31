@@ -91,10 +91,17 @@ class ShortTermBuffer:
             return
         
         # 保留匹配的项
+        # Use exact match or normalized string matching to avoid false positives
         kept_items = []
         for item in self.items:
-            if any(text in item['content'] or item['content'] in text for text in texts_to_keep):
-                kept_items.append(item)
+            content = item['content'].strip()
+            for text in texts_to_keep:
+                text_normalized = text.strip()
+                # Match if either string contains the other (with normalization)
+                # This handles cases where Builder returns a snippet vs full buffer content
+                if content == text_normalized or content in text_normalized or text_normalized in content:
+                    kept_items.append(item)
+                    break  # Found a match, no need to check other texts
         
         removed_count = len(self.items) - len(kept_items)
         self.items = kept_items
