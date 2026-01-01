@@ -1,0 +1,1356 @@
+{
+  "sample_id": "conv-47",
+  "avg_score": 0.5666666666666667,
+  "qa_results": [
+    {
+      "question": "What are John's suspected health problems?",
+      "category": 3,
+      "ground_truth": "Obesity",
+      "prediction": "Based on the available information, there is no explicit mention of John's suspected health problems. The graph indicates that John has had a routine examination and vaccination completed, but there is no indication of any current or suspected health issues.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which recreational activity was James pursuing on March 16, 2022?",
+      "category": 2,
+      "ground_truth": "bowling",
+      "prediction": "On March 16, 2022, James was playing bowling.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which places or events have John and James planned to meet at?",
+      "category": 1,
+      "ground_truth": "VR Club, McGee's, baseball game",
+      "prediction": "John and James have planned to meet at McGee's Pub for drinks and at the animal sanctuary. They also visited McGee's Pub together with Samantha.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Do both James and John have pets?",
+      "category": 1,
+      "ground_truth": "No",
+      "prediction": "Both James and John have pets. James has multiple dogs named Max, Daisy, and Ned, while John has not been explicitly mentioned to have any pets in the provided context.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John resume playing drums in his adulthood?",
+      "category": 2,
+      "ground_truth": "February 2022",
+      "prediction": "John resumed playing drums in adulthood on 2022-03-27.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What are John and James' favorite games?",
+      "category": 1,
+      "ground_truth": "John's favorite game is CS:GO, and James's is Apex Legends.",
+      "prediction": "John's favorite game is CS:GO, and James' favorite games are The Witcher 3 and Civilization VI.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Does James live in Connecticut?",
+      "category": 3,
+      "ground_truth": "Likely yes",
+      "prediction": "James visited Toronto and Vancouver during his trip, but there is no explicit mention of him living in Connecticut. Therefore, we cannot confirm whether James currently lives in Connecticut or not.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "In which state is the shelter from which James adopted the puppy?",
+      "category": 3,
+      "ground_truth": "Connecticut.",
+      "prediction": "The shelter from which James adopted the puppy Ned is in Stamford.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How many pets does James have?",
+      "category": 1,
+      "ground_truth": "Three dogs.",
+      "prediction": "James has three dogs: Max, Daisy, and Ned. Therefore, James has three pets.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What are the names of James's dogs?",
+      "category": 1,
+      "ground_truth": "Ned, Daisy, Max",
+      "prediction": "James's dogs are named Max, Daisy, and Ned.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James adopt Ned?",
+      "category": 2,
+      "ground_truth": "first week of April 2022",
+      "prediction": "James adopted Ned on April 12, 2022.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How was John feeling on April 10, 2022?",
+      "category": 2,
+      "ground_truth": "seeking solitude",
+      "prediction": "On April 10, 2022, John found a canyon for a calming view, which suggests he was likely feeling relaxed and motivated.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Did James have a girlfriend during April 2022?",
+      "category": 3,
+      "ground_truth": "Presumably not",
+      "prediction": "James started dating Samantha in April 2022 and they agreed to become each other's girlfriend and boyfriend. Therefore, it is reasonable to conclude that James had a girlfriend during April 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James visit Italy?",
+      "category": 2,
+      "ground_truth": "In 2021",
+      "prediction": "James visited Italy, Turkey, and Mexico in 2022-04-12.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James buy himself a new adventure book?",
+      "category": 2,
+      "ground_truth": "April 26, 2022",
+      "prediction": "James bought himself a new adventure book on 2022-04-26.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James start playing Civilization VI?",
+      "category": 2,
+      "ground_truth": "March 2022",
+      "prediction": "James started playing Civilization VI on April 29, 2022.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the game with different colored cards that was John talking about with James?",
+      "category": 3,
+      "ground_truth": "UNO",
+      "prediction": "The game with different colored cards that John was talking about with James is likely a card game like 'Codenames' or 'Pandemic Legacy: Season 1', but based on the context provided, it could also be 'Dobble' (also known as Spot It!). However, since no specific game title was mentioned, we cannot determine the exact game without more information.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the board game where you have to find the imposter that John mentions to James?",
+      "category": 3,
+      "ground_truth": "Mafia",
+      "prediction": "The board game where John mentions to James that he suggests playing the impostor game with a large group is likely 'Among Us'.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which books has John recommended to James?",
+      "category": 1,
+      "ground_truth": "The Name of the Wind, Stormlight Archive, Kingkiller Chronicles, Expanse",
+      "prediction": "John has recommended the following books to James: The Name of the Wind, The Kingkiller Chronicle, and The Expanse.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Was James feeling lonely before meeting Samantha?",
+      "category": 3,
+      "ground_truth": "Most likely yes, because he mentioned that the only creatures that gave him joy are dogs and he was actively trying to date.",
+      "prediction": "there is no direct evidence that James was feeling lonely before meeting Samantha. The graph shows that James has a close bond with his pets, enjoys spending time with them, and has a supportive relationship with John. Additionally, James has been actively engaged in various activities such as gaming, programming, and volunteering, which suggest he has a fulfilling life. While there are mentions of James' pets and friends, there is no specific indication of him feeling lonely prior to meeting Samantha.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How many charity tournaments has John organized till date?",
+      "category": 1,
+      "ground_truth": "two",
+      "prediction": "John has organized two charity tournaments till date: one for a children's hospital and another for a dog shelter.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John first organize a charity tournament with his friends?",
+      "category": 2,
+      "ground_truth": "May 7, 2022",
+      "prediction": "John first organized a charity tournament with his friends on October 31, 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Who or which organizations have been the beneficiaries of John's charity tournaments?",
+      "category": 1,
+      "ground_truth": "animal shelter, homeless, children's hospital",
+      "prediction": "John's charity tournaments have benefited a children's hospital and a dog shelter. He raised money for the children's hospital through his gaming tournaments, and he also provided food for the dog shelter.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When will John start his new job?",
+      "category": 2,
+      "ground_truth": "In July, 2022",
+      "prediction": "John's new job is starting next month.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of games has James tried to develop?",
+      "category": 1,
+      "ground_truth": "football simulator, virtual world inspired by Witcher 3",
+      "prediction": "James has tried to develop RPGs, strategy games, and board games.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Are John and James fans of the same football team?",
+      "category": 3,
+      "ground_truth": "No, James is a Liverpool fan and John is a Manchester City fan.",
+      "prediction": "John is a Manchester City fan, while James is a Liverpool fan. Therefore, John and James are not fans of the same football team.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which countries has James visited?",
+      "category": 1,
+      "ground_truth": "Italy, Mexico, Turkey, Canada, Greenland",
+      "prediction": "James has visited Italy, Turkey, Mexico, Japan, and Greenland. He also hopes to travel with John in the future.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of classes has James joined?",
+      "category": 1,
+      "ground_truth": "game design course, cooking classes",
+      "prediction": "James has joined a course combining gaming and programming.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James volunteer at an organization?",
+      "category": 2,
+      "ground_truth": "May 2022",
+      "prediction": "James volunteered with an organization providing necessary items to those in need on June 17, 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James depart for his trip to Canada?",
+      "category": 2,
+      "ground_truth": "July 11, 2022",
+      "prediction": "James departed for his trip to Canada on July 11.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which country did James book tickets for in July 2022?",
+      "category": 3,
+      "ground_truth": "Canada",
+      "prediction": "James booked tickets for Japan in July 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How many days did James plan to spend on his trip in Canada?",
+      "category": 2,
+      "ground_truth": "19 days",
+      "prediction": "James planned to leave for Vancouver on July 11 and return on July 20. Therefore, James planned to spend approximately 9 days on his trip to Canada.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where was James at on July 12, 2022?",
+      "category": 2,
+      "ground_truth": "Toronto, Canada",
+      "prediction": "James was leaving for Toronto on July 11, 2022.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Did John and James study together?",
+      "category": 3,
+      "ground_truth": "Yes",
+      "prediction": "John and James have shown interest in gaming and programming, but there is no direct evidence in the graph that they studied together. They have collaborated on projects and supported each other, but studying together is not mentioned.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which countries did James visit in July 2022?",
+      "category": 1,
+      "ground_truth": "Canada, Greenland",
+      "prediction": "James visited Italy, Turkey, and Mexico in July 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What additional country did James visit during his trip to Canada?",
+      "category": 3,
+      "ground_truth": "Greenland",
+      "prediction": "James visited Japan and Toronto during his trip to Canada. Since Vancouver is also mentioned as a planned destination during the same trip, it can be inferred that James visited Vancouver during his trip to Canada.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Who is Jill?",
+      "category": 3,
+      "ground_truth": "Most likely John's partner.",
+      "prediction": "Jill is not found in the current context. The nodes explored so far do not contain any information about Jill. The closest match is Melanie, but there is no direct connection or information linking her to Jill.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John spend time with his sister and dogs?",
+      "category": 2,
+      "ground_truth": "July 21, 2022",
+      "prediction": "John spent time with his sister and dogs on 2022-06-16, as indicated by the entry 'Loves swimming [Time: 2022-06-16]' and 'Tranquil Trail [Time: 2022-06-16]', which suggests they were spending time outdoors together.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What happened to John's job situation in 2022?",
+      "category": 1,
+      "ground_truth": "quit his IT Job, secured his dream job, aspires to become an eSports competition organizer",
+      "prediction": "In 2022, John organized a CS:GO tournament for charity and used his programming skills to develop a software tool for a charitable foundation, which helped streamline operations and made a real difference. He also signed up for a programming class and started a blog about coding. Additionally, he volunteered with an organization providing necessary items to those in need and contributed to their operations, which gave him a clear sense of purpose. John also participated in a regional chess tournament and won 2nd place, receiving a trophy.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John start his job in IT?",
+      "category": 2,
+      "ground_truth": "2019",
+      "prediction": "John started his job in IT around 2022-08-06, when he changed from an IT job to a job in the gaming industry.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of tricks do James's pets know?",
+      "category": 1,
+      "ground_truth": "swimming, catching frisbees, balancing on a skateboard, sit, stay, paw, and rollover",
+      "prediction": "Daisy, one of James's pets, can do tricks like sit, stay, paw, and rollover.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James meet Samantha?",
+      "category": 2,
+      "ground_truth": "August 9, 2022",
+      "prediction": "James met Samantha at the beach. The context indicates that James met Samantha at the beach and planned to call her later.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James take his 3 dogs to the beach?",
+      "category": 2,
+      "ground_truth": "August 9, 2022",
+      "prediction": "James walked along the beaches on 2022-03-09.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John plan his next meeting with his siblings?",
+      "category": 2,
+      "ground_truth": "In September, 2022",
+      "prediction": "John planned his next meeting with his siblings for next month.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Why didn't John want to go to Starbucks?",
+      "category": 3,
+      "ground_truth": "Possibly because he likes to drink beer on his days off.",
+      "prediction": "John doesn't want to go to Starbucks because he prefers other activities and places. Specifically, the graph shows that John likes slot machines and arcades more than bowling, and he has a preference for light beer at McGee's Pub. There is no direct mention of John's dislike for Starbucks, but his preferences for other activities suggest he might prefer those over going to Starbucks.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of beer does McGee's bar serve?",
+      "category": 1,
+      "ground_truth": "Stout, lager",
+      "prediction": "The type of beer served at McGee's Bar is unknown based on the available information.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John and James meet at McGee's bar?",
+      "category": 2,
+      "ground_truth": "August 27, 2022",
+      "prediction": "James started renting an apartment near McGee's Bar on 2022-10-31 and loves spending time there. However, there is no specific information about when John and James met at McGee's Bar.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James ask Samantha to be his girlfriend?",
+      "category": 2,
+      "ground_truth": "September 3, 2022",
+      "prediction": "James asked Samantha to be his girlfriend at 2022-09-04.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James, Samantha and John go to the baseball game together?",
+      "category": 2,
+      "ground_truth": "September 11, 2022",
+      "prediction": "James, Samantha, and John went to the baseball game together on next Sunday, which is September 4, 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What gaming equipments did John buy or refurbish?",
+      "category": 1,
+      "ground_truth": "Sennheiser headphones, Logitech mouse, gaming desk",
+      "prediction": "John bought or refurbished the following gaming equipment: a new gaming PC, a headset, a powerful graphics card, a gaming chair, and a keyboard. He also refurbished his gaming desk.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James start taking cooking classes?",
+      "category": 2,
+      "ground_truth": "September 2, 2022",
+      "prediction": "James signed up for a cooking class on September 4, 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which new games did John start play during the course of the conversation with James?",
+      "category": 1,
+      "ground_truth": "AC Valhalla, Witcher 3, FIFA 23, Dungeons of the Dragons, futuristic dystopian game",
+      "prediction": "During the course of the conversation with James, John started playing a new RPG with a cool story and world on April 12, 2022. He also expressed interest in trying strategy games, specifically Civilization VI, on April 29, 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John start working on his 2D Adventure mobile game?",
+      "category": 2,
+      "ground_truth": "approximately summer of 2022",
+      "prediction": "John started working on his 2D Adventure mobile game at 2022-10-01.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How long did it take for James to complete his Witcher-inspired game?",
+      "category": 2,
+      "ground_truth": "six months",
+      "prediction": "James started working on his Witcher-inspired game project around March 2022 and completed it after months of work. While the exact duration is not specified, it took him several months to finish the project.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of programming-related events has John hosted?",
+      "category": 1,
+      "ground_truth": "online programming competition, programming seminar",
+      "prediction": "John has hosted a CS:GO tournament for charity and organized a gaming tournament for a children's hospital.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John and his programming friends host an online programming competition?",
+      "category": 2,
+      "ground_truth": "Last week before 13 October 2022.",
+      "prediction": "John and his programming friends hosted an online programming competition in 2022.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which of James's family members have visited him in the last year?",
+      "category": 1,
+      "ground_truth": "mother, sister",
+      "prediction": "In the last year, John and James have been on a road trip together.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James' mother and her friend visit him?",
+      "category": 2,
+      "ground_truth": "October 19, 2022",
+      "prediction": "James' mother and her army friend visited him on October 19, 2022.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James try Cyberpunk 2077 game?",
+      "category": 2,
+      "ground_truth": "October 20, 2022",
+      "prediction": "James played and found Cyberpunk 2077 addictive on October 20, 2022.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John and his gaming friends organize the charity tournament?",
+      "category": 2,
+      "ground_truth": "On the night of October 30 to 31, 2022",
+      "prediction": "John organized a CS:GO tournament for charity.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What games has John played with his friends at charity tournaments?",
+      "category": 1,
+      "ground_truth": "CS:GO, Fortnite, Overwatch and Apex Legends",
+      "prediction": "John has played CS:GO, Overwatch, Apex Legends, and FIFA 23 at charity tournaments.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was James' big moment with Samantha in October 2023?",
+      "category": 2,
+      "ground_truth": "They decided to live together and rented an apartment not far from McGee's bar.",
+      "prediction": "James' big moment with Samantha in October 2023 was moving in together. The graph shows that they decided to move in together on October 31, 2022, which aligns with the timeframe specified in the question.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How long did James and Samantha date for before deciding to move in together?",
+      "category": 2,
+      "ground_truth": "nearly three months",
+      "prediction": "James and Samantha agreed to become a couple and decided to move in together on October 31, 2022. Therefore, they dated for approximately 3 months before deciding to move in together.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James, his family and his dogs start on a road trip together?",
+      "category": 2,
+      "ground_truth": "November 4, 2022",
+      "prediction": "James, his family, and his dogs started on a road trip together on July 11, 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How long did John practice chess for before winning the chess tournament?",
+      "category": 2,
+      "ground_truth": "nearly four months",
+      "prediction": "John started playing chess to improve strategic thinking in July 2022 and studied opening moves and strategies, learning from experienced players, and analyzing past games as of November 1, 2022. However, the exact duration of his practice before winning the chess tournament is not specified.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James and his family visit Mark and Josh?",
+      "category": 2,
+      "ground_truth": "November 7, 2022",
+      "prediction": "James visited Mark and Josh on 2022-11-07.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John work with a game developer on a project?",
+      "category": 2,
+      "ground_truth": "November 5-6, 2022",
+      "prediction": "John worked with a game developer on a project in November 7, 2022, when he collaborated on creating an online board game.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What programming languages has James worked with?",
+      "category": 4,
+      "ground_truth": "Python and C++",
+      "prediction": "James has experience with Python and C++.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of mobile application does James plan to build with John?",
+      "category": 4,
+      "ground_truth": "An app for dog walking and pet care",
+      "prediction": "James and John plan to build a mobile application that helps connect pet owners with dog walkers and provides pet care information.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does James plan to make his dog-sitting app unique?",
+      "category": 4,
+      "ground_truth": "By allowing users to customize their pup's preferences/needs",
+      "prediction": "James plans to make his dog-sitting app unique by allowing users to customize the app with their pet's preferences and needs. This personal touch ensures that each user can tailor the app to fit their specific requirements, making the service more personalized and convenient for pet owners.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What has John mostly found with the metal detector so far?",
+      "category": 4,
+      "ground_truth": "bottle caps",
+      "prediction": "So far, John has mostly found a gold ring with the metal detector.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did James offer to do for John regarding pets?",
+      "category": 4,
+      "ground_truth": "help find the perfect pet",
+      "prediction": "James offered to help John find a pet at 2022-03-09.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What instrument is John learning to play as of 27 March, 2022?",
+      "category": 4,
+      "ground_truth": "Drums",
+      "prediction": "As of 27 March, 2022, John is learning to play the drums.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How long has John been playing the drums as of 27 March, 2022?",
+      "category": 4,
+      "ground_truth": "One month",
+      "prediction": "As of March 27, 2022, John had been playing the drums for a month.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What game did John play in an intense tournament at the gaming convention in March 2022?",
+      "category": 4,
+      "ground_truth": "CS:GO",
+      "prediction": "John played CS:GO in an intense tournament at the gaming convention in March 2022.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What game was James playing in the online gaming tournament in April 2022?",
+      "category": 4,
+      "ground_truth": "Apex Legends",
+      "prediction": "In the online gaming tournament in April 2022, James was playing Apex Legends.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does James communicate with his gaming team?",
+      "category": 4,
+      "ground_truth": "voice chat",
+      "prediction": "Based on the available information, James communicates with his gaming team through discussions and agreements about trying VR gaming together. Specifically, James and John agreed to try VR gaming together on Saturday in March 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What advice did James receive from the famous players he met at the tournament?",
+      "category": 4,
+      "ground_truth": "never put your ego above team success",
+      "prediction": "At the online gaming tournament in 2022, James received gaming tips from the team.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did James adopt in April 2022?",
+      "category": 4,
+      "ground_truth": "a pup",
+      "prediction": "James adopted Ned, a pup from a shelter, in April 2022.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the name of the pup that was adopted by James?",
+      "category": 4,
+      "ground_truth": "Ned",
+      "prediction": "The name of the pup that was adopted by James is Max.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did James embody the appearance of the game character from the woman he saw during a walk?",
+      "category": 4,
+      "ground_truth": "He found her appearance and eyes amazing.",
+      "prediction": "James embodied the appearance of the game character from the woman he saw during a walk because he was inspired by her. When James went for a walk with his dogs, he saw a woman that caught his attention, and this inspired him to create a game character that resembled her. This connection is evident from the information that James created a game character for the virtual world, and he was inspired by a woman he saw while walking with his dogs two weeks ago.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What inspired James to create the game character in the virtual world?",
+      "category": 4,
+      "ground_truth": "Appearance of a woman he saw during a walk",
+      "prediction": "James was inspired to create the game character in the virtual world by his experience with The Witcher 3. He has shown a strong interest in and been influenced by the game, which likely sparked his creativity and motivation to develop his own game character.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which country did James visit in 2021?",
+      "category": 4,
+      "ground_truth": "Italy",
+      "prediction": "James visited Japan, Italy, Turkey, and Mexico in 2021.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What impresses John about Japan?",
+      "category": 4,
+      "ground_truth": "Technologically advanced megacities and tasty street food",
+      "prediction": "John is impressed by the megacities of Japan, the technological advancement there, the huge screens on the buildings, and the very tasty street food.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of assignment was giving John a hard time at work?",
+      "category": 4,
+      "ground_truth": "Coding assignment",
+      "prediction": "John was having a hard time with a difficult coding project at work.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What breed is Daisy, one of James' dogs?",
+      "category": 4,
+      "ground_truth": "Labrador",
+      "prediction": "Daisy is a Labrador.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of pizza is James' favorite?",
+      "category": 4,
+      "ground_truth": "Pepperoni",
+      "prediction": "James' favorite pizza is pepperoni.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of pizza is John's favorite?",
+      "category": 4,
+      "ground_truth": "Hawaiian",
+      "prediction": "John's favorite pizza type is pepperoni.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John organize with his friends on May 8, 2022?",
+      "category": 4,
+      "ground_truth": "A tournament for CS:GO",
+      "prediction": "On May 8, 2022, John organized a fundraising event for a dog shelter and provided food for homeless people as part of his volunteering activities.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John and his friends do with the remaining money after helping the dog shelter?",
+      "category": 4,
+      "ground_truth": "Bought groceries and cooked food for the homeless",
+      "prediction": "John and his friends did not explicitly mention what they did with the remaining money after helping the dog shelter. However, it can be inferred that they might have used the remaining money to continue supporting the dog shelter or to adopt more dogs, as John and James have a close bond with their dogs and are passionate about helping animals.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was the main goal of the money raised from the charity tournament organized by John and his friends in May 2022?",
+      "category": 4,
+      "ground_truth": "Raise money for a dog shelter",
+      "prediction": "The main goal of the money raised from the charity tournament organized by John and his friends in May 2022 was to raise funds for a dog shelter and to provide food for homeless people.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did the system John created help the charitable foundation with?",
+      "category": 4,
+      "ground_truth": "tracking inventory, resources, and donations",
+      "prediction": "The system John created helped the charitable foundation by developing a software tool to streamline operations. This tool included features for inventory tracking, resource management, and donation reporting.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John create for the charitable foundation that helped generate reports for analysis?",
+      "category": 4,
+      "ground_truth": "computer application on smartphones",
+      "prediction": "John created a software tool for the charitable foundation that helped generate reports for analysis, track inventory, resources, and donations.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John receive for achieving second place in the tournament?",
+      "category": 4,
+      "ground_truth": "money and a trophy",
+      "prediction": "John received a trophy for achieving second place in the local tournament.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What project is James working on in his game design course?",
+      "category": 4,
+      "ground_truth": "a new part of the football simulator, collecting player databases",
+      "prediction": "James is currently working on a football simulator project in his game design course.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Who does James support in football matches?",
+      "category": 4,
+      "ground_truth": "Liverpool",
+      "prediction": "James supports John's Manchester City fan allegiance.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which football club does John support?",
+      "category": 4,
+      "ground_truth": "Manchester City",
+      "prediction": "John supports Manchester City.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What disagreement do James and John have about their football teams?",
+      "category": 4,
+      "ground_truth": "debating on which team will perform better in the championship",
+      "prediction": "James and John have a disagreement about the final standings of their respective football teams in 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Max good at doing according to James?",
+      "category": 4,
+      "ground_truth": "catching frisbees in mid-air",
+      "prediction": "Max is good at swimming and playing fetch, can catch frisbees in mid-air, and enjoys long walks.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the main focus of the organization that James volunteered with?",
+      "category": 4,
+      "ground_truth": "providing necessary items to those who are less fortunate",
+      "prediction": "The main focus of the organization that James volunteered with is providing necessary items to those in need, which includes raising money for a dog shelter and providing food for homeless people.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Will there be an interview required to volunteer with the organization James volunteered for?",
+      "category": 4,
+      "ground_truth": "No",
+      "prediction": "Based on the available information, there is no explicit mention of whether there will be an interview required to volunteer with the organization James volunteered for. The graph indicates that James volunteered with an organization providing necessary items to those in need, but it does not specify the requirements for volunteering, including whether an interview is needed.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How did John relax in his free time on 9 July, 2022?",
+      "category": 4,
+      "ground_truth": "Reading",
+      "prediction": "On 9 July 2022, John relaxed by playing a board game called Dungeons of the Dragon with friends.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did James enjoy doing on cold winter days?",
+      "category": 4,
+      "ground_truth": "Reading while snuggled under the covers",
+      "prediction": "James enjoys spending time with his dogs, particularly going on walks and playing fetch. Given that it is a cold winter day, it is likely that James would enjoy activities with his dogs, such as taking them for walks or playing fetch in a warm indoor space.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What new hobby did James become interested in on 9 July, 2022?",
+      "category": 4,
+      "ground_truth": "Extreme sports",
+      "prediction": "On 9 July 2022, James signed up for a cooking class.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did James plan to visit after Toronto?",
+      "category": 4,
+      "ground_truth": "Vancouver",
+      "prediction": "James planned to travel with John in the future, possibly involving organizing events and charity work.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did James plan to return from his trip to Toronto and Vancouver?",
+      "category": 4,
+      "ground_truth": "July 20",
+      "prediction": "James planned to return from his trip to Toronto and Vancouver on July 20.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What online game did John start playing recently for improving strategy?",
+      "category": 4,
+      "ground_truth": "Chess",
+      "prediction": "John recently started playing a Unity strategy game for improving strategy.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What made John leave his IT job?",
+      "category": 4,
+      "ground_truth": "to focus on things that align with his values and passions",
+      "prediction": "John left his IT job to pursue a job in the gaming industry. This decision was driven by his passion for gaming and his desire to use his programming skills in a more aligned career path.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which game tournaments does John plan to organize besides CS:GO?",
+      "category": 4,
+      "ground_truth": "Fortnite competitions",
+      "prediction": "besides CS:GO, John plans to organize Fortnite competitions and possibly other gaming tournaments.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What happened to James's puppy during the recent visit to the clinic?",
+      "category": 4,
+      "ground_truth": "routine examination and vaccination",
+      "prediction": "During the recent visit to the clinic, James took his puppy Max for a routine examination and vaccination.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What game genre did John start exploring instead of shooters?",
+      "category": 4,
+      "ground_truth": "strategy and RPG games",
+      "prediction": "John started exploring strategy games and RPGs instead of shooters.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which RPG game is John playing and enjoying on 10 August, 2022?",
+      "category": 4,
+      "ground_truth": "The Witcher 3",
+      "prediction": "On 10 August 2022, John was playing and enjoying the RPG 'The Witcher 3'.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What aspect of \"The Witcher 3\" does John find immersive?",
+      "category": 4,
+      "ground_truth": "shaping the world with choices",
+      "prediction": "John finds the immersive gameplay and rich story of 'The Witcher 3' to be the most engaging aspects of the game.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Whose phone number did James receive during the beach outing?",
+      "category": 4,
+      "ground_truth": "Samantha",
+      "prediction": "During the beach outing, James received Samantha's phone number.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is James planning to do after receiving Samantha's phone number?",
+      "category": 4,
+      "ground_truth": "call her",
+      "prediction": "After receiving Samantha's phone number, James is planning to call her tomorrow.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is John organizing with his siblings?",
+      "category": 4,
+      "ground_truth": "a gaming night",
+      "prediction": "John is organizing a family game night with his siblings next month.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of beer does John not like?",
+      "category": 4,
+      "ground_truth": "dark beer",
+      "prediction": "John prefers light beer over dark beer.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What were some difficulties James faced during the development of his game?",
+      "category": 4,
+      "ground_truth": "balancing mechanics and ensuring fairness",
+      "prediction": "During the development of his game, James faced several difficulties. One significant challenge was encountering a major bug in the project that he couldn't solve alone. However, he managed to resolve it with the help of a team. Another difficulty was the need to break down the project into smaller steps and seek help from others. Additionally, James had to learn a new language and improve his problem-solving, patience, and perseverance skills to complete the project successfully.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What has John been teaching his siblings?",
+      "category": 4,
+      "ground_truth": "coding",
+      "prediction": "John has been teaching his siblings coding, starting small and making basic games and stories.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of programs are John's siblings making?",
+      "category": 4,
+      "ground_truth": "basic games and stories",
+      "prediction": "John's siblings are creating basic games and stories, and they are learning fast. They are also inspired by their brother and are making their own programs.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which company's headphones did John choose for gaming?",
+      "category": 4,
+      "ground_truth": "Sennheiser",
+      "prediction": "John chose Sennheiser Headphones for gaming.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did James and Samantha discover they both enjoy at McGee's bar?",
+      "category": 4,
+      "ground_truth": "Lager beer",
+      "prediction": "James loves spending time at McGee's Bar, but there is no information available about what James and Samantha discovered they both enjoy at the bar.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How much does James pay per cooking class?",
+      "category": 4,
+      "ground_truth": "$10",
+      "prediction": "James paid $10 per session for the cooking class. The first lesson included simple dishes.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did James learn to make in the cooking class besides omelette and meringue?",
+      "category": 4,
+      "ground_truth": "Dough",
+      "prediction": "James learned to make dough in the cooking class besides omelette and meringue.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did James sign up for a cooking class?",
+      "category": 4,
+      "ground_truth": "He wanted to learn something new",
+      "prediction": "James signed up for a cooking class because he wanted to try something new and different from his usual interests in gaming, programming, and storytelling. He might have been looking for a change of pace or a new hobby that could bring him joy and satisfaction.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did James prepare for the first time in the cooking class?",
+      "category": 4,
+      "ground_truth": "Omelette",
+      "prediction": "James prepared an omelette and a meringue in his first cooking class.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the name of the board game John tried in September 2022?",
+      "category": 4,
+      "ground_truth": "Dungeons of the Dragon",
+      "prediction": "The name of the board game John tried in September 2022 is Dungeons of the Dragon.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where does James get his ideas from?",
+      "category": 4,
+      "ground_truth": "books, movies, dreams",
+      "prediction": "James gets his ideas from a variety of sources including video games, programming, storytelling, and his pets. He draws inspiration from his experiences, such as hiking with his dogs, and even dreams about medieval castles with puzzles and traps, which he turns into game concepts.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of dream did James have recently?",
+      "category": 4,
+      "ground_truth": "a dream with a medieval castle full of puzzles and traps",
+      "prediction": "James had an awesome time at the amusement park with friends, where he rode roller coasters, Ferris wheel, electric cars, and buggies. It is possible that his recent dream involved some of these thrilling activities or a similar experience.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of music does John like?",
+      "category": 4,
+      "ground_truth": "electronic and rock music",
+      "prediction": "John likes electronic and rock music. This is supported by the fact that James mentioned that music is a big part of his life and that John likes electronic and rock music.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What instrument did James used to play when he was younger?",
+      "category": 4,
+      "ground_truth": "guitar",
+      "prediction": "James used to play the guitar when he was younger.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John use to play when he was younger to let off steam?",
+      "category": 4,
+      "ground_truth": "drums",
+      "prediction": "John used to play strategy games and RPGs when he was younger to let off steam.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What career milestone did John achieve recently in September 2022?",
+      "category": 4,
+      "ground_truth": "making his first mobile game",
+      "prediction": "John achieved a major career milestone in September 2022 by making the first mobile game.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of game is John's upcoming mobile game?",
+      "category": 4,
+      "ground_truth": "2D adventure",
+      "prediction": "John's upcoming mobile game is likely a Strategy Game. This conclusion is drawn from John's interest in trying out strategy games and James' interest in strategy games like Civilization VI, as well as the recent activity of exploring different game genres.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does John do to stay informed and constantly learn about game design?",
+      "category": 4,
+      "ground_truth": "watch tutorials and keep up with developer forums",
+      "prediction": "John stays informed and constantly learns about game design through several activities. He reads magazines filled with tutorials, interviews with developers, and tips for game development. He also participates in seminars where he learns new programming approaches and techniques, and shares this knowledge with his peers. Additionally, John is part of a programming group and collaborates on projects with other skilled coders. These activities help him stay updated and improve his skills in game design.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of gig was John offered at the game dev non-profit organization?",
+      "category": 4,
+      "ground_truth": "programming mentor for game developers",
+      "prediction": "John was offered a volunteer role as a programming mentor at the game dev non-profit organization.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does John feel about starting the journey as a programming mentor for game developers?",
+      "category": 4,
+      "ground_truth": "excited and inspired",
+      "prediction": "John feels positively about starting the journey as a programming mentor for game developers. He is supportive and encouraging, as evidenced by his involvement in organizing CS:GO tournaments and volunteering his programming skills for a charitable foundation. His experience in using tech for good and his passion for helping others align with his willingness to mentor others in the field of game development.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of games is James excited to play with his new video card?",
+      "category": 4,
+      "ground_truth": "RPGs",
+      "prediction": "James is excited to play RPGs and strategy games with his new video card. He has shown interest in exploring different game genres, including RPGs and strategy games, and has played a new RPG with a cool story and world. Therefore, it is reasonable to conclude that James is excited to play RPGs and strategy games with his new video card.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What inspired James to create his game?",
+      "category": 4,
+      "ground_truth": "Witcher 3",
+      "prediction": "James was inspired to create his game by his experience with video games, programming, and storytelling, particularly influenced by the game 'The Witcher 3'. He also drew inspiration from his childhood sketches and a virtual world he created inspired by 'The Witcher 3'.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What sparked James' passion for gaming when he was a kid?",
+      "category": 4,
+      "ground_truth": "Super Mario and The Legend of Zelda games",
+      "prediction": "James' passion for gaming when he was a kid was sparked by playing Super Mario and The Legend of Zelda on his old gaming setup with his mother and her army friend. These classic games from Nintendo were particularly addictive and influenced his interest in gaming.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did James lose progress on due to a power outage?",
+      "category": 4,
+      "ground_truth": "a game",
+      "prediction": "James lost progress on his game project due to a power outage while playing, as he forgot to save his progress.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What games were played at the gaming tournament organized by John on 31 October, 2022?",
+      "category": 4,
+      "ground_truth": "Fortnite, Overwatch, Apex Legends",
+      "prediction": "the games played at the gaming tournament organized by John on 31 October, 2022 were CS:GO, Overwatch, and Apex Legends.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was the purpose of the gaming tournament organized by John on 31 October, 2022?",
+      "category": 4,
+      "ground_truth": "To raise money for a children's hospital",
+      "prediction": "The purpose of the gaming tournament organized by John on 31 October, 2022, was to raise money for a children's hospital.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What decision did James and Samantha make on 31 October, 2022?",
+      "category": 4,
+      "ground_truth": "To move in together",
+      "prediction": "On 31 October, 2022, James and Samantha decided to move in together.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did James and Samantha decide to live together on 31 October, 2022?",
+      "category": 4,
+      "ground_truth": "In an apartment not far from McGee's bar",
+      "prediction": "James and Samantha decided to move in together on October 31, 2022.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did James and Samantha choose an apartment near McGee's bar?",
+      "category": 4,
+      "ground_truth": "They love spending time together at the bar",
+      "prediction": "James and Samantha chose an apartment near McGee's bar because James loves spending time at the bar and McGee's bar is a significant place for him. Additionally, renting an apartment near McGee's bar allows them to be close to a place they both enjoy, enhancing their quality of life and convenience.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What game is John hooked on playing on 5 November, 2022?",
+      "category": 4,
+      "ground_truth": "FIFA 23",
+      "prediction": "On 5 November, 2022, John was playing FIFA 23.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John suggest James practice before playing FIFA 23 together?",
+      "category": 4,
+      "ground_truth": "Control with a gamepad and timing",
+      "prediction": "John suggested that James practice FIFA 23 before playing with him.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What project did John work on with a game developer by 7 November, 2022?",
+      "category": 4,
+      "ground_truth": "An online board game",
+      "prediction": "On 7 November 2022, John collaborated on creating an online board game with a game developer.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the name of John's cousin's dog?",
+      "category": 4,
+      "ground_truth": "Luna",
+      "prediction": "The name of John's cousin's dog is Luna.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    }
+  ]
+}

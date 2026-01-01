@@ -1,18 +1,20 @@
 # --- Core LLM & Agent ---
-openai>=1.0.0          # LLM 客户端 (支持 GPT-4, Claude, DeepSeek 等兼容接口)
-pydantic>=2.0.0        # 数据验证与结构化输出 (Schema Definition)
-tenacity               # API 调用重试机制 (必备，防网络波动)
-python-dotenv          # 环境变量管理 (.env)
+openai==2.14.0          # LLM 客户端 (支持 GPT-4, Claude, DeepSeek 等兼容接口)
+pydantic==2.12.5        # 数据验证与结构化输出 (Schema Definition)
+tenacity==9.1.2         # API 调用重试机制 (必备，防网络波动)
+python-dotenv==1.2.1    # 环境变量管理 (.env)
 
 # --- Graph & Memory ---
-networkx               # 轻量级图数据库 (核心存储)
-matplotlib             # 图谱可视化 (调试用，画出你的 Memory Graph)
-scipy                  # networkx 画图布局算法依赖
+networkx==3.6.1         # 轻量级图数据库 (核心存储)
+matplotlib==3.10.8      # 图谱可视化 (调试用，画出你的 Memory Graph)
+scipy==1.16.3           # networkx 画图布局算法依赖
 
 # --- Utilities ---
-numpy                  # 基础数值计算
-colorlog               # 彩色日志 (方便看 Agent 思考过程)
+numpy==2.2.6            # 基础数值计算
+colorlog==6.10.1        # 彩色日志 (方便看 Agent 思考过程)
+torch==2.9.0            # Deep Learning Framework
+
 # --- Testing & Dev ---
-pytest                 # 单元测试
-black                  # 代码格式化
-isort                  # Import 排序
+pytest==9.0.2           # 单元测试
+black==25.12.0          # 代码格式化
+isort==7.0.0            # Import 排序

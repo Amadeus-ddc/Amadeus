@@ -16,13 +16,14 @@ class AdversarialOptimizer:
         self.client = OpenAI(base_url=api_base, api_key=api_key)
         self.model_name = model_name
 
-    def step(self, buffer_content: str, action_log: List[str] = None):
-        logger.info("⚔️ Starting True Adaptive Self-Play...")
+    def step(self, buffer_content: str, action_log: List[str] = None, mode: str = "adaptive", fixed_loops: int = 3, use_cot: bool = False):
+        logger.info(f"⚔️ Starting Self-Play (Mode: {mode}, CoT: {use_cot})...")
         
         history = []
         iteration = 0
         # 熔断机制：防止无限烧钱，但上限设高一点
-        HARD_LIMIT = 10 
+        # 如果是 fixed 模式，只运行 1 轮，一次性生成指定数量的问题
+        HARD_LIMIT = 10 if mode == "adaptive" else 1
         
         # 初始状态：攻击者非常激进
         consecutive_wins = 0
@@ -33,7 +34,11 @@ class AdversarialOptimizer:
             logger.info(f"--- Round {iteration} ---")
 
             # 1. 动态生成攻击 (Attack Generation)
-            questions = self._generate_adaptive_attack(buffer_content, history)
+            if mode == "adaptive":
+                questions = self._generate_adaptive_attack(buffer_content, history)
+            else:
+                # Fixed Mode: 一次性生成 fixed_loops 个问题
+                questions = self.questioner.generate_questions(buffer_content, num_questions=fixed_loops)
             
             if not questions:
                 logger.info("🏳️ Questioner surrendered: No more meaningful questions to ask.")
@@ -59,7 +64,7 @@ class AdversarialOptimizer:
             import concurrent.futures
             batch_results = []
             with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-                futures = {executor.submit(self._process_single_duel, q_item, buffer_content, action_log): q_item for q_item in unique_questions}
+                futures = {executor.submit(self._process_single_duel, q_item, buffer_content, action_log, use_cot): q_item for q_item in unique_questions}
                 for future in concurrent.futures.as_completed(futures):
                     batch_results.append(future.result())
 
@@ -70,44 +75,63 @@ class AdversarialOptimizer:
                 if res['result'] == "FAIL":
                     round_failed = True
             
-            if not round_failed:
-                consecutive_wins += 1
-                logger.info(f"🛡️ Defenders won this round. Streak: {consecutive_wins}")
-                # 收敛条件：如果防御者连续赢了2轮（且每轮都有实质性问题），说明已经很稳了
-                if consecutive_wins >= 2:
-                    logger.info("🏆 Convergence Reached: System is robust.")
-                    break
-            else:
-                consecutive_wins = 0
-                logger.info("💥 Defense breached! Continuing optimization...")
+            if mode == "adaptive":
+                if not round_failed:
+                    consecutive_wins += 1
+                    logger.info(f"🛡️ Defenders won this round. Streak: {consecutive_wins}")
+                    # 收敛条件：如果防御者连续赢了2轮（且每轮都有实质性问题），说明已经很稳了
+                    if consecutive_wins >= 2:
+                        logger.info("🏆 Convergence Reached: System is robust.")
+                        break
+                else:
+                    consecutive_wins = 0
+                    logger.info("💥 Defense breached! Continuing optimization...")
 
-    def _generate_adaptive_attack(self, buffer_content: str, history: List[Dict]) -> List[Dict]:
+    def _generate_adaptive_attack(self, buffer_content: str, history: List[Dict], fixed_count: int = None) -> List[Dict]:
         """
         让 Questioner 观察历史，决定是否继续攻击，以及攻击什么。
         """
         # 简化的历史摘要
         history_summary = "\n".join([f"Q: {h['question']} -> {'✅ PASS' if h['result']=='PASS' else '❌ FAIL'}" for h in history[-10:]])
         
+        if fixed_count:
+            mission_prompt = f"""**YOUR MISSION:**
+Generate exactly {fixed_count} challenging questions based on the Target Memory Buffer.
+Do NOT stop. You must generate {fixed_count} questions.
+"""
+            output_format = """**OUTPUT FORMAT (JSON):**
+{
+    "questions": [
+        { "question": "...", "ground_truth": "...", "type": "detail/inference/negative" }
+    ]
+}
+"""
+        else:
+            mission_prompt = """**YOUR MISSION:**
+Determine if there are still unexplored vulnerabilities or missing details in the memory.
+- If the Defender failed recently: ATTACK HARDER on that specific topic.
+- If the Defender passed: Try a TRICKIER angle or a different detail.
+- If the buffer is fully covered and robust: STOP.
+"""
+            output_format = """**OUTPUT FORMAT (JSON):**
+{
+    "stop_attack": boolean, // Set true if no more valid questions exist
+    "reason": "...",
+    "questions": [ // Empty if stop_attack is true
+        { "question": "...", "ground_truth": "...", "type": "detail/inference/negative" }
+    ]
+}
+"""
+
         prompt = f"""You are the Red Team Leader (Attacker).
 Target Memory Buffer: "{buffer_content[:500]}..."
 
 Previous Attacks & Results:
 {history_summary}
 
-**YOUR MISSION:**
-Determine if there are still unexplored vulnerabilities or missing details in the memory.
-- If the Defender failed recently: ATTACK HARDER on that specific topic.
-- If the Defender passed: Try a TRICKIER angle or a different detail.
-- If the buffer is fully covered and robust: STOP.
+{mission_prompt}
 
-**OUTPUT FORMAT (JSON):**
-{{
-    "stop_attack": boolean, // Set true if no more valid questions exist
-    "reason": "...",
-    "questions": [ // Empty if stop_attack is true
-        {{ "question": "...", "ground_truth": "...", "type": "detail/inference/negative" }}
-    ]
-}}
+{output_format}
 """
         try:
             response = self.questioner.client.chat.completions.create(
@@ -118,7 +142,8 @@ Determine if there are still unexplored vulnerabilities or missing details in th
             )
             res = json.loads(response.choices[0].message.content)
             
-            if res.get("stop_attack", False):
+            # Only check stop_attack if NOT in fixed mode
+            if not fixed_count and res.get("stop_attack", False):
                 return []
             
             return res.get("questions", [])
@@ -126,16 +151,125 @@ Determine if there are still unexplored vulnerabilities or missing details in th
             logger.error(f"Attack Generation Failed: {e}")
             return []
 
-    def _process_single_duel(self, q_item, buffer_content, action_log):
+    def _process_single_duel(self, q_item, buffer_content, action_log, use_cot=False):
         question = q_item.get("question")
         prediction = self.answerer.answer(question)
-        eval_result = self._evaluate_and_update(q_item, prediction, buffer_content, action_log)
+        
+        if use_cot:
+            eval_result = self._evaluate_and_update_cot(q_item, prediction, buffer_content, action_log)
+        else:
+            eval_result = self._evaluate_and_update(q_item, prediction, buffer_content, action_log)
         
         return {
             "question": question,
             "result": "PASS" if eval_result and eval_result.get("is_correct") else "FAIL",
             "blame": eval_result.get("blame") if eval_result else "UNKNOWN"
         }
+
+    def _evaluate_and_update_cot(self, q_item: Dict, prediction: str, buffer_content: str, action_log: List[str] = None):
+        """
+        Chain-of-Thought Evaluation: Split the complex task into 3 smaller steps.
+        """
+        action_log_str = "\n".join(action_log) if action_log else "No recent graph updates."
+        buffer_snippet = buffer_content[:500].replace("\n", " ")
+        
+        # Step 1: Judge & Blame
+        prompt_1 = f"""You are the Judge of the Amadeus Memory System.
+Goal: Determine if the Prediction matches the Ground Truth (derived from Buffer).
+
+Buffer: "{buffer_snippet}..."
+Question: "{q_item['question']}"
+Ground Truth: "{q_item['ground_truth']}"
+Prediction: "{prediction}"
+Builder Log: "{action_log_str}"
+
+**RULES:**
+1. If Prediction matches Ground Truth -> CORRECT.
+2. If Prediction is plausible but not in Buffer -> CORRECT (Blame Questioner).
+3. If Prediction contradicts Buffer -> WRONG.
+
+**BLAME (if WRONG):**
+- BUILDER: Info missing from Builder Log.
+- ANSWERER: Info exists in Log but Answerer missed it.
+
+Output JSON: {{ "is_correct": boolean, "blame": "BUILDER" | "ANSWERER" | "QUESTIONER" | "NONE", "reason": "..." }}
+"""
+        try:
+            res1 = self._call_llm(prompt_1)
+            is_correct = res1.get("is_correct", False)
+            blame = res1.get("blame", "NONE")
+            
+            graph_patch = []
+            meta_gradient = ""
+
+            if not is_correct:
+                logger.warning(f"❌ [CoT] DEFENDER FAILED. Blame: {blame}")
+                
+                # Step 2: Patch (Only if Builder failed)
+                if blame == "BUILDER":
+                    prompt_2 = f"""You are the Data Repair Agent.
+The Builder failed to extract info for: "{q_item['question']}"
+Buffer: "{buffer_snippet}..."
+
+Generate a JSON Graph Patch to fix this.
+Output JSON: {{ "graph_patch": [ {{ "action": "ADD", "subject": "...", "object": "...", "content": "..." }} ] }}
+"""
+                    res2 = self._call_llm(prompt_2)
+                    graph_patch = res2.get("graph_patch", [])
+                    if graph_patch:
+                        patch_str = json.dumps(graph_patch)
+                        self.builder.force_update(f"Apply these fixes: {patch_str}")
+
+                # Step 3: Gradient (For the blamed agent)
+                prompt_3 = f"""You are the Optimization Coach.
+The agent '{blame}' failed because: {res1.get('reason')}
+Question: "{q_item['question']}"
+
+Suggest a short, actionable instruction (Meta-Gradient) to update the agent's system prompt to prevent this.
+Output JSON: {{ "meta_gradient": "..." }}
+"""
+                res3 = self._call_llm(prompt_3)
+                meta_gradient = res3.get("meta_gradient", "")
+                
+                if blame == "BUILDER":
+                    self.builder.update_guideline("UPDATE", meta_gradient)
+                elif blame == "ANSWERER":
+                    self.answerer.update_guideline("SEARCH", meta_gradient)
+            
+            else:
+                logger.info(f"✅ [CoT] DEFENDER SUCCEEDED. Optimizing Questioner...")
+                # Step 3 (Alt): Gradient for Questioner
+                if blame == "QUESTIONER":
+                    prompt_3 = f"""You are the Red Team Coach.
+The Questioner failed to trick the system.
+Question: "{q_item['question']}"
+
+Suggest a strategy to generate harder/trickier questions.
+Output JSON: {{ "meta_gradient": "..." }}
+"""
+                    res3 = self._call_llm(prompt_3)
+                    meta_gradient = res3.get("meta_gradient", "")
+                    self.questioner.update_guideline("GENERATE", meta_gradient)
+
+            return {
+                "is_correct": is_correct,
+                "blame": blame,
+                "graph_patch": graph_patch,
+                "meta_gradient": meta_gradient
+            }
+
+        except Exception as e:
+            logger.error(f"[CoT] Error: {e}")
+            return {}
+
+    def _call_llm(self, prompt):
+        response = self.client.chat.completions.create(
+            model=self.model_name,
+            messages=[{"role": "system", "content": prompt}],
+            response_format={"type": "json_object"},
+            temperature=0.0
+        )
+        return json.loads(response.choices[0].message.content)
 
     def _evaluate_and_update(self, q_item: Dict, prediction: str, buffer_content: str, action_log: List[str] = None):
         # Critic LLM
