@@ -8,8 +8,8 @@ from amadeus.agents.base import BaseAgent
 logger = logging.getLogger("Amadeus.Questioner")
 
 class QuestionerAgent(BaseAgent):
-    def __init__(self, model_name: str = "gpt-4-turbo"):
-        super().__init__(model_name)
+    def __init__(self, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None):
+        super().__init__(model_name, api_base, api_key)
         self.static_prompt = """You are 'The Questioner', the Adversarial Attacker of the Amadeus Memory System.
 Your goal is to generate questions based on the provided 'Buffer Context' to test if the memory system has correctly compressed and stored the information.
 
@@ -66,4 +66,5 @@ Target Modes for this batch: {', '.join(selected_modes)}
             return data.get("questions", [])
         except Exception as e:
             logger.error(f"Failed to generate questions: {e}")
+            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return []

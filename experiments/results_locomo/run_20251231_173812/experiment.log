@@ -1,0 +1,57 @@
+2025-12-31 17:38:12,144 - Experiment - INFO - Using local embedding model: /home/ubuntu/hzy/crl/Amadeus/amadeus/models/all-MiniLM-L6-v2
+2025-12-31 17:38:13,427 - Experiment - INFO - ✅ 成功加载 10 个样本
+2025-12-31 17:38:13,427 - Experiment - INFO - 
+========================================
+🚀 Running Sample [1/10]: conv-26
+========================================
+2025-12-31 17:38:13,502 - Experiment - INFO - 🧠 Phase 1: Building Memory (19 contextual sessions)...
+2025-12-31 17:38:13,502 - Experiment - INFO - 🔄 Adaptive Flush Triggered at chunk 1. Processing Buffer...
+2025-12-31 17:38:16,462 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-31 17:38:16,749 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:16,754 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:16,757 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:16,759 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:38:16,762 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:38:16,763 - Amadeus.Optimizer - INFO - ⚔️ Starting Adaptive Adversarial Optimization Step...
+2025-12-31 17:38:17,028 - Amadeus.Questioner - ERROR - Failed to generate questions: Error code: 404 - {'error': {'message': 'The model `Qwen/Qwen2.5-14B-Instruct` does not exist.', 'type': 'NotFoundError', 'param': None, 'code': 404}}
+2025-12-31 17:38:17,028 - Amadeus.Questioner - ERROR - Debug Info: Base URL: http://localhost:8000/v1/, Model: Qwen/Qwen2.5-14B-Instruct
+2025-12-31 17:38:17,028 - Amadeus.Optimizer - INFO - No new unique questions generated. Stopping.
+2025-12-31 17:38:17,028 - Experiment - INFO - 🔄 Adaptive Flush Triggered at chunk 2. Processing Buffer...
+2025-12-31 17:38:20,706 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute dates from the context provided. Step 2: Identify entities and their actions. Step 3: Compare with the current graph. Step 4: Resolve any conflicts and add new information.
+2025-12-31 17:38:20,716 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Ran a charity race for mental health--> Charity Race (Time: 2023-05-20)
+2025-12-31 17:38:20,719 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:38:20,722 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:38:20,725 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:20,728 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Chose an inclusive adoption agency that supports LGBTQ+ individuals--> Adoption Agency (Time: 2023-05-25)
+2025-12-31 17:38:20,730 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:20,732 - Amadeus.Optimizer - INFO - ⚔️ Starting Adaptive Adversarial Optimization Step...
+2025-12-31 17:38:20,738 - Amadeus.Questioner - ERROR - Failed to generate questions: Error code: 404 - {'error': {'message': 'The model `Qwen/Qwen2.5-14B-Instruct` does not exist.', 'type': 'NotFoundError', 'param': None, 'code': 404}}
+2025-12-31 17:38:20,738 - Amadeus.Questioner - ERROR - Debug Info: Base URL: http://localhost:8000/v1/, Model: Qwen/Qwen2.5-14B-Instruct
+2025-12-31 17:38:20,738 - Amadeus.Optimizer - INFO - No new unique questions generated. Stopping.
+2025-12-31 17:38:20,738 - Experiment - INFO - 🔄 Adaptive Flush Triggered at chunk 3. Processing Buffer...
+2025-12-31 17:38:26,539 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-31 17:38:26,551 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:26,554 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:26,557 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:38:26,560 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:38:26,563 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:26,566 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:26,569 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:38:26,572 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:38:26,575 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:26,577 - Amadeus.Optimizer - INFO - ⚔️ Starting Adaptive Adversarial Optimization Step...
+2025-12-31 17:38:26,581 - Amadeus.Questioner - ERROR - Failed to generate questions: Error code: 404 - {'error': {'message': 'The model `Qwen/Qwen2.5-14B-Instruct` does not exist.', 'type': 'NotFoundError', 'param': None, 'code': 404}}
+2025-12-31 17:38:26,582 - Amadeus.Questioner - ERROR - Debug Info: Base URL: http://localhost:8000/v1/, Model: Qwen/Qwen2.5-14B-Instruct
+2025-12-31 17:38:26,582 - Amadeus.Optimizer - INFO - No new unique questions generated. Stopping.
+2025-12-31 17:38:26,582 - Experiment - INFO - 🔄 Adaptive Flush Triggered at chunk 4. Processing Buffer...
+2025-12-31 17:38:30,283 - Amadeus.Builder - INFO - 🤔 Builder CoT: Identified the context date as 27 June, 2023. Identified new information about Caroline's necklace and hand-painted bowl, as well as Melanie's recent camping trip. Updated information about Caroline's career interests and motivation.
+2025-12-31 17:38:30,287 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Received a necklace from her grandmother in Sweden as a symbol of love, faith, and strength--> Necklace (Time: 2023-06-27)
+2025-12-31 17:38:30,290 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Received a hand-painted bowl as a gift for her 18th birthday, which represents art and self-expression--> Hand-Painted Bowl (Time: 2023-06-27)
+2025-12-31 17:38:30,292 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Took her family camping in the mountains last week, including exploring nature, roasting marshmallows, and hiking--> Family Camping Trip (Time: 2023-06-20)
+2025-12-31 17:38:30,296 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:30,300 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:38:30,302 - Amadeus.Optimizer - INFO - ⚔️ Starting Adaptive Adversarial Optimization Step...
+2025-12-31 17:38:30,306 - Amadeus.Questioner - ERROR - Failed to generate questions: Error code: 404 - {'error': {'message': 'The model `Qwen/Qwen2.5-14B-Instruct` does not exist.', 'type': 'NotFoundError', 'param': None, 'code': 404}}
+2025-12-31 17:38:30,306 - Amadeus.Questioner - ERROR - Debug Info: Base URL: http://localhost:8000/v1/, Model: Qwen/Qwen2.5-14B-Instruct
+2025-12-31 17:38:30,306 - Amadeus.Optimizer - INFO - No new unique questions generated. Stopping.
+2025-12-31 17:38:30,306 - Experiment - INFO - 🔄 Adaptive Flush Triggered at chunk 5. Processing Buffer...

@@ -1,12 +1,17 @@
 import logging
+import os
 from typing import Dict, List
 from openai import OpenAI
 
 logger = logging.getLogger("Amadeus.Agent")
 
 class BaseAgent:
-    def __init__(self, model_name: str = "gpt-4-turbo"):
-        self.client = OpenAI()
+    def __init__(self, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None):
+        # Priority: Explicit Args > Environment Variables > Default
+        base_url = api_base or os.environ.get("OPENAI_BASE_URL")
+        api_key = api_key or os.environ.get("OPENAI_API_KEY")
+        
+        self.client = OpenAI(base_url=base_url, api_key=api_key)
         self.model_name = model_name
         self.static_prompt: str = ""
         self.operator_guidelines: Dict[str, List[str]] = {}

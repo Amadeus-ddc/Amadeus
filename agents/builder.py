@@ -90,6 +90,49 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
 }
 """
 
+    def check_flush_condition(self, current_buffer: str, new_chunk: str) -> bool:
+        """
+        决定是否需要立即处理 Buffer（Flush）。
+        返回 True 表示需要 Flush，False 表示继续积累。
+        """
+        # 1. 硬性限制：如果 Buffer 太长（例如超过 1500 字符），强制 Flush，防止上下文溢出
+        if len(current_buffer) > 1500:
+            return True
+            
+        # 2. 长度过滤：如果 Buffer 太短，不进行 LLM 判断，直接积累
+        if len(current_buffer) < 200:
+            return False
+
+        # 3. 语义判断：使用 LLM 判断话题是否断裂
+        prompt = f"""You are a Memory Buffer Manager. Decide if the current memory buffer should be FLUSHED (processed) now.
+
+Current Buffer Context:
+"{current_buffer[-300:]}" (last 300 chars)
+
+Incoming New Text:
+"{new_chunk}"
+
+Rules for FLUSHing:
+1. The TOPIC has changed significantly (e.g., from work to family).
+2. The SCENE or TIME has changed.
+3. The current conversation segment feels "complete".
+
+Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
+"""
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[{"role": "user", "content": prompt}],
+                response_format={"type": "json_object"},
+                temperature=0.0
+            )
+            result = json.loads(response.choices[0].message.content)
+            return result.get("decision") == "FLUSH"
+        except Exception as e:
+            logger.warning(f"Buffer check failed: {e}")
+            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+            return False # 默认继续积累
+
     def process_buffer(self, buffer_content: str) -> tuple[List[str], List[str]]:
         context = self.graph.get_full_state()
         
@@ -106,20 +149,21 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
             
             raw_content = response.choices[0].message.content
             if not raw_content:
-                logger.error("Empty response from Builder LLM")
                 return [], []
                 
-            clean_json = re.sub(r'^```json\s*|\s*```$', '', raw_content.strip(), flags=re.MULTILINE)
-            data = json.loads(clean_json)
+            data = json.loads(raw_content)
             
-            cot = data.get("chain_of_thought", "No reasoning provided.")
-            logger.info(f"🤔 Builder CoT: {cot}")
-
-            ops_data = data.get("operations", [])
-            return self._execute_operations(ops_data)
-
+            # Log CoT
+            if "chain_of_thought" in data:
+                logger.info(f"🤔 Builder CoT: {data['chain_of_thought']}")
+                
+            ops = data.get("operations", [])
+            return self._execute_operations(ops)
+            
         except Exception as e:
             logger.error(f"Builder Failed: {e}")
+            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+            return [], []
             return [], []
 
     def force_update(self, instruction: str) -> bool:
@@ -158,6 +202,7 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
             return True
         except Exception as e:
             logger.error(f"Force Update Failed: {e}")
+            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return False
 
     def _execute_operations(self, ops_data: List[dict]) -> tuple[List[str], List[str]]:

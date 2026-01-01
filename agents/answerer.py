@@ -9,8 +9,8 @@ from amadeus.agents.base import BaseAgent
 logger = logging.getLogger("Amadeus.Answerer")
 
 class AnswererAgent(BaseAgent):
-    def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo"):
-        super().__init__(model_name)
+    def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None):
+        super().__init__(model_name, api_base, api_key)
         self.graph = graph
         self.max_steps = 8  # Increased steps for deeper exploration in granular graphs
         self.static_prompt = """You are an intelligent Graph RAG Agent.
@@ -220,7 +220,7 @@ OR
         try:
             fallback_prompt = f"""You have explored the graph but reached the step limit.
 Based on the exploration history below, provide the best possible answer to the question.
-If you found partial information, use it to infer the answer.
+If you found partial information, use it to infer the answer according to your common sense and intuition.
 Only say "Unknown" if you have absolutely NO relevant information.
 
 **Question**: "{question}"

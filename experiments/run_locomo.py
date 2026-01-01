@@ -119,6 +119,7 @@ def parse_sample_entry(target_data):
 def load_data_for_experiment(path: str, target_id: str = None):
     """
     加载实验数据。如果指定 target_id, 只返回该样本: 否则返回所有样本。
+    支持逗号分隔的多个ID，例如 "conv-26,conv-27"
     返回: List of (sample_id, chunks, qa_pairs)
     """
     try:
@@ -131,9 +132,16 @@ def load_data_for_experiment(path: str, target_id: str = None):
     results = []
     found = False
     
+    # 解析 target_id 列表
+    target_ids = set()
+    if target_id and target_id != "all":
+        target_ids = {tid.strip() for tid in target_id.split(',')}
+
     for entry in dataset:
         sid = entry.get('sample_id')
-        if target_id and target_id != "all" and sid != target_id:
+        
+        # 过滤逻辑
+        if target_ids and sid not in target_ids:
             continue
             
         found = True
@@ -291,24 +299,46 @@ def main():
         optimizer = AdversarialOptimizer(questioner, builder, answerer, model_name=args.model_name)
 
         logger.info(f"🧠 Phase 1: Building Memory ({len(chunks)} contextual sessions)...")
+        
+        # Adaptive Buffer Logic
+        current_buffer = ""
+        
         for i, chunk in enumerate(chunks):
-            buffer.add(chunk)
-            # 每个 Chunk 都是一个独立的 Session/Source，应当立即处理
-            if buffer.is_full() or True: 
-                content = buffer.get_content()
+            # 1. Accumulate
+            if current_buffer == "":
+                current_buffer += chunk
+            else:
+                # 2. Check Flush Condition
+                should_flush = builder.check_flush_condition(current_buffer, chunk)
                 
-                # 1. Builder 构建
-                kept_items, action_log = builder.process_buffer(content)
-                
-                # 2. Optimizer 自博弈 (Self-Play)
-                # 只有当图谱中有内容时才进行博弈，避免空图报错
-                if graph.graph.number_of_nodes() > 0:
-                    try:
-                        optimizer.step(content, action_log)
-                    except Exception as e:
-                        logger.warning(f"Optimizer step failed (skipping): {e}")
-                
-                buffer.clear(keep_items=kept_items)
+                if should_flush:
+                    logger.info(f"🔄 Adaptive Flush Triggered at chunk {i}. Processing Buffer...")
+                    
+                    # A. Builder Process
+                    kept_items, action_log = builder.process_buffer(current_buffer)
+                    
+                    # B. Optimizer Self-Play
+                    if graph.graph.number_of_nodes() > 0:
+                        try:
+                            optimizer.step(current_buffer, action_log)
+                        except Exception as e:
+                            logger.warning(f"Optimizer step failed (skipping): {e}")
+                    
+                    # C. Reset Buffer with new chunk
+                    current_buffer = chunk
+                else:
+                    # Continue accumulating
+                    current_buffer += "\n" + chunk
+        
+        # 3. Final Flush for remaining content
+        if current_buffer:
+            logger.info("🔄 Final Flush...")
+            kept_items, action_log = builder.process_buffer(current_buffer)
+            if graph.graph.number_of_nodes() > 0:
+                try:
+                    optimizer.step(current_buffer, action_log)
+                except Exception as e:
+                    logger.warning(f"Optimizer step failed (skipping): {e}")
 
         logger.info(f"📊 Graph Ready. Nodes: {graph.graph.number_of_nodes()}, Edges: {graph.graph.number_of_edges()}")
 

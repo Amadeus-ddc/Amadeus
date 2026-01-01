@@ -1,0 +1,52 @@
+2025-12-31 17:23:42,429 - Experiment - INFO - Using local embedding model: /home/ubuntu/hzy/crl/Amadeus/amadeus/models/all-MiniLM-L6-v2
+2025-12-31 17:23:43,667 - Experiment - INFO - ✅ 成功加载 10 个样本
+2025-12-31 17:23:43,668 - Experiment - INFO - 
+========================================
+🚀 Running Sample [1/10]: conv-26
+========================================
+2025-12-31 17:23:43,741 - Experiment - INFO - 🧠 Phase 1: Building Memory (19 contextual sessions)...
+2025-12-31 17:23:43,741 - Experiment - INFO - 🔄 Adaptive Flush Triggered at chunk 1. Processing Buffer...
+2025-12-31 17:23:52,300 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2025-12-31 17:23:52,600 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:23:52,604 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:23:52,607 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:23:52,610 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:23:52,613 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:23:52,614 - Amadeus.Optimizer - INFO - ⚔️ Starting Adaptive Adversarial Optimization Step...
+2025-12-31 17:23:54,019 - Amadeus.Optimizer - INFO - Generated batch of 2 questions (Loop 1).
+2025-12-31 17:23:54,019 - Amadeus.Optimizer - INFO - Testing Question (FACT_CHECK): What did Caroline find inspiring at the LGBTQ support group?
+2025-12-31 17:23:54,019 - Amadeus.Answerer - INFO - ❓ Question: What did Caroline find inspiring at the LGBTQ support group?
+2025-12-31 17:23:54,287 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline LGBTQ support group', 'mode': 'hybrid'}
+2025-12-31 17:23:54,492 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ support group'}
+2025-12-31 17:23:54,873 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Caroline found inspiration in feeling accepted and gaining courage from the LGBTQ support group, which has motivated her to consider pursuing education and exploring career options in counseling or mental health.'}
+2025-12-31 17:23:54,874 - Amadeus.Optimizer - INFO - Prediction: Caroline found inspiration in feeling accepted and gaining courage from the LGBTQ support group, which has motivated her to consider pursuing education and exploring career options in counseling or mental health.
+2025-12-31 17:23:54,874 - Amadeus.Optimizer - INFO - Ground Truth: The transgender stories were so inspiring!
+2025-12-31 17:23:54,878 - Amadeus.Optimizer - ERROR - Optimizer Error: Error code: 404 - {'error': {'message': 'The model `Qwen/Qwen2.5-14B-Instruct` does not exist.', 'type': 'NotFoundError', 'param': None, 'code': 404}}
+2025-12-31 17:23:54,879 - Amadeus.Optimizer - INFO - Testing Question (MULTI_HOP): How does attending the support group relate to Caroline's future plans?
+2025-12-31 17:23:54,879 - Amadeus.Answerer - INFO - ❓ Question: How does attending the support group relate to Caroline's future plans?
+2025-12-31 17:23:55,134 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Caroline's future plans support group", 'mode': 'hybrid'}
+2025-12-31 17:23:55,341 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ support group'}
+2025-12-31 17:23:55,541 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ support group'}
+2025-12-31 17:23:55,744 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ support group'}
+2025-12-31 17:23:55,946 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ support group'}
+2025-12-31 17:23:56,149 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ support group'}
+2025-12-31 17:23:56,362 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ support group'}
+2025-12-31 17:23:56,561 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Attended an LGBTQ support group'}
+2025-12-31 17:23:56,561 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2025-12-31 17:23:56,866 - Amadeus.Optimizer - INFO - Prediction: Attending the LGBTQ support group has helped Caroline feel accepted and gain courage, which positively influences her future plans to pursue education and explore career options in counseling or mental health.
+2025-12-31 17:23:56,866 - Amadeus.Optimizer - INFO - Ground Truth: The support group gave her courage to embrace herself and inspired her to pursue education and career options in counseling or mental health.
+2025-12-31 17:23:56,870 - Amadeus.Optimizer - ERROR - Optimizer Error: Error code: 404 - {'error': {'message': 'The model `Qwen/Qwen2.5-14B-Instruct` does not exist.', 'type': 'NotFoundError', 'param': None, 'code': 404}}
+2025-12-31 17:23:56,873 - Amadeus.Optimizer - INFO - Adaptive Logic: Sufficient testing achieved. Stopping.
+2025-12-31 17:23:56,873 - Experiment - INFO - 🔄 Adaptive Flush Triggered at chunk 2. Processing Buffer...
+2025-12-31 17:24:01,157 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute dates from the context provided. Step 2: Identify entities and their actions. Step 3: Compare with the current graph. Step 4: Resolve any conflicts and add new information.
+2025-12-31 17:24:01,162 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:24:01,165 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:24:01,168 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:24:01,176 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2025-12-31 17:24:01,179 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:24:01,182 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:24:01,185 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2025-12-31 17:24:01,186 - Amadeus.Optimizer - INFO - ⚔️ Starting Adaptive Adversarial Optimization Step...
+2025-12-31 17:24:01,190 - Amadeus.Questioner - ERROR - Failed to generate questions: Error code: 404 - {'error': {'message': 'The model `Qwen/Qwen2.5-14B-Instruct` does not exist.', 'type': 'NotFoundError', 'param': None, 'code': 404}}
+2025-12-31 17:24:01,190 - Amadeus.Optimizer - INFO - No new unique questions generated. Stopping.
+2025-12-31 17:24:01,190 - Experiment - INFO - 🔄 Adaptive Flush Triggered at chunk 3. Processing Buffer...
