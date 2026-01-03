@@ -8,8 +8,10 @@ from amadeus.agents.base import BaseAgent
 logger = logging.getLogger("Amadeus.Questioner")
 
 class QuestionerAgent(BaseAgent):
-    def __init__(self, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None):
-        super().__init__(model_name, api_base, api_key)
+    def __init__(self, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None, logger: logging.Logger = None):
+        super().__init__(model_name, api_base, api_key, logger)
+        if self.logger is None:
+            self.logger = logging.getLogger("Amadeus.Questioner")
         self.static_prompt = """You are 'The Questioner', the Adversarial Attacker of the Amadeus Memory System.
 Your goal is to generate questions based on the provided 'Buffer Context' to test if the memory system has correctly compressed and stored the information.
 
@@ -55,8 +57,7 @@ Generate {num_questions} questions.
 Target Modes for this batch: {', '.join(selected_modes)}
 """
         try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
+            response = self.call_llm(
                 messages=[{"role": "system", "content": prompt}],
                 response_format={"type": "json_object"},
                 temperature=0.7
@@ -65,6 +66,6 @@ Target Modes for this batch: {', '.join(selected_modes)}
             data = json.loads(content)
             return data.get("questions", [])
         except Exception as e:
-            logger.error(f"Failed to generate questions: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+            self.logger.error(f"Failed to generate questions: {e}")
+            self.logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return []

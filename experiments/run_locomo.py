@@ -6,6 +6,8 @@ import logging
 import argparse
 import datetime
 import shutil
+import time
+import random
 import numpy as np
 import torch
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -64,6 +66,23 @@ def setup_logging(log_path=None):
         force=True
     )
     logging.getLogger("httpx").setLevel(logging.WARNING)
+
+def get_sample_logger(sample_id, log_path):
+    logger = logging.getLogger(f"Sample_{sample_id}")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+    
+    # Clear existing handlers to avoid duplication if re-used
+    if logger.hasHandlers():
+        logger.handlers.clear()
+        
+    # File Handler
+    os.makedirs(os.path.dirname(log_path), exist_ok=True)
+    file_handler = logging.FileHandler(log_path, mode='w', encoding='utf-8')
+    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+    logger.addHandler(file_handler)
+    
+    return logger
 
 logger = logging.getLogger("Experiment")
 
@@ -183,24 +202,44 @@ Do NOT include both CORRECT and WRONG in your response, or it will break the eva
 Just return the label CORRECT or WRONG in a json format with the key as "label".
 """
 
-def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32b-instruct", api_base=None, api_key=None):
+def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32b-instruct", api_base=None, api_key=None, logger=None):
     client = OpenAI(base_url=api_base, api_key=api_key)
     
+    max_retries = 3
+    content = None
+    
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(
+                model=model_name,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": ACCURACY_PROMPT.format(
+                            question=question, gold_answer=ground_truth, generated_answer=prediction
+                        ),
+                    }
+                ],
+                response_format={"type": "json_object"},
+                temperature=0.0,
+                timeout=300.0
+            )
+            content = response.choices[0].message.content
+            break
+        except Exception as e:
+            if logger:
+                logger.warning(f"Evaluation LLM Call Failed (Attempt {attempt + 1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                time.sleep((2 ** attempt) + random.uniform(0, 1))
+            else:
+                if logger:
+                    logger.error(f"Evaluation LLM Call Failed after {max_retries} attempts.")
+                return False
+
+    if not content:
+        return False
+    
     try:
-        response = client.chat.completions.create(
-            model=model_name,
-            messages=[
-                {
-                    "role": "user",
-                    "content": ACCURACY_PROMPT.format(
-                        question=question, gold_answer=ground_truth, generated_answer=prediction
-                    ),
-                }
-            ],
-            response_format={"type": "json_object"},
-            temperature=0.0,
-        )
-        content = response.choices[0].message.content
         
         def extract_json(text):
             text = text.strip()
@@ -223,25 +262,34 @@ def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32
         
         return is_correct, score, reason
     except Exception as e:
-        logger.error(f"LLM Judge failed: {e}")
+        (logger or logging.getLogger("Experiment")).error(f"LLM Judge failed: {e}")
         return False, 0.0, str(e)
 
 def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, run_output_dir):
     sample_id, chunks, questions = sample_data
-    logger.info(f"\n{'='*40}\n🚀 Running Sample: {sample_id}\n{'='*40}")
     
-    # 清理旧图
-    graph_path = f"data/graph_{sample_id}.json"
+    # Create sample directory
+    sample_dir = os.path.join(run_output_dir, sample_id)
+    os.makedirs(sample_dir, exist_ok=True)
+    
+    # Setup Sample Logger
+    sample_logger = get_sample_logger(sample_id, os.path.join(sample_dir, "execution.log"))
+    sample_logger.info(f"\n{'='*40}\n🚀 Running Sample: {sample_id}\n{'='*40}")
+    
+    # Graph Path inside sample directory
+    graph_path = os.path.join(sample_dir, "graph.json")
     if os.path.exists(graph_path): os.remove(graph_path)
         
     graph = MemoryGraph(graph_path, embedder=embedder)
     buffer = TimeWindowBuffer(trigger_threshold=1) # 每一个Session都是完整上下文，直接触发
-    builder = BuilderAgent(graph, model_name=args.model_name)
-    answerer = AnswererAgent(graph, model_name=args.model_name)
-    questioner = QuestionerAgent(model_name=args.model_name)
-    optimizer = AdversarialOptimizer(questioner, builder, answerer, model_name=args.model_name)
+    
+    # Pass logger to agents
+    builder = BuilderAgent(graph, model_name=args.model_name, logger=sample_logger)
+    answerer = AnswererAgent(graph, model_name=args.model_name, logger=sample_logger)
+    questioner = QuestionerAgent(model_name=args.model_name, logger=sample_logger)
+    optimizer = AdversarialOptimizer(questioner, builder, answerer, model_name=args.model_name, logger=sample_logger)
 
-    logger.info(f"[{sample_id}] 🧠 Phase 1: Building Memory ({len(chunks)} contextual sessions)...")
+    sample_logger.info(f"[{sample_id}] 🧠 Phase 1: Building Memory ({len(chunks)} contextual sessions)...")
     
     # Adaptive Buffer Logic
     current_buffer = ""
@@ -255,8 +303,11 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     optimizer_mode = "adaptive"
     optimizer_fixed_count = None
     use_cot = False
+    enable_optimizer = True
     
-    if ablation_mode == "adaptive_buffer_fixed_sp":
+    if ablation_mode == "no_self_play":
+        enable_optimizer = False
+    elif ablation_mode == "adaptive_buffer_fixed_sp":
         optimizer_mode = "fixed"
         optimizer_fixed_count = fixed_sp_count
     elif ablation_mode == "fixed_buffer_adaptive_sp":
@@ -284,14 +335,14 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
                 should_flush = builder.check_flush_condition(current_buffer, chunk)
             
             if should_flush:
-                logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+                sample_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
                 kept_items, action_log = builder.process_buffer(current_buffer)
                 
-                if graph.graph.number_of_nodes() > 0:
+                if enable_optimizer and graph.graph.number_of_nodes() > 0:
                     try:
                         optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
                     except Exception as e:
-                        logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
+                        sample_logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
                 
                 current_buffer = chunk
                 chunks_since_flush = 1
@@ -301,25 +352,22 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     
     # 3. Final Flush for remaining content
     if current_buffer:
-        logger.info(f"[{sample_id}] 🔄 Final Flush...")
+        sample_logger.info(f"[{sample_id}] 🔄 Final Flush...")
         kept_items, action_log = builder.process_buffer(current_buffer)
-        if graph.graph.number_of_nodes() > 0:
+        if enable_optimizer and graph.graph.number_of_nodes() > 0:
             try:
                 optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
             except Exception as e:
-                logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
+                sample_logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
 
-    logger.info(f"[{sample_id}] 📊 Graph Ready. Nodes: {graph.graph.number_of_nodes()}, Edges: {graph.graph.number_of_edges()}")
+    sample_logger.info(f"[{sample_id}] 📊 Graph Ready. Nodes: {graph.graph.number_of_nodes()}, Edges: {graph.graph.number_of_edges()}")
 
-    # Save graph to output dir
-    final_graph_path = os.path.join(run_output_dir, f"graph_{sample_id}.json")
-    try:
-        shutil.copy(graph_path, final_graph_path)
-        logger.info(f"[{sample_id}] 💾 Graph saved to: {final_graph_path}")
-    except Exception as e:
-        logger.error(f"[{sample_id}] Failed to save graph: {e}")
+    # Save graph to output dir (Already saved to sample_dir/graph.json by MemoryGraph, but let's ensure)
+    # MemoryGraph saves to self.storage_file which is graph_path = sample_dir/graph.json
+    # So we don't need to copy it anymore, but let's keep a log
+    sample_logger.info(f"[{sample_id}] 💾 Graph saved to: {graph_path}")
 
-    logger.info(f"[{sample_id}] 🔍 Phase 2: Evaluation...")
+    sample_logger.info(f"[{sample_id}] 🔍 Phase 2: Evaluation...")
     
     sample_qa_results = []
     sample_scores = []
@@ -342,14 +390,15 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
         try:
             pred = answerer.answer(q)
         except Exception as e:
-            logger.error(f"[{sample_id}] Answerer failed: {e}")
+            sample_logger.error(f"[{sample_id}] Answerer failed: {e}")
             pred = "Error"
         
         is_correct, score, reason = evaluate_with_llm(
             q, gt, pred, 
             model_name=args.judge_model_name,
             api_base=judge_api_base,
-            api_key=judge_api_key
+            api_key=judge_api_key,
+            logger=sample_logger
         )
         
         # Update stats
@@ -365,7 +414,7 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
         
         icon = "✅" if is_correct else "❌"
         
-        logger.info(f"\n[{sample_id}] Q: {q}\nCategory: {category}\nGT: {gt}\nPred: {pred}\nResult: {icon} (Score: {score:.2f})\nReason: {reason}")
+        sample_logger.info(f"\n[{sample_id}] Q: {q}\nCategory: {category}\nGT: {gt}\nPred: {pred}\nResult: {icon} (Score: {score:.2f})\nReason: {reason}")
         
         sample_qa_results.append({
             "question": q,
@@ -378,7 +427,7 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
         })
 
     sample_avg_score = np.mean(sample_scores) if sample_scores else 0.0
-    logger.info(f"\n🏆 Sample {sample_id} Score (Avg Score): {sample_avg_score * 100:.1f}%")
+    sample_logger.info(f"\n🏆 Sample {sample_id} Score (Avg Score): {sample_avg_score * 100:.1f}%")
     
     # Save sample result
     sample_result = {
@@ -387,7 +436,7 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
         "qa_results": sample_qa_results
     }
     
-    with open(os.path.join(run_output_dir, f"sample_{sample_id}.json"), 'w', encoding='utf-8') as f:
+    with open(os.path.join(sample_dir, "result.json"), 'w', encoding='utf-8') as f:
         json.dump(sample_result, f, ensure_ascii=False, indent=2)
         
     return {
@@ -419,7 +468,7 @@ def main():
     
     # Ablation Arguments
     parser.add_argument("--ablation_mode", type=str, default="none", 
-                        choices=["none", "fixed_buffer_adaptive_sp", "adaptive_buffer_fixed_sp", "fixed_buffer_fixed_sp_cot"],
+                        choices=["none", "fixed_buffer_adaptive_sp", "adaptive_buffer_fixed_sp", "fixed_buffer_fixed_sp_cot", "no_self_play"],
                         help="Ablation study mode")
     parser.add_argument("--fixed_buffer_size", type=int, default=3, help="Number of chunks for fixed buffer size")
     parser.add_argument("--fixed_sp_count", type=int, default=3, help="Number of questions for fixed self-play")

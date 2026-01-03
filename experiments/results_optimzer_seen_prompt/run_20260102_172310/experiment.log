@@ -1,0 +1,22 @@
+2026-01-02 17:23:10,496 - Experiment - INFO - Using local embedding model: /home/ubuntu/hzy/crl/Amadeus/amadeus/models/all-MiniLM-L6-v2
+2026-01-02 17:23:11,391 - Experiment - INFO - ✅ 成功加载 10 个样本
+2026-01-02 17:23:11,391 - Experiment - INFO - 🚀 Starting parallel execution with 10 workers for 10 samples.
+2026-01-02 17:36:58,015 - openai._base_client - INFO - Retrying request to /chat/completions in 0.390835 seconds
+2026-01-02 17:37:05,101 - openai._base_client - INFO - Retrying request to /chat/completions in 0.376424 seconds
+2026-01-02 17:46:58,513 - openai._base_client - INFO - Retrying request to /chat/completions in 0.979373 seconds
+2026-01-02 18:08:57,658 - openai._base_client - INFO - Retrying request to /chat/completions in 0.458792 seconds
+2026-01-02 18:22:47,983 - Experiment - INFO - 
+========================================
+🌟 FINAL EXPERIMENT RESULT
+Total Samples: 10
+Total Questions: 1540
+2026-01-02 18:22:47,984 - Experiment - INFO - Overall Avg Score: 51.4%
+2026-01-02 18:22:47,984 - Experiment - INFO - 
+Category Breakdown:
+2026-01-02 18:22:47,984 - Experiment - INFO -   Category 2: 44.2% (n=321)
+2026-01-02 18:22:47,984 - Experiment - INFO -   Category 4: 55.8% (n=841)
+2026-01-02 18:22:47,984 - Experiment - INFO -   Category 1: 49.3% (n=282)
+2026-01-02 18:22:47,984 - Experiment - INFO -   Category 3: 43.8% (n=96)
+2026-01-02 18:22:47,984 - Experiment - INFO - 
+Results saved to: results_optimzer_seen_prompt/run_20260102_172310
+========================================

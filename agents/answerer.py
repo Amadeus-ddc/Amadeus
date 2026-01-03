@@ -9,8 +9,8 @@ from amadeus.agents.base import BaseAgent
 logger = logging.getLogger("Amadeus.Answerer")
 
 class AnswererAgent(BaseAgent):
-    def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None):
-        super().__init__(model_name, api_base, api_key)
+    def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None, logger: logging.Logger = None):
+        super().__init__(model_name, api_base, api_key, logger=logger)
         self.graph = graph
         self.max_steps = 8  # Increased steps for deeper exploration in granular graphs
         self.static_prompt = """You are an intelligent Graph RAG Agent.
@@ -111,7 +111,7 @@ OR
         return [h[0] for h in hits[:10]]
 
     def answer(self, question: str) -> str:
-        logger.info(f"❓ Question: {question}")
+        self.logger.info(f"❓ Question: {question}")
         
         history = []
         current_nodes = []
@@ -144,8 +144,7 @@ OR
 """
             # --- 2. LLM Decision ---
             try:
-                res = self.client.chat.completions.create(
-                    model=self.model_name,
+                res = self.call_llm(
                     messages=[
                         {"role": "system", "content": "You are a helpful assistant. Output valid JSON only."},
                         {"role": "user", "content": prompt}
@@ -163,7 +162,7 @@ OR
                 
                 decision = json.loads(content.strip())
                 tool = decision.get("tool")
-                logger.info(f"Step {step+1}: {tool} - {decision}")
+                self.logger.info(f"Step {step+1}: {tool} - {decision}")
 
                 # --- 3. Execute Tool ---
                 if tool == "SEARCH":
@@ -212,11 +211,11 @@ OR
                     return ans
                 
             except Exception as e:
-                logger.error(f"Step failed: {e}")
+                self.logger.error(f"Step failed: {e}")
                 history.append(f"Error: {str(e)}")
         
         # Fallback: Try to answer with whatever history we have
-        logger.warning("Max steps reached. Attempting to answer from history.")
+        self.logger.warning("Max steps reached. Attempting to answer from history.")
         try:
             fallback_prompt = f"""You have explored the graph but reached the step limit.
 Based on the exploration history below, provide the best possible answer to the question.
@@ -233,8 +232,7 @@ Only say "Unknown" if you have absolutely NO relevant information.
 
 Return ONLY the answer text.
 """
-            res = self.client.chat.completions.create(
-                model=self.model_name,
+            res = self.call_llm(
                 messages=[{"role": "user", "content": fallback_prompt}],
                 temperature=0.0
             )

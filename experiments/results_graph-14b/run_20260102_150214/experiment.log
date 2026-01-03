@@ -1,0 +1,184 @@
+2026-01-02 15:02:14,990 - Experiment - INFO - Using local embedding model: /home/ubuntu/hzy/crl/Amadeus/amadeus/models/all-MiniLM-L6-v2
+2026-01-02 15:02:15,959 - Experiment - INFO - ✅ 成功加载 10 个样本
+2026-01-02 15:02:15,960 - Experiment - INFO - 🚀 Starting parallel execution with 10 workers for 10 samples.
+2026-01-02 15:02:16,480 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,502 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,668 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,733 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,742 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,769 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,791 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,798 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,803 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,804 - Experiment - ERROR - ❌ A sample failed to process: name 'samenable_optimizer' is not defined
+Traceback (most recent call last):
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 506, in main
+    res = future.result()
+          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/miniconda3/envs/amadeus/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/run_locomo.py", line 316, in process_sample
+    samenable_optimizer and ple_logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'samenable_optimizer' is not defined
+2026-01-02 15:02:16,805 - Experiment - INFO - 
+========================================
+🌟 FINAL EXPERIMENT RESULT
+Total Samples: 10
+Total Questions: 0
+2026-01-02 15:02:16,805 - Experiment - INFO - Overall Avg Score: 0.0%
+2026-01-02 15:02:16,805 - Experiment - INFO - 
+Category Breakdown:
+2026-01-02 15:02:16,805 - Experiment - INFO - 
+Results saved to: results_graph-14b/run_20260102_150214
+========================================

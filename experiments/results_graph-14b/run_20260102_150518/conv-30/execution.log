@@ -1,0 +1,1265 @@
+2026-01-02 15:05:19,047 - Sample_conv-30 - INFO - 
+========================================
+🚀 Running Sample: conv-30
+========================================
+2026-01-02 15:05:20,208 - Sample_conv-30 - INFO - [conv-30] 🧠 Phase 1: Building Memory (19 contextual sessions)...
+2026-01-02 15:05:20,208 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-02 15:06:07,186 - Sample_conv-30 - INFO - 🤔 Builder CoT: Step 1: Identify absolute dates from the context provided. Step 2: Identify entities and their relationships. Step 3: Compare with the current graph. Step 4: Resolve conflicts and add new information.
+2026-01-02 15:06:07,200 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:06:07,205 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Planning to start a dance studio--> Dance Studio (Time: 2023-01-20)
+2026-01-02 15:06:07,217 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:06:07,224 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Passionate about contemporary dance--> Contemporary Dance (Time: 2023-01-20)
+2026-01-02 15:06:07,224 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Enjoys contemporary dance--> Contemporary Dance (Time: 2023-01-20)
+2026-01-02 15:06:07,236 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Won first place in a local competition last year--> Dance Crew (Time: 2022-01-20)
+2026-01-02 15:06:07,243 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Won first place in a regional competition at age fifteen--> Dance Team (Time: 2008-01-20)
+2026-01-02 15:06:07,257 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Performing at a nearby festival next month--> Dance Festival (Time: 2023-02-20)
+2026-01-02 15:06:07,262 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Rehearsing with a small group of dancers--> Dancers (Time: 2023-01-20)
+2026-01-02 15:06:07,266 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-02 15:06:15,294 - Sample_conv-30 - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-02 15:06:15,309 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Launched an ad campaign for her clothing store--> Clothing Store (Time: 2023-01-29)
+2026-01-02 15:06:15,316 - Sample_conv-30 - INFO - 🔗 LINK: Jon --On the hunt for the ideal spot for his dance studio--> Dance Studio (Time: 2023-01-29)
+2026-01-02 15:06:15,338 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Visited Paris--> Paris (Time: 2023-01-28)
+2026-01-02 15:06:15,338 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Prefers Marley flooring for the dance studio--> Dance Studio (Time: 2023-01-29)
+2026-01-02 15:06:15,339 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Desired features include natural light, size, and floor quality--> Dance Studio (Time: 2023-01-29)
+2026-01-02 15:06:15,346 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-02 15:06:25,731 - Sample_conv-30 - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-02 15:06:25,732 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Still searching for a place to open his dance studio--> Dance Studio (Time: 2023-02-01)
+2026-01-02 15:06:25,732 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Found a new location and designed the interior--> Clothing Store (Time: 2023-02-01)
+2026-01-02 15:06:25,732 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Launched an ad campaign for her clothing store--> Clothing Store (Time: 2023-01-29)
+2026-01-02 15:06:25,732 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Received a positive response from a wholesaler--> Clothing Store (Time: 2023-02-01)
+2026-01-02 15:06:25,732 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Designed the interior to be cozy and inviting--> Clothing Store (Time: 2023-02-01)
+2026-01-02 15:06:25,732 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Chose furniture and decor to match her style and make customers feel comfortable--> Clothing Store (Time: 2023-02-01)
+2026-01-02 15:06:25,736 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 4. Processing Buffer...
+2026-01-02 15:06:35,834 - Sample_conv-30 - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-02 15:06:35,834 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Working on his business--> Clothing Store (Time: 2023-02-04)
+2026-01-02 15:06:35,834 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Searching for a dance studio location--> Dance Studio (Time: 2023-02-04)
+2026-01-02 15:06:35,834 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Rehearsing for an upcoming show--> Dance Crew (Time: 2023-02-04)
+2026-01-02 15:06:35,834 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Getting ready for a dance comp near him next month--> Dance Festival (Time: 2023-02-04)
+2026-01-02 15:06:35,835 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Store's doing great--> Clothing Store (Time: 2023-02-04)
+2026-01-02 15:06:35,835 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Supportive of Jon's efforts--> Jon (Time: 2023-02-04)
+2026-01-02 15:06:35,838 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 5. Processing Buffer...
+2026-01-02 15:06:50,538 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 2023-02-08. Identified entities and their interactions. Compared with existing graph data and resolved any conflicts.
+2026-01-02 15:06:50,539 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Found a cool new fashion piece for her store--> Clothing Store (Time: 2023-02-08)
+2026-01-02 15:06:50,539 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Had a performance at the festival and received compliments--> Dance Festival (Time: 2023-02-08)
+2026-01-02 15:06:50,539 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Expresses passion and fulfillment in running his own studio--> Dance Studio (Time: 2023-02-08)
+2026-01-02 15:06:50,539 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Worked hard on her online store and collaborated with a local artist for unique designs--> Clothing Store (Time: 2023-02-08)
+2026-01-02 15:06:50,539 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Got inspiration from a fashion magazine and decided to collaborate with an artist--> Clothing Store (Time: 2023-02-08)
+2026-01-02 15:06:50,552 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:06:50,552 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Expresses dedication and determination towards making his studio a success despite challenges--> Dance Studio (Time: 2023-02-08)
+2026-01-02 15:06:50,552 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Balances his passion for dance and business goals--> Dance Studio (Time: 2023-02-08)
+2026-01-02 15:06:50,558 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:06:50,561 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 6. Processing Buffer...
+2026-01-02 15:06:59,484 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 16 March, 2023. Identified new facts and updates based on the conversation between Jon and Gina. Resolved any conflicts with existing graph data.
+2026-01-02 15:06:59,497 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:06:59,504 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:06:59,516 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Opened her online clothes store--> Online Clothes Store (Time: 2023-03-16)
+2026-01-02 15:06:59,522 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:06:59,535 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:06:59,538 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 7. Processing Buffer...
+2026-01-02 15:07:07,800 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 23 March, 2023. Identified the entities as Jon and Gina. Compared the buffer with the graph and resolved the conversation.
+2026-01-02 15:07:07,800 - Sample_conv-30 - INFO - 🔗 LINK: Gina --my online clothing store has been a roller coaster but rewarding--> Online Clothes Store (Time: 2023-03-23)
+2026-01-02 15:07:07,800 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Seeing my students succeed motivates me--> Dance Studio (Time: 2023-03-23)
+2026-01-02 15:07:07,800 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Supportive of Jon's efforts--> Jon (Time: 2023-03-23)
+2026-01-02 15:07:07,800 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Thanks for being there for me--> Gina (Time: 2023-03-23)
+2026-01-02 15:07:07,804 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 8. Processing Buffer...
+2026-01-02 15:07:21,391 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified absolute dates from the context provided. Identified entities and their actions. Compared with existing graph data and resolved any conflicts.
+2026-01-02 15:07:21,405 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:07:21,412 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:21,426 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:21,434 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:21,451 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:21,464 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:07:21,470 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:07:21,483 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:21,486 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 9. Processing Buffer...
+2026-01-02 15:07:42,980 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 9 April, 2023. Identified the subjects as Jon and Gina. Compared their statements with the existing graph and resolved any conflicts or updates.
+2026-01-02 15:07:42,980 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Sunk tons of time into the studio lately, and look at my students - they're already killing it. I'm even learning with them!--> Dance Studio (Time: 2023-04-09)
+2026-01-02 15:07:42,992 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:07:42,999 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:07:43,012 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:07:43,019 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:43,032 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:43,039 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:43,052 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:43,059 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:07:43,072 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:43,076 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 10. Processing Buffer...
+2026-01-02 15:07:51,513 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 25 April, 2023. Identified the entities involved as Jon and Gina. Compared their statements with the existing graph and resolved any conflicts or updates.
+2026-01-02 15:07:51,526 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Showed off his dance studio at a fair--> Fair (Time: 2023-04-24)
+2026-01-02 15:07:51,527 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Started her own online clothing store after losing her job--> Online Clothes Store (Time: 2023-04-25)
+2026-01-02 15:07:51,534 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:07:51,547 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:07:51,551 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 11. Processing Buffer...
+2026-01-02 15:08:03,821 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 11 May, 2023. Identified the subjects as Jon and Gina. Compared their statements with the existing graph and resolved any conflicts or updates.
+2026-01-02 15:08:03,821 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Still working on the dance studio and things are looking up--> Dance Studio (Time: 2023-05-11)
+2026-01-02 15:08:03,835 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:03,842 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:03,855 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:03,863 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:03,876 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:03,880 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 12. Processing Buffer...
+2026-01-02 15:08:13,909 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the absolute date from the session context. Identified the entities involved and their interactions. Compared the new information with the existing graph and resolved any conflicts or updates.
+2026-01-02 15:08:13,924 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Accepted for a part-time fashion internship in the fashion department of an international company--> Fashion Internship (Time: 2023-05-27)
+2026-01-02 15:08:13,931 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:13,944 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:13,949 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:13,957 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:13,961 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 13. Processing Buffer...
+2026-01-02 15:08:26,014 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 13 June, 2023. Identified the speakers and subjects. Compared the new information with the existing graph and resolved any conflicts.
+2026-01-02 15:08:26,027 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:26,034 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:26,047 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:26,054 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:26,067 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:26,071 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 14. Processing Buffer...
+2026-01-02 15:08:38,735 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 16 June, 2023. Identified the entities involved as Jon and Gina. Compared the new information with the existing graph and resolved any conflicts or updates.
+2026-01-02 15:08:38,750 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:38,755 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:38,769 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:38,777 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:38,790 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:38,798 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:38,802 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 15. Processing Buffer...
+2026-01-02 15:08:45,151 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the absolute date from the session context. Identified entities and their actions. Compared with the existing graph and resolved any conflicts.
+2026-01-02 15:08:45,162 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Took a short trip last week to Rome to clear his mind a little--> Rome (Time: 2023-06-12)
+2026-01-02 15:08:45,162 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Official opening night is tomorrow--> Dance Studio (Time: 2023-06-19)
+2026-01-02 15:08:45,162 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Proud and supportive of Jon's efforts--> Jon (Time: 2023-06-19)
+2026-01-02 15:08:45,167 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 16. Processing Buffer...
+2026-01-02 15:08:57,990 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 21 June, 2023. Identified new information about Gina's limited edition line and Jon's recent activities. Updated the graph accordingly.
+2026-01-02 15:08:58,004 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:58,012 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:58,025 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:58,033 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:58,047 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:08:58,054 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:08:58,059 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 17. Processing Buffer...
+2026-01-02 15:09:08,674 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 9 July, 2023. Identified the subjects as Jon and Gina. Compared the new information with the existing graph and resolved any conflicts or updates.
+2026-01-02 15:09:08,675 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Fun and exhausting dance practice--> Dance Studio (Time: 2023-07-09)
+2026-01-02 15:09:08,688 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:09:08,697 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:09:08,711 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:09:08,711 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Supportive of Jon's efforts--> Jon (Time: 2023-07-09)
+2026-01-02 15:09:08,716 - Sample_conv-30 - INFO - [conv-30] 🔄 Flush Triggered at chunk 18. Processing Buffer...
+2026-01-02 15:09:26,064 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 21 July 2023. Identified new facts and updates from the conversation between Gina and Jon. Resolved any conflicts with existing graph data.
+2026-01-02 15:09:26,077 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Built a new website for customers to make orders--> Website (Time: 2023-07-14)
+2026-01-02 15:09:26,077 - Sample_conv-30 - INFO - 🔗 LINK: Jon --On tenuous grounds, got a temp job to help cover expenses while looking for investors--> Dance Studio (Time: 2023-07-21)
+2026-01-02 15:09:26,090 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Met some investors and got good advice at a networking event--> Investors (Time: 2023-07-21)
+2026-01-02 15:09:26,102 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Working on an online platform to show off the dance studio's stuff--> Online Platform (Time: 2023-07-21)
+2026-01-02 15:09:26,115 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Offered advice on using Instagram and TikTok to reach a younger crowd and collaborating with local influencers--> Marketing Advice (Time: 2023-07-21)
+2026-01-02 15:09:26,127 - Sample_conv-30 - INFO - 🔗 LINK: Gina --Offered to help with making content and managing social media accounts for Jon's dance studio--> Content Creation (Time: 2023-07-21)
+2026-01-02 15:09:26,140 - Sample_conv-30 - INFO - 🔗 LINK: Jon --Agreed to collaborate with Gina on content creation and social media management for the dance studio--> Collaboration (Time: 2023-07-21)
+2026-01-02 15:09:26,146 - Sample_conv-30 - INFO - [conv-30] 🔄 Final Flush...
+2026-01-02 15:09:35,265 - Sample_conv-30 - INFO - 🤔 Builder CoT: Identified the context date as 23 July 2023. Identified the speakers and subjects. Compared the new information with the existing graph and resolved any conflicts.
+2026-01-02 15:09:35,279 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:09:35,288 - Sample_conv-30 - INFO - ➕ NODE: Gina
+2026-01-02 15:09:35,302 - Sample_conv-30 - INFO - ➕ NODE: Jon
+2026-01-02 15:09:35,309 - Sample_conv-30 - INFO - [conv-30] 📊 Graph Ready. Nodes: 20, Edges: 52
+2026-01-02 15:09:35,309 - Sample_conv-30 - INFO - [conv-30] 💾 Graph saved to: results_graph-14b/run_20260102_150518/conv-30/graph.json
+2026-01-02 15:09:35,309 - Sample_conv-30 - INFO - [conv-30] 🔍 Phase 2: Evaluation...
+2026-01-02 15:09:35,309 - Sample_conv-30 - INFO - ❓ Question: When Jon has lost his job as a banker?
+2026-01-02 15:09:35,903 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon lost job banker', 'mode': 'hybrid'}
+2026-01-02 15:09:37,653 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon lost his job as a banker yesterday.'}
+2026-01-02 15:09:38,815 - Sample_conv-30 - INFO - 
+[conv-30] Q: When Jon has lost his job as a banker?
+Category: 2
+GT: 19 January, 2023
+Pred: Jon lost his job as a banker yesterday.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:09:38,815 - Sample_conv-30 - INFO - ❓ Question: When Gina has lost her job at Door Dash?
+2026-01-02 15:09:39,363 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina lost job Door Dash', 'mode': 'hybrid'}
+2026-01-02 15:09:40,964 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina lost her job at Door Dash recently, which is mentioned to be this month.'}
+2026-01-02 15:09:41,844 - Sample_conv-30 - INFO - 
+[conv-30] Q: When Gina has lost her job at Door Dash?
+Category: 2
+GT: January, 2023
+Pred: Gina lost her job at Door Dash recently, which is mentioned to be this month.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:09:41,844 - Sample_conv-30 - INFO - ❓ Question: How do Jon and Gina both like to destress?
+2026-01-02 15:09:42,364 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina destress', 'mode': 'hybrid'}
+2026-01-02 15:09:45,223 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Both Jon and Gina like to destress through dancing. For Jon, dancing is a way to express himself and find his happy place, while for Gina, dancing is a stress reliever that helps her express herself and find happiness.'}
+2026-01-02 15:09:46,074 - Sample_conv-30 - INFO - 
+[conv-30] Q: How do Jon and Gina both like to destress?
+Category: 4
+GT: by dancing
+Pred: Both Jon and Gina like to destress through dancing. For Jon, dancing is a way to express himself and find his happy place, while for Gina, dancing is a stress reliever that helps her express herself and find happiness.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:09:46,075 - Sample_conv-30 - INFO - ❓ Question: What do Jon and Gina both have in common?
+2026-01-02 15:09:47,316 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina', 'mode': 'hybrid'}
+2026-01-02 15:09:49,077 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:09:49,788 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:09:50,622 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:09:52,128 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:09:52,961 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:09:53,682 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:09:55,109 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:09:55,109 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:09:56,692 - Sample_conv-30 - INFO - 
+[conv-30] Q: What do Jon and Gina both have in common?
+Category: 1
+GT: They lost their jobs and decided to start their own businesses.
+Pred: Both Jon and Gina are supportive of each other's efforts.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:09:56,692 - Sample_conv-30 - INFO - ❓ Question: Why did Jon decide to start his dance studio?
+2026-01-02 15:09:57,199 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio reason', 'mode': 'hybrid'}
+2026-01-02 15:09:59,780 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon decided to start his dance studio because losing his job as a banker gave him the push he needed to pursue his passion for dance. He expresses that dancing makes him happy and allows him to share his joy with others, seeing his students succeed motivates him further.'}
+2026-01-02 15:10:00,584 - Sample_conv-30 - INFO - 
+[conv-30] Q: Why did Jon decide to start his dance studio?
+Category: 4
+GT: He lost his job and decided to start his own business to share his passion.
+Pred: Jon decided to start his dance studio because losing his job as a banker gave him the push he needed to pursue his passion for dance. He expresses that dancing makes him happy and allows him to share his joy with others, seeing his students succeed motivates him further.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:10:00,584 - Sample_conv-30 - INFO - ❓ Question: What Jon thinks the ideal dance studio should look like?
+2026-01-02 15:10:01,924 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon ideal dance studio', 'mode': 'hybrid'}
+2026-01-02 15:10:04,053 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon thinks the ideal dance studio should have natural light, a suitable size, high-quality Marley flooring, and a comfortable environment for practicing contemporary dance.'}
+2026-01-02 15:10:04,910 - Sample_conv-30 - INFO - 
+[conv-30] Q: What Jon thinks the ideal dance studio should look like?
+Category: 1
+GT: By the water, with natural light and Marley flooring
+Pred: Jon thinks the ideal dance studio should have natural light, a suitable size, high-quality Marley flooring, and a comfortable environment for practicing contemporary dance.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:10:04,910 - Sample_conv-30 - INFO - ❓ Question: When is Jon's group performing at a festival?
+2026-01-02 15:10:06,104 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon's group festival performance", 'mode': 'hybrid'}
+2026-01-02 15:10:09,001 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Jon's group is performing at a nearby festival next month, which is scheduled for February 20, 2023."}
+2026-01-02 15:10:09,641 - Sample_conv-30 - INFO - 
+[conv-30] Q: When is Jon's group performing at a festival?
+Category: 2
+GT: February, 2023
+Pred: Jon's group is performing at a nearby festival next month, which is scheduled for February 20, 2023.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:10:09,641 - Sample_conv-30 - INFO - ❓ Question: When did Gina launch an ad campaign for her store?
+2026-01-02 15:10:10,184 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina ad campaign store', 'mode': 'hybrid'}
+2026-01-02 15:10:12,508 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina launched an ad campaign for her clothing store on January 29, 2023.'}
+2026-01-02 15:10:13,223 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina launch an ad campaign for her store?
+Category: 2
+GT: 29 January, 2023
+Pred: Gina launched an ad campaign for her clothing store on January 29, 2023.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:10:13,223 - Sample_conv-30 - INFO - ❓ Question: When was Jon in Paris?
+2026-01-02 15:10:14,060 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon Paris', 'mode': 'hybrid'}
+2026-01-02 15:10:15,586 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon visited Paris on 2023-01-28.'}
+2026-01-02 15:10:16,348 - Sample_conv-30 - INFO - 
+[conv-30] Q: When was Jon in Paris?
+Category: 2
+GT: 28 January 2023
+Pred: Jon visited Paris on 2023-01-28.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:10:16,349 - Sample_conv-30 - INFO - ❓ Question: Which city have both Jean and John visited?
+2026-01-02 15:10:17,203 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited', 'mode': 'hybrid'}
+2026-01-02 15:10:18,467 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Paris'}
+2026-01-02 15:10:19,729 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John visited', 'mode': 'hybrid'}
+2026-01-02 15:10:20,728 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited', 'mode': 'hybrid'}
+2026-01-02 15:10:22,837 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'John visited', 'mode': 'hybrid'}
+2026-01-02 15:10:24,341 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited', 'mode': 'hybrid'}
+2026-01-02 15:10:27,172 - Sample_conv-30 - INFO - Step 7: READ - {'tool': 'READ', 'answer': 'Both Jean and John have visited Paris.'}
+2026-01-02 15:10:27,977 - Sample_conv-30 - INFO - 
+[conv-30] Q: Which city have both Jean and John visited?
+Category: 1
+GT: Rome
+Pred: Both Jean and John have visited Paris.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:10:27,978 - Sample_conv-30 - INFO - ❓ Question: When did Gina team up with a local artist for some cool designs?
+2026-01-02 15:10:29,186 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina local artist cool designs', 'mode': 'hybrid'}
+2026-01-02 15:10:30,615 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:10:31,955 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina collaborated with a local artist for unique designs at her clothing store on 2023-02-08.'}
+2026-01-02 15:10:32,766 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina team up with a local artist for some cool designs?
+Category: 2
+GT: February, 2023
+Pred: Gina collaborated with a local artist for unique designs at her clothing store on 2023-02-08.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:10:32,766 - Sample_conv-30 - INFO - ❓ Question: When did Gina get her tattoo?
+2026-01-02 15:10:34,399 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina tattoo', 'mode': 'hybrid'}
+2026-01-02 15:10:35,726 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:10:36,622 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Gina tattoo timeline', 'mode': 'hybrid'}
+2026-01-02 15:10:38,963 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Gina tattoo timeline', 'mode': 'hybrid'}
+2026-01-02 15:10:41,969 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Gina tattoo timeline', 'mode': 'hybrid'}
+2026-01-02 15:10:43,804 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Gina tattoo timeline', 'mode': 'hybrid'}
+2026-01-02 15:10:45,954 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Gina tattoo timeline', 'mode': 'hybrid'}
+2026-01-02 15:10:47,958 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:10:47,958 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:10:49,626 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina get her tattoo?
+Category: 2
+GT: A few years ago
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:10:49,626 - Sample_conv-30 - INFO - ❓ Question: When did Jon start to go to the gym?
+2026-01-02 15:10:50,457 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon start go gym', 'mode': 'hybrid'}
+2026-01-02 15:10:52,847 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon started going to the gym last week to stay on track with his venture.'}
+2026-01-02 15:10:53,505 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Jon start to go to the gym?
+Category: 2
+GT: March, 2023
+Pred: Jon started going to the gym last week to stay on track with his venture.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:10:53,505 - Sample_conv-30 - INFO - ❓ Question: When did Gina open her online clothing store?
+2026-01-02 15:10:54,905 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina online clothing store opening date', 'mode': 'hybrid'}
+2026-01-02 15:10:57,261 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina opened her online clothing store on 2023-03-16.'}
+2026-01-02 15:10:58,056 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina open her online clothing store?
+Category: 2
+GT: 16 March, 2023
+Pred: Gina opened her online clothing store on 2023-03-16.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:10:58,056 - Sample_conv-30 - INFO - ❓ Question: When did Jon start expanding his studio's social media presence?
+2026-01-02 15:10:59,010 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon start expanding studio's social media presence", 'mode': 'hybrid'}
+2026-01-02 15:11:00,578 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:11:01,492 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:11:02,131 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'expand social media presence', 'mode': 'hybrid'}
+2026-01-02 15:11:04,206 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Collaboration'}
+2026-01-02 15:11:05,582 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:11:07,213 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:11:07,911 - Sample_conv-30 - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'expand social media presence', 'mode': 'hybrid'}
+2026-01-02 15:11:07,928 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:11:09,679 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Jon start expanding his studio's social media presence?
+Category: 2
+GT: April, 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:11:09,679 - Sample_conv-30 - INFO - ❓ Question: When did Jon host a dance competition?
+2026-01-02 15:11:12,439 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance competition', 'mode': 'hybrid'}
+2026-01-02 15:11:14,160 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:11:15,164 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance competition', 'mode': 'hybrid'}
+2026-01-02 15:11:16,322 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Jon is hosting a dance competition next month to showcase local talent.'}
+2026-01-02 15:11:17,036 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Jon host a dance competition?
+Category: 2
+GT: May, 2023
+Pred: Jon is hosting a dance competition next month to showcase local talent.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:11:17,036 - Sample_conv-30 - INFO - ❓ Question: When did Jon go to a fair to get more exposure for his dance studio?
+2026-01-02 15:11:18,164 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon fair dance studio', 'mode': 'hybrid'}
+2026-01-02 15:11:19,797 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Fair'}
+2026-01-02 15:11:21,065 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon went to a fair on 2023-04-24 to get more exposure for his dance studio.'}
+2026-01-02 15:11:21,725 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Jon go to a fair to get more exposure for his dance studio?
+Category: 2
+GT: 24 April, 2023
+Pred: Jon went to a fair on 2023-04-24 to get more exposure for his dance studio.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:11:21,726 - Sample_conv-30 - INFO - ❓ Question: Why did Gina decide to start her own clothing store?
+2026-01-02 15:11:22,929 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina clothing store', 'mode': 'hybrid'}
+2026-01-02 15:11:24,323 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:11:25,086 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Online Clothes Store'}
+2026-01-02 15:11:26,950 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Gina decided to start her own clothing store after losing her job. She opened her online clothes store on 2023-03-16 and mentioned it has been a roller coaster but rewarding.'}
+2026-01-02 15:11:27,674 - Sample_conv-30 - INFO - 
+[conv-30] Q: Why did Gina decide to start her own clothing store?
+Category: 1
+GT: She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.
+Pred: Gina decided to start her own clothing store after losing her job. She opened her online clothes store on 2023-03-16 and mentioned it has been a roller coaster but rewarding.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:11:27,674 - Sample_conv-30 - INFO - ❓ Question: Do Jon and Gina start businesses out of what they love?
+2026-01-02 15:11:29,386 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina start businesses out of what they love', 'mode': 'hybrid'}
+2026-01-02 15:11:31,741 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:11:32,188 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:11:32,957 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:11:33,414 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:11:34,840 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:11:36,307 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:11:37,819 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:11:37,819 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:11:40,995 - Sample_conv-30 - INFO - 
+[conv-30] Q: Do Jon and Gina start businesses out of what they love?
+Category: 1
+GT: Yes
+Pred: Yes Gina starts a business out
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:11:40,995 - Sample_conv-30 - INFO - ❓ Question: When did Gina interview for a design internship?
+2026-01-02 15:11:41,622 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina design internship interview', 'mode': 'hybrid'}
+2026-01-02 15:11:44,638 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Fashion Internship'}
+2026-01-02 15:11:45,317 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:11:47,295 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Fashion Internship'}
+2026-01-02 15:11:47,653 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:11:48,434 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Fashion Internship'}
+2026-01-02 15:11:50,429 - Sample_conv-30 - INFO - Step 7: READ - {'tool': 'READ', 'answer': 'Gina was accepted for a part-time fashion internship in the fashion department of an international company on 2023-05-27.'}
+2026-01-02 15:11:51,108 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina interview for a design internship?
+Category: 2
+GT: 10 May, 2023
+Pred: Gina was accepted for a part-time fashion internship in the fashion department of an international company on 2023-05-27.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:11:51,108 - Sample_conv-30 - INFO - ❓ Question: When did Gina get accepted for the design internship?
+2026-01-02 15:11:52,299 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina design internship', 'mode': 'hybrid'}
+2026-01-02 15:11:53,786 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Fashion Internship'}
+2026-01-02 15:11:54,464 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina got accepted for the design internship on 2023-05-27.'}
+2026-01-02 15:11:55,160 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina get accepted for the design internship?
+Category: 2
+GT: 27 May, 2023
+Pred: Gina got accepted for the design internship on 2023-05-27.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:11:55,160 - Sample_conv-30 - INFO - ❓ Question: When did Jon start reading "The Lean Startup"?
+2026-01-02 15:11:56,003 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon The Lean Startup', 'mode': 'hybrid'}
+2026-01-02 15:11:57,401 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:11:58,584 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'The Lean Startup'}
+2026-01-02 15:11:59,634 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'The Lean Startup timeline', 'mode': 'hybrid'}
+2026-01-02 15:12:02,924 - Sample_conv-30 - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Based on the information available, Jon started reading 'The Lean Startup' around the same time he was planning to start his dance studio, which was around January 2023."}
+2026-01-02 15:12:03,989 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Jon start reading "The Lean Startup"?
+Category: 2
+GT: May, 2023
+Pred: Jon started reading 'The Lean Startup' around the same time he was planning to start his dance studio, which was around January 2023.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:12:03,989 - Sample_conv-30 - INFO - ❓ Question: When did Gina develop a video presentation to teach how to style her fashion pieces? 
+2026-01-02 15:12:05,821 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina video presentation fashion styling', 'mode': 'hybrid'}
+2026-01-02 15:12:09,029 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina developed a video presentation to teach how to style fashion pieces, but the exact date is not provided in the available information.'}
+2026-01-02 15:12:09,788 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina develop a video presentation to teach how to style her fashion pieces? 
+Category: 2
+GT: June, 2023
+Pred: Gina developed a video presentation to teach how to style fashion pieces, but the exact date is not provided in the available information.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:12:09,788 - Sample_conv-30 - INFO - ❓ Question: How did Gina promote her clothes store?
+2026-01-02 15:12:10,797 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina promoting clothes store', 'mode': 'hybrid'}
+2026-01-02 15:12:14,824 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Online Clothes Store'}
+2026-01-02 15:12:15,421 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'promote her clothes store', 'mode': 'hybrid'}
+2026-01-02 15:12:17,715 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:12:18,845 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:12:19,599 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:12:22,658 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Launched an ad campaign for her clothing store at 2023-01-29'}
+2026-01-02 15:12:25,024 - Sample_conv-30 - INFO - Step 8: READ - {'tool': 'READ', 'answer': 'Gina promoted her clothes store by launching an ad campaign for her clothing store on January 29, 2023.'}
+2026-01-02 15:12:25,777 - Sample_conv-30 - INFO - 
+[conv-30] Q: How did Gina promote her clothes store?
+Category: 1
+GT: worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces
+Pred: Gina promoted her clothes store by launching an ad campaign for her clothing store on January 29, 2023.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:12:25,777 - Sample_conv-30 - INFO - ❓ Question: Which events has Jon participated in to promote his business venture?
+2026-01-02 15:12:26,607 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon promote business venture events', 'mode': 'hybrid'}
+2026-01-02 15:12:29,523 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Investors'}
+2026-01-02 15:12:30,588 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:12:32,373 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Dance Festival'}
+2026-01-02 15:12:33,899 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Investors'}
+2026-01-02 15:12:34,259 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:12:36,036 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Fair'}
+2026-01-02 15:12:37,102 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:12:37,102 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:12:39,623 - Sample_conv-30 - INFO - 
+[conv-30] Q: Which events has Jon participated in to promote his business venture?
+Category: 1
+GT: fair, networking events, dance competition
+Pred: Jon participated in a fair to promote his business venture.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:12:39,623 - Sample_conv-30 - INFO - ❓ Question: What does Jon's dance studio offer?
+2026-01-02 15:12:42,342 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon's dance studio", 'mode': 'hybrid'}
+2026-01-02 15:12:44,028 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:12:44,897 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:12:49,822 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Jon's dance studio offers a space for dance practice with a focus on contemporary dance, featuring Marley flooring, natural light, and a supportive environment for students to succeed. The studio emphasizes a balance between passion for dance and business goals."}
+2026-01-02 15:12:50,586 - Sample_conv-30 - INFO - 
+[conv-30] Q: What does Jon's dance studio offer?
+Category: 1
+GT: one-on-one metoring and training to dancers,  workshops and classes to local schools and centers
+Pred: Jon's dance studio offers a space for dance practice with a focus on contemporary dance, featuring Marley flooring, natural light, and a supportive environment for students to succeed. The studio emphasizes a balance between passion for dance and business goals.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:12:50,586 - Sample_conv-30 - INFO - ❓ Question: When did Jon receive mentorship to promote his venture?
+2026-01-02 15:12:52,023 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon mentorship venture', 'mode': 'hybrid'}
+2026-01-02 15:12:53,422 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:12:56,300 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:12:57,530 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:12:59,381 - Sample_conv-30 - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'Jon received mentorship to promote his venture on an unspecified day before 2023-07-09.'}
+2026-01-02 15:13:00,109 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Jon receive mentorship to promote his venture?
+Category: 2
+GT: 15 June, 2023
+Pred: Jon received mentorship to promote his venture on an unspecified day before 2023-07-09.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:13:00,109 - Sample_conv-30 - INFO - ❓ Question: Did Jon and Gina both participate in dance competitions?
+2026-01-02 15:13:01,532 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina dance competitions', 'mode': 'hybrid'}
+2026-01-02 15:13:02,962 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:13:05,304 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:13:05,707 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:13:07,222 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:13:08,659 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:13:09,035 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:13:11,479 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:13:11,479 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:13:12,739 - Sample_conv-30 - INFO - 
+[conv-30] Q: Did Jon and Gina both participate in dance competitions?
+Category: 1
+GT: Yes
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:13:12,739 - Sample_conv-30 - INFO - ❓ Question: When was Jon in Rome?
+2026-01-02 15:13:15,570 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon Rome', 'mode': 'hybrid'}
+2026-01-02 15:13:18,362 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon took a short trip to Rome to clear his mind a little on 2023-06-12.'}
+2026-01-02 15:13:19,099 - Sample_conv-30 - INFO - 
+[conv-30] Q: When was Jon in Rome?
+Category: 2
+GT: June 2023
+Pred: Jon took a short trip to Rome to clear his mind a little on 2023-06-12.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:13:19,099 - Sample_conv-30 - INFO - ❓ Question: Which cities has Jon visited?
+2026-01-02 15:13:21,852 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon visited cities', 'mode': 'hybrid'}
+2026-01-02 15:13:23,899 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon has visited Paris and Rome.'}
+2026-01-02 15:13:24,621 - Sample_conv-30 - INFO - 
+[conv-30] Q: Which cities has Jon visited?
+Category: 1
+GT: Paris, Rome
+Pred: Jon has visited Paris and Rome.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:13:24,621 - Sample_conv-30 - INFO - ❓ Question: When Jon is planning to open his dance studio?
+2026-01-02 15:13:26,097 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio opening', 'mode': 'hybrid'}
+2026-01-02 15:13:29,305 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Jon's dance studio is scheduled to have its official opening night on June 19, 2023."}
+2026-01-02 15:13:30,068 - Sample_conv-30 - INFO - 
+[conv-30] Q: When Jon is planning to open his dance studio?
+Category: 2
+GT: 20 June, 2023
+Pred: Jon's dance studio is scheduled to have its official opening night on June 19, 2023.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:13:30,068 - Sample_conv-30 - INFO - ❓ Question: How long did it take for Jon to open his studio?
+2026-01-02 15:13:32,148 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon studio opening time', 'mode': 'hybrid'}
+2026-01-02 15:13:34,884 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:13:35,531 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': '2023-01-20'}
+2026-01-02 15:13:36,166 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': '2023-01-20'}
+2026-01-02 15:13:37,748 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': '2023-01-20'}
+2026-01-02 15:13:39,075 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': '2023-01-20'}
+2026-01-02 15:13:40,962 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': '2023-06-19'}
+2026-01-02 15:13:42,519 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': '2023-01-20'}
+2026-01-02 15:13:42,520 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:13:46,105 - Sample_conv-30 - INFO - 
+[conv-30] Q: How long did it take for Jon to open his studio?
+Category: 1
+GT: six months
+Pred: Jon started planning to open his dance studio on 2023-01-20 and announced the official opening night on 2023-06-19. Therefore, it took Jon approximately 5 months to open his studio.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:13:46,105 - Sample_conv-30 - INFO - ❓ Question: When did Gina design a limited collection of hoodies?
+2026-01-02 15:13:49,156 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina limited collection hoodies', 'mode': 'hybrid'}
+2026-01-02 15:13:51,557 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:13:52,305 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:13:54,518 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Gina hoodie collection', 'mode': 'hybrid'}
+2026-01-02 15:13:57,033 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Online Clothes Store'}
+2026-01-02 15:13:58,520 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Gina hoodie collection', 'mode': 'hybrid'}
+2026-01-02 15:14:00,930 - Sample_conv-30 - INFO - Step 7: READ - {'tool': 'READ', 'answer': 'Gina created a limited edition line last week to showcase her style and creativity, which included hoodies.'}
+2026-01-02 15:14:01,713 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina design a limited collection of hoodies?
+Category: 2
+GT: June 2023
+Pred: Gina created a limited edition line last week to showcase her style and creativity, which included hoodies.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:14:01,713 - Sample_conv-30 - INFO - ❓ Question: When did Jon visit networking events for his store?
+2026-01-02 15:14:03,659 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon visit networking events for his store', 'mode': 'hybrid'}
+2026-01-02 15:14:06,717 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Investors'}
+2026-01-02 15:14:07,763 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:14:09,132 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Investors'}
+2026-01-02 15:14:11,734 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:14:14,952 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Investors'}
+2026-01-02 15:14:15,792 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:14:17,785 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Investors'}
+2026-01-02 15:14:17,785 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:14:19,079 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Jon visit networking events for his store?
+Category: 2
+GT: 20 June, 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:14:19,079 - Sample_conv-30 - INFO - ❓ Question: When did Gina start being recognized by fashion editors?
+2026-01-02 15:14:21,152 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina fashion editors recognition', 'mode': 'hybrid'}
+2026-01-02 15:14:23,507 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Fashion Internship'}
+2026-01-02 15:14:26,639 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Gina fashion recognition timeline', 'mode': 'hybrid'}
+2026-01-02 15:14:28,062 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Fashion Internship'}
+2026-01-02 15:14:29,289 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Gina fashion recognition timeline', 'mode': 'hybrid'}
+2026-01-02 15:14:33,753 - Sample_conv-30 - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Gina started being recognized by fashion editors after she accepted a part-time fashion internship in the fashion department of an international company, which is noted to have happened on 2023-05-27.'}
+2026-01-02 15:14:34,506 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina start being recognized by fashion editors?
+Category: 2
+GT: July 2023
+Pred: Gina started being recognized by fashion editors after she accepted a part-time fashion internship in the fashion department of an international company, which is noted to have happened on 2023-05-27.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:14:34,506 - Sample_conv-30 - INFO - ❓ Question: When did Jon start learning marketing and analytics tools?
+2026-01-02 15:14:35,781 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon start learning marketing and analytics tools', 'mode': 'hybrid'}
+2026-01-02 15:14:38,240 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:14:40,570 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Learning marketing and analytics tools to push the biz forward'}
+2026-01-02 15:14:44,305 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Learning marketing and analytics tools to push the biz forward'}
+2026-01-02 15:14:46,857 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Jon learning marketing and analytics tools', 'mode': 'hybrid'}
+2026-01-02 15:14:51,179 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Jon learning marketing and analytics tools', 'mode': 'hybrid'}
+2026-01-02 15:14:54,451 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Jon learning marketing and analytics tools', 'mode': 'hybrid'}
+2026-01-02 15:14:59,431 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:14:59,431 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:15:02,238 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Jon start learning marketing and analytics tools?
+Category: 2
+GT: July, 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:15:02,238 - Sample_conv-30 - INFO - ❓ Question: When did Jon and Gina decide to collaborate to create dance content?
+2026-01-02 15:15:06,977 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina collaborate create dance content', 'mode': 'hybrid'}
+2026-01-02 15:15:09,147 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Collaboration'}
+2026-01-02 15:15:14,143 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon and Gina decided to collaborate to create dance content on 2023-07-21.'}
+2026-01-02 15:15:14,831 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Jon and Gina decide to collaborate to create dance content?
+Category: 2
+GT: 21 July 2023
+Pred: Jon and Gina decided to collaborate to create dance content on 2023-07-21.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:15:14,831 - Sample_conv-30 - INFO - ❓ Question: When did Gina mention Shia Labeouf?
+2026-01-02 15:15:17,580 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina mentions Shia Labeouf', 'mode': 'hybrid'}
+2026-01-02 15:15:22,906 - Sample_conv-30 - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Shia Labeouf', 'mode': 'hybrid'}
+2026-01-02 15:15:29,454 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Gina mentions Shia Labeouf', 'mode': 'hybrid'}
+2026-01-02 15:15:35,431 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Gina mentions Shia Labeouf', 'mode': 'hybrid'}
+2026-01-02 15:15:40,975 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Gina mentions Shia Labeouf', 'mode': 'hybrid'}
+2026-01-02 15:15:47,653 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Gina mentions Shia Labeouf', 'mode': 'hybrid'}
+2026-01-02 15:15:52,670 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Gina mentions Shia Labeouf', 'mode': 'hybrid'}
+2026-01-02 15:16:00,013 - Sample_conv-30 - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Gina mentions Shia Labeouf', 'mode': 'hybrid'}
+2026-01-02 15:16:00,028 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:16:02,016 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina mention Shia Labeouf?
+Category: 2
+GT:  23 July, 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:16:02,016 - Sample_conv-30 - INFO - ❓ Question: When did Gina go to a dance class with a group of friends?
+2026-01-02 15:16:08,783 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina dance class friends', 'mode': 'hybrid'}
+2026-01-02 15:16:11,860 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:16:16,257 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:16:19,678 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:16:22,394 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:16:26,048 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:16:29,693 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:16:33,352 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:16:33,352 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:16:34,907 - Sample_conv-30 - INFO - 
+[conv-30] Q: When did Gina go to a dance class with a group of friends?
+Category: 2
+GT: 21 July 2023
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:16:34,907 - Sample_conv-30 - INFO - ❓ Question: What is Gina's favorite style of dance?
+2026-01-02 15:16:40,524 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's favorite style of dance", 'mode': 'hybrid'}
+2026-01-02 15:16:45,998 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:16:48,545 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:16:51,890 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Gina's favorite style of dance is contemporary dance."}
+2026-01-02 15:16:52,523 - Sample_conv-30 - INFO - 
+[conv-30] Q: What is Gina's favorite style of dance?
+Category: 4
+GT: Contemporary
+Pred: Gina's favorite style of dance is contemporary dance.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:16:52,523 - Sample_conv-30 - INFO - ❓ Question: What is Jon's favorite style of dance?
+2026-01-02 15:16:57,282 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon's favorite style of dance", 'mode': 'hybrid'}
+2026-01-02 15:17:01,003 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:17:02,783 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:17:06,773 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Jon's favorite style of dance is contemporary dance."}
+2026-01-02 15:17:07,466 - Sample_conv-30 - INFO - 
+[conv-30] Q: What is Jon's favorite style of dance?
+Category: 4
+GT: Contemporary
+Pred: Jon's favorite style of dance is contemporary dance.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:17:07,467 - Sample_conv-30 - INFO - ❓ Question: What was Gina's favorite dancing memory?
+2026-01-02 15:17:11,124 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's favorite dancing memory", 'mode': 'hybrid'}
+2026-01-02 15:17:16,047 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:17:20,866 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:17:26,107 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:17:28,926 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:17:34,028 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:17:37,300 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:17:40,019 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:17:40,019 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:17:58,284 - Sample_conv-30 - INFO - 
+[conv-30] Q: What was Gina's favorite dancing memory?
+Category: 4
+GT: Winning first place at a regionals dance competition
+Pred: Gina's favorite dancing memory seems to be related to her experience in dance classes and winning a regional competition when she was fifteen. She mentions that she used to love spending time in the studio and that dance is still her happy place. Additionally, she shared a trophy from a dance contest as a reminder of the hard work, dedication, and joy it brings. Therefore, her favorite dancing memory could be winning first place in a regional competition at age fifteen or any memorable moment spent in the dance studio. Given the context, the most specific and significant memory mentioned is likely the regional competition win.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:17:58,284 - Sample_conv-30 - INFO - ❓ Question: What kind of dance piece did Gina's team perform to win first place?
+2026-01-02 15:18:00,962 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's team first place dance performance", 'mode': 'hybrid'}
+2026-01-02 15:18:06,762 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Team'}
+2026-01-02 15:18:11,492 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Won first place in a regional competition at age fifteen at 2008-01-20'}
+2026-01-02 15:18:15,092 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Gina's dance style or piece", 'mode': 'hybrid'}
+2026-01-02 15:18:18,614 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:18:24,937 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Gina's team performance type", 'mode': 'hybrid'}
+2026-01-02 15:18:27,780 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Dance Team'}
+2026-01-02 15:18:30,872 - Sample_conv-30 - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Gina's team performance type", 'mode': 'hybrid'}
+2026-01-02 15:18:30,885 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:18:32,622 - Sample_conv-30 - INFO - 
+[conv-30] Q: What kind of dance piece did Gina's team perform to win first place?
+Category: 4
+GT: "Finding Freedom"
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:18:32,622 - Sample_conv-30 - INFO - ❓ Question: What do the dancers in the photo represent?
+2026-01-02 15:18:37,790 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'dancers in the photo represent', 'mode': 'hybrid'}
+2026-01-02 15:18:41,665 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:18:46,041 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'dancers represent', 'mode': 'hybrid'}
+2026-01-02 15:18:49,765 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'photo representation', 'mode': 'hybrid'}
+2026-01-02 15:18:56,762 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'dancers represent', 'mode': 'hybrid'}
+2026-01-02 15:19:02,974 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'dancers represent meaning', 'mode': 'hybrid'}
+2026-01-02 15:19:08,440 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'dancers represent meaning', 'mode': 'hybrid'}
+2026-01-02 15:19:15,314 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:19:15,315 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:19:17,203 - Sample_conv-30 - INFO - 
+[conv-30] Q: What do the dancers in the photo represent?
+Category: 4
+GT: They are performing at the festival
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:19:17,203 - Sample_conv-30 - INFO - ❓ Question: What does Gina say about the dancers in the photo?
+2026-01-02 15:19:25,018 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina says about the dancers in the photo', 'mode': 'hybrid'}
+2026-01-02 15:19:29,272 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:19:36,744 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Gina says about the dancers', 'mode': 'hybrid'}
+2026-01-02 15:19:49,138 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Gina says that the photo looks awesome and brings back lots of memories. She mentions that she used to love spending time in the studio and it's nice to know that dance is still Jon's happy place."}
+2026-01-02 15:19:49,930 - Sample_conv-30 - INFO - 
+[conv-30] Q: What does Gina say about the dancers in the photo?
+Category: 4
+GT: They look graceful
+Pred: Gina says that the photo looks awesome and brings back lots of memories. She mentions that she used to love spending time in the studio and it's nice to know that dance is still Jon's happy place.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:19:49,931 - Sample_conv-30 - INFO - ❓ Question: What is Jon's attitude towards being part of the dance festival?
+2026-01-02 15:19:56,635 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance festival attitude', 'mode': 'hybrid'}
+2026-01-02 15:20:00,713 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:20:07,595 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Dance Festival'}
+2026-01-02 15:20:15,512 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'From the information available, it seems Jon has a positive attitude towards being part of the dance festival as he is performing at a nearby festival next month and had previously received compliments for his performance at the festival.'}
+2026-01-02 15:20:16,452 - Sample_conv-30 - INFO - 
+[conv-30] Q: What is Jon's attitude towards being part of the dance festival?
+Category: 4
+GT: Glad
+Pred: From the information available, it seems Jon has a positive attitude towards being part of the dance festival as he is performing at a nearby festival next month and had previously received compliments for his performance at the festival.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:20:16,452 - Sample_conv-30 - INFO - ❓ Question: What kind of flooring is Jon looking for in his dance studio?
+2026-01-02 15:20:24,588 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio flooring', 'mode': 'hybrid'}
+2026-01-02 15:20:32,875 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon prefers Marley flooring for his dance studio.'}
+2026-01-02 15:20:33,713 - Sample_conv-30 - INFO - 
+[conv-30] Q: What kind of flooring is Jon looking for in his dance studio?
+Category: 4
+GT: Marley flooring
+Pred: Jon prefers Marley flooring for his dance studio.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:20:33,713 - Sample_conv-30 - INFO - ❓ Question: What did Gina find for her clothing store on 1 February, 2023?
+2026-01-02 15:20:40,811 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina clothing store 1 February 2023', 'mode': 'hybrid'}
+2026-01-02 15:20:51,474 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'On 1 February, 2023, Gina found a new location and designed the interior for her clothing store, making it cozy and inviting. She also chose furniture and decor to match her style and make customers feel comfortable.'}
+2026-01-02 15:20:52,279 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Gina find for her clothing store on 1 February, 2023?
+Category: 4
+GT: The perfect spot for her store
+Pred: On 1 February, 2023, Gina found a new location and designed the interior for her clothing store, making it cozy and inviting. She also chose furniture and decor to match her style and make customers feel comfortable.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:20:52,280 - Sample_conv-30 - INFO - ❓ Question: What did Gina design for her store?
+2026-01-02 15:20:56,722 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina store design', 'mode': 'hybrid'}
+2026-01-02 15:21:00,119 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:21:09,677 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina designed the interior of her clothing store to be cozy and inviting, choosing furniture and decor to match her style and make customers feel comfortable.'}
+2026-01-02 15:21:10,351 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Gina design for her store?
+Category: 4
+GT: the space, furniture, and decor
+Pred: Gina designed the interior of her clothing store to be cozy and inviting, choosing furniture and decor to match her style and make customers feel comfortable.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:21:10,351 - Sample_conv-30 - INFO - ❓ Question: What did Gina want her customers to feel in her store?
+2026-01-02 15:21:14,879 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina store customer experience', 'mode': 'hybrid'}
+2026-01-02 15:21:20,983 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:21:29,066 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina wanted her customers to feel cozy and comfortable in her store, as she designed the interior to be cozy and inviting and chose furniture and decor to match her style and make customers feel comfortable.'}
+2026-01-02 15:21:29,835 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Gina want her customers to feel in her store?
+Category: 4
+GT: cozy and comfortable
+Pred: Gina wanted her customers to feel cozy and comfortable in her store, as she designed the interior to be cozy and inviting and chose furniture and decor to match her style and make customers feel comfortable.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:21:29,835 - Sample_conv-30 - INFO - ❓ Question: What did Jon say about Gina's progress with her store?
+2026-01-02 15:21:34,346 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon Gina store progress', 'mode': 'hybrid'}
+2026-01-02 15:21:38,711 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:21:42,794 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:21:45,860 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:21:48,139 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:21:53,378 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:21:57,381 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:22:01,266 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:22:01,266 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:22:03,515 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Jon say about Gina's progress with her store?
+Category: 4
+GT: hard work's paying off
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:22:03,515 - Sample_conv-30 - INFO - ❓ Question: What made Gina choose the furniture and decor for her store?
+2026-01-02 15:22:08,462 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina furniture decor store', 'mode': 'hybrid'}
+2026-01-02 15:22:12,715 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:22:19,612 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina chose the furniture and decor to match her style and make customers feel comfortable.'}
+2026-01-02 15:22:20,249 - Sample_conv-30 - INFO - 
+[conv-30] Q: What made Gina choose the furniture and decor for her store?
+Category: 4
+GT: personal style and customer comfort
+Pred: Gina chose the furniture and decor to match her style and make customers feel comfortable.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:22:20,249 - Sample_conv-30 - INFO - ❓ Question: What did Jon say about creating a special experience for customers?
+2026-01-02 15:22:24,367 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon creating special experience for customers', 'mode': 'hybrid'}
+2026-01-02 15:22:28,944 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Online Platform'}
+2026-01-02 15:22:33,919 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jon special experience customers', 'mode': 'hybrid'}
+2026-01-02 15:22:39,248 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Online Platform'}
+2026-01-02 15:22:42,834 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Jon special experience customers', 'mode': 'hybrid'}
+2026-01-02 15:22:49,960 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Jon special experience customers', 'mode': 'hybrid'}
+2026-01-02 15:22:56,569 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Jon special experience customers', 'mode': 'hybrid'}
+2026-01-02 15:22:59,538 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:22:59,538 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:23:02,360 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Jon say about creating a special experience for customers?
+Category: 4
+GT: It's the key to making them feel welcome and coming back
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:23:02,360 - Sample_conv-30 - INFO - ❓ Question: What did Gina say about creating an experience for her customers?
+2026-01-02 15:23:09,440 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina creating experience for customers', 'mode': 'hybrid'}
+2026-01-02 15:23:15,261 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Online Clothes Store'}
+2026-01-02 15:23:19,753 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:23:26,639 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Online Clothes Store'}
+2026-01-02 15:23:30,086 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:23:33,258 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Online Clothes Store'}
+2026-01-02 15:23:36,507 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:23:41,995 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Online Clothes Store'}
+2026-01-02 15:23:41,995 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:23:50,133 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Gina say about creating an experience for her customers?
+Category: 4
+GT: making them want to come back
+Pred: Gina implemented new offers and promotions for her online store to attract new customers and plans to collaborate with fashion bloggers and influencers to increase visibility, indicating she focuses on creating a positive and engaging experience for her customers through various marketing strategies and by combining her passions for fashion and dance.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:23:50,134 - Sample_conv-30 - INFO - ❓ Question: How is Gina's store doing?
+2026-01-02 15:23:56,910 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's store", 'mode': 'hybrid'}
+2026-01-02 15:24:09,508 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Gina's store is doing great. She has launched an ad campaign, found a new location, and received positive responses from wholesalers. Additionally, she has worked hard on her online store and collaborated with a local artist for unique designs."}
+2026-01-02 15:24:10,186 - Sample_conv-30 - INFO - 
+[conv-30] Q: How is Gina's store doing?
+Category: 4
+GT: The store is doing great.
+Pred: Gina's store is doing great. She has launched an ad campaign, found a new location, and received positive responses from wholesalers. Additionally, she has worked hard on her online store and collaborated with a local artist for unique designs.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:24:10,186 - Sample_conv-30 - INFO - ❓ Question: What does Gina's tattoo symbolize?
+2026-01-02 15:24:16,733 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's tattoo", 'mode': 'hybrid'}
+2026-01-02 15:24:22,645 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Gina's tattoo symbolizes freedom and self-expression."}
+2026-01-02 15:24:23,463 - Sample_conv-30 - INFO - 
+[conv-30] Q: What does Gina's tattoo symbolize?
+Category: 4
+GT: Freedom and expressing herself through dance
+Pred: Gina's tattoo symbolizes freedom and self-expression.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:24:23,463 - Sample_conv-30 - INFO - ❓ Question: What did Jon and Gina compare their entrepreneurial journeys to?
+2026-01-02 15:24:33,324 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina entrepreneurial journey comparison', 'mode': 'hybrid'}
+2026-01-02 15:24:36,354 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:24:41,777 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:24:47,178 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:24:53,119 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina entrepreneurial journey comparison', 'mode': 'hybrid'}
+2026-01-02 15:25:00,715 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina entrepreneurial journey comparison', 'mode': 'hybrid'}
+2026-01-02 15:25:04,558 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina entrepreneurial journey comparison', 'mode': 'hybrid'}
+2026-01-02 15:25:11,322 - Sample_conv-30 - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina entrepreneurial journey comparison', 'mode': 'hybrid'}
+2026-01-02 15:25:11,334 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:25:14,130 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Jon and Gina compare their entrepreneurial journeys to?
+Category: 4
+GT: dancing together and supporting each other
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:25:14,130 - Sample_conv-30 - INFO - ❓ Question: What advice does Gina give to Jon about running a successful business?
+2026-01-02 15:25:18,833 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina advice Jon running successful business', 'mode': 'hybrid'}
+2026-01-02 15:25:21,530 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:25:26,900 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:25:30,808 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:25:34,278 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:25:38,380 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:25:43,124 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:25:45,404 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:25:45,404 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:25:56,601 - Sample_conv-30 - INFO - 
+[conv-30] Q: What advice does Gina give to Jon about running a successful business?
+Category: 4
+GT: build relationships with customers, create a strong brand image, stay positive
+Pred: Gina advises Jon to stay passionate, focused, and resilient, encouraging him to keep pursuing his dreams and reminding him of the phrase 'Just do it'. She also offered advice on marketing strategies such as using Instagram and TikTok to reach a younger audience and collaborating with local influencers.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:25:56,601 - Sample_conv-30 - INFO - ❓ Question: Why did Jon shut down his bank account?
+2026-01-02 15:26:02,296 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon shut down his bank account', 'mode': 'hybrid'}
+2026-01-02 15:26:08,125 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:26:15,483 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon shut down his bank account to focus on his business growth, specifically starting his own dance studio.'}
+2026-01-02 15:26:16,890 - Sample_conv-30 - INFO - 
+[conv-30] Q: Why did Jon shut down his bank account?
+Category: 4
+GT: for his business
+Pred: Jon shut down his bank account to focus on his business growth, specifically starting his own dance studio.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:26:16,891 - Sample_conv-30 - INFO - ❓ Question: Why did Gina combine her clothing business with dance?
+2026-01-02 15:26:22,060 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina clothing business dance', 'mode': 'hybrid'}
+2026-01-02 15:26:24,941 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:26:28,589 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Gina dance', 'mode': 'hybrid'}
+2026-01-02 15:26:34,273 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:26:41,531 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Gina combine clothing business dance', 'mode': 'hybrid'}
+2026-01-02 15:26:43,064 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:26:50,155 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Gina combine clothing business dance', 'mode': 'hybrid'}
+2026-01-02 15:26:56,112 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:26:56,112 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:27:09,565 - Sample_conv-30 - INFO - 
+[conv-30] Q: Why did Gina combine her clothing business with dance?
+Category: 4
+GT: she is passionate about dance and fashion
+Pred: Gina combined her clothing business with dance because she wanted to integrate her passions for both fashion and dance into her online store, likely to create a unique selling proposition and attract customers who share her interests in these areas. This combination allows her to express her creativity and connect with a niche market that appreciates both fashion and dance.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:27:09,565 - Sample_conv-30 - INFO - ❓ Question: What does Jon's dance make him?
+2026-01-02 15:27:16,399 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon's dance", 'mode': 'hybrid'}
+2026-01-02 15:27:24,203 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:27:43,256 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Dancing makes Jon happy and helps him express himself. It gives him a sense of fulfillment and joy, especially when he sees his students improve. Dancing has also given him the courage to pursue his dreams and live a life that aligns with his true self.'}
+2026-01-02 15:27:44,164 - Sample_conv-30 - INFO - 
+[conv-30] Q: What does Jon's dance make him?
+Category: 4
+GT: happy
+Pred: Dancing makes Jon happy and helps him express himself. It gives him a sense of fulfillment and joy, especially when he sees his students improve. Dancing has also given him the courage to pursue his dreams and live a life that aligns with his true self.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:27:44,164 - Sample_conv-30 - INFO - ❓ Question: What did Gina receive from a dance contest?
+2026-01-02 15:27:51,019 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina dance contest', 'mode': 'hybrid'}
+2026-01-02 15:27:55,377 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Team'}
+2026-01-02 15:28:02,408 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Won first place in a regional competition at age fifteen at 2008-01-20'}
+2026-01-02 15:28:07,882 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Gina prize', 'mode': 'hybrid'}
+2026-01-02 15:28:11,371 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Dance Team'}
+2026-01-02 15:28:15,770 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Gina prize dance contest', 'mode': 'hybrid'}
+2026-01-02 15:28:20,336 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Dance Team'}
+2026-01-02 15:28:30,319 - Sample_conv-30 - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Gina prize dance team', 'mode': 'hybrid'}
+2026-01-02 15:28:30,331 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:28:32,361 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Gina receive from a dance contest?
+Category: 4
+GT: a trophy
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:28:32,361 - Sample_conv-30 - INFO - ❓ Question: How does Gina stay confident in her business?
+2026-01-02 15:28:37,366 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina confidence business', 'mode': 'hybrid'}
+2026-01-02 15:28:43,364 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:28:48,698 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:29:06,799 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Gina stays confident in her business by combining her passions for fashion and dance, implementing new offers and promotions, expanding advertising efforts, and collaborating with fashion bloggers and influencers. She also draws strength from her experiences, such as winning a regional dance competition, and uses dancing as a stress reliever.'}
+2026-01-02 15:29:08,033 - Sample_conv-30 - INFO - 
+[conv-30] Q: How does Gina stay confident in her business?
+Category: 4
+GT: By reminding herself of her successes and progress, having a support system, and focusing on why she started
+Pred: Gina stays confident in her business by combining her passions for fashion and dance, implementing new offers and promotions, expanding advertising efforts, and collaborating with fashion bloggers and influencers. She also draws strength from her experiences, such as winning a regional dance competition, and uses dancing as a stress reliever.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:29:08,033 - Sample_conv-30 - INFO - ❓ Question: What kind of professional experience did Gina get accepted for on May 23, 2023?
+2026-01-02 15:29:14,089 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina professional experience acceptance May 23 2023', 'mode': 'hybrid'}
+2026-01-02 15:29:18,535 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Fashion Internship'}
+2026-01-02 15:29:27,329 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'May 23 2023 professional experience Gina', 'mode': 'hybrid'}
+2026-01-02 15:29:38,491 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Gina got accepted for a part-time fashion internship in the fashion department of an international company on May 27, 2023.'}
+2026-01-02 15:29:39,598 - Sample_conv-30 - INFO - 
+[conv-30] Q: What kind of professional experience did Gina get accepted for on May 23, 2023?
+Category: 4
+GT: fashion internship
+Pred: Gina got accepted for a part-time fashion internship in the fashion department of an international company on May 27, 2023.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:29:39,598 - Sample_conv-30 - INFO - ❓ Question: Where is Gina's fashion internship?
+2026-01-02 15:29:45,181 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's fashion internship", 'mode': 'hybrid'}
+2026-01-02 15:29:54,176 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Fashion Internship'}
+2026-01-02 15:29:58,375 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:30:03,047 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Fashion Internship'}
+2026-01-02 15:30:07,078 - Sample_conv-30 - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Gina's fashion internship is at an international company's fashion department."}
+2026-01-02 15:30:07,873 - Sample_conv-30 - INFO - 
+[conv-30] Q: Where is Gina's fashion internship?
+Category: 4
+GT: fashion department of an international company
+Pred: Gina's fashion internship is at an international company's fashion department.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:30:07,873 - Sample_conv-30 - INFO - ❓ Question: What book is Jon currently reading?
+2026-01-02 15:30:11,559 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon book reading', 'mode': 'hybrid'}
+2026-01-02 15:30:15,827 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Jon is currently reading 'The Lean Startup' for business tips."}
+2026-01-02 15:30:16,718 - Sample_conv-30 - INFO - 
+[conv-30] Q: What book is Jon currently reading?
+Category: 4
+GT: The Lean Startup
+Pred: Jon is currently reading 'The Lean Startup' for business tips.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:30:16,718 - Sample_conv-30 - INFO - ❓ Question: What is Jon offering to the dancers at his dance studio?
+2026-01-02 15:30:22,028 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio offering to dancers', 'mode': 'hybrid'}
+2026-01-02 15:30:28,346 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:30:31,030 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:30:34,438 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:30:37,297 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:30:43,328 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Jon offering to dancers', 'mode': 'hybrid'}
+2026-01-02 15:30:47,359 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:30:50,724 - Sample_conv-30 - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Jon offering to dancers', 'mode': 'hybrid'}
+2026-01-02 15:30:50,740 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:30:52,495 - Sample_conv-30 - INFO - 
+[conv-30] Q: What is Jon offering to the dancers at his dance studio?
+Category: 4
+GT: One-on-one mentoring and training
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:30:52,495 - Sample_conv-30 - INFO - ❓ Question: How does Jon use the clipboard with a notepad attached to it?
+2026-01-02 15:30:59,131 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon clipboard notepad', 'mode': 'hybrid'}
+2026-01-02 15:31:05,169 - Sample_conv-30 - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'clipboard notepad Jon', 'mode': 'hybrid'}
+2026-01-02 15:31:11,620 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'clipboard notepad Jon', 'mode': 'hybrid'}
+2026-01-02 15:31:18,849 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'clipboard notepad Jon', 'mode': 'hybrid'}
+2026-01-02 15:31:26,209 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'clipboard notepad Jon', 'mode': 'hybrid'}
+2026-01-02 15:31:32,344 - Sample_conv-30 - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'clipboard notepad Jon', 'mode': 'hybrid'}
+2026-01-02 15:31:41,550 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'clipboard notepad Jon', 'mode': 'hybrid'}
+2026-01-02 15:31:48,393 - Sample_conv-30 - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'clipboard notepad Jon', 'mode': 'hybrid'}
+2026-01-02 15:31:48,405 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:31:50,379 - Sample_conv-30 - INFO - 
+[conv-30] Q: How does Jon use the clipboard with a notepad attached to it?
+Category: 4
+GT: To set goals, track achievements, and find areas for improvement
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:31:50,379 - Sample_conv-30 - INFO - ❓ Question: What does Jon tell Gina he won't do?
+2026-01-02 15:31:54,199 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon tells Gina', 'mode': 'hybrid'}
+2026-01-02 15:31:58,535 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:32:01,678 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:32:06,931 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:32:09,681 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:32:13,526 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:32:20,447 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:32:22,976 - Sample_conv-30 - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Jon tells Gina he won't do", 'mode': 'hybrid'}
+2026-01-02 15:32:22,988 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:32:27,200 - Sample_conv-30 - INFO - 
+[conv-30] Q: What does Jon tell Gina he won't do?
+Category: 4
+GT: quit
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:32:27,200 - Sample_conv-30 - INFO - ❓ Question: What did Jon take a trip to Rome for?
+2026-01-02 15:32:31,022 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon trip to Rome', 'mode': 'hybrid'}
+2026-01-02 15:32:35,345 - Sample_conv-30 - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon took a short trip to Rome to clear his mind a little.'}
+2026-01-02 15:32:36,135 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Jon take a trip to Rome for?
+Category: 4
+GT: To clear his mind
+Pred: Jon took a short trip to Rome to clear his mind a little.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:32:36,136 - Sample_conv-30 - INFO - ❓ Question: What is Jon working on opening?
+2026-01-02 15:32:41,630 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon working on opening', 'mode': 'hybrid'}
+2026-01-02 15:32:47,322 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:32:51,393 - Sample_conv-30 - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon is working on opening a dance studio.'}
+2026-01-02 15:32:52,253 - Sample_conv-30 - INFO - 
+[conv-30] Q: What is Jon working on opening?
+Category: 4
+GT: a dance studio
+Pred: Jon is working on opening a dance studio.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:32:52,254 - Sample_conv-30 - INFO - ❓ Question: How does Gina describe the studio that Jon has opened?
+2026-01-02 15:33:01,187 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina describes Jon's studio", 'mode': 'hybrid'}
+2026-01-02 15:33:05,631 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:33:08,811 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:33:10,744 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:33:16,061 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Gina describes Jon's studio", 'mode': 'hybrid'}
+2026-01-02 15:33:19,446 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:33:26,072 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:33:27,696 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:33:27,696 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:33:29,066 - Sample_conv-30 - INFO - 
+[conv-30] Q: How does Gina describe the studio that Jon has opened?
+Category: 4
+GT: amazing
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:33:29,067 - Sample_conv-30 - INFO - ❓ Question: How does Jon feel about the opening night of his dance studio?
+2026-01-02 15:33:36,498 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio opening night', 'mode': 'hybrid'}
+2026-01-02 15:33:42,825 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:33:49,529 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Official opening night is tomorrow at 2023-06-19'}
+2026-01-02 15:33:54,611 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Official opening night is tomorrow at 2023-06-19'}
+2026-01-02 15:33:59,553 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Official opening night is tomorrow at 2023-06-19'}
+2026-01-02 15:34:04,916 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Official opening night is tomorrow at 2023-06-19'}
+2026-01-02 15:34:10,191 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Official opening night is tomorrow at 2023-06-19'}
+2026-01-02 15:34:15,680 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Official opening night is tomorrow at 2023-06-19'}
+2026-01-02 15:34:15,680 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:34:32,518 - Sample_conv-30 - INFO - 
+[conv-30] Q: How does Jon feel about the opening night of his dance studio?
+Category: 4
+GT: excited
+Pred: Given the context that Jon expresses passion, dedication, and determination towards his dance studio, and considering his statement "Seeing my students succeed motivates me," it can be inferred that Jon likely feels excited and proud about the opening night of his dance studio. However, since there's no direct mention of his feelings specifically towards the opening night, we can only make an educated guess based on his previous sentiments. Therefore, the best possible answer is:
+
+Excited and proud
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:34:32,518 - Sample_conv-30 - INFO - ❓ Question: How does Gina describe the feeling that dance brings?
+2026-01-02 15:34:36,350 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina describes feeling of dance', 'mode': 'hybrid'}
+2026-01-02 15:34:42,882 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:34:47,651 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:34:50,796 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:34:53,395 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:35:00,689 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:35:05,501 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:35:10,587 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Contemporary Dance'}
+2026-01-02 15:35:10,587 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:35:22,487 - Sample_conv-30 - INFO - 
+[conv-30] Q: How does Gina describe the feeling that dance brings?
+Category: 4
+GT: magical
+Pred: Dance is a stress reliever for her and brings back happy memories. It's a way to express herself and find happiness. She describes it as bringing joy and reminding her of the hard work and dedication it takes.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:35:22,487 - Sample_conv-30 - INFO - ❓ Question: What does Jon plan to do at the grand opening of his dance studio?
+2026-01-02 15:35:29,973 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon grand opening dance studio', 'mode': 'hybrid'}
+2026-01-02 15:35:35,669 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:35:41,679 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Official opening night is tomorrow at 2023-06-19'}
+2026-01-02 15:35:47,154 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Official opening night is tomorrow at 2023-06-19'}
+2026-01-02 15:35:53,517 - Sample_conv-30 - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Jon plans to do at the grand opening', 'mode': 'hybrid'}
+2026-01-02 15:35:59,547 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:36:06,592 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Jon plans to do at the grand opening', 'mode': 'hybrid'}
+2026-01-02 15:36:11,615 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:36:11,615 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:36:32,455 - Sample_conv-30 - INFO - 
+[conv-30] Q: What does Jon plan to do at the grand opening of his dance studio?
+Category: 4
+GT: savor all the good vibes
+Pred: Jon plans to host the official opening night of his dance studio, which includes welcoming guests, showcasing the studio, and possibly hosting a small performance or celebration to mark the occasion. Given his passion for dance and his mention of hosting a dance competition next month, it's reasonable to infer that he might also perform or arrange for a performance at the grand opening to celebrate the launch of his studio.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:36:32,455 - Sample_conv-30 - INFO - ❓ Question: What does Gina say to Jon about the grand opening?
+2026-01-02 15:36:39,385 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina says to Jon about the grand opening', 'mode': 'hybrid'}
+2026-01-02 15:36:45,025 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:36:51,414 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:36:59,121 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:37:03,491 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:37:09,037 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:37:13,874 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:37:20,305 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:37:20,305 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:37:23,208 - Sample_conv-30 - INFO - 
+[conv-30] Q: What does Gina say to Jon about the grand opening?
+Category: 4
+GT: Let's live it up and make some great memories
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:37:23,208 - Sample_conv-30 - INFO - ❓ Question: What is the general sentiment about the upcoming grand opening?
+2026-01-02 15:37:28,080 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'upcoming grand opening sentiment', 'mode': 'hybrid'}
+2026-01-02 15:37:33,320 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:37:38,349 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:37:44,588 - Sample_conv-30 - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'sentiment grand opening', 'mode': 'hybrid'}
+2026-01-02 15:37:49,085 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:37:52,348 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:37:56,971 - Sample_conv-30 - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'sentiment grand opening', 'mode': 'hybrid'}
+2026-01-02 15:37:58,293 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-02 15:37:58,293 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:38:05,768 - Sample_conv-30 - INFO - 
+[conv-30] Q: What is the general sentiment about the upcoming grand opening?
+Category: 4
+GT: excitement
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:38:05,768 - Sample_conv-30 - INFO - ❓ Question: What did Gina make a limited edition line of?
+2026-01-02 15:38:12,580 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina limited edition line', 'mode': 'hybrid'}
+2026-01-02 15:38:17,687 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-02 15:38:21,244 - Sample_conv-30 - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'limited edition line Gina', 'mode': 'hybrid'}
+2026-01-02 15:38:26,068 - Sample_conv-30 - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Gina made a limited edition line of clothing to showcase her style and creativity.'}
+2026-01-02 15:38:26,797 - Sample_conv-30 - INFO - 
+[conv-30] Q: What did Gina make a limited edition line of?
+Category: 4
+GT: Hoodies
+Pred: Gina made a limited edition line of clothing to showcase her style and creativity.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:38:26,797 - Sample_conv-30 - INFO - ❓ Question: According to Gina, what makes Jon a perfect mentor and guide?
+2026-01-02 15:38:31,900 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina Jon perfect mentor guide', 'mode': 'hybrid'}
+2026-01-02 15:38:36,848 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:38:40,781 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:38:44,924 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:38:49,711 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:38:52,448 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:38:58,940 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-02 15:39:03,325 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:39:03,325 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:39:17,737 - Sample_conv-30 - INFO - 
+[conv-30] Q: According to Gina, what makes Jon a perfect mentor and guide?
+Category: 4
+GT: His positivity and determination
+Pred: Gina supports Jon's efforts and acknowledges his dedication and passion for mentoring and guiding others through his dance studio. Therefore, what makes Jon a perfect mentor and guide, based on Gina's perspective, includes his dedication, passion for dance, and his commitment to helping others reach their full potential.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:39:17,737 - Sample_conv-30 - INFO - ❓ Question: What plans does Jon have after receiving advice at the networking event?
+2026-01-02 15:39:22,678 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon networking event advice plans', 'mode': 'hybrid'}
+2026-01-02 15:39:28,474 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:39:33,270 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:39:34,606 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:39:39,254 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:39:46,809 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:39:49,227 - Sample_conv-30 - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:39:54,641 - Sample_conv-30 - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:39:54,641 - Sample_conv-30 - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-02 15:39:55,958 - Sample_conv-30 - INFO - 
+[conv-30] Q: What plans does Jon have after receiving advice at the networking event?
+Category: 4
+GT: Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-02 15:39:55,958 - Sample_conv-30 - INFO - ❓ Question: What offer does Gina make to Jon regarding social media?
+2026-01-02 15:40:04,371 - Sample_conv-30 - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina makes offer to Jon social media', 'mode': 'hybrid'}
+2026-01-02 15:40:08,001 - Sample_conv-30 - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:40:15,677 - Sample_conv-30 - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:40:21,762 - Sample_conv-30 - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:40:26,141 - Sample_conv-30 - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-02 15:40:30,930 - Sample_conv-30 - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Marketing Advice'}
+2026-01-02 15:40:38,254 - Sample_conv-30 - INFO - Step 7: READ - {'tool': 'READ', 'answer': 'Gina offers to provide marketing advice on using Instagram and TikTok to reach a younger audience and suggests collaborating with local influencers.'}
+2026-01-02 15:40:39,009 - Sample_conv-30 - INFO - 
+[conv-30] Q: What offer does Gina make to Jon regarding social media?
+Category: 4
+GT: Helping with making content and managing his social media accounts.
+Pred: Gina offers to provide marketing advice on using Instagram and TikTok to reach a younger audience and suggests collaborating with local influencers.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-02 15:40:39,009 - Sample_conv-30 - INFO - 
+🏆 Sample conv-30 Score (Avg Score): 53.1%

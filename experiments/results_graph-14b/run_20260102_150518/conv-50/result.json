@@ -1,0 +1,1428 @@
+{
+  "sample_id": "conv-50",
+  "avg_score": 0.5253164556962026,
+  "qa_results": [
+    {
+      "question": "When did Calvin first travel to Tokyo?",
+      "category": 2,
+      "ground_truth": "between 26 March and 20 April 2023",
+      "prediction": "Based on the available information, Calvin first traveled to Tokyo in August 2023, as indicated by the timestamp 'Performed in Tokyo and received a positive response from the audience at 2023-08-14'.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What items did Calvin buy in March 2023?",
+      "category": 1,
+      "ground_truth": "mansion in Japan, luxury car Ferrari 488 GTB",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave see Aerosmith perform live?",
+      "category": 2,
+      "ground_truth": "on the weekend before March 26, 2023",
+      "prediction": "Dave saw Aerosmith perform live at a music festival on 2023-03-24.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which bands has Dave enjoyed listening to?",
+      "category": 1,
+      "ground_truth": "Aerosmith, The Fireworks",
+      "prediction": "Dave enjoys listening to bands, particularly those related to rock music. He attended a rock concert in Boston and joined a rock band, indicating a fondness for rock bands. However, specific names of the bands he enjoys listening to were not mentioned. Therefore, we can infer that Dave likely enjoys rock bands, but the exact names are unknown from the given data.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which country do Calvin and Dave want to meet in?",
+      "category": 3,
+      "ground_truth": "United States",
+      "prediction": "Calvin and Dave want to meet in Boston.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What are Dave's dreams?",
+      "category": 1,
+      "ground_truth": "open a car maintenance shop, work on classic cars, build a custom car from scratch",
+      "prediction": "Dave's dreams include working on classic cars, building a custom car from scratch, and continuing to restore and customize cars with modern twists while maintaining their classic style.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which types of cars does Dave like the most?",
+      "category": 1,
+      "ground_truth": "classic vintage cars",
+      "prediction": "Dave likes restored classic cars and custom cars the most. He dreams of working on classic cars, has restored several classic cars, and is enthusiastic about customizing a car with modern twists while maintaining a classic style.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Does Dave's shop employ a lot of people?",
+      "category": 3,
+      "ground_truth": "Yes",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave start his car maintenance shop?",
+      "category": 2,
+      "ground_truth": "May 1, 2023",
+      "prediction": "Dave started his car maintenance shop on 2023-05-01.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did a mishap occur with Calvin's musical gear and favorite mic?",
+      "category": 2,
+      "ground_truth": "On a week before 16 May, 2023",
+      "prediction": "Calvin had an incident where his place got flooded, but he managed to save his music gear and favorite microphone.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin's place get flooded in Tokyo?",
+      "category": 2,
+      "ground_truth": "On a week before 16 May, 2023",
+      "prediction": "The information provided indicates that Calvin's place got flooded while he was in Tokyo, but the exact date is not specified. Given the timeline of events and the context that he had an incident where his place got flooded, we can infer that this happened sometime during his stay in Tokyo, possibly around the time of his performances or tours there. However, without a specific date mentioned, the most accurate response is:\n\nUnknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What mishaps has Calvin run into?",
+      "category": 1,
+      "ground_truth": "flooding of his mansion, car accident",
+      "prediction": "Calvin has run into a few mishaps, including a car accident last Friday and an incident where his place got flooded, but he managed to save his music gear and favorite microphone.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When was Calvin's concert in Tokyo?",
+      "category": 2,
+      "ground_truth": "last week of May 2023",
+      "prediction": "Calvin's concert in Tokyo was held on 2023-08-14.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Would Calvin enjoy performing at the Hollywood Bowl?",
+      "category": 3,
+      "ground_truth": "Yes; because he enjoys the rush of performing onstage to large crowds",
+      "prediction": "Calvin enjoys performing live and the connection with the audience. He is looking forward to performing in Boston and has accepted an invitation to perform at an upcoming show there. Therefore, it can be inferred that Calvin would likely enjoy performing at the Hollywood Bowl.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin meet with the creative team for his new album?",
+      "category": 2,
+      "ground_truth": "8 June, 2023",
+      "prediction": "Calvin met with the creative team for his new album on June 8, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Why does Dave regularly visit parks?",
+      "category": 1,
+      "ground_truth": "because it relaxes and calms him",
+      "prediction": "Dave regularly visits parks to explore and relax on weekends.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave take a trip to mountainous regions?",
+      "category": 2,
+      "ground_truth": "July 2023",
+      "prediction": "Dave took a trip to a mountainous region and booked it for next month on 2023-06-09.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin have a car incident?",
+      "category": 2,
+      "ground_truth": "on the Friday before 21 June, 2023",
+      "prediction": "Calvin had a car incident last Friday, which was on June 16, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How many times has Calvin had to deal with insurance paperwork?",
+      "category": 1,
+      "ground_truth": "two times",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which places or events has Calvin visited in Tokyo?",
+      "category": 1,
+      "ground_truth": "music festival, car museum, Shibuya crossing, Shinjuku",
+      "prediction": "Calvin has visited several places and events in Tokyo. He performed in Tokyo and received a positive response from the audience on August 14, 2023. Additionally, he played at a music festival in Tokyo and collaborated with Frank Ocean on August 22, 2023. He also expressed excitement about revisiting Tokyo after his tour on October 19, 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Who inspired Dave's passion for car engineering?",
+      "category": 1,
+      "ground_truth": "His Dad",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Does Calvin wish to become more popular?",
+      "category": 3,
+      "ground_truth": "Yes; he want's to grow his fanbase",
+      "prediction": "Calvin is expanding his brand worldwide and growing his fanbase, which suggests he wishes to become more popular.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Does Calvin want to expand his brand?",
+      "category": 1,
+      "ground_truth": "yes",
+      "prediction": "Yes Calvin wants to expand his",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Dave's main passion?",
+      "category": 1,
+      "ground_truth": "auto engineering",
+      "prediction": "Dave's main passion is fixing things, particularly restoring and modifying cars. He finds it therapeutic and fulfilling.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Can Dave work with engines?",
+      "category": 1,
+      "ground_truth": "yes",
+      "prediction": "Dave has a strong passion for fixing and restoring cars, which includes working on engines. He dreams of working on classic cars, has worked on various car projects, and even attended a car workshop in San Francisco to learn more about auto engineering. Therefore, it can be inferred that Dave can indeed work with engines.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave host a card-playing night with his friends?",
+      "category": 2,
+      "ground_truth": "on the Friday before 22 August, 2023",
+      "prediction": "Dave hosted a card-playing night with his friends last Friday.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin record a podcast with his friends?",
+      "category": 2,
+      "ground_truth": "21 August, 2023",
+      "prediction": "Calvin recorded a podcast discussing the rapidly evolving rap industry with friends, but the exact date is not provided.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which city was Calvin visiting in August 2023?",
+      "category": 2,
+      "ground_truth": "Miami",
+      "prediction": "Calvin was visiting Tokyo in August 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Calvin do to relax?",
+      "category": 1,
+      "ground_truth": "take long drives in his car, embrace nature, fixing cars",
+      "prediction": "Calvin uses long drives to relax.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What are Dave's hobbies other than fixing cars?",
+      "category": 1,
+      "ground_truth": "take a walk, go hiking, listen to favorite albums, live concerts, photography",
+      "prediction": "Dave's hobby other than fixing cars is photography. He takes photos of nature, including sunsets, beaches, and waves.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of music does Dave listen to?",
+      "category": 1,
+      "ground_truth": "classic rock, Japanese music",
+      "prediction": "Dave listens to classic rock.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where was Dave in the last two weeks of August 2023?",
+      "category": 2,
+      "ground_truth": "San Francisco",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Dave return from with new knowledge of different techniques of car restoration?",
+      "category": 1,
+      "ground_truth": "San Francisco",
+      "prediction": "San Francisco",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What was Dave doing in San Francisco?",
+      "category": 1,
+      "ground_truth": "attending a car modification workshop",
+      "prediction": "Dave was attending a car workshop in San Francisco to gain insights on car modification.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave return from San Francisco?",
+      "category": 2,
+      "ground_truth": "September 1, 2023",
+      "prediction": "Dave returned from San Francisco on 2023-08-14.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin book flight tickets to Boston?",
+      "category": 2,
+      "ground_truth": "last week of August 2023",
+      "prediction": "Calvin booked a flight ticket to Boston, but the exact date is not specified in the available information.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When was Calvin's album released?",
+      "category": 2,
+      "ground_truth": "September 11, 2023",
+      "prediction": "Calvin's album was released on 11th September, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Does Calvin love music tours?",
+      "category": 3,
+      "ground_truth": "yes",
+      "prediction": "Yes Calvin loves music tours. He",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave have a great jam session with his band?",
+      "category": 2,
+      "ground_truth": "September 14, 2023",
+      "prediction": "Dave had a great jam session with his band on 2023-09-14.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Would Dave prefer working on a Dodge Charger or a Subaru Forester?",
+      "category": 3,
+      "ground_truth": "Dodge Charger",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was the artists Calvin used to listen to when he was a kid?",
+      "category": 1,
+      "ground_truth": "Tupac and Dr. Dre",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which of their family member do Calvin and Dave have nostalgic memories about?",
+      "category": 1,
+      "ground_truth": "Dad",
+      "prediction": "Dave has nostalgic memories about working on cars with his dad. Therefore, the family member that both Calvin and Dave (in this context, specifically Dave) have nostalgic memories about is Dave's dad. However, since there is no direct mention of Calvin sharing these memories, we can only confirm that Dave has such memories about his dad.\n\nAnswer: Dave's dad",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Based on the conversation, did Calvin and Dave have a meeting in Boston between August and November 2023? Answer in yes or no.",
+      "category": 3,
+      "ground_truth": "No",
+      "prediction": "Yes",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which city was Calvin at on October 3, 2023?",
+      "category": 2,
+      "ground_truth": "Boston",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin met with local artists in Boston?",
+      "category": 2,
+      "ground_truth": "October 3, 2023",
+      "prediction": "Calvin met with local artists in Boston and discussed working together on new music on 2023-10-03.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What shared activities do Dave and Calvin have?",
+      "category": 1,
+      "ground_truth": "Working on cars",
+      "prediction": "Dave and Calvin share plans to jam music together and meet up in Boston.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Dave's favorite activity?",
+      "category": 1,
+      "ground_truth": "Restoring cars",
+      "prediction": "Dave's favorite activity is working on classic cars and car restoration projects.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How many car shows has Dave attended?",
+      "category": 1,
+      "ground_truth": "two",
+      "prediction": "Based on the available information, Dave has attended at least two car shows.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What was Dave doing in the first weekend of October 2023?",
+      "category": 2,
+      "ground_truth": "attending a car show",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When Dave was a child, what did he and his father do in the garage?",
+      "category": 1,
+      "ground_truth": "tinkering with car engines, restoration and refurbishing cars",
+      "prediction": "Dave has fond memories of working on cars with his dad in the garage. Therefore, when Dave was a child, he and his father likely worked on cars together in the garage.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin buy his second Ferrari?",
+      "category": 2,
+      "ground_truth": "first week of October 2023",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin and Frank Ocean start collaborating?",
+      "category": 2,
+      "ground_truth": "August 2022",
+      "prediction": "Calvin and Frank Ocean started collaborating in August 2022.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin plan on travelling to Tokyo the second time?",
+      "category": 2,
+      "ground_truth": "November 2023",
+      "prediction": "Calvin has plans to revisit Tokyo after the tour with Frank Ocean, and there is a mention of an upcoming performance in Tokyo this month (May 2023). However, there is no specific date mentioned for his second travel to Tokyo. The closest information we have is that he is excited to revisit Tokyo after the tour, which suggests the second visit might be planned soon after the tour ends. Given the available data, the exact date of his second travel to Tokyo remains unknown. \n\nAnswer: Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Who supports Calvin in tough times?",
+      "category": 1,
+      "ground_truth": "friends and team",
+      "prediction": "Dave supports Calvin in tough times. He is supportive of Calvin's upcoming performance in Boston.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does help Calvin stay connected to the creative process?",
+      "category": 1,
+      "ground_truth": "Calvin stays connected to the creative process by always staying up-to-date on world events and watching documentaries about artists.",
+      "prediction": "Calvin stays connected to the creative process by surrounding himself with positive energy and passion, experimenting with different genres, collaborating with other artists, and enjoying live performances which provide a connection with the audience.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin visit some of the sights in Boston with a former high school friend?",
+      "category": 2,
+      "ground_truth": "October 24, 2023",
+      "prediction": "Calvin visited some of the sights in Boston with a former high school friend on 2023-10-24.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which cities did Dave travel to in 2023?",
+      "category": 1,
+      "ground_truth": "San Francsico, Detroit",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which hobby did Dave pick up in October 2023?",
+      "category": 2,
+      "ground_truth": "photography",
+      "prediction": "Dave picked up photography as his hobby in October 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which events in Dave's life inspired him to take up auto engineering?",
+      "category": 1,
+      "ground_truth": "attending a car show with Dad, working on an old car in a neighbor's garage when he was young, spent a summer restoring an old car with Dad",
+      "prediction": "Based on the provided information, Dave's inspiration to take up auto engineering seems to stem from multiple sources:\n\n1. **Fond Memories with His Dad**: Dave has fond memories of working on cars with his dad, which likely instilled in him a passion for automotive work.\n2. **Dreams of Building Custom Cars**: He dreams of building a custom car from scratch and enjoys the process of restoring and modifying cars.\n3. **Experiences at the Car Workshop**: Attending a car workshop in San Francisco gave him insights into car modification and further fueled his interest in auto engineering.\n4. **Personal Satisfaction and Therapy**: Fixing and restoring cars provides Dave with a sense of purpose and acts as a form of therapy, making him enthusiastic about customizing cars with modern twists while maintaining classic styles.\n\nThese factors combined suggest that Dave's passion for auto engineering is deeply rooted in both personal experiences and a genuine love for the craft.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How many Ferraris does Calvin own?",
+      "category": 1,
+      "ground_truth": "two",
+      "prediction": "Calvin owns one Ferrari.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What gifts has Calvin received from his artist friends?",
+      "category": 1,
+      "ground_truth": "gold chain, custom-made guitar with an octopus on it",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How long did Dave's work on the Ford Mustang take?",
+      "category": 2,
+      "ground_truth": "nearly two months",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How long was the car modification workshop in San Francisco?",
+      "category": 2,
+      "ground_truth": "two weeks",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What style of guitars does Calvin own?",
+      "category": 1,
+      "ground_truth": "custom-made yellow guitar with an octopus on it, shiny purple guitar",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What activities has Dave participated in with his friends?",
+      "category": 1,
+      "ground_truth": "weekly visits to local parks, countryside roadtrip, celebration of the opening of his car maintenance shop, card-playing nights",
+      "prediction": "Dave has participated in a card-night with friends last Friday. Additionally, he took a road trip with friends and saw stunning countryside. These are the specific activities involving his friends mentioned in the context.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave take a photo of a Boston clock tower?",
+      "category": 2,
+      "ground_truth": "September 2023",
+      "prediction": "Dave took a photo of a Boston clock tower on 2023-10-29.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Do all of Dave's car restoration projects go smoothly?",
+      "category": 1,
+      "ground_truth": "No",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where was Calvin located in the last week of October 2023?",
+      "category": 2,
+      "ground_truth": "Tokyo",
+      "prediction": "Calvin was in Tokyo recently and touring with Frank Ocean last week. Given that he is looking forward to performing in Boston and has booked a flight ticket to Boston, it can be inferred that Calvin would have been preparing for or traveling to Boston in the last week of October 2023. However, since the last explicit mention of his location is related to his recent tour in Tokyo, the most accurate answer based on the available information is that Calvin was likely still in Tokyo or en route to Boston in the last week of October 2023. Since the exact transition timing isn't specified, the safest conclusion is that he was **in Tokyo** until he started his journey to Boston.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave find the car he repaired and started sharing in his blog?",
+      "category": 2,
+      "ground_truth": "last week of October 2023",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave buy a vintage camera?",
+      "category": 2,
+      "ground_truth": "November 2023",
+      "prediction": "Dave bought a vintage camera that takes clear photos on 2023-11-17.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin attend a gala in Boston?",
+      "category": 2,
+      "ground_truth": "November 16, 2023",
+      "prediction": "Calvin attended a fancy gala in Boston on November 16, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How long did Calvin plan to stay in Japan?",
+      "category": 4,
+      "ground_truth": "A few months",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which band was Dave's favorite at the music festival in April 2023?",
+      "category": 4,
+      "ground_truth": "Aerosmith",
+      "prediction": "Aerosmith",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Calvin attend a music festival in April 2023?",
+      "category": 4,
+      "ground_truth": "Tokyo",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What advice did Calvin receive from the producer at the music festival?",
+      "category": 4,
+      "ground_truth": "to stay true to himself and sound unique",
+      "prediction": "Calvin received advice from a music industry professional to stay true to himself and sound unique at the music festival in Tokyo on 2023-04-20.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Dave's new business venture as of 1 May, 2023?",
+      "category": 4,
+      "ground_truth": "Car maintenance shop",
+      "prediction": "Dave's new business venture as of 1 May, 2023 is a car maintenance shop.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of cars does Dave work on at his shop?",
+      "category": 4,
+      "ground_truth": "all kinds of cars, from regular maintenance to full restorations of classic cars",
+      "prediction": "Dave works on various types of cars at his shop, including classic cars and performs restorations, engine swaps, suspension modifications, and body modifications. He has a particular interest in classic muscle cars and enjoys customizing them with modern twists while maintaining their classic style.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Calvin receive as a gift from another artist?",
+      "category": 4,
+      "ground_truth": "a gold necklace with a diamond pendant",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was the necklace Calvin received meant to remind him of?",
+      "category": 4,
+      "ground_truth": "why he keeps hustling as a musician",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Dave do when he feels his creativity is frozen?",
+      "category": 4,
+      "ground_truth": "immerse himself in something he loves",
+      "prediction": "Dave takes walks to destress. Given that he finds fixing cars therapeutic and uses it as a way to regain his sense of purpose and satisfaction, it can be inferred that when he feels his creativity is frozen, he likely takes a walk or works on one of his car restoration projects to help unfreeze his creativity.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Calvin plan to jumpstart his inspiration?",
+      "category": 4,
+      "ground_truth": "explore other things and have some fun",
+      "prediction": "Calvin plans to jumpstart his inspiration by surrounding himself with positive energy and passion, experimenting with different genres, collaborating with other artists, and exploring new cultures such as Japanese culture.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Calvin manage to save during the flood incident?",
+      "category": 4,
+      "ground_truth": "music gear and favorite microphone",
+      "prediction": "During the flood incident, Calvin managed to save his music gear and his favorite microphone.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Dave open in May 2023?",
+      "category": 4,
+      "ground_truth": "a car shop",
+      "prediction": "Dave opened a car maintenance shop in May 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What gives Dave a sense of achievement and purpose?",
+      "category": 4,
+      "ground_truth": "Fixing up things",
+      "prediction": "Fixing and restoring cars gives Dave a sense of achievement and purpose. He finds fulfillment in transforming non-working items into functional ones and enjoys the process of car restoration as a form of therapy.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What fuels Calvin's soul?",
+      "category": 4,
+      "ground_truth": "Performing live",
+      "prediction": "Based on the available information, Calvin's soul seems to be fueled by his passion for music, performing live, and connecting with his audience. He also finds fulfillment in fixing cars and expanding his brand worldwide while collaborating with artists from around the globe.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Dave doing to relax on weekends?",
+      "category": 4,
+      "ground_truth": "exploring parks",
+      "prediction": "Dave takes walks on the weekends to recharge.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What sports activity is Calvin planning to try after the tour with Frank Ocean?",
+      "category": 4,
+      "ground_truth": "Skiing",
+      "prediction": "Calvin is looking forward to going on a hike after the tour with Frank Ocean.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was Calvin excited to do after getting his car fixed on 7 July, 2023?",
+      "category": 4,
+      "ground_truth": "get back on the road",
+      "prediction": "Calvin is excited about the upcoming trip to Boston. Given that he had his car fixed on 7 July, 2023, it can be inferred that he might be looking forward to driving to Boston, as he uses long drives to relax and his car, particularly his Ferrari, is seen as a symbol of his hard work and dedication. Therefore, the most likely thing Calvin was excited to do after getting his car fixed would be to plan or prepare for his trip to Boston, possibly including a drive there.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Calvin and his friends arrange for in the park?",
+      "category": 4,
+      "ground_truth": "regular walks together",
+      "prediction": "Calvin and his friends arranged for a Rock Band rehearsal or jam session in the park.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of music has Calvin been creating lately?",
+      "category": 4,
+      "ground_truth": "experimenting with different genres",
+      "prediction": "Calvin has been trying to stay true to himself and be unique in his music, experimenting with new sounds and pushing boundaries.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Calvin describe his process of adding electronic elements to his songs?",
+      "category": 4,
+      "ground_truth": "gives them a fresh vibe",
+      "prediction": "Calvin describes his process of adding electronic elements to his songs as experimenting with different genres while finding a balance between sticking to his sound and trying new stuff.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What car brand does Calvin own that he is proud of?",
+      "category": 4,
+      "ground_truth": "Ferrari",
+      "prediction": "Calvin owns a Ferrari that he is proud of.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Calvin's biggest current goal?",
+      "category": 4,
+      "ground_truth": "expand his brand worldwide and grow his fanbase",
+      "prediction": "Based on the available information, Calvin's biggest current goal seems to be expanding his brand worldwide and growing his fanbase while experimenting with different genres and collaborating with artists from around the globe.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Dave's advice to Calvin regarding his dreams?",
+      "category": 4,
+      "ground_truth": "to never forget his dreams",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What workshop did Dave get picked for on 11 August, 2023?",
+      "category": 4,
+      "ground_truth": "Car mod workshop",
+      "prediction": "Dave got picked for a car mod workshop on 11 August, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of modifications has Dave been working on in the car mod workshop?",
+      "category": 4,
+      "ground_truth": "engine swaps, suspension modifications, and body modifications",
+      "prediction": "Dave has been working on engine swaps, suspension modifications, and body modifications for a classic muscle car.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of car did Dave work on during the workshop?",
+      "category": 4,
+      "ground_truth": "classic muscle car",
+      "prediction": "classic muscle car",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Dave say is important for making his custom cars unique?",
+      "category": 4,
+      "ground_truth": "attention to small details",
+      "prediction": "Dave is enthusiastic about customizing a car with modern twists while maintaining its classic style. This suggests that combining modern elements with classic aesthetics is important for making his custom cars unique.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How did the audience in Tokyo react when Calvin sang one of his songs?",
+      "category": 4,
+      "ground_truth": "Everyone was so into it and sang along",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How did Calvin meet Frank Ocean?",
+      "category": 4,
+      "ground_truth": "At a music festival in Tokyo",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Calvin and Frank Ocean record a song together?",
+      "category": 4,
+      "ground_truth": "In the studio at Calvin's mansion",
+      "prediction": "The song was recorded in the studio at Calvin's Japanese mansion.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Calvin and his friends record in August 2023?",
+      "category": 4,
+      "ground_truth": "a podcast discussing the rap industry",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Calvin start shooting a video for his new album?",
+      "category": 4,
+      "ground_truth": "Miami",
+      "prediction": "Calvin started shooting a video for his new album in Miami.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What design is featured on Calvin's guitar?",
+      "category": 4,
+      "ground_truth": "octopus",
+      "prediction": "The design featured on Calvin's guitar is an octopus, representing his love for art and the sea.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did Calvin get his guitar customized with a shiny finish?",
+      "category": 4,
+      "ground_truth": "unique look",
+      "prediction": "Calvin got his guitar customized with an octopus design representing his love for art and the sea. However, there is no specific mention of a shiny finish. Given the context of personalizing the guitar to reflect his interests, we can infer that if he chose a shiny finish, it might be to make the guitar visually appealing or to enhance the overall aesthetic that aligns with his artistic expression. But since the question specifically asks about a shiny finish and the given information does not explicitly state this, the best response based on the available data would be:\n\nUnknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What color glow did Calvin customize his guitar with?",
+      "category": 4,
+      "ground_truth": "purple",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Dave come back from with insights on car modification on 1st September 2023?",
+      "category": 4,
+      "ground_truth": "San Francisco",
+      "prediction": "San Francisco",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What emotion does Dave mention feeling when he sees the relief of someone whose car he fixed?",
+      "category": 4,
+      "ground_truth": "Proud",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Calvin book a flight ticket for on 1st September 2023?",
+      "category": 4,
+      "ground_truth": "Boston",
+      "prediction": "Calvin booked a flight ticket to Boston on 1st September 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Calvin excited about after the tour?",
+      "category": 4,
+      "ground_truth": "exploring and growing his brand",
+      "prediction": "Calvin is excited about the upcoming trip to Boston after the tour.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What plans do Calvin and Dave have for when Calvin visits Boston?",
+      "category": 4,
+      "ground_truth": "Check out Dave's garage and maybe get some ideas for future projects",
+      "prediction": "Calvin and Dave plan to meet up in Boston when Calvin visits. They also plan to jam music together.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which Disney movie did Dave mention as one of his favorites?",
+      "category": 4,
+      "ground_truth": "Ratatouille",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Dave feel about the reactions of people when they see the finished restoration project?",
+      "category": 4,
+      "ground_truth": "satisfying and worth the hard work",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What activity did Calvin enjoy during his summer drives?",
+      "category": 4,
+      "ground_truth": "feeling the wind blowing through his hair",
+      "prediction": "Calvin enjoyed going on hikes during his summer drives.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which song from the childhood of Calvin brings back memories of a road trip with his dad?",
+      "category": 4,
+      "ground_truth": "\"California Love\"",
+      "prediction": "The song from Calvin's childhood that brings back memories of a road trip with his dad is 'California Love' by Tupac and Dr. Dre.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What project did Calvin work on to chill out?",
+      "category": 4,
+      "ground_truth": "A shiny orange car",
+      "prediction": "Calvin worked on a car project to chill out.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What car did Dave work on in the junkyard?",
+      "category": 4,
+      "ground_truth": "Ford Mustang",
+      "prediction": "Dave worked on a Ford Mustang in the junkyard.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Dave find satisfying about restoring old cars?",
+      "category": 4,
+      "ground_truth": "Transforming something old and beat-up into something beautiful",
+      "prediction": "Dave finds restoring old cars satisfying because it gives him a sense of purpose and fulfillment. He describes the process as therapeutic and enjoys transforming non-working items into functional ones. Additionally, he has fond memories of working on cars with his dad and finds pride and accomplishment in making a difference when he fixes someone's car.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What do Calvin and Dave use to reach their goals?",
+      "category": 4,
+      "ground_truth": "Hard work and determination",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does working on cars represent for Dave?",
+      "category": 4,
+      "ground_truth": "Therapy and a way to get away from everyday stress",
+      "prediction": "For Dave, working on cars represents a sense of purpose and fulfillment. It's like therapy for him, providing a way to transform non-working items into functional ones and giving him a sense of achievement. He dreams of working on classic cars and building a custom car from scratch. Additionally, fixing cars helps him destress and enjoy the process of restoration.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Dave aim to do with his passion for cars?",
+      "category": 4,
+      "ground_truth": "Take something broken and make it into something awesome",
+      "prediction": "Dave aims to build and customize classic cars, combining modern twists with classic styles. He dreams of working on classic cars and building a custom car from scratch. Fixing and restoring cars provides him with a sense of purpose, fulfillment, and therapy.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Calvin recently get that is a \"masterpiece on wheels\"?",
+      "category": 4,
+      "ground_truth": "Ferrari",
+      "prediction": "Calvin recently got a new Ferrari, which he sees as a masterpiece on wheels and a symbol of his hard work and dedication.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Who headlined the music festival that Dave attended in October?",
+      "category": 4,
+      "ground_truth": "The Fireworks",
+      "prediction": "The person who headlined the music festival that Dave attended in October is unknown based on the available information, but the relation indicates Dave attended the festival where someone headlined.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Calvin stay motivated when faced with setbacks?",
+      "category": 4,
+      "ground_truth": "Reminds himself of his passion for goals, gets help from others, and takes a break to recharge",
+      "prediction": "Calvin stays motivated when faced with setbacks by surrounding himself with positive energy and passion, finding inspiration in his support system, and focusing on his love for music and performing live. He also finds relaxation and a sense of accomplishment in fixing cars.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What activity does Dave find fulfilling, similar to Calvin's passion for music festivals?",
+      "category": 4,
+      "ground_truth": "fixing things",
+      "prediction": "Dave finds fulfillment in fixing and restoring cars, which is similar to how Calvin finds passion in music festivals. Both activities provide them with a sense of purpose and satisfaction.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Calvin and Dave meet Frank Ocean to start collaborating?",
+      "category": 4,
+      "ground_truth": "at a festival",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which part of Tokyo is described as Tokyo's Times Square by Calvin?",
+      "category": 4,
+      "ground_truth": "Shibuya Crossing",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What specific location in Tokyo does Calvin mention being excited to explore?",
+      "category": 4,
+      "ground_truth": "Shinjuku",
+      "prediction": "Calvin is excited to explore Shibuya Crossing in Tokyo.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What dish does Dave recommend Calvin to try in Tokyo?",
+      "category": 4,
+      "ground_truth": "ramen",
+      "prediction": "Ramen",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Calvin find energizing during the tour?",
+      "category": 4,
+      "ground_truth": "Performing and connecting with the crowd",
+      "prediction": "During the tour, Calvin finds performing live and the connection with the audience energizing.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Calvin balance his job and personal life?",
+      "category": 4,
+      "ground_truth": "Takes it one day at a time",
+      "prediction": "Calvin balances his job and personal life by surrounding himself with positive energy and passion, which keeps him motivated. He also uses long drives as a way to relax and finds fixing cars to be a source of accomplishment and relaxation. Additionally, he has a support system of people who help him manage stress.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What inspired Calvin's recent music?",
+      "category": 4,
+      "ground_truth": "Struggles that people go through",
+      "prediction": "Calvin's recent music has been inspired by his exploration of Japanese culture, experimenting with different genres, and collaborating with artists from around the globe. He is also motivated by surrounding himself with positive energy and passion to stay inspired.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Calvin describe his music in relation to capturing feelings?",
+      "category": 4,
+      "ground_truth": "Express himself and work through his emotions",
+      "prediction": "Calvin views his music as a form of therapy and a way to capture feelings. He is experimenting with different genres, adding electronic elements to his songs, and trying to find a balance between sticking to his sound and exploring new styles.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did Dave start working on cars?",
+      "category": 4,
+      "ground_truth": "Fascinated with how machines work",
+      "prediction": "Dave started working on cars due to his passion for fixing things and transforming non-working items into functional ones. This passion stems from his dreams of working on classic cars and his fond memories of working on cars with his dad. Fixing cars provides him with a sense of purpose, fulfillment, and acts as a form of therapy.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the toughest part of car restoration according to Dave?",
+      "category": 4,
+      "ground_truth": "Paying extra attention to detail",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Calvin believe makes an artist create something extraordinary?",
+      "category": 4,
+      "ground_truth": "Paying attention to small details",
+      "prediction": "Calvin believes that surrounding himself with positive energy and passion is what keeps him motivated to create something extraordinary.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Dave sell the car he restored last year?",
+      "category": 4,
+      "ground_truth": "Last year",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Calvin first get interested in cars?",
+      "category": 4,
+      "ground_truth": "at an early age",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How did Calvin feel about performing with someone he admires?",
+      "category": 4,
+      "ground_truth": "Unreal, like a dream come true",
+      "prediction": "Calvin felt inspired and fulfilled about performing with someone he admires.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What realization did the nightclub experience bring to Calvin?",
+      "category": 4,
+      "ground_truth": "how much music means to him, it's like his passion and purpose",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What do Dave and Calvin agree on regarding their pursuits?",
+      "category": 4,
+      "ground_truth": "It's fulfilling and motivating",
+      "prediction": "Dave and Calvin agree on the importance of hard work and determination in their pursuits. They also share positive vibes and encouragement towards staying motivated.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which city is featured in the photograph Dave showed Calvin?",
+      "category": 4,
+      "ground_truth": "Boston",
+      "prediction": "The photograph that Dave showed Calvin is featured in the city of Boston.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Calvin do recently at his Japanese house?",
+      "category": 4,
+      "ground_truth": "Threw a small party for his new album",
+      "prediction": "Recently, Calvin took a picture of the Tokyo skyline, explored his new place in Japan, and threw a small party for his new album release at his Japanese mansion.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Dave recently start a blog about?",
+      "category": 4,
+      "ground_truth": "Car mods",
+      "prediction": "Dave recently started a blog on car modifications.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Dave's way to share his passion with others?",
+      "category": 4,
+      "ground_truth": "Through a blog on car mods",
+      "prediction": "Dave shares his passion for car restoration by opening a car maintenance shop and teaming up with a local garage.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of videos does Calvin usually watch on his television?",
+      "category": 4,
+      "ground_truth": "Music videos, concerts, documentaries about artists and their creative process",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of music has Dave been getting into lately?",
+      "category": 4,
+      "ground_truth": "Classic rock",
+      "prediction": "Dave has been getting into experimenting with new sounds and pushing boundaries in his music recently.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What tools does Calvin use to boost his motivation for music?",
+      "category": 4,
+      "ground_truth": "Writing lyrics and notes",
+      "prediction": "Calvin uses surrounding himself with positive energy and passion, collaborating with other artists, and experimenting with different genres to stay motivated for music.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of content does Dave post on his blog that inspired others to start their own DIY projects?",
+      "category": 4,
+      "ground_truth": "How he made his car look like a beast",
+      "prediction": "Dave posts content related to car modifications, restorations, and DIY projects on his blog. This content likely includes details about his experiences restoring classic cars, the challenges and successes he encounters, and tips for those interested in similar projects. The inspiration for others to start their own DIY projects stems from Dave’s enthusiasm and detailed documentation of his work, which showcases the therapeutic and fulfilling aspects of such endeavors.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of impact does Dave's blog on car mods have on people?",
+      "category": 4,
+      "ground_truth": "It inspires others to start their DIY projects",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Who did Calvin invite to see him perform in Boston on 13 November, 2023?",
+      "category": 4,
+      "ground_truth": "his old high school buddy",
+      "prediction": "Calvin invited an old high school buddy to see him perform in Boston.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What hobby did Calvin take up recently?",
+      "category": 4,
+      "ground_truth": "Photography",
+      "prediction": "Calvin recently took up hiking as a hobby.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What new item did Dave buy recently?",
+      "category": 4,
+      "ground_truth": "A vintage camera",
+      "prediction": "Dave bought a vintage camera that takes clear photos recently.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of photos does Dave like to capture with his new camera?",
+      "category": 4,
+      "ground_truth": "Nature - sunsets, beaches, waves",
+      "prediction": "Dave likes to capture photos of nature, including sunsets, beaches, and waves with his new camera.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What event did Calvin attend in Boston?",
+      "category": 4,
+      "ground_truth": "Fancy gala",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Calvin discuss with the cool artist he met at the gala?",
+      "category": 4,
+      "ground_truth": "Music and art",
+      "prediction": "Calvin discussed music and art with the cool artist he met at the gala.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Dave take a stunning photo of a waterfall?",
+      "category": 4,
+      "ground_truth": "Nearby park",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What positive impact does Calvin mention nature has on tough times?",
+      "category": 4,
+      "ground_truth": "Nature helps us appreciate life",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    }
+  ]
+}

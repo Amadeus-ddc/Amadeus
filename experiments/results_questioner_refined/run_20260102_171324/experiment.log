@@ -1,0 +1,24 @@
+2026-01-02 17:13:24,694 - Experiment - INFO - Using local embedding model: /home/ubuntu/hzy/crl/Amadeus/amadeus/models/all-MiniLM-L6-v2
+2026-01-02 17:13:25,594 - Experiment - INFO - ✅ 成功加载 10 个样本
+2026-01-02 17:13:25,595 - Experiment - INFO - 🚀 Starting parallel execution with 10 workers for 10 samples.
+2026-01-02 17:26:02,825 - openai._base_client - INFO - Retrying request to /chat/completions in 0.475796 seconds
+2026-01-02 17:26:10,033 - openai._base_client - INFO - Retrying request to /chat/completions in 0.466369 seconds
+2026-01-02 17:28:43,539 - openai._base_client - INFO - Retrying request to /chat/completions in 0.483270 seconds
+2026-01-02 17:29:36,356 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Maria -> Old Car
+2026-01-02 17:36:10,601 - openai._base_client - INFO - Retrying request to /chat/completions in 0.871375 seconds
+2026-01-02 18:02:58,333 - openai._base_client - INFO - Retrying request to /chat/completions in 0.393983 seconds
+2026-01-02 18:12:59,099 - Experiment - INFO - 
+========================================
+🌟 FINAL EXPERIMENT RESULT
+Total Samples: 10
+Total Questions: 1540
+2026-01-02 18:12:59,099 - Experiment - INFO - Overall Avg Score: 52.0%
+2026-01-02 18:12:59,099 - Experiment - INFO - 
+Category Breakdown:
+2026-01-02 18:12:59,099 - Experiment - INFO -   Category 2: 42.1% (n=321)
+2026-01-02 18:12:59,099 - Experiment - INFO -   Category 4: 56.0% (n=841)
+2026-01-02 18:12:59,099 - Experiment - INFO -   Category 1: 53.5% (n=282)
+2026-01-02 18:12:59,099 - Experiment - INFO -   Category 3: 45.8% (n=96)
+2026-01-02 18:12:59,099 - Experiment - INFO - 
+Results saved to: results_questioner_refined/run_20260102_171324
+========================================

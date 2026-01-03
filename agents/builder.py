@@ -28,8 +28,8 @@ class BuilderOutput(BaseModel):
     operations: List[MemoryOperation] = Field(..., description="Sequence of atomic operations.")
 
 class BuilderAgent(BaseAgent):
-    def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo"):
-        super().__init__(model_name)
+    def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo", logger: logging.Logger = None):
+        super().__init__(model_name, logger=logger)
         self.graph = graph
         self.static_prompt = """You are 'The Builder', the state manager of the Amadeus Memory System.
 Your goal is to maintain a **High-Fidelity Knowledge Graph** by synchronizing the **Short-term Buffer** (New Reality) with the **Long-term Graph** (Past Memory).
@@ -120,8 +120,7 @@ Rules for FLUSHing:
 Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
 """
         try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
+            response = self.call_llm(
                 messages=[{"role": "user", "content": prompt}],
                 response_format={"type": "json_object"},
                 temperature=0.0
@@ -129,16 +128,15 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
             result = json.loads(response.choices[0].message.content)
             return result.get("decision") == "FLUSH"
         except Exception as e:
-            logger.warning(f"Buffer check failed: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+            self.logger.warning(f"Buffer check failed: {e}")
+            self.logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return False # 默认继续积累
 
     def process_buffer(self, buffer_content: str) -> tuple[List[str], List[str]]:
         context = self.graph.get_full_state()
         
         try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
+            response = self.call_llm(
                 messages=[
                     {"role": "system", "content": self.get_full_prompt()},
                     {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== NEW BUFFER ===\n{buffer_content}"}
@@ -155,15 +153,14 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
             
             # Log CoT
             if "chain_of_thought" in data:
-                logger.info(f"🤔 Builder CoT: {data['chain_of_thought']}")
+                self.logger.info(f"🤔 Builder CoT: {data['chain_of_thought']}")
                 
             ops = data.get("operations", [])
             return self._execute_operations(ops)
             
         except Exception as e:
-            logger.error(f"Builder Failed: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return [], []
+            self.logger.error(f"Builder Failed: {e}")
+            self.logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return [], []
 
     def force_update(self, instruction: str) -> bool:
@@ -171,7 +168,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
         Directly apply a fix instruction from the Optimizer.
         This bypasses the normal buffer processing to fix specific graph errors.
         """
-        logger.info(f"🔧 FORCE UPDATE TRIGGERED: {instruction}")
+        self.logger.info(f"🔧 FORCE UPDATE TRIGGERED: {instruction}")
         context = self.graph.get_full_state()
         
         prompt = f"""
@@ -186,8 +183,7 @@ Generate the necessary operations (ADD/UPDATE/DELETE) to execute this instructio
 Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the Current Graph.
 """
         try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
+            response = self.call_llm(
                 messages=[
                     {"role": "system", "content": prompt},
                     {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== INSTRUCTION ===\n{instruction}"}
@@ -201,8 +197,8 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
             self._execute_operations(ops)
             return True
         except Exception as e:
-            logger.error(f"Force Update Failed: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+            self.logger.error(f"Force Update Failed: {e}")
+            self.logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return False
 
     def _execute_operations(self, ops_data: List[dict]) -> tuple[List[str], List[str]]:
@@ -225,7 +221,17 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                             normalized_op[key] = None
 
                 # Fix missing subject
-                if "subject" not in normalized_op:
+                if "subject" not in normalized_op or not normalized_op["subject"]:
+                    self.logger.warning(f"⚠️ Op {i}: Missing 'subject'. Attempting to fix...")
+                    # Try to infer from previous op if available, else use "Unknown_Entity"
+                    if i > 0 and isinstance(ops_data[i-1], dict) and "subject" in ops_data[i-1]:
+                        normalized_op["subject"] = ops_data[i-1]["subject"]
+                        self.logger.info(f"   -> Inherited subject: {normalized_op['subject']}")
+                    else:
+                        normalized_op["subject"] = "Unknown_Entity"
+                        self.logger.info(f"   -> Set subject to: Unknown_Entity")
+                    
+                    # Fallback check for alternative keys
                     for alt_key in ["entity", "source", "node", "from"]:
                         if alt_key in normalized_op:
                             normalized_op["subject"] = normalized_op.pop(alt_key)
@@ -239,12 +245,12 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                         rel = op.content if op.content else "related to"
                         self.graph.add_edge(op.subject, op.object, rel, timestamp=op.timestamp)
                         msg = f"🔗 LINK: {op.subject} --{rel}--> {op.object} (Time: {op.timestamp})"
-                        logger.info(msg)
+                        self.logger.info(msg)
                         action_log.append(msg)
                     else:
                         self.graph.add_node(op.subject, "Entity", op.content or "")
                         msg = f"➕ NODE: {op.subject}"
-                        logger.info(msg)
+                        self.logger.info(msg)
                         action_log.append(msg)
 
                 # DELETE
@@ -262,10 +268,10 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                 elif op.action == ActionType.WAIT:
                     if op.content:
                         kept_items.append(op.content)
-                        logger.info(f"⏳ WAIT: {op.content[:30]}...")
+                        self.logger.info(f"⏳ WAIT: {op.content[:30]}...")
 
             except Exception as e:
-                logger.warning(f"Op {i} skipped: {e}")
+                self.logger.warning(f"Op {i} skipped: {e}")
 
         self.graph.save()
         return kept_items, action_log
