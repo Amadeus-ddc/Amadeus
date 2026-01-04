@@ -30,6 +30,7 @@ Even if the text seems simple, you MUST try to generate at least one valid quest
 
 **OUTPUT FORMAT (JSON):**
 {
+  "thought": "Analyze the buffer content to identify key facts, relationships, and potential gaps. Plan the questions to cover different aspects (Fact/Multi-hop/Inference).",
   "questions": [
     {
       "question": "Where did Caroline go?",
@@ -66,6 +67,11 @@ Target Modes for this batch: {', '.join(selected_modes)}
             )
             content = response.choices[0].message.content
             data = json.loads(content)
+            
+            # Log Thought
+            if "thought" in data:
+                self.logger.info(f"🤔 Questioner Thought: {data['thought']}")
+                
             return data.get("questions", [])
         except Exception as e:
             self.logger.error(f"Failed to generate questions: {e}")

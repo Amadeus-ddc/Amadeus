@@ -76,7 +76,7 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
 
 **OUTPUT SCHEMA (JSON):**
 {
-  "chain_of_thought": "Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.",
+  "chain_of_thought": "Step 1: Analyze the Buffer content. Step 2: Identify entities and relationships. Step 3: Compare with Current Graph. Step 4: Plan the operations (ADD/UPDATE/DELETE/WAIT).",
   "operations": [
     {
       "action": "ADD" | "UPDATE" | "DELETE" | "WAIT",

@@ -190,7 +190,6 @@ Gold answer: A shell necklace
 The generated answer might be much longer, but you should be generous with your grading - as long as it touches on the same topic as the gold answer, it should be counted as CORRECT. 
 
 For time related questions, the gold answer will be a specific date, month, year, etc. The generated answer might be much longer or use relative time references (like "last Tuesday" or "next month"), but you should be generous with your grading - as long as it refers to the same date or time period as the gold answer, it should be counted as CORRECT. Even if the format differs (e.g., "May 7th" vs "7 May"), consider it CORRECT if it's the same date.
-
 Now it's time for the real question:
 Question: {question}
 Gold answer: {gold_answer}
@@ -421,10 +420,39 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     sample_avg_score = np.mean(sample_scores) if sample_scores else 0.0
     sample_logger.info(f"\n🏆 Sample {sample_id} Score (Avg Score): {sample_avg_score * 100:.1f}%")
     
+    # Calculate Graph Tokens
+    graph_token_count = 0
+    try:
+        if os.path.exists(graph_path):
+            with open(graph_path, 'r', encoding='utf-8') as f:
+                graph_json = json.load(f)
+            
+            # Remove embeddings recursively
+            def remove_embeddings(obj):
+                if isinstance(obj, dict):
+                    return {k: remove_embeddings(v) for k, v in obj.items() if k != 'embedding'}
+                elif isinstance(obj, list):
+                    return [remove_embeddings(v) for v in obj]
+                else:
+                    return obj
+                    
+            clean_graph = remove_embeddings(graph_json)
+            graph_str = json.dumps(clean_graph, ensure_ascii=False)
+            
+            if hasattr(embedder, 'tokenizer'):
+                graph_token_count = len(embedder.tokenizer.encode(graph_str))
+            else:
+                graph_token_count = int(len(graph_str) / 4)
+                
+            sample_logger.info(f"📊 Final Graph Token Count: {graph_token_count}")
+    except Exception as e:
+        sample_logger.warning(f"Failed to calculate graph tokens: {e}")
+
     # Save sample result
     sample_result = {
         "sample_id": sample_id,
         "avg_score": float(sample_avg_score),
+        "graph_tokens": graph_token_count,
         "qa_results": sample_qa_results
     }
     

@@ -38,17 +38,20 @@ class AnswererAgent(BaseAgent):
 
 **RESPONSE FORMAT (JSON ONLY)**:
 {
+  "thought": "Analyze the current state and plan the next step. E.g., 'I need to find X, so I will search for Y.'",
   "tool": "SEARCH",
   "query": "...",
   "mode": "hybrid"
 }
 OR
 {
+  "thought": "I am at node X. I see a connection to Y which might contain the answer.",
   "tool": "WALK",
   "node": "TargetNodeName"
 }
 OR
 {
+  "thought": "I have found the answer in the current node content.",
   "tool": "READ",
   "answer": "Final Answer Here"
 }
@@ -161,6 +164,11 @@ OR
                     content = content.split("```")[1].split("```")[0]
                 
                 decision = json.loads(content.strip())
+                
+                # Log Thought
+                thought = decision.get("thought", "No thought provided.")
+                self.logger.info(f"🤔 Answerer Thought: {thought}")
+                
                 tool = decision.get("tool")
                 self.logger.info(f"Step {step+1}: {tool} - {decision}")
 
