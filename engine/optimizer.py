@@ -19,28 +19,21 @@ class AdversarialOptimizer:
         self.model_name = model_name
         self.logger = logger if logger else logging.getLogger("Amadeus.Optimizer")
 
-    def call_llm(self, messages: List[Dict[str, str]], response_format: Dict[str, str] = None, temperature: float = 0.0, max_retries: int = 3, timeout: float = 300.0) -> Any:
+    def call_llm(self, messages: List[Dict[str, str]], response_format: Dict[str, str] = None, temperature: float = 0.0) -> Any:
         """
-        Wrapper for LLM API calls with retry logic and error handling.
+        Wrapper for LLM API calls.
         """
-        for attempt in range(max_retries):
-            try:
-                response = self.client.chat.completions.create(
-                    model=self.model_name,
-                    messages=messages,
-                    response_format=response_format,
-                    temperature=temperature,
-                    timeout=timeout
-                )
-                return response
-            except Exception as e:
-                self.logger.warning(f"LLM Call Failed (Attempt {attempt + 1}/{max_retries}): {e}")
-                if attempt < max_retries - 1:
-                    sleep_time = (2 ** attempt) + random.uniform(0, 1)
-                    time.sleep(sleep_time)
-                else:
-                    self.logger.error(f"LLM Call Failed after {max_retries} attempts. Error: {e}")
-                    raise e
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=messages,
+                response_format=response_format,
+                temperature=temperature
+            )
+            return response
+        except Exception as e:
+            self.logger.error(f"LLM Call Failed: {e}")
+            raise e
 
     def _get_current_guidelines_str(self) -> str:
         lines = ["**CURRENT AGENT GUIDELINES (AVOID REPEATING THESE):**"]
@@ -69,7 +62,7 @@ class AdversarialOptimizer:
         iteration = 0
         # 熔断机制：防止无限烧钱，但上限设高一点
         # 如果是 fixed 模式，只运行 1 轮，一次性生成指定数量的问题
-        HARD_LIMIT = 10 if mode == "adaptive" else 1
+        HARD_LIMIT = 3 if mode == "adaptive" else 1
         
         # 初始状态：攻击者非常激进
         consecutive_wins = 0
@@ -132,6 +125,31 @@ class AdversarialOptimizer:
                 else:
                     consecutive_wins = 0
                     self.logger.info("💥 Defense breached! Continuing optimization...")
+        
+        self.log_final_guidelines()
+
+    def log_final_guidelines(self):
+        self.logger.info("\n" + "="*50)
+        self.logger.info("🏁 FINAL OPTIMIZED GUIDELINES")
+        self.logger.info("="*50)
+        
+        agents = {
+            "BUILDER": self.builder,
+            "ANSWERER": self.answerer,
+            "QUESTIONER": self.questioner
+        }
+        
+        for name, agent in agents.items():
+            self.logger.info(f"\n[{name}]")
+            if not agent.operator_guidelines:
+                self.logger.info("  (No guidelines)")
+                continue
+                
+            for op, rules in agent.operator_guidelines.items():
+                self.logger.info(f"  Operator: {op}")
+                for i, rule in enumerate(rules, 1):
+                    self.logger.info(f"    {i}. {rule}")
+        self.logger.info("="*50 + "\n")
 
     def _generate_adaptive_attack(self, buffer_content: str, history: List[Dict], fixed_count: int = None) -> List[Dict]:
         """
@@ -157,11 +175,11 @@ Do NOT stop. You must generate {fixed_count} questions.
 Determine if there are still unexplored vulnerabilities or missing details in the memory.
 - If the Defender failed recently: ATTACK HARDER on that specific topic.
 - If the Defender passed: Try a TRICKIER angle or a different detail.
-- If the buffer is fully covered and robust: STOP.
+- **BALANCE:** Do not surrender immediately, but do not spam. STOP if you have covered the **Core Events** and **Key Relationships**.
 """
             output_format = """**OUTPUT FORMAT (JSON):**
 {
-    "stop_attack": boolean, // Set true if no more valid questions exist
+    "stop_attack": boolean, // Set true ONLY if absolutely no more questions can be formed
     "reason": "...",
     "questions": [ // Empty if stop_attack is true
         { "question": "...", "ground_truth": "...", "type": "detail/inference/negative" }
@@ -306,7 +324,7 @@ The Questioner failed to trick the system.
 
 Question: "{q_item['question']}"
 
-Suggest a strategy to generate harder/trickier questions.
+Suggest a high-level strategy to help questioner generate trickier and more distinguishable questions.
 Output JSON: {{ "meta_gradient": "..." }}
 """
                     res3 = self._call_llm(prompt_3)

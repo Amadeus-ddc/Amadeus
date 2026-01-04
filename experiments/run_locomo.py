@@ -208,33 +208,25 @@ def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32
     max_retries = 3
     content = None
     
-    for attempt in range(max_retries):
-        try:
-            response = client.chat.completions.create(
-                model=model_name,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": ACCURACY_PROMPT.format(
-                            question=question, gold_answer=ground_truth, generated_answer=prediction
-                        ),
-                    }
-                ],
-                response_format={"type": "json_object"},
-                temperature=0.0,
-                timeout=300.0
-            )
-            content = response.choices[0].message.content
-            break
-        except Exception as e:
-            if logger:
-                logger.warning(f"Evaluation LLM Call Failed (Attempt {attempt + 1}/{max_retries}): {e}")
-            if attempt < max_retries - 1:
-                time.sleep((2 ** attempt) + random.uniform(0, 1))
-            else:
-                if logger:
-                    logger.error(f"Evaluation LLM Call Failed after {max_retries} attempts.")
-                return False
+    try:
+        response = client.chat.completions.create(
+            model=model_name,
+            messages=[
+                {
+                    "role": "user",
+                    "content": ACCURACY_PROMPT.format(
+                        question=question, gold_answer=ground_truth, generated_answer=prediction
+                    ),
+                }
+            ],
+            response_format={"type": "json_object"},
+            temperature=0.0
+        )
+        content = response.choices[0].message.content
+    except Exception as e:
+        if logger:
+            logger.error(f"Evaluation LLM Call Failed: {e}")
+        return False
 
     if not content:
         return False

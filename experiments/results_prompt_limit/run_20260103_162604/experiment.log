@@ -1,0 +1,29 @@
+2026-01-03 16:26:04,346 - Experiment - INFO - Using local embedding model: /home/ubuntu/hzy/crl/Amadeus/amadeus/models/all-MiniLM-L6-v2
+2026-01-03 16:26:05,326 - Experiment - INFO - ✅ 成功加载 10 个样本
+2026-01-03 16:26:05,327 - Experiment - INFO - 🚀 Starting parallel execution with 10 workers for 10 samples.
+2026-01-03 16:38:27,264 - openai._base_client - INFO - Retrying request to /chat/completions in 0.376867 seconds
+2026-01-03 16:48:16,861 - openai._base_client - INFO - Retrying request to /chat/completions in 0.419021 seconds
+2026-01-03 16:49:51,874 - openai._base_client - INFO - Retrying request to /chat/completions in 0.403797 seconds
+2026-01-03 16:58:26,905 - openai._base_client - INFO - Retrying request to /chat/completions in 0.434350 seconds
+2026-01-03 16:59:59,386 - openai._base_client - INFO - Retrying request to /chat/completions in 0.478456 seconds
+2026-01-03 17:03:27,442 - openai._base_client - INFO - Retrying request to /chat/completions in 0.933288 seconds
+2026-01-03 17:04:59,965 - openai._base_client - INFO - Retrying request to /chat/completions in 0.894707 seconds
+2026-01-03 17:36:25,929 - openai._base_client - INFO - Retrying request to /chat/completions in 0.481440 seconds
+2026-01-03 17:41:26,513 - openai._base_client - INFO - Retrying request to /chat/completions in 0.978652 seconds
+2026-01-03 17:51:29,649 - openai._base_client - INFO - Retrying request to /chat/completions in 0.466527 seconds
+2026-01-03 17:56:30,217 - openai._base_client - INFO - Retrying request to /chat/completions in 0.996146 seconds
+2026-01-03 18:15:30,864 - Experiment - INFO - 
+========================================
+🌟 FINAL EXPERIMENT RESULT
+Total Samples: 10
+Total Questions: 1540
+2026-01-03 18:15:30,864 - Experiment - INFO - Overall Avg Score: 50.3%
+2026-01-03 18:15:30,864 - Experiment - INFO - 
+Category Breakdown:
+2026-01-03 18:15:30,864 - Experiment - INFO -   Category 2: 41.7% (n=321)
+2026-01-03 18:15:30,864 - Experiment - INFO -   Category 3: 44.8% (n=96)
+2026-01-03 18:15:30,864 - Experiment - INFO -   Category 1: 49.6% (n=282)
+2026-01-03 18:15:30,864 - Experiment - INFO -   Category 4: 54.3% (n=841)
+2026-01-03 18:15:30,864 - Experiment - INFO - 
+Results saved to: results_prompt_limit/run_20260103_162604
+========================================
