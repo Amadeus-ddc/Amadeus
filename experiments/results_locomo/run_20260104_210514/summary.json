@@ -1,0 +1,43 @@
+{
+  "timestamp": "20260104_210514",
+  "config": {
+    "model_name": "qwen2.5-7b-instruct",
+    "judge_model_name": "qwen2.5-32b-instruct",
+    "data_file": "/home/ubuntu/hzy/crl/Amadeus/amadeus/experiments/data/locomo10.json"
+  },
+  "total_samples": 1,
+  "total_questions": 150,
+  "category_distribution": {
+    "3": 13,
+    "2": 34,
+    "1": 20,
+    "4": 83
+  },
+  "aggregate_metrics": {
+    "overall": {
+      "mean": 0.5333333333333333,
+      "std": 0.4988876515698588,
+      "count": 150
+    },
+    "category_3": {
+      "mean": 0.23076923076923078,
+      "std": 0.4213250442347432,
+      "count": 13
+    },
+    "category_2": {
+      "mean": 0.5,
+      "std": 0.5,
+      "count": 34
+    },
+    "category_1": {
+      "mean": 0.4,
+      "std": 0.48989794855663565,
+      "count": 20
+    },
+    "category_4": {
+      "mean": 0.6265060240963856,
+      "std": 0.48373156385264415,
+      "count": 83
+    }
+  }
+}
