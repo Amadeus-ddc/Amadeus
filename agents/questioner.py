@@ -54,17 +54,32 @@ Your goal is to generate questions based on the provided 'Buffer Context' to tes
 Generate {num_questions} questions.
 Target Modes for this batch: {', '.join(selected_modes)}
 """
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[{"role": "system", "content": prompt}],
-                response_format={"type": "json_object"},
-                temperature=0.7
-            )
-            content = response.choices[0].message.content
-            data = json.loads(content)
-            return data.get("questions", [])
-        except Exception as e:
-            logger.error(f"Failed to generate questions: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return []
+        retries = 3
+        for attempt in range(retries):
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[{"role": "system", "content": prompt}],
+                    response_format={"type": "json_object"},
+                    temperature=0.7
+                )
+                content = response.choices[0].message.content
+                if not content:
+                    if attempt < retries - 1: continue
+                    return []
+
+                # Clean markdown
+                if "```json" in content:
+                    content = content.split("```json")[1].split("```")[0]
+                elif "```" in content:
+                    content = content.split("```")[1].split("```")[0]
+
+                data = json.loads(content.strip())
+                return data.get("questions", [])
+            except Exception as e:
+                if attempt < retries - 1:
+                    continue
+                logger.error(f"Failed to generate questions: {e}")
+                logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+                return []
+        return []

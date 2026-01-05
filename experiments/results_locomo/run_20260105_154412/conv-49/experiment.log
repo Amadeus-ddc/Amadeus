@@ -1,0 +1,108 @@
+2026-01-05 15:44:19,044 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-49
+========================================
+2026-01-05 15:44:20,155 - Experiment - INFO - [conv-49] 🧠 Phase 1: Building Memory (25 contextual sessions)...
+2026-01-05 15:44:20,165 - Experiment - INFO - [conv-49] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:44:35,204 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:44:35,214 - Amadeus.Builder - INFO - 🔗 LINK: Evan --Got back from a trip with his family in a new Prius. Old Prius broke down and was repaired and sold.--> Prius (Time: 2023-05-18)
+2026-01-05 15:44:35,218 - Amadeus.Builder - INFO - 🔗 LINK: Evan --Visited the Rockies with his family.--> Rockies (Time: 2023-05-18)
+2026-01-05 15:44:35,221 - Amadeus.Builder - INFO - 🔗 LINK: Evan --Hiked the trails in the Rockies last week.--> trails (Time: 2023-05-11)
+2026-01-05 15:44:35,228 - Amadeus.Builder - INFO - 🔗 LINK: Sam --Hiked a trail with his dad when he was ten.--> dad (Time: 2013-05-XX)
+2026-01-05 15:44:35,232 - Amadeus.Builder - INFO - 🔗 LINK: Sam --Painting is a hobby he is considering.--> hiking (Time: None)
+2026-01-05 15:44:35,236 - Amadeus.Builder - INFO - 🔗 LINK: Evan --Started watercolor painting a few years back.--> painting (Time: 20XX-YY-ZZ)
+2026-01-05 15:44:35,242 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:44:35,242 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:44:41,626 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:44:41,809 - Amadeus.Answerer - INFO - ❓ Question: How did Sam feel about going to the Rockies with his family?
+2026-01-05 15:44:43,360 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Sam feeling Rockies family', 'mode': 'hybrid'}
+2026-01-05 15:44:44,211 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'dad'}
+2026-01-05 15:44:45,191 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Sam'}
+2026-01-05 15:44:45,905 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'dad'}
+2026-01-05 15:44:46,794 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Sam'}
+2026-01-05 15:44:48,329 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'dad'}
+2026-01-05 15:44:49,089 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Sam'}
+2026-01-05 15:44:50,264 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Sam feeling about going to the Rockies with his family', 'mode': 'hybrid'}
+2026-01-05 15:44:50,272 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:44:50,870 - Amadeus.Optimizer - INFO - GT: He seemed excited and positive about the experience.
+2026-01-05 15:44:50,871 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:44:55,140 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:44:55,140 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture Sam's emotional reactions more explicitly. For example, add links that directly express Sam's feelings or opinions about events mentioned by others.
+2026-01-05 15:44:55,141 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Evan", "object": "Sam", "content": "Sam --Seemed excited about the trip to the Rockies."}, {"action": "ADD", "subject": "Rockies", "object": "Sam", "content": "Sam --Expressed positive feelings towards the Rockies trip."}]
+2026-01-05 15:45:01,471 - Amadeus.Builder - INFO - 🔗 LINK: Evan --Sam --Seemed excited about the trip to the Rockies.--> Sam (Time: None)
+2026-01-05 15:45:01,472 - Amadeus.Builder - INFO - 🔗 LINK: Rockies --Sam --Expressed positive feelings towards the Rockies trip.--> Sam (Time: None)
+2026-01-05 15:45:01,492 - Amadeus.Answerer - INFO - ❓ Question: What kind of relationship does Sam have with his father based on their hiking memory?
+2026-01-05 15:45:03,094 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Sam and his father hiking memory relationship', 'mode': 'hybrid'}
+2026-01-05 15:45:03,835 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'dad'}
+2026-01-05 15:45:05,031 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Based on their hiking memory, Sam has a relationship with his father where they shared a hiking experience together when Sam was ten years old.'}
+2026-01-05 15:45:05,031 - Amadeus.Optimizer - INFO - GT: It was a special and memorable experience for them.
+2026-01-05 15:45:05,031 - Amadeus.Optimizer - INFO - Pre: Based on their hiking memory, Sam has a relationship with his father where they shared a hiking experience together when Sam was ten years old.
+2026-01-05 15:45:08,723 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:08,723 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture relationships explicitly mentioned in the context, such as familial connections, and ensure that the agent searches for relevant attributes within the same session for more recent and accurate information.
+2026-01-05 15:45:08,723 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Evan", "object": "Sam", "content": "father"}, {"action": "ADD", "object": "trails", "subject": "Sam", "content": "hiked_with_father"}]
+2026-01-05 15:45:13,843 - Amadeus.Builder - INFO - 🔗 LINK: Evan --father--> Sam (Time: None)
+2026-01-05 15:45:13,843 - Amadeus.Builder - INFO - 🔗 LINK: Sam --hiked_with_father--> trails (Time: None)
+2026-01-05 15:45:13,848 - Amadeus.Answerer - INFO - ❓ Question: Why does Evan believe Sam will find a hobby he is passionate about?
+2026-01-05 15:45:15,292 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Evan believes Sam will find a hobby he is passionate about', 'mode': 'hybrid'}
+2026-01-05 15:45:16,354 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'trails'}
+2026-01-05 15:45:17,509 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Evan Hiked the trails in the Rockies last week and Sam', 'mode': 'hybrid'}
+2026-01-05 15:45:18,554 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'trails'}
+2026-01-05 15:45:19,593 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Evan'}
+2026-01-05 15:45:20,391 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'trails'}
+2026-01-05 15:45:21,865 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Evan believes Sam will find a hobby he is passionate about', 'mode': 'hybrid'}
+2026-01-05 15:45:23,423 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Evan believes Sam will find a hobby he is passionate about', 'mode': 'hybrid'}
+2026-01-05 15:45:23,432 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:45:25,834 - Amadeus.Optimizer - INFO - GT: Evan believes that by trying new things, Sam will eventually find something that sparks his excitement.
+2026-01-05 15:45:25,834 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:45:29,082 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:45:29,083 - Experiment - INFO - [conv-49] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:45:47,881 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:45:47,886 - Amadeus.Builder - INFO - 🔗 LINK: Evan --Took a road trip to Jasper with his family. Drove through the Icefields Parkway and saw glaciers and lakes.--> Jasper (Time: 2023-05-20)
+2026-01-05 15:45:47,887 - Amadeus.Builder - INFO - 🔗 LINK: Evan --Fresh air, peacefulness, and a cozy cabin surrounded by mountains and forests made the hike feel like a retreat.--> trails (Time: 2023-05-20)
+2026-01-05 15:45:47,891 - Amadeus.Builder - INFO - 🔗 LINK: Sam --Had a check-up with his doctor a few days ago and discovered that his weight was not great.--> doctor_checkup (Time: 2023-05-15)
+2026-01-05 15:45:47,891 - Amadeus.Builder - INFO - 🔗 LINK: Sam --Considering painting as a hobby to stay motivated and de-stress.--> painting (Time: 2023-05-24)
+2026-01-05 15:45:47,892 - Amadeus.Builder - INFO - ⏳ WAIT: Breaking old habits isn't easy...
+2026-01-05 15:45:47,976 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:45:47,976 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:45:53,907 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:45:53,907 - Amadeus.Answerer - INFO - ❓ Question: How might Sam be feeling emotionally after the doctor's check-up?
+2026-01-05 15:45:55,062 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Sam doctor's check-up emotional state", 'mode': 'hybrid'}
+2026-01-05 15:45:55,853 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'doctor_checkup'}
+2026-01-05 15:45:56,706 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Sam'}
+2026-01-05 15:45:57,706 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'doctor_checkup'}
+2026-01-05 15:45:59,290 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "After the doctor's check-up, Sam might be feeling concerned or worried about his weight."}
+2026-01-05 15:45:59,290 - Amadeus.Optimizer - INFO - GT: Sam might be feeling worried or concerned about their weight.
+2026-01-05 15:45:59,290 - Amadeus.Optimizer - INFO - Pre: After the doctor's check-up, Sam might be feeling concerned or worried about his weight.
+2026-01-05 15:46:01,233 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:46:01,233 - Amadeus.Answerer - INFO - ❓ Question: What activity does Sam plan to start to stay motivated according to their conversation with Evan?
+2026-01-05 15:46:02,262 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Sam plan to start activity motivation Evan conversation', 'mode': 'hybrid'}
+2026-01-05 15:46:03,205 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'painting'}
+2026-01-05 15:46:05,814 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'According to their conversation with Evan, Sam plans to start painting as a hobby to stay motivated and de-stress.'}
+2026-01-05 15:46:05,814 - Amadeus.Optimizer - INFO - GT: Sam plans to try painting.
+2026-01-05 15:46:05,814 - Amadeus.Optimizer - INFO - Pre: Sam plans to start painting as a hobby to stay motivated and de-stress.
+2026-01-05 15:46:12,316 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:12,316 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when a user mentions a personal intention, it is directly linked to them rather than attributing it to another user. For example, add a rule to capture personal intentions and associate them with the correct subject.
+2026-01-05 15:46:12,317 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Sam", "object": "painting", "content": "Considering painting as a hobby to stay motivated and de-stress."}, {"action": "REMOVE", "subject": "Evan", "object": "painting", "content": "Considering painting as a hobby to stay motivated and de-stress."}]
+2026-01-05 15:46:17,366 - openai._base_client - INFO - Retrying request to /chat/completions in 0.474984 seconds
+2026-01-05 15:46:24,338 - Amadeus.Builder - INFO - 🔗 LINK: Sam --Painting is a hobby he is considering.--> painting (Time: 2023-05-24)
+2026-01-05 15:46:24,339 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Evan -> painting
+2026-01-05 15:46:24,344 - Amadeus.Answerer - INFO - ❓ Question: Where did Evan's family stay during their road trip to Jasper?
+2026-01-05 15:46:28,689 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Evan's family road trip to Jasper", 'mode': 'hybrid'}
+2026-01-05 15:46:29,917 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jasper'}
+2026-01-05 15:46:31,089 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "During their road trip to Jasper, Evan's family stayed along the Icefields Parkway and saw glaciers and lakes."}
+2026-01-05 15:46:31,089 - Amadeus.Optimizer - INFO - GT: They stayed in a cozy cabin surrounded by mountains and forests.
+2026-01-05 15:46:31,089 - Amadeus.Optimizer - INFO - Pre: During their road trip to Jasper, Evan's family stayed along the Icefields Parkway and saw glaciers and lakes.
+2026-01-05 15:46:35,368 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:35,369 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture explicit mentions of accommodation and living arrangements in the context of road trips. Ensure that when a user discusses a trip, the system extracts information about where they stayed or recommend them to provide such details.
+2026-01-05 15:46:35,369 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Evan's family", "object": "stayed in a cozy cabin", "content": "During the road trip to Jasper, Evan's family stayed in a cozy cabin surrounded by mountains and forests."}]
+2026-01-05 15:46:40,159 - Amadeus.Builder - INFO - 🔗 LINK: Evan's family --During the road trip to Jasper, Evan's family stayed in a cozy cabin surrounded by mountains and forests.--> cozy cabin (Time: 2023-05-20)
+2026-01-05 15:46:40,190 - Experiment - INFO - [conv-49] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:46:59,886 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:46:59,892 - Amadeus.Builder - INFO - ➕ NODE: Evan
+2026-01-05 15:46:59,898 - Amadeus.Builder - INFO - 🔗 LINK: Evan --Trying to eat less processed food and sugary snacks, even though he loves ginger snaps.--> health (Time: 2023-06-06)
+2026-01-05 15:46:59,903 - Amadeus.Builder - INFO - ➕ NODE: Sam
+2026-01-05 15:46:59,918 - Amadeus.Builder - INFO - ➕ NODE: Sam
+2026-01-05 15:46:59,923 - Amadeus.Builder - INFO - 🔗 LINK: Evan --Offered to help Sam with starting an exercise routine.--> Sam (Time: 2023-06-06)
+2026-01-05 15:46:59,950 - Amadeus.Builder - INFO - ➕ NODE: Sam
+2026-01-05 15:46:59,981 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:46:59,987 - Amadeus.Optimizer - INFO - --- Round 1 ---

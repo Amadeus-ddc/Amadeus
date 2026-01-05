@@ -1,6 +1,7 @@
 import json
 import logging
 import re
+import time
 from typing import List, Optional
 from enum import Enum
 from pydantic import BaseModel, Field
@@ -126,7 +127,20 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
                 response_format={"type": "json_object"},
                 temperature=0.0
             )
-            result = json.loads(response.choices[0].message.content)
+            content = response.choices[0].message.content
+            if not content: return False
+            
+            # Clean markdown
+            if "```json" in content:
+                content = content.split("```json")[1].split("```")[0]
+            elif "```" in content:
+                content = content.split("```")[1].split("```")[0]
+            
+            # Fix trailing commas
+            content = re.sub(r',\s*}', '}', content)
+            content = re.sub(r',\s*]', ']', content)
+            
+            result = json.loads(content.strip())
             return result.get("decision") == "FLUSH"
         except Exception as e:
             logger.warning(f"Buffer check failed: {e}")
@@ -136,35 +150,50 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
     def process_buffer(self, buffer_content: str) -> tuple[List[str], List[str]]:
         context = self.graph.get_full_state()
         
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[
-                    {"role": "system", "content": self.get_full_prompt()},
-                    {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== NEW BUFFER ===\n{buffer_content}"}
-                ],
-                response_format={"type": "json_object"},
-                temperature=0.0
-            )
-            
-            raw_content = response.choices[0].message.content
-            if not raw_content:
+        retries = 3
+        for attempt in range(retries):
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "system", "content": self.get_full_prompt()},
+                        {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== NEW BUFFER ===\n{buffer_content}"}
+                    ],
+                    response_format={"type": "json_object"},
+                    temperature=0.0
+                )
+                
+                raw_content = response.choices[0].message.content
+                if not raw_content:
+                    if attempt < retries - 1: continue
+                    return [], []
+                
+                # Clean markdown
+                if "```json" in raw_content:
+                    raw_content = raw_content.split("```json")[1].split("```")[0]
+                elif "```" in raw_content:
+                    raw_content = raw_content.split("```")[1].split("```")[0]
+                
+                # Fix trailing commas
+                raw_content = re.sub(r',\s*}', '}', raw_content)
+                raw_content = re.sub(r',\s*]', ']', raw_content)
+                    
+                data = json.loads(raw_content.strip())
+                
+                # Log CoT
+                if "chain_of_thought" in data:
+                    logger.info(f"🤔 Builder CoT: {data['chain_of_thought']}")
+                    
+                ops = data.get("operations", [])
+                return self._execute_operations(ops)
+                
+            except Exception as e:
+                if attempt < retries - 1:
+                    continue
+                logger.error(f"Builder Failed: {e}")
+                logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
                 return [], []
-                
-            data = json.loads(raw_content)
-            
-            # Log CoT
-            if "chain_of_thought" in data:
-                logger.info(f"🤔 Builder CoT: {data['chain_of_thought']}")
-                
-            ops = data.get("operations", [])
-            return self._execute_operations(ops)
-            
-        except Exception as e:
-            logger.error(f"Builder Failed: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return [], []
-            return [], []
+        return [], []
 
     def force_update(self, instruction: str) -> bool:
         """
@@ -185,25 +214,47 @@ Instruction: "{instruction}"
 Generate the necessary operations (ADD/UPDATE/DELETE) to execute this instruction.
 Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the Current Graph.
 """
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[
-                    {"role": "system", "content": prompt},
-                    {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== INSTRUCTION ===\n{instruction}"}
-                ],
-                response_format={"type": "json_object"},
-                temperature=0.0
-            )
-            content = response.choices[0].message.content
-            data = json.loads(content)
-            ops = data.get("operations", [])
-            self._execute_operations(ops)
-            return True
-        except Exception as e:
-            logger.error(f"Force Update Failed: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return False
+        retries = 3
+        for attempt in range(retries):
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "system", "content": prompt},
+                        {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== INSTRUCTION ===\n{instruction}"}
+                    ],
+                    response_format={"type": "json_object"},
+                    temperature=0.0
+                )
+                content = response.choices[0].message.content
+                if not content or not content.strip():
+                    if attempt < retries - 1:
+                        time.sleep(1)
+                        continue
+                    return False
+
+                # Clean markdown
+                if "```json" in content:
+                    content = content.split("```json")[1].split("```")[0]
+                elif "```" in content:
+                    content = content.split("```")[1].split("```")[0]
+
+                # Fix trailing commas
+                content = re.sub(r',\s*}', '}', content)
+                content = re.sub(r',\s*]', ']', content)
+
+                data = json.loads(content.strip())
+                ops = data.get("operations", [])
+                self._execute_operations(ops)
+                return True
+            except Exception as e:
+                if attempt < retries - 1:
+                    time.sleep(1)
+                    continue
+                logger.error(f"Force Update Failed: {e}")
+                logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+                return False
+        return False
 
     def _execute_operations(self, ops_data: List[dict]) -> tuple[List[str], List[str]]:
         kept_items = []
@@ -218,6 +269,22 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                 # Normalize Key
                 normalized_op = {k.lower(): v for k, v in op_dict.items()}
                 
+                raw_action = normalized_op.get("action", "").upper()
+
+                # 1. Handle IGNORE/SKIP
+                if raw_action in ["IGNORE", "SKIP", "NONE"]:
+                    continue
+
+                # 2. Synonym Mapping (Robustness for 7B models)
+                action_map = {
+                    "REPLACE": "UPDATE", "MODIFY": "UPDATE", "CHANGE": "UPDATE", "EDIT": "UPDATE",
+                    "LINK": "ADD", "CONNECT": "ADD", "CREATE": "ADD", "INSERT": "ADD",
+                    "REMOVE": "DELETE", "DROP": "DELETE", "ERASE": "DELETE"
+                }
+                
+                if raw_action in action_map:
+                    normalized_op["action"] = action_map[raw_action]
+
                 # Fix null strings
                 for key in ["object", "content", "timestamp"]:
                     if key in normalized_op and isinstance(normalized_op[key], str):
@@ -225,12 +292,25 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                             normalized_op[key] = None
 
                 # Fix missing subject
-                if "subject" not in normalized_op:
+                if "subject" not in normalized_op or normalized_op["subject"] is None:
                     for alt_key in ["entity", "source", "node", "from"]:
-                        if alt_key in normalized_op:
+                        if alt_key in normalized_op and normalized_op[alt_key]:
                             normalized_op["subject"] = normalized_op.pop(alt_key)
                             break
                 
+                # Fix missing reason
+                if "reason" not in normalized_op:
+                    normalized_op["reason"] = "No reason provided."
+
+                # Special handling for WAIT: allow missing subject (default to 'Context')
+                if normalized_op.get("action") == "WAIT" and not normalized_op.get("subject"):
+                    normalized_op["subject"] = "Context"
+
+                # Skip if subject is still missing/None
+                if not normalized_op.get("subject"):
+                    logger.warning(f"Op {i} skipped: Missing subject.")
+                    continue
+
                 op = MemoryOperation(**normalized_op)
                 
                 # ADD / UPDATE

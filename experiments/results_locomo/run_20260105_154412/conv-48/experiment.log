@@ -1,0 +1,88 @@
+2026-01-05 15:44:19,034 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-48
+========================================
+2026-01-05 15:44:19,919 - Experiment - INFO - [conv-48] 🧠 Phase 1: Building Memory (30 contextual sessions)...
+2026-01-05 15:44:19,919 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:44:39,811 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:44:39,823 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Visited mother's old house; remembered special bench near the window--> Mother (Time: 2023-01-16)
+2026-01-05 15:44:39,827 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Passed away last year; has a room in mother's old house with many memories; has a pendant given by mother in 2010 in Paris--> Mother (Time: 2022)
+2026-01-05 15:44:39,832 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Given by mother in 2010 in Paris; represents freedom for Jolene--> Pendant (Time: 2010-04-xx)
+2026-01-05 15:44:39,844 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Has a pendant that reminds her of her mother--> Jewelry (Time: None)
+2026-01-05 15:44:39,848 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Passionate about teaching yoga and supporting her community; inspired by finding peace through yoga--> Yoga (Time: None)
+2026-01-05 15:44:39,849 - Amadeus.Builder - INFO - ⏳ WAIT: Gotta run, bye!...
+2026-01-05 15:44:39,851 - Amadeus.Builder - INFO - ⏳ WAIT: Looking forward to the next ch...
+2026-01-05 15:44:39,858 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:44:39,859 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:44:47,947 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:44:47,947 - Amadeus.Answerer - INFO - ❓ Question: What specific memory does Deborah associate with the bench near the window in her mother's old house?
+2026-01-05 15:44:49,554 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Deborah bench near window mother's old house memory", 'mode': 'hybrid'}
+2026-01-05 15:44:50,598 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Mother'}
+2026-01-05 15:44:51,418 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Deborah'}
+2026-01-05 15:44:52,288 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Mother'}
+2026-01-05 15:44:53,091 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Deborah'}
+2026-01-05 15:44:53,974 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Mother'}
+2026-01-05 15:44:54,907 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Deborah'}
+2026-01-05 15:44:55,973 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Mother'}
+2026-01-05 15:44:55,974 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:44:56,320 - Amadeus.Optimizer - INFO - GT: Deborah associates the bench near the window with the memory of sitting there every morning with her mother to take in the view.
+2026-01-05 15:44:56,320 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:45:00,341 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:00,342 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to capture specific memories or personal anecdotes related to places and objects mentioned in conversations. Ensure that the builder can infer and add such details based on contextual clues provided in the dialogue.
+2026-01-05 15:45:00,342 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "bench near the window", "content": "sitting there every morning with her mother to take in the view"}, {"action": "ADD", "object": "bench near the window", "subject": "memory of Deborah's mother's old house", "content": "specific memory associated with Deborah"}]
+2026-01-05 15:45:08,860 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --sitting there every morning with her mother to take in the view--> bench near the window (Time: 2023-01-16)
+2026-01-05 15:45:08,863 - Amadeus.Builder - INFO - 🔗 LINK: memory of Deborah's mother's old house --specific memory associated with Deborah--> bench near the window (Time: 2023-01-16)
+2026-01-05 15:45:08,882 - Amadeus.Answerer - INFO - ❓ Question: How does the pendant given by Jolene’s mother symbolize freedom for Jolene?
+2026-01-05 15:45:11,447 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'pendant given by Jolene’s mother symbolize freedom', 'mode': 'hybrid'}
+2026-01-05 15:45:12,388 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pendant'}
+2026-01-05 15:45:14,104 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'The pendant given by Jolene’s mother symbolizes freedom for Jolene as it was created and given to her in Paris in 2010, representing a sense of freedom during that time.'}
+2026-01-05 15:45:14,104 - Amadeus.Optimizer - INFO - GT: The pendant given by Jolene’s mother in Paris in 2010 symbolizes freedom for Jolene, reminding her to go for her goals and not get held back.
+2026-01-05 15:45:14,104 - Amadeus.Optimizer - INFO - Pre: The pendant given by Jolene’s mother symbolizes freedom for Jolene as it was created and given to her in Paris in 2010, representing a sense of freedom during that time.
+2026-01-05 15:45:19,750 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:19,750 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that attributes and relationships involving the pendant and its symbolic meaning are captured accurately. Specifically, include rules to recognize and link symbolic items to their owners and the contexts in which they were given.
+2026-01-05 15:45:19,750 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Pendant", "object": "Jolene", "content": "symbolizes freedom for Jolene"}, {"action": "LINK", "subject": "Pendant", "object": "Jolene\u2019s mother", "content": "given by"}, {"action": "LINK", "object": "2010-04-xx", "subject": "Pendant", "content": "in Paris"}]
+2026-01-05 15:45:28,535 - Amadeus.Builder - INFO - ➕ NODE: Pendant
+2026-01-05 15:45:28,580 - Amadeus.Builder - INFO - 🔗 LINK: Pendant --given by--> Jolene's mother (Time: 2010-04-xx)
+2026-01-05 15:45:28,643 - Amadeus.Builder - INFO - 🔗 LINK: Pendant --in Paris--> 2010-04-xx (Time: 2010-04-xx)
+2026-01-05 15:45:28,765 - Amadeus.Answerer - INFO - ❓ Question: What shared experience between Deborah and Jolene might have inspired Jolene to pursue her passion for helping others through yoga?
+2026-01-05 15:45:30,402 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah and Jolene shared experience inspiring yoga passion', 'mode': 'hybrid'}
+2026-01-05 15:45:31,310 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Mother'}
+2026-01-05 15:45:33,437 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "The shared experience between Deborah and Jolene that might have inspired Jolene to pursue her passion for helping others through yoga is their visit to Deborah's mother's old house, where they both remembered a special bench near the window."}
+2026-01-05 15:45:33,437 - Amadeus.Optimizer - INFO - GT: Deborah's experience with yoga during a rough time and her passion for sharing that with others might have inspired Jolene to pursue her own passion for helping others through yoga.
+2026-01-05 15:45:33,437 - Amadeus.Optimizer - INFO - Pre: The shared experience between Deborah and Jolene that might have inspired Jolene to pursue her passion for helping others through yoga is their visit to Deborah's mother's old house, where they both remembered a special bench near the window.
+2026-01-05 15:45:39,722 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:39,722 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the extraction rules to capture more relevant information about shared experiences and passions. Specifically, improve the ability to identify and link explicit and implicit causes of inspiration and shared interests between individuals.
+2026-01-05 15:45:39,723 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Yoga", "content": "Deborah --Passionate about teaching yoga and supporting her community; inspired by finding peace through yoga--> Yoga (Time: 2023-01-19)"}, {"action": "ADD", "subject": "Jolene", "object": "Helping Others", "content": "Jolene --Inspired by Deborah's passion for teaching yoga and supporting her community--> Helping Others (Time: 2023-01-23)"}]
+2026-01-05 15:45:48,494 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah --Passionate about teaching yoga and supporting her community; inspired by finding peace through yoga--> Yoga (Time: 2023-01-19)--> Yoga (Time: 2023-01-19)
+2026-01-05 15:45:48,500 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Jolene --Inspired by Deborah's passion for teaching yoga and supporting her community--> Helping Others (Time: 2023-01-23)--> Helping Others (Time: 2023-01-23)
+2026-01-05 15:45:48,512 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:46:37,797 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:46:37,807 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Passed away--> Dad (Time: 2023-01-25)
+2026-01-05 15:46:37,811 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:46:37,815 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Trying to be a good family--> Husband (Time: 2023-01-27)
+2026-01-05 15:46:37,870 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Received letter thanking her for positive influence--> Group Members (Time: 2023-01-26)
+2026-01-05 15:46:37,922 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Sits in the spot by the window for peace--> Old Home (Time: 2023-01-27)
+2026-01-05 15:46:37,935 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Passed away--> Mom (Time: 2023-01-27)
+2026-01-05 15:46:37,935 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Read books there every night--> Mom (Time: 2023-01-27)
+2026-01-05 15:46:37,935 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Travel was her great passion--> Mom (Time: 2023-01-27)
+2026-01-05 15:46:37,938 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Seraphim--> Second Snake (Time: 2023-01-27)
+2026-01-05 15:46:37,942 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Susie--> First Snake (Time: 2023-01-27)
+2026-01-05 15:46:37,942 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Coiled up next to Jolene while she was gaming--> Second Snake (Time: 2023-01-27)
+2026-01-05 15:46:37,950 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Playing video games together--> Partner (Time: 2023-01-27)
+2026-01-05 15:46:37,950 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Bought Seraphim a year ago in Paris--> Second Snake (Time: 2023-01-27)
+2026-01-05 15:46:37,954 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Playing 'Walking Dead' next Saturday--> Planned Activity (Time: 2023-01-27)
+2026-01-05 15:46:37,954 - Amadeus.Builder - INFO - ⏳ WAIT: Mom used to read books there e...
+2026-01-05 15:46:37,955 - Amadeus.Builder - INFO - ⏳ WAIT: We go there now and then for m...
+2026-01-05 15:46:37,956 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Special place for Deborah and her mom--> Old Home (Time: 2023-01-27)
+2026-01-05 15:46:37,970 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:46:37,970 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:46:45,794 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:46:45,794 - Amadeus.Answerer - INFO - ❓ Question: What might be the reason for Deborah and Jolene's discussion about their deceased parents and how it affects their current lives?
+2026-01-05 15:46:47,042 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah and Jolene discussion deceased parents current lives', 'mode': 'hybrid'}
+2026-01-05 15:46:48,358 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Mother'}
+2026-01-05 15:46:51,851 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Deborah and Jolene's discussion about their deceased parents likely revolves around the memories and special items associated with their mother, such as her old house, a room filled with memories, and a pendant given to Jolene in Paris in 2010. Visiting their mother's old house in 2023-01-16 suggests that these discussions may be triggered by revisiting places that hold significant emotional value."}
+2026-01-05 15:46:51,852 - Amadeus.Optimizer - INFO - GT: The discussion reveals that both Deborah and Jolene are processing their grief through cherished memories and maintaining connections with their late parents through specific places and activities.
+2026-01-05 15:46:51,852 - Amadeus.Optimizer - INFO - Pre: Deborah and Jolene's discussion about their deceased parents likely revolves around the memories and special items associated with their mother, such as her old house, a room filled with memories, and a pendant given to Jolene in Paris in 2010. Visiting their mother's old house in 2023-01-16 suggests that these discussions may be triggered by revisiting places that hold significant emotional value.
+2026-01-05 15:46:56,643 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:56,643 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when a node mentions a deceased parent, related nodes such as 'mom' and 'old home' are also extracted and linked. Additionally, improve the context handling to recognize multiple personal events and their relationships within the same session.
+2026-01-05 15:46:56,644 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Mom", "content": "Deborah: My mom also passed away recently."}, {"action": "ADD", "subject": "Deborah", "object": "Old Home", "content": "Deborah: We often visit the old home where my mom lived."}]

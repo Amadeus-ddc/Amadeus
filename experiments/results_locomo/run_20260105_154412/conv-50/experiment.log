@@ -1,0 +1,115 @@
+2026-01-05 15:44:19,059 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-50
+========================================
+2026-01-05 15:44:20,180 - Experiment - INFO - [conv-50] 🧠 Phase 1: Building Memory (30 contextual sessions)...
+2026-01-05 15:44:20,180 - Experiment - INFO - [conv-50] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:44:38,044 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:44:38,053 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Just purchased a new mansion--> Mansion (Time: 2023-03-23)
+2026-01-05 15:44:38,057 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Found an awesome place to stay in Japan through an agent--> Agent (Time: 2023-03-23)
+2026-01-05 15:44:38,107 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Planning to visit Japan for cultural exploration and music collaboration--> Japan (Time: 2023-03-23)
+2026-01-05 15:44:38,205 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Planning to go to Boston after Japan--> Boston (Time: 2023-03-23)
+2026-01-05 15:44:38,262 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Told Dave about a park in the area--> Park (Time: 2023-03-23)
+2026-01-05 15:44:38,289 - Amadeus.Builder - INFO - ➕ NODE: Dave
+2026-01-05 15:44:38,326 - Amadeus.Builder - INFO - ⏳ WAIT: I'm heading there next month. ...
+2026-01-05 15:44:38,330 - Amadeus.Builder - INFO - ⏳ WAIT: That's great, can't wait for y...
+2026-01-05 15:44:38,331 - Amadeus.Builder - INFO - ⏳ WAIT: Thanks, Dave! If I need any he...
+2026-01-05 15:44:38,356 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:44:38,357 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:44:43,570 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:44:43,571 - Amadeus.Answerer - INFO - ❓ Question: Where did Calvin find a place to stay in Japan?
+2026-01-05 15:44:44,929 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Calvin find place to stay Japan', 'mode': 'hybrid'}
+2026-01-05 15:44:46,492 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Calvin find place to stay agent Japan', 'mode': 'hybrid'}
+2026-01-05 15:44:48,610 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Calvin found a place to stay in Japan through an agent.'}
+2026-01-05 15:44:48,610 - Amadeus.Optimizer - INFO - GT: His agent found him an awesome place.
+2026-01-05 15:44:48,610 - Amadeus.Optimizer - INFO - Pre: Calvin found a place to stay in Japan through an agent.
+2026-01-05 15:44:52,874 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:44:52,874 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture explicit mentions of locations and related actions. Ensure that when Calvin discusses his plans or activities, the builder extracts and links these details accurately to avoid missing relevant information.
+2026-01-05 15:44:52,875 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Calvin", "object": "Japan", "content": "planned to visit Japan for cultural exploration and music collaboration"}, {"action": "ADD", "object": "agent", "content": "found a place to stay in Japan for Calvin"}]
+2026-01-05 15:44:59,567 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --planned to visit Japan for cultural exploration and music collaboration--> Japan (Time: 2023-03-23)
+2026-01-05 15:44:59,572 - Amadeus.Builder - INFO - ➕ NODE: agent
+2026-01-05 15:44:59,578 - Amadeus.Answerer - INFO - ❓ Question: What are Calvin's plans for his trip to Japan besides exploring the city and trying local cuisines?
+2026-01-05 15:45:02,407 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Calvin's plans for trip to Japan besides exploring the city and trying local cuisines", 'mode': 'hybrid'}
+2026-01-05 15:45:04,680 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'agent'}
+2026-01-05 15:45:06,801 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Calvin's plans for his trip to Japan besides exploring the city and trying local cuisines include staying at a mansion."}
+2026-01-05 15:45:06,801 - Amadeus.Optimizer - INFO - GT: He plans to collaborate with musicians in the area.
+2026-01-05 15:45:06,801 - Amadeus.Optimizer - INFO - Pre: Calvin's plans for his trip to Japan besides exploring the city and trying local cuisines include staying at a mansion.
+2026-01-05 15:45:11,234 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:11,234 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when a subject mentions plans for a trip, especially to a specific location like Japan, the relevant activities and intentions are captured accurately. The builder should be more attentive to the context provided by the subject's explicit statements about their plans.
+2026-01-05 15:45:11,235 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Calvin", "object": "Japan", "content": "plans to collaborate with musicians"}, {"action": "REMOVE", "subject": "Calvin", "object": "mansion", "content": "stayed at a mansion"}]
+2026-01-05 15:45:17,486 - Amadeus.Builder - INFO - ➕ NODE: Calvin
+2026-01-05 15:45:17,491 - Amadeus.Answerer - INFO - ❓ Question: How does Dave feel about spending time at the beautiful park he mentioned?
+2026-01-05 15:45:19,302 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Dave beautiful park spending time', 'mode': 'hybrid'}
+2026-01-05 15:45:20,377 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Park'}
+2026-01-05 15:45:21,576 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Dave feeling about park Calvin mentioned', 'mode': 'hybrid'}
+2026-01-05 15:45:22,584 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Park'}
+2026-01-05 15:45:23,686 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Dave feeling about park Calvin mentioned', 'mode': 'hybrid'}
+2026-01-05 15:45:24,927 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Park'}
+2026-01-05 15:45:26,511 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Dave feeling about park Calvin mentioned', 'mode': 'hybrid'}
+2026-01-05 15:45:27,620 - Amadeus.Answerer - INFO - Step 8: READ - {'tool': 'READ', 'answer': 'Dave feels positively about spending time at the beautiful park Calvin mentioned.'}
+2026-01-05 15:45:27,620 - Amadeus.Optimizer - INFO - GT: He finds it calming.
+2026-01-05 15:45:27,620 - Amadeus.Optimizer - INFO - Pre: Dave feels positively about spending time at the beautiful park Calvin mentioned.
+2026-01-05 15:45:31,335 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:45:31,335 - Experiment - INFO - [conv-50] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:45:44,272 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:45:44,279 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Got a new car - amazing ride, super smooth and powerful--> Car (Time: 2023-03-26)
+2026-01-05 15:45:44,283 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Wrote some new tunes and had a few studio sessions last week and is excited to collaborate--> plans to collaborate with musicians (Time: 2023-03-26)
+2026-01-05 15:45:44,337 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:45:44,338 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:45:50,468 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:45:50,468 - Amadeus.Answerer - INFO - ❓ Question: What made Dave's experience at the music festival in Boston so memorable?
+2026-01-05 15:45:52,041 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Dave's experience at the music festival in Boston", 'mode': 'hybrid'}
+2026-01-05 15:45:53,160 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'plans to collaborate with musicians'}
+2026-01-05 15:45:54,033 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Calvin'}
+2026-01-05 15:45:54,963 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'plans to collaborate with musicians'}
+2026-01-05 15:45:56,446 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Dave's experience at the music festival in Boston was memorable because Calvin wrote some new tunes and had a few studio sessions last week and is excited to collaborate at the festival."}
+2026-01-05 15:45:56,446 - Amadeus.Optimizer - INFO - GT: The atmosphere was electric and he saw Aerosmith perform live.
+2026-01-05 15:45:56,446 - Amadeus.Optimizer - INFO - Pre: Dave's experience at the music festival in Boston was memorable because Calvin wrote some new tunes and had a few studio sessions last week and is excited to collaborate at the festival.
+2026-01-05 15:45:58,784 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:45:58,785 - Amadeus.Answerer - INFO - ❓ Question: How does Calvin feel about his new car?
+2026-01-05 15:45:59,777 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Calvin new car feelings', 'mode': 'hybrid'}
+2026-01-05 15:46:00,953 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Calvin feels amazing about his new car, describing it as super smooth and powerful.'}
+2026-01-05 15:46:00,953 - Amadeus.Optimizer - INFO - GT: He feels amazing every time he gets inside the car.
+2026-01-05 15:46:00,953 - Amadeus.Optimizer - INFO - Pre: Calvin feels amazing about his new car, describing it as super smooth and powerful.
+2026-01-05 15:46:04,108 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:46:04,109 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on implicit causality and temporal context. The questioner should ask about the current feelings and experiences rather than historical descriptions unless explicitly asked.
+2026-01-05 15:46:04,110 - Amadeus.Answerer - INFO - ❓ Question: What did Dave do after the music festival in Boston?
+2026-01-05 15:46:05,121 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Dave music festival Boston', 'mode': 'hybrid'}
+2026-01-05 15:46:05,995 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Park'}
+2026-01-05 15:46:06,683 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Calvin'}
+2026-01-05 15:46:08,099 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Park'}
+2026-01-05 15:46:09,150 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'Dave was told about a park in the area by Calvin.'}
+2026-01-05 15:46:09,152 - Amadeus.Optimizer - INFO - GT: He didn't mention doing anything specific after the music festival.
+2026-01-05 15:46:09,153 - Amadeus.Optimizer - INFO - Pre: Dave was told about a park in the area by Calvin.
+2026-01-05 15:46:12,139 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:46:12,140 - Experiment - INFO - [conv-50] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:46:36,951 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:46:36,969 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Attended a music festival in Tokyo--> Tokyo Festival (Time: 2023-04-20)
+2026-01-05 15:46:36,973 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Got great advice from a producer to stay true to himself and sound unique--> plans to collaborate with musicians (Time: 2023-04-20)
+2026-01-05 15:46:36,979 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Planning to perform on the Frank Ocean tour--> Frank Ocean Tour (Time: 2023-04-20)
+2026-01-05 15:46:36,985 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Looking forward to visiting Boston after the Frank Ocean tour--> Boston (Time: 2023-04-20)
+2026-01-05 15:46:36,990 - Amadeus.Builder - INFO - ➕ NODE: Calvin
+2026-01-05 15:46:37,060 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Told Dave about a park in the area--> Park (Time: 2023-04-20)
+2026-01-05 15:46:37,060 - Amadeus.Builder - INFO - 🔗 LINK: Calvin --Got a new car - amazing ride, super smooth and powerful--> Car (Time: 2023-03-26)
+2026-01-05 15:46:37,066 - Amadeus.Builder - INFO - 🔗 LINK: Dave --Went to a car show last weekend--> Car Show (Time: 2023-04-20)
+2026-01-05 15:46:37,071 - Amadeus.Builder - INFO - 🔗 LINK: Dave --Interested in auto engineering due to the car show--> Auto Engineering (Time: 2023-04-20)
+2026-01-05 15:46:37,072 - Amadeus.Builder - INFO - ⏳ WAIT: Not yet explored Boston apart ...
+2026-01-05 15:46:37,072 - Amadeus.Builder - INFO - ⏳ WAIT: Dreaming of trying out food an...
+2026-01-05 15:46:37,168 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:46:37,168 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:46:44,530 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:46:44,531 - Amadeus.Answerer - INFO - ❓ Question: What inspired Calvin to dream of touring the world after the Frank Ocean tour in Boston?
+2026-01-05 15:46:46,058 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Calvin, Frank Ocean, Boston tour, world tour inspiration', 'mode': 'hybrid'}
+2026-01-05 15:46:47,256 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Mansion'}
+2026-01-05 15:46:48,333 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Calvin Frank Ocean tour Boston world tour inspiration', 'mode': 'hybrid'}
+2026-01-05 15:46:49,818 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Calvin'}
+2026-01-05 15:46:50,849 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Frank Ocean Tour'}
+2026-01-05 15:46:52,254 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Frank Ocean tour in Boston and Calvin's inspiration for world tour dreams", 'mode': 'hybrid'}
+2026-01-05 15:46:53,377 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Frank Ocean Tour'}
+2026-01-05 15:46:54,251 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Mansion'}
+2026-01-05 15:46:54,252 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:46:54,578 - Amadeus.Optimizer - INFO - GT: Calvin got advice from a producer to stay true to himself and sound unique during the Tokyo festival, which motivated him to pursue his dreams of touring the world.
+2026-01-05 15:46:54,579 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:46:59,009 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:59,010 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to connect historical events with recent context. Specifically, ensure that the builder captures the sequence of events and their relationships accurately, even when the information is spread across different nodes.
+2026-01-05 15:46:59,011 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Calvin", "object": "Frank Ocean Tour", "content": "Attended"}, {"action": "ADD", "subject": "Frank Ocean Tour", "object": "Boston", "content": "Visited"}, {"action": "ADD", "subject": "Calvin", "object": "Advice from producer", "content": "Got after Frank Ocean tour"}]

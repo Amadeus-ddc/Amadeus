@@ -1,0 +1,105 @@
+2026-01-05 15:44:18,674 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-26
+========================================
+2026-01-05 15:44:20,141 - Experiment - INFO - [conv-26] 🧠 Phase 1: Building Memory (19 contextual sessions)...
+2026-01-05 15:44:20,141 - Experiment - INFO - [conv-26] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:44:27,213 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:44:29,016 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2026-01-05 15:44:29,547 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2026-01-05 15:44:29,555 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:44:29,555 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:44:36,162 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:44:36,163 - Amadeus.Answerer - INFO - ❓ Question: What impact might Caroline's participation in the LGBTQ support group have on her future career choice?
+2026-01-05 15:44:37,516 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline LGBTQ support group career impact', 'mode': 'hybrid'}
+2026-01-05 15:44:38,878 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'impact of participating in LGBTQ support group on future career choice', 'mode': 'hybrid'}
+2026-01-05 15:44:40,801 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'impact of participating in LGBTQ support group on career choice', 'mode': 'hybrid'}
+2026-01-05 15:44:41,841 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'LGBTQ support group career impact', 'mode': 'hybrid'}
+2026-01-05 15:44:43,306 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'impact of participating in LGBTQ support group on career choice', 'mode': 'hybrid'}
+2026-01-05 15:44:44,500 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline LGBTQ support group career impact', 'mode': 'hybrid'}
+2026-01-05 15:44:45,971 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'inspired and accepted in LGBTQ support group', 'mode': 'hybrid'}
+2026-01-05 15:44:47,234 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'impact of feeling inspired and accepted in LGBTQ support group on career choice', 'mode': 'hybrid'}
+2026-01-05 15:44:47,240 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:44:47,560 - Amadeus.Optimizer - INFO - GT: Caroline feels accepted and given courage to embrace herself, which might lead her to pursue a career in counseling or mental health to support others with similar issues.
+2026-01-05 15:44:47,561 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:44:49,264 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:44:49,264 - Amadeus.Answerer - INFO - ❓ Question: How does Melanie use painting as an expression of her feelings?
+2026-01-05 15:44:50,190 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie painting feelings', 'mode': 'hybrid'}
+2026-01-05 15:44:51,340 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie painting feelings', 'mode': 'hybrid'}
+2026-01-05 15:44:52,390 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie painting feelings inspiration', 'mode': 'hybrid'}
+2026-01-05 15:44:53,484 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie painting feelings inspiration', 'mode': 'hybrid'}
+2026-01-05 15:44:54,554 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie painting feelings inspiration', 'mode': 'hybrid'}
+2026-01-05 15:44:55,637 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie painting feelings inspiration', 'mode': 'hybrid'}
+2026-01-05 15:44:56,779 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie painting feelings inspiration', 'mode': 'hybrid'}
+2026-01-05 15:44:57,728 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie painting feelings', 'mode': 'hybrid'}
+2026-01-05 15:44:57,772 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:44:58,142 - Amadeus.Optimizer - INFO - GT: Melanie uses painting as a way to express her feelings and get creative, which helps her relax after a long day.
+2026-01-05 15:44:58,142 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:45:02,884 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:45:02,884 - Amadeus.Answerer - INFO - ❓ Question: What might Melanie's reaction be if Caroline decided to become a counselor after attending the support group?
+2026-01-05 15:45:03,939 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie Caroline support group counselor reaction', 'mode': 'hybrid'}
+2026-01-05 15:45:05,251 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'reaction of Melanie to Caroline becoming a counselor after attending the support group', 'mode': 'hybrid'}
+2026-01-05 15:45:06,410 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Melanie's reaction to Caroline becoming a counselor after attending the support group", 'mode': 'hybrid'}
+2026-01-05 15:45:07,224 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Caroline'}
+2026-01-05 15:45:08,686 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie reaction to Caroline becoming a counselor after attending the support group', 'mode': 'hybrid'}
+2026-01-05 15:45:10,490 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Melanie's reaction to Caroline becoming a counselor after attending the support group", 'mode': 'hybrid'}
+2026-01-05 15:45:11,778 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "Melanie's reaction to Caroline becoming a counselor after attending the support group", 'mode': 'hybrid'}
+2026-01-05 15:45:13,405 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Melanie's reaction to Caroline becoming a counselor after attending the support group", 'mode': 'hybrid'}
+2026-01-05 15:45:13,411 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:45:13,878 - Amadeus.Optimizer - INFO - GT: Melanie would likely react positively, acknowledging Caroline's empathy and understanding as qualities that would make her a great counselor.
+2026-01-05 15:45:13,879 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:45:18,659 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:18,659 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture the direct actions and decisions made by characters in the conversation to ensure they are included in the graph. Also, include reactions to these actions to provide context for future predictions.
+2026-01-05 15:45:18,660 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Caroline", "object": "decided_to_become_counselor", "content": "Caroline decided to become a counselor."}, {"action": "ADD", "subject": "Melanie", "object": "reacts_positively_to_carolines_decision", "content": "Melanie reacts positively to Caroline's decision to become a counselor, noting her empathy and understanding as qualities that would make her a great counselor."}]
+2026-01-05 15:45:25,376 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Caroline decided to become a counselor.--> decided_to_become_counselor (Time: CURRENT_TIMESTAMP)
+2026-01-05 15:45:25,380 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Melanie reacts positively to Caroline's decision to become a counselor, noting her empathy and understanding as qualities that would make her a great counselor.--> reacts_positively_to_carolines_decision (Time: CURRENT_TIMESTAMP)
+2026-01-05 15:45:25,412 - Experiment - INFO - [conv-26] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:45:53,976 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:45:53,981 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2026-01-05 15:45:53,985 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Starting to prioritize self-care through activities like running, reading, or playing violin--> self-care (Time: 2023-05-20)
+2026-01-05 15:45:53,989 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Researching adoption agencies to adopt kids who need a loving home--> adoption_agency (Time: 2023-05-25)
+2026-01-05 15:45:54,085 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Planning to adopt as a single parent--> single_parent (Time: 2023-05-25)
+2026-01-05 15:45:54,095 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Attended an LGBTQ+ support group and felt inspired and accepted--> LGBTQ+ support group (Time: CURRENT_TIMESTAMP)
+2026-01-05 15:45:54,103 - Amadeus.Builder - INFO - ⏳ WAIT: Future plans for adoption are ...
+2026-01-05 15:45:54,108 - Amadeus.Builder - INFO - ⏳ WAIT: Future plans for summer campin...
+2026-01-05 15:45:54,123 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:45:54,123 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:45:59,915 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:45:59,916 - Amadeus.Answerer - INFO - ❓ Question: How does Caroline feel about her future as an adoptive parent?
+2026-01-05 15:46:01,465 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoptive parent feelings future', 'mode': 'hybrid'}
+2026-01-05 15:46:02,606 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'reacts_positively_to_carolines_decision'}
+2026-01-05 15:46:03,689 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline adoptive parent feelings future', 'mode': 'hybrid'}
+2026-01-05 15:46:05,271 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Caroline feels positively about her future as an adoptive parent. She has attended an LGBTQ+ support group and felt inspired and accepted, and she is researching adoption agencies and planning to adopt as a single parent.'}
+2026-01-05 15:46:05,271 - Amadeus.Optimizer - INFO - GT: Caroline feels hopeful and optimistic about the adoption process.
+2026-01-05 15:46:05,271 - Amadeus.Optimizer - INFO - Pre: Caroline feels positively about her future as an adoptive parent. She has attended an LGBTQ+ support group and felt inspired and accepted, and she is researching adoption agencies and planning to adopt as a single parent.
+2026-01-05 15:46:10,571 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:46:10,571 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's strategy to trust the graph more accurately and avoid hallucinating details that are not present in the Builder's log. Specifically, ensure that the Answerer does not generate information based on assumptions or external facts unless explicitly supported by the current context.
+2026-01-05 15:46:10,571 - Amadeus.Answerer - INFO - ❓ Question: What specific aspect of the adoption agency does Melanie appreciate?
+2026-01-05 15:46:11,957 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie adoption agency specific aspect appreciation', 'mode': 'hybrid'}
+2026-01-05 15:46:13,056 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'LGBTQ+ support group'}
+2026-01-05 15:46:14,400 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie LGBTQ+ support group appreciation', 'mode': 'hybrid'}
+2026-01-05 15:46:16,589 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Melanie appreciates the inspired and accepted feeling she gets from attending the LGBTQ+ support group.'}
+2026-01-05 15:46:16,590 - Amadeus.Optimizer - INFO - GT: Melanie appreciates the agency's inclusivity and support for LGBTQ+ folks.
+2026-01-05 15:46:16,590 - Amadeus.Optimizer - INFO - Pre: Melanie appreciates the inspired and accepted feeling she gets from attending the LGBTQ+ support group.
+2026-01-05 15:46:22,481 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:46:22,481 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it doesn't hallucinate specific details without proper context. The Answerer should focus on retrieving information directly related to the subject's recent activities and avoid making assumptions based on unrelated events.
+2026-01-05 15:46:22,481 - Amadeus.Answerer - INFO - ❓ Question: Where will Melanie and her family be going during the summer break?
+2026-01-05 15:46:23,644 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie summer break destination', 'mode': 'hybrid'}
+2026-01-05 15:46:24,938 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Melanie summer break plans', 'mode': 'hybrid'}
+2026-01-05 15:46:26,334 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Caroline decided to become a counselor and plans for summer', 'mode': 'hybrid'}
+2026-01-05 15:46:27,725 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'adoption_agency'}
+2026-01-05 15:46:29,195 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'Melanie and her family are planning to adopt kids who need a loving home during the summer break.'}
+2026-01-05 15:46:29,195 - Amadeus.Optimizer - INFO - GT: They are thinking about going camping next month.
+2026-01-05 15:46:29,195 - Amadeus.Optimizer - INFO - Pre: Melanie and her family are planning to adopt kids who need a loving home during the summer break.
+2026-01-05 15:46:33,338 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:46:33,346 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should trust the graph more and perform a deeper search to ensure that all relevant information is considered before providing an answer. The system prompt should be updated to encourage the Answerer to use multiple hops when searching for information, especially when the question does not directly align with recent context.
+2026-01-05 15:46:33,349 - Experiment - INFO - [conv-26] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:46:51,881 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:46:51,957 - Amadeus.Builder - INFO - 🔗 LINK: Caroline --Talked about her transgender journey and encouraged students to get involved in the LGBTQ community. Shared her own journey, the struggles she had and how much she's developed since coming out.--> LGBTQ support group (Time: 2023-06-02)
+2026-01-05 15:46:51,962 - Amadeus.Builder - INFO - ➕ NODE: Caroline
+2026-01-05 15:46:51,966 - Amadeus.Builder - INFO - 🔗 LINK: Melanie --Has a husband and kids who keep her motivated.--> family (Time: CURRENT_TIMESTAMP)
+2026-01-05 15:46:52,015 - Amadeus.Builder - INFO - ➕ NODE: Melanie
+2026-01-05 15:46:52,053 - Amadeus.Builder - INFO - ⏳ WAIT: Melanie's response about her m...
+2026-01-05 15:46:52,054 - Amadeus.Builder - INFO - ⏳ WAIT: Melanie's response about her m...
+2026-01-05 15:46:52,075 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:46:52,105 - Amadeus.Optimizer - INFO - --- Round 1 ---

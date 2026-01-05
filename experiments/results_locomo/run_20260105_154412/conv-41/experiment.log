@@ -1,0 +1,101 @@
+2026-01-05 15:44:18,692 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-41
+========================================
+2026-01-05 15:44:20,140 - Experiment - INFO - [conv-41] 🧠 Phase 1: Building Memory (32 contextual sessions)...
+2026-01-05 15:44:20,142 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:44:29,336 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:44:29,484 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:44:29,544 - Amadeus.Builder - INFO - 🔗 LINK: School --Got funding, Needed repairs and renovations--> Learning Environment (Time: 2022-12-17)
+2026-01-05 15:44:29,552 - Amadeus.Builder - INFO - 🔗 LINK: John --Chatting to get support and gather ideas--> Local Leaders and Organizations (Time: 2022-12-17)
+2026-01-05 15:44:29,560 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:44:29,561 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:44:35,792 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:44:35,792 - Amadeus.Answerer - INFO - ❓ Question: What changes did the extra funding make to the school's learning environment?
+2026-01-05 15:44:36,982 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'extra funding changes school learning environment', 'mode': 'hybrid'}
+2026-01-05 15:44:37,808 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'School'}
+2026-01-05 15:44:38,702 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Learning Environment'}
+2026-01-05 15:44:40,187 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'extra funding impact on school learning environment 2022-12-17', 'mode': 'hybrid'}
+2026-01-05 15:44:41,002 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'School'}
+2026-01-05 15:44:41,875 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Learning Environment'}
+2026-01-05 15:44:43,453 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'extra funding impact on school learning environment 2022-12-17', 'mode': 'hybrid'}
+2026-01-05 15:44:44,441 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Learning Environment'}
+2026-01-05 15:44:44,441 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:44:46,215 - Amadeus.Optimizer - INFO - GT: It enabled needed repairs and renovations, making the learning environment safer and more modern for students.
+2026-01-05 15:44:46,215 - Amadeus.Optimizer - INFO - Pre: The extra funding likely improved the learning environment by addressing needed repairs and renovations at the school. This could include better maintenance of facilities, updated technology, improved classroom conditions, or enhanced resources for students and teachers.
+2026-01-05 15:44:49,958 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:44:49,959 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent developments. Avoid asking about historical changes or past conditions unless explicitly related to the present context.
+2026-01-05 15:44:49,959 - Amadeus.Answerer - INFO - ❓ Question: Where did John go after his family road trip?
+2026-01-05 15:44:50,787 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John family road trip destination', 'mode': 'hybrid'}
+2026-01-05 15:44:51,835 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Local Leaders and Organizations'}
+2026-01-05 15:44:52,631 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'John'}
+2026-01-05 15:44:53,865 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Local Leaders and Organizations'}
+2026-01-05 15:44:54,706 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'John'}
+2026-01-05 15:44:55,496 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Local Leaders and Organizations'}
+2026-01-05 15:44:56,310 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'John'}
+2026-01-05 15:44:57,307 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Local Leaders and Organizations'}
+2026-01-05 15:44:57,307 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:44:57,642 - Amadeus.Optimizer - INFO - GT: Not explicitly stated in the buffer context.
+2026-01-05 15:44:57,642 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:45:00,335 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:00,335 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture explicit locations or activities following a road trip. Ensure that the builder extracts and links such information directly to the subject's recent actions.
+2026-01-05 15:45:00,335 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Home", "content": "just got back from a family road trip"}]
+2026-01-05 15:45:07,577 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:45:07,583 - Amadeus.Answerer - INFO - ❓ Question: Why is John interested in improving education and infrastructure in his community?
+2026-01-05 15:45:09,325 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John interest in education and infrastructure community', 'mode': 'hybrid'}
+2026-01-05 15:45:10,216 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Local Leaders and Organizations'}
+2026-01-05 15:45:11,604 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John chatting to get support and gather ideas for education and infrastructure at 2022-12-17', 'mode': 'hybrid'}
+2026-01-05 15:45:14,049 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'John is interested in improving education and infrastructure in his community because he focuses on local politics and has been involved in discussions and gathering ideas with local leaders and organizations since December 17, 2022. This interest likely stems from the need for funding and repairs at the school, which is part of the learning environment in his community.'}
+2026-01-05 15:45:14,049 - Amadeus.Optimizer - INFO - GT: Growing up, he saw how lack of education and crumbling infrastructure affected his neighborhood. He wants future generations to have a better experience.
+2026-01-05 15:45:14,049 - Amadeus.Optimizer - INFO - Pre: John is interested in improving education and infrastructure in his community because he focuses on local politics and has been involved in discussions and gathering ideas with local leaders and organizations since December 17, 2022. This interest likely stems from the need for funding and repairs at the school, which is part of the learning environment in his community.
+2026-01-05 15:45:18,875 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:18,875 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to prioritize capturing contextually relevant personal experiences and their immediate impacts on the individual's surroundings. Specifically, instruct the Builder to look for explicit mentions of past experiences and their effects on the community, rather than inferring based on current activities.
+2026-01-05 15:45:18,876 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Growth Upbringing", "content": "Growing up, he saw how lack of education and crumbling infrastructure affected his neighborhood."}, {"action": "ADD", "object": "Learning Environment", "content": "Part of the neighborhood's infrastructure."}]
+2026-01-05 15:45:25,397 - Amadeus.Builder - INFO - 🔗 LINK: John --Growing up, he saw how lack of education and crumbling infrastructure affected his neighborhood.--> Growth Upbringing (Time: None)
+2026-01-05 15:45:25,398 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:45:25,402 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:45:48,616 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:45:48,626 - Amadeus.Builder - INFO - 🔗 LINK: John --Volunteered at a homeless shelter--> Volunteering at a homeless shelter (Time: 2022-12-15)
+2026-01-05 15:45:48,630 - Amadeus.Builder - INFO - 🔗 LINK: John --Networking with people to gain perspectives and insights--> Doing kickboxing (Time: 2022-12-17)
+2026-01-05 15:45:48,664 - Amadeus.Builder - INFO - 🔗 LINK: John --Passionate about improving education in the community--> Interested in local politics (Time: 2022-12-17)
+2026-01-05 15:45:48,729 - Amadeus.Builder - INFO - 🔗 LINK: John --Passionate about improving education in the community--> Focused on improving education and infrastructure (Time: 2022-12-17)
+2026-01-05 15:45:48,729 - Amadeus.Builder - INFO - ⏳ WAIT: Maria, you made some peach cob...
+2026-01-05 15:45:48,758 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:45:48,758 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:45:54,312 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:45:54,314 - Amadeus.Answerer - INFO - ❓ Question: What did John and his family make together?
+2026-01-05 15:45:55,482 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John and his family made together', 'mode': 'hybrid'}
+2026-01-05 15:45:56,573 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Volunteering at a homeless shelter'}
+2026-01-05 15:45:57,830 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'John and his family volunteered at a homeless shelter together.'}
+2026-01-05 15:45:57,830 - Amadeus.Optimizer - INFO - GT: They made pizza.
+2026-01-05 15:45:57,830 - Amadeus.Optimizer - INFO - Pre: John and his family volunteered at a homeless shelter together.
+2026-01-05 15:46:03,156 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:03,156 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when building relationships, the system captures familial connections and activities explicitly mentioned by participants. Additionally, refine the system to better integrate recent context into global predictions.
+2026-01-05 15:46:03,157 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Maria", "content": "Family member of Maria"}, {"action": "ADD", "subject": "John", "object": "Maria's car donation", "content": "Learned about Maria's car donation to a homeless shelter (Time: 2022-12-22)"}, {"action": "ADD", "subject": "John and his family", "object": "Made pizza", "content": "John and his family made pizza together (Time: 2022-12-22)"}]
+2026-01-05 15:46:13,654 - Amadeus.Builder - INFO - 🔗 LINK: John --Family member of Maria--> Maria (Time: 2022-12-22)
+2026-01-05 15:46:13,752 - Amadeus.Builder - INFO - 🔗 LINK: John --Learned about Maria's car donation to a homeless shelter (Time: 2022-12-22)--> Maria's car donation (Time: 2022-12-22)
+2026-01-05 15:46:14,002 - Amadeus.Builder - INFO - 🔗 LINK: John and his family --John and his family made pizza together (Time: 2022-12-22)--> Made pizza (Time: 2022-12-22)
+2026-01-05 15:46:14,019 - Amadeus.Answerer - INFO - ❓ Question: How does Maria feel about her family and friends bringing joy and support to her life?
+2026-01-05 15:46:15,135 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria feelings family friends joy support', 'mode': 'hybrid'}
+2026-01-05 15:46:16,106 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'John and his family'}
+2026-01-05 15:46:17,250 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Maria's feelings about family and friends bringing joy and support", 'mode': 'hybrid'}
+2026-01-05 15:46:18,412 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Maria's feelings about family and friends bringing joy and support", 'mode': 'hybrid'}
+2026-01-05 15:46:19,732 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Maria's feelings about family and friends bringing joy and support", 'mode': 'hybrid'}
+2026-01-05 15:46:20,674 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'John and his family'}
+2026-01-05 15:46:21,925 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "Maria's feelings about family and friends bringing joy and support", 'mode': 'hybrid'}
+2026-01-05 15:46:23,019 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'John and his family'}
+2026-01-05 15:46:23,019 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:46:23,837 - Amadeus.Optimizer - INFO - GT: Maria says that spending time with loved ones is important and brings joy, support, and a feeling of being part of something special.
+2026-01-05 15:46:23,837 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:46:26,315 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:46:26,316 - Amadeus.Answerer - INFO - ❓ Question: What activity did John mention he would be doing next?
+2026-01-05 15:46:27,815 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John mentioned activity next', 'mode': 'hybrid'}
+2026-01-05 15:46:29,463 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "John mentioned that he learned about Maria's car donation to a homeless shelter."}
+2026-01-05 15:46:29,463 - Amadeus.Optimizer - INFO - GT: He mentioned doing some taekwondo.
+2026-01-05 15:46:29,464 - Amadeus.Optimizer - INFO - Pre: John mentioned that he learned about Maria's car donation to a homeless shelter.
+2026-01-05 15:46:33,714 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:33,714 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when John mentions an activity related to Maria's car donation, the system correctly identifies and links it to his next planned activity. Specifically, improve the rule to capture direct mentions of future plans in conversations.
+2026-01-05 15:46:33,714 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Mentioned learning about Maria's car donation", "content": "John mentioned learning about Maria's car donation to a homeless shelter during their recent chat."}, {"action": "ADD", "object": "Next activity", "content": "John's next activity is mentioned as doing some taekwondo."}]
+2026-01-05 15:46:49,018 - Amadeus.Builder - INFO - 🔗 LINK: John --John mentioned learning about Maria's car donation to a homeless shelter during their recent chat.--> Mentioned learning about Maria's car donation (Time: 2022-12-22)
+2026-01-05 15:46:49,019 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:46:49,092 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 3. Processing Buffer...

@@ -1,0 +1,862 @@
+2026-01-05 15:11:14,115 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-41
+========================================
+2026-01-05 15:11:15,074 - Experiment - INFO - [conv-41] 🧠 Phase 1: Building Memory (32 contextual sessions)...
+2026-01-05 15:11:15,086 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:11:35,879 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:11:35,910 - Amadeus.Builder - INFO - 🔗 LINK: John --Got back from a family road trip yesterday--> Family Road Trip (Time: 2022-12-16)
+2026-01-05 15:11:35,914 - Amadeus.Builder - INFO - 🔗 LINK: John --Started doing aerial yoga, it's great--> Aerial Yoga (Time: 2022-12-17)
+2026-01-05 15:11:35,970 - Amadeus.Builder - INFO - 🔗 LINK: John --Doing kickboxing and it's giving him so much energy--> Kickboxing (Time: 2022-12-17)
+2026-01-05 15:11:36,027 - Amadeus.Builder - INFO - 🔗 LINK: John --Passionate about getting into local politics, focusing on education and infrastructure--> Local Politics (Time: 2022-12-17)
+2026-01-05 15:11:36,031 - Amadeus.Builder - INFO - 🔗 LINK: John --Passionate about improving education and infrastructure in the community, especially after seeing the impact of funding--> School Funding (Time: 2022-12-17)
+2026-01-05 15:11:36,045 - Amadeus.Builder - INFO - 🔗 LINK: John --Passionate about helping the community and making it a better place--> Community (Time: 2022-12-17)
+2026-01-05 15:11:36,072 - Amadeus.Builder - INFO - 🔗 LINK: John --Planning to chat with local leaders and organizations to gather support and ideas--> Leaders and Organizations (Time: 2022-12-17)
+2026-01-05 15:11:36,075 - Amadeus.Builder - INFO - 🔗 LINK: John --Will keep Maria posted on his campaign progress--> Campaign (Time: 2022-12-17)
+2026-01-05 15:11:36,092 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:11:36,092 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:11:42,010 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:11:42,011 - Amadeus.Answerer - INFO - ❓ Question: What got John interested in improving education and infrastructure?
+2026-01-05 15:11:43,282 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John interest in improving education and infrastructure', 'mode': 'hybrid'}
+2026-01-05 15:11:44,558 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John got interested in improving education and infrastructure in the community, especially after seeing the impact of funding during his family road trip.'}
+2026-01-05 15:11:44,559 - Amadeus.Optimizer - INFO - GT: Growing up, he saw how lack of education and crumbling infrastructure affected his neighborhood.
+2026-01-05 15:11:44,559 - Amadeus.Optimizer - INFO - Pre: John got interested in improving education and infrastructure in the community, especially after seeing the impact of funding during his family road trip.
+2026-01-05 15:11:49,509 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:11:49,510 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The builder's system prompt should include more context-aware extraction rules. Specifically, it should capture historical information and personal background details related to John's experiences growing up, rather than focusing solely on recent events or activities. This will help in accurately linking John's current interests to his past experiences.
+2026-01-05 15:11:49,511 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Grew up in a neighborhood affected by lack of education and crumbling infrastructure", "content": "Growing up, John saw how lack of education and crumbling infrastructure affected his neighborhood."}, {"action": "REMOVE", "subject": "John", "object": "Family road trip", "content": "John got interested in improving education and infrastructure in the community, especially after seeing the impact of funding during his family road trip."}]
+2026-01-05 15:11:57,639 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:11:57,698 - Amadeus.Graph - INFO - ✂️ Edge Deleted: John -> Family Road Trip
+2026-01-05 15:11:57,722 - Amadeus.Answerer - INFO - ❓ Question: How does John feel about his neighborhood's future generations?
+2026-01-05 15:11:59,083 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John neighborhood future generations', 'mode': 'hybrid'}
+2026-01-05 15:11:59,863 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Local Politics'}
+2026-01-05 15:12:01,714 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's opinion on local politics focusing on education and infrastructure", 'mode': 'hybrid'}
+2026-01-05 15:12:02,924 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'John is passionate about getting into local politics, focusing on education and infrastructure to improve his neighborhood for future generations.'}
+2026-01-05 15:12:02,926 - Amadeus.Optimizer - INFO - GT: He wants future generations to not go through the same issues he observed growing up.
+2026-01-05 15:12:02,926 - Amadeus.Optimizer - INFO - Pre: John is passionate about getting into local politics, focusing on education and infrastructure to improve his neighborhood for future generations.
+2026-01-05 15:12:07,250 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:12:07,251 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when discussing personal experiences or values, the builder should directly link these to explicit statements made by the characters. This will help in capturing more accurate and contextually relevant information.
+2026-01-05 15:12:07,251 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Future Generations", "content": "wants future generations to not go through the same issues he observed growing up"}]
+2026-01-05 15:12:11,750 - Amadeus.Builder - INFO - 🔗 LINK: John --wants future generations to not go through the same issues he observed growing up--> Future Generations (Time: None)
+2026-01-05 15:12:11,755 - Amadeus.Answerer - INFO - ❓ Question: What did Maria suggest John do after discussing his goals in politics?
+2026-01-05 15:12:12,884 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria suggested John do after discussing his goals in politics', 'mode': 'hybrid'}
+2026-01-05 15:12:14,793 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Maria John discussion goals politics', 'mode': 'hybrid'}
+2026-01-05 15:12:15,901 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Campaign'}
+2026-01-05 15:12:19,348 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Maria suggested John keep her posted on his campaign progress in politics.'}
+2026-01-05 15:12:19,349 - Amadeus.Optimizer - INFO - GT: She suggested he chat with local leaders and organizations to get support and gather ideas.
+2026-01-05 15:12:19,349 - Amadeus.Optimizer - INFO - Pre: Maria suggested John keep her posted on his campaign progress in politics.
+2026-01-05 15:12:22,968 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:12:22,968 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Increase the depth of the search strategy to ensure that the Answerer considers information beyond the immediate context. Specifically, encourage the Answerer to explore more than one hop in the memory graph to find relevant connections and avoid hallucinating answers based on recent or immediate contexts alone.
+2026-01-05 15:12:22,968 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:12:36,702 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:12:36,708 - Amadeus.Builder - INFO - 🔗 LINK: John --Started doing Taekwondo--> Taekwondo (Time: 2022-12-22)
+2026-01-05 15:12:36,709 - Amadeus.Builder - INFO - 🔗 LINK: John --Passionate about helping the community and making it a better place--> Community (Time: 2022-12-22)
+2026-01-05 15:12:36,709 - Amadeus.Builder - INFO - 🔗 LINK: John --wants future generations to not go through the same issues he observed growing up--> Future Generations (Time: 2022-12-22)
+2026-01-05 15:12:36,717 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:12:36,733 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:12:43,209 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:12:43,210 - Amadeus.Answerer - INFO - ❓ Question: What did John and his family make together?
+2026-01-05 15:12:44,260 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John and his family activities', 'mode': 'hybrid'}
+2026-01-05 15:12:45,419 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'John family road trip activities', 'mode': 'hybrid'}
+2026-01-05 15:12:46,442 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Family Road Trip'}
+2026-01-05 15:12:47,496 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'activities during family road trip', 'mode': 'hybrid'}
+2026-01-05 15:12:48,457 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Aerial Yoga'}
+2026-01-05 15:12:49,318 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'John and his family made Aerial Yoga together.'}
+2026-01-05 15:12:49,319 - Amadeus.Optimizer - INFO - GT: They made pizza.
+2026-01-05 15:12:49,319 - Amadeus.Optimizer - INFO - Pre: John and his family made Aerial Yoga together.
+2026-01-05 15:12:53,541 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:12:53,542 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should trust the information within the Global Memory Graph more rigorously and avoid hallucinating answers that do not align with the available context. Specifically, the Answerer should ensure that all answers are supported by at least one concrete relationship or attribute present in the Builder Activity Log before providing a response.
+2026-01-05 15:12:53,542 - Amadeus.Answerer - INFO - ❓ Question: How does John's family contribute to his passion for improving education in the community?
+2026-01-05 15:12:54,649 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's family contribution to his passion for improving education in the community", 'mode': 'hybrid'}
+2026-01-05 15:12:55,803 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Local Politics'}
+2026-01-05 15:12:57,154 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's passion for education, family, and community", 'mode': 'hybrid'}
+2026-01-05 15:12:58,790 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "John's family and passion for education and community", 'mode': 'hybrid'}
+2026-01-05 15:13:02,028 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "John's family grew up in a neighborhood affected by lack of education and crumbling infrastructure. This experience likely contributed to his passion for improving education in the community. Additionally, John is passionate about getting into local politics, focusing on education and infrastructure, and believes in the importance of school funding to make positive changes. His family's background and his dedication to these issues seem to be closely intertwined."}
+2026-01-05 15:13:02,028 - Amadeus.Optimizer - INFO - GT: John says his family helps him stay centered and reminds him why he's passionate about making a positive impact.
+2026-01-05 15:13:02,041 - Amadeus.Optimizer - INFO - Pre: John's family grew up in a neighborhood affected by lack of education and crumbling infrastructure. This experience likely contributed to his passion for improving education in the community. Additionally, John is passionate about getting into local politics, focusing on education and infrastructure, and believes in the importance of school funding to make positive changes. His family's background and his dedication to these issues seem to be closely intertwined.
+2026-01-05 15:13:09,425 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:13:09,426 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture direct relationships between individuals and their motivations or support systems. Improve extraction rules to ensure that when a person mentions the support or influence of their family, such information is accurately captured and linked in the graph.
+2026-01-05 15:13:09,427 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Family", "content": "John --family helps him stay centered and reminds him why he's passionate about making a positive impact--> Family (Time: 2022-12-22)"}]
+2026-01-05 15:13:31,751 - Amadeus.Builder - INFO - 🔗 LINK: John --John --family helps him stay centered and reminds him why he's passionate about making a positive impact--> Family (Time: 2022-12-22)
+2026-01-05 15:13:31,763 - Amadeus.Answerer - INFO - ❓ Question: What might be the reason behind John's determination despite challenges?
+2026-01-05 15:13:32,879 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's determination despite challenges", 'mode': 'hybrid'}
+2026-01-05 15:13:34,973 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Family'}
+2026-01-05 15:13:36,314 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "John's determination despite challenges is fueled by his family, which helps him stay centered and reminds him why he's passionate about making a positive impact."}
+2026-01-05 15:13:36,321 - Amadeus.Optimizer - INFO - GT: John mentions that his family is his rock in tough times and always cheers him on.
+2026-01-05 15:13:36,321 - Amadeus.Optimizer - INFO - Pre: John's determination despite challenges is fueled by his family, which helps him stay centered and reminds him why he's passionate about making a positive impact.
+2026-01-05 15:13:42,200 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:13:42,201 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that relationships and supportive elements, such as family, are captured when building nodes. The system should also prioritize identifying such connections, especially in contexts where personal motivation and support systems are relevant.
+2026-01-05 15:13:42,201 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Family", "content": "John --has a supportive family who cheer him on in tough times--> Family (Time: 2022-12-22)"}]
+2026-01-05 15:13:46,842 - Amadeus.Builder - INFO - 🔗 LINK: John --John --has a supportive family who cheer him on in tough times--> Family--> Family (Time: 2022-12-22)
+2026-01-05 15:13:46,879 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:14:14,013 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Extract the absolute date from the context. Step 2: Identify entities. Step 3: Compare with the Graph. Step 4: Resolve conflicts and add new information.
+2026-01-05 15:14:14,039 - Amadeus.Builder - INFO - 🔗 LINK: John --Joined a service-focused online group last week and found it emotionally fulfilling. Shared stories, advice, and encouragement with members.--> Service-Focused Online Group (Time: 2023-01-08)
+2026-01-05 15:14:14,071 - Amadeus.Builder - INFO - 🔗 LINK: John --Organized an event at a homeless shelter to give out food and supplies, saw the impact on the recipients.--> Homeless Shelter (Time: 2023-01-08)
+2026-01-05 15:14:14,114 - Amadeus.Builder - INFO - 🔗 LINK: John --Organized a toy drive for kids in need, witnessed the community coming together to spread joy.--> Toy Drive (Time: 2023-01-08)
+2026-01-05 15:14:14,184 - Amadeus.Builder - INFO - 🔗 LINK: John --Empowering individuals through education, mentorship, job training, and resume building.--> Community (Time: 2023-01-08)
+2026-01-05 15:14:14,190 - Amadeus.Builder - INFO - 🔗 LINK: John --Family helps him stay centered and reminds him why he's passionate about making a positive impact, especially after the military aptitude test failure.--> Family (Time: 2023-01-08)
+2026-01-05 15:14:14,207 - Amadeus.Builder - INFO - 🔗 LINK: John --Received support from Maria regarding his recent stress from the military aptitude test failure.--> Support (Time: 2023-01-08)
+2026-01-05 15:14:14,237 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:14:14,238 - Amadeus.Builder - INFO - ⏳ WAIT: Nature can be so beautiful! It...
+2026-01-05 15:14:14,275 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:14:14,277 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:14:21,865 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:14:21,865 - Amadeus.Answerer - INFO - ❓ Question: What was the emotional impact of the events John and his group attended on him?
+2026-01-05 15:14:23,374 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'emotional impact of events John and his group attended', 'mode': 'hybrid'}
+2026-01-05 15:14:24,753 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Service-Focused Online Group'}
+2026-01-05 15:14:26,943 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'The emotional impact of the events John and his group attended was emotionally fulfilling for John. He shared stories, advice, and encouragement with members of the service-focused online group.'}
+2026-01-05 15:14:26,944 - Amadeus.Optimizer - INFO - GT: John knew he made a real difference seeing the smiles on the faces of those at the homeless shelter.
+2026-01-05 15:14:26,944 - Amadeus.Optimizer - INFO - Pre: The emotional impact of the events John and his group attended was emotionally fulfilling for John. He shared stories, advice, and encouragement with members of the service-focused online group.
+2026-01-05 15:14:31,494 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:14:31,495 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The builder's System Prompt should include a rule to capture specific mentions of emotional impacts or outcomes from events. For example, when organizing events or activities, the builder should ensure that any related emotional outcomes are explicitly linked to the subject (John) to prevent hallucinations or misinterpretations.
+2026-01-05 15:14:31,495 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Homeless Shelter", "content": "saw the smiles on the faces of those who received help"}, {"action": "ADD", "object": "Homeless Shelter", "subject": "John", "content": "felt emotionally impacted by the event"}]
+2026-01-05 15:14:37,451 - Amadeus.Builder - INFO - 🔗 LINK: John --saw the impact on the recipients--> Homeless Shelter (Time: 2023-01-08)
+2026-01-05 15:14:37,452 - Amadeus.Builder - INFO - 🔗 LINK: John --felt emotionally impacted by the event--> Homeless Shelter (Time: 2023-01-08)
+2026-01-05 15:14:37,461 - Amadeus.Answerer - INFO - ❓ Question: How does Maria feel about John's involvement in the service-focused online group?
+2026-01-05 15:14:39,138 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Maria's feelings towards John's involvement in service-focused online groups", 'mode': 'hybrid'}
+2026-01-05 15:14:40,398 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "Maria's feelings about John's involvement in the service-focused online group", 'mode': 'hybrid'}
+2026-01-05 15:14:41,312 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Service-Focused Online Group'}
+2026-01-05 15:14:42,791 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'John found the service-focused online group emotionally fulfilling and shared stories, advice, and encouragement with members, including Maria.'}
+2026-01-05 15:14:42,792 - Amadeus.Optimizer - INFO - GT: Maria feels inspired by John's efforts and supports him, acknowledging the importance of the work he is doing.
+2026-01-05 15:14:42,792 - Amadeus.Optimizer - INFO - Pre: John found the service-focused online group emotionally fulfilling and shared stories, advice, and encouragement with members, including Maria.
+2026-01-05 15:14:47,248 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:14:47,248 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when a user joins a group and shares positive experiences, the builder should also capture how other users, specifically named individuals like Maria, react and provide support. This will help in generating more accurate and contextually rich predictions.
+2026-01-05 15:14:47,248 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Maria", "object": "Supports John", "content": "Maria feels inspired by John's efforts and supports him, acknowledging the importance of the work he is doing."}, {"action": "ADD", "object": "John", "content": "Maria: Wow, John! That's amazing news. It's great to see you finding such a supportive community that is making a difference."}]
+2026-01-05 15:14:53,991 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maria feels inspired by John's efforts and supports him, acknowledging the importance of the work he is doing.--> Supports John (Time: 2023-01-10)
+2026-01-05 15:14:53,992 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:14:54,022 - Amadeus.Answerer - INFO - ❓ Question: What future projects might John and his group consider based on their current brainstorming?
+2026-01-05 15:14:55,459 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John brainstorming future projects', 'mode': 'hybrid'}
+2026-01-05 15:14:56,633 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Leaders and Organizations'}
+2026-01-05 15:14:58,127 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Based on John's current brainstorming, he and his group might consider future projects that involve gathering support and ideas from local leaders and organizations."}
+2026-01-05 15:14:58,127 - Amadeus.Optimizer - INFO - GT: They are considering projects to help underserved communities get access to education, mentorship, job training, and resume building.
+2026-01-05 15:14:58,128 - Amadeus.Optimizer - INFO - Pre: Based on John's current brainstorming, he and his group might consider future projects that involve gathering support and ideas from local leaders and organizations.
+2026-01-05 15:15:03,518 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:15:03,519 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include more explicit extraction rules to capture future plans and intentions discussed within the context of the Service-Focused Online Group. For example, adding a rule to identify and link any mentions of upcoming initiatives or projects that members discuss.
+2026-01-05 15:15:03,519 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Service-Focused Online Group", "content": "Discussed future projects to help underserved communities get access to education, mentorship, job training, and resume building."}, {"action": "ADD", "object": "Future Projects", "content": "Projects aimed at helping underserved communities with education, mentorship, job training, and resume building."}]
+2026-01-05 15:15:10,885 - Amadeus.Builder - INFO - 🔗 LINK: John --Discussed future projects to help underserved communities get access to education, mentorship, job training, and resume building.--> Service-Focused Online Group (Time: 2023-01-08)
+2026-01-05 15:15:10,886 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:15:10,936 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 4. Processing Buffer...
+2026-01-05 15:15:33,896 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Extract the context from the session. Step 2: Identify entities and their relationships. Step 3: Compare with the existing graph. Step 4: Resolve conflicts and add new information.
+2026-01-05 15:15:33,896 - Amadeus.Builder - INFO - 🔗 LINK: John --Family helps him stay centered and reminds him why he's passionate about making a positive impact, especially after the military aptitude test failure.--> Family (Time: 2023-01-09)
+2026-01-05 15:15:33,896 - Amadeus.Builder - INFO - 🔗 LINK: John --Discussed future projects to help underserved communities get access to education, mentorship, job training, and resume building.--> Service-Focused Online Group (Time: 2023-01-08)
+2026-01-05 15:15:33,896 - Amadeus.Builder - INFO - 🔗 LINK: John --Discussing education and infrastructure upgrades at the upcoming community meeting.--> Community (Time: 2023-01-09)
+2026-01-05 15:15:33,902 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:15:33,903 - Amadeus.Builder - INFO - 🔗 LINK: John --Received support from Maria regarding his recent stress from the military aptitude test failure.--> Support (Time: 2023-01-09)
+2026-01-05 15:15:33,903 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maria feels inspired by John's efforts and supports him, acknowledging the importance of the work he is doing.--> Support (Time: 2023-01-10)
+2026-01-05 15:15:33,903 - Amadeus.Builder - INFO - ⏳ WAIT: Next week I have a community m...
+2026-01-05 15:15:34,031 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:15:34,036 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:15:40,414 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:15:40,414 - Amadeus.Answerer - INFO - ❓ Question: How might John feel about his political involvement after the unexpected incident?
+2026-01-05 15:15:41,726 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John political involvement unexpected incident', 'mode': 'hybrid'}
+2026-01-05 15:15:42,882 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Local Politics'}
+2026-01-05 15:15:43,909 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'unexpected incident in local politics', 'mode': 'hybrid'}
+2026-01-05 15:15:45,393 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'John feeling after helping at homeless shelter', 'mode': 'hybrid'}
+2026-01-05 15:15:49,870 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'After the unexpected incident at the homeless shelter, John likely feels emotionally fulfilled and motivated to continue his political involvement. The experience of seeing the impact on the recipients and the support he received from Maria may strengthen his passion for improving education and infrastructure in the community.'}
+2026-01-05 15:15:49,870 - Amadeus.Optimizer - INFO - GT: John feels more determined and optimistic about his political goals after the unexpected incident.
+2026-01-05 15:15:49,870 - Amadeus.Optimizer - INFO - Pre: After the unexpected incident at the homeless shelter, John likely feels emotionally fulfilled and motivated to continue his political involvement. The experience of seeing the impact on the recipients and the support he received from Maria may strengthen his passion for improving education and infrastructure in the community.
+2026-01-05 15:15:56,369 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:15:56,369 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to include more context-specific linking. The Builder should focus on capturing the immediate aftermath of events rather than broader, less specific connections. For example, the prompt could be updated to prioritize linking recent interactions and incidents directly to their emotional or motivational impacts.
+2026-01-05 15:15:56,369 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Unexpected Incident", "content": "felt more determined and optimistic about his political goals"}, {"action": "REMOVE", "subject": "John", "object": "emotionally fulfilled and motivated", "content": "The specific feeling mentioned in the prediction"}]
+2026-01-05 15:16:01,745 - Amadeus.Builder - INFO - 🔗 LINK: John --felt more determined and optimistic about his political goals--> Unexpected Incident (Time: 2023-01-08)
+2026-01-05 15:16:01,802 - Amadeus.Answerer - INFO - ❓ Question: What did Maria suggest to John to do after he handled the unexpected incident?
+2026-01-05 15:16:03,119 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria suggested to John after handling unexpected incident', 'mode': 'hybrid'}
+2026-01-05 15:16:04,324 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:16:05,508 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Unexpected Incident, John, Maria, support actions', 'mode': 'hybrid'}
+2026-01-05 15:16:07,390 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Maria suggested to John to plan to chat with local leaders and organizations to gather support and ideas after he handled the unexpected incident.'}
+2026-01-05 15:16:07,391 - Amadeus.Optimizer - INFO - GT: Maria suggested that John keep up his dedication to the community and participate in the upcoming community meeting.
+2026-01-05 15:16:07,391 - Amadeus.Optimizer - INFO - Pre: Maria suggested to John to plan to chat with local leaders and organizations to gather support and ideas after he handled the unexpected incident.
+2026-01-05 15:16:12,932 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:16:12,932 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the builder's system prompt to ensure it captures the immediate context and relationships when handling unexpected incidents. Specifically, add rules to extract relevant information from recent conversations and link it correctly to the subject's current state.
+2026-01-05 15:16:12,933 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Unexpected Incident", "content": "John handled the unexpected incident by focusing on community service and received support from Maria."}, {"action": "LINK", "subject": "Maria", "object": "Support", "content": "Maria provided support to John after he handled the unexpected incident, encouraging him to continue his work."}]
+2026-01-05 15:16:19,657 - Amadeus.Builder - INFO - 🔗 LINK: John --John handled the unexpected incident by focusing on community service and received support from Maria.--> Unexpected Incident (Time: 2023-01-08)
+2026-01-05 15:16:19,657 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maria provided support to John after he handled the unexpected incident, encouraging him to continue his work.--> Support (Time: 2023-01-08)
+2026-01-05 15:16:19,670 - Amadeus.Answerer - INFO - ❓ Question: Where was John when he had the unexpected incident?
+2026-01-05 15:16:21,352 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John unexpected incident location', 'mode': 'hybrid'}
+2026-01-05 15:16:23,032 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Unexpected Incident'}
+2026-01-05 15:16:23,986 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'John was handling the unexpected incident by focusing on community service when it occurred.'}
+2026-01-05 15:16:23,987 - Amadeus.Optimizer - INFO - GT: The buffer context does not provide specific details about where John had the unexpected incident.
+2026-01-05 15:16:23,987 - Amadeus.Optimizer - INFO - Pre: John was handling the unexpected incident by focusing on community service when it occurred.
+2026-01-05 15:16:27,701 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:16:27,701 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Improve the Answerer's ability to trust the graph over priors and focus on retrieving specific, recent information rather than inferring from historical data. The Agent should be encouraged to ask for more precise details before providing an answer.
+2026-01-05 15:16:27,701 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 5. Processing Buffer...
+2026-01-05 15:16:55,240 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:16:55,241 - Amadeus.Builder - INFO - 🔗 LINK: John --Discusses future projects to help underserved communities get access to education, mentorship, job training, and resume building.--> Community (Time: 2023-01-28)
+2026-01-05 15:16:55,242 - Amadeus.Builder - INFO - 🔗 LINK: John --Discusses future projects to help underserved communities get access to education, mentorship, job training, and resume building.--> School Funding (Time: 2023-01-28)
+2026-01-05 15:16:55,242 - Amadeus.Builder - INFO - 🔗 LINK: John --Received support from Maria regarding his recent stress from the military aptitude test failure.--> Maria (Time: 2023-01-28)
+2026-01-05 15:16:55,252 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Started volunteering to help make a difference at a shelter during an event for kids.--> Volunteering (Time: 2023-01-28)
+2026-01-05 15:16:55,258 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Inspired by her aunt who believed in volunteering and helped her family when they were struggling.--> Aunt (Time: 2023-01-28)
+2026-01-05 15:16:55,264 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Provided comfort and a listening ear to a little girl at a shelter event.--> Comforting Others (Time: 2023-01-28)
+2026-01-05 15:16:55,275 - Amadeus.Builder - INFO - 🔗 LINK: John --Shares a photo reminding him to always look out for others, especially when they're feeling down.--> Kindness (Time: 2023-01-28)
+2026-01-05 15:16:55,276 - Amadeus.Builder - INFO - ⏳ WAIT: What's the photo about?...
+2026-01-05 15:16:55,308 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:16:55,308 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:17:00,854 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:17:00,855 - Amadeus.Answerer - INFO - ❓ Question: How does Maria feel about volunteering?
+2026-01-05 15:17:01,968 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria volunteering', 'mode': 'hybrid'}
+2026-01-05 15:17:03,744 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Aunt'}
+2026-01-05 15:17:05,174 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Maria feels positively about volunteering because she was inspired by her aunt who believed in volunteering and helped her family when they were struggling.'}
+2026-01-05 15:17:05,174 - Amadeus.Optimizer - INFO - GT: It makes her happy knowing she can brighten somebody's day.
+2026-01-05 15:17:05,175 - Amadeus.Optimizer - INFO - Pre: Maria feels positively about volunteering because she was inspired by her aunt who believed in volunteering and helped her family when they were struggling.
+2026-01-05 15:17:11,247 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:17:11,247 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that specific feelings and personal experiences are captured accurately, rather than general inspirations or past events. Focus on adding direct statements of emotions and actions related to volunteering.
+2026-01-05 15:17:11,247 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Maria", "object": "Volunteering", "content": "It makes her happy knowing she can brighten somebody's day."}, {"action": "REMOVE", "subject": "Maria", "object": "Aunt", "content": "Inspired by her aunt who believed in volunteering and helped her family when they were struggling."}]
+2026-01-05 15:17:18,702 - Amadeus.Builder - INFO - 🔗 LINK: Maria --It makes her happy knowing she can brighten somebody's day.--> Volunteering (Time: 2023-01-28)
+2026-01-05 15:17:18,702 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Maria -> Aunt
+2026-01-05 15:17:18,750 - Amadeus.Answerer - INFO - ❓ Question: Where did John go before the conversation with Maria?
+2026-01-05 15:17:23,869 - openai._base_client - INFO - Retrying request to /chat/completions in 0.470687 seconds
+2026-01-05 15:17:28,046 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John conversation with Maria previous location', 'mode': 'hybrid'}
+2026-01-05 15:17:30,197 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Family Road Trip'}
+2026-01-05 15:17:31,240 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Family Road Trip participants before conversation with Maria', 'mode': 'hybrid'}
+2026-01-05 15:17:32,494 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "John's location before Family Road Trip", 'mode': 'hybrid'}
+2026-01-05 15:17:34,906 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "John's location before Family Road Trip", 'mode': 'hybrid'}
+2026-01-05 15:17:36,599 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Grew up in a neighborhood affected by lack of education and crumbling infrastructure'}
+2026-01-05 15:17:37,985 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Grew up in a neighborhood affected by lack of education and crumbling infrastructure'}
+2026-01-05 15:17:39,709 - Amadeus.Answerer - INFO - Step 8: READ - {'tool': 'READ', 'answer': 'Before the conversation with Maria, John was passionate about getting into local politics, focusing on education and infrastructure.'}
+2026-01-05 15:17:39,710 - Amadeus.Optimizer - INFO - GT: He went to a community meeting.
+2026-01-05 15:17:39,710 - Amadeus.Optimizer - INFO - Pre: Before the conversation with Maria, John was passionate about getting into local politics, focusing on education and infrastructure.
+2026-01-05 15:17:45,392 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:17:45,393 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that specific actions and locations are captured accurately, rather than inferring broader interests based on context. The Builder should focus on directly linking subjects to their most recent activities and locations.
+2026-01-05 15:17:45,393 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Community Meeting", "content": "attended a community meeting."}, {"action": "REMOVE", "subject": "John", "object": "Local Politics", "content": "passionate about getting into local politics."}]
+2026-01-05 15:17:50,739 - Amadeus.Builder - INFO - 🔗 LINK: John --attended a community meeting.--> Community Meeting (Time: 2023-01-09)
+2026-01-05 15:17:50,739 - Amadeus.Graph - INFO - ✂️ Edge Deleted: John -> Local Politics
+2026-01-05 15:17:50,857 - Amadeus.Answerer - INFO - ❓ Question: What does the photo that John mentioned remind him of?
+2026-01-05 15:17:52,961 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'photo John mentioned reminds him', 'mode': 'hybrid'}
+2026-01-05 15:17:54,335 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Kindness'}
+2026-01-05 15:17:56,561 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "The photo that John mentioned reminds him to always look out for others, especially when they're feeling down."}
+2026-01-05 15:17:56,561 - Amadeus.Optimizer - INFO - GT: It reminds him of something from his childhood, specifically a little doll that made him feel better.
+2026-01-05 15:17:56,561 - Amadeus.Optimizer - INFO - Pre: The photo that John mentioned reminds him to always look out for others, especially when they're feeling down.
+2026-01-05 15:18:01,606 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:18:01,607 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should focus on retrieving information from the immediate context provided in the text buffer before making assumptions. Specifically, the Answerer should ensure that it does not introduce new facts or concepts that are not directly supported by the given conversation.
+2026-01-05 15:18:01,608 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 6. Processing Buffer...
+2026-01-05 15:18:22,782 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Extract the absolute date from the context. Step 2: Identify entities. Step 3: Compare with the Graph. Step 4: Resolve conflicts.
+2026-01-05 15:18:22,786 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Did a charity event serving meals and helping someone named David find support.--> Charity Event (Time: 2023-02-03)
+2026-01-05 15:18:22,790 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Linked David with a nearby organization offering housing and support.--> Organization (Time: 2023-02-03)
+2026-01-05 15:18:22,793 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Had to rely on her auntie for help when facing financial difficulties.--> Auntie (Time: 2023-01-10)
+2026-01-05 15:18:22,796 - Amadeus.Builder - INFO - 🔗 LINK: John --Started helping out with a food drive for folks who lost their jobs.--> Food Drive (Time: 2023-02-05)
+2026-01-05 15:18:22,797 - Amadeus.Builder - INFO - 🔗 LINK: John --Photo of John at a recent food bank event.--> Volunteering (Time: 2023-02-05)
+2026-01-05 15:18:22,856 - Amadeus.Builder - INFO - 🔗 LINK: John --Maria offered to help with networking for future events.--> Networking (Time: 2023-02-05)
+2026-01-05 15:18:22,858 - Amadeus.Builder - INFO - 🔗 LINK: John --Maria's support and offer to help with future events.--> Support (Time: 2023-02-05)
+2026-01-05 15:18:22,858 - Amadeus.Builder - INFO - 🔗 LINK: John --Received support from Maria regarding his recent stress from the military aptitude test failure and now offers to help with future events.--> Support (Time: 2023-01-28)
+2026-01-05 15:18:22,859 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Provided support to John after he handled the unexpected incident and now offers to help with future events.--> Support (Time: 2023-02-05)
+2026-01-05 15:18:23,053 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:18:23,057 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:18:31,051 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:18:31,052 - Amadeus.Answerer - INFO - ❓ Question: What did Maria do after her charity event that showed her commitment to helping others?
+2026-01-05 15:18:32,373 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria charity event commitment', 'mode': 'hybrid'}
+2026-01-05 15:18:33,610 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Volunteering'}
+2026-01-05 15:18:34,989 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'After her charity event, Maria started volunteering to help make a difference at a shelter for kids, which showed her commitment to helping others.'}
+2026-01-05 15:18:34,990 - Amadeus.Optimizer - INFO - GT: She linked David up with a nearby organization that offers housing and support for homeless individuals.
+2026-01-05 15:18:34,990 - Amadeus.Optimizer - INFO - Pre: After her charity event, Maria started volunteering to help make a difference at a shelter for kids, which showed her commitment to helping others.
+2026-01-05 15:18:39,498 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:18:39,498 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it does not hallucinate specific actions or outcomes unless directly supported by the buffer content. Focus on extracting and verifying facts within the immediate context before inferring broader implications.
+2026-01-05 15:18:39,498 - Amadeus.Answerer - INFO - ❓ Question: How did John's experience with unemployment inspire him to start a food drive, and what kind of support did he receive from Maria?
+2026-01-05 15:18:40,596 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John unemployment food drive Maria', 'mode': 'hybrid'}
+2026-01-05 15:18:41,839 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Food Drive'}
+2026-01-05 15:18:42,876 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John experience with unemployment food drive Maria', 'mode': 'hybrid'}
+2026-01-05 15:20:52,006 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "John's experience with unemployment inspired him to start a food drive for folks who lost their jobs. During an event at a homeless shelter, John felt emotionally impacted by the positive change he could bring to people's lives, which motivated him to organize the food drive. Maria received support from John regarding his recent stress from the military aptitude test failure, and after John's efforts in the food drive, Maria was inspired and decided to support him, acknowledging the importance of the work he is doing."}
+2026-01-05 15:20:52,007 - Amadeus.Optimizer - INFO - GT: Seeing the effect unemployment has on the community inspired John to start a food drive, and Maria offered to help with networking or future events.
+2026-01-05 15:20:52,007 - Amadeus.Optimizer - INFO - Pre: John's experience with unemployment inspired him to start a food drive for folks who lost their jobs. During an event at a homeless shelter, John felt emotionally impacted by the positive change he could bring to people's lives, which motivated him to organize the food drive. Maria received support from John regarding his recent stress from the military aptitude test failure, and after John's efforts in the food drive, Maria was inspired and decided to support him, acknowledging the importance of the work he is doing.
+2026-01-05 15:20:56,624 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:20:56,624 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that the builder captures the specific context of how John's experience with unemployment influenced his actions. Additionally, improve the resolution of pronouns to correctly attribute support and assistance to the appropriate individual.
+2026-01-05 15:20:56,624 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Unemployment", "content": "John's experience with unemployment inspired him to start a food drive."}, {"action": "ADD", "subject": "Maria", "object": "Support", "content": "During the charity event, Maria offered to help John with networking for future events."}]
+2026-01-05 15:21:04,224 - Amadeus.Builder - INFO - 🔗 LINK: John --John's experience with unemployment inspired him to start a food drive.--> Unemployment (Time: 2023-02-05)
+2026-01-05 15:21:04,225 - Amadeus.Builder - INFO - 🔗 LINK: Maria --During the charity event, Maria offered to help John with networking for future events.--> Support (Time: 2023-02-05)
+2026-01-05 15:21:04,271 - Amadeus.Answerer - INFO - ❓ Question: What shared goal do John and Maria have, and how does their relationship reflect this goal?
+2026-01-05 15:21:05,386 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John and Maria shared goal relationship', 'mode': 'hybrid'}
+2026-01-05 15:21:07,097 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Campaign'}
+2026-01-05 15:21:08,199 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's campaign and Maria's role", 'mode': 'hybrid'}
+2026-01-05 15:21:11,110 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "John and Maria share a goal of improving education and infrastructure in the community through his campaign for school funding. Their relationship reflects this goal as Maria feels inspired by John's efforts and supports him, acknowledging the importance of the work he is doing. Both are passionate about helping underserved communities gain access to education, mentorship, job training, and resume building, with a particular desire to ensure future generations do not face the same issues John experienced growing up."}
+2026-01-05 15:21:11,111 - Amadeus.Optimizer - INFO - GT: Their shared goal is to support and help their community, as evidenced by their willingness to get involved in charity events and offer mutual assistance.
+2026-01-05 15:21:11,111 - Amadeus.Optimizer - INFO - Pre: John and Maria share a goal of improving education and infrastructure in the community through his campaign for school funding. Their relationship reflects this goal as Maria feels inspired by John's efforts and supports him, acknowledging the importance of the work he is doing. Both are passionate about helping underserved communities gain access to education, mentorship, job training, and resume building, with a particular desire to ensure future generations do not face the same issues John experienced growing up.
+2026-01-05 15:21:16,797 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:21:16,797 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt needs to improve in capturing direct relationships and specific events. Adding more detailed extraction rules to identify and link directly relevant activities and goals will help in generating accurate predictions. For example, the Builder should focus on extracting actions and specific instances where characters engage in community service or charity events, rather than relying solely on general interactions or support.
+2026-01-05 15:21:16,798 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Charity Event", "content": "Participated in a charity event last Friday."}, {"action": "ADD", "object": "Community Support", "content": "Both John and Maria have a shared goal of supporting and helping their community."}]
+2026-01-05 15:21:25,194 - Amadeus.Builder - INFO - 🔗 LINK: John --Participated in a charity event last Friday.--> Charity Event (Time: 2023-01-06)
+2026-01-05 15:21:25,200 - Amadeus.Builder - INFO - ➕ NODE: Community Support
+2026-01-05 15:21:25,295 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 7. Processing Buffer...
+2026-01-05 15:21:48,529 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:21:48,535 - Amadeus.Builder - INFO - 🔗 LINK: John --Took a creative writing class--> Creative Writing Class (Time: 2023-02-25)
+2026-01-05 15:21:48,539 - Amadeus.Builder - INFO - 🔗 LINK: John --Running for office again--> Running for Office (Time: 2023-02-25)
+2026-01-05 15:21:48,539 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteering at a homeless shelter and meeting Jean--> Volunteering (Time: 2023-01-28)
+2026-01-05 15:21:48,543 - Amadeus.Builder - INFO - ➕ NODE: Jean
+2026-01-05 15:21:48,546 - Amadeus.Builder - INFO - 🔗 LINK: Jean --Linked David with a nearby organization offering housing and support--> David (Time: 2023-02-03)
+2026-01-05 15:21:48,671 - Amadeus.Builder - INFO - 🔗 LINK: John --Invited to a beginner's yoga class by colleague Rob--> Yoga Class (Time: 2023-02-25)
+2026-01-05 15:21:48,672 - Amadeus.Builder - INFO - ⏳ WAIT: John saw the impact he could m...
+2026-01-05 15:21:48,672 - Amadeus.Builder - INFO - ⏳ WAIT: In the meantime, let's work to...
+2026-01-05 15:21:48,933 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:21:48,933 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:21:55,826 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:21:55,826 - Amadeus.Answerer - INFO - ❓ Question: What motivated John to run for office again, and how did Maria's experience with Jean relate to this motivation?
+2026-01-05 15:21:57,871 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John run for office again motivation Maria experience with Jean', 'mode': 'hybrid'}
+2026-01-05 15:22:14,706 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Running for Office'}
+2026-01-05 15:22:31,360 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John motivation to run for office again 2023-02-25 Maria experience with Jean', 'mode': 'hybrid'}
+2026-01-05 15:22:33,706 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:22:35,202 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'John motivation to run for office again 2023-02-25 Maria experience with Jean', 'mode': 'hybrid'}
+2026-01-05 15:22:40,393 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "John was motivated to run for office again because he is passionate about improving education and infrastructure in the community, especially after observing the impact of funding during his upbringing. Maria's experience with Jean at the homeless shelter event inspired her to provide support to John, which made her feel emotionally fulfilled and inspired her to offer assistance with future events. This support from Maria likely boosted John's determination and optimism, motivating him to continue his political goals."}
+2026-01-05 15:22:40,394 - Amadeus.Optimizer - INFO - GT: John was motivated by seeing the impact he could make in the community through politics, while Maria's experience with Jean reinforced the importance of optimism and gratitude, which inspired her to continue her volunteer work and reminded her of the positive changes she could help bring.
+2026-01-05 15:22:40,394 - Amadeus.Optimizer - INFO - Pre: John was motivated to run for office again because he is passionate about improving education and infrastructure in the community, especially after observing the impact of funding during his upbringing. Maria's experience with Jean at the homeless shelter event inspired her to provide support to John, which made her feel emotionally fulfilled and inspired her to offer assistance with future events. This support from Maria likely boosted John's determination and optimism, motivating him to continue his political goals.
+2026-01-05 15:22:48,474 - openai._base_client - INFO - Retrying request to /chat/completions in 0.430677 seconds
+2026-01-05 15:22:56,414 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:22:56,415 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures direct motivations and connections between individuals more accurately. Specifically, the Builder should focus on identifying and linking explicit motivations and inspirations rather than inferring them from broader context. For instance, when John mentions his decision to run for office again, the Builder should look for nodes that directly express his reasons for doing so, such as 'motivated by community impact' or 'passionate about education and infrastructure'. Additionally, the Builder should prioritize adding links that express direct influences and inspirations, like the one between Jean and John's motivation.
+2026-01-05 15:22:56,416 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Jean", "content": "Motivated by Jean's example to make positive changes in the community"}, {"action": "ADD", "object": "Maria", "subject": "Jean", "content": "Met Jean at the homeless shelter event"}]
+2026-01-05 15:23:03,608 - Amadeus.Builder - INFO - 🔗 LINK: John --Motivated by Jean's example to make positive changes in the community--> Jean (Time: 2023-01-28)
+2026-01-05 15:23:03,609 - Amadeus.Builder - INFO - 🔗 LINK: Jean --Met Jean at the homeless shelter event--> Maria (Time: 2023-01-28)
+2026-01-05 15:23:03,664 - Amadeus.Answerer - INFO - ❓ Question: What is the relationship between Jean's resilience and the yoga class Rob invited John to?
+2026-01-05 15:23:07,243 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jean's resilience yoga class Rob invited John to", 'mode': 'hybrid'}
+2026-01-05 15:23:08,711 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Yoga Class'}
+2026-01-05 15:23:11,673 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Jean's resilience Rob invited John to yoga class", 'mode': 'hybrid'}
+2026-01-05 15:23:13,614 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Jean's resilience yoga class Rob invited John to", 'mode': 'hybrid'}
+2026-01-05 15:23:17,176 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Jean's resilience is an inspiration to Rob, who then invited John to a beginner's yoga class. This suggests that Jean's perseverance and positive attitude may have motivated Rob to also engage in activities that promote well-being and community support, such as inviting John to the yoga class."}
+2026-01-05 15:23:17,176 - Amadeus.Optimizer - INFO - GT: Unknown
+2026-01-05 15:23:17,177 - Amadeus.Optimizer - INFO - Pre: Jean's resilience is an inspiration to Rob, who then invited John to a beginner's yoga class. This suggests that Jean's perseverance and positive attitude may have motivated Rob to also engage in activities that promote well-being and community support, such as inviting John to the yoga class.
+2026-01-05 15:23:23,510 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:23,510 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include rules to capture relationships and attributes explicitly mentioned in the context. Specifically, the Builder should be instructed to extract and link relevant information about individuals and their interactions directly from the conversation. For example, adding rules to identify and link phrases indicating inspiration, motivation, and direct actions between characters can help in building a more accurate and detailed graph.
+2026-01-05 15:23:23,510 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jean", "object": "Maria", "content": "Maria --Met Jean--> Jean (Time: 2023-02-25)"}, {"action": "ADD", "subject": "Rob", "object": "John", "content": "John --Colleague of Rob--> Rob (Time: 2023-02-25)"}, {"action": "ADD", "subject": "Jean", "object": "Maria", "content": "Jean --Inspired Rob--> Rob (Time: 2023-02-25)"}]
+2026-01-05 15:23:32,279 - Amadeus.Builder - INFO - 🔗 LINK: Jean --Maria --Met Jean--> Jean (Time: 2023-02-25)--> Maria (Time: 2023-02-25)
+2026-01-05 15:23:32,286 - Amadeus.Builder - INFO - 🔗 LINK: Rob --John --Colleague of Rob--> Rob (Time: 2023-02-25)--> John (Time: 2023-02-25)
+2026-01-05 15:23:32,292 - Amadeus.Builder - INFO - 🔗 LINK: Jean --Jean --Inspired Rob--> Rob (Time: 2023-02-25)--> Maria (Time: 2023-02-25)
+2026-01-05 15:23:32,411 - Amadeus.Answerer - INFO - ❓ Question: Where did Maria meet Jean, and what kind of yoga class is Rob inviting John to?
+2026-01-05 15:23:34,108 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria meeting Jean and Rob inviting John to a yoga class', 'mode': 'hybrid'}
+2026-01-05 15:23:36,240 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Maria meeting Jean and Rob inviting John to a yoga class', 'mode': 'hybrid'}
+2026-01-05 15:23:37,433 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Maria'}
+2026-01-05 15:23:38,786 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "yoga class Rob invited John to and Maria's meeting with Jean", 'mode': 'hybrid'}
+2026-01-05 15:23:40,086 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Maria meeting Jean and Rob inviting John to a yoga class', 'mode': 'hybrid'}
+2026-01-05 15:23:41,557 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Maria'}
+2026-01-05 15:23:43,251 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "yoga class Rob invited John to and Maria's meeting with Jean", 'mode': 'hybrid'}
+2026-01-05 15:23:45,023 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'where did Maria meet Jean and what kind of yoga class Rob invited John to', 'mode': 'hybrid'}
+2026-01-05 15:23:45,033 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:23:45,473 - Amadeus.Optimizer - INFO - GT: Maria met Jean at a homeless shelter, and Rob is inviting John to a beginner's yoga class.
+2026-01-05 15:23:45,473 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:23:48,849 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:48,884 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture explicit mentions of people and their interactions in the context. Ensure that relationships and specific details are extracted and linked correctly to avoid hallucinations.
+2026-01-05 15:23:48,884 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jean", "object": "Maria", "content": "Maria met Jean at a homeless shelter."}, {"action": "ADD", "subject": "Rob", "object": "John", "content": "Rob invited John to a beginner's yoga class."}]
+2026-01-05 15:23:55,443 - Amadeus.Builder - INFO - 🔗 LINK: Jean --Maria met Jean at a homeless shelter.--> Maria (Time: 2023-02-25)
+2026-01-05 15:23:55,444 - Amadeus.Builder - INFO - 🔗 LINK: Rob --Rob invited John to a beginner's yoga class.--> John (Time: 2023-02-25)
+2026-01-05 15:23:55,505 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 8. Processing Buffer...
+2026-01-05 15:24:35,456 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:24:35,461 - Amadeus.Builder - INFO - 🔗 LINK: John --Has a one-year-old son named Kyle--> Kyle (Time: 2023-03-06)
+2026-01-05 15:24:35,477 - Amadeus.Builder - INFO - 🔗 LINK: John --Spending time with his wife and kids--> Wife (Time: 2023-03-06)
+2026-01-05 15:24:35,550 - Amadeus.Builder - INFO - 🔗 LINK: John --Family helps him stay centered and reminds him why he's passionate about making a positive impact, especially after the military aptitude test failure and the recent aptitude test results--> Supportive Family (Time: 2023-03-06)
+2026-01-05 15:24:35,555 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Lost her grandma recently--> Grandma (Time: 2023-03-06)
+2026-01-05 15:24:35,581 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Had to rely on her auntie for help when facing financial difficulties--> Auntie (Time: 2023-01-10)
+2026-01-05 15:24:35,585 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Building supportive network through volunteering and connecting with others--> Supportive Network (Time: 2023-03-06)
+2026-01-05 15:24:35,616 - Amadeus.Builder - INFO - 🔗 LINK: John --Recently retook the aptitude test with great results--> Military Aptitude Test (Time: 2023-03-06)
+2026-01-05 15:24:35,617 - Amadeus.Builder - INFO - 🔗 LINK: John --Volunteering to serve his country through a military service program--> Volunteering (Time: 2023-03-06)
+2026-01-05 15:24:35,617 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteering at the homeless shelter and forming connections through compassion and listening--> Volunteering (Time: 2023-03-06)
+2026-01-05 15:24:35,622 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Supporting John in his political goals and future events--> Support John (Time: 2023-03-06)
+2026-01-05 15:24:35,627 - Amadeus.Builder - INFO - 🔗 LINK: John --Family and friends providing support for his political and volunteer endeavors--> Support System (Time: 2023-03-06)
+2026-01-05 15:24:35,628 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteered at a food drive and helped connect David with a nearby organization--> Volunteering (Time: 2023-02-03)
+2026-01-05 15:24:35,628 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Provided comfort and a listening ear to a little girl at a shelter event--> Comforting Others (Time: 2023-01-28)
+2026-01-05 15:24:35,629 - Amadeus.Builder - INFO - 🔗 LINK: John --Attended a creative writing class--> Creative Writing Class (Time: 2023-02-25)
+2026-01-05 15:24:35,630 - Amadeus.Builder - INFO - 🔗 LINK: John --Decided to run for office again--> Running for Office (Time: 2023-02-25)
+2026-01-05 15:24:35,635 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Inspired by John's efforts and supportive of his political goals--> Positive Influence (Time: 2023-03-06)
+2026-01-05 15:24:35,639 - Amadeus.Builder - INFO - 🔗 LINK: Jean --Inspired Rob to volunteer and make positive changes in the community--> Inspiring Volunteer (Time: 2023-02-25)
+2026-01-05 15:24:35,725 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:24:35,726 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:24:42,798 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:24:42,798 - Amadeus.Answerer - INFO - ❓ Question: What might be the reason for John's pride in his volunteer opportunity?
+2026-01-05 15:24:43,911 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's pride in volunteer opportunity", 'mode': 'hybrid'}
+2026-01-05 15:24:45,390 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'John'}
+2026-01-05 15:24:47,378 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Passionate about improving education and infrastructure in the community, especially after seeing the impact of funding'}
+2026-01-05 15:24:48,814 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Supportive Family'}
+2026-01-05 15:24:50,647 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "reason for John's pride in volunteer opportunity and supportive family", 'mode': 'hybrid'}
+2026-01-05 15:24:51,965 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "reason for John's pride in volunteer opportunity and related events", 'mode': 'hybrid'}
+2026-01-05 15:24:53,184 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "John's pride in volunteer opportunity and its impact", 'mode': 'hybrid'}
+2026-01-05 15:24:54,754 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Family'}
+2026-01-05 15:24:54,754 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:24:57,175 - Amadeus.Optimizer - INFO - GT: John feels proud because he has a good support system that understands and encourages his desire to serve.
+2026-01-05 15:24:57,175 - Amadeus.Optimizer - INFO - Pre: John's pride in his volunteer opportunity might stem from seeing the direct impact of his efforts on the community, especially after growing up in a neighborhood affected by lack of education and crumbling infrastructure. Volunteering likely reinforces his passion for making a positive difference and provides him with a sense of fulfillment that his actions can improve people's lives.
+2026-01-05 15:25:01,832 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:25:01,833 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to better capture the specific relationships and attributes mentioned in the conversation, particularly focusing on identifying and linking support systems and personal motivations. Avoid including unrelated historical events such as aptitude test results unless they are directly relevant to the current context.
+2026-01-05 15:25:01,833 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Support System", "content": "John's family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors."}, {"action": "REMOVE", "subject": "John", "object": "Military Aptitude Test", "content": "The recent aptitude test results are not directly related to John's pride in his volunteer opportunity."}]
+2026-01-05 15:25:13,110 - Amadeus.Builder - INFO - 🔗 LINK: John --John's family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors.--> Support System (Time: 2023-03-06)
+2026-01-05 15:25:13,110 - Amadeus.Graph - INFO - ✂️ Edge Deleted: John -> Military Aptitude Test
+2026-01-05 15:25:13,160 - Amadeus.Answerer - INFO - ❓ Question: Where did Maria and her family visit during their trip to England a few years ago?
+2026-01-05 15:25:18,184 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria family trip England', 'mode': 'hybrid'}
+2026-01-05 15:25:19,614 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Maria family trip to England', 'mode': 'hybrid'}
+2026-01-05 15:25:21,133 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Maria family trip to England a few years ago', 'mode': 'hybrid'}
+2026-01-05 15:25:22,642 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Maria family trip to England a few years ago', 'mode': 'hybrid'}
+2026-01-05 15:25:31,711 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Maria family trip to England a few years ago', 'mode': 'hybrid'}
+2026-01-05 15:25:33,622 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Maria family trip to England a few years ago', 'mode': 'hybrid'}
+2026-01-05 15:25:35,194 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Maria family trip to England a few years ago', 'mode': 'hybrid'}
+2026-01-05 15:25:36,628 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Maria family trip to England a few years ago', 'mode': 'hybrid'}
+2026-01-05 15:25:36,636 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:25:37,271 - Amadeus.Optimizer - INFO - GT: They visited London.
+2026-01-05 15:25:37,278 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:25:41,670 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:25:41,671 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to include explicit mentions of past trips and locations visited. Ensure that the builder captures historical context and specific details about visits and travels.
+2026-01-05 15:25:41,671 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Maria", "object": "Visited_London", "content": "They visited London."}, {"action": "ADD", "subject": "Trip_to_England", "object": "Maria", "content": "A few years ago, Maria and her family visited London during their trip to England."}]
+2026-01-05 15:26:14,011 - Amadeus.Builder - INFO - 🔗 LINK: Maria --They visited London.--> Visited_London (Time: None)
+2026-01-05 15:26:14,033 - Amadeus.Builder - INFO - 🔗 LINK: Trip_to_England --A few years ago, Maria and her family visited London during their trip to England.--> Maria (Time: None)
+2026-01-05 15:26:14,207 - Amadeus.Answerer - INFO - ❓ Question: How does Maria believe she has impacted the homeless shelter?
+2026-01-05 15:26:18,350 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria impact homeless shelter', 'mode': 'hybrid'}
+2026-01-05 15:26:20,334 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Charity Event'}
+2026-01-05 15:26:21,990 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Maria impact homeless shelter at Charity Event', 'mode': 'hybrid'}
+2026-01-05 15:26:23,346 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Maria impact homeless shelter at Charity Event', 'mode': 'hybrid'}
+2026-01-05 15:26:25,889 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Maria believes she has impacted the homeless shelter by helping David find support and brightening someone's day through volunteering. She also feels inspired by John's efforts and supports him in his political goals and future events."}
+2026-01-05 15:26:25,889 - Amadeus.Optimizer - INFO - GT: Maria believes she has made a difference by building trust and forming real relationships through listening and showing compassion.
+2026-01-05 15:26:25,889 - Amadeus.Optimizer - INFO - Pre: Maria believes she has impacted the homeless shelter by helping David find support and brightening someone's day through volunteering. She also feels inspired by John's efforts and supports him in his political goals and future events.
+2026-01-05 15:26:29,243 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:26:29,243 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it doesn't hallucinate details that are not supported by the current buffer or global memory graph. Specifically, the Answerer should focus on extracting information directly related to the question and not infer unrelated facts without clear evidence.
+2026-01-05 15:26:29,244 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 9. Processing Buffer...
+2026-01-05 15:27:11,618 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:27:11,624 - Amadeus.Builder - INFO - 🔗 LINK: John --Finished his degree last week.--> Degree Completion (Time: 2023-04-09)
+2026-01-05 15:27:11,628 - Amadeus.Builder - INFO - 🔗 LINK: John --Considering policymaking due to his degree and passion for making a positive impact.--> Policymaking (Time: 2023-04-09)
+2026-01-05 15:27:11,629 - Amadeus.Builder - INFO - 🔗 LINK: John --Gained a better understanding of the challenges in education and infrastructure systems through community meetings and involvement.--> Community (Time: 2023-04-09)
+2026-01-05 15:27:11,642 - Amadeus.Builder - INFO - 🔗 LINK: John --Taking a poetry class to help express his feelings.--> Poetry Class (Time: 2023-04-09)
+2026-01-05 15:27:11,642 - Amadeus.Builder - INFO - 🔗 LINK: John --Received support from Maria regarding his political goals and future events.--> Support (Time: 2023-04-09)
+2026-01-05 15:27:11,647 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Taking a poetry class to help express her feelings.--> Poetry Class (Time: 2023-04-09)
+2026-01-05 15:27:11,648 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Provided ongoing support to John in his political goals and future events.--> Support John (Time: 2023-04-09)
+2026-01-05 15:27:11,649 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Building a supportive network through volunteering and connecting with others.--> Support System (Time: 2023-04-09)
+2026-01-05 15:27:11,649 - Amadeus.Builder - INFO - 🔗 LINK: John --Family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors.--> Support System (Time: 2023-04-09)
+2026-01-05 15:27:11,650 - Amadeus.Builder - INFO - ⏳ WAIT: John's experience with unemplo...
+2026-01-05 15:27:11,650 - Amadeus.Builder - INFO - 🔗 LINK: John --Volunteered at a homeless shelter and a food drive, and is currently involved in community service and policymaking.--> Volunteering (Time: 2023-04-09)
+2026-01-05 15:27:11,650 - Amadeus.Builder - INFO - 🔗 LINK: John --Attended a community meeting and gained insights into community challenges.--> Community Meeting (Time: 2023-04-09)
+2026-01-05 15:27:11,665 - Amadeus.Builder - INFO - 🔗 LINK: John --Spends time with his wife and kids, which keeps him centered and motivated.--> Wife and Kids (Time: 2023-04-09)
+2026-01-05 15:27:11,667 - Amadeus.Builder - INFO - 🔗 LINK: John --His experience with unemployment inspired him to start a food drive and organize community service events.--> Unemployment (Time: 2023-04-09)
+2026-01-05 15:27:11,781 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:27:11,781 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:27:16,834 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:27:16,834 - Amadeus.Answerer - INFO - ❓ Question: Where did John mention he is considering going into after finishing his degree?
+2026-01-05 15:27:17,985 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John degree completion career consideration', 'mode': 'hybrid'}
+2026-01-05 15:27:20,361 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'After finishing his degree, John is considering entering the field of policymaking.'}
+2026-01-05 15:27:20,362 - Amadeus.Optimizer - INFO - GT: He is considering going into policymaking.
+2026-01-05 15:27:20,362 - Amadeus.Optimizer - INFO - Pre: After finishing his degree, John is considering entering the field of policymaking.
+2026-01-05 15:27:27,108 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:27:27,109 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that relevant future intentions and career considerations are captured, especially when they are mentioned in context with recent achievements. The builder should also pay attention to connecting nodes that represent recent events and their implications for future actions.
+2026-01-05 15:27:27,109 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "policymaking", "content": "Considering policymaking due to his degree and passion for making a positive impact."}, {"action": "CONNECT", "subject": "Degree Completion", "object": "Policymaking", "content": "John finished his degree and is now considering entering the field of policymaking."}]
+2026-01-05 15:27:35,757 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:27:35,758 - Amadeus.Builder - INFO - 🔗 LINK: Degree Completion --John finished his degree and is now considering entering the field of policymaking.--> Policymaking (Time: 2023-04-09)
+2026-01-05 15:27:36,103 - Amadeus.Answerer - INFO - ❓ Question: What specific areas of policymaking is John particularly interested in based on the conversation?
+2026-01-05 15:27:37,258 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John policymaking interests', 'mode': 'hybrid'}
+2026-01-05 15:27:46,727 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Policymaking'}
+2026-01-05 15:27:48,136 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Based on the conversation, John is particularly interested in policymaking due to his degree and passion for making a positive impact.'}
+2026-01-05 15:27:48,136 - Amadeus.Optimizer - INFO - GT: Improving education and infrastructure.
+2026-01-05 15:27:48,136 - Amadeus.Optimizer - INFO - Pre: John is particularly interested in policymaking due to his degree and passion for making a positive impact.
+2026-01-05 15:27:51,890 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:27:51,890 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it trusts the graph more and does not rely solely on surface-level information or recent additions. The updated prompt should encourage the Answerer to perform deeper analysis within the context provided by the Global Memory Graph.
+2026-01-05 15:27:51,890 - Amadeus.Answerer - INFO - ❓ Question: How does John feel about putting his words into action and finding solutions to community issues?
+2026-01-05 15:27:53,004 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John putting words into action community issues', 'mode': 'hybrid'}
+2026-01-05 15:27:58,269 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John feels passionate and determined about improving education and infrastructure in the community, and he is actively involved in organizing future projects to help underserved communities gain access to these resources. He also finds emotional fulfillment in community service events such as food drives and toy drives.'}
+2026-01-05 15:27:58,269 - Amadeus.Optimizer - INFO - GT: It is important and rewarding to him.
+2026-01-05 15:27:58,270 - Amadeus.Optimizer - INFO - Pre: John feels passionate and determined about improving education and infrastructure in the community, and he is actively involved in organizing future projects to help underserved communities gain access to these resources. He also finds emotional fulfillment in community service events such as food drives and toy drives.
+2026-01-05 15:28:07,653 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:28:07,653 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Trust graph over priors and focus on retrieving recent information. Avoid hallucinating details that are not supported by the context provided in the buffer.
+2026-01-05 15:28:07,653 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 10. Processing Buffer...
+2026-01-05 15:28:35,902 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Extract the absolute date from the context. Step 2: Identify entities and their relationships. Step 3: Compare with the existing graph. Step 4: Resolve conflicts and update the graph accordingly.
+2026-01-05 15:28:35,903 - Amadeus.Builder - INFO - 🔗 LINK: John --Started a weekend yoga class with a colleague, focusing on fundamentals like poses and breathing.--> Yoga Class (Time: 2023-04-07)
+2026-01-05 15:28:35,904 - Amadeus.Builder - INFO - 🔗 LINK: John --Spends time with his wife and kids, which keeps him centered and motivated. Family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors.--> Support System (Time: 2023-04-07)
+2026-01-05 15:28:35,911 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Participated in a 5K charity run for a homeless shelter.--> 5K Charity Run (Time: 2023-04-07)
+2026-01-05 15:28:35,911 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Provided ongoing support to John in his political goals and future events.--> Support John (Time: 2023-04-07)
+2026-01-05 15:28:35,915 - Amadeus.Builder - INFO - 🔗 LINK: John --Volunteered at a career fair at a local school, saw the impact of lack of resources on kids' dreams, and helped them.--> Career Fair (Time: 2023-04-07)
+2026-01-05 15:28:35,916 - Amadeus.Builder - INFO - 🔗 LINK: Maria --The event reminded her why she is passionate about charity work.--> 5K Charity Run (Time: 2023-04-07)
+2026-01-05 15:28:35,931 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:28:35,936 - Amadeus.Builder - INFO - 🔗 LINK: John --Volunteered at a homeless shelter and a food drive, and is currently involved in community service and policymaking.--> Volunteering (Time: 2023-04-07)
+2026-01-05 15:28:35,937 - Amadeus.Builder - INFO - 🔗 LINK: John --Family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors.--> Support System (Time: 2023-04-07)
+2026-01-05 15:28:36,132 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:28:36,133 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:28:45,955 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:28:45,956 - Amadeus.Answerer - INFO - ❓ Question: What kind of yoga class is John taking?
+2026-01-05 15:28:47,268 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John yoga class', 'mode': 'hybrid'}
+2026-01-05 15:28:49,565 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John is taking a weekend yoga class with a colleague, focusing on fundamentals like poses and breathing.'}
+2026-01-05 15:28:49,565 - Amadeus.Optimizer - INFO - GT: It's a beginner yoga class focusing on fundamentals like poses and breathing.
+2026-01-05 15:28:49,566 - Amadeus.Optimizer - INFO - Pre: John is taking a weekend yoga class with a colleague, focusing on fundamentals like poses and breathing.
+2026-01-05 15:28:51,455 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:28:51,455 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and activities rather than historical or past contexts. Encourage the Questioner to ask about recent or ongoing actions and experiences.
+2026-01-05 15:28:51,455 - Amadeus.Answerer - INFO - ❓ Question: How does John's yoga class and Maria's 5K charity run impact their feelings of wellbeing?
+2026-01-05 15:28:52,668 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's yoga class Maria's 5K charity run impact wellbeing", 'mode': 'hybrid'}
+2026-01-05 15:28:54,107 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "John's yoga class Maria's 5K charity run impact wellbeing", 'mode': 'hybrid'}
+2026-01-05 15:28:55,388 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's yoga class Maria's 5K charity run impact wellbeing", 'mode': 'hybrid'}
+2026-01-05 15:28:56,797 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "John's yoga class Maria's 5K charity run impact feelings of wellbeing", 'mode': 'hybrid'}
+2026-01-05 15:28:57,810 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Yoga Class'}
+2026-01-05 15:28:59,292 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "John's yoga class impact wellbeing", 'mode': 'hybrid'}
+2026-01-05 15:29:02,505 - Amadeus.Answerer - INFO - Step 7: READ - {'tool': 'READ', 'answer': "Based on the information available, John's yoga class and Maria's support have positively impacted John's feelings of wellbeing. John started a weekend yoga class with a colleague, focusing on fundamentals like poses and breathing, which suggests a beneficial activity for his physical and mental health. Additionally, Maria feels inspired by John's efforts and acknowledges the importance of his work, showing support that may contribute to John's sense of purpose and satisfaction. Maria's involvement in a poetry class to help express her feelings does not directly impact John's wellbeing according to the provided information."}
+2026-01-05 15:29:02,505 - Amadeus.Optimizer - INFO - GT: Both activities help them relax and feel more connected, bringing peace of mind and a sense of purpose.
+2026-01-05 15:29:02,505 - Amadeus.Optimizer - INFO - Pre: John's yoga class and Maria's support have positively impacted John's feelings of wellbeing. John started a weekend yoga class with a colleague, focusing on fundamentals like poses and breathing, which suggests a beneficial activity for his physical and mental health. Additionally, Maria feels inspired by John's efforts and acknowledges the importance of his work, showing support that may contribute to John's sense of purpose and satisfaction. Maria's involvement in a poetry class to help express her feelings does not directly impact John's wellbeing according to the provided information.
+2026-01-05 15:29:06,042 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:29:06,042 - Amadeus.Answerer - INFO - ❓ Question: What message does the sign at the school career fair convey, and how might it relate to John's volunteering experience?
+2026-01-05 15:29:09,399 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'school career fair sign volunteering experience John', 'mode': 'hybrid'}
+2026-01-05 15:29:12,135 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Career Fair'}
+2026-01-05 15:29:15,073 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "The sign at the school career fair likely conveys a message about the importance of school funding and the impact of limited resources on students' aspirations. John's volunteering experience at a career fair, where he saw the effect of a lack of resources on kids' dreams, may relate to the sign's message, as it highlights his firsthand understanding of the issue."}
+2026-01-05 15:29:15,073 - Amadeus.Optimizer - INFO - GT: The sign says, 'Always look on the bright side of life,' reminding kids that with the right help, they can reach their dreams.
+2026-01-05 15:29:15,073 - Amadeus.Optimizer - INFO - Pre: The sign at the school career fair likely conveys a message about the importance of school funding and the impact of limited resources on students' aspirations. John's volunteering experience at a career fair, where he saw the effect of a lack of resources on kids' dreams, may relate to the sign's message, as it highlights his firsthand understanding of the issue.
+2026-01-05 15:29:21,356 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:29:21,356 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include a rule to extract and link specific messages or quotes mentioned in the context. For example, adding a rule to capture and link any quotes or messages displayed at events John has volunteered at could improve accuracy in predicting such details.
+2026-01-05 15:29:21,356 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Career Fair Sign", "content": "The sign at the school career fair says, 'Always look on the bright side of life,' reminding kids that with the right help, they can reach their dreams."}]
+2026-01-05 15:29:27,482 - Amadeus.Builder - INFO - 🔗 LINK: John --The sign at the school career fair says, 'Always look on the bright side of life,' reminding kids that with the right help, they can reach their dreams.--> Career Fair Sign (Time: 2023-01-28)
+2026-01-05 15:29:27,537 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 11. Processing Buffer...
+2026-01-05 15:30:09,047 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Extract the context from the buffer, which is 6:13 pm on 10 April, 2023. Step 2: Identify entities and their relationships. Step 3: Compare with the existing graph and resolve conflicts or add new information.
+2026-01-05 15:30:09,052 - Amadeus.Builder - INFO - 🔗 LINK: John --Experienced car trouble and financial strain.--> Car Trouble (Time: 2023-04-07)
+2026-01-05 15:30:09,056 - Amadeus.Builder - INFO - 🔗 LINK: John --Takes pictures of natural beauty and finds peace in nature.--> Nature (Time: 2023-04-09)
+2026-01-05 15:30:09,059 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Bought a cross necklace to feel closer to her faith.--> Cross Necklace (Time: 2023-04-09)
+2026-01-05 15:30:09,065 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteered at a homeless shelter and organized meals for residents.--> Volunteering (Time: 2023-04-09)
+2026-01-05 15:30:09,066 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Provided ongoing support to John in his political goals and future events.--> Support John (Time: 2023-04-09)
+2026-01-05 15:30:09,066 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maria and her family visited London during their trip to England.--> Family (Time: 2023-01-10)
+2026-01-05 15:30:09,069 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Building relationships and seeing kindness makes her happy.--> Connecting with Others (Time: 2023-04-09)
+2026-01-05 15:30:09,080 - Amadeus.Builder - INFO - 🔗 LINK: John --Recognizes and appreciates Maria's acts of kindness.--> Kindness (Time: 2023-04-09)
+2026-01-05 15:30:09,081 - Amadeus.Builder - INFO - 🔗 LINK: John --Maria is a positive force and a supportive friend.--> Maria (Time: 2023-04-09)
+2026-01-05 15:30:09,081 - Amadeus.Graph - INFO - ✂️ Edge Deleted: John -> Unemployment
+2026-01-05 15:30:09,081 - Amadeus.Builder - INFO - 🔗 LINK: John --Spends time with his wife and kids, which keeps him centered and motivated. Family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors.--> Support System (Time: 2023-04-09)
+2026-01-05 15:30:09,081 - Amadeus.Builder - INFO - 🔗 LINK: John --Maria is a supportive friend who provides encouragement and comfort.--> Maria (Time: 2023-04-09)
+2026-01-05 15:30:09,082 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteered at a homeless shelter and organized meals for residents.--> Volunteering (Time: 2023-04-09)
+2026-01-05 15:30:09,152 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:30:09,160 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:30:18,690 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:30:18,690 - Amadeus.Answerer - INFO - ❓ Question: How did John's positive attitude towards his car troubles influence Maria's recent volunteer work?
+2026-01-05 15:30:20,799 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's positive attitude towards car troubles and Maria's recent volunteer work", 'mode': 'hybrid'}
+2026-01-05 15:30:21,740 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:30:23,041 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's positive attitude towards car troubles and Maria's volunteer work", 'mode': 'hybrid'}
+2026-01-05 15:30:24,819 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Maria was influenced by John's positive attitude towards his car troubles, feeling inspired by his efforts and supportive of his political goals, which motivated her to build a supportive network through volunteering."}
+2026-01-05 15:30:24,820 - Amadeus.Optimizer - INFO - GT: John's positive attitude reminded Maria of the importance of finding peace and beauty during tough times, which inspired her to continue connecting with and helping others.
+2026-01-05 15:30:24,820 - Amadeus.Optimizer - INFO - Pre: Maria was influenced by John's positive attitude towards his car troubles, feeling inspired by his efforts and supportive of his political goals, which motivated her to build a supportive network through volunteering.
+2026-01-05 15:30:31,163 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:30:31,163 - Amadeus.Answerer - INFO - ❓ Question: What connection did John make between his current situation and the road trip he mentioned with Maria?
+2026-01-05 15:30:32,590 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John road trip Maria current situation', 'mode': 'hybrid'}
+2026-01-05 15:30:34,902 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:30:36,223 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's current situation and Maria's road trip", 'mode': 'hybrid'}
+2026-01-05 15:30:38,261 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "connection between John's current situation and Maria's road trip", 'mode': 'hybrid'}
+2026-01-05 15:30:40,029 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "connection between John's current situation and Maria's road trip", 'mode': 'hybrid'}
+2026-01-05 15:30:42,026 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "What is the connection between John's current situation and Maria's road trip?", 'mode': 'hybrid'}
+2026-01-05 15:30:43,317 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Community Support'}
+2026-01-05 15:30:44,596 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "connection between John's current situation and Maria's road trip", 'mode': 'hybrid'}
+2026-01-05 15:30:44,605 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:30:44,899 - Amadeus.Optimizer - INFO - GT: John connected the beauty of nature experienced during the road trip to the peace and inspiration he finds during his current tough times with car trouble.
+2026-01-05 15:30:44,899 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:31:25,155 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:31:25,155 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture the context of past experiences and their impact on current situations. Ensure that the builder extracts relevant relationships between historical events and current states, especially when the question involves implicit connections.
+2026-01-05 15:31:25,156 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Nature", "content": "John --Felt inspired and peaceful during a recent road trip with Maria, noticing the beauty of nature."}, {"action": "ADD", "object": "Nature", "subject": "John", "content": "Nature --Provided inspiration and peace to John during his current struggles."}]
+2026-01-05 15:31:37,196 - Amadeus.Builder - INFO - 🔗 LINK: John --John --Felt inspired and peaceful during a recent road trip with Maria, noticing the beauty of nature.--> Nature (Time: 2023-04-09)
+2026-01-05 15:31:37,197 - Amadeus.Builder - INFO - 🔗 LINK: John --Nature --Provided inspiration and peace to John during his current struggles.--> Nature (Time: 2023-04-09)
+2026-01-05 15:31:37,282 - Amadeus.Answerer - INFO - ❓ Question: Why did Maria buy a cross necklace and how does it relate to her volunteer work at the homeless shelter?
+2026-01-05 15:31:38,861 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria cross necklace volunteer homeless shelter', 'mode': 'hybrid'}
+2026-01-05 15:31:40,288 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Volunteering'}
+2026-01-05 15:31:41,670 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Maria cross necklace homeless shelter', 'mode': 'hybrid'}
+2026-01-05 15:31:46,869 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Cross Necklace'}
+2026-01-05 15:31:48,598 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Maria community support homeless shelter', 'mode': 'hybrid'}
+2026-01-05 15:31:51,886 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Maria bought a cross necklace to feel closer to her faith. This act of wearing the cross necklace relates to her volunteer work at the homeless shelter as it symbolizes her commitment and passion for helping others, which she gained inspiration from while volunteering.'}
+2026-01-05 15:31:51,886 - Amadeus.Optimizer - INFO - GT: Maria bought a cross necklace to feel closer to her faith, which has brought her happiness and has likely influenced her volunteer work by providing her with strength and motivation to connect with and help others.
+2026-01-05 15:31:51,887 - Amadeus.Optimizer - INFO - Pre: Maria bought a cross necklace to feel closer to her faith. This act of wearing the cross necklace relates to her volunteer work at the homeless shelter as it symbolizes her commitment and passion for helping others, which she gained inspiration from while volunteering.
+2026-01-05 15:31:53,850 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:31:53,850 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and context-specific questions. Avoid asking about unrelated historical information unless it directly impacts the current situation.
+2026-01-05 15:31:53,850 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 12. Processing Buffer...
+2026-01-05 15:32:47,693 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Extract the context from the session. Step 2: Identify the entities and their relationships. Step 3: Compare with the existing graph and resolve conflicts. Step 4: Ensure that the graph remains high-fidelity by updating relevant nodes and edges.
+2026-01-05 15:32:47,699 - Amadeus.Builder - INFO - 🔗 LINK: John --Blogging about politics and the government--> Blogging (Time: 2023-04-18)
+2026-01-05 15:32:47,704 - Amadeus.Builder - INFO - 🔗 LINK: John --Focusing on education reform and infrastructure development--> Policies (Time: 2023-04-18)
+2026-01-05 15:32:47,708 - Amadeus.Builder - INFO - 🔗 LINK: John --Got good feedback on blog posts--> Feedback (Time: 2023-04-18)
+2026-01-05 15:32:47,808 - Amadeus.Builder - INFO - 🔗 LINK: John --Attended a tech for change convention with colleagues--> Convention (Time: 2023-04-18)
+2026-01-05 15:32:47,832 - Amadeus.Builder - INFO - 🔗 LINK: John --Renewed energy and purpose from the convention--> Motivation (Time: 2023-04-18)
+2026-01-05 15:32:47,946 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteering at the homeless shelter--> Volunteering (Time: 2023-04-18)
+2026-01-05 15:32:47,946 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Still volunteering at the homeless shelter, finding it fulfilling but challenging--> Volunteering (Time: 2023-04-18)
+2026-01-05 15:32:47,946 - Amadeus.Builder - INFO - 🔗 LINK: John --Appreciates Maria's support and dedication--> Maria (Time: 2023-04-18)
+2026-01-05 15:32:47,947 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Inspires and supports John in his political and volunteer endeavors--> John (Time: 2023-04-18)
+2026-01-05 15:32:47,960 - Amadeus.Builder - INFO - 🔗 LINK: Convention --Attended a convention focused on using tech for good in the community--> Tech for Change (Time: 2023-04-18)
+2026-01-05 15:32:48,107 - Amadeus.Builder - INFO - 🔗 LINK: John --Connected with like-minded colleagues at the convention--> Colleagues (Time: 2023-04-18)
+2026-01-05 15:32:48,107 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteered at the homeless shelter and organized meals for residents--> Volunteering (Time: 2023-04-18)
+2026-01-05 15:32:48,108 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Supports John in his political goals and future events--> John (Time: 2023-04-18)
+2026-01-05 15:32:48,111 - Amadeus.Builder - INFO - 🔗 LINK: Volunteering --Every small act of kindness can make a big impact--> Impact (Time: 2023-04-18)
+2026-01-05 15:32:48,363 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:32:48,363 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:32:53,548 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:32:53,548 - Amadeus.Answerer - INFO - ❓ Question: Where did John and his colleagues go last month?
+2026-01-05 15:32:55,199 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John and his colleagues last month', 'mode': 'hybrid'}
+2026-01-05 15:32:57,121 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'John and his colleagues last month activities', 'mode': 'hybrid'}
+2026-01-05 15:33:03,715 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John and his colleagues activities last month', 'mode': 'hybrid'}
+2026-01-05 15:33:08,341 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'John and his colleagues activities last month', 'mode': 'hybrid'}
+2026-01-05 15:33:12,011 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'John and his colleagues activities last month', 'mode': 'hybrid'}
+2026-01-05 15:33:16,419 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'John and his colleagues activities last month', 'mode': 'hybrid'}
+2026-01-05 15:33:18,432 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'John and his colleagues activities last month', 'mode': 'hybrid'}
+2026-01-05 15:33:22,989 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'John and his colleagues activities last month', 'mode': 'hybrid'}
+2026-01-05 15:33:22,997 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:33:25,039 - Amadeus.Optimizer - INFO - GT: They went to a convention together last month.
+2026-01-05 15:33:25,039 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:33:29,372 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:33:29,373 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to ensure that relationships and attributes involving groups or collective actions are captured accurately. For example, add a rule to explicitly track and extract information about where individuals and their colleagues have gone together.
+2026-01-05 15:33:29,374 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Colleagues", "content": "went to a convention together last month."}]
+2026-01-05 15:33:35,405 - Amadeus.Builder - INFO - 🔗 LINK: John --went to a convention together last month.--> Colleagues (Time: 2023-04-18)
+2026-01-05 15:33:35,647 - Amadeus.Answerer - INFO - ❓ Question: How did being at the convention affect John's view on his blogging efforts?
+2026-01-05 15:33:36,995 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'convention John blogging effects', 'mode': 'hybrid'}
+2026-01-05 15:33:38,689 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Convention'}
+2026-01-05 15:33:40,233 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "how did attending Tech for Change convention affect John's blogging efforts 2023-04-18", 'mode': 'hybrid'}
+2026-01-05 15:33:42,389 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Convention'}
+2026-01-05 15:33:43,872 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "how did attending Tech for Change convention affect John's blogging efforts 2023-04-18", 'mode': 'hybrid'}
+2026-01-05 15:33:46,555 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "Attending the Tech for Change convention renewed John's energy and purpose, and he felt more determined and optimistic about his political goals and blogging efforts."}
+2026-01-05 15:33:46,556 - Amadeus.Optimizer - INFO - GT: It gave him renewed energy and a purpose, inspiring him to make a bigger difference.
+2026-01-05 15:33:46,556 - Amadeus.Optimizer - INFO - Pre: Attending the Tech for Change convention renewed John's energy and purpose, and he felt more determined and optimistic about his political goals and blogging efforts.
+2026-01-05 15:33:49,057 - Amadeus.Optimizer - ERROR - AST Parse Failed: invalid syntax (<unknown>, line 7) | Content: 
+{
+  "is_correct": true,
+  "blame": "QUESTIONER",
+
+  "meta_gradient": "Focus on implicit causality and ask questions that require understanding the impact of events on individuals' views and actions. For example, focus on how specific experiences or interactions changed their perspectives."
+
+  "graph_patch": []
+}
+
+2026-01-05 15:33:51,900 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:33:51,901 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent experiences. Avoid asking about historical contexts or long-term impacts unless directly relevant to the current session context.
+2026-01-05 15:33:51,902 - Amadeus.Answerer - INFO - ❓ Question: What does Maria find challenging about her volunteering at the homeless shelter?
+2026-01-05 15:33:53,137 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria volunteering challenges homeless shelter', 'mode': 'hybrid'}
+2026-01-05 15:33:55,178 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Volunteering'}
+2026-01-05 15:33:56,209 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Impact'}
+2026-01-05 15:33:57,259 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Maria challenges volunteering homeless shelter', 'mode': 'hybrid'}
+2026-01-05 15:34:00,274 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'Maria finds volunteering at the homeless shelter challenging but fulfilling. She acknowledges the importance of the work and the impact on the recipients, which makes her happy, but also recognizes the difficulties involved.'}
+2026-01-05 15:34:00,274 - Amadeus.Optimizer - INFO - GT: The growing need for help can be overwhelming.
+2026-01-05 15:34:00,274 - Amadeus.Optimizer - INFO - Pre: Maria finds volunteering at the homeless shelter challenging but fulfilling. She acknowledges the importance of the work and the impact on the recipients, which makes her happy, but also recognizes the difficulties involved.
+2026-01-05 15:34:03,388 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:34:03,388 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 13. Processing Buffer...
+2026-01-05 15:34:47,326 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify the absolute date from the context. Step 2: Identify entities and their relationships. Step 3: Compare with the existing graph and resolve conflicts.
+2026-01-05 15:34:47,361 - Amadeus.Builder - INFO - 🔗 LINK: John --Started attending boot camps with his family last month--> Boot Camp (Time: 2023-04-07)
+2026-01-05 15:34:47,410 - Amadeus.Builder - INFO - 🔗 LINK: John --Family helps him stay centered and motivated during boot camps--> Family (Time: 2023-04-07)
+2026-01-05 15:34:47,417 - Amadeus.Builder - INFO - 🔗 LINK: John --Family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors--> Support System (Time: 2023-04-09)
+2026-01-05 15:34:47,417 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maria and her family visited London during their trip to England--> Family (Time: 2023-01-10)
+2026-01-05 15:34:47,418 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maria relies on her inner strength and her family for support during tough times--> Support System (Time: 2023-04-09)
+2026-01-05 15:34:47,452 - Amadeus.Builder - INFO - 🔗 LINK: Maria --First-time surfer during her solo trip--> Surfing (Time: 2023-04-09)
+2026-01-05 15:34:47,456 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Realized the importance of relying on inner strength during her trip--> Inner Strength (Time: 2023-04-09)
+2026-01-05 15:34:47,487 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Found a mindset of self-exploration and growth during her trip--> Self-Exploration (Time: 2023-04-09)
+2026-01-05 15:34:47,510 - Amadeus.Builder - INFO - 🔗 LINK: John --Made an apple pie for the kids yesterday--> Apple Pie (Time: 2023-04-09)
+2026-01-05 15:34:47,513 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Enjoys a banana split sundae after a day of volunteering--> Banana Split Sundae (Time: 2023-04-09)
+2026-01-05 15:34:47,517 - Amadeus.Builder - INFO - 🔗 LINK: John --Acknowledges the importance of balance in life--> Balance (Time: 2023-04-09)
+2026-01-05 15:34:47,517 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maintains physical, emotional, and mental well-being through activities like exercise, music, and spending time with loved ones--> Balance (Time: 2023-04-09)
+2026-01-05 15:34:47,521 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Valued the power of solitude during her trip--> Solitude (Time: 2023-04-09)
+2026-01-05 15:34:47,525 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Learned the importance of letting go and trusting life during her trip--> Letting Go (Time: 2023-04-09)
+2026-01-05 15:34:47,529 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Provided emotional support to John during tough times--> Emotional Support (Time: 2023-04-09)
+2026-01-05 15:34:47,529 - Amadeus.Builder - INFO - 🔗 LINK: John --Provided emotional support to Maria during tough times--> Emotional Support (Time: 2023-04-09)
+2026-01-05 15:34:47,529 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteered at a homeless shelter and organized meals for residents--> Volunteering (Time: 2023-04-09)
+2026-01-05 15:34:47,532 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Lost her grandma recently--> Mom (Time: 2023-03-06)
+2026-01-05 15:34:47,532 - Amadeus.Builder - INFO - ⏳ WAIT: Met Jean at a homeless shelter...
+2026-01-05 15:34:47,584 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:34:47,585 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:34:58,338 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:34:58,338 - Amadeus.Answerer - INFO - ❓ Question: What activity did Maria try for the first time during her vacation in Spain, and how did it relate to her personal growth?
+2026-01-05 15:34:59,515 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria first-time activity Spain personal growth', 'mode': 'hybrid'}
+2026-01-05 15:35:04,208 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Maria first-time activity Spain personal growth', 'mode': 'hybrid'}
+2026-01-05 15:35:09,326 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Maria first-time activity in Spain', 'mode': 'hybrid'}
+2026-01-05 15:35:13,619 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Maria first-time activity in Spain related to personal growth', 'mode': 'hybrid'}
+2026-01-05 15:35:17,650 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Surfing'}
+2026-01-05 15:35:19,511 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'During her vacation in Spain, Maria tried surfing for the first time, which was related to her personal growth as it was part of her solo trip in 2023.'}
+2026-01-05 15:35:19,512 - Amadeus.Optimizer - INFO - GT: Maria tried surfing for the first time, which taught her the power of not giving up and trying new things.
+2026-01-05 15:35:19,512 - Amadeus.Optimizer - INFO - Pre: During her vacation in Spain, Maria tried surfing for the first time, which was related to her personal growth as it was part of her solo trip in 2023.
+2026-01-05 15:35:24,155 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:35:24,156 - Amadeus.Answerer - INFO - ❓ Question: How often does John and his family workout together, and what is the significance of this routine for their family dynamics?
+2026-01-05 15:35:25,617 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John family workout routine', 'mode': 'hybrid'}
+2026-01-05 15:35:30,008 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'John family workout routine', 'mode': 'hybrid'}
+2026-01-05 15:35:34,052 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John family workout routine', 'mode': 'hybrid'}
+2026-01-05 15:35:38,142 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'John family workout routine', 'mode': 'hybrid'}
+2026-01-05 15:35:42,742 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'John family workout routine', 'mode': 'hybrid'}
+2026-01-05 15:35:46,440 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'John family workout routine', 'mode': 'hybrid'}
+2026-01-05 15:35:49,406 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'John family workout routine', 'mode': 'hybrid'}
+2026-01-05 15:35:52,591 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'John family workout routine', 'mode': 'hybrid'}
+2026-01-05 15:35:52,600 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:35:54,794 - Amadeus.Optimizer - INFO - GT: They workout three times a week, which is significant because it helps them bond, stay motivated, and creates healthy habits together.
+2026-01-05 15:35:54,794 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:35:59,581 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:35:59,582 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to extract and connect relevant information by focusing on explicit routines and family dynamics. Ensure that the builder captures the frequency of activities and the impact they have on relationships.
+2026-01-05 15:35:59,582 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Workout Routine", "content": "John and his family workout three times a week."}, {"action": "ADD", "object": "Workout Routine", "subject": "Significance", "content": "Working out together helps strengthen family bonds, provides motivation, and fosters healthy habits."}]
+2026-01-05 15:36:08,132 - Amadeus.Builder - INFO - 🔗 LINK: John --John and his family workout three times a week.--> Workout Routine (Time: 2023-04-09)
+2026-01-05 15:36:08,135 - Amadeus.Builder - INFO - 🔗 LINK: Significance --Working out together helps strengthen family bonds, provides motivation, and fosters healthy habits.--> Workout Routine (Time: 2023-04-09)
+2026-01-05 15:36:08,405 - Amadeus.Answerer - INFO - ❓ Question: What did Maria mention as a little moment of joy in her life, and how does it reflect her approach to balancing her well-being?
+2026-01-05 15:36:14,453 - openai._base_client - INFO - Retrying request to /chat/completions in 0.382925 seconds
+2026-01-05 15:36:17,149 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria moment of joy well-being approach', 'mode': 'hybrid'}
+2026-01-05 15:36:27,412 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Volunteering at the homeless shelter'}
+2026-01-05 15:36:29,512 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Volunteering at the homeless shelter'}
+2026-01-05 15:36:31,449 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Volunteering at a homeless shelter'}
+2026-01-05 15:36:33,014 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:36:34,196 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Maria moment of joy Jean inspiring', 'mode': 'hybrid'}
+2026-01-05 15:36:37,411 - Amadeus.Answerer - INFO - Step 7: READ - {'tool': 'READ', 'answer': "Maria mentioned that volunteering at the homeless shelter makes her happy because it allows her to brighten somebody's day. This reflects her approach to balancing her well-being by relying on her inner strength and engaging in activities that bring her joy and fulfillment."}
+2026-01-05 15:36:37,411 - Amadeus.Optimizer - INFO - GT: Maria enjoyed the banana split sundae after a day of volunteering, which reflects her approach to balancing physical, emotional, and mental care.
+2026-01-05 15:36:37,411 - Amadeus.Optimizer - INFO - Pre: Maria mentioned that volunteering at the homeless shelter makes her happy because it allows her to brighten somebody's day. This reflects her approach to balancing her well-being by relying on her inner strength and engaging in activities that bring her joy and fulfillment.
+2026-01-05 15:36:41,467 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:36:41,467 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 14. Processing Buffer...
+2026-01-05 15:37:29,009 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:37:29,044 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:37:29,045 - Amadeus.Builder - INFO - 🔗 LINK: John --Determined to make a difference in his community--> Running for Office (Time: 2023-05-06)
+2026-01-05 15:37:29,045 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Involvement in charity work and joining a nearby church--> Volunteering (Time: 2023-05-06)
+2026-01-05 15:37:29,049 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Joined a nearby church to feel closer to a community and her faith--> Church (Time: 2023-05-06)
+2026-01-05 15:37:29,049 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Offered to help with community projects--> Support John (Time: 2023-05-06)
+2026-01-05 15:37:29,049 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Finding fulfillment and support in volunteering and church activities--> Support System (Time: 2023-05-06)
+2026-01-05 15:37:29,049 - Amadeus.Builder - INFO - 🔗 LINK: John --Family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors--> Support System (Time: 2023-05-06)
+2026-01-05 15:37:29,071 - Amadeus.Builder - INFO - 🔗 LINK: John --Starting a community project to improve roadways and infrastructure--> Infrastructure (Time: 2023-05-06)
+2026-01-05 15:37:29,087 - Amadeus.Builder - INFO - 🔗 LINK: John --Working on improving living conditions and fighting for better housing in the neighborhood--> Volunteering (Time: 2023-05-06)
+2026-01-05 15:37:29,092 - Amadeus.Builder - INFO - 🔗 LINK: John --Working on improving living conditions and fighting for better housing in the neighborhood--> Community (Time: 2023-05-06)
+2026-01-05 15:37:29,092 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Supporting John in his political goals and future events--> Community (Time: 2023-05-06)
+2026-01-05 15:37:29,092 - Amadeus.Builder - INFO - ⏳ WAIT: Hey Maria, great to chat again...
+2026-01-05 15:37:29,093 - Amadeus.Builder - INFO - ⏳ WAIT: Way to go, John! You're doing ...
+2026-01-05 15:37:29,093 - Amadeus.Builder - INFO - ⏳ WAIT: John: Thanks, Maria. Got it. I...
+2026-01-05 15:37:29,093 - Amadeus.Builder - INFO - ⏳ WAIT: Maria: Hey John, it's okay to ...
+2026-01-05 15:37:29,093 - Amadeus.Builder - INFO - ⏳ WAIT: John: Thanks, Maria. Got it. I...
+2026-01-05 15:37:29,093 - Amadeus.Builder - INFO - ⏳ WAIT: Maria: Life's been a bit rough...
+2026-01-05 15:37:29,097 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Joined a nearby church to feel closer to a community and her faith--> Church (Time: 2023-05-06)
+2026-01-05 15:37:29,097 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Offered to help with community projects--> Support John (Time: 2023-05-06)
+2026-01-05 15:37:29,102 - Amadeus.Builder - INFO - 🔗 LINK: John --Family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors--> Support System (Time: 2023-05-06)
+2026-01-05 15:37:29,460 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:37:29,461 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:37:41,588 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:37:41,589 - Amadeus.Answerer - INFO - ❓ Question: What might be John's feeling after discussing his community project with Maria?
+2026-01-05 15:37:43,211 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John discussing community project with Maria feelings', 'mode': 'hybrid'}
+2026-01-05 15:37:46,336 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:37:47,432 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'After discussing his community project with Maria, John might feel inspired and acknowledged for the work he is doing.'}
+2026-01-05 15:37:47,432 - Amadeus.Optimizer - INFO - GT: John feels motivated and supported to start a community project regarding infrastructure improvements.
+2026-01-05 15:37:47,432 - Amadeus.Optimizer - INFO - Pre: After discussing his community project with Maria, John might feel inspired and acknowledged for the work he is doing.
+2026-01-05 15:37:51,382 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:37:51,383 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on implicit causality and context clues. Avoid asking about historical or past events unless they directly influence the current situation. Encourage more nuanced questions that explore the immediate impact of interactions and current feelings.
+2026-01-05 15:37:51,384 - Amadeus.Answerer - INFO - ❓ Question: How does Maria's involvement in charity work relate to her feelings towards John's community project?
+2026-01-05 15:37:52,436 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria charity work John community project', 'mode': 'hybrid'}
+2026-01-05 15:37:55,281 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:37:57,160 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Maria's feelings towards John's community project and charity work", 'mode': 'hybrid'}
+2026-01-05 15:37:58,953 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Maria feels inspired by John's efforts and supports him in his community project, acknowledging its importance. She is also involved in building a supportive network through volunteering, which aligns with her feelings towards John's project."}
+2026-01-05 15:37:58,954 - Amadeus.Optimizer - INFO - GT: Maria's involvement in charity work makes her more empathetic and supportive towards John's initiative, as she understands the importance of giving back to the community.
+2026-01-05 15:37:58,954 - Amadeus.Optimizer - INFO - Pre: Maria feels inspired by John's efforts and supports him in his community project, acknowledging its importance. She is also involved in building a supportive network through volunteering, which aligns with her feelings towards John's project.
+2026-01-05 15:38:02,988 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:38:02,989 - Amadeus.Answerer - INFO - ❓ Question: What potential challenge might arise from John's and Maria's collaboration on improving their neighborhood's infrastructure?
+2026-01-05 15:38:04,155 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John Maria neighborhood infrastructure collaboration challenge', 'mode': 'hybrid'}
+2026-01-05 15:38:07,262 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'collaboration challenges on neighborhood infrastructure', 'mode': 'hybrid'}
+2026-01-05 15:38:09,689 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'challenges in neighborhood infrastructure collaboration', 'mode': 'hybrid'}
+2026-01-05 15:38:11,584 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Local Politics'}
+2026-01-05 15:38:12,682 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'challenges in local politics affecting neighborhood infrastructure collaboration', 'mode': 'hybrid'}
+2026-01-05 15:38:17,430 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "One potential challenge that might arise from John's and Maria's collaboration on improving their neighborhood's infrastructure is local politics. John is passionate about making a positive impact through policymaking and has attended community meetings to gain insights into community challenges. Navigating local politics and securing support from local leaders and organizations could be a significant hurdle."}
+2026-01-05 15:38:17,430 - Amadeus.Optimizer - INFO - GT: There might be resistance or skepticism from other community members regarding the feasibility of the project or concerns about the allocation of resources.
+2026-01-05 15:38:17,431 - Amadeus.Optimizer - INFO - Pre: One potential challenge that might arise from John's and Maria's collaboration on improving their neighborhood's infrastructure is local politics. John is passionate about making a positive impact through policymaking and has attended community meetings to gain insights into community challenges. Navigating local politics and securing support from local leaders and organizations could be a significant hurdle.
+2026-01-05 15:38:24,107 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:38:24,108 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should trust the Global Memory Graph more and avoid hallucinating information that is not explicitly present in the current context. Specifically, the Answerer should focus on extracting relevant facts from the existing nodes and links rather than inferring additional details that are not supported by the data.
+2026-01-05 15:38:24,109 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 15. Processing Buffer...
+2026-01-05 15:38:57,322 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Extract the current context from the buffer, which is the date 20 May, 2023. Step 2: Identify the entities involved, which are John and Maria. Step 3: Compare the new information with existing nodes in the Graph. Step 4: Resolve conflicts and add new relationships.
+2026-01-05 15:38:57,328 - Amadeus.Builder - INFO - 🔗 LINK: John --Working on a project to support military veterans--> Petition for Veterans (Time: 2023-05-07)
+2026-01-05 15:38:57,328 - Amadeus.Builder - INFO - 🔗 LINK: John --Family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors--> Support System (Time: 2023-05-07)
+2026-01-05 15:38:57,337 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Counted in to help with the veterans project--> Support John (Time: 2023-05-07)
+2026-01-05 15:38:57,343 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Planning a ring-toss tournament for the homeless shelter's fundraiser--> Ring-Toss Tournament (Time: 2023-05-07)
+2026-01-05 15:38:57,343 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Planning a ring-toss tournament for the homeless shelter's fundraiser--> Homeless Shelter (Time: 2023-05-07)
+2026-01-05 15:38:57,373 - Amadeus.Builder - INFO - 🔗 LINK: John --Throwing a small party and inviting veterans to share their stories--> Veterans (Time: 2023-05-07)
+2026-01-05 15:38:57,420 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Listening and supporting veterans at a small party--> Veterans (Time: 2023-05-07)
+2026-01-05 15:38:57,421 - Amadeus.Builder - INFO - 🔗 LINK: John --Thanks, Maria! Your support means a lot.--> Maria (Time: 2023-05-07)
+2026-01-05 15:38:57,421 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Counted in to help with the veterans project--> John (Time: 2023-05-07)
+2026-01-05 15:38:57,479 - Amadeus.Builder - INFO - 🔗 LINK: John --Throwing a small party and inviting veterans to share their stories--> Veterans Party (Time: 2023-05-07)
+2026-01-05 15:38:57,502 - Amadeus.Builder - INFO - 🔗 LINK: John --Here's a pic from last Friday with some veterans who are really excited about this. Their support keeps me motivated.--> Maria (Time: 2023-05-07)
+2026-01-05 15:38:57,502 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Yep, John! Keep going and we'll make a difference!--> John (Time: 2023-05-07)
+2026-01-05 15:38:57,841 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:38:57,841 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:39:04,678 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:39:04,678 - Amadeus.Answerer - INFO - ❓ Question: How might John feel after throwing the party with the veterans?
+2026-01-05 15:39:06,658 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John throwing party with veterans', 'mode': 'hybrid'}
+2026-01-05 15:39:09,767 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Veterans Party'}
+2026-01-05 15:39:10,859 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John after throwing a party with veterans', 'mode': 'hybrid'}
+2026-01-05 15:39:16,014 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'After throwing the party with the veterans, John might feel emotionally fulfilled and connected, as evidenced by his involvement in the Veterans Party and the support he receives from Maria and others in his community. This aligns with his passion for making a positive impact and his appreciation for connecting with others.'}
+2026-01-05 15:39:16,014 - Amadeus.Optimizer - INFO - GT: He felt heartwarming and motivated.
+2026-01-05 15:39:16,014 - Amadeus.Optimizer - INFO - Pre: After throwing the party with the veterans, John might feel emotionally fulfilled and connected, as evidenced by his involvement in the Veterans Party and the support he receives from Maria and others in his community. This aligns with his passion for making a positive impact and his appreciation for connecting with others.
+2026-01-05 15:39:18,696 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:39:18,696 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent activities. Avoid asking about historical feelings or outcomes unless directly related to the current context provided.
+2026-01-05 15:39:18,696 - Amadeus.Answerer - INFO - ❓ Question: What event is Maria planning and how does it relate to her support for veterans?
+2026-01-05 15:39:22,919 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria planning event for veterans', 'mode': 'hybrid'}
+2026-01-05 15:39:26,919 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Petition for Veterans'}
+2026-01-05 15:39:28,008 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Maria's involvement in Petition for Veterans", 'mode': 'hybrid'}
+2026-01-05 15:39:29,285 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Maria's involvement in Veterans Party", 'mode': 'hybrid'}
+2026-01-05 15:39:30,442 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Veterans Party'}
+2026-01-05 15:39:31,740 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Maria is planning a Veterans Party where she is throwing a small party and inviting veterans to share their stories.'}
+2026-01-05 15:39:31,740 - Amadeus.Optimizer - INFO - GT: She is planning a ring-toss tournament for the homeless shelter's fundraiser.
+2026-01-05 15:39:31,740 - Amadeus.Optimizer - INFO - Pre: Maria is planning a Veterans Party where she is throwing a small party and inviting veterans to share their stories.
+2026-01-05 15:39:36,313 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:39:36,313 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when a subject mentions a specific event or project, all related details are also captured. For example, add a rule to extract and link all activities and plans associated with a particular event or project mentioned by a subject.
+2026-01-05 15:39:36,313 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Maria", "object": "Veterans Party", "content": "Maria is planning a Veterans Party where she is organizing a ring-toss tournament for the homeless shelter's fundraiser."}, {"action": "REMOVE", "subject": "John", "object": "Veterans Party", "content": "John is throwing a small party and inviting veterans to share their stories."}]
+2026-01-05 15:39:45,654 - Amadeus.Graph - INFO - ✂️ Edge Deleted: John -> Veterans Party
+2026-01-05 15:39:45,654 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maria is planning a Veterans Party where she is organizing a ring-toss tournament for the homeless shelter's fundraiser.--> Veterans Party (Time: 2023-05-07)
+2026-01-05 15:39:45,757 - Amadeus.Answerer - INFO - ❓ Question: Why is Maria excited about John's project for veterans?
+2026-01-05 15:39:47,635 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Maria excitement about John's project for veterans", 'mode': 'hybrid'}
+2026-01-05 15:39:49,089 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Veterans'}
+2026-01-05 15:39:50,855 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Maria is excited about John's project for veterans because she is listening and supporting veterans at a small party where they share their stories, as indicated in the current node content."}
+2026-01-05 15:39:50,856 - Amadeus.Optimizer - INFO - GT: Because it reminds her of the importance of community and support for those who have served.
+2026-01-05 15:39:50,856 - Amadeus.Optimizer - INFO - Pre: Maria is excited about John's project for veterans because she is listening and supporting veterans at a small party where they share their stories, as indicated in the current node content.
+2026-01-05 15:39:55,689 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:39:55,689 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it does not hallucinate specific details without proper context. The Answerer should focus on retrieving information directly from the most recent nodes and avoid making assumptions beyond the immediate context provided.
+2026-01-05 15:39:55,689 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 16. Processing Buffer...
+2026-01-05 15:40:36,035 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:40:36,035 - Amadeus.Builder - INFO - 🔗 LINK: John --Started a petition for veterans and gained support from friends--> Petition for Veterans (Time: 2023-05-25)
+2026-01-05 15:40:36,036 - Amadeus.Builder - INFO - 🔗 LINK: John --Volunteered at a homeless shelter and is now involved in a chili cook-off fundraiser--> Volunteering (Time: 2023-05-25)
+2026-01-05 15:40:36,036 - Amadeus.Builder - INFO - 🔗 LINK: John --John is actively seeking to help Maria with her fundraising efforts and sharing the word about the event--> Support (Time: 2023-05-25)
+2026-01-05 15:40:36,037 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Organizing a chili cook-off fundraiser at the shelter and seeking additional volunteers--> Volunteering (Time: 2023-05-25)
+2026-01-05 15:40:36,037 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Provided support to John in his petition and is actively seeking to involve more people in the chili cook-off fundraiser--> Support (Time: 2023-05-25)
+2026-01-05 15:40:36,038 - Amadeus.Builder - INFO - 🔗 LINK: John --Appreciated the hiking trip with his family, which gave him hope and motivation--> Nature (Time: 2023-05-25)
+2026-01-05 15:40:36,038 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maria appreciated the beach photos from John, which gave her hope and made her cherish life--> Nature (Time: 2023-05-25)
+2026-01-05 15:40:36,039 - Amadeus.Builder - INFO - 🔗 LINK: John --Appreciates the support from his mom during tough times--> Mom (Time: 2023-05-25)
+2026-01-05 15:40:36,039 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Lost her grandma recently--> Mom (Time: 2023-05-25)
+2026-01-05 15:40:36,040 - Amadeus.Builder - INFO - 🔗 LINK: John --Spends time with his wife and kids, which keeps him centered and motivated--> Family (Time: 2023-05-25)
+2026-01-05 15:40:36,040 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Relies on her auntie for help during financial difficulties and lost her grandma recently--> Family (Time: 2023-05-25)
+2026-01-05 15:40:36,041 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Provided support to John in his petition and is committed to making a positive impact with him--> Support (Time: 2023-05-25)
+2026-01-05 15:40:36,041 - Amadeus.Builder - INFO - 🔗 LINK: John --Received support from Maria in his petition and is committed to making a positive impact with her--> Support (Time: 2023-05-25)
+2026-01-05 15:40:36,042 - Amadeus.Builder - INFO - 🔗 LINK: John --Helped organize a chili cook-off fundraiser for the shelter--> Volunteering (Time: 2023-05-25)
+2026-01-05 15:40:36,042 - Amadeus.Builder - INFO - 🔗 LINK: John --John's family and friends provide a strong support system that helps him stay positive and motivated in his volunteer and political endeavors--> Future Generations (Time: 2023-05-25)
+2026-01-05 15:40:36,043 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Maria's family and friends provide a strong support system that helps her stay positive and motivated in her volunteer and political endeavors--> Future Generations (Time: 2023-05-25)
+2026-01-05 15:40:36,129 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:40:36,130 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:40:43,344 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:40:43,345 - Amadeus.Answerer - INFO - ❓ Question: What emotional impact does the beach photo have on Maria?
+2026-01-05 15:40:44,460 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'beach photo Maria emotional impact', 'mode': 'hybrid'}
+2026-01-05 15:40:47,991 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Maria'}
+2026-01-05 15:40:50,237 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'The beach photo has a positive emotional impact on Maria, giving her hope and making her cherish life.'}
+2026-01-05 15:40:50,238 - Amadeus.Optimizer - INFO - GT: The photo makes Maria feel hope and appreciation for life.
+2026-01-05 15:40:50,238 - Amadeus.Optimizer - INFO - Pre: The beach photo has a positive emotional impact on Maria, giving her hope and making her cherish life.
+2026-01-05 15:40:52,252 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:40:52,252 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on explicit emotional connections and context rather than implied or historical references. Avoid questions that rely heavily on past events or indirect relationships unless they are directly relevant to the current session context.
+2026-01-05 15:40:52,252 - Amadeus.Answerer - INFO - ❓ Question: How does John's support of Maria's fundraiser relate to his own activities?
+2026-01-05 15:40:53,558 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's support of Maria's fundraiser and his own activities", 'mode': 'hybrid'}
+2026-01-05 15:40:55,554 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:40:56,876 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's support of Maria's fundraiser and his own activities", 'mode': 'hybrid'}
+2026-01-05 15:41:00,063 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "John's support of Maria's fundraiser relates to his own activities as he is actively seeking to help Maria with her fundraising efforts and sharing the word about the event. Additionally, there are ongoing mutual supports between John and Maria, including community projects and political goals, which indicate a strong collaborative relationship."}
+2026-01-05 15:41:00,063 - Amadeus.Optimizer - INFO - GT: John is involved in a petition and is looking for ways to support others, showing a pattern of engagement in community activities.
+2026-01-05 15:41:00,063 - Amadeus.Optimizer - INFO - Pre: John's support of Maria's fundraiser relates to his own activities as he is actively seeking to help Maria with her fundraising efforts and sharing the word about the event. Additionally, there are ongoing mutual supports between John and Maria, including community projects and political goals, which indicate a strong collaborative relationship.
+2026-01-05 15:41:03,615 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:41:03,615 - Amadeus.Answerer - INFO - ❓ Question: Why does Maria mention that working with passionate people like John is motivating?
+2026-01-05 15:41:04,671 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Maria working with passionate people motivation John', 'mode': 'hybrid'}
+2026-01-05 15:41:12,685 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:41:14,160 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'passionate people, motivation, Maria, John', 'mode': 'hybrid'}
+2026-01-05 15:41:21,564 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Maria mentions that working with passionate people like John is motivating because John's dedication and efforts inspire her, and their mutual support keeps them both energized and committed to their political and volunteer endeavors."}
+2026-01-05 15:41:21,564 - Amadeus.Optimizer - INFO - GT: Because John's involvement and support in her fundraiser show dedication and enthusiasm, which inspires her to continue her work.
+2026-01-05 15:41:21,564 - Amadeus.Optimizer - INFO - Pre: Maria mentions that working with passionate people like John is motivating because John's dedication and efforts inspire her, and their mutual support keeps them both energized and committed to their political and volunteer endeavors.
+2026-01-05 15:41:25,148 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:41:25,148 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on implicit causality and context. Avoid questions that rely solely on historical information unless it directly relates to the current situation.
+2026-01-05 15:41:25,148 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 17. Processing Buffer...
+2026-01-05 15:41:57,215 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify the absolute date from the context. Step 2: Identify the entities. Step 3: Compare with the existing Graph. Step 4: Resolve conflicts.
+2026-01-05 15:41:57,221 - Amadeus.Builder - INFO - 🔗 LINK: John --Lost a pet named Max who was part of the family for 10 years. Found comfort in memories and good times spent with Max.--> Max (Time: 2023-06-03)
+2026-01-05 15:41:57,225 - Amadeus.Builder - INFO - 🔗 LINK: John --Considering adoption of a rescue dog to teach kids responsibility and compassion.--> Rescue Dog (Time: 2023-06-03)
+2026-01-05 15:41:57,228 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteering at a local dog shelter once a month.--> Local Dog Shelter (Time: 2023-06-03)
+2026-01-05 15:41:57,322 - Amadeus.Builder - INFO - 🔗 LINK: John --Wanting to pass on the lesson of unconditional love and loyalty to his children.--> Future Generations (Time: 2023-06-03)
+2026-01-05 15:41:57,322 - Amadeus.Builder - INFO - 🔗 LINK: John --Maria is offering support and help with future events.--> Support System (Time: 2023-06-03)
+2026-01-05 15:41:57,322 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Providing ongoing support to John in his political and volunteer endeavors.--> Support System (Time: 2023-06-03)
+2026-01-05 15:41:57,322 - Amadeus.Builder - INFO - 🔗 LINK: Maria --Volunteering at a local dog shelter once a month.--> Volunteering (Time: 2023-06-03)
+2026-01-05 15:41:57,322 - Amadeus.Builder - INFO - ⏳ WAIT: We're considering adopting a r...
+2026-01-05 15:41:57,322 - Amadeus.Builder - INFO - ⏳ WAIT: Sure thing, John. Let me know ...
+2026-01-05 15:41:57,792 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:41:57,792 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:42:04,167 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:42:04,168 - Amadeus.Answerer - INFO - ❓ Question: Where did John and Maria talk about honoring Max?
+2026-01-05 15:42:05,313 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John Maria honor Max', 'mode': 'hybrid'}
+2026-01-05 15:42:15,643 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:42:16,880 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John, Maria, Max, honor', 'mode': 'hybrid'}
+2026-01-05 15:42:21,903 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'honoring Max in the context of John and Maria', 'mode': 'hybrid'}
+2026-01-05 15:42:25,554 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:42:27,020 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'John, Maria, Max, honor, conversation', 'mode': 'hybrid'}
+2026-01-05 15:42:33,387 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'honoring Max, conversation between John and Maria', 'mode': 'hybrid'}
+2026-01-05 15:42:40,182 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Supports John'}
+2026-01-05 15:42:40,182 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:42:43,600 - Amadeus.Optimizer - INFO - GT: They talked about cherishing the good times and memories of Max, especially through a cherished photo.
+2026-01-05 15:42:43,601 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:42:47,753 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:42:47,756 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include more detailed extraction rules to capture specific mentions of objects and their emotional significance, such as 'cherished photo of Max', which could help in forming a more complete context around the conversation.
+2026-01-05 15:42:47,756 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Max", "content": "cherished photo of Max"}, {"action": "LINK", "subject": "John", "object": "Max", "content": "John and Maria talked about cherishing the good times and memories of Max, especially through a cherished photo."}]
+2026-01-05 15:42:57,256 - Amadeus.Builder - INFO - 🔗 LINK: John --cherished photo of Max--> Max (Time: 2023-06-03)
+2026-01-05 15:42:57,256 - Amadeus.Builder - INFO - 🔗 LINK: John --John and Maria talked about cherishing the good times and memories of Max, especially through a cherished photo.--> Max (Time: 2023-05-25)
+2026-01-05 15:42:57,428 - Amadeus.Answerer - INFO - ❓ Question: How might John's kids benefit from adopting a rescue dog?
+2026-01-05 15:42:58,738 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's kids benefits from adopting a rescue dog", 'mode': 'hybrid'}
+2026-01-05 15:43:03,879 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Rescue Dog'}
+2026-01-05 15:43:17,111 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Considering adoption of a rescue dog to teach kids responsibility and compassion. at 2023-06-03'}
+2026-01-05 15:43:18,548 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "John's kids might benefit from adopting a rescue dog by learning responsibility and compassion."}
+2026-01-05 15:43:18,548 - Amadeus.Optimizer - INFO - GT: John believes it will teach his kids responsibility and compassion.
+2026-01-05 15:43:18,548 - Amadeus.Optimizer - INFO - Pre: John's kids might benefit from adopting a rescue dog by learning responsibility and compassion.
+2026-01-05 15:43:20,267 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:43:20,268 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent context. Avoid asking about historical or hypothetical scenarios unless directly related to the immediate discussion.
+2026-01-05 15:43:20,269 - Amadeus.Answerer - INFO - ❓ Question: What was the reason John and Maria decided to adopt a rescue dog?
+2026-01-05 15:43:21,406 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John and Maria adopt rescue dog', 'mode': 'hybrid'}
+2026-01-05 15:43:26,146 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John and Maria decided to adopt a rescue dog to teach kids responsibility and compassion.'}
+2026-01-05 15:43:26,146 - Amadeus.Optimizer - INFO - GT: John wants to give his kids a lesson in unconditional love and loyalty, and also to provide a loving home for a rescue dog.
+2026-01-05 15:43:26,147 - Amadeus.Optimizer - INFO - Pre: John and Maria decided to adopt a rescue dog to teach kids responsibility and compassion.
+2026-01-05 15:43:30,695 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:43:30,696 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it doesn't hallucinate facts and to prioritize retrieving information directly related to the question. The Answerer should be encouraged to trust the graph more and avoid making assumptions based on unrelated context.
+2026-01-05 15:43:30,697 - Experiment - INFO - [conv-41] 🔄 Flush Triggered at chunk 18. Processing Buffer...

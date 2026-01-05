@@ -1,6 +1,7 @@
 import json
 import logging
 import re
+import time
 from typing import List, Literal
 from openai import OpenAI
 from amadeus.core.graph import MemoryGraph
@@ -143,77 +144,97 @@ OR
 {view_str}
 """
             # --- 2. LLM Decision ---
-            try:
-                res = self.client.chat.completions.create(
-                    model=self.model_name,
-                    messages=[
-                        {"role": "system", "content": "You are a helpful assistant. Output valid JSON only."},
-                        {"role": "user", "content": prompt}
-                    ],
-                    response_format={"type": "json_object"},
-                    temperature=0.0
-                )
-                content = res.choices[0].message.content
-                
-                # Clean json string
-                if "```json" in content:
-                    content = content.split("```json")[1].split("```")[0]
-                elif "```" in content:
-                    content = content.split("```")[1].split("```")[0]
-                
-                decision = json.loads(content.strip())
-                tool = decision.get("tool")
-                logger.info(f"Step {step+1}: {tool} - {decision}")
+            retries = 3
+            decision = {}
+            for attempt in range(retries):
+                try:
+                    res = self.client.chat.completions.create(
+                        model=self.model_name,
+                        messages=[
+                            {"role": "system", "content": "You are a helpful assistant. Output valid JSON only."},
+                            {"role": "user", "content": prompt}
+                        ],
+                        response_format={"type": "json_object"},
+                        temperature=0.0
+                    )
+                    content = res.choices[0].message.content
+                    
+                    if not content or not content.strip():
+                        if attempt < retries - 1:
+                            time.sleep(1)
+                            continue
+                        raise ValueError("Empty response from LLM")
 
-                # --- 3. Execute Tool ---
-                if tool == "SEARCH":
-                    query = decision.get("query", question)
-                    mode = decision.get("mode", "hybrid")
+                    # Clean json string
+                    if "```json" in content:
+                        content = content.split("```json")[1].split("```")[0]
+                    elif "```" in content:
+                        content = content.split("```")[1].split("```")[0]
                     
-                    results = []
+                    # Fix trailing commas
+                    content = re.sub(r',\s*}', '}', content)
+                    content = re.sub(r',\s*]', ']', content)
                     
-                    def do_keyword():
-                        return self._keyword_search(query)
+                    decision = json.loads(content.strip())
+                    break # Success
+                except Exception as e:
+                    if attempt < retries - 1:
+                        time.sleep(1)
+                        continue
+                    logger.error(f"Step failed (Attempt {attempt+1}): {e}")
+                    history.append(f"Error: {str(e)}")
+            
+            if not decision:
+                continue # Skip to next step if all retries failed
+
+            tool = decision.get("tool")
+            logger.info(f"Step {step+1}: {tool} - {decision}")
+
+            # --- 3. Execute Tool ---
+            if tool == "SEARCH":
+                query = decision.get("query", question)
+                mode = decision.get("mode", "hybrid")
+                
+                results = []
+                
+                def do_keyword():
+                    return self._keyword_search(query)
+                    
+                def do_semantic():
+                    if hasattr(self.graph, "semantic_search"):
+                        return self.graph.semantic_search(query)
+                    return []
+
+                if mode == "keyword":
+                    results = do_keyword()
+                elif mode == "semantic":
+                    results = do_semantic()
+                else: # hybrid
+                    k_res = do_keyword()
+                    s_res = do_semantic()
+                    # Combine: Keyword matches are often more precise for names, Semantic for concepts.
+                    # We'll prioritize keyword matches, then semantic.
+                    seen = set(k_res)
+                    results = k_res + [x for x in s_res if x not in seen]
                         
-                    def do_semantic():
-                        if hasattr(self.graph, "semantic_search"):
-                            return self.graph.semantic_search(query)
-                        return []
+                if results:
+                    # Keep top 5 to allow broader exploration
+                    current_nodes = results[:5]
+                    history.append(f"SEARCH({mode}, '{query}') -> Found: {current_nodes}")
+                else:
+                    history.append(f"SEARCH({mode}, '{query}') -> Found nothing.")
+            
+            elif tool == "WALK":
+                target = decision.get("node")
+                if self.graph.graph.has_node(target):
+                    current_nodes = [target]
+                    history.append(f"WALK -> Moved to {target}")
+                else:
+                    history.append(f"WALK -> Failed. Node '{target}' does not exist.")
 
-                    if mode == "keyword":
-                        results = do_keyword()
-                    elif mode == "semantic":
-                        results = do_semantic()
-                    else: # hybrid
-                        k_res = do_keyword()
-                        s_res = do_semantic()
-                        # Combine: Keyword matches are often more precise for names, Semantic for concepts.
-                        # We'll prioritize keyword matches, then semantic.
-                        seen = set(k_res)
-                        results = k_res + [x for x in s_res if x not in seen]
-                            
-                    if results:
-                        # Keep top 5 to allow broader exploration
-                        current_nodes = results[:5]
-                        history.append(f"SEARCH({mode}, '{query}') -> Found: {current_nodes}")
-                    else:
-                        history.append(f"SEARCH({mode}, '{query}') -> Found nothing.")
-                
-                elif tool == "WALK":
-                    target = decision.get("node")
-                    if self.graph.graph.has_node(target):
-                        current_nodes = [target]
-                        history.append(f"WALK -> Moved to {target}")
-                    else:
-                        history.append(f"WALK -> Failed. Node '{target}' does not exist.")
-
-                elif tool == "READ":
-                    ans = self._clean_answer(decision.get("answer"))
-                    return ans
-                
-            except Exception as e:
-                logger.error(f"Step failed: {e}")
-                history.append(f"Error: {str(e)}")
+            elif tool == "READ":
+                ans = self._clean_answer(decision.get("answer"))
+                return ans
         
         # Fallback: Try to answer with whatever history we have
         logger.warning("Max steps reached. Attempting to answer from history.")

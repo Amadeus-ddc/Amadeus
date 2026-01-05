@@ -1,0 +1,911 @@
+2026-01-05 15:11:14,217 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-42
+========================================
+2026-01-05 15:11:15,266 - Experiment - INFO - [conv-42] 🧠 Phase 1: Building Memory (29 contextual sessions)...
+2026-01-05 15:11:15,266 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:11:39,866 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:11:39,904 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:11:39,910 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Played team shooter game--> Counter-Strike: Global Offensive (Time: 2022-01-14)
+2026-01-05 15:11:39,914 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:11:39,924 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Recommendation for Nate--> Romantic Drama (Time: 2022-01-21)
+2026-01-05 15:11:39,934 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:11:39,955 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:11:39,959 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:11:39,963 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:11:39,976 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:11:40,019 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:11:40,040 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:11:40,043 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:11:40,043 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:11:45,755 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:11:45,756 - Amadeus.Answerer - INFO - ❓ Question: What might be Joanna's favorite scene in the recommended movie?
+2026-01-05 15:11:46,936 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna favorite scene recommended movie', 'mode': 'hybrid'}
+2026-01-05 15:11:49,119 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Based on the information provided, Joanna's favorite scene in the recommended movie might be a romantic drama scene due to her enjoyment of this genre and her appreciation for the idea and acting of the movie."}
+2026-01-05 15:11:49,120 - Amadeus.Optimizer - INFO - GT: Unknown
+2026-01-05 15:11:49,120 - Amadeus.Optimizer - INFO - Pre: Joanna's favorite scene in the recommended movie might be a romantic drama scene due to her enjoyment of this genre and her appreciation for the idea and acting of the movie.
+2026-01-05 15:11:52,366 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:11:52,367 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent interactions. Avoid making assumptions based on historical information unless directly related to the current context. Encourage the Questioner to ask more specific and relevant questions that align with the most recent data in the buffer.
+2026-01-05 15:11:52,367 - Amadeus.Answerer - INFO - ❓ Question: How did Nate's team perform at the video game tournament?
+2026-01-05 15:11:53,417 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Nate's team performance at video game tournament", 'mode': 'hybrid'}
+2026-01-05 15:11:54,341 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Counter-Strike: Global Offensive'}
+2026-01-05 15:11:55,694 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Nate's team performance in Counter-Strike: Global Offensive tournament 2022", 'mode': 'hybrid'}
+2026-01-05 15:11:59,056 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Nate's team performed well in the Counter-Strike: Global Offensive tournament in 2022, winning the first video game tournament."}
+2026-01-05 15:11:59,057 - Amadeus.Optimizer - INFO - GT: They had a blast to the very end!
+2026-01-05 15:11:59,057 - Amadeus.Optimizer - INFO - Pre: Nate's team performed well in the Counter-Strike: Global Offensive tournament in 2022, winning the first video game tournament.
+2026-01-05 15:12:02,680 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:12:02,681 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that the builder captures and retains information about the performance of teams in gaming contexts. Specifically, include rules to recognize and store qualitative descriptions of team performance such as 'had a blast to the very end'.
+2026-01-05 15:12:02,682 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Team Performance", "content": "They had a blast to the very end!"}]
+2026-01-05 15:12:08,397 - Amadeus.Builder - INFO - 🔗 LINK: Nate --They had a blast to the very end!--> Team Performance (Time: 2023-01-01)
+2026-01-05 15:12:08,405 - Amadeus.Answerer - INFO - ❓ Question: What game did Joanna play recently?
+2026-01-05 15:12:11,099 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna recent game', 'mode': 'hybrid'}
+2026-01-05 15:12:12,486 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Joanna played Counter-Strike: Global Offensive recently.'}
+2026-01-05 15:12:12,486 - Amadeus.Optimizer - INFO - GT: Unknown
+2026-01-05 15:12:12,487 - Amadeus.Optimizer - INFO - Pre: Joanna played Counter-Strike: Global Offensive recently.
+2026-01-05 15:12:17,650 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:12:17,651 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture the context of recent activities explicitly by adding direct links between subjects and their most recent actions or experiences. For example, add a node for Joanna and link it to the specific game she played recently.
+2026-01-05 15:12:17,651 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Counter-Strike: Global Offensive", "content": "Joanna --Recently Played Game--> Unknown"}]
+2026-01-05 15:12:22,589 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna --Recently Played Game--> Unknown--> Counter-Strike: Global Offensive (Time: None)
+2026-01-05 15:12:22,593 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:12:40,075 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:12:40,099 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:12:40,117 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Mix of drama and romance--> Screenplay (Time: 2022-01-21)
+2026-01-05 15:12:40,251 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:12:40,301 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Bring joy and help with stress--> Turtles (Time: 2022-01-14)
+2026-01-05 15:12:40,337 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Severely allergic to most reptiles and animals with fur--> Allergies (Time: 2022-01-14)
+2026-01-05 15:12:40,406 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:12:40,408 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Met new people at the tournament--> Joanna (Time: 2022-01-14)
+2026-01-05 15:12:40,457 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:12:40,457 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:12:46,148 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:12:46,148 - Amadeus.Answerer - INFO - ❓ Question: What does Joanna mention as a way to express herself through stories?
+2026-01-05 15:12:48,299 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna expresses herself through stories', 'mode': 'hybrid'}
+2026-01-05 15:12:49,615 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Joanna mentions that she enjoys expressing herself through writing and screenplays, specifically mentioning that she finished her first full screenplay and printed it.'}
+2026-01-05 15:12:49,616 - Amadeus.Optimizer - INFO - GT: Writing helps her create wild worlds with awesome characters.
+2026-01-05 15:12:49,616 - Amadeus.Optimizer - INFO - Pre: Joanna mentions that she enjoys expressing herself through writing and screenplays, specifically mentioning that she finished her first full screenplay and printed it.
+2026-01-05 15:12:54,234 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:12:54,234 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to trust the graph more when retrieving answers and consider multiple hops to find relevant information. Also, suggest the Answerer to verify the information directly in the text buffer before providing an answer.
+2026-01-05 15:12:54,234 - Amadeus.Answerer - INFO - ❓ Question: How long has Nate had his turtles?
+2026-01-05 15:12:55,693 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate turtles duration', 'mode': 'hybrid'}
+2026-01-05 15:12:56,677 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Nate has had his turtles for 3 years.'}
+2026-01-05 15:12:56,677 - Amadeus.Optimizer - INFO - GT: He has had them for 3 years.
+2026-01-05 15:12:56,677 - Amadeus.Optimizer - INFO - Pre: Nate has had his turtles for 3 years.
+2026-01-05 15:12:59,919 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:12:59,919 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture the specific time when information about Nate's turtles was introduced. Ensure that relationships and attributes are not only created but also linked correctly with timestamps to reflect when the information was known.
+2026-01-05 15:12:59,919 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Turtles", "content": "Time: 2022-01-14"}]
+2026-01-05 15:13:05,039 - Amadeus.Answerer - INFO - ❓ Question: What is Joanna's primary emotion after finishing her screenplay?
+2026-01-05 15:13:06,871 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna screenplay primary emotion', 'mode': 'hybrid'}
+2026-01-05 15:13:08,282 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "Joanna's primary emotion after finishing her screenplay", 'mode': 'hybrid'}
+2026-01-05 15:13:09,145 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Romantic Drama'}
+2026-01-05 15:13:10,857 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "The exploration history does not provide enough information to determine Joanna's primary emotion after finishing her screenplay. The node 'Romantic Drama' is related to Joanna but no specific emotion is mentioned."}
+2026-01-05 15:13:10,857 - Amadeus.Optimizer - INFO - GT: She feels a rollercoaster of emotions including relief, excitement, and anxiety.
+2026-01-05 15:13:10,857 - Amadeus.Optimizer - INFO - Pre: The exploration history does not provide enough information to determine Joanna's primary emotion after finishing her screenplay. The node 'Romantic Drama' is related to Joanna but no specific emotion is mentioned.
+2026-01-05 15:13:18,934 - openai._base_client - INFO - Retrying request to /chat/completions in 0.409525 seconds
+2026-01-05 15:13:24,104 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:13:24,105 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should be updated to ensure that relevant emotional states are captured when linking attributes or relationships. Specifically, the Builder should be instructed to extract and include emotional descriptions directly related to significant life events, such as completing a screenplay.
+2026-01-05 15:13:24,105 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Emotion", "content": "Joanna feels a rollercoaster of emotions including relief, excitement, and anxiety after finishing her screenplay."}, {"action": "LINK", "subject": "Screenplay", "object": "Emotion", "content": "Joanna's emotions after finishing her screenplay include relief, excitement, and anxiety."}]
+2026-01-05 15:13:32,778 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:13:32,787 - Amadeus.Builder - INFO - 🔗 LINK: Screenplay --Joanna's emotions after finishing her screenplay include relief, excitement, and anxiety.--> Emotion (Time: 2023-01-01)
+2026-01-05 15:13:32,853 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:14:04,433 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:14:04,449 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feels a rollercoaster of emotions including relief, excitement, and worry after finishing her screenplay.--> Screenplay (Time: 2022-02-07)
+2026-01-05 15:14:04,471 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:14:04,471 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Sent positive vibes to Joanna regarding her screenplay.--> Joanna (Time: 2022-02-07)
+2026-01-05 15:14:04,471 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Made a dairy-free chocolate cake with berries.--> Screenplay (Time: 2022-02-07)
+2026-01-05 15:14:04,471 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Asked Nate about his favorite flavors for dairy-free desserts.--> Nate (Time: 2022-02-07)
+2026-01-05 15:14:04,491 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Prefers coconut milk, chocolate, and mixed berry flavors for dairy-free desserts.--> Favorite Flavors (Time: 2022-02-07)
+2026-01-05 15:14:04,538 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:14:04,539 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Planned to watch 'Little Women' based on Joanna's recommendation.--> Joanna (Time: 2022-02-07)
+2026-01-05 15:14:04,539 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Planned to hear back from Nate about his thoughts on the movie.--> Nate (Time: 2022-02-07)
+2026-01-05 15:14:04,670 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:14:04,740 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:14:04,809 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:14:04,830 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:14:10,575 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:14:10,576 - Amadeus.Answerer - INFO - ❓ Question: What does Joanna hope will happen with her screenplay?
+2026-01-05 15:14:11,686 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna screenplay hopes', 'mode': 'hybrid'}
+2026-01-05 15:14:12,724 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:14:14,243 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Joanna hopes that her screenplay will bring relief, excitement, and worry after finishing it, as these were her mixed emotions at the time.'}
+2026-01-05 15:14:14,244 - Amadeus.Optimizer - INFO - GT: She hopes a producer or director falls in love with it and it ends up on the big screen.
+2026-01-05 15:14:14,244 - Amadeus.Optimizer - INFO - Pre: Joanna hopes that her screenplay will bring relief, excitement, and worry after finishing it, as these were her mixed emotions at the time.
+2026-01-05 15:14:18,298 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:14:18,298 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it doesn't stop at 1-hop when retrieving information. Encourage the Answerer to trust the Global Memory Graph more and verify the context by looking at multiple hops or connections to the subject.
+2026-01-05 15:14:18,298 - Amadeus.Answerer - INFO - ❓ Question: How does Joanna feel about Nate's cooking skills?
+2026-01-05 15:14:19,504 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna Nate cooking skills', 'mode': 'hybrid'}
+2026-01-05 15:14:20,790 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Romantic Drama'}
+2026-01-05 15:14:21,797 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Joanna recommends Nate's cooking skills, likely indicating a positive opinion."}
+2026-01-05 15:14:21,798 - Amadeus.Optimizer - INFO - GT: She can tell that Nate is talented and compliments his skills.
+2026-01-05 15:14:21,799 - Amadeus.Optimizer - INFO - Pre: Joanna recommends Nate's cooking skills, likely indicating a positive opinion.
+2026-01-05 15:14:25,858 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:14:25,858 - Amadeus.Answerer - INFO - ❓ Question: What flavors did Nate mention enjoying for dairy-free desserts besides coconut milk?
+2026-01-05 15:14:26,844 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate dairy-free desserts flavors', 'mode': 'hybrid'}
+2026-01-05 15:14:27,975 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Favorite Flavors'}
+2026-01-05 15:14:29,074 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Besides coconut milk, Nate mentioned enjoying chocolate and mixed berry flavors for dairy-free desserts.'}
+2026-01-05 15:14:29,074 - Amadeus.Optimizer - INFO - GT: He mentioned enjoying chocolate and mixed berry flavors.
+2026-01-05 15:14:29,074 - Amadeus.Optimizer - INFO - Pre: Besides coconut milk, Nate mentioned enjoying chocolate and mixed berry flavors for dairy-free desserts.
+2026-01-05 15:14:33,446 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:14:33,446 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it does not hallucinate answers by only trusting the graph connections and not over-relying on priors. Increase the depth of search to more than one hop to find relevant information.
+2026-01-05 15:14:33,446 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 4. Processing Buffer...
+2026-01-05 15:14:52,272 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:14:52,272 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Mentioned he hopes his screenplay finds a fan and is given its due. Provided additional context about his feelings towards Joanna's screenplay.--> Screenplay (Time: 2022-02-25)
+2026-01-05 15:14:52,272 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Continued working on her screenplay, mentioned it's about a thirty-year-old woman on a journey of self-discovery after a loss.--> Screenplay (Time: 2022-02-25)
+2026-01-05 15:14:52,272 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Hoping her screenplay gets noticed and makes it to the screen. Fingers crossed!--> Emotion (Time: 2022-02-25)
+2026-01-05 15:14:52,272 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Supportive of Joanna's screenplay and hopes it finds success.--> Joanna (Time: 2022-02-25)
+2026-01-05 15:14:52,292 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:14:52,299 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Dealing with loss and trying to figure out who she is during a road trip.--> Main Character (Time: 2022-02-25)
+2026-01-05 15:14:52,304 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Inspired by personal experiences and her own journey of self-discovery.--> Personal Journey (Time: 2022-02-25)
+2026-01-05 15:14:52,314 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Baked a dairy-free chocolate and vanilla swirl ice cream recipe for a friend.--> Cooking (Time: 2022-02-25)
+2026-01-05 15:14:52,323 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Knows a recipe using coconut milk for dairy-free desserts.--> Coconut Milk Ice Cream Recipe (Time: 2022-02-25)
+2026-01-05 15:14:52,355 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:14:52,355 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:15:03,340 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:15:03,340 - Amadeus.Answerer - INFO - ❓ Question: What did Joanna start doing while waiting to hear back about her first screenplay?
+2026-01-05 15:15:04,932 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna waiting for screenplay feedback', 'mode': 'hybrid'}
+2026-01-05 15:15:06,474 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:15:07,960 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna emotions after finishing screenplay and waiting for feedback', 'mode': 'hybrid'}
+2026-01-05 15:15:11,357 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'While waiting to hear back about her first screenplay, Joanna was experiencing a rollercoaster of emotions including relief, excitement, and anxiety.'}
+2026-01-05 15:15:11,357 - Amadeus.Optimizer - INFO - GT: She started writing another screenplay.
+2026-01-05 15:15:11,357 - Amadeus.Optimizer - INFO - Pre: While waiting to hear back about her first screenplay, Joanna was experiencing a rollercoaster of emotions including relief, excitement, and anxiety.
+2026-01-05 15:15:14,276 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:15:14,276 - Amadeus.Answerer - INFO - ❓ Question: What type of journey is the main character in Joanna's new screenplay taking?
+2026-01-05 15:15:15,326 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna new screenplay main character journey', 'mode': 'hybrid'}
+2026-01-05 15:15:17,197 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Romantic Drama'}
+2026-01-05 15:15:18,202 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "The main character in Joanna's new screenplay is taking a romantic journey."}
+2026-01-05 15:15:18,202 - Amadeus.Optimizer - INFO - GT: They are taking a road trip to heal and grow.
+2026-01-05 15:15:18,202 - Amadeus.Optimizer - INFO - Pre: The main character in Joanna's new screenplay is taking a romantic journey.
+2026-01-05 15:15:30,014 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:15:30,014 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the builder's System Prompt to ensure it captures the specific details of the main character's journey in the screenplay. The builder should focus on extracting relevant information directly linked to the screenplay's context rather than inferring based on unrelated activities.
+2026-01-05 15:15:30,015 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Main Character", "content": "Joanna is dealing with loss and trying to figure out who she is during a road trip."}, {"action": "REMOVE", "subject": "Joanna", "object": "Main Character", "content": "Joanna is taking a romantic journey."}]
+2026-01-05 15:15:39,687 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna is dealing with loss and trying to figure out who she is during a road trip.--> Main Character (Time: 2022-02-25)
+2026-01-05 15:15:39,688 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Joanna -> Main Character
+2026-01-05 15:15:39,695 - Amadeus.Answerer - INFO - ❓ Question: Why does Nate think Joanna's new screenplay is awesome?
+2026-01-05 15:15:43,162 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate Joanna new screenplay awesome', 'mode': 'hybrid'}
+2026-01-05 15:15:48,129 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:15:49,010 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:15:50,068 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Nate Joanna screenplay reaction', 'mode': 'hybrid'}
+2026-01-05 15:15:52,826 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Nate thinks Joanna's new screenplay is awesome because he sent positive vibes to Joanna regarding her screenplay on February 7, 2022, and mentioned he hopes it finds a fan and is given its due on February 25, 2022."}
+2026-01-05 15:15:52,827 - Amadeus.Optimizer - INFO - GT: Because it tackles important issues.
+2026-01-05 15:15:52,827 - Amadeus.Optimizer - INFO - Pre: Nate thinks Joanna's new screenplay is awesome because he sent positive vibes to Joanna regarding her screenplay on February 7, 2022, and mentioned he hopes it finds a fan and is given its due on February 25, 2022.
+2026-01-05 15:15:54,757 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:15:54,758 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 5. Processing Buffer...
+2026-01-05 15:16:20,298 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:16:20,299 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Hopes her screenplay gets noticed and makes it to the big screen. Continuing research and networking.--> Screenplay (Time: 2022-03-18)
+2026-01-05 15:16:20,323 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Supports Joanna's screenplay and encourages her not to quit.--> Support (Time: 2022-03-18)
+2026-01-05 15:16:20,327 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Allergic to cockroaches and considering other pets.--> Pet Allergy (Time: 2022-03-18)
+2026-01-05 15:16:20,330 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Keeps turtles as pets. Finds them calming and low-maintenance.--> Turtle (Time: 2022-03-18)
+2026-01-05 15:16:20,393 - Amadeus.Builder - INFO - ➕ NODE: Turtles
+2026-01-05 15:16:20,457 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Decompressing after finishing her screenplay.--> Decompression (Time: 2022-03-18)
+2026-01-05 15:16:20,533 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Interested in getting turtles as pets despite her allergy.--> Pet Interest (Time: 2022-03-18)
+2026-01-05 15:16:20,543 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Shares pet turtle pictures with Joanna to keep her engaged.--> Pet Sharing (Time: 2022-03-18)
+2026-01-05 15:16:20,624 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feels a mix of relief, anxiety, and excitement about her screenplay.--> Emotional State (Time: 2022-03-18)
+2026-01-05 15:16:20,685 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Considers getting turtles as pets but is allergic to them.--> Pet Consideration (Time: 2022-03-18)
+2026-01-05 15:16:20,690 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Prefers turtles as pets due to their unique nature and calming effect.--> Pet Preference (Time: 2022-03-18)
+2026-01-05 15:16:20,704 - Amadeus.Builder - INFO - ⏳ WAIT: What made you choose turtles a...
+2026-01-05 15:16:20,704 - Amadeus.Builder - INFO - ⏳ WAIT: See you later!...
+2026-01-05 15:16:20,731 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:16:20,732 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:16:30,046 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:16:30,046 - Amadeus.Answerer - INFO - ❓ Question: How does Joanna feel about her script getting noticed and hitting the big screen?
+2026-01-05 15:16:32,158 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna script big screen', 'mode': 'hybrid'}
+2026-01-05 15:16:35,393 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Joanna feels a rollercoaster of emotions including relief, excitement, and anxiety about her script getting noticed and hitting the big screen.'}
+2026-01-05 15:16:35,393 - Amadeus.Optimizer - INFO - GT: Joanna feels a mix of relief and anxiety about her script getting noticed and hitting the big screen.
+2026-01-05 15:16:35,394 - Amadeus.Optimizer - INFO - Pre: Joanna feels a rollercoaster of emotions including relief, excitement, and anxiety about her script getting noticed and hitting the big screen.
+2026-01-05 15:16:37,586 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:16:37,587 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent feelings. Avoid asking about historical or long-term emotional states unless directly relevant to the current context.
+2026-01-05 15:16:37,587 - Amadeus.Answerer - INFO - ❓ Question: What connection does Nate make between his turtles and his work on scripts?
+2026-01-05 15:16:38,670 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate turtles scripts connection', 'mode': 'hybrid'}
+2026-01-05 15:16:39,995 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:16:40,828 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:16:42,747 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Nate turtles screenplay emotion', 'mode': 'hybrid'}
+2026-01-05 15:16:44,985 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:16:45,802 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:16:46,800 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Nate turtles screenplay emotion', 'mode': 'hybrid'}
+2026-01-05 15:16:48,544 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:16:48,544 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:16:51,358 - Amadeus.Optimizer - INFO - GT: Nate connects the slow pace of taking care of turtles to the calm and steady approach needed for writing scripts.
+2026-01-05 15:16:51,358 - Amadeus.Optimizer - INFO - Pre: Nate connects his turtles to his work on scripts by finding them calming and low-maintenance, which helps him manage stress while he continues to work on his own screenplay. He shares this connection by supporting Joanna's screenplay and encouraging her not to quit, while also mentioning his hopes that his screenplay finds a fan and is given its due.
+2026-01-05 15:16:58,532 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:16:58,533 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the builder's System Prompt to ensure it captures more explicit connections between characters and their work. Specifically, add rules to identify and link personal hobbies or pets directly to their professional lives.
+2026-01-05 15:16:58,533 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Screenplay", "content": "Nate shares his experiences and connections related to his own screenplay with Joanna."}]
+2026-01-05 15:17:02,513 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Nate shares his experiences and connections related to his own screenplay with Joanna.--> Screenplay (Time: 2023-01-01)
+2026-01-05 15:17:02,532 - Amadeus.Answerer - INFO - ❓ Question: Why does Joanna wish she wasn't allergic to cockroaches and turtles?
+2026-01-05 15:17:05,484 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna allergy to cockroaches and turtles', 'mode': 'hybrid'}
+2026-01-05 15:17:08,315 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pet Allergy'}
+2026-01-05 15:17:09,302 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Allergic to cockroaches and considering other pets.'}
+2026-01-05 15:17:12,310 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna why not allergic to cockroaches and turtles', 'mode': 'hybrid'}
+2026-01-05 15:17:32,769 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Joanna wishes she wasn't allergic to cockroaches and turtles because she is severely allergic to most reptiles and animals with fur, and she is considering getting turtles as pets despite her allergy. This allergy prevents her from enjoying these pets, which could bring her joy and help with stress."}
+2026-01-05 15:17:32,770 - Amadeus.Optimizer - INFO - GT: Joanna wishes she wasn't allergic to cockroaches and turtles so she could get a pet, as she finds pets like turtles to be calming and joyful.
+2026-01-05 15:17:32,770 - Amadeus.Optimizer - INFO - Pre: Joanna wishes she wasn't allergic to cockroaches and turtles because she is severely allergic to most reptiles and animals with fur, and she is considering getting turtles as pets despite her allergy. This allergy prevents her from enjoying these pets, which could bring her joy and help with stress.
+2026-01-05 15:17:41,791 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:17:41,792 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 6. Processing Buffer...
+2026-01-05 15:18:00,270 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:18:00,270 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Continues to work hard on his screenplay and expresses faith in Joanna's project.--> Screenplay (Time: 2022-03-24)
+2026-01-05 15:18:00,270 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Continues to work on her screenplay and receives encouragement from Nate.--> Screenplay (Time: 2022-03-24)
+2026-01-05 15:18:00,271 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feels mixed emotions - excited, anxious, and relief about her screenplay.--> Emotion (Time: 2022-03-24)
+2026-01-05 15:18:00,271 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Interested in getting turtles as pets despite her allergy.--> Pet Interest (Time: 2022-03-24)
+2026-01-05 15:18:00,302 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:18:00,302 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Encourages and supports Joanna's writing project.--> Joanna (Time: 2022-03-24)
+2026-01-05 15:18:00,321 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Working on a writing project and seeking advice on pursuing writing.--> Writing Project (Time: 2022-03-24)
+2026-01-05 15:18:00,321 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Receives encouragement and advice from Nate.--> Support (Time: 2022-03-24)
+2026-01-05 15:18:00,356 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:18:00,361 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:18:07,329 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:18:07,329 - Amadeus.Answerer - INFO - ❓ Question: What might be the reason for Joanna's mixed emotions during her audition?
+2026-01-05 15:18:12,381 - openai._base_client - INFO - Retrying request to /chat/completions in 0.484335 seconds
+2026-01-05 15:18:14,316 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna audition mixed emotions', 'mode': 'hybrid'}
+2026-01-05 15:18:15,520 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:18:16,646 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:18:18,839 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Joanna's mixed emotions during her audition might be due to relief, excitement, and anxiety about her screenplay. She feels relieved that she has completed her screenplay and is excited about the possibility of it getting noticed and making it to the screen, but she is also anxious about the outcome of the audition."}
+2026-01-05 15:18:18,840 - Amadeus.Optimizer - INFO - GT: She is excited but also a bit anxious.
+2026-01-05 15:18:18,840 - Amadeus.Optimizer - INFO - Pre: Joanna's mixed emotions during her audition might be due to relief, excitement, and anxiety about her screenplay. She feels relieved that she has completed her screenplay and is excited about the possibility of it getting noticed and making it to the screen, but she is also anxious about the outcome of the audition.
+2026-01-05 15:18:21,683 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:18:21,683 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and avoid asking about historical context or speculative scenarios. Encourage the system to prioritize recent information and context when generating predictions.
+2026-01-05 15:18:21,683 - Amadeus.Answerer - INFO - ❓ Question: How does Joanna feel about her go-to place for writing inspiration?
+2026-01-05 15:18:22,769 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna writing inspiration place', 'mode': 'hybrid'}
+2026-01-05 15:18:24,791 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Joanna feels a rollercoaster of emotions including relief, excitement, and anxiety about her go-to place for writing inspiration, which is her new screenplay about a thirty-year-old woman on a journey of self-discovery after a loss.'}
+2026-01-05 15:18:24,792 - Amadeus.Optimizer - INFO - GT: It helps her stay sharp and motivated.
+2026-01-05 15:18:24,792 - Amadeus.Optimizer - INFO - Pre: Joanna feels a rollercoaster of emotions including relief, excitement, and anxiety about her go-to place for writing inspiration, which is her new screenplay about a thirty-year-old woman on a journey of self-discovery after a loss.
+2026-01-05 15:18:29,572 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:18:29,572 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to focus on directly relevant information and avoid adding unrelated details. Ensure that the builder extracts only the most pertinent facts and relationships from the text buffer.
+2026-01-05 15:18:29,572 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "go-to place for writing inspiration", "content": "It helps her stay sharp and motivated."}, {"action": "REMOVE", "subject": "Joanna", "object": "new screenplay about a thirty-year-old woman on a journey of self-discovery after a loss", "content": ""}]
+2026-01-05 15:18:36,674 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --It helps her stay sharp and motivated.--> go-to place for writing inspiration (Time: 2023-01-15)
+2026-01-05 15:18:36,905 - Amadeus.Answerer - INFO - ❓ Question: Where is Joanna likely when she mentions her go-to place for writing inspiration?
+2026-01-05 15:18:38,445 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna go-to place writing inspiration', 'mode': 'hybrid'}
+2026-01-05 15:18:39,956 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Personal Journey'}
+2026-01-05 15:18:41,177 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Joanna is likely referring to her own journey of self-discovery as her go-to place for writing inspiration.'}
+2026-01-05 15:18:41,178 - Amadeus.Optimizer - INFO - GT: Unknown
+2026-01-05 15:18:41,178 - Amadeus.Optimizer - INFO - Pre: Joanna is likely referring to her own journey of self-discovery as her go-to place for writing inspiration.
+2026-01-05 15:18:44,505 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:18:44,506 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should be more thorough in its search strategies, ensuring that it considers multiple hops in the graph to find relevant information. It should also prioritize retrieving recent and contextually relevant details over historical or general information.
+2026-01-05 15:18:47,370 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 7. Processing Buffer...
+2026-01-05 15:19:08,448 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:19:08,454 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:19:08,459 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Keeps working hard on his screenplay and expressing faith in Joanna's project--> Screenplay (Time: 2022-03-24)
+2026-01-05 15:19:08,459 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Continuing to work on her screenplay, hoping for good news--> Screenplay (Time: 2022-03-24)
+2026-01-05 15:19:08,459 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feels a mix of relief, anxiety, and excitement about her screenplay--> Emotion (Time: 2022-03-24)
+2026-01-05 15:19:08,459 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Interested in getting turtles as pets despite her allergy--> Pet Interest (Time: 2022-03-18)
+2026-01-05 15:19:08,460 - Amadeus.Builder - INFO - ⏳ WAIT: Jealous of Joanna's sunset exp...
+2026-01-05 15:19:08,460 - Amadeus.Builder - INFO - ⏳ WAIT: Wish for a vacation but curren...
+2026-01-05 15:19:08,489 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:19:08,490 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:19:14,755 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:19:14,755 - Amadeus.Answerer - INFO - ❓ Question: How does Joanna feel after seeing Nate's new hair color and reflecting on her own experience with the sunset?
+2026-01-05 15:19:16,138 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna Nate new hair color sunset reflection', 'mode': 'hybrid'}
+2026-01-05 15:19:17,506 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:19:18,967 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Joanna's emotions after Nate's new hair color and screenplay reflections", 'mode': 'hybrid'}
+2026-01-05 15:19:20,778 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Joanna's emotions after Nate's new hair color and reflection on screenplay", 'mode': 'hybrid'}
+2026-01-05 15:19:22,418 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Joanna's emotions after Nate's new hair color and reflection on screenplay", 'mode': 'hybrid'}
+2026-01-05 15:19:24,325 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Joanna's emotions after seeing Nate's new hair color and reflection on screenplay", 'mode': 'hybrid'}
+2026-01-05 15:19:25,750 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:19:27,666 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Joanna's emotions after seeing Nate's new hair color and reflection on screenplay", 'mode': 'hybrid'}
+2026-01-05 15:19:27,672 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:19:28,058 - Amadeus.Optimizer - INFO - GT: Joanna feels inspired and appreciates the importance of showing herself to the world.
+2026-01-05 15:19:28,058 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:19:31,260 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:19:31,260 - Amadeus.Answerer - INFO - ❓ Question: What might be the reason for Joanna’s focus on her writing instead of planning a vacation?
+2026-01-05 15:19:32,213 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna focus writing vacation reasons', 'mode': 'hybrid'}
+2026-01-05 15:19:33,964 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:19:34,755 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:19:36,509 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Joanna’s focus on her writing instead of planning a vacation might be due to her mixed emotions of relief, anxiety, and excitement about her screenplay. She is likely busy with the writing process as she hopes her screenplay gets noticed and made into a film.'}
+2026-01-05 15:19:36,510 - Amadeus.Optimizer - INFO - GT: Her current project is consuming her, indicating a high workload or personal commitment.
+2026-01-05 15:19:36,510 - Amadeus.Optimizer - INFO - Pre: Joanna’s focus on her writing instead of planning a vacation might be due to her mixed emotions of relief, anxiety, and excitement about her screenplay. She is likely busy with the writing process as she hopes her screenplay gets noticed and made into a film.
+2026-01-05 15:19:40,659 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:19:40,660 - Amadeus.Answerer - INFO - ❓ Question: What do Joanna and Nate plan to do next regarding their upcoming meetings?
+2026-01-05 15:19:41,681 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna Nate upcoming meetings', 'mode': 'hybrid'}
+2026-01-05 15:19:44,040 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:19:45,398 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:19:46,615 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna and Nate next steps meetings', 'mode': 'hybrid'}
+2026-01-05 15:19:48,330 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:19:49,242 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:19:50,404 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna and Nate plans for upcoming meetings', 'mode': 'hybrid'}
+2026-01-05 15:19:52,068 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:19:52,068 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:19:53,434 - Amadeus.Optimizer - INFO - GT: They plan to stay in touch and update each other on their progress.
+2026-01-05 15:19:53,434 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:19:57,408 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:19:57,408 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to include plans and intentions related to future actions, especially in conversations about upcoming meetings. Ensure that the builder captures context about future plans when processing dialogue.
+2026-01-05 15:19:57,408 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Joanna", "content": "Plan to stay in touch and update each other on their progress."}, {"action": "ADD", "object": "Meetings", "content": "Upcoming meetings to be discussed during communication."}]
+2026-01-05 15:20:04,581 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Plan to stay in touch and update each other on their progress.--> Joanna (Time: 2023-01-01)
+2026-01-05 15:20:04,581 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:20:04,595 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 8. Processing Buffer...
+2026-01-05 15:20:56,385 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:20:56,392 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:20:56,397 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Found an awesome hiking trail in her hometown--> Hiking Trail (Time: 2022-04-17)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Considers getting turtles as pets despite her allergy--> Pet Allergy (Time: 2022-03-18)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feels a mix of relief, anxiety, and excitement about her screenplay--> Emotion (Time: 2022-03-24)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Continuing to work on her screenplay and receives encouragement and advice from Nate--> Writing Project (Time: 2022-03-24)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Shares pet turtle pictures with Joanna to keep her engaged--> Joanna (Time: 2022-03-18)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Hopes Joanna's screenplay finds success and gets noticed--> Joanna (Time: 2022-02-25)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Interested in trying to make dairy-free desserts like Nate's ice cream--> Nate (Time: 2022-04-17)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Expresses appreciation for Nate's ice cream recipe--> Nate (Time: 2022-04-17)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Wants to try making the coconut milk ice cream recipe--> Nate (Time: 2022-04-17)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Sends a message to Nate about trying the recipe--> Nate (Time: 2022-04-17)
+2026-01-05 15:20:56,401 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Shares recipe for coconut milk ice cream--> Joanna (Time: 2022-04-17)
+2026-01-05 15:20:56,502 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Brings pet turtle into the kitchen to watch him make food--> Pet Turtle (Time: 2022-04-17)
+2026-01-05 15:20:56,503 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Prefers turtles as pets due to their unique nature and calming effect--> Pet Interest (Time: 2022-03-18)
+2026-01-05 15:20:56,503 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Nate -> Cooking
+2026-01-05 15:20:56,503 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Keeps pet turtle as a calming and low-maintenance companion--> Pet Turtle (Time: 2022-04-17)
+2026-01-05 15:20:56,503 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feels a mix of relief, anxiety, and excitement about her screenplay--> Emotion (Time: 2022-04-17)
+2026-01-05 15:20:56,503 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Wants to hear back from Nate about his thoughts on the movie--> Nate (Time: 2022-02-07)
+2026-01-05 15:20:56,503 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Plans to try making a dairy-free dessert or visit Nate for one--> Nate (Time: 2022-02-07)
+2026-01-05 15:20:56,552 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Inspires her and helps her decompress--> Nature (Time: 2022-04-17)
+2026-01-05 15:20:56,553 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Shares his ice cream recipe with Joanna--> Joanna (Time: 2022-04-17)
+2026-01-05 15:20:56,553 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Prefers pet turtles over other pets--> Pet Turtle (Time: 2022-04-17)
+2026-01-05 15:20:56,553 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Brings pet turtle into the kitchen to watch him make food--> Pet Turtle (Time: 2022-04-17)
+2026-01-05 15:20:56,553 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Shares pet turtle pictures with Joanna to keep her engaged--> Pet Turtle (Time: 2022-04-17)
+2026-01-05 15:20:56,553 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Inspires her and helps her decompress--> Nature (Time: 2022-04-17)
+2026-01-05 15:20:56,727 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:20:56,739 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:21:02,454 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:21:02,456 - Amadeus.Answerer - INFO - ❓ Question: What activity does Joanna believe helps her reset and find peace?
+2026-01-05 15:21:03,634 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna reset peace activity', 'mode': 'hybrid'}
+2026-01-05 15:21:05,133 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:21:06,066 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:21:07,105 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna reset activity', 'mode': 'hybrid'}
+2026-01-05 15:21:25,942 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'Joanna believes that cooking, particularly making dairy-free desserts, helps her reset and find peace.'}
+2026-01-05 15:21:25,942 - Amadeus.Optimizer - INFO - GT: Hiking in her hometown's trail.
+2026-01-05 15:21:25,942 - Amadeus.Optimizer - INFO - Pre: Joanna believes that cooking, particularly making dairy-free desserts, helps her reset and find peace.
+2026-01-05 15:21:29,810 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:21:29,810 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to trust the graph more and consider multi-hop connections when retrieving information. Specifically, ensure the Answerer looks for direct mentions of activities believed to help the individual reset and find peace.
+2026-01-05 15:21:29,810 - Amadeus.Answerer - INFO - ❓ Question: How does Nate feel about bringing his turtles into the kitchen?
+2026-01-05 15:21:31,667 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate feels about bringing turtles into the kitchen', 'mode': 'hybrid'}
+2026-01-05 15:21:34,748 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pet Turtle'}
+2026-01-05 15:21:36,316 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Based on the available information, Nate feels positively about bringing his turtles into the kitchen. He prefers pet turtles over other pets and shares pictures of them with Joanna to keep her engaged.'}
+2026-01-05 15:21:36,317 - Amadeus.Optimizer - INFO - GT: He loves the peaceful moments it brings.
+2026-01-05 15:21:36,317 - Amadeus.Optimizer - INFO - Pre: Based on the available information, Nate feels positively about bringing his turtles into the kitchen. He prefers pet turtles over other pets and shares pictures of them with Joanna to keep her engaged.
+2026-01-05 15:21:38,706 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:21:38,706 - Amadeus.Answerer - INFO - ❓ Question: Why does Joanna say nature is always her haven?
+2026-01-05 15:21:39,750 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna nature haven', 'mode': 'hybrid'}
+2026-01-05 15:21:41,443 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Nature'}
+2026-01-05 15:21:42,963 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Joanna says nature is always her haven because it inspires her and helps her decompress, as noted in the information from April 17, 2022.'}
+2026-01-05 15:21:42,963 - Amadeus.Optimizer - INFO - GT: Because walking in it, feeling it, and hearing the sounds are calming and help her forget worries and stress.
+2026-01-05 15:21:42,963 - Amadeus.Optimizer - INFO - Pre: Joanna says nature is always her haven because it inspires her and helps her decompress, as noted in the information from April 17, 2022.
+2026-01-05 15:21:47,901 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:21:47,901 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to capture direct statements about personal preferences and hobbies. Specifically, ensure that when Joanna mentions nature as her haven, it is linked directly to her preference for it as a place to decompress and feel calm.
+2026-01-05 15:21:47,902 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Nature", "content": "Joanna --Nature is always her haven--> Haven (Time: 2023-04-17)"}]
+2026-01-05 15:22:00,343 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Nature is always her haven--> Nature (Time: 2023-04-17)
+2026-01-05 15:22:00,370 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 9. Processing Buffer...
+2026-01-05 15:22:35,293 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:22:35,298 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joined a writers group--> Writers Group (Time: 2022-04-21)
+2026-01-05 15:22:35,299 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Working on 'Finding Home', a script about a girl on a journey to find her true home--> Screenplay (Time: 2022-04-21)
+2026-01-05 15:22:35,299 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feels motivated and supported, it's like she finally belongs somewhere--> Emotion (Time: 2022-04-21)
+2026-01-05 15:22:35,303 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Upcoming gaming tournament next month, 4th one--> Gaming Tournament (Time: 2022-04-21)
+2026-01-05 15:22:35,303 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Feeling good about the upcoming gaming tournament--> Emotion (Time: 2022-04-21)
+2026-01-05 15:22:35,303 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Enjoys fantasy and sci-fi movies, they're a great escape and get his imagination going--> Favorite Flavors (Time: 2022-04-21)
+2026-01-05 15:22:35,308 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Favorable series with adventures, magic, and great characters--> Series (Time: 2022-04-21)
+2026-01-05 15:22:35,319 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Playing video games is a great way to express his creativity and passion--> Screenplay (Time: 2022-04-21)
+2026-01-05 15:22:35,342 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Enjoys dramas and emotionally-driven films--> Movies (Time: 2022-04-21)
+2026-01-05 15:22:35,374 - Amadeus.Builder - INFO - ⏳ WAIT: What books do you enjoy? I'm a...
+2026-01-05 15:22:35,375 - Amadeus.Builder - INFO - ⏳ WAIT: No problem, glad to see an int...
+2026-01-05 15:22:35,376 - Amadeus.Builder - INFO - ⏳ WAIT: Thanks Nate! I'll definitely l...
+2026-01-05 15:22:35,377 - Amadeus.Builder - INFO - ⏳ WAIT: See you! Good chatting with yo...
+2026-01-05 15:22:35,505 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:22:35,508 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:22:48,324 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:22:48,325 - Amadeus.Answerer - INFO - ❓ Question: What project is Joanna currently working on with her writers group, and what does she find rewarding about it?
+2026-01-05 15:22:53,674 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna writers group project', 'mode': 'hybrid'}
+2026-01-05 15:22:55,276 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:22:59,223 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Joanna is currently working on a screenplay called 'Finding Home', which is about a girl on a journey to find her true home. She finds it rewarding because it allows her to express her emotions and passion through a mix of drama and romance, and she feels a range of emotions including relief, excitement, and worry after finishing it."}
+2026-01-05 15:22:59,224 - Amadeus.Optimizer - INFO - GT: Joanna is working on a script called 'Finding Home,' which is about a girl on a journey to find her true home. She finds it rewarding and emotional.
+2026-01-05 15:22:59,224 - Amadeus.Optimizer - INFO - Pre: Joanna is currently working on a screenplay called 'Finding Home', which is about a girl on a journey to find her true home. She finds it rewarding because it allows her to express her emotions and passion through a mix of drama and romance, and she feels a range of emotions including relief, excitement, and worry after finishing it.
+2026-01-05 15:23:00,973 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:23:00,973 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and activities rather than historical projects. Encourage asking about recent developments or specific details related to the current session context.
+2026-01-05 15:23:00,973 - Amadeus.Answerer - INFO - ❓ Question: How does Joanna feel about the possibility of returning to acting, and what does she believe about her current abilities?
+2026-01-05 15:23:02,089 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna return to acting abilities', 'mode': 'hybrid'}
+2026-01-05 15:23:03,556 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:23:08,549 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna emotions about returning to acting and current abilities', 'mode': 'hybrid'}
+2026-01-05 15:23:11,188 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:23:12,103 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:23:15,065 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:23:17,009 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:23:18,038 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:23:18,039 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:23:20,531 - Amadeus.Optimizer - INFO - GT: Joanna believes that acting was her first passion but now she really shines in writing, and she says 'who knows, maybe I'll go back to acting someday. Never say never!'
+2026-01-05 15:23:20,532 - Amadeus.Optimizer - INFO - Pre: Joanna feels mixed emotions about the possibility of returning to acting, including relief, excitement, and anxiety. She also believes that her current emotions regarding her screenplay are motivated and supported, suggesting she sees potential in her current abilities related to writing. However, specific beliefs about her acting abilities are not mentioned in the context.
+2026-01-05 15:23:25,796 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:25,797 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should be updated to ensure that it captures relevant historical information about the subjects of the conversation. Specifically, the Builder should be instructed to look for past mentions of a person's passions or interests, even if those mentions are not directly linked to the current context. This will help in identifying and maintaining the long-term relationships and attributes of the individuals involved in the conversation.
+2026-01-05 15:23:25,797 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Acting", "content": "Joanna's first passion was acting."}, {"action": "ADD", "object": "Joanna", "content": "Joanna currently focuses on writing and believes her current abilities in writing are strong."}]
+2026-01-05 15:23:33,618 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna's first passion was acting.--> Acting (Time: None)
+2026-01-05 15:23:33,624 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:23:33,644 - Amadeus.Answerer - INFO - ❓ Question: When did Joanna join the writers group, and how does it affect her current motivation and feelings?
+2026-01-05 15:23:35,082 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna writers group join date motivation feelings', 'mode': 'hybrid'}
+2026-01-05 15:23:37,835 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Writers Group'}
+2026-01-05 15:23:39,597 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Joanna joined the writers group on April 21, 2022. However, the current impact of this event on her motivation and feelings is not specified in the available information.'}
+2026-01-05 15:23:39,598 - Amadeus.Optimizer - INFO - GT: Joanna joined the writers group recently, and it's affecting her current motivation and feelings by making her feel motivated and supported, as she said, 'It's unbelievable--such inspirational people who really get my writing. I'm feeling so motivated and supported, it's like I finally belong somewhere!'
+2026-01-05 15:23:39,598 - Amadeus.Optimizer - INFO - Pre: Joanna joined the writers group on April 21, 2022. However, the current impact of this event on her motivation and feelings is not specified in the available information.
+2026-01-05 15:23:44,958 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:44,958 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to ensure that the builder captures both the temporal context and the current emotional state of the subject. Specifically, refine the rule to include recent actions and their immediate effects on the subject's emotions and motivation.
+2026-01-05 15:23:44,958 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Motivation", "content": "Joanna feels motivated and supported after joining the writers group."}, {"action": "ADD", "subject": "Joanna", "object": "Current Motivation Impact", "content": "The writers group has positively affected Joanna's current motivation and feelings."}]
+2026-01-05 15:24:04,361 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna feels motivated and supported after joining the writers group.--> Motivation (Time: 2022-04-21)
+2026-01-05 15:24:04,365 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --The writers group has positively affected Joanna's current motivation and feelings.--> Current Motivation Impact (Time: 2022-04-21)
+2026-01-05 15:24:04,496 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 10. Processing Buffer...
+2026-01-05 15:24:33,097 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:24:33,104 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Won second video game tournament--> CS:GO (Time: 2022-05-01)
+2026-01-05 15:24:33,126 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Participated in local Street Fighter tournament and performed well--> Street Fighter (Time: 2022-05-01)
+2026-01-05 15:24:33,131 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:24:33,223 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Proud of Nate's achievements--> Nate (Time: 2022-05-11)
+2026-01-05 15:24:33,231 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Made dairy-free vanilla cake with strawberry filling and coconut cream frosting--> Cake (Time: 2022-05-11)
+2026-01-05 15:24:33,412 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:24:33,450 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna feels motivated and supported after joining the writers group and continues to work on her screenplay--> Personal Journey (Time: 2022-05-11)
+2026-01-05 15:24:33,450 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna recommends 'The Lord of the Rings' Trilogy to Nate--> CS:GO (Time: 2022-05-11)
+2026-01-05 15:24:33,451 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna's emotions after finishing her screenplay include relief, excitement, and anxiety--> Screenplay (Time: 2022-05-11)
+2026-01-05 15:24:33,451 - Amadeus.Builder - INFO - ⏳ WAIT: See ya later!...
+2026-01-05 15:24:33,641 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:24:33,641 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:24:38,916 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:24:38,917 - Amadeus.Answerer - INFO - ❓ Question: What game did Nate play in his recent tournament win?
+2026-01-05 15:24:40,124 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate recent tournament win game', 'mode': 'hybrid'}
+2026-01-05 15:24:46,490 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Counter-Strike: Global Offensive'}
+2026-01-05 15:24:48,093 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Nate played Counter-Strike: Global Offensive in his recent tournament win.'}
+2026-01-05 15:24:48,093 - Amadeus.Optimizer - INFO - GT: He played CS:GO.
+2026-01-05 15:24:48,094 - Amadeus.Optimizer - INFO - Pre: Nate played Counter-Strike: Global Offensive in his recent tournament win.
+2026-01-05 15:24:50,501 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:24:50,501 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on more recent events and avoid asking about historical details unless they are directly relevant to the current context. Encourage the Questioner to ask about specific games Nate has been playing recently or any recent tournaments he has participated in.
+2026-01-05 15:24:50,501 - Amadeus.Answerer - INFO - ❓ Question: How does Joanna feel about her talent in making dairy-free desserts?
+2026-01-05 15:24:51,549 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna dairy-free desserts talent', 'mode': 'hybrid'}
+2026-01-05 15:24:59,131 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Planning_to_try_making_a_dairy-free_dessert_or_visit_Nate_for_one'}
+2026-01-05 15:25:03,237 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Planning_to_try_making_a_dairy-free_dessert_or_visit_Nate_for_one'}
+2026-01-05 15:25:07,084 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Joanna'}
+2026-01-05 15:25:08,993 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Experiments_with_dairy-free_dessert_recipes'}
+2026-01-05 15:25:11,342 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Experiments_with_dairy-free_dessert_recipes'}
+2026-01-05 15:25:12,985 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Experiments_with_dairy-free_dessert_recipes'}
+2026-01-05 15:25:16,724 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Experiments_with_dairy-free_dessert_recipes'}
+2026-01-05 15:25:16,724 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:25:17,677 - Amadeus.Optimizer - INFO - GT: She appreciates the feedback and enjoys the challenge of making them delicious.
+2026-01-05 15:25:17,791 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:25:19,952 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:25:19,953 - Amadeus.Answerer - INFO - ❓ Question: What did Joanna and Nate talk about before the mention of Joanna’s screenplay project?
+2026-01-05 15:25:21,000 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna and Nate conversation before screenplay project', 'mode': 'hybrid'}
+2026-01-05 15:25:24,226 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Recommended 'Little Women'"}
+2026-01-05 15:25:28,654 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna and Nate conversation before screenplay project', 'mode': 'hybrid'}
+2026-01-05 15:25:31,416 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Romantic Drama'}
+2026-01-05 15:25:33,117 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna and Nate conversation before Romantic Drama', 'mode': 'hybrid'}
+2026-01-05 15:25:35,806 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Screenplay'}
+2026-01-05 15:25:37,063 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Emotion'}
+2026-01-05 15:25:38,207 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna and Nate conversation before emotion nodes', 'mode': 'hybrid'}
+2026-01-05 15:25:38,214 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:25:38,526 - Amadeus.Optimizer - INFO - GT: They discussed Nate’s gaming room and his recent gaming achievements.
+2026-01-05 15:25:38,527 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:25:43,880 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:25:43,880 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture explicit mentions of subjects and objects in conversations. Ensure that the builder extracts relevant context and relationships between subjects, such as discussions about personal achievements and reactions to those achievements.
+2026-01-05 15:25:43,880 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Gaming Room", "content": "Nate's gaming room looks great."}, {"action": "ADD", "subject": "Nate", "object": "Joanna's Screenplay Project", "content": "Joanna's screenplay project is related to Nate's gaming achievements."}, {"action": "ADD", "subject": "Joanna", "object": "Gaming Room", "content": "Joanna talked about Nate's gaming room."}]
+2026-01-05 15:25:54,241 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Nate's gaming room looks great.--> Gaming Room (Time: 2023-01-01)
+2026-01-05 15:25:54,244 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Joanna's screenplay project is related to Nate's gaming achievements.--> Joanna's Screenplay Project (Time: 2022-02-07)
+2026-01-05 15:25:54,249 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna talked about Nate's gaming room.--> Gaming Room (Time: 2022-02-07)
+2026-01-05 15:25:54,514 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 11. Processing Buffer...
+2026-01-05 15:26:19,130 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:26:19,136 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Visited hiking trail--> Whispering Falls (Time: 2022-05-12)
+2026-01-05 15:26:19,148 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:26:19,148 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Calming and inspiring--> Nature (Time: 2022-05-12)
+2026-01-05 15:26:19,148 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Relief, excitement, and peace--> Emotion (Time: 2022-05-12)
+2026-01-05 15:26:19,148 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Inspiration from nature and hiking--> Personal Journey (Time: 2022-05-12)
+2026-01-05 15:26:19,148 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Invited to hike together--> Nate (Time: 2022-05-12)
+2026-01-05 15:26:19,218 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:26:19,218 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Inspiration from nature and hiking--> Personal Journey (Time: 2022-05-12)
+2026-01-05 15:26:19,218 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Invited to join hiking trips--> Joanna (Time: 2022-05-12)
+2026-01-05 15:26:19,218 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Inspiration from nature and personal experiences--> Screenplay (Time: 2022-05-12)
+2026-01-05 15:26:19,256 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:26:19,479 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:26:19,480 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:26:25,316 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:26:25,317 - Amadeus.Answerer - INFO - ❓ Question: Where did Joanna go hiking?
+2026-01-05 15:26:27,861 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna hiking location', 'mode': 'hybrid'}
+2026-01-05 15:26:29,669 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Whispering Falls'}
+2026-01-05 15:26:31,123 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Joanna went hiking at Whispering Falls on 2022-05-12.'}
+2026-01-05 15:26:31,123 - Amadeus.Optimizer - INFO - GT: She went hiking at a location called Whispering Falls.
+2026-01-05 15:26:31,123 - Amadeus.Optimizer - INFO - Pre: Joanna went hiking at Whispering Falls on 2022-05-12.
+2026-01-05 15:26:33,055 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:26:33,055 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and details that have been recently mentioned in the session context. Avoid asking about historical locations or activities unless they are directly related to the most recent conversation.
+2026-01-05 15:26:33,055 - Amadeus.Answerer - INFO - ❓ Question: How did Joanna feel during her hike at Whispering Falls?
+2026-01-05 15:26:35,044 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna hike Whispering Falls feeling', 'mode': 'hybrid'}
+2026-01-05 15:26:43,787 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Joanna'}
+2026-01-05 15:26:45,504 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Whispering Falls'}
+2026-01-05 15:26:46,534 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Visited hiking trail at 2022-05-12'}
+2026-01-05 15:26:47,330 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Joanna'}
+2026-01-05 15:26:49,929 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Whispering Falls'}
+2026-01-05 15:26:51,249 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "Joanna's feelings during hike at Whispering Falls 2022-05-12", 'mode': 'hybrid'}
+2026-01-05 15:26:52,918 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Joanna'}
+2026-01-05 15:26:52,919 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:27:01,189 - Amadeus.Optimizer - INFO - GT: Everything else faded away and all that mattered was the present.
+2026-01-05 15:27:01,189 - Amadeus.Optimizer - INFO - Pre: Joanna is an expert hiker and feels a mix of relief, excitement, and anxiety about her screenplay. Given that she recently finished her screenplay and is planning a hiking trip, it's likely that she would feel excited and possibly relieved to be enjoying nature, which inspires her. Therefore, it can be inferred that Joanna felt excited during her hike at Whispering Falls. However, anxiety might also be present due to the ongoing nature of her screenplay project. So, Joanna likely felt a combination of excitement and some anxiety during her hike.
+2026-01-05 15:27:04,831 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:27:04,831 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it does not hallucinate emotions or experiences not directly linked to the provided context. Specifically, instruct the Answerer to only consider direct emotional responses mentioned in the text buffer and avoid inferring additional unrelated information.
+2026-01-05 15:27:04,831 - Amadeus.Answerer - INFO - ❓ Question: What did Joanna say about her hikes inspiring her creativity?
+2026-01-05 15:27:05,845 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna hikes creativity', 'mode': 'hybrid'}
+2026-01-05 15:27:07,887 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Romantic Drama'}
+2026-01-05 15:27:08,950 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna hikes creativity Romantic Drama', 'mode': 'hybrid'}
+2026-01-05 15:27:11,443 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Joanna'}
+2026-01-05 15:27:13,146 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Romantic Drama'}
+2026-01-05 15:27:14,589 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna hikes creativity Romantic Drama', 'mode': 'hybrid'}
+2026-01-05 15:27:17,907 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Hiking Trail'}
+2026-01-05 15:27:26,138 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna hikes creativity Romantic Drama 2022-04-17', 'mode': 'hybrid'}
+2026-01-05 15:27:26,147 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:27:26,822 - Amadeus.Optimizer - INFO - GT: Hiking has opened up a whole new world for me and I feel like a different person now, and I think about writing a whole movie when I'm out there in cool places like that!
+2026-01-05 15:27:26,823 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:27:31,197 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:27:31,197 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 12. Processing Buffer...
+2026-01-05 15:28:02,876 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:28:02,882 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Got a new pet dog named Max--> Max (Time: 2022-05-20)
+2026-01-05 15:28:02,883 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Prefers pets that are active and bring joy to others--> Pet Interest (Time: 2022-05-20)
+2026-01-05 15:28:02,883 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Considering getting pets despite severe allergies--> Pet Consideration (Time: 2022-05-20)
+2026-01-05 15:28:02,884 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Proud and satisfied after finishing her screenplay--> Emotional State (Time: 2022-05-20)
+2026-01-05 15:28:02,884 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Writing about loss, identity, and connection--> Writing Project (Time: 2022-05-20)
+2026-01-05 15:28:02,884 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Grateful for Nate's support and encouragement--> Support (Time: 2022-05-20)
+2026-01-05 15:28:02,885 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Proud and supportive of Joanna's screenplay--> Emotion (Time: 2022-05-20)
+2026-01-05 15:28:02,885 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Positive relationships and supportive friends provide motivation and impact--> Current Motivation Impact (Time: 2022-05-20)
+2026-01-05 15:28:02,885 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Relief, excitement, and anxiety after finishing her screenplay--> Emotion (Time: 2022-05-20)
+2026-01-05 15:28:02,903 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:28:02,931 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Visits hiking trails for inspiration--> go-to place for writing inspiration (Time: 2022-05-20)
+2026-01-05 15:28:02,984 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:28:02,985 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:28:09,959 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:28:09,959 - Amadeus.Answerer - INFO - ❓ Question: How might Nate feel about his new pet Max?
+2026-01-05 15:28:11,177 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate new pet Max feelings', 'mode': 'hybrid'}
+2026-01-05 15:28:12,527 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Max'}
+2026-01-05 15:28:13,273 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Nate'}
+2026-01-05 15:28:46,162 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Max'}
+2026-01-05 15:28:46,970 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Nate'}
+2026-01-05 15:28:49,002 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Max'}
+2026-01-05 15:28:50,647 - Amadeus.Answerer - INFO - Step 7: READ - {'tool': 'READ', 'answer': 'Based on the information provided, Nate got a new pet dog named Max on 2022-05-20. Therefore, Nate likely feels positive and excited about his new pet.'}
+2026-01-05 15:28:50,648 - Amadeus.Optimizer - INFO - GT: Nate feels thrilled and joyful about Max.
+2026-01-05 15:28:50,648 - Amadeus.Optimizer - INFO - Pre: Nate got a new pet dog named Max on 2022-05-20. Therefore, Nate likely feels positive and excited about his new pet.
+2026-01-05 15:28:53,842 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:28:53,842 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent interactions. Avoid asking about historical contexts or past events unless directly related to the current session.
+2026-01-05 15:28:53,843 - Amadeus.Answerer - INFO - ❓ Question: What kind of support does Joanna seek from her friends?
+2026-01-05 15:28:55,150 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna support friends', 'mode': 'hybrid'}
+2026-01-05 15:28:56,946 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Support'}
+2026-01-05 15:28:58,462 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Joanna seeks support from her friends, specifically Nate, who encourages her and supports her screenplay project.'}
+2026-01-05 15:28:58,463 - Amadeus.Optimizer - INFO - GT: Joanna seeks feedback and someone to talk about her work with.
+2026-01-05 15:28:58,463 - Amadeus.Optimizer - INFO - Pre: Joanna seeks support from her friends, specifically Nate, who encourages her and supports her screenplay project.
+2026-01-05 15:29:01,226 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:29:01,227 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to capture more explicit statements about support-seeking behaviors and focus on direct mentions of activities or intentions related to seeking support from friends.
+2026-01-05 15:29:01,227 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "seeks feedback and discussion", "content": "Joanna seeks support and feedback from her friends, particularly Nate, to discuss her work and screenplay project."}]
+2026-01-05 15:29:08,334 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna seeks support and feedback from her friends, particularly Nate, to discuss her work and screenplay project.--> seeks feedback and discussion (Time: 2022-02-07)
+2026-01-05 15:29:08,435 - Amadeus.Answerer - INFO - ❓ Question: How long has Joanna had her creative projects she's been working on?
+2026-01-05 15:29:09,569 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna creative projects duration', 'mode': 'hybrid'}
+2026-01-05 15:29:21,234 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Joanna has been working on her new screenplay about a thirty-year-old woman on a journey of self-discovery after a loss since at least 2022-02-25.'}
+2026-01-05 15:29:21,234 - Amadeus.Optimizer - INFO - GT: Joanna has had her creative projects for ages but just started writing about them recently.
+2026-01-05 15:29:21,234 - Amadeus.Optimizer - INFO - Pre: Joanna has been working on her new screenplay about a thirty-year-old woman on a journey of self-discovery after a loss since at least 2022-02-25.
+2026-01-05 15:29:26,595 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:29:26,595 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to include more context-aware linking rules. Specifically, ensure that the Builder considers the duration of activities and projects mentioned by the characters before creating new nodes. The Builder should also prioritize linking to recent information rather than relying solely on historical facts.
+2026-01-05 15:29:26,596 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "creative projects", "content": "has been working on for ages but just started writing about them recently"}, {"action": "REMOVE", "subject": "Joanna", "object": "screenplay", "content": "about a thirty-year-old woman on a journey of self-discovery after a loss since at least 2022-02-25"}]
+2026-01-05 15:29:34,167 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --has been working on for ages but just started writing about them recently--> creative projects (Time: None)
+2026-01-05 15:29:34,378 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 13. Processing Buffer...
+2026-01-05 15:30:08,848 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:30:08,848 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Got a new pet dog named Max--> Max (Time: 2022-05-20)
+2026-01-05 15:30:08,854 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:30:08,854 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Walking buddy for Max--> Max (Time: 2022-05-25)
+2026-01-05 15:30:08,859 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:30:08,873 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Appreciates Nate's stuffed animal and support--> Nate (Time: 2022-05-25)
+2026-01-05 15:30:08,879 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:30:08,880 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Appreciating the journey and focusing on happy moments--> Emotional State (Time: 2022-05-25)
+2026-01-05 15:30:08,880 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Cherishes the stuffed animal as a reminder of good vibes and joy--> Pet Turtle (Time: 2022-05-25)
+2026-01-05 15:30:08,880 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Appreciating the journey and focusing on happy moments--> Emotion (Time: 2022-05-25)
+2026-01-05 15:30:08,880 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna appreciates Nate's support and will keep him updated--> Support (Time: 2022-05-25)
+2026-01-05 15:30:08,885 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:30:08,916 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:30:08,917 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:30:28,776 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:30:28,776 - Amadeus.Answerer - INFO - ❓ Question: What did Nate give Joanna?
+2026-01-05 15:30:30,172 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate gave Joanna', 'mode': 'hybrid'}
+2026-01-05 15:30:32,756 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Shares pet turtle pictures with Joanna to keep her engaged'}
+2026-01-05 15:30:35,409 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Shares pet turtle pictures with Joanna to keep her engaged'}
+2026-01-05 15:30:38,298 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Shares pet turtle pictures with Joanna to keep her engaged'}
+2026-01-05 15:30:41,501 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Shares pet turtle pictures with Joanna to keep her engaged'}
+2026-01-05 15:30:44,454 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Shares pet turtle pictures with Joanna to keep her engaged'}
+2026-01-05 15:30:47,148 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Shares pet turtle pictures with Joanna to keep her engaged'}
+2026-01-05 15:30:50,418 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Shares pet turtle pictures with Joanna to keep her engaged'}
+2026-01-05 15:30:50,418 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:30:53,521 - Amadeus.Optimizer - INFO - GT: He gave her a stuffed animal to remind her of the good vibes.
+2026-01-05 15:30:53,521 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:30:58,686 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:30:58,687 - Amadeus.Answerer - INFO - ❓ Question: How did Joanna feel about the encounter with the couple and their dogs?
+2026-01-05 15:31:00,500 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna encounter couple dogs feeling', 'mode': 'hybrid'}
+2026-01-05 15:31:05,594 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Joanna's Screenplay Project"}
+2026-01-05 15:31:07,380 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna encounter with couple and dogs feeling', 'mode': 'hybrid'}
+2026-01-05 15:31:11,506 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Joanna feels a mix of relief, anxiety, and excitement about her screenplay. While there is no direct mention of her feelings about encountering a couple and their dogs, we can infer that her positive interactions with pets, such as Nate's turtles, suggest she might have felt calm and inspired during such an encounter."}
+2026-01-05 15:31:11,506 - Amadeus.Optimizer - INFO - GT: She felt it was uplifting and rewarding.
+2026-01-05 15:31:11,506 - Amadeus.Optimizer - INFO - Pre: Joanna feels a mix of relief, anxiety, and excitement about her screenplay. While there is no direct mention of her feelings about encountering a couple and their dogs, we can infer that her positive interactions with pets, such as Nate's turtles, suggest she might have felt calm and inspired during such an encounter.
+2026-01-05 15:31:15,896 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:31:15,896 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that relevant emotional states and specific encounters are captured when linking subjects. Also, add a rule to explicitly link feelings and interactions to the individuals involved.
+2026-01-05 15:31:15,896 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Max", "content": "Had a positive encounter with Max's owner"}, {"action": "LINK", "subject": "Joanna", "object": "Joanna feels uplifted and rewarded", "content": "from the encounter with the couple and their dogs"}]
+2026-01-05 15:31:32,420 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Had a positive encounter with Max's owner--> Max (Time: 2022-05-20)
+2026-01-05 15:31:32,428 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --from the encounter with the couple and their dogs--> Joanna feels uplifted and rewarded (Time: 2022-05-20)
+2026-01-05 15:31:32,617 - Amadeus.Answerer - INFO - ❓ Question: Why does Nate believe meeting new people through pet-related activities is beneficial?
+2026-01-05 15:31:34,119 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate believes meeting new people through pet-related activities is beneficial', 'mode': 'hybrid'}
+2026-01-05 15:31:39,500 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pet Interest'}
+2026-01-05 15:31:41,331 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Pet Consideration'}
+2026-01-05 15:31:42,653 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Nate pet-related activities meeting new people benefits', 'mode': 'hybrid'}
+2026-01-05 15:31:45,558 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Pet Interest'}
+2026-01-05 15:31:47,190 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Pet Consideration'}
+2026-01-05 15:31:48,629 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Nate believes meeting new people through pet-related activities is beneficial reasons', 'mode': 'hybrid'}
+2026-01-05 15:31:50,908 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Pet Interest'}
+2026-01-05 15:31:50,909 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:31:53,965 - Amadeus.Optimizer - INFO - GT: He believes it's beneficial because even a small shared interest, like the love of animals, can lead to good friendships.
+2026-01-05 15:31:53,966 - Amadeus.Optimizer - INFO - Pre: Nate believes meeting new people through pet-related activities is beneficial because it brings joy and helps with stress, as evidenced by his enjoyment of meeting people who love animals and doing doggy playdates. This suggests that interacting with pets and pet enthusiasts creates positive social experiences and relaxation, which may inspire and motivate him to continue such activities.
+2026-01-05 15:31:56,403 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:31:56,404 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 14. Processing Buffer...
+2026-01-05 15:32:28,338 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:32:28,339 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Received a rejection letter from a major company without much feedback--> Screenplay (Time: 2022-06-03)
+2026-01-05 15:32:28,339 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Won another regional video game tournament last week--> CS:GO (Time: 2022-06-03)
+2026-01-05 15:32:28,340 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Helped strangers at the tournament with game improvement tips--> Joanna (Time: 2022-06-03)
+2026-01-05 15:32:28,347 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:32:28,347 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Checking out a new trail with a rad waterfall--> Whispering Falls (Time: 2022-06-03)
+2026-01-05 15:32:28,353 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:32:28,387 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Decorating custom controllers for the gaming party--> Custom Controller Decorations (Time: 2022-06-03)
+2026-01-05 15:32:28,388 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Bummed out by the rejection letter--> Emotion (Time: 2022-06-03)
+2026-01-05 15:32:28,389 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Happy with recent tournament win--> Emotion (Time: 2022-06-03)
+2026-01-05 15:32:28,389 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Expressing support and encouragement to Joanna--> Support (Time: 2022-06-03)
+2026-01-05 15:32:28,390 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Receiving support and encouragement from Nate--> Support (Time: 2022-06-03)
+2026-01-05 15:32:28,514 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:32:28,514 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:32:35,306 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:32:35,306 - Amadeus.Answerer - INFO - ❓ Question: What did Nate do after receiving encouragement from Joanna?
+2026-01-05 15:32:37,847 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate encouragement Joanna', 'mode': 'hybrid'}
+2026-01-05 15:32:45,752 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Joanna feels uplifted and rewarded'}
+2026-01-05 15:32:47,657 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Nate Joanna encouragement after 2022-05-20', 'mode': 'hybrid'}
+2026-01-05 15:32:51,008 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'After receiving encouragement from Joanna, Nate shared pet turtle pictures with Joanna to keep her engaged.'}
+2026-01-05 15:32:51,008 - Amadeus.Optimizer - INFO - GT: He talked to some of the guys at the tournament and offered to help them improve their game.
+2026-01-05 15:32:51,009 - Amadeus.Optimizer - INFO - Pre: After receiving encouragement from Joanna, Nate shared pet turtle pictures with Joanna to keep her engaged.
+2026-01-05 15:32:56,162 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:32:56,162 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the builder's System Prompt to ensure it captures the context of actions taken by individuals, especially when those actions involve helping others. The builder should focus on linking specific actions and their outcomes rather than adding unrelated or speculative information.
+2026-01-05 15:32:56,162 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Joanna", "content": "Talked to some of the guys at the tournament and offered to help them improve their game."}, {"action": "REMOVE", "subject": "Nate", "object": "Shared pet turtle pictures with Joanna", "content": "This information is incorrect and should be removed."}]
+2026-01-05 15:33:08,910 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Talked to some of the guys at the tournament and offered to help them improve their game.--> Joanna (Time: 2022-06-03)
+2026-01-05 15:33:09,001 - Amadeus.Answerer - INFO - ❓ Question: How does Nate feel about his recent gaming tournament win and the new friendships he made?
+2026-01-05 15:33:10,138 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate recent gaming tournament win new friendships', 'mode': 'hybrid'}
+2026-01-05 15:33:12,848 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Nate'}
+2026-01-05 15:33:16,237 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Gaming Tournament'}
+2026-01-05 15:33:17,408 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Nate feelings after Gaming Tournament win and new friendships', 'mode': 'hybrid'}
+2026-01-05 15:33:19,341 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Nate'}
+2026-01-05 15:33:23,209 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "Nate feels good about his recent gaming tournament win and supportive of the new friendships he made, especially Joanna's screenplay project."}
+2026-01-05 15:33:23,209 - Amadeus.Optimizer - INFO - GT: Nate feels that winning was a huge confidence boost and that connecting with fellow gamers is always awesome.
+2026-01-05 15:33:23,209 - Amadeus.Optimizer - INFO - Pre: Nate feels good about his recent gaming tournament win and supportive of the new friendships he made, especially Joanna's screenplay project.
+2026-01-05 15:33:26,430 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:33:26,431 - Amadeus.Answerer - INFO - ❓ Question: Where is Joanna planning to hike this weekend?
+2026-01-05 15:33:27,653 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna hiking plans this weekend', 'mode': 'hybrid'}
+2026-01-05 15:33:32,587 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Joanna is planning to hike with friends this weekend.'}
+2026-01-05 15:33:32,588 - Amadeus.Optimizer - INFO - GT: She is hiking with some buddies on a new trail with a rad waterfall.
+2026-01-05 15:33:32,588 - Amadeus.Optimizer - INFO - Pre: Joanna is planning to hike with friends this weekend.
+2026-01-05 15:33:35,424 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:33:35,424 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to ensure that the builder captures relevant plans and activities mentioned in conversations, especially those related to immediate future actions.
+2026-01-05 15:33:35,425 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "hiking plans", "content": "Joanna is planning to hike with some buddies this weekend."}]
+2026-01-05 15:33:42,763 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna is planning to hike with some buddies this weekend.--> hiking plans (Time: 2023-01-15)
+2026-01-05 15:33:42,937 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 15. Processing Buffer...
+2026-01-05 15:34:16,112 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:34:16,113 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Words came alive on the big screen. Nerve-wracking but inspiring.--> Screenplay (Time: 2022-06-04)
+2026-01-05 15:34:16,113 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Real roller coaster of emotions - nervous, excited, and inspired after seeing the screenplay on the big screen.--> Emotion (Time: 2022-06-04)
+2026-01-05 15:34:16,119 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:34:16,157 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Iron Man is a favorite superhero.--> Favorite Superhero (Time: 2022-06-04)
+2026-01-05 15:34:16,173 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Full of inspiring quotes and pictures for motivation and creativity.--> Cork Board (Time: 2022-06-04)
+2026-01-05 15:34:16,242 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Hangs on her cork board, reminding her of daily love and encouragement.--> Family Picture (Time: 2022-06-04)
+2026-01-05 15:34:16,243 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Should start a cork board of his own.--> Cork Board (Time: 2022-06-04)
+2026-01-05 15:34:16,268 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Family support is invaluable and keeps her going.--> Support From Friends (Time: 2022-06-04)
+2026-01-05 15:34:16,321 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Acknowledges the value of family support and its impact on his motivation.--> Support From Friends (Time: 2022-06-04)
+2026-01-05 15:34:16,322 - Amadeus.Builder - INFO - ⏳ WAIT: What made you get that figure?...
+2026-01-05 15:34:16,322 - Amadeus.Builder - INFO - ⏳ WAIT: Any inspiring things in your r...
+2026-01-05 15:34:16,566 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:34:16,572 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:34:22,870 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:34:22,870 - Amadeus.Answerer - INFO - ❓ Question: What is Nate's favorite superhero?
+2026-01-05 15:34:25,199 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate favorite superhero', 'mode': 'hybrid'}
+2026-01-05 15:34:30,023 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Nate's favorite superhero is Iron Man."}
+2026-01-05 15:34:30,023 - Amadeus.Optimizer - INFO - GT: Iron Man
+2026-01-05 15:34:30,023 - Amadeus.Optimizer - INFO - Pre: Nate's favorite superhero is Iron Man.
+2026-01-05 15:34:34,968 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:34:34,968 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The builder's extraction rules need to be refined to capture more specific information about characters or items mentioned by users. For example, adding rules to identify and extract mentions of personal items (like pins) and their significance can help in building a more accurate graph. Additionally, ensuring that the builder links such items directly to the subject's preferences will prevent similar misinterpretations in the future.
+2026-01-05 15:34:34,969 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Spider-Man", "content": "Nate has a Spider-Man pin on his purse."}, {"action": "ADD", "subject": "Nate", "object": "favorite superhero", "content": "Nate's favorite superhero is Spider-Man."}]
+2026-01-05 15:34:41,674 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Nate has a Spider-Man pin on his purse.--> Spider-Man (Time: 2023-01-01)
+2026-01-05 15:34:41,678 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Nate's favorite superhero is Spider-Man.--> favorite superhero (Time: 2023-01-01)
+2026-01-05 15:34:41,832 - Amadeus.Answerer - INFO - ❓ Question: Why does Nate keep the Spider-Man pin in his room?
+2026-01-05 15:34:43,170 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate Spider-Man pin room', 'mode': 'hybrid'}
+2026-01-05 15:34:47,439 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gaming Room'}
+2026-01-05 15:34:48,601 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Nate Spider-Man pin Gaming Room', 'mode': 'hybrid'}
+2026-01-05 15:34:53,439 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Nate keeps the Spider-Man pin in his room because he enjoys action and sci-fi movies, and Spider-Man is one of his favorite superheroes.'}
+2026-01-05 15:34:53,439 - Amadeus.Optimizer - INFO - GT: It reminded him of something he loves and kept him motivated to work on his goals.
+2026-01-05 15:34:53,440 - Amadeus.Optimizer - INFO - Pre: Nate keeps the Spider-Man pin in his room because he enjoys action and sci-fi movies, and Spider-Man is one of his favorite superheroes.
+2026-01-05 15:34:57,634 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:34:57,635 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it does not hallucinate answers when the exact information is available in the log. The system prompt should be adjusted to prioritize checking the local context before generating new facts. Additionally, encourage the Answerer to trust the Global Memory Graph over making assumptions based on historical preferences.
+2026-01-05 15:34:57,635 - Amadeus.Answerer - INFO - ❓ Question: How does having a picture of her family on the cork board make Joanna feel?
+2026-01-05 15:34:59,815 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna family cork board feeling', 'mode': 'hybrid'}
+2026-01-05 15:35:07,255 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Having a picture of her family on the cork board makes Joanna feel uplifted and rewarded.'}
+2026-01-05 15:35:07,259 - Amadeus.Optimizer - INFO - GT: It reminds her of the love and encouragement from them every day.
+2026-01-05 15:35:07,261 - Amadeus.Optimizer - INFO - Pre: Having a picture of her family on the cork board makes Joanna feel uplifted and rewarded.
+2026-01-05 15:35:12,410 - openai._base_client - INFO - Retrying request to /chat/completions in 0.485292 seconds
+2026-01-05 15:35:17,194 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:35:17,195 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current context and events rather than historical or unrelated information. Avoid asking about details that do not align with the recent conversation or buffer content.
+2026-01-05 15:35:17,195 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 16. Processing Buffer...
+2026-01-05 15:35:50,071 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:35:50,072 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Hope Joanna's screenplay does well--> Joanna (Time: 2022-06-03)
+2026-01-05 15:35:50,080 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Success, played Chess afterward--> Gaming Party (Time: 2022-06-03)
+2026-01-05 15:35:50,084 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Shared ice cream recipe with 6 attendees--> Vegan Diet Group (Time: 2022-06-03)
+2026-01-05 15:35:50,088 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Shared recipe for vegan ice cream--> Ice Cream Recipe (Time: 2022-06-03)
+2026-01-05 15:35:50,115 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Submitted screenplay for contest--> Film Contest (Time: 2022-06-24)
+2026-01-05 15:35:50,125 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Family likes Joanna's new creations--> Family (Time: 2022-06-24)
+2026-01-05 15:35:50,158 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna will make vegan ice cream for her family--> Vegan Diet Group (Time: 2022-06-24)
+2026-01-05 15:35:50,158 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna will make vegan ice cream recipe for her family--> Ice Cream Recipe (Time: 2022-06-24)
+2026-01-05 15:35:50,159 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Hopeful and excited about film contest submission--> Emotion (Time: 2022-06-24)
+2026-01-05 15:35:50,159 - Amadeus.Builder - INFO - ⏳ WAIT: Can't wait to hear about Joann...
+2026-01-05 15:35:50,341 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:35:50,341 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:35:57,590 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:35:57,590 - Amadeus.Answerer - INFO - ❓ Question: How did the success of the gaming party influence Nate's decision to share vegan ice cream with his group?
+2026-01-05 15:35:59,417 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "success of the gaming party Nate's decision to share vegan ice cream", 'mode': 'hybrid'}
+2026-01-05 15:36:00,930 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gaming Party'}
+2026-01-05 15:36:03,434 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Gaming Party success and Nate sharing vegan ice cream', 'mode': 'hybrid'}
+2026-01-05 15:36:07,519 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Pet Sharing'}
+2026-01-05 15:36:09,301 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "The success of the gaming party did not directly influence Nate's decision to share vegan ice cream with his group as there is no information connecting the two events in the current context. The only related information is that Nate shares pet turtle pictures with Joanna."}
+2026-01-05 15:36:09,305 - Amadeus.Optimizer - INFO - GT: Nate shared the vegan ice cream with his vegan diet group after the gaming party was successful, as indicated by 6 out of 7 attendees wanting to do it again.
+2026-01-05 15:36:09,306 - Amadeus.Optimizer - INFO - Pre: The success of the gaming party did not directly influence Nate's decision to share vegan ice cream with his group as there is no information connecting the two events in the current context. The only related information is that Nate shares pet turtle pictures with Joanna.
+2026-01-05 15:36:16,292 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:36:16,292 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The System Prompt for the Builder should include a rule to capture more contextually relevant relationships between events. Specifically, it should be updated to ensure that when an event such as a gaming party is mentioned, any subsequent actions or decisions related to that event are also extracted and linked appropriately. For example, the Builder could be instructed to look for direct consequences or influences of an event on other actions.
+2026-01-05 15:36:16,292 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Vegan Diet Group", "content": "Nate shared vegan ice cream with the group after the gaming party."}, {"action": "ADD", "object": "Gaming Party", "subject": "Nate", "content": "The success of the gaming party influenced Nate's decision to share vegan ice cream with his group."}]
+2026-01-05 15:36:28,356 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Nate shared vegan ice cream with the group after the gaming party.--> Vegan Diet Group (Time: 2022-06-03)
+2026-01-05 15:36:28,356 - Amadeus.Builder - INFO - 🔗 LINK: Nate --The success of the gaming party influenced Nate's decision to share vegan ice cream with his group.--> Gaming Party (Time: 2022-06-03)
+2026-01-05 15:36:28,386 - Amadeus.Answerer - INFO - ❓ Question: What might be Joanna's feeling after receiving Nate's support for her ice cream recipe?
+2026-01-05 15:36:29,643 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna Nate ice cream recipe support feelings', 'mode': 'hybrid'}
+2026-01-05 15:36:32,798 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Joanna'}
+2026-01-05 15:36:35,090 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "After receiving Nate's support for her ice cream recipe, Joanna might feel a mix of relief, excitement, and peace."}
+2026-01-05 15:36:35,096 - Amadeus.Optimizer - INFO - GT: Joanna likely feels appreciated and encouraged after Nate's support.
+2026-01-05 15:36:35,096 - Amadeus.Optimizer - INFO - Pre: After receiving Nate's support for her ice cream recipe, Joanna might feel a mix of relief, excitement, and peace.
+2026-01-05 15:36:38,428 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:36:38,429 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it trusts the graph over prior assumptions and performs a deeper analysis when retrieving information. Specifically, the Answerer should avoid making assumptions based on unrelated contexts and focus on the most recent and relevant links in the memory graph.
+2026-01-05 15:36:38,429 - Amadeus.Answerer - INFO - ❓ Question: What game did the friends play at the end of the gaming party, and how did it relate to the overall success of the event?
+2026-01-05 15:36:39,502 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'gaming party end game success', 'mode': 'hybrid'}
+2026-01-05 15:36:41,445 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gaming Party'}
+2026-01-05 15:36:42,635 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Gaming Party end game Chess', 'mode': 'hybrid'}
+2026-01-05 15:36:48,986 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "At the end of the gaming party, the friends played Chess, which related to the overall success of the event as the success of the gaming party influenced Nate's decision to share vegan ice cream with his group."}
+2026-01-05 15:36:48,986 - Amadeus.Optimizer - INFO - GT: The friends played Chess, which was mentioned as a fun activity after the gaming party, contributing to its success.
+2026-01-05 15:36:48,987 - Amadeus.Optimizer - INFO - Pre: At the end of the gaming party, the friends played Chess, which related to the overall success of the event as the success of the gaming party influenced Nate's decision to share vegan ice cream with his group.
+2026-01-05 15:36:53,086 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:36:53,087 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to focus more on the immediate context and relationships within the provided text. Ensure that the Answerer does not introduce unrelated information and only provides facts that are directly linked to the query without adding speculative details.
+2026-01-05 15:36:53,087 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 17. Processing Buffer...
+2026-01-05 15:37:39,165 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:37:39,172 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:37:39,172 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Created by relation--> CS:GO (Time: 2022-07-08)
+2026-01-05 15:37:39,177 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:37:39,194 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Visited for research--> Woodhaven (Time: 2022-07-07)
+2026-01-05 15:37:39,200 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:37:39,226 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:37:39,227 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Different from previous work, explores loss, redemption, and forgiveness--> Screenplay (Time: 2022-07-07)
+2026-01-05 15:37:39,235 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:37:39,236 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feels stoked and excited about the new script--> Screenplay (Time: 2022-07-07)
+2026-01-05 15:37:39,236 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Received encouragement and support from Nate--> Support (Time: 2022-07-08)
+2026-01-05 15:37:39,260 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Exploring themes of loss, redemption, and forgiveness in her book--> Creative Projects (Time: 2022-07-07)
+2026-01-05 15:37:39,266 - Amadeus.Builder - INFO - ⏳ WAIT: Woodhaven has had an interesti...
+2026-01-05 15:37:39,267 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Stoked and excited--> Emotion (Time: 2022-07-07)
+2026-01-05 15:37:39,267 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna appreciates Nate's support and will keep him updated--> Support From Friends (Time: 2022-07-07)
+2026-01-05 15:37:39,268 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna's family likes her new creations--> Family (Time: 2022-07-07)
+2026-01-05 15:37:39,268 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Will make vegan ice cream for her family--> Vegan Diet Group (Time: 2022-07-07)
+2026-01-05 15:37:39,268 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feels stoked and excited--> Emotional State (Time: 2022-07-07)
+2026-01-05 15:37:39,550 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:37:39,569 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:37:47,382 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:37:47,382 - Amadeus.Answerer - INFO - ❓ Question: How might Joanna feel after receiving Nate's encouragement for her book project?
+2026-01-05 15:37:49,227 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna Nate encouragement book project', 'mode': 'hybrid'}
+2026-01-05 15:37:52,682 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Joanna's Screenplay Project"}
+2026-01-05 15:37:53,835 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna Nate encouragement creative projects', 'mode': 'hybrid'}
+2026-01-05 15:37:58,242 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Nate'}
+2026-01-05 15:38:00,076 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Joanna'}
+2026-01-05 15:38:02,678 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "After receiving Nate's encouragement for her book project, Joanna might feel relief, excitement, and anxiety."}
+2026-01-05 15:38:02,679 - Amadeus.Optimizer - INFO - GT: Joanna feels encouraged and excited about her book project.
+2026-01-05 15:38:02,679 - Amadeus.Optimizer - INFO - Pre: After receiving Nate's encouragement for her book project, Joanna might feel relief, excitement, and anxiety.
+2026-01-05 15:38:07,369 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:38:07,372 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include a rule to capture the specific context of encouragement or support related to book projects. For example, when creating nodes for support or encouragement, ensure that the relationship is explicitly tied to the subject's creative or professional endeavors, such as book projects or movie research. This will help in accurately linking such events to the appropriate context.
+2026-01-05 15:38:07,372 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Nate's encouragement for her book project", "content": "Joanna --Received encouragement and support from Nate for her book project--> Support (Time: 2022-07-08)"}]
+2026-01-05 15:38:16,064 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna --Received encouragement and support from Nate for her book project--> Support (Time: 2022-07-08)--> Nate's encouragement for her book project (Time: 2022-07-08)
+2026-01-05 15:38:16,168 - Amadeus.Answerer - INFO - ❓ Question: What could be the reason for Joanna taking a road trip for research before starting her book project?
+2026-01-05 15:38:17,537 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna road trip research book project', 'mode': 'hybrid'}
+2026-01-05 15:38:20,204 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Woodhaven'}
+2026-01-05 15:38:21,742 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Joanna took a road trip for research before starting her book project because she visited Woodhaven on July 7, 2022.'}
+2026-01-05 15:38:21,743 - Amadeus.Optimizer - INFO - GT: Joanna took a road trip to Woodhaven for inspiration and to explore real-life stories for her next script.
+2026-01-05 15:38:21,743 - Amadeus.Optimizer - INFO - Pre: Joanna took a road trip for research before starting her book project because she visited Woodhaven on July 7, 2022.
+2026-01-05 15:38:25,371 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:38:25,371 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include a rule to ensure that all relevant locations and reasons for travel are captured when creating nodes related to research activities. Additionally, the prompt should emphasize the importance of linking travel-related information with the context of the current project or screenplay being worked on.
+2026-01-05 15:38:25,372 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Woodhaven", "content": "Joanna took a road trip to Woodhaven for research on July 7, 2022."}]
+2026-01-05 15:38:31,150 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna took a road trip to Woodhaven for research on July 7, 2022.--> Woodhaven (Time: 2022-07-07)
+2026-01-05 15:38:31,311 - Amadeus.Answerer - INFO - ❓ Question: Why does Nate believe his encouragement will help Joanna with her book project?
+2026-01-05 15:38:32,551 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate encouragement Joanna book project', 'mode': 'hybrid'}
+2026-01-05 15:38:36,388 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Nate's encouragement for her book project"}
+2026-01-05 15:38:37,994 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'What is the reason behind Joanna receiving encouragement and support from Nate for her book project?', 'mode': 'hybrid'}
+2026-01-05 15:38:39,627 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Nate'}
+2026-01-05 15:38:42,537 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Nate believes his encouragement will help Joanna with her book project because he is supportive of Joanna's screenplay and hopes it finds success. He shares his positive experiences and inspiration from nature and personal projects, which likely uplifts Joanna and motivates her to continue with her writing."}
+2026-01-05 15:38:42,538 - Amadeus.Optimizer - INFO - GT: Nate believes that Joanna's talent and hard work will lead to success, and he encourages her to continue believing in herself.
+2026-01-05 15:38:42,538 - Amadeus.Optimizer - INFO - Pre: Nate believes his encouragement will help Joanna with her book project because he is supportive of Joanna's screenplay and hopes it finds success. He shares his positive experiences and inspiration from nature and personal projects, which likely uplifts Joanna and motivates her to continue with her writing.
+2026-01-05 15:38:46,063 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:38:46,064 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that the builder captures the specific beliefs and relationships expressed between characters. For example, add a rule to identify and extract statements where one character believes another's actions or encouragement will have a particular effect on them.
+2026-01-05 15:38:46,064 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Nate", "content": "Nate --Believes encouragement helps--> Joanna (Time: 2022-07-10)"}]
+2026-01-05 15:38:56,440 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Nate --Believes encouragement helps--> Joanna--> Joanna (Time: 2022-07-10)
+2026-01-05 15:38:56,769 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 18. Processing Buffer...
+2026-01-05 15:39:22,506 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:39:22,512 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Writing has become like an escape and a way to express her feelings. It gives her a chance to put all her thoughts and feelings down and make something good out of it.--> Writing (Time: 2022-08-14)
+2026-01-05 15:39:22,512 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Realized her words had the power to bring comfort to others, which reinforced her love for writing.--> Emotion (Time: 2022-08-14)
+2026-01-05 15:39:22,516 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Started teaching people how to make dairy-free desserts and finds it fun and rewarding.--> Dairy-Free Desserts (Time: 2022-08-14)
+2026-01-05 15:39:22,517 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Wants to share his dairy-free ice cream recipe with Joanna and wishes her luck with her family's reaction.--> Joanna (Time: 2022-08-14)
+2026-01-05 15:39:22,517 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Will surprise her family with something delicious and seeks their approval.--> Family (Time: 2022-08-14)
+2026-01-05 15:39:22,517 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Wishes Joanna luck with her family's reaction to her new creations.--> Joanna (Time: 2022-08-14)
+2026-01-05 15:39:22,726 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:39:22,727 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:39:30,708 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:39:30,709 - Amadeus.Answerer - INFO - ❓ Question: How might Joanna feel after receiving the letter from someone who read her blog post?
+2026-01-05 15:39:32,118 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna reaction to receiving a letter from someone who read her blog post', 'mode': 'hybrid'}
+2026-01-05 15:39:34,404 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Joanna feels uplifted and rewarded'}
+2026-01-05 15:39:35,591 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Joanna might feel uplifted and rewarded after receiving the letter from someone who read her blog post.'}
+2026-01-05 15:39:35,592 - Amadeus.Optimizer - INFO - GT: Joanna felt touched and realized the power of her writing.
+2026-01-05 15:39:35,592 - Amadeus.Optimizer - INFO - Pre: Joanna might feel uplifted and rewarded after receiving the letter from someone who read her blog post.
+2026-01-05 15:39:37,315 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:39:37,316 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent experiences. Avoid asking about historical or past scenarios unless directly related to the current context.
+2026-01-05 15:39:37,316 - Amadeus.Answerer - INFO - ❓ Question: What does Nate share with Joanna and why?
+2026-01-05 15:39:38,326 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate shares with Joanna', 'mode': 'hybrid'}
+2026-01-05 15:39:41,856 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Nate shares his encouragement and support for Joanna's book project with her. This helps Joanna feel uplifted and rewarded."}
+2026-01-05 15:39:41,856 - Amadeus.Optimizer - INFO - GT: Nate shares his dairy-free dessert recipe with Joanna to let her try it and to share his love for making desserts.
+2026-01-05 15:39:41,856 - Amadeus.Optimizer - INFO - Pre: Nate shares his encouragement and support for Joanna's book project with her. This helps Joanna feel uplifted and rewarded.
+2026-01-05 15:39:46,180 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:39:46,181 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt needs to be updated to ensure that relevant relationships are captured and maintained in the context buffer. Specifically, the Builder should focus on identifying and linking explicit mentions of shared activities or items between characters. For example, the prompt could include a rule to capture when one character shares a recipe or item with another.
+2026-01-05 15:39:46,181 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Joanna", "content": "shares dairy-free dessert recipe"}, {"action": "ADD", "object": "Joanna", "subject": "Nate", "content": "receives dairy-free dessert recipe"}]
+2026-01-05 15:39:55,774 - Amadeus.Builder - INFO - 🔗 LINK: Nate --shares dairy-free dessert recipe--> Joanna (Time: None)
+2026-01-05 15:39:55,775 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --receives dairy-free dessert recipe--> Nate (Time: None)
+2026-01-05 15:39:56,089 - Amadeus.Answerer - INFO - ❓ Question: What recent activity has inspired both Joanna and Nate?
+2026-01-05 15:39:57,237 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'recent activity inspired Joanna and Nate', 'mode': 'hybrid'}
+2026-01-05 15:40:01,228 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'shares pet turtle pictures with Joanna to keep her engaged'}
+2026-01-05 15:40:05,860 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "The recent activity that has inspired both Joanna and Nate is Joanna's screenplay project. Joanna sought support and feedback from Nate to discuss her work and screenplay project."}
+2026-01-05 15:40:05,860 - Amadeus.Optimizer - INFO - GT: Writing and sharing recipes have inspired both Joanna and Nate recently.
+2026-01-05 15:40:05,867 - Amadeus.Optimizer - INFO - Pre: The recent activity that has inspired both Joanna and Nate is Joanna's screenplay project. Joanna sought support and feedback from Nate to discuss her work and screenplay project.
+2026-01-05 15:40:10,701 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:40:10,702 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt needs to include a rule to capture recent activities that involve both parties directly. Specifically, the Builder should focus on identifying activities that are shared or mentioned together by both Joanna and Nate, rather than focusing solely on individual activities. This will help ensure that the graph includes relevant connections between the two individuals.
+2026-01-05 15:40:10,703 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Family", "content": "Joanna will surprise her family with something delicious and seeks their approval."}, {"action": "ADD", "object": "Nate", "subject": "Teaching", "content": "Nate started teaching people how to make dairy-free desserts and finds it fun and rewarding."}]
+2026-01-05 15:40:20,166 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Joanna will surprise her family with something delicious and seeks their approval.--> Family (Time: 2022-08-14)
+2026-01-05 15:40:20,191 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Nate started teaching people how to make dairy-free desserts and finds it fun and rewarding.--> Teaching (Time: 2022-08-14)
+2026-01-05 15:40:20,227 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 19. Processing Buffer...
+2026-01-05 15:41:03,858 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:41:03,859 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Won an international tournament yesterday--> CS:GO (Time: 2022-08-22)
+2026-01-05 15:41:03,859 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Turning passion into a career and feeling stoked about success--> Motivation (Time: 2022-08-22)
+2026-01-05 15:41:03,860 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Got a new tank, which has made them happy--> Pet Turtle (Time: 2022-08-22)
+2026-01-05 15:41:03,860 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Encouraged Joanna's writing project and celebrated her success--> Support From Friends (Time: 2022-08-22)
+2026-01-05 15:41:03,867 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Working on a book about themes of loss, redemption, and forgiveness--> Book Project (Time: 2022-08-22)
+2026-01-05 15:41:03,867 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feeling proud and satisfied after receiving great feedback from her writers group--> Emotion (Time: 2022-08-22)
+2026-01-05 15:41:03,868 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Working on a book about themes of loss, redemption, and forgiveness--> Creative Projects (Time: 2022-08-22)
+2026-01-05 15:41:03,868 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Visiting hiking trails for inspiration--> go-to place for writing inspiration (Time: 2022-08-22)
+2026-01-05 15:41:03,868 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Prefers pet turtles due to their calming and low-maintenance nature--> Pet Turtle (Time: 2022-08-22)
+2026-01-05 15:41:03,869 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Recommended a series with awesome battles and interesting characters--> Series (Time: 2022-08-22)
+2026-01-05 15:41:03,869 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Feeling proud and satisfied after receiving great feedback from her writers group--> Emotion (Time: 2022-08-22)
+2026-01-05 15:41:03,869 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Receiving support and encouragement from Nate for her book project--> Support From Friends (Time: 2022-08-22)
+2026-01-05 15:41:03,875 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:41:03,890 - Amadeus.Builder - INFO - ⏳ WAIT: Since the exact plan for the w...
+2026-01-05 15:41:03,894 - Amadeus.Builder - INFO - ⏳ WAIT: Joanna's plans for the weekend...
+2026-01-05 15:41:04,019 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:41:04,019 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:41:10,993 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:41:10,993 - Amadeus.Answerer - INFO - ❓ Question: How does Nate feel about turning his passion into a career?
+2026-01-05 15:41:12,145 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate passion career', 'mode': 'hybrid'}
+2026-01-05 15:41:32,384 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Nate's encouragement for her book project"}
+2026-01-05 15:41:33,559 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Nate feeling about turning passion into career', 'mode': 'hybrid'}
+2026-01-05 15:41:38,087 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Nate feels supportive and encouraging towards Joanna's screenplay project. He expresses a desire to see her succeed and continues to provide her with positive vibes and advice."}
+2026-01-05 15:41:38,087 - Amadeus.Optimizer - INFO - GT: Nate feels stoked and proud about it.
+2026-01-05 15:41:38,087 - Amadeus.Optimizer - INFO - Pre: Nate feels supportive and encouraging towards Joanna's screenplay project. He expresses a desire to see her succeed and continues to provide her with positive vibes and advice.
+2026-01-05 15:41:43,292 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:41:43,293 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to capture and maintain relevant contextual information by focusing on identifying and linking specific emotional states directly to actions or events. For example, when Nate mentions he is 'stoked' and 'proud' about something, ensure these emotions are linked to the appropriate context nodes such as career achievements or tournament wins.
+2026-01-05 15:41:43,293 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "feels stoked and proud about turning his passion into a career", "content": "Nate feels stoked and proud about turning his passion into a career."}]
+2026-01-05 15:41:51,276 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:41:51,356 - Amadeus.Answerer - INFO - ❓ Question: Where did Nate win the tournament?
+2026-01-05 15:41:53,513 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate won tournament', 'mode': 'hybrid'}
+2026-01-05 15:42:08,148 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Won first video game tournament'}
+2026-01-05 15:42:27,950 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Nate won the fourth video game tournament.'}
+2026-01-05 15:42:27,950 - Amadeus.Optimizer - INFO - GT: Unknown
+2026-01-05 15:42:27,950 - Amadeus.Optimizer - INFO - Pre: Nate won the fourth video game tournament.
+2026-01-05 15:42:31,044 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:42:31,044 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to ensure that specific details such as the name and location of the tournament are captured when Nate mentions winning an international tournament.
+2026-01-05 15:42:31,044 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "CS:GO tournament", "content": "won the CS:GO tournament yesterday"}]
+2026-01-05 15:42:37,180 - Amadeus.Builder - INFO - 🔗 LINK: Nate --won the CS:GO tournament yesterday--> CS:GO tournament (Time: 2022-08-22)
+2026-01-05 15:42:37,435 - Amadeus.Answerer - INFO - ❓ Question: What did Joanna share with her writers group last week?
+2026-01-05 15:42:39,051 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna writers group last week', 'mode': 'hybrid'}
+2026-01-05 15:42:41,518 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Writers Group'}
+2026-01-05 15:42:42,694 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Joanna's Screenplay Project", 'mode': 'hybrid'}
+2026-01-05 15:42:44,943 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna writers group shared last week', 'mode': 'hybrid'}
+2026-01-05 15:42:49,027 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Joanna's writers group shared last week", 'mode': 'hybrid'}
+2026-01-05 15:42:53,597 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Joanna shared her screenplay project with her writers group last week.'}
+2026-01-05 15:42:53,597 - Amadeus.Optimizer - INFO - GT: She shared her book.
+2026-01-05 15:42:53,597 - Amadeus.Optimizer - INFO - Pre: Joanna shared her screenplay project with her writers group last week.
+2026-01-05 15:42:57,829 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:42:57,829 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it doesn't stop at the first level of the graph and instead looks for more context. The system prompt should include a directive to trust the global memory graph over any prior assumptions unless explicitly stated otherwise.
+2026-01-05 15:42:57,829 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 20. Processing Buffer...

@@ -1,0 +1,1052 @@
+2026-01-05 15:11:14,085 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-30
+========================================
+2026-01-05 15:11:15,266 - Experiment - INFO - [conv-30] 🧠 Phase 1: Building Memory (19 contextual sessions)...
+2026-01-05 15:11:15,282 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:11:37,484 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:11:37,592 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Lost his job as a banker--> Job (Time: 2023-01-20)
+2026-01-05 15:11:37,647 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Starting a dance studio because he is passionate about dancing--> Business (Time: 2023-01-20)
+2026-01-05 15:11:37,722 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Lost her job at Door Dash--> Job (Time: 2023-01-20)
+2026-01-05 15:11:37,754 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Competed in dance competitions and shows--> Dance (Time: 2023-01-20)
+2026-01-05 15:11:37,860 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Fav dance style is contemporary--> Dance (Time: 2023-01-20)
+2026-01-05 15:11:37,872 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Won first place in a regional dance competition at age fifteen--> Achievement (Time: 2008-01-01)
+2026-01-05 15:11:37,872 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Did a contemporary piece called 'Finding Freedom'--> Dance (Time: 2008-01-01)
+2026-01-05 15:11:37,872 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Practices contemporary and hip-hop dances--> Dance (Time: 2023-01-20)
+2026-01-05 15:11:37,877 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Choreographing for a nearby festival next month--> Project (Time: 2023-02-28)
+2026-01-05 15:11:37,883 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:11:37,883 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:11:44,020 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:11:44,020 - Amadeus.Answerer - INFO - ❓ Question: What business is Jon planning to start?
+2026-01-05 15:11:45,248 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon planning to start business', 'mode': 'hybrid'}
+2026-01-05 15:11:46,361 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon is planning to start a dance studio because he is passionate about dancing.'}
+2026-01-05 15:11:46,362 - Amadeus.Optimizer - INFO - GT: Jon is planning to start a dance studio because he is passionate about dancing and wants to share it with others.
+2026-01-05 15:11:46,362 - Amadeus.Optimizer - INFO - Pre: Jon is planning to start a dance studio because he is passionate about dancing.
+2026-01-05 15:11:49,618 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:11:49,618 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on implicit causality and temporal relationships. Encourage the Questioner to ask more specific and forward-looking questions that consider recent activities and plans.
+2026-01-05 15:11:49,618 - Amadeus.Answerer - INFO - ❓ Question: Why did Gina and her team choose the name 'Finding Freedom' for their contemporary dance piece?
+2026-01-05 15:11:50,649 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina and her team Finding Freedom contemporary dance piece', 'mode': 'hybrid'}
+2026-01-05 15:11:51,633 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance'}
+2026-01-05 15:11:52,485 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Finding Freedom'}
+2026-01-05 15:11:53,383 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Finding Freedom'}
+2026-01-05 15:11:54,826 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Gina and her team chose the name 'Finding Freedom' for their contemporary dance piece because they performed a contemporary dance called 'Finding Freedom' in 2008."}
+2026-01-05 15:11:54,826 - Amadeus.Optimizer - INFO - GT: Gina and her team chose 'Finding Freedom' because it was an emotional and powerful piece.
+2026-01-05 15:11:54,826 - Amadeus.Optimizer - INFO - Pre: Gina and her team chose the name 'Finding Freedom' for their contemporary dance piece because they performed a contemporary dance called 'Finding Freedom' in 2008.
+2026-01-05 15:11:59,059 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:11:59,060 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it trusts the graph over priors and focuses on retrieving the most recent information related to the question. The Answerer should be encouraged to perform multi-hop reasoning to connect pieces of information across different nodes.
+2026-01-05 15:11:59,060 - Amadeus.Answerer - INFO - ❓ Question: How does Jon feel about teaching others through his dance studio?
+2026-01-05 15:12:00,077 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio teaching feelings', 'mode': 'hybrid'}
+2026-01-05 15:12:01,420 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio teaching', 'mode': 'hybrid'}
+2026-01-05 15:12:02,385 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Business'}
+2026-01-05 15:12:03,903 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio teaching at 2023-01-20', 'mode': 'hybrid'}
+2026-01-05 15:12:04,987 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Business'}
+2026-01-05 15:12:06,163 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio teaching 2023-01-20', 'mode': 'hybrid'}
+2026-01-05 15:12:07,470 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Business'}
+2026-01-05 15:12:08,849 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio teaching', 'mode': 'hybrid'}
+2026-01-05 15:12:08,855 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:12:09,226 - Amadeus.Optimizer - INFO - GT: Jon is excited to spread the joy and intensity of dancing with others.
+2026-01-05 15:12:09,226 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:12:17,695 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:12:17,696 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the builder's System Prompt to capture Jon's emotional state and future intentions more accurately. Specifically, include rules to identify and extract statements expressing excitement, enthusiasm, or plans for future actions related to his business venture.
+2026-01-05 15:12:17,696 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Excited about teaching others", "content": "Jon is excited to spread the joy and intensity of dancing with others."}, {"action": "LINK", "subject": "Jon", "object": "Dance Studio", "content": "Jon --Is planning to use his passion to teach through his dance studio--> Teaching (Time: 2023-01-20)"}]
+2026-01-05 15:12:26,834 - Amadeus.Builder - INFO - ➕ NODE: Jon
+2026-01-05 15:12:26,842 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon --Is planning to use his passion to teach through his dance studio--> Teaching (Time: 2023-01-20)--> Dance Studio (Time: 2023-01-20)
+2026-01-05 15:12:26,862 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:12:40,369 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:12:40,382 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Visited Paris yesterday--> Paris (Time: 2023-01-29)
+2026-01-05 15:12:40,382 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Growing the business--> Business (Time: 2023-01-29)
+2026-01-05 15:12:40,383 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Looking for the right place and considering features like size, floor quality, and natural light--> Dance Studio (Time: 2023-01-29)
+2026-01-05 15:12:40,387 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Looking for Marley flooring for the dance studio--> Marley Flooring (Time: 2023-01-29)
+2026-01-05 15:12:40,388 - Amadeus.Builder - INFO - ⏳ WAIT: Success is almost here. We got...
+2026-01-05 15:12:40,406 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:12:40,407 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:12:44,651 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:12:44,652 - Amadeus.Answerer - INFO - ❓ Question: What kind of flooring is Jon looking for?
+2026-01-05 15:12:48,741 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon looking for flooring', 'mode': 'hybrid'}
+2026-01-05 15:12:49,756 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Marley Flooring'}
+2026-01-05 15:12:51,238 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon is looking for Marley flooring for the dance studio.'}
+2026-01-05 15:12:51,238 - Amadeus.Optimizer - INFO - GT: Marley flooring.
+2026-01-05 15:12:51,238 - Amadeus.Optimizer - INFO - Pre: Jon is looking for Marley flooring for the dance studio.
+2026-01-05 15:12:55,153 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:12:55,153 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should trust the information in the Global Memory Graph more and consider multiple hops when retrieving answers. In this case, the Answerer should recognize that while Jon is focused on his dance studio, the conversation with Gina did not mention anything about flooring, indicating that the prediction is incorrect.
+2026-01-05 15:12:55,154 - Amadeus.Answerer - INFO - ❓ Question: How does Gina feel about Jon's dance studio project?
+2026-01-05 15:12:56,465 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina Jon dance studio project feelings', 'mode': 'hybrid'}
+2026-01-05 15:12:57,560 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Looking for Marley flooring for the dance studio'}
+2026-01-05 15:12:58,786 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Gina reaction to Jon's dance studio plans", 'mode': 'hybrid'}
+2026-01-05 15:13:00,198 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Gina reaction to Jon's dance studio plans", 'mode': 'hybrid'}
+2026-01-05 15:13:02,941 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "The information available does not directly state how Gina feels about Jon's dance studio project. However, it is known that Gina is passionate about contemporary dance and has competed in dance competitions and shows. Given her interest in dance, it can be inferred that she may support Jon's dance studio plans."}
+2026-01-05 15:13:02,945 - Amadeus.Optimizer - INFO - GT: She believes in him and encourages him to push through.
+2026-01-05 15:13:02,946 - Amadeus.Optimizer - INFO - Pre: The information available does not directly state how Gina feels about Jon's dance studio project. However, it is known that Gina is passionate about contemporary dance and has competed in dance competitions and shows. Given her interest in dance, it can be inferred that she may support Jon's dance studio plans.
+2026-01-05 15:13:05,728 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:13:05,733 - Amadeus.Answerer - INFO - ❓ Question: Where did Jon go yesterday?
+2026-01-05 15:13:07,978 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio yesterday', 'mode': 'hybrid'}
+2026-01-05 15:13:09,002 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Paris'}
+2026-01-05 15:13:09,790 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon went to Paris yesterday.'}
+2026-01-05 15:13:09,790 - Amadeus.Optimizer - INFO - GT: Paris.
+2026-01-05 15:13:09,790 - Amadeus.Optimizer - INFO - Pre: Jon went to Paris yesterday.
+2026-01-05 15:13:14,003 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:13:14,003 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to trust the graph more and consider multiple hops when retrieving information. The Answerer should also focus on recent context rather than relying solely on immediate attributes.
+2026-01-05 15:13:14,003 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:13:26,777 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:13:26,777 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Still searching for a place to open his dance studio--> Business (Time: 2023-02-01)
+2026-01-05 15:13:26,784 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Found a perfect spot and is expanding her clothing store--> Clothing Store (Time: 2023-02-01)
+2026-01-05 15:13:26,790 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Not directly involved in teaching through Jon's dance studio--> Teaching (Time: 2023-02-01)
+2026-01-05 15:13:26,813 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:13:26,814 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:14:06,258 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:14:06,259 - Amadeus.Answerer - INFO - ❓ Question: What might be the reason for Gina's excitement after receiving a positive response from the wholesalers?
+2026-01-05 15:14:07,388 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina excitement positive response wholesalers', 'mode': 'hybrid'}
+2026-01-05 15:14:08,424 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-05 15:14:09,748 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Gina's excitement after receiving a positive response from the wholesalers might be due to finding a perfect spot and planning to expand her clothing store."}
+2026-01-05 15:14:09,749 - Amadeus.Optimizer - INFO - GT: Gina is excited because she can now expand her clothing store and get closer to her customers.
+2026-01-05 15:14:09,750 - Amadeus.Optimizer - INFO - Pre: Gina's excitement after receiving a positive response from the wholesalers might be due to finding a perfect spot and planning to expand her clothing store.
+2026-01-05 15:14:12,805 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:14:12,805 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that any mention of a positive response from wholesalers is correctly linked to the relevant context. For example, add a rule to capture and link such responses directly to the actions and plans of the individuals involved.
+2026-01-05 15:14:12,806 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Gina", "object": "Wholesalers Response", "content": "Positive response regarding expansion of clothing store"}]
+2026-01-05 15:14:16,789 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Positive response regarding expansion of clothing store--> Wholesalers Response (Time: 2023-02-01)
+2026-01-05 15:14:16,812 - Amadeus.Answerer - INFO - ❓ Question: How does Jon's determination to open a dance studio reflect his personal values or goals?
+2026-01-05 15:14:17,915 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio determination personal values goals', 'mode': 'hybrid'}
+2026-01-05 15:14:19,075 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Teaching'}
+2026-01-05 15:14:20,556 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio determination personal values goals recent', 'mode': 'hybrid'}
+2026-01-05 15:14:21,748 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Teaching'}
+2026-01-05 15:14:23,194 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio determination personal values goals 2023-02-01', 'mode': 'hybrid'}
+2026-01-05 15:14:24,537 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Business'}
+2026-01-05 15:14:26,065 - Amadeus.Answerer - INFO - Step 7: READ - {'tool': 'READ', 'answer': "Jon's determination to open a dance studio reflects his personal value of passion and his goal of sharing his love for dance with others."}
+2026-01-05 15:14:26,065 - Amadeus.Optimizer - INFO - GT: Jon is determined to open a dance studio because he is following his passion for dance.
+2026-01-05 15:14:26,065 - Amadeus.Optimizer - INFO - Pre: Jon's determination to open a dance studio reflects his personal value of passion and his goal of sharing his love for dance with others.
+2026-01-05 15:14:28,181 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:14:28,182 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and personal aspirations rather than historical contexts. Encourage asking about recent actions, motivations, and immediate goals.
+2026-01-05 15:14:28,182 - Amadeus.Answerer - INFO - ❓ Question: What is the relationship between the design of Gina's store and her goal of making customers feel like they're in a cool oasis?
+2026-01-05 15:14:29,504 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's store design and customer feeling cool oasis", 'mode': 'hybrid'}
+2026-01-05 15:14:31,401 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "Gina's clothing store design and cool oasis feeling", 'mode': 'hybrid'}
+2026-01-05 15:14:33,090 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-05 15:14:34,622 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Clothing Store design and cool oasis feeling', 'mode': 'hybrid'}
+2026-01-05 15:14:36,172 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Gina's store design and cool oasis feeling relationship", 'mode': 'hybrid'}
+2026-01-05 15:14:38,314 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Gina's store design and cool oasis feeling relationship", 'mode': 'hybrid'}
+2026-01-05 15:14:39,800 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "Gina's store design and cool oasis feeling relationship", 'mode': 'hybrid'}
+2026-01-05 15:14:41,091 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Gina's store design and cool oasis feeling relationship", 'mode': 'hybrid'}
+2026-01-05 15:14:41,111 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:14:43,690 - Amadeus.Optimizer - INFO - GT: Gina chose furniture and decor that would make the store look comfortable and inviting, aligning with her goal of creating a special shopping experience for her customers.
+2026-01-05 15:14:43,690 - Amadeus.Optimizer - INFO - Pre: Based on the available information, it can be inferred that Gina's store design aims to create a cool oasis similar to her experience in Paris, possibly incorporating elements she associates with a cool and refreshing atmosphere, which might include modern aesthetics, comfortable seating areas, or a calming color scheme. This aligns with her background in dance, where she may have appreciated a similar ambiance. Therefore, her goal is likely to blend these positive experiences into her store design to make customers feel relaxed and rejuvenated while shopping.
+2026-01-05 15:14:47,214 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:14:47,215 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The builder should extract more detailed information about the specific goals and plans related to store design from the text buffer. For example, the builder could look for sentences or phrases that explicitly mention store design and its intended atmosphere. Additionally, the builder should ensure that connections are made between characters and their respective goals or activities.
+2026-01-05 15:14:47,215 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Gina", "object": "store design goals", "content": "Create a cool oasis to make customers feel relaxed and rejuvenated."}]
+2026-01-05 15:14:51,826 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Create a cool oasis to make customers feel relaxed and rejuvenated.--> store design goals (Time: 2023-02-01)
+2026-01-05 15:14:51,835 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 4. Processing Buffer...
+2026-01-05 15:15:12,922 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:15:12,923 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Putting in a lot of work on his business even with the obstacles. Determined to find the right dance studio location.--> Business (Time: 2023-02-04)
+2026-01-05 15:15:12,923 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Expanding her clothing store and received a positive response from wholesalers.--> Clothing Store (Time: 2023-02-01)
+2026-01-05 15:15:12,930 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Rehearsing hard for an upcoming dance competition.--> Dance Routine (Time: 2023-02-04)
+2026-01-05 15:15:12,941 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Getting ready for a dance competition near him next month.--> Competition (Time: 2023-02-04)
+2026-01-05 15:15:12,946 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Received a positive response from wholesalers regarding the expansion of her clothing store.--> Wholesalers Response (Time: 2023-02-01)
+2026-01-05 15:15:12,950 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Passionate about dancing and it brings him joy and fulfillment.--> Passion (Time: 2023-02-04)
+2026-01-05 15:15:13,053 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina provides support to Jon and encourages him to keep going and believe in himself.--> Support (Time: 2023-02-04)
+2026-01-05 15:15:13,095 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:15:13,095 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:15:34,532 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:15:34,532 - Amadeus.Answerer - INFO - ❓ Question: How does Jon feel about his business despite the obstacles?
+2026-01-05 15:15:35,751 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon business obstacles feelings', 'mode': 'hybrid'}
+2026-01-05 15:15:36,981 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Business'}
+2026-01-05 15:15:37,817 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Passion'}
+2026-01-05 15:15:38,896 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Despite the obstacles, Jon feels passionate about his business and it brings him joy and fulfillment.'}
+2026-01-05 15:15:38,896 - Amadeus.Optimizer - INFO - GT: Jon feels driven and determined to succeed, even when things don't go his way.
+2026-01-05 15:15:38,897 - Amadeus.Optimizer - INFO - Pre: Despite the obstacles, Jon feels passionate about his business and it brings him joy and fulfillment.
+2026-01-05 15:15:40,659 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:15:40,660 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on implicit causality and current events. Avoid asking about historical or long-term sentiments unless they are directly relevant to the current context.
+2026-01-05 15:15:40,660 - Amadeus.Answerer - INFO - ❓ Question: What does Gina think about Jon's chances in the upcoming dance competition?
+2026-01-05 15:15:42,211 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina Jon dance competition', 'mode': 'hybrid'}
+2026-01-05 15:15:44,822 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Support'}
+2026-01-05 15:15:46,206 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina thinks Jon has good chances in the upcoming dance competition and provides him with support, encouraging him to keep going and believe in himself.'}
+2026-01-05 15:15:46,206 - Amadeus.Optimizer - INFO - GT: Gina believes Jon will do well and that his hard work and talent will pay off.
+2026-01-05 15:15:46,206 - Amadeus.Optimizer - INFO - Pre: Gina thinks Jon has good chances in the upcoming dance competition and provides him with support, encouraging him to keep going and believe in himself.
+2026-01-05 15:15:56,307 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:15:56,308 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it trusts the graph over priors and doesn't hallucinate when specific information is available. The Answerer should be more careful to verify the context and relationships within the graph before providing an answer.
+2026-01-05 15:15:56,308 - Amadeus.Answerer - INFO - ❓ Question: Where is Jon searching for a location for his dance studio?
+2026-01-05 15:15:57,468 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio location', 'mode': 'hybrid'}
+2026-01-05 15:16:02,331 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-05 15:16:04,036 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon is searching for a location for his dance studio, considering features like size, floor quality, and natural light.'}
+2026-01-05 15:16:04,036 - Amadeus.Optimizer - INFO - GT: Near him.
+2026-01-05 15:16:04,037 - Amadeus.Optimizer - INFO - Pre: Jon is searching for a location for his dance studio, considering features like size, floor quality, and natural light.
+2026-01-05 15:16:09,434 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:16:09,435 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture specific information related to Jon's business activities, particularly those concerning the dance studio location. Ensure that the builder extracts relevant details directly from the conversation context and links them appropriately in the graph.
+2026-01-05 15:16:09,436 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Dance Studio Location", "content": "Jon is currently searching for a location for his dance studio near him."}]
+2026-01-05 15:16:13,692 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon is currently searching for a location for his dance studio near him.--> Dance Studio Location (Time: 2023-02-04)
+2026-01-05 15:16:13,775 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 5. Processing Buffer...
+2026-01-05 15:16:31,174 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:16:31,174 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Grew his business and is excited about his dance studio--> Business (Time: 2023-02-08)
+2026-01-05 15:16:31,175 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Working on her online store and teaming up with a local artist--> Clothing Store (Time: 2023-02-08)
+2026-01-05 15:16:31,180 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Team up with a local artist for some cool designs--> Local Artist (Time: 2023-02-08)
+2026-01-05 15:16:31,181 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Aiming to find a perfect location for his dance studio--> Dance Studio Location (Time: 2023-02-08)
+2026-01-05 15:16:31,181 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Provides support to Jon and encourages him to keep going and believe in himself--> Support (Time: 2023-02-08)
+2026-01-05 15:16:31,185 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Got a tattoo that stands for freedom - dancing without worrying what people think--> Tattoo (Time: 2023-02-08)
+2026-01-05 15:16:31,185 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Creating a cool oasis to make customers feel relaxed and rejuvenated--> store design goals (Time: 2023-02-08)
+2026-01-05 15:16:31,189 - Amadeus.Builder - INFO - ➕ NODE: Jon
+2026-01-05 15:16:31,211 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:16:31,216 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:16:41,226 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:16:41,227 - Amadeus.Answerer - INFO - ❓ Question: What does Jon's dance studio provide him?
+2026-01-05 15:16:59,005 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio', 'mode': 'hybrid'}
+2026-01-05 15:17:00,547 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Jon's dance studio provides him with an opportunity to use his passion to teach and grow his business, bringing him joy and fulfillment."}
+2026-01-05 15:17:00,547 - Amadeus.Optimizer - INFO - GT: It provides him with the freedom to create a space and help dancers of all ages and levels express themselves.
+2026-01-05 15:17:00,547 - Amadeus.Optimizer - INFO - Pre: Jon's dance studio provides him with an opportunity to use his passion to teach and grow his business, bringing him joy and fulfillment.
+2026-01-05 15:17:03,383 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:17:03,383 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current context and recent activities. Avoid asking about historical or long-term implications unless directly relevant to the current conversation.
+2026-01-05 15:17:03,384 - Amadeus.Answerer - INFO - ❓ Question: Why does Gina have a tattoo that says 'freedom'?
+2026-01-05 15:17:05,957 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina tattoo freedom', 'mode': 'hybrid'}
+2026-01-05 15:17:07,075 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance'}
+2026-01-05 15:17:08,669 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Gina has a tattoo that says 'freedom' because she did a contemporary dance piece called 'Finding Freedom' in 2008."}
+2026-01-05 15:17:08,669 - Amadeus.Optimizer - INFO - GT: It stands for dancing without worrying what people think, reminding her to follow her passions and express herself.
+2026-01-05 15:17:08,669 - Amadeus.Optimizer - INFO - Pre: Gina has a tattoo that says 'freedom' because she did a contemporary dance piece called 'Finding Freedom' in 2008.
+2026-01-05 15:17:13,285 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:17:13,286 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that relevant historical information is captured when building nodes related to personal attributes such as tattoos. Specifically, include a rule to extract and link past events and actions that are directly associated with personal attributes mentioned in conversations.
+2026-01-05 15:17:13,286 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Tattoo", "content": "Jon got a tattoo that says 'freedom' because he danced without worrying what people thought in 2008."}, {"action": "ADD", "subject": "Gina", "object": "Tattoo", "content": "Gina has a tattoo that says 'freedom' because she danced without worrying what people thought in 2008."}]
+2026-01-05 15:17:19,295 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon got a tattoo that says 'freedom' because he danced without worrying what people thought in 2008.--> Tattoo (Time: 2008-01-01)
+2026-01-05 15:17:19,295 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina has a tattoo that says 'freedom' because she danced without worrying what people thought in 2008.--> Tattoo (Time: 2008-01-01)
+2026-01-05 15:17:19,306 - Amadeus.Answerer - INFO - ❓ Question: How does Jon's passion for dancing influence his business goals?
+2026-01-05 15:17:24,327 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon's passion for dancing and business goals", 'mode': 'hybrid'}
+2026-01-05 15:17:33,505 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-05 15:17:42,837 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Teaching'}
+2026-01-05 15:17:46,276 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Jon's passion for dancing and how it influences his business goals", 'mode': 'hybrid'}
+2026-01-05 15:18:52,238 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Jon's passion for dancing significantly influences his business goals by fueling his drive to create a dance studio where he can share his joy and intensity of dancing with others. His passion led him to start the dance studio, and he continues to put in a lot of work despite obstacles. Jon aims to find the right location for his dance studio, considering factors like size, floor quality, and natural light, ensuring that the space aligns with his vision of creating a cool oasis for his students to feel relaxed and rejuvenated."}
+2026-01-05 15:18:52,238 - Amadeus.Optimizer - INFO - GT: His dance moves get him pumped to tackle his business goals, and successes in his business boost his drive to keep dreaming on the dance floor.
+2026-01-05 15:18:52,238 - Amadeus.Optimizer - INFO - Pre: Jon's passion for dancing significantly influences his business goals by fueling his drive to create a dance studio where he can share his joy and intensity of dancing with others. His passion led him to start the dance studio, and he continues to put in a lot of work despite obstacles. Jon aims to find the right location for his dance studio, considering factors like size, floor quality, and natural light, ensuring that the space aligns with his vision of creating a cool oasis for his students to feel relaxed and rejuvenated.
+2026-01-05 15:18:57,432 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:18:57,433 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it does not hallucinate answers based on incomplete or outdated information. Specifically, the Answerer should trust the graph more and avoid making assumptions beyond the immediate context provided in the Buffer. For instance, the Answerer should not assume that Jon's passion for dancing directly leads to specific business goals without clear evidence linking them in the current session context.
+2026-01-05 15:18:57,433 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 6. Processing Buffer...
+2026-01-05 15:19:14,282 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:19:14,288 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Started hitting the gym last week to stay on track with the venture--> Gym (Time: 2023-03-16)
+2026-01-05 15:19:14,288 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Losing my job was hard, but I'm living my dreams now. Starting and running my own business has been tough but I'm gonna make it!--> Business (Time: 2023-03-16)
+2026-01-05 15:19:14,288 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Lost her job at Door Dash since January 2023--> Job (Time: 2023-03-16)
+2026-01-05 15:19:14,292 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Online clothes store is open--> Online Clothes Store (Time: 2023-03-16)
+2026-01-05 15:19:14,293 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Blending her love for dance and fashion--> Clothing Store (Time: 2023-03-16)
+2026-01-05 15:19:14,293 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Teaming up with a local artist for some cool designs--> Local Artist (Time: 2023-03-16)
+2026-01-05 15:19:14,293 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Having someone back him up is great--> Gina (Time: 2023-03-16)
+2026-01-05 15:19:14,293 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Having someone back her up is great--> Jon (Time: 2023-03-16)
+2026-01-05 15:19:14,465 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:19:14,500 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:19:21,028 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:19:21,029 - Amadeus.Answerer - INFO - ❓ Question: What challenges is Jon currently facing in starting his business?
+2026-01-05 15:19:23,918 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon starting business challenges', 'mode': 'hybrid'}
+2026-01-05 15:19:26,226 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio Location'}
+2026-01-05 15:19:27,692 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon is currently facing the challenge of searching for a location for his dance studio near him. He is also aiming to find a perfect location for his dance studio.'}
+2026-01-05 15:19:27,692 - Amadeus.Optimizer - INFO - GT: He is facing new challenges but is determined to make it work.
+2026-01-05 15:19:27,692 - Amadeus.Optimizer - INFO - Pre: Jon is currently facing the challenge of searching for a location for his dance studio near him. He is also aiming to find a perfect location for his dance studio.
+2026-01-05 15:19:32,757 - openai._base_client - INFO - Retrying request to /chat/completions in 0.390264 seconds
+2026-01-05 15:19:38,280 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:19:38,280 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it does not hallucinate specific details that are not directly linked to the current context. The Answerer should focus on extracting and providing information based on the immediate context and relationships within the graph, rather than inferring or adding unrelated facts.
+2026-01-05 15:19:38,281 - Amadeus.Answerer - INFO - ❓ Question: How does Jon's gym routine relate to his venture business?
+2026-01-05 15:19:39,778 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon's gym routine and venture business", 'mode': 'hybrid'}
+2026-01-05 15:19:41,933 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gym'}
+2026-01-05 15:19:43,056 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon started hitting the gym last week to stay on track with his venture business.'}
+2026-01-05 15:19:43,056 - Amadeus.Optimizer - INFO - GT: He started hitting the gym last week to stay on track with the venture, indicating a focus on balancing his new business with physical fitness.
+2026-01-05 15:19:43,056 - Amadeus.Optimizer - INFO - Pre: Jon started hitting the gym last week to stay on track with his venture business.
+2026-01-05 15:19:44,854 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:19:44,855 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and activities rather than historical context. Encourage the Questioner to ask more contemporary and relevant questions to ensure the system focuses on recent developments and relationships.
+2026-01-05 15:19:44,855 - Amadeus.Answerer - INFO - ❓ Question: Why did Gina decide to start her online clothes store after losing her job at Door Dash?
+2026-01-05 15:19:46,022 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina online clothes store Door Dash job loss motivation', 'mode': 'hybrid'}
+2026-01-05 15:19:47,488 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Clothing Store'}
+2026-01-05 15:19:48,792 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Gina job loss Door Dash motivation online clothes store', 'mode': 'hybrid'}
+2026-01-05 15:19:50,068 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-05 15:19:51,499 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Gina decision to start online clothes store after losing Door Dash job motivation', 'mode': 'hybrid'}
+2026-01-05 15:19:54,550 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Gina decided to start her online clothes store after losing her job at Door Dash because she was looking for a new venture and decided to expand her existing clothing store into an online platform. This shift is likely motivated by finding a perfect physical location and receiving a positive response from wholesalers, which indicates potential market demand and support for her clothing store expansion.'}
+2026-01-05 15:19:54,551 - Amadeus.Optimizer - INFO - GT: She decided to start her online clothes store because she is passionate about fashion trends and finding unique pieces, and she wanted to blend her love for dance and fashion.
+2026-01-05 15:19:54,551 - Amadeus.Optimizer - INFO - Pre: Gina decided to start her online clothes store after losing her job at Door Dash because she was looking for a new venture and decided to expand her existing clothing store into an online platform. This shift is likely motivated by finding a perfect physical location and receiving a positive response from wholesalers, which indicates potential market demand and support for her clothing store expansion.
+2026-01-05 15:20:00,219 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:20:00,219 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures more detailed and relevant information about the subject's motivations and personal passions. Specifically, the Builder should focus on identifying and linking explicit statements of personal interests and goals to avoid hallucinating reasons based on general knowledge or assumptions.
+2026-01-05 15:20:00,219 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Gina", "object": "Passionate about fashion trends", "content": "Gina is passionate about fashion trends and finding unique pieces."}, {"action": "ADD", "object": "Gina", "subject": "Wants to blend love for dance and fashion", "content": "Gina wants to blend her love for dance and fashion in her business."}, {"action": "ADD", "subject": "Gina", "object": "Looking for a new venture", "content": "Gina is looking for a new venture after losing her job at Door Dash."}]
+2026-01-05 15:20:12,482 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:20:12,487 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina wants to blend her love for dance and fashion in her business.--> Wants to blend love for dance and fashion (Time: 2023-03-16)
+2026-01-05 15:20:12,538 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:20:12,769 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 7. Processing Buffer...
+2026-01-05 15:20:28,227 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:20:28,228 - Amadeus.Builder - INFO - 🔗 LINK: Jon --It's been tough, but I'm gonna make it happen. It's been great!--> Business (Time: 2023-03-23)
+2026-01-05 15:20:28,228 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Online clothes store is open and Gina is always working on building a strong brand image and customer relationships.--> Online Clothes Store (Time: 2023-03-23)
+2026-01-05 15:20:28,228 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina supports Jon and encourages him to keep going and believe in himself. She also cheers Jon on and motivates him.--> Support (Time: 2023-03-23)
+2026-01-05 15:20:28,228 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Thanks for being there for me. Your help means a lot.--> Gina (Time: 2023-03-23)
+2026-01-05 15:20:28,228 - Amadeus.Builder - INFO - 🔗 LINK: Gina --I'm here for you, rooting for you all the way.--> Jon (Time: 2023-03-23)
+2026-01-05 15:20:28,233 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:20:28,237 - Amadeus.Builder - INFO - ➕ NODE: Jon
+2026-01-05 15:20:28,289 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:20:28,290 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:20:33,924 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:20:33,925 - Amadeus.Answerer - INFO - ❓ Question: What trend is Gina currently focusing on for her store?
+2026-01-05 15:20:35,517 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina store trend', 'mode': 'hybrid'}
+2026-01-05 15:20:37,101 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Wants to blend love for dance and fashion'}
+2026-01-05 15:20:39,056 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina currently wants to blend her love for dance and fashion in her business.'}
+2026-01-05 15:20:39,057 - Amadeus.Optimizer - INFO - GT: She has been keeping up with fashion trends.
+2026-01-05 15:20:39,058 - Amadeus.Optimizer - INFO - Pre: Gina currently wants to blend her love for dance and fashion in her business.
+2026-01-05 15:20:42,737 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:20:42,738 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it trusts the graph more and doesn't rely solely on the most recent information. Encourage the Answerer to consider multiple hops in the graph to find relevant information.
+2026-01-05 15:20:42,738 - Amadeus.Answerer - INFO - ❓ Question: Why does Jon think brand identity is key for his dance studio business?
+2026-01-05 15:20:43,788 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio brand identity', 'mode': 'hybrid'}
+2026-01-05 15:20:45,015 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-05 15:20:46,286 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'brand identity key for dance studio business', 'mode': 'hybrid'}
+2026-01-05 15:20:47,573 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'brand identity key reasons for dance studio business success', 'mode': 'hybrid'}
+2026-01-05 15:20:49,008 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'brand identity key reasons for dance studio business success', 'mode': 'hybrid'}
+2026-01-05 15:20:50,373 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'brand identity key reasons for dance studio business success', 'mode': 'hybrid'}
+2026-01-05 15:20:51,558 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Wants to blend love for dance and fashion'}
+2026-01-05 15:20:53,950 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Jon brand identity dance studio business', 'mode': 'hybrid'}
+2026-01-05 15:20:53,959 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:20:54,400 - Amadeus.Optimizer - INFO - GT: Seeing his students succeed motivates him.
+2026-01-05 15:20:54,400 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:20:57,620 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:20:57,621 - Amadeus.Answerer - INFO - ❓ Question: How do Jon and Gina support each other in their respective businesses?
+2026-01-05 15:20:58,674 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina support each other businesses', 'mode': 'hybrid'}
+2026-01-05 15:21:01,082 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon and Gina support each other in their respective businesses by providing encouragement and motivation. Gina supports Jon in his dance studio venture, while Jon is there for Gina as she looks for new opportunities in fashion. Both express gratitude for the support they receive from the other.'}
+2026-01-05 15:21:01,113 - Amadeus.Optimizer - INFO - GT: Gina supports Jon by being there for him and cheering him on, while Jon mentions that Gina’s support means a lot to him.
+2026-01-05 15:21:01,113 - Amadeus.Optimizer - INFO - Pre: Jon and Gina support each other in their respective businesses by providing encouragement and motivation. Gina supports Jon in his dance studio venture, while Jon is there for Gina as she looks for new opportunities in fashion. Both express gratitude for the support they receive from the other.
+2026-01-05 15:21:06,747 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:21:06,747 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the extraction rules to ensure that the builder captures direct supportive interactions between individuals, especially when they mention specific actions or feelings towards each other. For example, include rules to identify and link statements where one person directly supports or encourages another.
+2026-01-05 15:21:06,748 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Gina", "content": "Gina supports Jon and encourages him to keep going and believe in himself."}, {"action": "ADD", "subject": "Gina", "object": "Jon", "content": "Jon is there for Gina and expresses gratitude for her support."}]
+2026-01-05 15:21:12,856 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Gina supports Jon and encourages him to keep going and believe in himself.--> Gina (Time: None)
+2026-01-05 15:21:12,856 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Jon is there for Gina and expresses gratitude for her support.--> Jon (Time: None)
+2026-01-05 15:21:12,868 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 8. Processing Buffer...
+2026-01-05 15:21:41,446 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:21:41,447 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Shut down his bank account to help his business grow--> Business (Time: 2023-04-03)
+2026-01-05 15:21:41,454 - Amadeus.Builder - INFO - ➕ NODE: Jon
+2026-01-05 15:21:41,459 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Offering workshops and classes to local schools and centers--> Workshops and Classes (Time: 2023-04-03)
+2026-01-05 15:21:41,519 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Hosting a dance competition next month to showcase local talent and bring more attention to his studio--> Dance Competition (Time: 2023-04-03)
+2026-01-05 15:21:41,529 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Working with fashion bloggers and influencers and doing more ads to reach more people--> Online Clothes Store (Time: 2023-04-03)
+2026-01-05 15:21:41,554 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Working with fashion bloggers and influencers--> Fashion Bloggers and Influencers (Time: 2023-04-03)
+2026-01-05 15:21:41,592 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Doing more ad campaigns--> Ad Campaigns (Time: 2023-04-03)
+2026-01-05 15:21:41,605 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Showing support for Jon and expressing her motivation to pursue her goals--> Support (Time: 2023-04-03)
+2026-01-05 15:21:41,610 - Amadeus.Builder - INFO - 🔗 LINK: Event --Dance studio and other schools are bringing their best moves for an awesome night of performances and judging--> Dance Competition (Time: 2023-04-03)
+2026-01-05 15:21:41,619 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Coming to the event next month to show her support--> Support (Time: 2023-04-03)
+2026-01-05 15:21:41,624 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:21:41,680 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:21:41,680 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:21:48,896 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:21:48,897 - Amadeus.Answerer - INFO - ❓ Question: What recent actions is Jon taking to expand his dance studio's presence?
+2026-01-05 15:21:50,144 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio recent actions expansion', 'mode': 'hybrid'}
+2026-01-05 15:21:51,736 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Expanding his dance studio's social media presence"}
+2026-01-05 15:21:54,277 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "expanding his dance studio's social media presence Jon", 'mode': 'hybrid'}
+2026-01-05 15:21:57,997 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Jon is taking several recent actions to expand his dance studio's presence, including growing his business, putting in a lot of work to find the right location, and shutting down his bank account to help his business grow. Additionally, he is planning to offer workshops and classes to local schools and centers, and hosting a dance competition next month to showcase local talent and bring more attention to his studio."}
+2026-01-05 15:21:57,997 - Amadeus.Optimizer - INFO - GT: He is expanding his dance studio's social media presence and offering workshops and classes to local schools and centers.
+2026-01-05 15:21:57,997 - Amadeus.Optimizer - INFO - Pre: Jon is taking several recent actions to expand his dance studio's presence, including growing his business, putting in a lot of work to find the right location, and shutting down his bank account to help his business grow. Additionally, he is planning to offer workshops and classes to local schools and centers, and hosting a dance competition next month to showcase local talent and bring more attention to his studio.
+2026-01-05 15:22:06,404 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:22:06,404 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to focus more on extracting recent and relevant actions related to the subject's current context. Specifically, the Builder should prioritize capturing actions that directly pertain to the expansion of a business or studio, rather than general business growth strategies. Additionally, ensure that historical actions are linked to current events and not assumed to be ongoing unless explicitly stated.
+2026-01-05 15:22:06,405 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Expanding Social Media Presence", "content": "Jon is actively working on expanding the social media presence of his dance studio."}, {"action": "ADD", "subject": "Jon", "object": "Local Schools and Centers", "content": "Jon is offering workshops and classes to local schools and centers to expand his dance studio's presence."}, {"action": "REMOVE", "subject": "Bank Account", "object": "Dance Studio Presence Expansion", "content": "There is no link between shutting down the bank account and expanding the dance studio's presence."}]
+2026-01-05 15:22:16,956 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon is actively working on expanding the social media presence of his dance studio.--> Expanding Social Media Presence (Time: 2023-04-03)
+2026-01-05 15:22:16,961 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon is offering workshops and classes to local schools and centers to expand his dance studio's presence.--> Local Schools and Centers (Time: 2023-04-03)
+2026-01-05 15:22:17,016 - Amadeus.Answerer - INFO - ❓ Question: How does Jon's dance studio event next month relate to his overall business strategy?
+2026-01-05 15:22:18,200 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio event next month overall business strategy', 'mode': 'hybrid'}
+2026-01-05 15:22:19,934 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-05 15:22:20,970 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Teaching'}
+2026-01-05 15:22:22,272 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio event next month business strategy connections', 'mode': 'hybrid'}
+2026-01-05 15:22:23,486 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-05 15:22:24,989 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio event next month floor quality and business strategy connections', 'mode': 'hybrid'}
+2026-01-05 15:22:27,283 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Choreographing for a nearby festival next month'}
+2026-01-05 15:22:30,954 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Choreographing for a nearby festival next month'}
+2026-01-05 15:22:30,954 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:22:33,111 - Amadeus.Optimizer - INFO - GT: It is designed to showcase local talent and bring more attention to the dance studio, thereby helping to grow his customer base.
+2026-01-05 15:22:33,111 - Amadeus.Optimizer - INFO - Pre: Jon's dance studio event next month, which involves choreographing for a nearby festival, is likely a strategic move to increase visibility and attract more students to his studio, thereby growing his business. This event aligns with his broader business strategy of expanding his clientele and promoting his dance studio.
+2026-01-05 15:22:41,708 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:22:41,708 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture explicit connections between Jon's business actions and their intended outcomes. Ensure that the builder extracts relevant information directly related to Jon's current business strategies and events.
+2026-01-05 15:22:41,709 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Dance Studio Event", "content": "The event next month is designed to showcase local talent and bring more attention to the dance studio, thereby helping to grow his customer base."}]
+2026-01-05 15:22:51,384 - Amadeus.Builder - INFO - 🔗 LINK: Jon --The event next month is designed to showcase local talent and bring more attention to the dance studio, thereby helping to grow his customer base.--> Dance Studio Event (Time: 2023-04-07)
+2026-01-05 15:22:51,479 - Amadeus.Answerer - INFO - ❓ Question: What might be the reason for Gina's new offers and promotions in her online store?
+2026-01-05 15:22:52,792 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's new offers and promotions online store reasons", 'mode': 'hybrid'}
+2026-01-05 15:22:54,379 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "reasons for Gina's new offers and promotions in her online store", 'mode': 'hybrid'}
+2026-01-05 15:22:55,819 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Wants to blend love for dance and fashion'}
+2026-01-05 15:22:57,667 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Gina's love for dance and fashion in her business context", 'mode': 'hybrid'}
+2026-01-05 15:22:59,446 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Gina's new offers and promotions in relation to her love for dance and fashion", 'mode': 'hybrid'}
+2026-01-05 15:23:01,847 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "Gina's new offers and promotions in her online store might be driven by her desire to blend her love for dance and fashion in her business, as well as her collaboration with fashion bloggers and influencers."}
+2026-01-05 15:23:01,848 - Amadeus.Optimizer - INFO - GT: To try and bring in new customers and grow her business.
+2026-01-05 15:23:01,848 - Amadeus.Optimizer - INFO - Pre: Gina's new offers and promotions in her online store might be driven by her desire to blend her love for dance and fashion in her business, as well as her collaboration with fashion bloggers and influencers.
+2026-01-05 15:23:05,057 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:05,057 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when a node mentions 'new offers and promotions', it directly links to the context of the business entity. This will help in capturing the immediate intent behind actions taken by the nodes.
+2026-01-05 15:23:05,058 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Gina", "object": "Online Clothes Store", "content": "Working on new offers and promotions to grow the business"}]
+2026-01-05 15:23:10,511 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Working on new offers and promotions to grow the business--> Online Clothes Store (Time: 2023-04-03)
+2026-01-05 15:23:10,597 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 9. Processing Buffer...
+2026-01-05 15:23:25,047 - Amadeus.Builder - ERROR - Builder Failed: Error code: 400 - {'error': {'message': 'Input data may contain inappropriate content. For details, see: https://help.aliyun.com/zh/model-studio/error-code#inappropriate-content', 'type': 'data_inspection_failed', 'param': None, 'code': 'data_inspection_failed'}, 'id': 'chatcmpl-4f4068f9-9fcf-9861-92cf-3ad21787b72c', 'request_id': '4f4068f9-9fcf-9861-92cf-3ad21787b72c'}
+2026-01-05 15:23:25,047 - Amadeus.Builder - ERROR - Debug Info: Base URL: https://dashscope.aliyuncs.com/compatible-mode/v1/, Model: qwen2.5-7b-instruct
+2026-01-05 15:23:25,047 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:23:25,047 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:23:30,997 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:23:30,997 - Amadeus.Answerer - INFO - ❓ Question: How does Jon feel about his students?
+2026-01-05 15:23:32,168 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon feelings towards students', 'mode': 'hybrid'}
+2026-01-05 15:23:33,991 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon feels excited to spread the joy and intensity of dancing with his students.'}
+2026-01-05 15:23:33,991 - Amadeus.Optimizer - INFO - GT: He feels happy seeing them improve.
+2026-01-05 15:23:33,991 - Amadeus.Optimizer - INFO - Pre: Jon feels excited to spread the joy and intensity of dancing with his students.
+2026-01-05 15:23:36,163 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:23:36,163 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and feelings rather than historical context or future intentions. Ask about Jon's immediate emotions and experiences.
+2026-01-05 15:23:36,164 - Amadeus.Answerer - INFO - ❓ Question: What pushed Jon to start his dance business after losing his job?
+2026-01-05 15:23:37,383 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance business motivation after job loss', 'mode': 'hybrid'}
+2026-01-05 15:23:39,340 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Losing his job as a banker pushed Jon to start his dance business because he is passionate about dancing and decided to pursue his dreams.'}
+2026-01-05 15:23:39,340 - Amadeus.Optimizer - INFO - GT: Losing his job gave him the push he needed.
+2026-01-05 15:23:39,341 - Amadeus.Optimizer - INFO - Pre: Losing his job as a banker pushed Jon to start his dance business because he is passionate about dancing and decided to pursue his dreams.
+2026-01-05 15:23:42,787 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:42,787 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to capture explicit mentions of past events and their impacts on current decisions. Specifically, ensure that any mention of job loss or previous occupation is linked to the individual who experienced it.
+2026-01-05 15:23:42,787 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "job loss", "content": "Losing his job as a banker"}, {"action": "ADD", "subject": "dance business", "object": "passion", "content": "Jon's passion for dancing"}]
+2026-01-05 15:23:50,135 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Losing his job as a banker--> job loss (Time: 2023-01-20)
+2026-01-05 15:23:50,143 - Amadeus.Builder - INFO - 🔗 LINK: dance business --Jon's passion for dancing--> passion (Time: 2023-01-20)
+2026-01-05 15:23:50,220 - Amadeus.Answerer - INFO - ❓ Question: Where did Jon spend time before starting his own dance studio?
+2026-01-05 15:23:51,386 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio background', 'mode': 'hybrid'}
+2026-01-05 15:23:52,695 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'job loss'}
+2026-01-05 15:23:54,002 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jon before dance studio', 'mode': 'hybrid'}
+2026-01-05 15:23:57,483 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Before starting his own dance studio, Jon spent time competing in dance competitions and shows. He also practiced contemporary and hip-hop dances, including a contemporary piece called 'Finding Freedom'. Additionally, he visited Paris and got a tattoo that symbolizes freedom, which further indicates his passion for dancing."}
+2026-01-05 15:23:57,484 - Amadeus.Optimizer - INFO - GT: He spent time in a dance studio as a student.
+2026-01-05 15:23:57,484 - Amadeus.Optimizer - INFO - Pre: Before starting his own dance studio, Jon spent time competing in dance competitions and shows. He also practiced contemporary and hip-hop dances, including a contemporary piece called 'Finding Freedom'. Additionally, he visited Paris and got a tattoo that symbolizes freedom, which further indicates his passion for dancing.
+2026-01-05 15:24:03,606 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:24:03,607 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to extract relevant information by focusing on past experiences and explicit mentions of actions taken by the subject. The builder should prioritize adding direct relationships and attributes from the text buffer to the global memory graph.
+2026-01-05 15:24:03,607 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "student", "content": "dance studio"}, {"action": "ADD", "subject": "Jon", "object": "competed", "content": "dance competitions and shows"}, {"action": "ADD", "subject": "Jon", "object": "practiced", "content": "contemporary and hip-hop dances"}, {"action": "ADD", "subject": "Jon", "object": "visited", "content": "Paris"}, {"action": "ADD", "subject": "Jon", "object": "got tattoo", "content": "symbolizing freedom"}]
+2026-01-05 15:24:14,311 - Amadeus.Builder - INFO - 🔗 LINK: Jon --dance studio--> student (Time: None)
+2026-01-05 15:24:14,315 - Amadeus.Builder - INFO - 🔗 LINK: Jon --dance competitions and shows--> competed (Time: None)
+2026-01-05 15:24:14,319 - Amadeus.Builder - INFO - 🔗 LINK: Jon --contemporary and hip-hop dances--> practiced (Time: None)
+2026-01-05 15:24:14,322 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Paris--> visited (Time: 2023-01-29)
+2026-01-05 15:24:14,359 - Amadeus.Builder - INFO - 🔗 LINK: Jon --symbolizing freedom--> got tattoo (Time: 2023-02-08)
+2026-01-05 15:24:14,452 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 10. Processing Buffer...
+2026-01-05 15:24:50,812 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:24:50,818 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Got some possible leads at a fair--> Possible Leads (Time: 2023-04-25)
+2026-01-05 15:24:50,822 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Staying motivated by thinking of successes and progress--> dance studio (Time: 2023-04-25)
+2026-01-05 15:24:50,822 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Started her own online clothing store--> Online Clothes Store (Time: 2023-02-01)
+2026-01-05 15:24:50,822 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Staying motivated by reminding herself of successes and progress--> Online Clothes Store (Time: 2023-04-25)
+2026-01-05 15:24:50,826 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Been feeling low on confidence--> Confidence (Time: 2023-04-25)
+2026-01-05 15:24:50,830 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Support system including Jon--> Support System (Time: 2023-04-25)
+2026-01-05 15:24:50,877 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Got a tattoo that says 'freedom' because she danced without worrying what people thought in 2008--> Tattoo (Time: 2008-01-01)
+2026-01-05 15:24:50,878 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Lost her job at Door Dash since January 2023--> Job (Time: 2023-03-16)
+2026-01-05 15:24:50,883 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Reminding herself of successes and progress--> Motivation Strategy (Time: 2023-04-25)
+2026-01-05 15:24:50,927 - Amadeus.Builder - INFO - ⏳ WAIT: Tackle any obstacle that comes...
+2026-01-05 15:24:50,927 - Amadeus.Builder - INFO - ⏳ WAIT: We can do it!...
+2026-01-05 15:24:50,927 - Amadeus.Builder - INFO - ⏳ WAIT: Let's keep each other going....
+2026-01-05 15:24:50,964 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:24:50,965 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:24:55,216 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:24:55,216 - Amadeus.Answerer - INFO - ❓ Question: Where did Jon go to show off his studio?
+2026-01-05 15:24:56,393 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio show off', 'mode': 'hybrid'}
+2026-01-05 15:24:57,886 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio Event'}
+2026-01-05 15:24:59,442 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon went to his dance studio to show off his studio at the upcoming event next month, which is designed to showcase local talent and bring more attention to the dance studio.'}
+2026-01-05 15:24:59,442 - Amadeus.Optimizer - INFO - GT: He went to a fair.
+2026-01-05 15:24:59,442 - Amadeus.Optimizer - INFO - Pre: Jon went to his dance studio to show off his studio at the upcoming event next month, which is designed to showcase local talent and bring more attention to the dance studio.
+2026-01-05 15:25:02,673 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:25:02,673 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to extract and connect relevant information by ensuring it captures explicit mentions of locations and events directly related to the subject's actions. For example, add rules to identify and link specific places where Jon has shown off his studio.
+2026-01-05 15:25:02,674 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Fair", "content": "went to a fair to show off his studio"}]
+2026-01-05 15:25:09,885 - Amadeus.Builder - INFO - 🔗 LINK: Jon --went to a fair to show off his studio--> Fair (Time: None)
+2026-01-05 15:25:09,937 - Amadeus.Answerer - INFO - ❓ Question: What did Gina start recently?
+2026-01-05 15:25:13,429 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina recent activities', 'mode': 'hybrid'}
+2026-01-05 15:25:16,921 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina started her own online clothing store recently.'}
+2026-01-05 15:25:16,921 - Amadeus.Optimizer - INFO - GT: She started her own online clothing store.
+2026-01-05 15:25:16,921 - Amadeus.Optimizer - INFO - Pre: Gina started her own online clothing store recently.
+2026-01-05 15:25:25,192 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:25:25,195 - Amadeus.Answerer - INFO - ❓ Question: Why does Jon feel he needs to have confidence in himself to run his business successfully?
+2026-01-05 15:25:26,466 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon business confidence reasons', 'mode': 'hybrid'}
+2026-01-05 15:25:29,277 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Gina'}
+2026-01-05 15:25:30,898 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Jon's business support from Gina", 'mode': 'hybrid'}
+2026-01-05 15:25:33,213 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Jon feels he needs to have confidence in himself to run his business successfully because Gina, who supports him and encourages him to keep going and believe in himself, reminds him of his passion for dancing and his determination to achieve his dreams despite the challenges.'}
+2026-01-05 15:25:33,214 - Amadeus.Optimizer - INFO - GT: Because having confidence is important for making the business successful.
+2026-01-05 15:25:33,214 - Amadeus.Optimizer - INFO - Pre: Jon feels he needs to have confidence in himself to run his business successfully because Gina, who supports him and encourages him to keep going and believe in himself, reminds him of his passion for dancing and his determination to achieve his dreams despite the challenges.
+2026-01-05 15:25:39,388 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:25:39,388 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it doesn't rely solely on one-hop connections and to trust the global memory graph over inferred or secondary information. Encourage the Answerer to seek out direct links and relationships within the context provided.
+2026-01-05 15:25:39,389 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 11. Processing Buffer...
+2026-01-05 15:26:15,305 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:26:15,306 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Thanks! It's a bit scary, but I just think about my love for dance and how it makes me feel. It's been my stress-buster since childhood!--> dance studio (Time: 2023-05-11)
+2026-01-05 15:26:15,306 - Amadeus.Builder - INFO - 🔗 LINK: Jon --I hope so, Gina. I want to create a place for people to dance and express themselves - it's been a dream of mine.--> dance studio (Time: 2023-05-11)
+2026-01-05 15:26:15,315 - Amadeus.Builder - INFO - 🔗 LINK: Gina --I had an interview for a design internship yesterday! It was so cool.--> design internship (Time: 2023-05-11)
+2026-01-05 15:26:15,319 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Can't wait to see it happen!--> online clothes store (Time: 2023-05-11)
+2026-01-05 15:26:15,321 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Interview for a design internship--> design internship (Time: 2023-05-11)
+2026-01-05 15:26:15,340 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Been practicing dance routines lately, it keeps my mind focused and motivated.--> practice dance routines (Time: 2023-05-11)
+2026-01-05 15:26:15,352 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Wanna show me a routine sometime?--> show off routine (Time: 2023-05-11)
+2026-01-05 15:26:15,360 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Lemme know when you got time and I'll send you a vid.--> send video (Time: 2023-05-11)
+2026-01-05 15:26:15,370 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Yeah, Jon, I'll watch your routine! So proud of you!--> support Jon (Time: 2023-05-11)
+2026-01-05 15:26:15,377 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Reminding herself of successes and progress--> motivation strategy (Time: 2023-05-11)
+2026-01-05 15:26:15,377 - Amadeus.Builder - INFO - 🔗 LINK: Gina --I had an interview for a design internship yesterday! It was so cool.--> design internship (Time: 2023-05-11)
+2026-01-05 15:26:15,382 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Team up with a local artist for some cool designs--> local artist (Time: 2023-02-08)
+2026-01-05 15:26:15,389 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Working with fashion bloggers and influencers--> fashion bloggers and influencers (Time: 2023-04-03)
+2026-01-05 15:26:15,409 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Doing more ad campaigns--> ad campaigns (Time: 2023-04-03)
+2026-01-05 15:26:15,604 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:26:15,626 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:26:24,065 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:26:24,065 - Amadeus.Answerer - INFO - ❓ Question: What event inspired Jon to start his own dance studio?
+2026-01-05 15:26:25,380 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio inspiration event', 'mode': 'hybrid'}
+2026-01-05 15:26:27,784 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio Event'}
+2026-01-05 15:26:29,614 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'The event next month is designed to showcase local talent and bring more attention to the dance studio, thereby inspiring Jon to start his own dance studio.'}
+2026-01-05 15:26:29,614 - Amadeus.Optimizer - INFO - GT: Losing his job gave him the push to finally start his dream business.
+2026-01-05 15:26:29,614 - Amadeus.Optimizer - INFO - Pre: The event next month is designed to showcase local talent and bring more attention to the dance studio, thereby inspiring Jon to start his own dance studio.
+2026-01-05 15:26:34,485 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:26:34,486 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The builder should improve its extraction rules to capture the direct cause-and-effect relationships between events mentioned by the agents. Specifically, it should identify and link events that explicitly inspire or motivate actions, rather than focusing solely on general statements or aspirations.
+2026-01-05 15:26:34,486 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "losing his job", "content": "Gave Jon the push to start his own dance studio."}, {"action": "LINK", "subject": "losing his job", "object": "start his own dance studio", "content": "Inspired Jon to take action on his dream."}]
+2026-01-05 15:26:40,859 - Amadeus.Builder - INFO - ➕ NODE: Jon
+2026-01-05 15:26:40,891 - Amadeus.Builder - INFO - 🔗 LINK: losing his job --Inspired Jon to take action on his dream.--> start his own dance studio (Time: None)
+2026-01-05 15:26:41,110 - Amadeus.Answerer - INFO - ❓ Question: How does Jon's love for dance influence his current situation?
+2026-01-05 15:26:45,461 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon love for dance current situation', 'mode': 'hybrid'}
+2026-01-05 15:26:47,311 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-05 15:26:49,126 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Jon's love for dance influences his current situation by driving his plans to use his passion to teach through his dance studio. His recent considerations include finding the right place with features like size, floor quality, and natural light."}
+2026-01-05 15:26:49,126 - Amadeus.Optimizer - INFO - GT: It's been his stress-buster since childhood and he wants to create a place for people to dance and express themselves.
+2026-01-05 15:26:49,126 - Amadeus.Optimizer - INFO - Pre: Jon's love for dance influences his current situation by driving his plans to use his passion to teach through his dance studio. His recent considerations include finding the right place with features like size, floor quality, and natural light.
+2026-01-05 15:26:55,012 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:26:55,012 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to better capture personal attributes and their long-term impacts. Specifically, ensure that the Builder extracts and retains information about individuals' past experiences and emotional states that significantly influence their current actions and decisions.
+2026-01-05 15:26:55,012 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "dance", "content": "Jon's love for dance has been a significant stress-buster since childhood."}, {"action": "ADD", "object": "dance", "subject": "influence", "content": "Jon's love for dance influences his current situation by providing him with a source of motivation and a way to cope with stress."}, {"action": "ADD", "subject": "influence", "object": "dance studio", "content": "Jon's passion for dance motivates his plans to open a dance studio where people can dance and express themselves."}]
+2026-01-05 15:27:16,592 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon's love for dance has been a significant stress-buster since childhood.--> dance (Time: 2008-01-01)
+2026-01-05 15:27:16,605 - Amadeus.Builder - INFO - 🔗 LINK: dance --Jon's love for dance influences his current situation by providing him with a source of motivation and a way to cope with stress.--> influence (Time: 2023-01-20)
+2026-01-05 15:27:16,606 - Amadeus.Builder - INFO - 🔗 LINK: influence --Jon's passion for dance motivates his plans to open a dance studio where people can dance and express themselves.--> dance studio (Time: 2023-01-20)
+2026-01-05 15:27:16,741 - Amadeus.Answerer - INFO - ❓ Question: What are Gina and Jon planning to do after Jon sends her the video of his routine?
+2026-01-05 15:27:18,378 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina and Jon planning after Jon sends her the video of his routine', 'mode': 'hybrid'}
+2026-01-05 15:27:20,838 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Wants to blend love for dance and fashion'}
+2026-01-05 15:27:23,478 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina wants to blend her love for dance and fashion in her business.'}
+2026-01-05 15:27:23,478 - Amadeus.Optimizer - INFO - GT: Gina is interested in watching Jon's routine and showing support for his project.
+2026-01-05 15:27:23,479 - Amadeus.Optimizer - INFO - Pre: Gina wants to blend her love for dance and fashion in her business.
+2026-01-05 15:27:30,226 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:27:30,226 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it retrieves information based on recent context and relationships rather than general historical facts. Specifically, instruct the Answerer to focus on the immediate context and recent interactions between agents.
+2026-01-05 15:27:30,227 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 12. Processing Buffer...
+2026-01-05 15:28:10,399 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:28:10,406 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Got accepted for a fashion internship at an international company.--> fashion internship (Time: 2023-05-27)
+2026-01-05 15:28:10,411 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:28:10,471 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Currently reading 'The Lean Startup' to get tips for his business.--> book (Time: 2023-05-27)
+2026-01-05 15:28:10,532 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Wrapping up the business plan and looking for investors.--> business plan (Time: 2023-05-27)
+2026-01-05 15:28:10,574 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Searching for investors has been tough, but staying hopeful and learning through the process.--> investors (Time: 2023-05-27)
+2026-01-05 15:28:10,599 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Using a whiteboard to keep track of ideas and milestones, which helps with organizing and visualizing progress.--> visual tracking (Time: 2023-05-27)
+2026-01-05 15:28:10,604 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Commitment to the project and belief in its success are driving him forward.--> motivation (Time: 2023-05-27)
+2026-01-05 15:28:10,617 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:28:10,622 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Expressing words of encouragement and belief in Jon's abilities.--> words of encouragement (Time: 2023-05-27)
+2026-01-05 15:28:10,975 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:28:10,978 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:28:19,118 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:28:19,119 - Amadeus.Answerer - INFO - ❓ Question: How does Jon's reading of 'The Lean Startup' relate to his dance studio business plan?
+2026-01-05 15:28:20,520 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon reading The Lean Startup dance studio business plan', 'mode': 'hybrid'}
+2026-01-05 15:28:21,854 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Lean Startup Jon dance studio business plan connection', 'mode': 'hybrid'}
+2026-01-05 15:28:22,822 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'dance business'}
+2026-01-05 15:28:24,190 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Lean Startup Jon dance studio business plan connection', 'mode': 'hybrid'}
+2026-01-05 15:28:26,612 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Jon's reading of 'The Lean Startup' likely relates to his approach to planning and launching his dance studio business. The principles from the book may help him in creating a structured business plan, validating his idea through market research, and iterating on his vision based on feedback and results."}
+2026-01-05 15:28:26,612 - Amadeus.Optimizer - INFO - GT: Jon is using the concepts from 'The Lean Startup' to build a focused and efficient business, and he plans to adapt and tweak from customer feedback.
+2026-01-05 15:28:26,612 - Amadeus.Optimizer - INFO - Pre: Jon's reading of 'The Lean Startup' likely relates to his approach to planning and launching his dance studio business. The principles from the book may help him in creating a structured business plan, validating his idea through market research, and iterating on his vision based on feedback and results.
+2026-01-05 15:28:32,140 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:28:32,140 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the extraction rule to ensure that when Jon mentions reading 'The Lean Startup', it is explicitly linked to his specific business plan, such as the dance studio business plan. This will help in capturing the relevant context more accurately.
+2026-01-05 15:28:32,141 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "dance studio business plan", "content": "Jon --Currently reading 'The Lean Startup' to get tips for his dance studio business plan.--> business plan (Time: 2023-05-27)"}]
+2026-01-05 15:28:38,981 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon --Currently reading 'The Lean Startup' to get tips for his dance studio business plan.--> business plan (Time: 2023-05-27)--> dance studio business plan (Time: 2023-05-27)
+2026-01-05 15:28:39,234 - Amadeus.Answerer - INFO - ❓ Question: What is Jon's current plan for keeping track of the ideas and milestones for his business?
+2026-01-05 15:28:40,619 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon business ideas milestones tracking', 'mode': 'hybrid'}
+2026-01-05 15:28:43,374 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon is currently using a whiteboard to keep track of ideas and milestones for his business.'}
+2026-01-05 15:28:43,374 - Amadeus.Optimizer - INFO - GT: He is using a whiteboard to visualize his progress and stay organized.
+2026-01-05 15:28:43,374 - Amadeus.Optimizer - INFO - Pre: Jon is currently using a whiteboard to keep track of ideas and milestones for his business.
+2026-01-05 15:28:46,438 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:28:46,439 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Ensure the Answerer does not rely solely on direct connections and should trust the Global Memory Graph more, even when local context seems incomplete.
+2026-01-05 15:28:46,439 - Amadeus.Answerer - INFO - ❓ Question: Why does Jon believe searching for investors has been tough but he is still staying hopeful?
+2026-01-05 15:28:47,647 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon searching for investors difficulties and hopefulness', 'mode': 'hybrid'}
+2026-01-05 15:28:50,578 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-05 15:28:54,790 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Jon believes searching for investors has been tough because he is currently reading 'The Lean Startup' to get tips for his business plan and is facing challenges in finding the right location for his dance studio. However, he stays hopeful thanks to Gina's support and encouragement, and by focusing on his passion for dance and the joy it brings him."}
+2026-01-05 15:28:54,791 - Amadeus.Optimizer - INFO - GT: Jon believes searching for investors has been tough because he is learning a lot through the process, even though it is challenging.
+2026-01-05 15:28:54,791 - Amadeus.Optimizer - INFO - Pre: Jon believes searching for investors has been tough because he is currently reading 'The Lean Startup' to get tips for his business plan and is facing challenges in finding the right location for his dance studio. However, he stays hopeful thanks to Gina's support and encouragement, and by focusing on his passion for dance and the joy it brings him.
+2026-01-05 15:29:00,685 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:29:00,686 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include a rule to capture relevant relationships between characters and their projects or businesses. Specifically, the Builder should ensure that when a character mentions a specific project or business, all related details are extracted and connected to the appropriate nodes in the graph. This will help in maintaining accurate and contextually relevant information about each character's current activities and projects.
+2026-01-05 15:29:00,686 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "dance studio", "content": "part-time position in the dance studio"}, {"action": "REMOVE", "subject": "Gina", "object": "fashion internship", "content": ""}]
+2026-01-05 15:29:11,708 - Amadeus.Builder - INFO - 🔗 LINK: Jon --part-time position in the dance studio--> dance studio (Time: None)
+2026-01-05 15:29:11,709 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Gina -> fashion internship
+2026-01-05 15:29:11,769 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 13. Processing Buffer...
+2026-01-05 15:29:45,436 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:29:45,441 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon is offering one-on-one mentoring and training to help dancers reach their full potential.--> Support (Time: 2023-06-13)
+2026-01-05 15:29:45,448 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon uses a whiteboard to stay organized, track his achievements, and visualize progress.--> Visual Tracking (Time: 2023-06-13)
+2026-01-05 15:29:45,452 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon color-codes achievements on a whiteboard to track progress and stay motivated.--> Color-Coding (Time: 2023-06-13)
+2026-01-05 15:29:45,452 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon's support system includes Gina, who provides encouragement and motivation.--> Support System (Time: 2023-06-13)
+2026-01-05 15:29:45,452 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina supports Jon and encourages him to stay positive and achieve his dreams.--> Support (Time: 2023-06-13)
+2026-01-05 15:29:45,456 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina has developed a video presentation to teach how to style her fashion pieces.--> Video Presentation (Time: 2023-06-13)
+2026-01-05 15:29:45,511 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon is offering one-on-one mentoring and training to help dancers reach their full potential.--> Mentoring and Training (Time: 2023-06-13)
+2026-01-05 15:29:45,573 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon uses a whiteboard to stay organized, track his achievements, and visualize progress.--> Whiteboard (Time: 2023-06-13)
+2026-01-05 15:29:45,605 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon color-codes achievements on a whiteboard to track progress and stay motivated.--> Color-Coding (Time: 2023-06-13)
+2026-01-05 15:29:45,640 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina reminds herself and others of successes and progress, and encourages Jon to keep going.--> Words of Encouragement (Time: 2023-06-13)
+2026-01-05 15:29:45,658 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina is supporting Jon and encouraging him to pursue his dreams.--> Dreams (Time: 2023-06-13)
+2026-01-05 15:29:45,674 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina is part of Jon's support system, providing encouragement and motivation.--> Support System (Time: 2023-06-13)
+2026-01-05 15:29:45,867 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:29:45,868 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:29:53,825 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:29:53,826 - Amadeus.Answerer - INFO - ❓ Question: How does Jon feel about his new dance studio venture?
+2026-01-05 15:29:55,065 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon new dance studio venture', 'mode': 'hybrid'}
+2026-01-05 15:29:56,810 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon feels motivated and passionate about his new dance studio venture, viewing it as a stress-buster since childhood and a place for people to dance and express themselves.'}
+2026-01-05 15:29:56,811 - Amadeus.Optimizer - INFO - GT: Jon feels inspired and motivated by the passion and commitment of the young dancers he works with, and he is dedicated to supporting and encouraging them.
+2026-01-05 15:29:56,812 - Amadeus.Optimizer - INFO - Pre: Jon feels motivated and passionate about his new dance studio venture, viewing it as a stress-buster since childhood and a place for people to dance and express themselves.
+2026-01-05 15:30:00,354 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:30:00,354 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it doesn't hallucinate specific feelings or motivations without sufficient evidence from the graph. Focus on retrieving direct quotes or statements from the text buffer and avoid adding speculative information.
+2026-01-05 15:30:00,355 - Amadeus.Answerer - INFO - ❓ Question: What connection can be made between Jon's use of a whiteboard and his color-coding system?
+2026-01-05 15:30:01,497 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon whiteboard color-coding system', 'mode': 'hybrid'}
+2026-01-05 15:30:03,656 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Whiteboard'}
+2026-01-05 15:30:05,123 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jon uses a whiteboard to stay organized, track his achievements, and visualize progress, color-coding system', 'mode': 'hybrid'}
+2026-01-05 15:30:14,969 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Color-Coding'}
+2026-01-05 15:30:16,918 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'Jon uses a whiteboard to color-code his achievements, which helps him track progress and stay motivated.'}
+2026-01-05 15:30:16,919 - Amadeus.Optimizer - INFO - GT: Jon uses a whiteboard to visualize goals and color-code achievements to stay motivated and track his progress.
+2026-01-05 15:30:16,919 - Amadeus.Optimizer - INFO - Pre: Jon uses a whiteboard to color-code his achievements, which helps him track progress and stay motivated.
+2026-01-05 15:30:20,460 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:30:20,461 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it does not hallucinate when the exact information is available within the Builder Activity Log. The Answerer should focus on retrieving information from the log with higher confidence and trust in the connections provided, rather than making assumptions based on similar contexts.
+2026-01-05 15:30:20,462 - Amadeus.Answerer - INFO - ❓ Question: What is the significance of Jon mentioning that he uses a whiteboard and color-coding system in the same breath?
+2026-01-05 15:30:21,679 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon whiteboard color-coding system significance', 'mode': 'hybrid'}
+2026-01-05 15:30:26,501 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon mentions the whiteboard and color-coding system together to highlight how he stays organized and motivated in both his dance and business endeavors. This method helps him track his achievements and visualize his progress, supporting his drive and determination.'}
+2026-01-05 15:30:26,502 - Amadeus.Optimizer - INFO - GT: Jon uses both tools together to stay organized and motivated, as he explicitly states he uses them to set goals, track achievements, and find areas to improve.
+2026-01-05 15:30:26,502 - Amadeus.Optimizer - INFO - Pre: Jon mentions the whiteboard and color-coding system together to highlight how he stays organized and motivated in both his dance and business endeavors. This method helps him track his achievements and visualize his progress, supporting his drive and determination.
+2026-01-05 15:30:31,439 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:30:31,440 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures the specific context and relationships related to Jon's use of tools like the whiteboard and color-coding system. The prompt should include instructions to identify and link such tools to Jon's activities and goals within the dance studio and business context.
+2026-01-05 15:30:31,440 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "whiteboard", "content": "uses for setting goals, tracking achievements, and visualizing progress"}, {"action": "ADD", "subject": "Jon", "object": "color-coding system", "content": "uses for organizing and staying motivated"}]
+2026-01-05 15:30:39,953 - Amadeus.Builder - INFO - 🔗 LINK: Jon --uses for setting goals, tracking achievements, and visualizing progress--> whiteboard (Time: 2023-05-27)
+2026-01-05 15:30:40,051 - Amadeus.Builder - INFO - 🔗 LINK: Jon --uses for organizing and staying motivated--> color-coding system (Time: 2023-05-27)
+2026-01-05 15:30:40,280 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 14. Processing Buffer...
+2026-01-05 15:31:14,755 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:31:14,760 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Got mentored by an amazing business dude yesterday.--> mentor (Time: 2023-06-16)
+2026-01-05 15:31:14,770 - Amadeus.Builder - INFO - ➕ NODE: Jon
+2026-01-05 15:31:14,795 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Posted some of my dance videos on social media. Creating a bit of a stir.--> dance video promotion (Time: 2023-06-16)
+2026-01-05 15:31:14,797 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Expanding her online clothes store and receiving positive responses from wholesalers.--> online clothes store (Time: 2023-02-01)
+2026-01-05 15:31:14,880 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Lost her job and started her own online clothing store.--> entrepreneur (Time: 2023-01-20)
+2026-01-05 15:31:14,898 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:31:14,909 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Shared a pic from when she was dancing.--> pic (Time: 2023-06-16)
+2026-01-05 15:31:14,936 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Encouraging Jon to stay resilient and focused.--> encouragement (Time: 2023-06-16)
+2026-01-05 15:31:14,936 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina supports Jon and encourages him to pursue his dreams. Stays open to learning and improving.--> entrepreneur (Time: 2023-06-16)
+2026-01-05 15:31:14,941 - Amadeus.Builder - INFO - ➕ NODE: Jon
+2026-01-05 15:31:14,964 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:31:15,119 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:31:15,121 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:31:21,750 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:31:21,750 - Amadeus.Answerer - INFO - ❓ Question: How might Jon's mentorship experience influence his approach to marketing his business?
+2026-01-05 15:31:23,407 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon mentorship experience marketing business', 'mode': 'hybrid'}
+2026-01-05 15:31:25,360 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'mentor'}
+2026-01-05 15:31:26,551 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jon'}
+2026-01-05 15:31:30,118 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'mentor'}
+2026-01-05 15:31:31,845 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Jon's mentorship experience impact on business", 'mode': 'hybrid'}
+2026-01-05 15:31:33,535 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Jon mentorship experience impact on business strategy', 'mode': 'hybrid'}
+2026-01-05 15:31:37,579 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'mentor'}
+2026-01-05 15:31:39,039 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Jon's mentorship experience impact on business strategy", 'mode': 'hybrid'}
+2026-01-05 15:31:39,048 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:31:41,314 - Amadeus.Optimizer - INFO - GT: Jon is now more inspired and determined to chase his dreams, which could lead him to be more creative and proactive in his marketing efforts.
+2026-01-05 15:31:41,315 - Amadeus.Optimizer - INFO - Pre: Jon's mentorship experience with a business expert might influence his approach to marketing his business by providing him with strategic insights, motivational techniques, and possibly a well-crafted business plan that includes marketing strategies for his dance studio business. This could help him refine his marketing efforts, understand customer needs better, and potentially adopt more effective and innovative marketing methods.
+2026-01-05 15:31:43,824 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:31:43,824 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and trends rather than historical experiences. Encourage questions that require real-time context and recent developments.
+2026-01-05 15:31:43,825 - Amadeus.Answerer - INFO - ❓ Question: What emotional state does Gina suggest is important for someone who has taken the leap into entrepreneurship?
+2026-01-05 15:31:45,369 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina entrepreneurship emotional state', 'mode': 'hybrid'}
+2026-01-05 15:31:49,133 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina suggests that believing in oneself and staying passionate, focused, and resilient are important emotional states for someone who has taken the leap into entrepreneurship.'}
+2026-01-05 15:31:49,133 - Amadeus.Optimizer - INFO - GT: Gina suggests that staying passionate and resilient is crucial for an entrepreneur, especially when facing challenges.
+2026-01-05 15:31:49,133 - Amadeus.Optimizer - INFO - Pre: Gina suggests that believing in oneself and staying passionate, focused, and resilient are important emotional states for someone who has taken the leap into entrepreneurship.
+2026-01-05 15:31:51,026 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:31:51,027 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and experiences rather than historical context. Avoid asking about emotional states related to past advice unless it directly impacts the current situation.
+2026-01-05 15:31:51,028 - Amadeus.Answerer - INFO - ❓ Question: What can we infer about the relationship between Jon and Gina based on their conversation?
+2026-01-05 15:31:53,373 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'relationship between Jon and Gina', 'mode': 'hybrid'}
+2026-01-05 15:31:56,843 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Based on their conversation, Jon and Gina have a supportive relationship where they encourage each other to pursue their dreams and stay resilient. Gina provides support to Jon by cheering him on and motivating him, while Jon thanks Gina for her support and expresses gratitude for her backing.'}
+2026-01-05 15:31:56,843 - Amadeus.Optimizer - INFO - GT: Jon and Gina support each other in their entrepreneurial endeavors and share encouragement and advice.
+2026-01-05 15:31:56,843 - Amadeus.Optimizer - INFO - Pre: Based on their conversation, Jon and Gina have a supportive relationship where they encourage each other to pursue their dreams and stay resilient. Gina provides support to Jon by cheering him on and motivating him, while Jon thanks Gina for her support and expresses gratitude for her backing.
+2026-01-05 15:31:59,048 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:31:59,048 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and activities rather than inferring past relationships or historical contexts. Encourage the Questioner to ask more direct and time-specific questions.
+2026-01-05 15:31:59,048 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 15. Processing Buffer...
+2026-01-05 15:32:52,996 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:32:52,997 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Official opening night is tomorrow--> dance studio (Time: 2023-06-19)
+2026-01-05 15:32:52,997 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Working hard to make everything just right--> dance studio (Time: 2023-06-19)
+2026-01-05 15:32:52,998 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Supportive and excited for Jon's grand opening--> dance studio (Time: 2023-06-19)
+2026-01-05 15:32:52,998 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Continuing to work on her business and the online clothes store--> online clothes store (Time: 2023-06-19)
+2026-01-05 15:32:53,004 - Amadeus.Builder - INFO - ➕ NODE: Jon
+2026-01-05 15:32:53,009 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:32:53,017 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Supportive and excited for Jon's dance studio grand opening--> dance studio (Time: 2023-06-19)
+2026-01-05 15:32:53,476 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:32:53,480 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:33:00,314 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:33:00,314 - Amadeus.Answerer - INFO - ❓ Question: How does Jon feel about the grand opening of his dance studio?
+2026-01-05 15:33:02,129 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon grand opening dance studio feelings', 'mode': 'hybrid'}
+2026-01-05 15:33:04,657 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon feels supportive and excited about the grand opening of his dance studio. He stays motivated by thinking of his love for dance and how it makes him feel, which has been a stress-buster since childhood.'}
+2026-01-05 15:33:04,657 - Amadeus.Optimizer - INFO - GT: Jon feels excited and believes he has earned the opportunity to enjoy the moment with friends.
+2026-01-05 15:33:04,657 - Amadeus.Optimizer - INFO - Pre: Jon feels supportive and excited about the grand opening of his dance studio. He stays motivated by thinking of his love for dance and how it makes him feel, which has been a stress-buster since childhood.
+2026-01-05 15:33:08,860 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:33:08,861 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture Jon's emotional state more accurately based on the context provided. Specifically, extract direct statements about Jon's feelings towards the grand opening of his dance studio.
+2026-01-05 15:33:08,861 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "feels excited", "content": "Jon feels excited and believes he has earned the opportunity to enjoy the moment with friends."}, {"action": "ADD", "object": "dance studio", "content": "The grand opening of the dance studio is tomorrow and Jon is looking forward to it."}]
+2026-01-05 15:33:32,055 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon feels excited and believes he has earned the opportunity to enjoy the moment with friends.--> feels excited (Time: 2023-06-19)
+2026-01-05 15:33:32,347 - Amadeus.Answerer - INFO - ❓ Question: What is Gina's role in Jon's dance studio journey?
+2026-01-05 15:33:34,766 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's role in Jon's dance studio journey", 'mode': 'hybrid'}
+2026-01-05 15:33:36,932 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Gina is supportive and excited for Jon's dance studio grand opening."}
+2026-01-05 15:33:36,933 - Amadeus.Optimizer - INFO - GT: Gina has been supportive and excited about Jon's progress and plans for the dance studio.
+2026-01-05 15:33:36,933 - Amadeus.Optimizer - INFO - Pre: Gina is supportive and excited for Jon's dance studio grand opening.
+2026-01-05 15:33:40,236 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:33:40,236 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Force the Questioner to ask more specific and context-aware questions that focus on the roles and contributions of individuals rather than general statements about support and excitement.
+2026-01-05 15:33:40,236 - Amadeus.Answerer - INFO - ❓ Question: Why does Jon think it's important to capture the joy and thrill of dance during the grand opening?
+2026-01-05 15:33:41,846 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon grand opening joy thrill dance', 'mode': 'hybrid'}
+2026-01-05 15:33:43,715 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio Location'}
+2026-01-05 15:33:44,952 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'capture joy and thrill of dance grand opening', 'mode': 'hybrid'}
+2026-01-05 15:33:47,903 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Jon thinks it's important to capture the joy and thrill of dance during the grand opening because he wants to blend his love for dance and fashion in his business. This indicates that Jon aims to create a memorable and exciting experience for his customers, reflecting his passion for dance."}
+2026-01-05 15:33:47,904 - Amadeus.Optimizer - INFO - GT: Jon thinks it's important because he wants to remember the positive emotions and experiences associated with the hard work he put into opening the studio.
+2026-01-05 15:33:47,904 - Amadeus.Optimizer - INFO - Pre: Jon thinks it's important to capture the joy and thrill of dance during the grand opening because he wants to blend his love for dance and fashion in his business. This indicates that Jon aims to create a memorable and exciting experience for his customers, reflecting his passion for dance.
+2026-01-05 15:33:51,570 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:33:51,574 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to trust the graph more and avoid hallucinating details not directly linked to the current context. Specifically, instruct the Answerer to focus on the immediate context provided by the buffer and avoid inferring additional details that are not explicitly stated.
+2026-01-05 15:33:51,574 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 16. Processing Buffer...
+2026-01-05 15:34:14,767 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:34:14,772 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Acquired a new unique piece for her store.--> Unique Piece (Time: 2023-06-21)
+2026-01-05 15:34:14,775 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Created a limited edition line of unique pieces last week.--> Limited Edition Line (Time: 2023-06-21)
+2026-01-05 15:34:14,781 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Attending networking events to make things happen.--> Networking Events (Time: 2023-06-21)
+2026-01-05 15:34:14,811 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Writing all his plans down.--> Plans (Time: 2023-06-21)
+2026-01-05 15:34:14,884 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Seeing my goals written down on paper really helps keep me motivated and focused on what I have to do.--> Motivation (Time: 2023-06-21)
+2026-01-05 15:34:14,929 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Providing support to Jon and encouraging him to keep going and believe in himself.--> Support (Time: 2023-06-21)
+2026-01-05 15:34:14,935 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Believing in herself and Jon's abilities, staying positive and achieving her dreams.--> Persistence (Time: 2023-06-21)
+2026-01-05 15:34:14,958 - Amadeus.Builder - INFO - 🔗 LINK: Jon --The sign reminds me to never give up, however hard things get.--> Sign (Time: 2023-06-21)
+2026-01-05 15:34:14,972 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Believe in yourself and keep going. You can do it!--> Encouragement (Time: 2023-06-21)
+2026-01-05 15:34:15,026 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Feeling confident and won't give up.--> Confidence (Time: 2023-06-21)
+2026-01-05 15:34:15,427 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:34:15,437 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:34:22,090 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:34:22,091 - Amadeus.Answerer - INFO - ❓ Question: What does Gina's comment about perseverance mean in the context of Jon's current situation?
+2026-01-05 15:34:25,869 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's comment perseverance Jon dance studio", 'mode': 'hybrid'}
+2026-01-05 15:34:29,286 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'dance studio'}
+2026-01-05 15:34:30,500 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Gina's comment perseverance Jon dance studio", 'mode': 'hybrid'}
+2026-01-05 15:34:32,642 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "In the context of Jon's current situation, Gina's comment about perseverance likely means that she supports Jon's efforts to open his own dance studio despite the challenges he faces. This is evident from her supportive and excited remarks about Jon's grand opening."}
+2026-01-05 15:34:32,643 - Amadeus.Optimizer - INFO - GT: Gina is encouraging Jon to continue his efforts despite the difficulties he is facing after losing his job.
+2026-01-05 15:34:32,643 - Amadeus.Optimizer - INFO - Pre: In the context of Jon's current situation, Gina's comment about perseverance likely means that she supports Jon's efforts to open his own dance studio despite the challenges he faces. This is evident from her supportive and excited remarks about Jon's grand opening.
+2026-01-05 15:34:36,651 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:34:36,651 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to focus more on the context provided by the Buffer. Specifically, instruct the Answerer to consider the most recent information and to trust the Global Memory Graph over prior assumptions unless there is clear evidence supporting those assumptions in the current context. Additionally, advise the Answerer to look for direct connections and relationships rather than making inferences based on unrelated historical facts.
+2026-01-05 15:34:36,652 - Amadeus.Answerer - INFO - ❓ Question: Why did Jon choose to write down his plans and goals?
+2026-01-05 15:34:37,990 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon choose to write down plans and goals', 'mode': 'hybrid'}
+2026-01-05 15:34:40,607 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon chose to write down his plans and goals because seeing his goals written down on paper really helps keep him motivated and focused on what he has to do.'}
+2026-01-05 15:34:40,607 - Amadeus.Optimizer - INFO - GT: Jon wrote down his plans and goals to stay motivated and focused on what he needs to do.
+2026-01-05 15:34:40,607 - Amadeus.Optimizer - INFO - Pre: Jon chose to write down his plans and goals because seeing his goals written down on paper really helps keep him motivated and focused on what he has to do.
+2026-01-05 15:34:44,450 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:34:44,450 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The builder's extraction rules should be updated to capture the specific actions and motivations of the subjects mentioned in the conversation. In this case, the builder missed the direct link between Jon writing down his plans and his motivation. The rule should include capturing such explicit relationships where a subject performs an action that leads to a specific outcome.
+2026-01-05 15:34:44,450 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Motivation", "content": "Jon --Wrote down his plans and goals to stay motivated and focused on what he needs to do."}]
+2026-01-05 15:34:54,154 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon --Wrote down his plans and goals to stay motivated and focused on what he needs to do.--> Motivation (Time: 2023-06-21)
+2026-01-05 15:34:54,509 - Amadeus.Answerer - INFO - ❓ Question: What connection can be made between Jon's decision to attend networking events and Gina's hoodie design?
+2026-01-05 15:34:56,286 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon attending networking events and Gina's hoodie design", 'mode': 'hybrid'}
+2026-01-05 15:34:58,271 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "Jon's decision to attend networking events and how it relates to Gina's goal of blending love for dance and fashion", 'mode': 'hybrid'}
+2026-01-05 15:35:00,040 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Wants to blend love for dance and fashion'}
+2026-01-05 15:35:02,593 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Jon's decision to attend networking events is connected to Gina's goal of blending her love for dance and fashion in her business, as Gina wants to meet fashion bloggers and influencers to expand her social media presence and potentially integrate dance-related themes into her designs."}
+2026-01-05 15:35:02,593 - Amadeus.Optimizer - INFO - GT: Both actions demonstrate a willingness to face challenges and take risks to stand out and achieve success.
+2026-01-05 15:35:02,593 - Amadeus.Optimizer - INFO - Pre: Jon's decision to attend networking events is connected to Gina's goal of blending her love for dance and fashion in her business, as Gina wants to meet fashion bloggers and influencers to expand her social media presence and potentially integrate dance-related themes into her designs.
+2026-01-05 15:35:07,252 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:35:07,253 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include rules to capture indirect connections and inspirations. For example, the prompt could be updated to include a rule that captures mentions of one person's work or creations as inspiration for another's actions or decisions. Additionally, the Builder should be encouraged to consider the broader context and potential implications of actions, rather than focusing solely on direct relationships.
+2026-01-05 15:35:07,253 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Gina's hoodie design", "content": "Inspiration from Gina's collection"}, {"action": "ADD", "object": "Gina's hoodie design", "subject": "Jon's networking events", "content": "Opportunity to meet potential clients or collaborators"}]
+2026-01-05 15:35:14,930 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Inspiration from Gina's collection--> Gina's hoodie design (Time: None)
+2026-01-05 15:35:14,934 - Amadeus.Builder - INFO - 🔗 LINK: Jon's networking events --Opportunity to meet potential clients or collaborators--> Gina's hoodie design (Time: None)
+2026-01-05 15:35:15,431 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 17. Processing Buffer...
+2026-01-05 15:35:51,165 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:35:51,166 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Gina provides support to Jon and encourages him to stay positive and achieve his dreams.--> Gina (Time: 2023-07-09)
+2026-01-05 15:35:51,171 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Started learning marketing and analytics tools to push the biz forward today.--> Marketing and Analytics Tools (Time: 2023-07-09)
+2026-01-05 15:35:51,175 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Going full-time with his biz idea after the dance studio practice.--> biz idea (Time: 2023-07-09)
+2026-01-05 15:35:51,175 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Got noticed by fashion editors and received a positive response regarding the expansion of her online clothes store.--> Online Clothes Store (Time: 2023-07-09)
+2026-01-05 15:35:51,179 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Staying positive and motivated by reminders of successes and progress.--> Positivity (Time: 2023-07-09)
+2026-01-05 15:35:51,191 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Always here to support and encourage Jon.--> Support System (Time: 2023-07-09)
+2026-01-05 15:35:51,191 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Expressing words of encouragement and belief in Jon's abilities.--> Encouragement (Time: 2023-07-09)
+2026-01-05 15:35:51,195 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Feeling supported by his community and using that support to chase his dreams.--> positivity (Time: 2023-07-09)
+2026-01-05 15:35:51,225 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Chasing his biz dreams and determined to make his dance studio a success.--> biz idea (Time: 2023-07-09)
+2026-01-05 15:35:51,227 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Going to guide and mentor aspiring dancers on their dreams.--> Mentoring and Training (Time: 2023-07-09)
+2026-01-05 15:35:51,227 - Amadeus.Builder - INFO - ⏳ WAIT: Mom visited last weekend, but ...
+2026-01-05 15:35:51,319 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:35:51,320 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:35:56,496 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:35:56,497 - Amadeus.Answerer - INFO - ❓ Question: What tools is Jon learning to push his business idea forward?
+2026-01-05 15:35:57,710 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon business idea tools', 'mode': 'hybrid'}
+2026-01-05 15:35:59,941 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Marketing and Analytics Tools'}
+2026-01-05 15:36:01,196 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon is learning marketing and analytics tools to push his business idea forward.'}
+2026-01-05 15:36:01,196 - Amadeus.Optimizer - INFO - GT: Marketing and analytics tools.
+2026-01-05 15:36:01,197 - Amadeus.Optimizer - INFO - Pre: Jon is learning marketing and analytics tools to push his business idea forward.
+2026-01-05 15:36:05,622 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:36:05,622 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to ensure that when a subject starts learning or acquiring new skills, these activities are directly linked to the specific tools or areas of knowledge. For example, add a rule to capture actions like 'started learning' and explicitly connect them to the relevant tools or concepts.
+2026-01-05 15:36:05,622 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Marketing and Analytics Tools", "content": "Learning"}]
+2026-01-05 15:36:13,366 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Learning--> Marketing and Analytics Tools (Time: 2023-07-09)
+2026-01-05 15:36:13,792 - Amadeus.Answerer - INFO - ❓ Question: Why does Jon feel supported by his community?
+2026-01-05 15:36:15,733 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon community support', 'mode': 'hybrid'}
+2026-01-05 15:36:18,861 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon feels supported by his community because his friends, like Gina, provide encouragement and motivation. This support gives him the confidence and positivity to pursue his dreams of starting and running his own dance studio, despite the challenges.'}
+2026-01-05 15:36:18,862 - Amadeus.Optimizer - INFO - GT: Because he appreciates their encouragement and faith in him.
+2026-01-05 15:36:18,862 - Amadeus.Optimizer - INFO - Pre: Jon feels supported by his community because his friends, like Gina, provide encouragement and motivation. This support gives him the confidence and positivity to pursue his dreams of starting and running his own dance studio, despite the challenges.
+2026-01-05 15:36:24,264 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:36:24,264 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should focus on retrieving more specific and direct information related to Jon's feelings of support from his community rather than inferring support from connections to Gina. The system should be encouraged to trust the graph more fully and not rely solely on immediate connections.
+2026-01-05 15:36:24,265 - Amadeus.Answerer - INFO - ❓ Question: How does Jon plan to mentor aspiring dancers in his dance studio?
+2026-01-05 15:36:25,810 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon plans to mentor aspiring dancers in his dance studio', 'mode': 'hybrid'}
+2026-01-05 15:36:28,062 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Teaching'}
+2026-01-05 15:36:29,190 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jon mentoring aspiring dancers', 'mode': 'hybrid'}
+2026-01-05 15:36:32,826 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Jon plans to mentor aspiring dancers in his dance studio by offering one-on-one mentoring and training to help them reach their full potential.'}
+2026-01-05 15:36:32,826 - Amadeus.Optimizer - INFO - GT: By guiding them on their dreams.
+2026-01-05 15:36:32,826 - Amadeus.Optimizer - INFO - Pre: Jon plans to mentor aspiring dancers in his dance studio by offering one-on-one mentoring and training to help them reach their full potential.
+2026-01-05 15:36:36,410 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:36:36,411 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include more specific extraction rules to capture direct statements about Jon's plans for mentoring. For example, adding a rule to prioritize recent conversations and explicitly extract mentions of Jon's intentions to guide or mentor others.
+2026-01-05 15:36:36,411 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Mentor Aspiring Dancers", "content": "Jon plans to mentor aspiring dancers in his dance studio by guiding them on their dreams."}]
+2026-01-05 15:36:42,197 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon plans to mentor aspiring dancers in his dance studio by guiding them on their dreams.--> Mentor Aspiring Dancers (Time: 2023-07-09)
+2026-01-05 15:36:42,409 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 18. Processing Buffer...
+2026-01-05 15:37:20,835 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:37:20,835 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Built a new website for customers to make orders--> Online Clothes Store (Time: 2023-07-17)
+2026-01-05 15:37:20,841 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Continuing to work on her business and the online clothes store--> Entrepreneur (Time: 2023-06-21)
+2026-01-05 15:37:20,841 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Sprucing up his business plan and tweaking his pitch to investors--> biz idea (Time: 2023-07-17)
+2026-01-05 15:37:20,846 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Met some investors and got good advice--> networking events (Time: 2023-07-17)
+2026-01-05 15:37:20,847 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Working on an online platform to show off the dance studio's stuff--> dance studio (Time: 2023-07-17)
+2026-01-05 15:37:20,851 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Helping Jon with making content and managing his social media--> marketing strategies (Time: 2023-07-17)
+2026-01-05 15:37:20,852 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Mentioned collaborating with local influencers or dance communities--> Fashion Bloggers and Influencers (Time: 2023-07-17)
+2026-01-05 15:37:20,852 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Expressing support and encouragement for Jon's business--> words of encouragement (Time: 2023-07-17)
+2026-01-05 15:37:20,857 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Thanks for having my back--> confidence (Time: 2023-07-17)
+2026-01-05 15:37:20,857 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Pumped to collaborate with Jon and make some sweet moves--> positivity (Time: 2023-07-17)
+2026-01-05 15:37:20,862 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Offering to help Jon with marketing and social media management--> support system (Time: 2023-07-17)
+2026-01-05 15:37:20,918 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:37:20,919 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:37:27,614 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:37:27,615 - Amadeus.Answerer - INFO - ❓ Question: What is Jon's current plan for his dance studio?
+2026-01-05 15:37:32,217 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio plan', 'mode': 'hybrid'}
+2026-01-05 15:37:33,664 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'dance studio business plan'}
+2026-01-05 15:37:36,165 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Jon is currently reading 'The Lean Startup' to get tips for his dance studio business plan."}
+2026-01-05 15:37:36,165 - Amadeus.Optimizer - INFO - GT: He is sprucing up his business plan and tweaking his pitch to investors, and he is also working on an online platform to showcase the dance studio's offerings.
+2026-01-05 15:37:36,165 - Amadeus.Optimizer - INFO - Pre: Jon is currently reading 'The Lean Startup' to get tips for his dance studio business plan.
+2026-01-05 15:37:39,980 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:37:39,981 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to ensure that when a subject is working on something, the object of their work is accurately captured and linked in the graph. Additionally, enhance the system to recognize and link activities related to business plans and investor pitches more explicitly.
+2026-01-05 15:37:39,981 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "online platform", "content": "working on"}, {"action": "ADD", "subject": "online platform", "object": "dance studio", "content": "to showcase offerings"}]
+2026-01-05 15:37:50,401 - Amadeus.Builder - INFO - 🔗 LINK: Jon --working on--> online platform (Time: None)
+2026-01-05 15:37:50,402 - Amadeus.Builder - INFO - 🔗 LINK: online platform --to showcase offerings--> dance studio (Time: None)
+2026-01-05 15:37:50,611 - Amadeus.Answerer - INFO - ❓ Question: How did Jon feel after the networking event, and what did it motivate him to do next?
+2026-01-05 15:37:53,630 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon networking event feelings motivation', 'mode': 'hybrid'}
+2026-01-05 15:37:57,858 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'networking events'}
+2026-01-05 15:37:59,953 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'After the networking event, Jon felt supported and motivated by the good advice he received from investors. This motivated him to continue working on his business.'}
+2026-01-05 15:37:59,954 - Amadeus.Optimizer - INFO - GT: Jon felt motivated after the networking event and decided to take the advice he received to improve his business plan and online platform.
+2026-01-05 15:37:59,954 - Amadeus.Optimizer - INFO - Pre: After the networking event, Jon felt supported and motivated by the good advice he received from investors. This motivated him to continue working on his business.
+2026-01-05 15:38:04,350 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:38:04,350 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include rules to capture Jon's emotional state and the direct impact of networking events on his actions. Specifically, the Builder should focus on identifying and linking Jon's feelings and decisions made after such events to ensure more accurate and contextually relevant information is added to the graph.
+2026-01-05 15:38:04,350 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "networking events", "content": "felt motivated"}, {"action": "ADD", "subject": "Jon", "object": "networking events", "content": "decided to take the advice received to improve his business plan and online platform"}]
+2026-01-05 15:38:12,557 - Amadeus.Builder - INFO - 🔗 LINK: Jon --felt motivated--> networking events (Time: 2023-06-21)
+2026-01-05 15:38:12,557 - Amadeus.Builder - INFO - 🔗 LINK: Jon --decided to take the advice received to improve his business plan and online platform--> networking events (Time: 2023-07-17)
+2026-01-05 15:38:12,818 - Amadeus.Answerer - INFO - ❓ Question: What does Gina imply about the importance of Jon's passion and experience in finding investors?
+2026-01-05 15:38:14,516 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina implies importance of Jon's passion and experience in finding investors", 'mode': 'hybrid'}
+2026-01-05 15:38:15,627 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Fashion Bloggers and Influencers'}
+2026-01-05 15:38:17,321 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina implied that working with fashion bloggers and influencers could help Jon blend his love for dance and fashion, and mentioned collaborating with local influencers or dance communities as part of her strategy.'}
+2026-01-05 15:38:17,322 - Amadeus.Optimizer - INFO - GT: Gina implies that Jon's passion and experience are crucial factors in attracting investors, as she believes in him and mentions these qualities when giving advice.
+2026-01-05 15:38:17,322 - Amadeus.Optimizer - INFO - Pre: Gina implied that working with fashion bloggers and influencers could help Jon blend his love for dance and fashion, and mentioned collaborating with local influencers or dance communities as part of her strategy.
+2026-01-05 15:38:22,029 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:38:22,029 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that the Builder captures and retains relevant attributes and relationships, such as personal qualities like passion and experience, even when they are not directly mentioned in the text buffer.
+2026-01-05 15:38:22,029 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "passion", "content": "Jon has a strong passion for dance."}, {"action": "ADD", "subject": "Jon", "object": "experience", "content": "Jon has extensive experience in the dance industry."}, {"action": "ADD", "subject": "Gina", "object": "supports Jon", "content": "Gina encourages Jon to use his passion and experience in finding investors."}]
+2026-01-05 15:38:29,637 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon has a strong passion for dance.--> passion (Time: 2023-01-20)
+2026-01-05 15:38:29,644 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Jon has extensive experience in the dance industry.--> experience (Time: 2023-01-20)
+2026-01-05 15:38:29,648 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina encourages Jon to use his passion and experience in finding investors.--> supports Jon (Time: 2023-07-09)
+2026-01-05 15:38:29,836 - Experiment - INFO - [conv-30] 🔄 Final Flush...
+2026-01-05 15:38:51,366 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify the absolute date from the context. Step 2: Identify entities. Step 3: Compare with the Graph. Step 4: Resolve conflicts.
+2026-01-05 15:38:51,366 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Continues to work on business plans and stays motivated despite stress--> dance studio (Time: 2023-07-23)
+2026-01-05 15:38:51,366 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Love for dance continues to provide motivation and coping with stress--> passion (Time: 2023-07-23)
+2026-01-05 15:38:51,366 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Been feeling low on confidence but determined to keep going--> confidence (Time: 2023-04-25)
+2026-01-05 15:38:51,366 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Continues to provide support and encouragement to Jon--> support system (Time: 2023-07-23)
+2026-01-05 15:38:51,366 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Words of encouragement continue to motivate Jon--> words of encouragement (Time: 2023-07-23)
+2026-01-05 15:38:51,367 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Supporting and encouraging Jon's business venture--> entrepreneur (Time: 2023-07-23)
+2026-01-05 15:38:51,380 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Gina's words of encouragement and support--> possession (Time: 2023-07-23)
+2026-01-05 15:38:52,003 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:38:52,003 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:38:57,713 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:38:57,714 - Amadeus.Answerer - INFO - ❓ Question: What does Jon feel when he hears Gina's words of encouragement?
+2026-01-05 15:38:59,606 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon's feelings towards Gina's encouragement", 'mode': 'hybrid'}
+2026-01-05 15:39:01,278 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Jon feels proud and supported when he hears Gina's words of encouragement."}
+2026-01-05 15:39:01,279 - Amadeus.Optimizer - INFO - GT: Jon feels motivated and determined to keep going.
+2026-01-05 15:39:01,279 - Amadeus.Optimizer - INFO - Pre: Jon feels proud and supported when he hears Gina's words of encouragement.
+2026-01-05 15:39:05,575 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:39:05,576 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's strategy to trust the graph more accurately and avoid hallucinating emotions that are not directly supported by the context. The Answerer should focus on retrieving specific emotional states mentioned in the Builder's log rather than inferring additional details.
+2026-01-05 15:39:05,576 - Amadeus.Answerer - INFO - ❓ Question: Where was Jon last Friday?
+2026-01-05 15:39:07,006 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon last Friday', 'mode': 'hybrid'}
+2026-01-05 15:39:11,658 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Jon last Friday', 'mode': 'hybrid'}
+2026-01-05 15:39:17,053 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Jon's location on 2023-03-24", 'mode': 'hybrid'}
+2026-01-05 15:39:21,747 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Jon's location on 2023-03-24", 'mode': 'hybrid'}
+2026-01-05 15:39:25,550 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Jon's location on 2023-03-24", 'mode': 'hybrid'}
+2026-01-05 15:39:28,112 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Jon's location on 2023-03-24", 'mode': 'hybrid'}
+2026-01-05 15:39:30,457 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Dance Studio Location'}
+2026-01-05 15:39:32,871 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Jon's location on 2023-03-24", 'mode': 'hybrid'}
+2026-01-05 15:39:32,881 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:39:33,255 - Amadeus.Optimizer - INFO - GT: He was at dance class with a group of friends.
+2026-01-05 15:39:33,255 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:39:38,914 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:39:38,915 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include rules to capture temporal information more accurately. Specifically, the Builder should be instructed to extract and link relevant temporal data such as 'last Friday' to Jon's activities and locations. Additionally, the Builder should be encouraged to resolve ambiguous references by linking them to specific individuals or entities.
+2026-01-05 15:39:38,915 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "dance class", "content": "last Friday"}, {"action": "UPDATE", "subject": "dance class", "object": "location", "content": "near Jon's home studio"}]
+2026-01-05 15:39:48,519 - Amadeus.Builder - INFO - 🔗 LINK: Jon --last Friday--> dance class (Time: 2023-07-09)
+2026-01-05 15:39:48,523 - Amadeus.Builder - INFO - 🔗 LINK: dance class --near Jon's home studio--> location (Time: 2023-07-09)
+2026-01-05 15:39:49,004 - Amadeus.Answerer - INFO - ❓ Question: What is Gina's attitude towards Jon's dream of creating a studio?
+2026-01-05 15:39:50,398 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's attitude towards Jon's dream of creating a studio", 'mode': 'hybrid'}
+2026-01-05 15:39:51,567 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Gina is supportive and excited for Jon's dance studio grand opening."}
+2026-01-05 15:39:51,573 - Amadeus.Optimizer - INFO - GT: Gina is supportive and encouraging of Jon's dream.
+2026-01-05 15:39:51,585 - Amadeus.Optimizer - INFO - Pre: Gina is supportive and excited for Jon's dance studio grand opening.
+2026-01-05 15:39:55,369 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:39:55,369 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to include explicit mentions of Jon's dreams or goals related to the studio in the Builder's activities. This will help ensure that the builder captures the specific relationship between Gina and Jon's aspirations accurately.
+2026-01-05 15:39:55,370 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "dream of creating a studio", "content": "Gina --Supports and encourages Jon's dream of creating a studio-- support system (Time: 2023-07-23)"}]
+2026-01-05 15:40:03,705 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Gina --Supports and encourages Jon's dream of creating a studio-- support system--> dance studio (Time: 2023-07-23)
+2026-01-05 15:40:03,947 - Experiment - INFO - [conv-30] 📊 Graph Ready. Nodes: 109, Edges: 185
+2026-01-05 15:40:03,965 - Experiment - INFO - [conv-30] 💾 Graph saved to: results_locomo/run_20260105_151108/conv-30/graph.json
+2026-01-05 15:40:03,966 - Experiment - INFO - [conv-30] 🔍 Phase 2: Evaluation...
+2026-01-05 15:40:03,966 - Amadeus.Answerer - INFO - ❓ Question: When Jon has lost his job as a banker?
+2026-01-05 15:40:05,281 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon lost his job as a banker', 'mode': 'hybrid'}
+2026-01-05 15:40:08,722 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon lost his job as a banker on 2023-01-20.'}
+2026-01-05 15:40:09,997 - Experiment - INFO - 
+[conv-30] Q: When Jon has lost his job as a banker?
+Category: 2
+GT: 19 January, 2023
+Pred: Jon lost his job as a banker on 2023-01-20.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:40:09,997 - Amadeus.Answerer - INFO - ❓ Question: When Gina has lost her job at Door Dash?
+2026-01-05 15:40:11,480 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina lost job Door Dash', 'mode': 'hybrid'}
+2026-01-05 15:40:15,171 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina lost her job at Door Dash in January 2023.'}
+2026-01-05 15:40:16,123 - Experiment - INFO - 
+[conv-30] Q: When Gina has lost her job at Door Dash?
+Category: 2
+GT: January, 2023
+Pred: Gina lost her job at Door Dash in January 2023.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:40:16,123 - Amadeus.Answerer - INFO - ❓ Question: How do Jon and Gina both like to destress?
+2026-01-05 15:40:17,624 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina destress methods', 'mode': 'hybrid'}
+2026-01-05 15:40:22,669 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Having someone back him up is great at 2023-03-16'}
+2026-01-05 15:40:28,441 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina destress methods', 'mode': 'hybrid'}
+2026-01-05 15:40:36,255 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina destress methods', 'mode': 'hybrid'}
+2026-01-05 15:40:43,580 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina destress methods', 'mode': 'hybrid'}
+2026-01-05 15:40:51,305 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Both Jon and Gina like to destress by focusing on their love for dance. Gina mentions that dance and fashion provide her with a stress-buster since childhood, while Jon believes that dance has been a significant stress-buster for him as well.'}
+2026-01-05 15:40:52,106 - Experiment - INFO - 
+[conv-30] Q: How do Jon and Gina both like to destress?
+Category: 4
+GT: by dancing
+Pred: Both Jon and Gina like to destress by focusing on their love for dance. Gina mentions that dance and fashion provide her with a stress-buster since childhood, while Jon believes that dance has been a significant stress-buster for him as well.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:40:52,114 - Amadeus.Answerer - INFO - ❓ Question: What do Jon and Gina both have in common?
+2026-01-05 15:40:53,686 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina common interests', 'mode': 'hybrid'}
+2026-01-05 15:40:59,843 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Both Jon and Gina have a passion for combining dance and fashion in their respective businesses.'}
+2026-01-05 15:41:00,874 - Experiment - INFO - 
+[conv-30] Q: What do Jon and Gina both have in common?
+Category: 1
+GT: They lost their jobs and decided to start their own businesses.
+Pred: Both Jon and Gina have a passion for combining dance and fashion in their respective businesses.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-05 15:41:00,875 - Amadeus.Answerer - INFO - ❓ Question: Why did Jon decide to start his dance studio?
+2026-01-05 15:41:02,635 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio decision', 'mode': 'hybrid'}
+2026-01-05 15:41:03,709 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'dance studio'}
+2026-01-05 15:41:06,387 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon decided to start his dance studio because of his passion for dance and how it has been a stress-buster since childhood. He hopes to create a place for people to dance and express themselves.'}
+2026-01-05 15:41:08,575 - Experiment - INFO - 
+[conv-30] Q: Why did Jon decide to start his dance studio?
+Category: 4
+GT: He lost his job and decided to start his own business to share his passion.
+Pred: Jon decided to start his dance studio because of his passion for dance and how it has been a stress-buster since childhood. He hopes to create a place for people to dance and express themselves.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:41:08,575 - Amadeus.Answerer - INFO - ❓ Question: What Jon thinks the ideal dance studio should look like?
+2026-01-05 15:41:09,917 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon ideal dance studio thoughts', 'mode': 'hybrid'}
+2026-01-05 15:41:11,299 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'dance studio'}
+2026-01-05 15:41:12,496 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Jon's vision for the dance studio", 'mode': 'hybrid'}
+2026-01-05 15:41:15,601 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Based on the information available, Jon thinks the ideal dance studio should blend his love for dance and fashion. He is focusing on finding the right place with considerations for size, floor quality, and natural light. Jon hopes to create a place where people can dance and express themselves, which aligns with his passion for dance.'}
+2026-01-05 15:41:18,812 - Experiment - INFO - 
+[conv-30] Q: What Jon thinks the ideal dance studio should look like?
+Category: 1
+GT: By the water, with natural light and Marley flooring
+Pred: Jon thinks the ideal dance studio should blend his love for dance and fashion. He is focusing on finding the right place with considerations for size, floor quality, and natural light. Jon hopes to create a place where people can dance and express themselves, which aligns with his passion for dance.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-05 15:41:18,812 - Amadeus.Answerer - INFO - ❓ Question: When is Jon's group performing at a festival?
+2026-01-05 15:41:20,220 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon group festival performance', 'mode': 'hybrid'}
+2026-01-05 15:41:25,884 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "Jon's group performance at festival [2023-02-28]", 'mode': 'hybrid'}
+2026-01-05 15:41:31,158 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Choreographing for a nearby festival next month [Time: 2023-02-28]'}
+2026-01-05 15:41:33,850 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Choreographing for a nearby festival next month [Time: 2023-02-28]'}
+2026-01-05 15:41:39,281 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Choreographing for a nearby festival next month [2023-02-28]', 'mode': 'hybrid'}
+2026-01-05 15:41:43,838 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Choreographing for a nearby festival next month [2023-02-28]'}
+2026-01-05 15:41:48,838 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "Jon's group performance at festival [2023-02-28]", 'mode': 'hybrid'}
+2026-01-05 15:41:51,587 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Choreographing for a nearby festival next month [2023-02-28]', 'mode': 'hybrid'}
+2026-01-05 15:41:51,612 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:41:55,311 - Experiment - INFO - 
+[conv-30] Q: When is Jon's group performing at a festival?
+Category: 2
+GT: February, 2023
+Pred: Jon's group is performing at the festival on 2023-02-28.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:41:55,312 - Amadeus.Answerer - INFO - ❓ Question: When did Gina launch an ad campaign for her store?
+2026-01-05 15:41:59,089 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina ad campaign store launch', 'mode': 'hybrid'}
+2026-01-05 15:42:01,032 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Ad Campaigns'}
+2026-01-05 15:42:02,677 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Gina launched an ad campaign for her store on 2023-04-03.'}
+2026-01-05 15:42:03,794 - Experiment - INFO - 
+[conv-30] Q: When did Gina launch an ad campaign for her store?
+Category: 2
+GT: 29 January, 2023
+Pred: Gina launched an ad campaign for her store on 2023-04-03.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-05 15:42:03,795 - Amadeus.Answerer - INFO - ❓ Question: When was Jon in Paris?
+2026-01-05 15:42:05,164 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon Paris visit', 'mode': 'hybrid'}
+2026-01-05 15:42:09,510 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon visited Paris yesterday.'}
+2026-01-05 15:42:13,078 - Experiment - INFO - 
+[conv-30] Q: When was Jon in Paris?
+Category: 2
+GT: 28 January 2023
+Pred: Jon visited Paris yesterday.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:42:13,079 - Amadeus.Answerer - INFO - ❓ Question: Which city have both Jean and John visited?
+2026-01-05 15:42:14,633 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited city', 'mode': 'hybrid'}
+2026-01-05 15:42:15,954 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited city', 'mode': 'hybrid'}
+2026-01-05 15:42:19,986 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited city', 'mode': 'hybrid'}
+2026-01-05 15:42:22,092 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited city', 'mode': 'hybrid'}
+2026-01-05 15:42:24,028 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited city', 'mode': 'hybrid'}
+2026-01-05 15:42:26,358 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited city', 'mode': 'hybrid'}
+2026-01-05 15:42:28,844 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited city', 'mode': 'hybrid'}
+2026-01-05 15:42:30,397 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Jean and John visited city', 'mode': 'hybrid'}
+2026-01-05 15:42:30,421 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:42:31,654 - Experiment - INFO - 
+[conv-30] Q: Which city have both Jean and John visited?
+Category: 1
+GT: Rome
+Pred: Unknown
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-05 15:42:31,654 - Amadeus.Answerer - INFO - ❓ Question: When did Gina team up with a local artist for some cool designs?
+2026-01-05 15:42:33,634 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina local artist team up cool designs', 'mode': 'hybrid'}
+2026-01-05 15:42:37,550 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina team up with a local artist for some cool designs on 2023-02-08 and again on 2023-03-16.'}
+2026-01-05 15:42:38,547 - Experiment - INFO - 
+[conv-30] Q: When did Gina team up with a local artist for some cool designs?
+Category: 2
+GT: February, 2023
+Pred: Gina team up with a local artist for some cool designs on 2023-02-08 and again on 2023-03-16.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:42:38,547 - Amadeus.Answerer - INFO - ❓ Question: When did Gina get her tattoo?
+2026-01-05 15:42:40,161 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina tattoo', 'mode': 'hybrid'}
+2026-01-05 15:42:42,769 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Gina's tattoo"}
+2026-01-05 15:42:48,079 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Gina got her tattoo that says 'freedom' because she danced without worrying what people thought in 2008."}
+2026-01-05 15:42:48,966 - Experiment - INFO - 
+[conv-30] Q: When did Gina get her tattoo?
+Category: 2
+GT: A few years ago
+Pred: Gina got her tattoo that says 'freedom' because she danced without worrying what people thought in 2008.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:42:48,967 - Amadeus.Answerer - INFO - ❓ Question: When did Jon start to go to the gym?
+2026-01-05 15:42:50,557 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon started going to the gym', 'mode': 'hybrid'}
+2026-01-05 15:42:55,160 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon started hitting the gym last week to stay on track with the venture.'}
+2026-01-05 15:42:57,798 - Experiment - INFO - 
+[conv-30] Q: When did Jon start to go to the gym?
+Category: 2
+GT: March, 2023
+Pred: Jon started hitting the gym last week to stay on track with the venture.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-05 15:42:57,799 - Amadeus.Answerer - INFO - ❓ Question: When did Gina open her online clothing store?
+2026-01-05 15:42:59,085 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina online clothing store opening', 'mode': 'hybrid'}
+2026-01-05 15:43:03,782 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina opened her online clothing store on 2023-03-16.'}
+2026-01-05 15:43:04,682 - Experiment - INFO - 
+[conv-30] Q: When did Gina open her online clothing store?
+Category: 2
+GT: 16 March, 2023
+Pred: Gina opened her online clothing store on 2023-03-16.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:43:04,682 - Amadeus.Answerer - INFO - ❓ Question: When did Jon start expanding his studio's social media presence?
+2026-01-05 15:43:06,162 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon expanding studio's social media presence", 'mode': 'hybrid'}
+2026-01-05 15:43:08,645 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon is actively working on expanding the social media presence of his dance studio as of April 3, 2023.'}
+2026-01-05 15:43:13,575 - Experiment - INFO - 
+[conv-30] Q: When did Jon start expanding his studio's social media presence?
+Category: 2
+GT: April, 2023
+Pred: Jon is actively working on expanding the social media presence of his dance studio as of April 3, 2023.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-01-05 15:43:13,576 - Amadeus.Answerer - INFO - ❓ Question: When did Jon host a dance competition?
+2026-01-05 15:43:15,158 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance competition hosted', 'mode': 'hybrid'}
+2026-01-05 15:43:18,922 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jon is hosting a dance competition next month to showcase local talent and bring more attention to his studio.'}
+2026-01-05 15:43:19,816 - Experiment - INFO - 
+[conv-30] Q: When did Jon host a dance competition?
+Category: 2
+GT: May, 2023
+Pred: Jon is hosting a dance competition next month to showcase local talent and bring more attention to his studio.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-05 15:43:19,816 - Amadeus.Answerer - INFO - ❓ Question: When did Jon go to a fair to get more exposure for his dance studio?
+2026-01-05 15:43:21,363 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio fair exposure', 'mode': 'hybrid'}
+2026-01-05 15:43:23,662 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Jon dance studio fair exposure event', 'mode': 'hybrid'}
+2026-01-05 15:43:25,155 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Dance Studio Event'}
+2026-01-05 15:43:26,801 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Jon went to a fair to get more exposure for his dance studio next month.'}
+2026-01-05 15:43:27,983 - Experiment - INFO - 
+[conv-30] Q: When did Jon go to a fair to get more exposure for his dance studio?
+Category: 2
+GT: 24 April, 2023
+Pred: Jon went to a fair to get more exposure for his dance studio next month.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-05 15:43:27,983 - Amadeus.Answerer - INFO - ❓ Question: Why did Gina decide to start her own clothing store?
+2026-01-05 15:43:29,643 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina clothing store decision', 'mode': 'hybrid'}
+2026-01-05 15:43:33,926 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Gina decided to start her own clothing store after losing her job at Door Dash.'}
+2026-01-05 15:43:38,166 - Experiment - INFO - 
+[conv-30] Q: Why did Gina decide to start her own clothing store?
+Category: 1
+GT: She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.
+Pred: Gina decided to start her own clothing store after losing her job at Door Dash.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-01-05 15:43:38,167 - Amadeus.Answerer - INFO - ❓ Question: Do Jon and Gina start businesses out of what they love?
+2026-01-05 15:43:40,494 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jon and Gina start businesses out of what they love', 'mode': 'hybrid'}

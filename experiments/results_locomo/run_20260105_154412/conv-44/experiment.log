@@ -1,0 +1,84 @@
+2026-01-05 15:44:18,945 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-44
+========================================
+2026-01-05 15:44:20,129 - Experiment - INFO - [conv-44] 🧠 Phase 1: Building Memory (28 contextual sessions)...
+2026-01-05 15:44:20,130 - Experiment - INFO - [conv-44] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:44:38,505 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:44:38,514 - Amadeus.Builder - INFO - ➕ NODE: Audrey
+2026-01-05 15:44:38,518 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Got new collars and tags for her dogs--> Pepper, Precious, Panda (Time: 2023-03-27)
+2026-01-05 15:44:38,564 - Amadeus.Builder - INFO - ➕ NODE: Audrey
+2026-01-05 15:44:38,571 - Amadeus.Builder - INFO - ➕ NODE: Audrey
+2026-01-05 15:44:38,582 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Hiking spot--> Fox Hollow (Time: 2023-03-27)
+2026-01-05 15:44:38,594 - Amadeus.Builder - INFO - ➕ NODE: Andrew
+2026-01-05 15:44:38,612 - Amadeus.Builder - INFO - 🔗 LINK: Andrew --Favorite type of bird--> Eagles (Time: 2023-03-27)
+2026-01-05 15:44:38,619 - Amadeus.Builder - INFO - ➕ NODE: Andrew
+2026-01-05 15:44:38,620 - Amadeus.Builder - INFO - 🔗 LINK: Andrew --Hiking spot--> Fox Hollow (Time: 2023-03-27)
+2026-01-05 15:44:38,620 - Amadeus.Builder - INFO - ⏳ WAIT: Has no pets, loves animals, fa...
+2026-01-05 15:44:38,623 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:44:38,623 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:44:43,668 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:44:43,669 - Amadeus.Answerer - INFO - ❓ Question: What are the names of Audrey's dogs?
+2026-01-05 15:44:46,807 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Audrey's dogs", 'mode': 'hybrid'}
+2026-01-05 15:44:47,944 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Audrey's dogs are named Pepper, Precious, and Panda."}
+2026-01-05 15:44:47,944 - Amadeus.Optimizer - INFO - GT: Their names are Pepper, Precious, and Panda.
+2026-01-05 15:44:47,944 - Amadeus.Optimizer - INFO - Pre: Audrey's dogs are named Pepper, Precious, and Panda.
+2026-01-05 15:44:52,626 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:44:52,626 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when mentioning pets, all relevant information including names is captured. Additionally, improve the context linking by ensuring that attributes like 'dog names' are directly associated with the pet nodes rather than just general mentions.
+2026-01-05 15:44:52,627 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Audrey", "object": "Pepper", "content": "dog name"}, {"action": "ADD", "subject": "Audrey", "object": "Precious", "content": "dog name"}, {"action": "ADD", "subject": "Audrey", "object": "Panda", "content": "dog name"}]
+2026-01-05 15:45:01,903 - Amadeus.Answerer - INFO - ❓ Question: How does Audrey feel about her dogs bringing happiness into her life?
+2026-01-05 15:45:03,087 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Audrey dogs happiness', 'mode': 'hybrid'}
+2026-01-05 15:45:08,051 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Audrey feels happy about her dogs, as she loves them and goes on adventures with them.'}
+2026-01-05 15:45:08,051 - Amadeus.Optimizer - INFO - GT: Audrey says, 'It's great how much happiness they bring.'
+2026-01-05 15:45:08,052 - Amadeus.Optimizer - INFO - Pre: Audrey feels happy about her dogs, as she loves them and goes on adventures with them.
+2026-01-05 15:45:10,949 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:10,949 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture direct emotional statements about pets. Ensure that when building relationships or attributes, include explicit expressions of feelings or sentiments towards animals.
+2026-01-05 15:45:10,949 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Audrey", "object": "dogs", "content": "Audrey --Feels--> Happy"}]
+2026-01-05 15:45:16,201 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Audrey --Feels--> Happy--> dogs (Time: 2023-03-27)
+2026-01-05 15:45:16,207 - Amadeus.Answerer - INFO - ❓ Question: Where does Andrew suggest Audrey hike?
+2026-01-05 15:45:17,536 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Andrew suggests Audrey hike', 'mode': 'hybrid'}
+2026-01-05 15:45:18,612 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Andrew suggests Audrey hike at Fox Hollow.'}
+2026-01-05 15:45:18,612 - Amadeus.Optimizer - INFO - GT: Andrew suggests Fox Hollow as a great trail to hike on weekends.
+2026-01-05 15:45:18,613 - Amadeus.Optimizer - INFO - Pre: Andrew suggests Audrey hike at Fox Hollow.
+2026-01-05 15:45:21,697 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:45:21,697 - Experiment - INFO - [conv-44] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:45:51,164 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:45:51,170 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Adopted a puppy called Pixie--> Pixie (Time: 2023-04-02)
+2026-01-05 15:45:51,170 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Has a fourth dog named Pixie--> dogs (Time: 2023-04-02)
+2026-01-05 15:45:51,175 - Amadeus.Builder - INFO - ➕ NODE: Audrey
+2026-01-05 15:45:51,175 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Pixie loves playing and exploring the house--> dogs (Time: 2023-04-02)
+2026-01-05 15:45:51,179 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Pepper is getting along well with Pixie--> Pepper (Time: 2023-04-02)
+2026-01-05 15:45:51,183 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Used websites to find a dog-friendly place--> dog-friendly places (Time: 2023-04-02)
+2026-01-05 15:45:51,183 - Amadeus.Builder - INFO - 🔗 LINK: Andrew --Considering finding a dog-friendly place in the city--> dog-friendly places (Time: 2023-04-02)
+2026-01-05 15:45:51,291 - Amadeus.Builder - INFO - 🔗 LINK: Andrew --Thinking of adopting a dog--> dog (Time: 2023-04-02)
+2026-01-05 15:45:51,292 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Audrey is keeping her fingers crossed for Andrew to find a great furry friend--> dog (Time: 2023-04-02)
+2026-01-05 15:45:51,296 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Exploring nature trails with her family's dog--> dog (Time: 2023-04-02)
+2026-01-05 15:45:51,296 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Wants to hike with her dogs--> dog (Time: 2023-04-02)
+2026-01-05 15:45:51,318 - Amadeus.Builder - INFO - 🔗 LINK: Andrew --Excited to find a dog-friendly spot for hiking--> hiking with dogs (Time: 2023-04-02)
+2026-01-05 15:45:51,324 - Amadeus.Builder - INFO - ➕ NODE: Audrey
+2026-01-05 15:45:51,325 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Pixie is a cute and cuddly puppy--> dog (Time: 2023-04-02)
+2026-01-05 15:45:51,333 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:45:51,333 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:45:58,114 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:45:58,114 - Amadeus.Answerer - INFO - ❓ Question: Where did Audrey and Andrew find a dog-friendly place to live?
+2026-01-05 15:45:59,780 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Audrey and Andrew dog-friendly place to live', 'mode': 'hybrid'}
+2026-01-05 15:46:00,879 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'dog-friendly places'}
+2026-01-05 15:46:02,457 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Used websites to find a dog-friendly place'}
+2026-01-05 15:46:05,366 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Used websites to find a dog-friendly place'}
+2026-01-05 15:46:06,851 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Audrey and Andrew used websites to find a dog-friendly place at 2023-04-02', 'mode': 'hybrid'}
+2026-01-05 15:46:08,431 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Audrey and Andrew found a dog-friendly place to live by using websites on April 2, 2023.'}
+2026-01-05 15:46:08,431 - Amadeus.Optimizer - INFO - GT: They used websites with filters that made it super easy to find a place allowing dogs.
+2026-01-05 15:46:08,431 - Amadeus.Optimizer - INFO - Pre: Audrey and Andrew found a dog-friendly place to live by using websites on April 2, 2023.
+2026-01-05 15:46:14,544 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:14,544 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures the context of finding a dog-friendly place more accurately. Specifically, the Builder should be instructed to look for explicit mentions of actions taken to find such a place, rather than focusing on general activities like hiking. The updated prompt should also include a rule to prioritize recent events and actions over older ones unless directly relevant.
+2026-01-05 15:46:14,544 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Audrey", "object": "Found a dog-friendly place", "content": "They used websites with filters that made it super easy to find a place allowing dogs."}, {"action": "REMOVE", "subject": "Audrey", "object": "Exploring nature trails with her family's dog", "content": "This node is not relevant to the question asked."}]
+2026-01-05 15:46:22,646 - Amadeus.Builder - INFO - 🔗 LINK: Audrey --Found a dog-friendly place--> dog-friendly places (Time: 2023-04-02)
+2026-01-05 15:46:22,647 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Audrey -> dog
+2026-01-05 15:46:22,652 - Amadeus.Answerer - INFO - ❓ Question: How are Pepper and Pixie getting along?
+2026-01-05 15:46:24,761 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Pepper and Pixie getting along', 'mode': 'hybrid'}
+2026-01-05 15:46:25,721 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Pepper is getting along well with Pixie.'}
+2026-01-05 15:46:25,722 - Amadeus.Optimizer - INFO - GT: Pepper took a bit to get used to Pixie, but now they are always together!
+2026-01-05 15:46:25,722 - Amadeus.Optimizer - INFO - Pre: Pepper is getting along well with Pixie.
+2026-01-05 15:46:33,337 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:33,345 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The builder should focus on capturing relationships between multiple entities in the same context. Specifically, the extraction rule should be updated to ensure that when a new entity (like Pixie) is introduced, the builder also considers the interactions between that entity and existing entities (like Pepper). This can be achieved by expanding the scope of the builder's activity log to include more interrelated information.
+2026-01-05 15:46:33,346 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Audrey", "object": "Pixie", "content": "Pepper took a bit to get used to Pixie, but now they are always together!"}, {"action": "UPDATE", "subject": "Audrey", "object": "Pepper", "content": "Pepper is getting along well with Pixie."}]

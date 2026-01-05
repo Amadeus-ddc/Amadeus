@@ -1,0 +1,805 @@
+2026-01-05 15:11:14,395 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-48
+========================================
+2026-01-05 15:11:15,305 - Experiment - INFO - [conv-48] 🧠 Phase 1: Building Memory (30 contextual sessions)...
+2026-01-05 15:11:15,305 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:11:35,739 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:11:35,795 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Met Jolene, talked about their projects and shared memories of their mothers' houses.--> Jolene (Time: 2023-01-23)
+2026-01-05 15:11:35,799 - Amadeus.Builder - INFO - ➕ NODE: Deborah's Mom
+2026-01-05 15:11:35,964 - Amadeus.Builder - INFO - ➕ NODE: Jolene's Mom
+2026-01-05 15:11:35,968 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Has a pendant given by her mother in 2010 in Paris, symbol represents freedom.--> Pendant (Time: 2023-01-23)
+2026-01-05 15:11:35,968 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Has a pendant given by her mother, it gives her strength and energy.--> Pendant (Time: 2023-01-23)
+2026-01-05 15:11:36,032 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Passionate about teaching yoga and supporting her community, inspired by her mother's help during a rough time.--> Teaching Yoga (Time: 2023-01-23)
+2026-01-05 15:11:36,038 - Amadeus.Builder - INFO - ⏳ WAIT: Discussed plans for the future...
+2026-01-05 15:11:36,055 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:11:36,065 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:11:41,896 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:11:41,896 - Amadeus.Answerer - INFO - ❓ Question: What might be the reason behind Deborah's visit to her mother's old house?
+2026-01-05 15:11:43,036 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Deborah visit mother's old house reasons", 'mode': 'hybrid'}
+2026-01-05 15:11:43,883 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:11:44,642 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Pendant'}
+2026-01-05 15:11:45,808 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Deborah visited her mother's old house to find a pendant given by her mother, which symbolizes strength and energy."}
+2026-01-05 15:11:45,809 - Amadeus.Optimizer - INFO - GT: Deborah visits her mother's old house to sit on the special bench near the window and feel connected to her.
+2026-01-05 15:11:45,809 - Amadeus.Optimizer - INFO - Pre: Deborah visited her mother's old house to find a pendant given by her mother, which symbolizes strength and energy.
+2026-01-05 15:11:50,390 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:11:50,391 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to prioritize specific details related to Deborah's personal memories and experiences. Ensure that when linking subjects to objects, the builder captures more direct and relevant connections based on the conversation context.
+2026-01-05 15:11:50,391 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "special bench", "content": "Deborah visits her mother's old house to sit on the special bench near the window and feel connected to her."}, {"action": "REMOVE", "subject": "Deborah", "object": "pendant", "content": "Deborah visited her mother's old house to find a pendant given by her mother, which symbolizes strength and energy."}]
+2026-01-05 15:11:57,259 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah visits her mother's old house to sit on the special bench near the window and feel connected to her.--> special bench (Time: 2023-01-23)
+2026-01-05 15:11:57,266 - Amadeus.Answerer - INFO - ❓ Question: When did Jolene receive the pendant from her mother?
+2026-01-05 15:11:58,684 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene pendant mother', 'mode': 'hybrid'}
+2026-01-05 15:12:00,075 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jolene received the pendant from her mother in 2010 in Paris.'}
+2026-01-05 15:12:00,075 - Amadeus.Optimizer - INFO - GT: Jolene received the pendant from her mother in 2010 in Paris.
+2026-01-05 15:12:00,076 - Amadeus.Optimizer - INFO - Pre: Jolene received the pendant from her mother in 2010 in Paris.
+2026-01-05 15:12:02,970 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:12:02,971 - Amadeus.Answerer - INFO - ❓ Question: What connection do both Deborah and Jolene share regarding their pendants?
+2026-01-05 15:12:05,665 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah Jolene pendants', 'mode': 'hybrid'}
+2026-01-05 15:14:18,784 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pendant'}
+2026-01-05 15:14:20,634 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Both Deborah and Jolene share a connection through pendants given to them by their mothers. Jolene's pendant was given in 2010 in Paris and symbolizes freedom, while Deborah's pendant, given by her mother, gives her strength and energy."}
+2026-01-05 15:14:20,634 - Amadeus.Optimizer - INFO - GT: Both Deborah and Jolene have pendants that remind them of their mothers.
+2026-01-05 15:14:20,635 - Amadeus.Optimizer - INFO - Pre: Both Deborah and Jolene share a connection through pendants given to them by their mothers. Jolene's pendant was given in 2010 in Paris and symbolizes freedom, while Deborah's pendant, given by her mother, gives her strength and energy.
+2026-01-05 15:14:25,694 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:14:25,695 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when linking attributes or connections between subjects, consider broader context and relationships. Specifically, improve the rule to capture shared attributes or items that relate to multiple subjects, such as pendants given by mothers, without overfitting to specific details like the date and location of the pendant.
+2026-01-05 15:14:25,695 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Jolene", "content": "Both Deborah and Jolene have pendants that remind them of their mothers."}, {"action": "REMOVE", "subject": "Pendant", "object": "Deborah", "content": "Deborah --Has a pendant given by her mother, it gives her strength and energy."}]
+2026-01-05 15:14:32,315 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Both Deborah and Jolene have pendants that remind them of their mothers.--> Jolene (Time: 2023-01-23)
+2026-01-05 15:14:32,357 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:14:53,891 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:14:53,897 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Passed away two days ago--> Deborah's Dad (Time: 2023-01-25)
+2026-01-05 15:14:53,901 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Parents' wedding in 1993--> Deborah's Parents' Wedding (Time: 1993-01-23)
+2026-01-05 15:14:53,904 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Given by her mother, symbol represents strength and energy--> Deborah's Pendant (Time: 2023-01-23)
+2026-01-05 15:14:53,905 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Deborah -> special bench
+2026-01-05 15:14:53,922 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Debora's mother loved reading and would sit by the window with a book and a smile--> Reading hobby (Time: 2023-01-27)
+2026-01-05 15:14:53,936 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Travel was a great passion of Deborah's mother--> Travel hobby (Time: 2023-01-27)
+2026-01-05 15:14:53,956 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Pet snakes, specifically Seraphim and Susie--> Snakes (Time: 2023-01-27)
+2026-01-05 15:14:54,013 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --One of Jolene's snakes, bought a year ago in Paris--> Seraphim (Time: 2022-01-27)
+2026-01-05 15:14:54,034 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Favors playing video games, especially 'Detroit' and 'Walking Dead'--> Playing video games (Time: 2023-01-27)
+2026-01-05 15:14:54,041 - Amadeus.Builder - INFO - ⏳ WAIT: Jolene: We played the game 'De...
+2026-01-05 15:14:54,064 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:14:54,065 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:15:02,097 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:15:02,097 - Amadeus.Answerer - INFO - ❓ Question: What hobby did Deborah's mother have, and where did Jolene get her snake?
+2026-01-05 15:15:03,820 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Deborah's mother hobby Jolene get snake", 'mode': 'hybrid'}
+2026-01-05 15:15:04,842 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Deborah's Mom"}
+2026-01-05 15:15:06,014 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Deborah's mother hobby", 'mode': 'hybrid'}
+2026-01-05 15:15:07,743 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Deborah's mother had hobbies including reading and traveling. Jolene got her snake from her own mother."}
+2026-01-05 15:15:07,744 - Amadeus.Optimizer - INFO - GT: Deborah's mother loved reading and travel, while Jolene got her snake Seraphim in Paris a year ago.
+2026-01-05 15:15:07,744 - Amadeus.Optimizer - INFO - Pre: Deborah's mother had hobbies including reading and traveling. Jolene got her snake from her own mother.
+2026-01-05 15:15:13,994 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:15:13,994 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure that it captures explicit mentions of personal hobbies and interests, especially those related to family members. Also, improve the extraction of information by ensuring that relationships and attributes are consistently linked to their subjects.
+2026-01-05 15:15:13,995 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah's Mother", "object": "Reading Hobby", "content": "Deborah's mother loved reading and would sit by the window with a book and a smile."}, {"action": "ADD", "subject": "Deborah's Mother", "object": "Travel Hobby", "content": "Travel was a great passion of Deborah's mother."}, {"action": "ADD", "subject": "Jolene", "object": "Snake Seraphim", "content": "Jolene got her snake Seraphim in Paris a year ago."}]
+2026-01-05 15:15:22,093 - Amadeus.Builder - INFO - 🔗 LINK: Deborah's Mother --Deborah's mother loved reading and would sit by the window with a book and a smile.--> Reading Hobby (Time: 2023-01-27)
+2026-01-05 15:15:22,112 - Amadeus.Builder - INFO - 🔗 LINK: Deborah's Mother --Travel was a great passion of Deborah's mother.--> Travel Hobby (Time: 2023-01-27)
+2026-01-05 15:15:22,125 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Jolene got her snake Seraphim in Paris a year ago.--> Snake Seraphim (Time: 2022-01-27)
+2026-01-05 15:15:22,146 - Amadeus.Answerer - INFO - ❓ Question: When did Deborah's father pass away, and what does she do there to feel connected to her mother?
+2026-01-05 15:15:31,101 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Deborah's father death and connection to mother", 'mode': 'hybrid'}
+2026-01-05 15:19:33,788 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Deborah's father passed away two days ago on January 25, 2023. Deborah feels connected to her mother through a special bench near the window where her mother used to sit every morning, and through a pendant given by her mother which symbolizes strength and energy."}
+2026-01-05 15:19:33,788 - Amadeus.Optimizer - INFO - GT: Deborah's father passed away two days ago, and she sits by the window in her old home to feel connected to her mother.
+2026-01-05 15:19:33,788 - Amadeus.Optimizer - INFO - Pre: Deborah's father passed away two days ago on January 25, 2023. Deborah feels connected to her mother through a special bench near the window where her mother used to sit every morning, and through a pendant given by her mother which symbolizes strength and energy.
+2026-01-05 15:19:39,867 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:19:39,867 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should trust the graph more and not rely solely on the most recent information. It should also ensure that it retrieves the correct information based on the context provided by the builder. The Answerer should avoid making assumptions and should verify connections within the graph before providing an answer.
+2026-01-05 15:19:39,867 - Amadeus.Answerer - INFO - ❓ Question: How might the place by the window where Deborah sits feel to her, given her mother's past habit of reading there?
+2026-01-05 15:19:42,782 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Deborah sits by the window, mother's past habit of reading", 'mode': 'hybrid'}
+2026-01-05 15:19:43,999 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Reading Hobby'}
+2026-01-05 15:19:47,601 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Given her mother's past habit of reading by the window, the place by the window where Deborah sits might evoke feelings of warmth, comfort, and nostalgia for her. It could remind her of her mother's love for reading and the happy moments they shared together."}
+2026-01-05 15:19:47,602 - Amadeus.Optimizer - INFO - GT: The place by the window would likely evoke feelings of warmth and comfort for Deborah, reminiscent of her mother's presence and hobbies.
+2026-01-05 15:19:47,602 - Amadeus.Optimizer - INFO - Pre: Given her mother's past habit of reading by the window, the place by the window where Deborah sits might evoke feelings of warmth, comfort, and nostalgia for her. It could remind her of her mother's love for reading and the happy moments they shared together.
+2026-01-05 15:19:55,821 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:19:58,720 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:20:14,242 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:20:14,271 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:20:14,278 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Engineering professor gave a huge robotics project; feeling excited and nervous initially, now enjoying it and finding it satisfying.--> Robotics Project (Time: 2023-02-01)
+2026-01-05 15:20:14,294 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah met Jolene at yoga in the park; they discussed how yoga improves lives and provides a sense of community.--> Yoga (Time: 2023-02-01)
+2026-01-05 15:20:14,296 - Amadeus.Builder - INFO - ⏳ WAIT: Jolene planned to play the con...
+2026-01-05 15:20:14,307 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:20:14,308 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:20:21,632 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:20:21,645 - Amadeus.Answerer - INFO - ❓ Question: What activity did Jolene and her partner plan instead of going to yoga, and why?
+2026-01-05 15:20:22,752 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene partner alternative activity yoga', 'mode': 'hybrid'}
+2026-01-05 15:20:24,030 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene and her partner alternative activity yoga', 'mode': 'hybrid'}
+2026-01-05 15:20:25,442 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene and her partner alternative activity to yoga', 'mode': 'hybrid'}
+2026-01-05 15:20:26,649 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene and her partner alternative activity to yoga', 'mode': 'hybrid'}
+2026-01-05 15:20:27,822 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Deborah'}
+2026-01-05 15:20:28,728 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:20:29,984 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene and her partner alternative activity to yoga', 'mode': 'hybrid'}
+2026-01-05 15:20:31,293 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene and Deborah alternative activity to yoga', 'mode': 'hybrid'}
+2026-01-05 15:20:31,300 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:20:31,742 - Amadeus.Optimizer - INFO - GT: They planned to play the console together because they wanted an alternative social activity.
+2026-01-05 15:20:31,743 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:20:34,632 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:20:34,632 - Amadeus.Answerer - INFO - ❓ Question: How does Deborah think playing the console with Jolene might benefit their relationship?
+2026-01-05 15:20:35,822 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah playing console with Jolene relationship benefits', 'mode': 'hybrid'}
+2026-01-05 15:20:36,832 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:20:37,974 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah and Jolene playing video games relationship benefits', 'mode': 'hybrid'}
+2026-01-05 15:20:38,954 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:20:40,554 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "benefits of playing video games for Deborah and Jolene's relationship", 'mode': 'hybrid'}
+2026-01-05 15:20:41,779 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Playing video games'}
+2026-01-05 15:20:42,962 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': "Favors playing video games, especially 'Detroit' and 'Walking Dead'"}
+2026-01-05 15:20:43,747 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Playing video games'}
+2026-01-05 15:20:43,750 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:20:44,951 - Amadeus.Optimizer - INFO - GT: Deborah thinks it might benefit their relationship as an alternative social activity.
+2026-01-05 15:20:44,952 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:20:49,067 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:20:49,068 - Amadeus.Answerer - INFO - ❓ Question: What was the emotional state of Jolene when she first received the robotics project, and how does it compare to her current feelings about the project?
+2026-01-05 15:20:50,748 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene robotics project emotional state comparison', 'mode': 'hybrid'}
+2026-01-05 15:20:51,880 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Robotics Project'}
+2026-01-05 15:20:53,335 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'When Jolene first received the robotics project, she was feeling excited and nervous. Currently, she enjoys the project and finds it satisfying.'}
+2026-01-05 15:20:53,335 - Amadeus.Optimizer - INFO - GT: When she first received the project, Jolene felt a mix of emotions - excited and nervous; now, she is really enjoying it!
+2026-01-05 15:20:53,335 - Amadeus.Optimizer - INFO - Pre: When Jolene first received the robotics project, she was feeling excited and nervous. Currently, she enjoys the project and finds it satisfying.
+2026-01-05 15:20:55,258 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:20:55,258 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on implicit causality and temporal context. The questioner should ask about the sequence of events and how Jolene's feelings have changed over time to better align with the current buffer content.
+2026-01-05 15:20:55,258 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 4. Processing Buffer...
+2026-01-05 15:21:23,929 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:21:23,963 - Amadeus.Builder - INFO - ➕ NODE: Jolene
+2026-01-05 15:21:23,978 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Feelings of satisfaction and motivation--> Robotics Project (Time: 2023-02-03)
+2026-01-05 15:21:23,983 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Met new neighbor Anna at yoga in the park; discussed yoga and its benefits--> Anna (Time: 2023-02-04)
+2026-01-05 15:21:24,006 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Modified Warrior II Pose with hand support on knee--> Warrior II Pose (Time: 2023-02-04)
+2026-01-05 15:21:24,017 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Teaching yoga as a way to find balance and connect with others--> Teaching Yoga (Time: 2023-02-04)
+2026-01-05 15:21:24,034 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Friend gave a bouquet when Deborah was struggling, reminding her of her mother's love and strength--> Bouquet (Time: 2023-02-04)
+2026-01-05 15:21:24,053 - Amadeus.Builder - INFO - 🔗 LINK: Deborah's Mom --Amulet given to Deborah by her mother, symbolizes love and strength--> Amulet (Time: 2023-02-04)
+2026-01-05 15:21:24,057 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Currently reading 'Sapiens'--> Favorite Book (Time: 2023-02-04)
+2026-01-05 15:21:24,081 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Read 'Avalanche' by Neal Stephenson recently--> Book 'Avalanche' (Time: 2023-02-04)
+2026-01-05 15:21:24,090 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Picture taken on vacation last summer in Bogota--> Vacation Picture (Time: 2023-02-04)
+2026-01-05 15:21:24,106 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Spot by the water near her mom's old house where she reflects on her mother's life--> Reflection Spot (Time: 2023-02-04)
+2026-01-05 15:21:24,107 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Given by her mother in 2010 in Paris, symbolizes strength and energy--> Deborah's Pendant (Time: 2023-02-04)
+2026-01-05 15:21:24,107 - Amadeus.Builder - INFO - 🔗 LINK: Deborah's Mom --Amulet given to Deborah by her mother, symbolizes love and strength--> Amulet (Time: 2023-02-04)
+2026-01-05 15:21:24,125 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:21:24,126 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:21:34,586 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:21:34,586 - Amadeus.Answerer - INFO - ❓ Question: How did Jolene's experience designing and building a water purifier affect her career aspirations?
+2026-01-05 15:21:35,776 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene water purifier design experience career aspirations', 'mode': 'hybrid'}
+2026-01-05 15:21:39,309 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Jolene's experience designing and building a sustainable water purifier for a rural community was an emotional milestone that likely reinforced her career aspirations in engineering and sustainability. This project could have motivated her to pursue further work in these fields, inspired by her mother's legacy."}
+2026-01-05 15:21:39,313 - Amadeus.Optimizer - INFO - GT: It reinforced her desire to keep working in engineering and create sustainable solutions for communities in need.
+2026-01-05 15:21:39,313 - Amadeus.Optimizer - INFO - Pre: Jolene's experience designing and building a sustainable water purifier for a rural community was an emotional milestone that likely reinforced her career aspirations in engineering and sustainability. This project could have motivated her to pursue further work in these fields, inspired by her mother's legacy.
+2026-01-05 15:21:42,852 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:21:42,852 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to extract relevant information by focusing on recent events and milestones. Ensure that the builder connects the subject with their most recent activities and accomplishments rather than relying solely on historical or general information.
+2026-01-05 15:21:42,852 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "Water Purifier Project", "content": "Jolene --Major Milestone--> Water Purifier Project (Time: 2023-02-03)"}]
+2026-01-05 15:21:48,431 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Jolene --Major Milestone--> Water Purifier Project--> Water Purifier Project (Time: 2023-02-03)
+2026-01-05 15:21:48,444 - Amadeus.Answerer - INFO - ❓ Question: What can be inferred about Jolene's feelings after successfully designing and building the water purifier?
+2026-01-05 15:21:50,045 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene successfully designed and built the water purifier', 'mode': 'hybrid'}
+2026-01-05 15:21:51,151 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Water Purifier Project'}
+2026-01-05 15:21:53,238 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's feelings after designing and building the water purifier", 'mode': 'hybrid'}
+2026-01-05 15:21:55,952 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:21:57,546 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'After successfully designing and building the water purifier, Jolene likely feels a sense of satisfaction and motivation.'}
+2026-01-05 15:21:57,546 - Amadeus.Optimizer - INFO - GT: Jolene felt a sense of satisfaction, purpose, and accomplishment.
+2026-01-05 15:21:57,546 - Amadeus.Optimizer - INFO - Pre: After successfully designing and building the water purifier, Jolene likely feels a sense of satisfaction and motivation.
+2026-01-05 15:22:02,588 - openai._base_client - INFO - Retrying request to /chat/completions in 0.421713 seconds
+2026-01-05 15:22:09,939 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:22:09,939 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent accomplishments rather than historical milestones. Encourage questions that relate directly to the most recent information provided in the session context.
+2026-01-05 15:22:09,939 - Amadeus.Answerer - INFO - ❓ Question: What did Deborah and Anna bond over during their yoga class?
+2026-01-05 15:22:11,007 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah and Anna yoga class bond', 'mode': 'hybrid'}
+2026-01-05 15:22:12,066 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:22:13,305 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'yoga class bond between Deborah and Anna', 'mode': 'hybrid'}
+2026-01-05 15:22:14,916 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'yoga class bond between Deborah and Anna', 'mode': 'hybrid'}
+2026-01-05 15:22:16,334 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'yoga class bond between Deborah and Anna', 'mode': 'hybrid'}
+2026-01-05 15:22:18,669 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'yoga class bond between Deborah and Anna', 'mode': 'hybrid'}
+2026-01-05 15:22:19,891 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Yoga'}
+2026-01-05 15:22:20,998 - Amadeus.Answerer - INFO - Step 8: READ - {'tool': 'READ', 'answer': 'Deborah and Anna bonded over how yoga improves lives and provides a sense of community during their yoga class.'}
+2026-01-05 15:22:20,998 - Amadeus.Optimizer - INFO - GT: They bonded over trying different dance poses, specifically the Warrior II pose.
+2026-01-05 15:22:20,998 - Amadeus.Optimizer - INFO - Pre: Deborah and Anna bonded over how yoga improves lives and provides a sense of community during their yoga class.
+2026-01-05 15:22:24,080 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:22:24,080 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 5. Processing Buffer...
+2026-01-05 15:22:38,609 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:22:38,615 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Achieved more than expected, gained confidence, interested in green tech applications--> Engineering Project (Time: 2023-02-08)
+2026-01-05 15:22:38,616 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Still working on it, now solidifying the plan for a volunteer program in STEM education--> Robotics Project (Time: 2023-02-08)
+2026-01-05 15:22:38,620 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Planning to teach STEM to underprivileged kids through workshops and guest speakers--> Volunteer Program (Time: 2023-02-08)
+2026-01-05 15:22:38,645 - Amadeus.Builder - INFO - ➕ NODE: Jolene
+2026-01-05 15:22:38,863 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Encourages Jolene to pursue her ideas and plans--> Supportive Mentality (Time: 2023-02-08)
+2026-01-05 15:22:38,879 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Has sketches in the planner for her volunteer program--> Sketches (Time: 2023-02-08)
+2026-01-05 15:22:39,102 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:22:39,103 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:22:45,895 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:22:45,895 - Amadeus.Answerer - INFO - ❓ Question: How might Jolene's new outlook affect her future projects?
+2026-01-05 15:22:47,021 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene new outlook future projects', 'mode': 'hybrid'}
+2026-01-05 15:22:48,534 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Engineering Project'}
+2026-01-05 15:22:50,467 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Jolene's new outlook, which includes achieved more than expected, gained confidence, and interest in green tech applications, is likely to positively affect her future projects by increasing her confidence and potentially leading her to incorporate more sustainable technologies."}
+2026-01-05 15:22:50,467 - Amadeus.Optimizer - INFO - GT: Jolene feels more confident and is excited about her engineering project related to green tech.
+2026-01-05 15:22:50,467 - Amadeus.Optimizer - INFO - Pre: Jolene's new outlook, which includes achieved more than expected, gained confidence, and interest in green tech applications, is likely to positively affect her future projects by increasing her confidence and potentially leading her to incorporate more sustainable technologies.
+2026-01-05 15:22:52,599 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:22:52,599 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent developments. Avoid asking about historical or long-term impacts unless directly relevant to the immediate context provided.
+2026-01-05 15:22:52,600 - Amadeus.Answerer - INFO - ❓ Question: What kind of solutions did Jolene come up with during the engineering project at the retreat?
+2026-01-05 15:22:54,211 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene engineering project retreat solutions', 'mode': 'hybrid'}
+2026-01-05 15:22:58,954 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Water Purifier Project'}
+2026-01-05 15:23:00,184 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's contributions to Water Purifier Project", 'mode': 'hybrid'}
+2026-01-05 15:23:01,682 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's contributions to Water Purifier Project", 'mode': 'hybrid'}
+2026-01-05 15:23:03,261 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's solutions for Water Purifier Project", 'mode': 'hybrid'}
+2026-01-05 15:23:05,095 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:23:08,354 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Water Purifier Project'}
+2026-01-05 15:23:11,414 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's solutions for Water Purifier Project", 'mode': 'hybrid'}
+2026-01-05 15:23:11,422 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:23:11,789 - Amadeus.Optimizer - INFO - GT: She came up with some neat solutions for green tech in disadvantaged areas.
+2026-01-05 15:23:11,790 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:23:19,010 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:19,011 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include rules to capture and extract relevant information from discussions about personal experiences and reflections. Specifically, the Builder should be instructed to look for mentions of new insights or achievements related to specific projects and to establish clear links between these insights and the ongoing projects. This will help ensure that such information is included in the global memory graph.
+2026-01-05 15:23:19,011 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "Engineering Project", "content": "Gained new insights from mini retreat on green tech solutions"}, {"action": "UPDATE", "subject": "Engineering Project", "object": "Current Focus", "content": "Green tech solutions in disadvantaged areas"}]
+2026-01-05 15:23:25,809 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Gained new insights from mini retreat on green tech solutions--> Engineering Project (Time: None)
+2026-01-05 15:23:25,816 - Amadeus.Builder - INFO - 🔗 LINK: Engineering Project --Green tech solutions in disadvantaged areas--> Current Focus (Time: None)
+2026-01-05 15:23:25,877 - Amadeus.Answerer - INFO - ❓ Question: Why did Jolene decide to start a volunteer program teaching STEM to underprivileged kids?
+2026-01-05 15:23:27,982 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene volunteer program STEM underprivileged kids', 'mode': 'hybrid'}
+2026-01-05 15:23:29,709 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Planning to teach STEM to underprivileged kids through workshops and guest speakers'}
+2026-01-05 15:23:32,109 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Planning to teach STEM to underprivileged kids through workshops and guest speakers'}
+2026-01-05 15:23:33,723 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Planning to teach STEM to underprivileged kids through workshops and guest speakers'}
+2026-01-05 15:23:37,647 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Jolene decided to start a volunteer program teaching STEM to underprivileged kids after reflecting on her life and her mother's legacy. Her mother, who passed away last year, had a pendant that symbolized freedom, which Jolene still wears. This pendant and other memories of her mother inspired Jolene to create a sustainable water purifier project and gain confidence in her engineering skills. On February 8, 2023, Jolene was planning to teach STEM through workshops and guest speakers, combining her passion for engineering with her desire to give back to the community."}
+2026-01-05 15:23:37,653 - Amadeus.Optimizer - INFO - GT: Jolene wants to help and inspire others, and believes green tech could make a significant difference in disadvantaged areas.
+2026-01-05 15:23:37,653 - Amadeus.Optimizer - INFO - Pre: Jolene decided to start a volunteer program teaching STEM to underprivileged kids after reflecting on her life and her mother's legacy. Her mother, who passed away last year, had a pendant that symbolized freedom, which Jolene still wears. This pendant and other memories of her mother inspired Jolene to create a sustainable water purifier project and gain confidence in her engineering skills. On February 8, 2023, Jolene was planning to teach STEM through workshops and guest speakers, combining her passion for engineering with her desire to give back to the community.
+2026-01-05 15:23:42,391 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:42,391 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures relevant personal inspirations and motivations directly linked to past events or individuals. For example, the Builder should focus on identifying and linking specific emotional or motivational triggers from past experiences to current actions and plans.
+2026-01-05 15:23:42,392 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "Mother's Legacy", "content": "Jolene was inspired by her mother's legacy to start a volunteer program teaching STEM to underprivileged kids."}, {"action": "ADD", "object": "Volunteer Program", "content": "The volunteer program focuses on teaching STEM to underprivileged kids, combining engineering skills with community service."}]
+2026-01-05 15:23:48,538 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Jolene was inspired by her mother's legacy to start a volunteer program teaching STEM to underprivileged kids.--> Mother's Legacy (Time: None)
+2026-01-05 15:23:48,616 - Amadeus.Builder - INFO - ➕ NODE: Volunteer Program
+2026-01-05 15:23:48,822 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 6. Processing Buffer...
+2026-01-05 15:24:20,005 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:24:20,012 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:24:20,015 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Last photo with Karlie taken last summer during a hike--> Karlie (Time: 2022-07-xx)
+2026-01-05 15:24:20,019 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Traveled to Bali last year--> Bali (Time: 2022-12-xx)
+2026-01-05 15:24:20,043 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Expressed interest in traveling to Bali for yoga--> Bali (Time: 2023-02-22)
+2026-01-05 15:24:20,048 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Finding comfort in the garden and reminiscing about Karlie--> Current Focus (Time: 2023-02-22)
+2026-01-05 15:24:20,050 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Bali was one of her favorite travel destinations--> Travel Hobby (Time: 2022-12-xx)
+2026-01-05 15:24:20,051 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Reflecting on her mother's love and comfort through memories and flowers--> Mother's Legacy (Time: 2023-02-22)
+2026-01-05 15:24:20,051 - Amadeus.Builder - INFO - ⏳ WAIT: Every time I see it, I can't h...
+2026-01-05 15:24:20,052 - Amadeus.Builder - INFO - ⏳ WAIT: Where else have you traveled? ...
+2026-01-05 15:24:20,188 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:24:20,189 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:24:26,992 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:24:26,992 - Amadeus.Answerer - INFO - ❓ Question: How might Deborah feel when she visits the garden?
+2026-01-05 15:24:28,014 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah garden feelings', 'mode': 'hybrid'}
+2026-01-05 15:24:29,186 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Current Focus'}
+2026-01-05 15:24:30,332 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Deborah might feel comforted and nostalgic when she visits the garden, as she reminiscences about Karlie.'}
+2026-01-05 15:24:30,332 - Amadeus.Optimizer - INFO - GT: She feels comforted and reminded of her memories.
+2026-01-05 15:24:30,332 - Amadeus.Optimizer - INFO - Pre: Deborah might feel comforted and nostalgic when she visits the garden, as she reminiscences about Karlie.
+2026-01-05 15:24:35,534 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:24:35,535 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures and maintains the context of specific relationships and memories, rather than general feelings. The Builder should focus on identifying and linking explicit mentions of individuals and their emotional impact.
+2026-01-05 15:24:35,535 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Karlie", "content": "Deborah --feels nostalgic when visiting the garden due to memories of Karlie--> Garden (Time: 2023-02-22)"}, {"action": "REMOVE", "subject": "Deborah", "object": "Mother's Legacy", "content": "Deborah --reflects on her mother's love and comfort through memories and flowers--> Mother's Legacy (Time: 2023-02-22)"}]
+2026-01-05 15:24:42,492 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah --feels nostalgic when visiting the garden due to memories of Karlie--> Garden (Time: 2023-02-22)--> Karlie (Time: 2023-02-22)
+2026-01-05 15:24:42,492 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Deborah -> Mother's Legacy
+2026-01-05 15:24:42,558 - Amadeus.Answerer - INFO - ❓ Question: What does Jolene imply about the value of traveling and seeing new places?
+2026-01-05 15:24:44,069 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene value of traveling seeing new places', 'mode': 'hybrid'}
+2026-01-05 15:24:45,409 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Travel Hobby'}
+2026-01-05 15:24:47,268 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene Travel value implications', 'mode': 'hybrid'}
+2026-01-05 15:24:49,889 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Jolene implies that traveling and seeing new places hold significant value, as it is mentioned that travel was a great passion of Deborah's mother, and Jolene was inspired by her mother's legacy to start a volunteer program teaching STEM to underprivileged kids. This suggests that Jolene cherishes the memory of her mother's love for travel and sees it as a source of inspiration and motivation."}
+2026-01-05 15:24:49,889 - Amadeus.Optimizer - INFO - GT: Traveling can provide peace and great experiences that bring joy.
+2026-01-05 15:24:49,889 - Amadeus.Optimizer - INFO - Pre: Jolene implies that traveling and seeing new places hold significant value, as it is mentioned that travel was a great passion of Deborah's mother, and Jolene was inspired by her mother's legacy to start a volunteer program teaching STEM to underprivileged kids. This suggests that Jolene cherishes the memory of her mother's love for travel and sees it as a source of inspiration and motivation.
+2026-01-05 15:24:56,418 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:24:56,419 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should trust the graph more and avoid making assumptions based on prior knowledge or personal beliefs. Instead, it should focus on the information directly available in the current Buffer and the relationships established within the Global Memory Graph. For example, the Answerer should be cautious about attributing Jolene's actions or thoughts to her mother without clear evidence linking them in the context.
+2026-01-05 15:24:56,419 - Amadeus.Answerer - INFO - ❓ Question: Why does Deborah mention the last photo with Karlie specifically?
+2026-01-05 15:24:57,586 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah mention last photo Karlie', 'mode': 'hybrid'}
+2026-01-05 15:24:58,733 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Karlie'}
+2026-01-05 15:24:59,596 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': "Deborah's Mom"}
+2026-01-05 15:25:01,050 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Amulet given to Deborah by her mother', 'mode': 'hybrid'}
+2026-01-05 15:25:03,506 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Deborah mentions the last photo with Karlie specifically because it symbolizes a cherished memory and the bond between them, which reminds her of her own mother's love and strength."}
+2026-01-05 15:25:03,507 - Amadeus.Optimizer - INFO - GT: It reminds her of their last time together and the special moments they shared.
+2026-01-05 15:25:03,507 - Amadeus.Optimizer - INFO - Pre: Deborah mentions the last photo with Karlie specifically because it symbolizes a cherished memory and the bond between them, which reminds her of her own mother's love and strength.
+2026-01-05 15:25:06,946 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:25:06,947 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it trusts the graph more and stops at fewer hops when retrieving information. The Answerer should also be encouraged to cross-reference multiple related nodes to avoid hallucinating facts that aren't explicitly linked.
+2026-01-05 15:25:06,947 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 7. Processing Buffer...
+2026-01-05 15:25:37,211 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:25:37,216 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Doing yoga and meditation helps with stress and relaxation--> Partner (Time: 2023-02-25)
+2026-01-05 15:25:37,217 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Doing yoga helps with stress and relaxation--> Yoga (Time: 2023-02-25)
+2026-01-05 15:25:37,220 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Meditation helps with stress and relaxation--> Meditation (Time: 2023-02-25)
+2026-01-05 15:25:37,224 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:25:37,269 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Morning jog, meditation, yoga, and teaching classes--> Daily Routine (Time: 2023-02-25)
+2026-01-05 15:25:37,280 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Spends time with loved ones in the evening--> Partner (Time: 2023-02-25)
+2026-01-05 15:25:37,338 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --First morning jog in a nearby park--> Morning Jog (Time: 2023-02-25)
+2026-01-05 15:25:37,343 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Balancing engineering school with partner's video games--> Engineering School (Time: 2023-02-25)
+2026-01-05 15:25:37,344 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Partner started joining Jolene for yoga and meditation--> Partner (Time: 2023-02-25)
+2026-01-05 15:25:37,348 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Met partner in an engineering class in college--> Meeting (Time: 2023-02-25)
+2026-01-05 15:25:37,361 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Morning jog, meditation, yoga, and teaching classes--> Daily Routine (Time: 2023-02-25)
+2026-01-05 15:25:37,362 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Incorporating morning jog into daily routine--> Morning Jog (Time: 2023-02-25)
+2026-01-05 15:25:37,387 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:25:37,388 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:25:46,012 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:25:46,012 - Amadeus.Answerer - INFO - ❓ Question: How has Jolene's practice of yoga and meditation affected her partner's behavior and their relationship dynamics?
+2026-01-05 15:25:47,704 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene yoga and meditation partner behavior relationship dynamics', 'mode': 'hybrid'}
+2026-01-05 15:25:52,710 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Partner'}
+2026-01-05 15:25:54,336 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Partner started joining Jolene for yoga and meditation at 2023-02-25, which has helped with stress and relaxation.'}
+2026-01-05 15:25:54,336 - Amadeus.Optimizer - INFO - GT: Jolene's partner started joining her sometimes for yoga, which has brought them closer.
+2026-01-05 15:25:54,336 - Amadeus.Optimizer - INFO - Pre: Partner started joining Jolene for yoga and meditation at 2023-02-25, which has helped with stress and relaxation.
+2026-01-05 15:25:59,851 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:25:59,851 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it retrieves information beyond one hop in the graph and considers the broader context of the conversation. The Answerer should trust the relationships and connections established in the memory graph rather than relying solely on immediate nodes.
+2026-01-05 15:25:59,851 - Amadeus.Answerer - INFO - ❓ Question: What can be inferred about Jolene's partner's feelings towards Jolene's self-care practices based on the conversation?
+2026-01-05 15:26:01,410 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's partner feelings towards self-care practices", 'mode': 'hybrid'}
+2026-01-05 15:26:03,781 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Partner'}
+2026-01-05 15:26:05,631 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Based on the conversation, it can be inferred that Jolene's partner has positive feelings towards her self-care practices, as he started joining her for yoga and meditation on February 25, 2023."}
+2026-01-05 15:26:05,631 - Amadeus.Optimizer - INFO - GT: Jolene's partner appreciates and values her self-care practices as they have brought them closer.
+2026-01-05 15:26:05,631 - Amadeus.Optimizer - INFO - Pre: it can be inferred that Jolene's partner has positive feelings towards her self-care practices, as he started joining her for yoga and meditation on February 25, 2023.
+2026-01-05 15:26:09,530 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:26:09,530 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should trust the graph more and avoid making assumptions beyond the immediate context. Specifically, the Answerer should focus on retrieving direct statements or actions related to the partner's feelings rather than inferring emotions based on external connections.
+2026-01-05 15:26:09,530 - Amadeus.Answerer - INFO - ❓ Question: What does Deborah mean by saying 'Can't pour from an empty cup' in the context of self-care and relationships?
+2026-01-05 15:26:10,813 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Can't pour from an empty cup Deborah self-care relationships", 'mode': 'hybrid'}
+2026-01-05 15:26:13,208 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Deborah's Pendant"}
+2026-01-05 15:26:14,373 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah self-care relationships meaning of pendant', 'mode': 'hybrid'}
+2026-01-05 15:26:17,777 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Deborah means that in order to take care of others and maintain healthy relationships, one must first take care of themselves. This phrase is a reminder of the strength and energy her mother instilled in her through the pendant given as a gift, which symbolizes the importance of self-care.'}
+2026-01-05 15:26:17,777 - Amadeus.Optimizer - INFO - GT: Deborah means that looking after oneself provides the energy needed to support others effectively.
+2026-01-05 15:26:17,777 - Amadeus.Optimizer - INFO - Pre: Deborah means that in order to take care of others and maintain healthy relationships, one must first take care of themselves. This phrase is a reminder of the strength and energy her mother instilled in her through the pendant given as a gift, which symbolizes the importance of self-care.
+2026-01-05 15:26:27,465 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:26:27,465 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to include a rule for identifying and linking self-care practices to the concept of 'empty cup' and ensure that the relationship between these concepts is captured in the graph.
+2026-01-05 15:26:27,466 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "self-care", "content": "Deborah --Self-care is essential for maintaining healthy relationships and providing energy to support others--> Key Concept (Time: 2023-02-25)"}, {"action": "ADD", "subject": "Deborah", "object": "empty cup", "content": "Deborah --Empty cup metaphor refers to the need for self-care before being able to support others effectively--> Metaphor Explanation (Time: 2023-02-25)"}]
+2026-01-05 15:26:36,551 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:26:36,555 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah --Empty cup metaphor refers to the need for self-care before being able to support others effectively--> Metaphor Explanation (Time: 2023-02-25)--> empty cup (Time: 2023-02-25)
+2026-01-05 15:26:36,678 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 8. Processing Buffer...
+2026-01-05 15:26:59,354 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:26:59,359 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Received a vegan stir-fry from Anna containing tofu and vegetables with ginger and soy sauce.--> Vegan Stir-Fry (Time: 2023-03-02)
+2026-01-05 15:26:59,363 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Favorite comforting dish is lasagna.--> Lasagna (Time: 2023-03-02)
+2026-01-05 15:26:59,364 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Tamed snake named Seraphim.--> Seraphim (Time: 2023-02-26)
+2026-01-05 15:26:59,378 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:26:59,391 - Amadeus.Builder - INFO - ➕ NODE: Jolene
+2026-01-05 15:26:59,417 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Gave a mug to Jolene that encourages her.--> Mug (Time: 2023-03-02)
+2026-01-05 15:26:59,539 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:26:59,540 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:27:05,896 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:27:05,897 - Amadeus.Answerer - INFO - ❓ Question: What dish did Jolene mention as comforting?
+2026-01-05 15:27:07,949 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene comforting dish', 'mode': 'hybrid'}
+2026-01-05 15:27:10,787 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jolene mentioned that her favorite comforting dish is lasagna.'}
+2026-01-05 15:27:10,787 - Amadeus.Optimizer - INFO - GT: Lasagna!
+2026-01-05 15:27:10,788 - Amadeus.Optimizer - INFO - Pre: Jolene mentioned that her favorite comforting dish is lasagna.
+2026-01-05 15:27:12,548 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:27:12,548 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on extracting and presenting specific mentions from recent conversations. Avoid broad or historical interpretations unless directly supported by the current context.
+2026-01-05 15:27:12,548 - Amadeus.Answerer - INFO - ❓ Question: How does Jolene feel about her to-do list?
+2026-01-05 15:27:13,924 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene to-do list feelings', 'mode': 'hybrid'}
+2026-01-05 15:27:17,490 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:27:20,640 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'The information provided does not directly state how Jolene feels about her to-do list. However, Jolene has been discussing stress management and prioritizing mental health, which suggests she might be feeling stressed or overwhelmed with her to-do list.'}
+2026-01-05 15:27:20,641 - Amadeus.Optimizer - INFO - GT: It seems never-ending and she finds it challenging.
+2026-01-05 15:27:20,642 - Amadeus.Optimizer - INFO - Pre: The information provided does not directly state how Jolene feels about her to-do list. However, Jolene has been discussing stress management and prioritizing mental health, which suggests she might be feeling stressed or overwhelmed with her to-do list.
+2026-01-05 15:27:23,278 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:27:23,278 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on implicit causality and ask questions that directly relate to the current context and recent discussions. For example, ask about Jolene's recent activities or feelings related to her studies and exams.
+2026-01-05 15:27:23,278 - Amadeus.Answerer - INFO - ❓ Question: What encouraged Jolene during her conversation with Deborah?
+2026-01-05 15:27:24,385 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene encouragement during conversation with Deborah', 'mode': 'hybrid'}
+2026-01-05 15:27:27,033 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Met Jolene, talked about their projects and shared memories of their mothers' houses."}
+2026-01-05 15:27:29,082 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'During their conversation, Deborah encouraged Jolene to pursue her ideas and plans, which helped to encourage Jolene.'}
+2026-01-05 15:27:29,082 - Amadeus.Optimizer - INFO - GT: Deborah's encouragement and the mug given to her.
+2026-01-05 15:27:29,082 - Amadeus.Optimizer - INFO - Pre: During their conversation, Deborah encouraged Jolene to pursue her ideas and plans, which helped to encourage Jolene.
+2026-01-05 15:27:32,619 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:27:32,619 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to capture actions and encouragements explicitly. Ensure that the builder identifies and links specific instances of encouragement in the conversation.
+2026-01-05 15:27:32,619 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Gave a mug to Jolene that encourages her", "content": "Deborah --Gave a mug to Jolene that encourages her. (Time: 2023-03-02)"}]
+2026-01-05 15:27:38,857 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Gave a mug to Jolene that encourages her.--> Mug (Time: 2023-03-02)
+2026-01-05 15:27:38,948 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 9. Processing Buffer...
+2026-01-05 15:27:56,564 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:27:56,570 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Started hosting yoga classes in the neighborhood--> Yoga Class (Time: 2023-03-10)
+2026-01-05 15:27:56,571 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Transforming others through yoga--> Teaching Yoga (Time: 2023-03-10)
+2026-01-05 15:27:56,572 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Incorporated yoga and meditation into her daily routine--> Morning Jog (Time: 2023-02-25)
+2026-01-05 15:27:56,572 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Includes yoga and meditation--> Daily Routine (Time: 2023-02-25)
+2026-01-05 15:27:56,572 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Encouraging Jolene to manage her Engineering assignments--> Supportive Mentality (Time: 2023-03-10)
+2026-01-05 15:27:56,573 - Amadeus.Builder - INFO - ⏳ WAIT: Jolene wants to discuss time m...
+2026-01-05 15:27:56,599 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:27:56,600 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:28:06,967 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:28:06,967 - Amadeus.Answerer - INFO - ❓ Question: How does Deborah feel about sharing yoga with her neighbors?
+2026-01-05 15:28:08,119 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah sharing yoga with neighbors', 'mode': 'hybrid'}
+2026-01-05 15:28:12,006 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Met Jolene, talked about their projects and shared memories of their mothers' houses."}
+2026-01-05 15:28:15,776 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah sharing yoga with Jolene', 'mode': 'hybrid'}
+2026-01-05 15:28:17,581 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': "Deborah's Pendant"}
+2026-01-05 15:28:19,214 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah feeling about sharing yoga with Jolene', 'mode': 'hybrid'}
+2026-01-05 15:28:21,133 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah feeling about sharing yoga with Jolene', 'mode': 'hybrid'}
+2026-01-05 15:28:24,301 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': "Met Jolene, talked about their projects and shared memories of their mothers' houses."}
+2026-01-05 15:28:26,580 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah feeling about sharing yoga with Jolene', 'mode': 'hybrid'}
+2026-01-05 15:28:26,588 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:28:29,100 - Amadeus.Optimizer - INFO - GT: Deborah feels it brings her happiness and helps build community connections.
+2026-01-05 15:28:29,101 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:28:33,503 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:28:33,503 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture explicit emotional states and social impacts directly related to actions taken by individuals. Ensure that when extracting information, the builder includes emotional responses and societal benefits as key attributes.
+2026-01-05 15:28:33,503 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "feeling happy", "content": "Deborah feels happy about sharing yoga with her neighbors."}, {"action": "ADD", "object": "building community connections", "content": "Sharing yoga with neighbors helps Deborah build community connections."}]
+2026-01-05 15:28:41,486 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah feels happy about sharing yoga with her neighbors.--> feeling happy (Time: None)
+2026-01-05 15:28:41,486 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:28:41,596 - Amadeus.Answerer - INFO - ❓ Question: What might have motivated Jolene to bring up time management in the conversation?
+2026-01-05 15:28:42,986 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene time management motivation', 'mode': 'hybrid'}
+2026-01-05 15:28:44,762 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pendant'}
+2026-01-05 15:28:45,847 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'motivation for bringing up time management in the conversation', 'mode': 'hybrid'}
+2026-01-05 15:28:47,370 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Daily Routine'}
+2026-01-05 15:28:48,439 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Daily Routine and time management motivation', 'mode': 'hybrid'}
+2026-01-05 15:28:51,476 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "Jolene might have brought up time management in the conversation because she is incorporating yoga and meditation into her daily routine, which helps her manage stress and prioritize her mental health. This aligns with Deborah's emphasis on self-care and maintaining healthy relationships, suggesting that Jolene is likely influenced by these practices and wants to discuss ways to integrate them further."}
+2026-01-05 15:28:51,476 - Amadeus.Optimizer - INFO - GT: Jolene is having a hard time dealing with her Engineering assignments and wants to discuss time management strategies.
+2026-01-05 15:28:51,476 - Amadeus.Optimizer - INFO - Pre: Jolene might have brought up time management in the conversation because she is incorporating yoga and meditation into her daily routine, which helps her manage stress and prioritize her mental health. This aligns with Deborah's emphasis on self-care and maintaining healthy relationships, suggesting that Jolene is likely influenced by these practices and wants to discuss ways to integrate them further.
+2026-01-05 15:28:56,394 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:28:56,394 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should be updated to ensure that it captures relevant contextual information about the subjects mentioned in the conversation. Specifically, the Builder should be more attentive to identifying and linking key details about the participants' current situations and challenges. For example, the Builder could be instructed to extract and link any mentions of ongoing tasks, responsibilities, or personal struggles that users may discuss.
+2026-01-05 15:28:56,394 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "Engineering Assignments", "content": "Jolene is currently dealing with a heavy workload of Engineering assignments."}, {"action": "ADD", "object": "Time Management", "content": "Jolene is looking for strategies to better manage her time due to her Engineering assignments."}]
+2026-01-05 15:29:07,343 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Jolene is currently dealing with a heavy workload of Engineering assignments.--> Engineering Assignments (Time: None)
+2026-01-05 15:29:07,343 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:29:07,390 - Amadeus.Answerer - INFO - ❓ Question: Why does Deborah think teaching yoga is beneficial for others?
+2026-01-05 15:29:08,848 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah thinks teaching yoga is beneficial for others', 'mode': 'hybrid'}
+2026-01-05 15:29:14,670 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Teaching Yoga'}
+2026-01-05 15:29:15,532 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Deborah'}
+2026-01-05 15:29:16,816 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Teaching Yoga'}
+2026-01-05 15:29:17,977 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': "Passionate about teaching yoga and supporting her community, inspired by her mother's help during a rough time."}
+2026-01-05 15:29:20,105 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "Deborah thinks teaching yoga is beneficial for others because she is passionate about teaching yoga and supporting her community, inspired by her mother's help during a rough time. She also views it as a way to find balance and connect with others, and aims to transform others through yoga."}
+2026-01-05 15:29:20,105 - Amadeus.Optimizer - INFO - GT: Deborah thinks teaching yoga can help others and bring them peace and awareness.
+2026-01-05 15:29:20,105 - Amadeus.Optimizer - INFO - Pre: Deborah thinks teaching yoga is beneficial for others because she is passionate about teaching yoga and supporting her community, inspired by her mother's help during a rough time. She also views it as a way to find balance and connect with others, and aims to transform others through yoga.
+2026-01-05 15:29:27,119 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:29:27,119 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should be updated to more thoroughly capture the motivations and feelings expressed by individuals, especially when they mention personal inspirations or emotional connections. It should also focus on identifying and linking relevant attributes and relationships within the context of the conversation to ensure that all necessary information is included in the graph.
+2026-01-05 15:29:27,120 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "passionate about teaching yoga", "content": "Deborah is very passionate about teaching yoga and supporting her community."}, {"action": "ADD", "object": "inspired by her mother's help during a rough time", "content": "Deborah was inspired by her mother's support during a difficult period in her life."}, {"action": "ADD", "subject": "Deborah", "object": "views yoga as a way to find balance and connect with others", "content": "Deborah views yoga as a means to find inner balance and connect with her neighbors on a deeper level."}]
+2026-01-05 15:29:37,165 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah is very passionate about teaching yoga and supporting her community.--> passionate about teaching yoga (Time: 2023-02-25)
+2026-01-05 15:29:37,169 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah views yoga as a means to find inner balance and connect with her neighbors on a deeper level.--> views yoga as a way to find balance and connect with others (Time: 2023-02-25)
+2026-01-05 15:29:37,169 - Amadeus.Builder - WARNING - Op 2 skipped: Missing subject.
+2026-01-05 15:29:37,489 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 10. Processing Buffer...
+2026-01-05 15:30:04,569 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:30:04,575 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:30:04,621 - Amadeus.Builder - INFO - ➕ NODE: Jolene
+2026-01-05 15:30:04,715 - Amadeus.Builder - INFO - ➕ NODE: Anna
+2026-01-05 15:30:04,745 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Dreams of learning to surf.--> Surfing (Time: 2023-03-22)
+2026-01-05 15:30:04,802 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Shared her method for organizing and prioritizing tasks.--> Eisenhower Matrix (Time: 2023-03-22)
+2026-01-05 15:30:04,807 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Using the Pomodoro Technique to manage time and avoid burnout.--> Pomodoro Technique (Time: 2023-03-22)
+2026-01-05 15:30:04,851 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Includes creating a daily schedule or to-do list.--> Daily Routine (Time: 2023-03-22)
+2026-01-05 15:30:04,852 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Currently dealing with a heavy workload of Engineering assignments and planning to use the Eisenhower Matrix.--> Engineering Assignments (Time: 2023-03-22)
+2026-01-05 15:30:04,852 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Encouraged Jolene to pursue her dreams and use the Eisenhower Matrix for task organization.--> Supportive Mentality (Time: 2023-03-22)
+2026-01-05 15:30:04,852 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Received encouragement and support from Deborah.--> Supportive Mentality (Time: 2023-03-22)
+2026-01-05 15:30:04,853 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Inspired by her mother's legacy to start a volunteer program teaching STEM to underprivileged kids.--> Mother's Legacy (Time: 2023-03-22)
+2026-01-05 15:30:04,911 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Reflecting on the sea and discussing dreams and aspirations with Jolene.--> Sea (Time: 2023-03-22)
+2026-01-05 15:30:04,924 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Reflecting on the sea and discussing dreams and aspirations with Deborah.--> Sea (Time: 2023-03-22)
+2026-01-05 15:30:05,064 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:30:05,065 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:30:12,108 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:30:12,109 - Amadeus.Answerer - INFO - ❓ Question: What technique is Jolene using to avoid burnout during her exams?
+2026-01-05 15:30:13,519 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene exam technique avoid burnout', 'mode': 'hybrid'}
+2026-01-05 15:30:16,413 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pomodoro Technique'}
+2026-01-05 15:30:17,587 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jolene is using the Pomodoro Technique to manage time and avoid burnout during her exams.'}
+2026-01-05 15:30:17,588 - Amadeus.Optimizer - INFO - GT: Jolene is using the Pomodoro Technique - 25 minutes work, 5-minute break.
+2026-01-05 15:30:17,588 - Amadeus.Optimizer - INFO - Pre: Jolene is using the Pomodoro Technique to manage time and avoid burnout during her exams.
+2026-01-05 15:30:20,399 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:30:20,400 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current techniques and methods being used by individuals, rather than historical or past practices. Encourage the Questioner to ask about contemporary tools and strategies that people are actively employing to manage their time and avoid burnout.
+2026-01-05 15:30:20,400 - Amadeus.Answerer - INFO - ❓ Question: How does Deborah suggest Jolene can manage a big stack of tasks?
+2026-01-05 15:30:21,772 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah suggests Jolene manages tasks', 'mode': 'hybrid'}
+2026-01-05 15:30:28,827 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Deborah's Mom"}
+2026-01-05 15:30:30,035 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Amulet given to Deborah by her mother', 'mode': 'hybrid'}
+2026-01-05 15:30:31,644 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Deborah'}
+2026-01-05 15:30:33,262 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': "Met Jolene, talked about their projects and shared memories of their mothers' houses."}
+2026-01-05 15:30:35,200 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': "Met Jolene, talked about their projects and shared memories of their mothers' houses."}
+2026-01-05 15:30:37,193 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': "Met Jolene, talked about their projects and shared memories of their mothers' houses."}
+2026-01-05 15:30:39,056 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': "Met Jolene, talked about their projects and shared memories of their mothers' houses."}
+2026-01-05 15:30:39,056 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:30:40,372 - Amadeus.Optimizer - INFO - GT: Deborah suggests breaking down tasks or prioritizing them.
+2026-01-05 15:30:40,373 - Amadeus.Optimizer - INFO - Pre: Deborah suggests that Jolene can manage a big stack of tasks by using the Eisenhower Matrix.
+2026-01-05 15:30:45,444 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:30:45,444 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the builder's System Prompt to ensure it captures direct suggestions made during conversations. The builder should pay more attention to explicit mentions of task management methods and prioritize extracting such information from the context.
+2026-01-05 15:30:45,445 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Suggested_Tasks_Mgmt_Method", "content": "Eisenhower Matrix"}]
+2026-01-05 15:30:50,671 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Eisenhower Matrix--> Suggested_Tasks_Mgmt_Method (Time: None)
+2026-01-05 15:30:50,993 - Amadeus.Answerer - INFO - ❓ Question: What method does Deborah want to share with Jolene to help with organizing tasks and prioritizing them?
+2026-01-05 15:31:08,825 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah wants to share method with Jolene for organizing tasks and prioritizing them', 'mode': 'hybrid'}
+2026-01-05 15:31:11,019 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Suggested_Tasks_Mgmt_Method'}
+2026-01-05 15:31:12,532 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Deborah's suggested task management method for Jolene", 'mode': 'hybrid'}
+2026-01-05 15:31:14,379 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Deborah's suggested task management method for Jolene", 'mode': 'hybrid'}
+2026-01-05 15:31:16,115 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Deborah's suggested task management method for Jolene", 'mode': 'hybrid'}
+2026-01-05 15:31:17,427 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Deborah's suggested task management method for Jolene", 'mode': 'hybrid'}
+2026-01-05 15:31:18,804 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "Deborah's amulet given to Jolene", 'mode': 'hybrid'}
+2026-01-05 15:31:19,894 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Amulet'}
+2026-01-05 15:31:19,894 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:31:20,578 - Amadeus.Optimizer - INFO - GT: Deborah wants to share the Eisenhower Matrix, which sorts tasks into four boxes based on their urgency and importance.
+2026-01-05 15:31:20,578 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:31:25,655 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:31:25,655 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure that it captures and retains relevant information about the methods and tools discussed during conversations, especially when those discussions are directly related to the question at hand. The Builder should also prioritize extracting specific mentions of techniques and methodologies rather than general advice or encouragement.
+2026-01-05 15:31:25,656 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Eisenhower Matrix", "content": "Deborah wants to share the Eisenhower Matrix, which sorts tasks into four boxes based on their urgency and importance."}]
+2026-01-05 15:31:30,529 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah wants to share the Eisenhower Matrix, which sorts tasks into four boxes based on their urgency and importance.--> Eisenhower Matrix (Time: None)
+2026-01-05 15:31:30,713 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 11. Processing Buffer...
+2026-01-05 15:31:54,170 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:31:54,171 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Found a solution to a problem, feels great to see hard work paying off--> Engineering Project (Time: 2023-03-24)
+2026-01-05 15:31:54,221 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:31:54,228 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Listening to 'Sleep' for meditation and deep relaxation--> Album 'Sleep' (Time: 2023-03-24)
+2026-01-05 15:31:54,304 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Favorite tracks for yoga practice--> Nils Frahm and Olafur Arnalds (Time: 2023-03-24)
+2026-01-05 15:31:54,406 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:31:54,407 - Amadeus.Builder - INFO - ⏳ WAIT: Discussed scents and practices...
+2026-01-05 15:31:54,637 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:31:54,637 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:32:02,508 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:32:02,508 - Amadeus.Answerer - INFO - ❓ Question: How does Jolene feel after finding a solution to her engineering project problem?
+2026-01-05 15:32:04,074 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene engineering project solution feelings', 'mode': 'hybrid'}
+2026-01-05 15:32:06,141 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'After finding a solution to her engineering project problem, Jolene feels great to see her hard work paying off.'}
+2026-01-05 15:32:06,141 - Amadeus.Optimizer - INFO - GT: She feels great.
+2026-01-05 15:32:06,153 - Amadeus.Optimizer - INFO - Pre: After finding a solution to her engineering project problem, Jolene feels great to see her hard work paying off.
+2026-01-05 15:32:08,270 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:32:08,271 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and emotions rather than historical context. Encourage more direct and recent information requests.
+2026-01-05 15:32:08,271 - Amadeus.Answerer - INFO - ❓ Question: What did Deborah buy for her yoga class?
+2026-01-05 15:32:09,419 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah yoga class purchase', 'mode': 'hybrid'}
+2026-01-05 15:32:11,558 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Candles and essential oils add warmth and calm to her yoga session'}
+2026-01-05 15:32:13,602 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Deborah bought new props for the yoga class.'}
+2026-01-05 15:32:13,602 - Amadeus.Optimizer - INFO - GT: She bought new props and a candle.
+2026-01-05 15:32:13,603 - Amadeus.Optimizer - INFO - Pre: Deborah bought new props for the yoga class.
+2026-01-05 15:32:16,170 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:32:16,170 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent activities. Avoid asking about historical or past purchases unless explicitly related to the most recent context provided.
+2026-01-05 15:32:16,170 - Amadeus.Answerer - INFO - ❓ Question: What kind of scents does Jolene prefer during her yoga practice?
+2026-01-05 15:32:17,160 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene yoga scent preferences', 'mode': 'hybrid'}
+2026-01-05 15:32:19,286 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene yoga scent preferences', 'mode': 'hybrid'}
+2026-01-05 15:32:21,146 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Pendant'}
+2026-01-05 15:32:22,405 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene yoga scent preferences', 'mode': 'hybrid'}
+2026-01-05 15:32:24,270 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene yoga scent preferences', 'mode': 'hybrid'}
+2026-01-05 15:32:26,122 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's preferred scents during yoga practice", 'mode': 'hybrid'}
+2026-01-05 15:32:28,603 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene preferred scents during yoga practice', 'mode': 'hybrid'}
+2026-01-05 15:32:30,387 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's preferred scents during yoga practice", 'mode': 'hybrid'}
+2026-01-05 15:32:30,395 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:32:32,332 - Amadeus.Optimizer - INFO - GT: She prefers scents like lavender and rosemary.
+2026-01-05 15:32:32,334 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:32:35,907 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:32:35,907 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to capture more specific preferences and interests mentioned by characters in the context. Ensure that relevant attributes and relationships are included in the graph when processing dialogue.
+2026-01-05 15:32:35,907 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "Deborah", "content": "Jolene --prefers scents like lavender and rosemary during yoga practice--> Deborah (Time: 2023-03-28)"}]
+2026-01-05 15:32:45,084 - Amadeus.Builder - INFO - ➕ NODE: Jolene
+2026-01-05 15:32:45,417 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 12. Processing Buffer...
+2026-01-05 15:33:22,774 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:33:22,780 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Had a blast biking nearby with her neighbor last week - was so freeing and beautiful.--> Neighbor (Time: 2023-04-09)
+2026-01-05 15:33:22,785 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:33:22,786 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Amulet given by her mother, symbolizes love and strength. Keeps her memory alive.--> Amulet (Time: 2023-04-09)
+2026-01-05 15:33:22,786 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Supportive mentality towards Jolene during tough times.--> Supportive Mentality (Time: 2023-04-09)
+2026-01-05 15:33:22,786 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Playing video games with her partner after a long day is a great way to relax.--> Partner (Time: 2023-04-09)
+2026-01-05 15:33:22,786 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Jolene's snakes, specifically Seraphim and Susie, bring her comfort and help her cope with tough times.--> Snakes (Time: 2023-04-09)
+2026-01-05 15:33:22,787 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Partner started joining Jolene for yoga and meditation.--> Partner (Time: 2023-04-09)
+2026-01-05 15:33:22,787 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Working on a big project that has been tough but also really cool to watch it take shape.--> Engineering Project (Time: 2023-04-09)
+2026-01-05 15:33:22,787 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Inspired by her mother's legacy to start a volunteer program teaching STEM to underprivileged kids.--> Mother's Legacy (Time: 2023-04-09)
+2026-01-05 15:33:22,787 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Current focus on the volunteer program in STEM education.--> Current Focus (Time: 2023-04-09)
+2026-01-05 15:33:22,788 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Using the Pomodoro Technique to manage time and avoid burnout.--> Pomodoro Technique (Time: 2023-04-09)
+2026-01-05 15:33:22,788 - Amadeus.Builder - INFO - ⏳ WAIT: Simple things can indeed bring...
+2026-01-05 15:33:22,788 - Amadeus.Builder - INFO - ⏳ WAIT: It brings us closer together!...
+2026-01-05 15:33:22,788 - Amadeus.Builder - INFO - ⏳ WAIT: Can't wait to see the final re...
+2026-01-05 15:33:22,789 - Amadeus.Builder - INFO - ⏳ WAIT: Thanks Deb! Your support means...
+2026-01-05 15:33:22,789 - Amadeus.Builder - INFO - ⏳ WAIT: Glad my support means a lot to...
+2026-01-05 15:33:22,789 - Amadeus.Builder - INFO - ⏳ WAIT: Take care!...
+2026-01-05 15:33:22,789 - Amadeus.Builder - INFO - ⏳ WAIT: Enjoy your day and make time f...
+2026-01-05 15:33:22,789 - Amadeus.Builder - INFO - ⏳ WAIT: I'll make sure to find time fo...
+2026-01-05 15:33:22,977 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:33:22,978 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:33:30,641 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:33:30,641 - Amadeus.Answerer - INFO - ❓ Question: How do Jolene's snakes help her cope with difficult times?
+2026-01-05 15:33:31,965 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's snakes coping mechanism", 'mode': 'hybrid'}
+2026-01-05 15:33:33,243 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Snakes'}
+2026-01-05 15:33:34,818 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Jolene's snakes, specifically Seraphim and Susie, bring her comfort and help her cope with tough times."}
+2026-01-05 15:33:34,819 - Amadeus.Optimizer - INFO - GT: Spending time with her snakes teaches her to take time and be in tune with herself.
+2026-01-05 15:33:34,819 - Amadeus.Optimizer - INFO - Pre: Jolene's snakes, specifically Seraphim and Susie, bring her comfort and help her cope with tough times.
+2026-01-05 15:33:42,270 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:33:42,271 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include a rule to capture relationships and specific coping mechanisms mentioned in conversations. For example, adding a rule to extract and link relevant emotional support and coping strategies directly related to named individuals can improve the accuracy of predictions.
+2026-01-05 15:33:42,271 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Jolene", "content": "Friendship (Time: 2023-04-09)"}, {"action": "ADD", "subject": "Snakes", "object": "Jolene", "content": "Comfort (Time: 2023-04-09)"}, {"action": "ADD", "subject": "Snakes", "object": "Coping Mechanism", "content": "Helps with tough times (Time: 2023-04-09)"}]
+2026-01-05 15:33:51,412 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Friendship (Time: 2023-04-09)--> Jolene (Time: 2023-04-09)
+2026-01-05 15:33:51,412 - Amadeus.Builder - INFO - 🔗 LINK: Snakes --Comfort (Time: 2023-04-09)--> Jolene (Time: 2023-04-09)
+2026-01-05 15:33:51,418 - Amadeus.Builder - INFO - 🔗 LINK: Snakes --Helps with tough times (Time: 2023-04-09)--> Coping Mechanism (Time: 2023-04-09)
+2026-01-05 15:33:51,773 - Amadeus.Answerer - INFO - ❓ Question: Where did Deborah check out an art show with her friend today?
+2026-01-05 15:33:52,968 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah checked out an art show with her friend today', 'mode': 'hybrid'}
+2026-01-05 15:33:55,502 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Deborah checked out an art show with her friend today.'}
+2026-01-05 15:33:55,503 - Amadeus.Optimizer - INFO - GT: The exact location of the art show is not mentioned, but it was somewhere nearby.
+2026-01-05 15:33:55,503 - Amadeus.Optimizer - INFO - Pre: Deborah checked out an art show with her friend today.
+2026-01-05 15:33:58,983 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:33:58,983 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the Builder's ability to extract specific locations by adding rules to capture and store location-related information when it is mentioned in conversations.
+2026-01-05 15:33:58,983 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Art Show Location", "content": "somewhere nearby"}]
+2026-01-05 15:34:04,195 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --somewhere nearby--> Art Show Location (Time: last summer)
+2026-01-05 15:34:04,466 - Amadeus.Answerer - INFO - ❓ Question: What does Deborah believe art can do for someone who misses their mother?
+2026-01-05 15:34:06,234 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah believes art can do for someone who misses their mother', 'mode': 'hybrid'}
+2026-01-05 15:34:07,860 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Chased her dreams and encouraged Jolene to do the same.'}
+2026-01-05 15:34:10,736 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah believes art can do for someone who misses their mother', 'mode': 'hybrid'}
+2026-01-05 15:34:15,196 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah believes art can do for someone who misses their mother', 'mode': 'hybrid'}
+2026-01-05 15:34:18,465 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah believes art can do for someone who misses their mother', 'mode': 'hybrid'}
+2026-01-05 15:34:20,707 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Deborah believes that art can inspire and provide a sense of community and strength for someone who misses their mother.'}
+2026-01-05 15:34:20,708 - Amadeus.Optimizer - INFO - GT: Art can give out strong emotions and uniquely connect us, even when the loved one is gone.
+2026-01-05 15:34:20,708 - Amadeus.Optimizer - INFO - Pre: Deborah believes that art can inspire and provide a sense of community and strength for someone who misses their mother.
+2026-01-05 15:34:22,414 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:34:22,414 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and personal experiences rather than historical beliefs or abstract implications. Encourage more direct and contemporary questions.
+2026-01-05 15:34:22,415 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 13. Processing Buffer...
+2026-01-05 15:34:55,309 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:34:55,309 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Interning at a well-known engineering firm, applying school knowledge to real projects, and gaining real-world experience.--> Engineering Project (Time: 2023-06-06)
+2026-01-05 15:34:55,310 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Interning at a well-known engineering firm and working on the volunteer program in STEM education.--> Current Focus (Time: 2023-06-06)
+2026-01-05 15:34:55,318 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:34:55,319 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Yoga on top of Mount Talkeetna.--> Yoga Class (Time: 2023-06-06)
+2026-01-05 15:34:55,319 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Finding work-life balance and using yoga and meditation for stress relief and relaxation.--> Current Focus (Time: 2023-06-06)
+2026-01-05 15:34:55,322 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Favorite studio that is calming.--> Yoga Studio (Time: 2023-06-06)
+2026-01-05 15:34:55,343 - Amadeus.Builder - INFO - ➕ NODE: Yoga
+2026-01-05 15:34:55,377 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Gained inspiration and motivation from the internship experience and colleagues.--> Supportive Mentality (Time: 2023-06-06)
+2026-01-05 15:34:55,378 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Offered advice on work-life balance and yoga for stress relief.--> Supportive Mentality (Time: 2023-06-06)
+2026-01-05 15:34:55,794 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:34:55,796 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:35:04,738 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:35:04,760 - Amadeus.Answerer - INFO - ❓ Question: How has Jolene's engineering project affected her internship experience?
+2026-01-05 15:35:09,776 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's engineering project internship experience", 'mode': 'hybrid'}
+2026-01-05 15:35:11,666 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Engineering Project'}
+2026-01-05 15:35:12,595 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Green tech solutions in disadvantaged areas'}
+2026-01-05 15:35:16,818 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's engineering project internship experience green tech solutions in disadvantaged areas", 'mode': 'hybrid'}
+2026-01-05 15:35:32,159 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's engineering project internship experience green tech solutions in disadvantaged areas", 'mode': 'hybrid'}
+2026-01-05 15:35:37,391 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's engineering project internship experience green tech solutions in disadvantaged areas", 'mode': 'hybrid'}
+2026-01-05 15:35:42,966 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's engineering project internship experience green tech solutions in disadvantaged areas", 'mode': 'hybrid'}
+2026-01-05 15:35:44,000 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Engineering Project'}
+2026-01-05 15:35:44,000 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:35:44,534 - Amadeus.Optimizer - INFO - GT: Jolene's engineering project has given her confidence and skills that she is applying in her internship, making it more fulfilling and inspiring her to keep striving for her dreams.
+2026-01-05 15:35:44,535 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:35:48,275 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:35:48,275 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that relevant attributes and relationships are captured when discussing past projects and their impact on current experiences. Specifically, include rules to identify and connect skills and confidence gained from past projects to their application in current roles or experiences.
+2026-01-05 15:35:48,275 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "Engineering Project", "content": "Confidence and Skills"}, {"action": "ADD", "object": "Internship Experience", "content": "Applied Skills and Confidence Gained from Engineering Project"}]
+2026-01-05 15:35:58,791 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Confidence and Skills--> Engineering Project (Time: None)
+2026-01-05 15:35:58,791 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:35:59,013 - Amadeus.Answerer - INFO - ❓ Question: What does Jolene think about the importance of maintaining a work-life balance during her internship?
+2026-01-05 15:36:00,250 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene internship work-life balance', 'mode': 'hybrid'}
+2026-01-05 15:36:07,801 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:36:10,352 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Deborah'}
+2026-01-05 15:36:12,586 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:36:14,074 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'Deborah'}
+2026-01-05 15:36:17,827 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "Based on the information in the knowledge graph, Deborah is passionate about teaching yoga and supporting her community, inspired by her mother's help during a rough time. She views yoga as a way to find balance and connect with others. While there is no direct statement about Jolene's thoughts, Deborah's supportive mentality and encouragement to manage work-life balance suggest that she likely shares her mother's views on the importance of maintaining a work-life balance."}
+2026-01-05 15:36:17,827 - Amadeus.Optimizer - INFO - GT: Finding a work-life balance has been tough for Jolene during her internship, as she has been working hard but struggling to make time for her hobbies and relaxation.
+2026-01-05 15:36:17,827 - Amadeus.Optimizer - INFO - Pre: Deborah is passionate about teaching yoga and supporting her community, inspired by her mother's help during a rough time. She views yoga as a way to find balance and connect with others. While there is no direct statement about Jolene's thoughts, Deborah's supportive mentality and encouragement to manage work-life balance suggest that she likely shares her mother's views on the importance of maintaining a work-life balance.
+2026-01-05 15:36:23,105 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:36:23,105 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures more specific mentions of personal experiences and challenges related to work-life balance. For example, include extraction rules that prioritize recent conversations and direct statements about personal struggles or advice given.
+2026-01-05 15:36:23,105 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "work-life balance", "content": "Finding a work-life balance has been tough for Jolene during her internship, as she has been working hard but struggling to make time for her hobbies and relaxation."}, {"action": "ADD", "subject": "Deborah", "object": "supportive mentality", "content": "Deborah offered advice on work-life balance and yoga for stress relief."}]
+2026-01-05 15:36:32,635 - Amadeus.Builder - INFO - ➕ NODE: Jolene
+2026-01-05 15:36:32,639 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:36:32,700 - Amadeus.Answerer - INFO - ❓ Question: Where did Jolene practice yoga yesterday morning?
+2026-01-05 15:36:34,210 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene yoga yesterday morning', 'mode': 'hybrid'}
+2026-01-05 15:36:36,120 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pendant'}
+2026-01-05 15:36:37,187 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene yoga practice location', 'mode': 'hybrid'}
+2026-01-05 15:36:38,770 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Yoga Class'}
+2026-01-05 15:36:39,978 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'Jolene practiced yoga on top of Mount Talkeetna yesterday morning.'}
+2026-01-05 15:36:39,978 - Amadeus.Optimizer - INFO - GT: Jolene practiced yoga on top of Mount Talkeetna.
+2026-01-05 15:36:39,978 - Amadeus.Optimizer - INFO - Pre: Jolene practiced yoga on top of Mount Talkeetna yesterday morning.
+2026-01-05 15:36:43,163 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:36:43,163 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that all relevant actions and practices are captured in real-time, especially those related to specific activities like practicing yoga at a particular location and time.
+2026-01-05 15:36:43,164 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "yoga", "content": "practiced yoga on top of Mount Talkeetna yesterday morning"}]
+2026-01-05 15:36:53,264 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --practiced yoga on top of Mount Talkeetna yesterday morning--> yoga (Time: 2023-06-05)
+2026-01-05 15:36:53,342 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 14. Processing Buffer...
+2026-01-05 15:37:32,252 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:37:32,367 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Getting ready for a yoga retreat with some buddies. A chance to hang out with people who think like me and find peace and understanding.--> yoga retreat (Time: 2023-06-26)
+2026-01-05 15:37:32,406 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Tried a new pose - Dancer Pose (Natarajasana).--> Dancer Pose (Natarajasana) (Time: 2023-06-26)
+2026-01-05 15:37:32,444 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --New yoga pose that we tried.--> tree pose (Time: 2023-06-26)
+2026-01-05 15:37:32,465 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --New aquarium with Seraphim, a pet snake bought the day before yesterday.--> aquarium (Time: 2023-06-24)
+2026-01-05 15:37:32,466 - Amadeus.Builder - INFO - 🔗 LINK: Seraphim --Jolene's pet snake, Seraphim, brought her comfort and peace.--> Jolene (Time: 2023-06-26)
+2026-01-05 15:37:32,475 - Amadeus.Builder - INFO - 🔗 LINK: Seraphim --Cheers Jolene up and brings a sense of peace.--> comfort (Time: 2023-06-26)
+2026-01-05 15:37:32,490 - Amadeus.Builder - INFO - 🔗 LINK: Seraphim --Serves as a calming presence during tough times.--> coping mechanism (Time: 2023-06-26)
+2026-01-05 15:37:32,491 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Current focus on the volunteer program in STEM education and internship progress.--> Current Focus (Time: 2023-06-26)
+2026-01-05 15:37:32,491 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Pushing herself to succeed and gaining new insights and confidence.--> Engineering Project (Time: 2023-06-26)
+2026-01-05 15:37:32,492 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Inspired by her mother's legacy to push herself and achieve her goals.--> Mother's Legacy (Time: 2023-06-26)
+2026-01-05 15:37:32,496 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Statue of peace and enlightenment in the yoga retreat photo.--> symbol of peace and enlightenment (Time: 2023-06-26)
+2026-01-05 15:37:32,504 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Desires to visit a retreat for chill time and peace.--> chill time (Time: 2023-06-26)
+2026-01-05 15:37:32,510 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Asked Deborah to stop talking about her and focus on the retreat.--> stop talking about me (Time: 2023-06-26)
+2026-01-05 15:37:33,093 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:37:33,093 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:37:43,300 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:37:43,300 - Amadeus.Answerer - INFO - ❓ Question: What event inspired Jolene to talk about her internship and the new aquarium she bought?
+2026-01-05 15:37:44,642 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene internship inspiration new aquarium', 'mode': 'hybrid'}
+2026-01-05 15:37:47,234 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'aquarium'}
+2026-01-05 15:37:48,062 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:37:51,071 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'The event that inspired Jolene to talk about her internship and the new aquarium she bought was the new aquarium with her pet snake, Seraphim, which she purchased the day before yesterday.'}
+2026-01-05 15:37:51,071 - Amadeus.Optimizer - INFO - GT: Jolene mentioned a breakthrough with her project, which happened after Deborah talked about her yoga retreat and the new pose she tried.
+2026-01-05 15:37:51,071 - Amadeus.Optimizer - INFO - Pre: The event that inspired Jolene to talk about her internship and the new aquarium she bought was the new aquarium with her pet snake, Seraphim, which she purchased the day before yesterday.
+2026-01-05 15:37:54,347 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:37:54,347 - Amadeus.Answerer - INFO - ❓ Question: How does Jolene's experience with her pet Seraphim relate to her feelings about her internship and project?
+2026-01-05 15:37:55,513 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene pet Seraphim internship project', 'mode': 'hybrid'}
+2026-01-05 15:37:57,779 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Seraphim'}
+2026-01-05 15:37:58,975 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's pet Seraphim and her internship project", 'mode': 'hybrid'}
+2026-01-05 15:38:00,594 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's pet Seraphim and her internship project", 'mode': 'hybrid'}
+2026-01-05 15:38:02,259 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's pet Seraphim and her internship project relationship", 'mode': 'hybrid'}
+2026-01-05 15:38:03,873 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's pet Seraphim and her internship project relationship", 'mode': 'hybrid'}
+2026-01-05 15:38:05,487 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:38:08,557 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Seraphim'}
+2026-01-05 15:38:08,557 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:38:11,446 - Amadeus.Optimizer - INFO - GT: Jolene mentioned that Seraphim always cheers her up and brings a sense of peace, which helps her cope with the intensity of her internship and the challenges of her project.
+2026-01-05 15:38:11,447 - Amadeus.Optimizer - INFO - Pre: Jolene's experience with her pet Seraphim, which brings her comfort and peace, relates to her feelings about her internship and project by providing her with a source of relaxation and stress relief. This allows her to better manage her workload and maintain her mental health while striving to balance her professional and personal life.
+2026-01-05 15:38:15,862 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:38:15,863 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to extract relevant relationships and attributes. Specifically, ensure that the builder captures explicit mentions of pets and their impact on an individual's emotional state, especially when related to work or professional situations.
+2026-01-05 15:38:15,863 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Seraphim", "object": "Jolene", "content": "Jolene's pet snake, Seraphim, brings her comfort and peace."}, {"action": "ADD", "object": "Jolene", "content": "Seraphim always cheers Jolene up and brings a sense of peace, helping her cope with the intensity of her internship and the challenges of her project."}]
+2026-01-05 15:38:23,520 - Amadeus.Builder - INFO - 🔗 LINK: Seraphim --Jolene's pet snake, Seraphim, brings her comfort and peace.--> Jolene (Time: 2023-06-26)
+2026-01-05 15:38:23,527 - Amadeus.Builder - INFO - ➕ NODE: Jolene
+2026-01-05 15:38:24,153 - Amadeus.Answerer - INFO - ❓ Question: What is the connection between Jolene's determination to overcome obstacles and Deborah's suggestion to keep up the hard work but also relax?
+2026-01-05 15:38:25,561 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene determination Deborah suggest hard work relax', 'mode': 'hybrid'}
+2026-01-05 15:38:27,951 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Pendant'}
+2026-01-05 15:38:29,001 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Jolene's determination Deborah's advice pendant", 'mode': 'hybrid'}
+2026-01-05 15:38:31,389 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Deborah's suggestion to keep up the hard work but also relax is connected to the amulet given to her by her mother, which symbolizes strength and energy. This amulet serves as a reminder of her mother's support and encouragement for Jolene to overcome obstacles while also taking time to relax."}
+2026-01-05 15:38:31,389 - Amadeus.Optimizer - INFO - GT: Deborah suggested balancing hard work with relaxation, which aligns with Jolene's determination to overcome obstacles while acknowledging the importance of taking breaks.
+2026-01-05 15:38:31,390 - Amadeus.Optimizer - INFO - Pre: Deborah's suggestion to keep up the hard work but also relax is connected to the amulet given to her by her mother, which symbolizes strength and energy. This amulet serves as a reminder of her mother's support and encouragement for Jolene to overcome obstacles while also taking time to relax.
+2026-01-05 15:38:38,470 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:38:38,470 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture the direct connection between the subjects and objects mentioned in the conversation. Ensure that the builder extracts relevant attributes and relationships accurately without introducing irrelevant elements.
+2026-01-05 15:38:38,470 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "Determination to overcome obstacles", "content": "Jolene --Has a strong determination to overcome obstacles and challenges."}, {"action": "ADD", "object": "Deborah's suggestion", "subject": "Balancing hard work with relaxation", "content": "Deborah --Suggested balancing hard work with relaxation to help Jolene manage her challenges effectively."}, {"action": "LINK", "subject": "Jolene's determination", "object": "Deborah's suggestion", "content": "Deborah's suggestion is related to Jolene's determination to overcome obstacles, emphasizing the importance of both hard work and relaxation."}]
+2026-01-05 15:38:47,743 - Amadeus.Builder - INFO - ➕ NODE: Jolene
+2026-01-05 15:38:47,784 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:38:47,860 - Amadeus.Builder - INFO - 🔗 LINK: Jolene's determination --Deborah's suggestion is related to Jolene's determination to overcome obstacles, emphasizing the importance of both hard work and relaxation.--> Deborah's suggestion (Time: 2023-06-26)
+2026-01-05 15:38:47,985 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 15. Processing Buffer...
+2026-01-05 15:39:26,494 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:39:26,501 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Started a running group with Anna; helps and pushes each other during runs.--> Running Group (Time: 2023-07-09)
+2026-01-05 15:39:26,506 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah has many photos from the running group activity.--> Photos (Time: 2023-07-09)
+2026-01-05 15:39:26,506 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Participating in a running group with Deborah and Anna.--> Running Group (Time: 2023-07-09)
+2026-01-05 15:39:26,511 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Got a pet snake named Seraphim.--> Snake (Time: 2023-06-24)
+2026-01-05 15:39:26,512 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Partner helps Jolene stay focused on gaming goals.--> Partner (Time: 2023-07-09)
+2026-01-05 15:39:26,517 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Jolene wants to share a photo with Deborah.--> Photo (Time: 2023-07-09)
+2026-01-05 15:39:26,522 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Deborah has cats as pets.--> Pets (Time: 2023-07-09)
+2026-01-05 15:39:26,523 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Takes her cats out for exercise and nature in the park every morning and evening.--> Morning Jog (Time: 2023-07-09)
+2026-01-05 15:39:26,524 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Taking care of her pet snake brings her peace and calm.--> Coping Mechanism (Time: 2023-07-09)
+2026-01-05 15:39:26,524 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Nature helps Deborah find peace and reflection.--> Coping Mechanism (Time: 2023-07-09)
+2026-01-05 15:39:26,525 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Organizing workshops and events for mindfulness and self-care.--> Current Focus (Time: 2023-07-09)
+2026-01-05 15:39:26,526 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Balancing engineering school with gaming and internships; using techniques like the Pomodoro Technique and the Eisenhower Matrix.--> Current Focus (Time: 2023-07-09)
+2026-01-05 15:39:26,526 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Supports Jolene in her gaming and internship endeavors.--> Supportive Mentality (Time: 2023-07-09)
+2026-01-05 15:39:26,527 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Supports Deborah in her running group and workshops.--> Supportive Mentality (Time: 2023-07-09)
+2026-01-05 15:39:26,527 - Amadeus.Builder - INFO - ⏳ WAIT: Why did you choose that spot? ...
+2026-01-05 15:39:26,528 - Amadeus.Builder - INFO - ⏳ WAIT: We'll definitely go there toge...
+2026-01-05 15:39:26,577 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:39:26,578 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:39:32,834 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:39:32,834 - Amadeus.Answerer - INFO - ❓ Question: How does Jolene feel about her pet snake's adventures?
+2026-01-05 15:39:34,036 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene pet snake adventures', 'mode': 'hybrid'}
+2026-01-05 15:39:36,230 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Seraphim'}
+2026-01-05 15:39:37,413 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Jolene feels comfort and peace with her pet snake Seraphim's adventures."}
+2026-01-05 15:39:37,414 - Amadeus.Optimizer - INFO - GT: Jolene feels a mix of relief and gratitude when she finds her pet snake after an adventure.
+2026-01-05 15:39:37,414 - Amadeus.Optimizer - INFO - Pre: Jolene feels comfort and peace with her pet snake Seraphim's adventures.
+2026-01-05 15:39:40,652 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:39:40,652 - Amadeus.Answerer - INFO - ❓ Question: What does Deborah hope to achieve through her workshops and events?
+2026-01-05 15:39:41,747 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah workshops events hope achieve', 'mode': 'hybrid'}
+2026-01-05 15:39:43,243 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Current Focus'}
+2026-01-05 15:39:44,371 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah workshops events hope achieve', 'mode': 'hybrid'}
+2026-01-05 15:39:47,295 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Current Focus'}
+2026-01-05 15:39:55,954 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah workshops events hope achieve', 'mode': 'hybrid'}
+2026-01-05 15:40:00,228 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Deborah hopes to achieve transforming others through yoga and finding inner balance, while also connecting with her community and supporting them.'}
+2026-01-05 15:40:00,229 - Amadeus.Optimizer - INFO - GT: Deborah hopes to cultivate self-awareness, promote mental and emotional well-being, and help individuals find inner peace.
+2026-01-05 15:40:00,229 - Amadeus.Optimizer - INFO - Pre: Deborah hopes to achieve transforming others through yoga and finding inner balance, while also connecting with her community and supporting them.
+2026-01-05 15:40:04,851 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:40:04,852 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include more specific extraction rules to capture information related to Deborah's current focus and intentions. For example, adding rules to prioritize statements that directly express personal goals or activities related to organizing events and workshops.
+2026-01-05 15:40:04,852 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Deborah", "object": "Workshops", "content": "organizes workshops and events for mindfulness and self-care."}, {"action": "ADD", "object": "Workshops", "subject": "Deborah", "content": "hopes to achieve cultivating self-awareness, promoting mental and emotional well-being, and helping individuals find inner peace."}]
+2026-01-05 15:40:13,721 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --organizes workshops and events for mindfulness and self-care.--> Workshops (Time: 2023-07-10)
+2026-01-05 15:40:13,723 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --hopes to achieve cultivating self-awareness, promoting mental and emotional well-being, and helping individuals find inner peace.--> Workshops (Time: 2023-07-10)
+2026-01-05 15:40:13,908 - Amadeus.Answerer - INFO - ❓ Question: Where did Jolene and her partner go for their 'snake adventure'?
+2026-01-05 15:40:15,560 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene and her partner snake adventure', 'mode': 'hybrid'}
+2026-01-05 15:40:17,918 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'snake adventure Jolene partner', 'mode': 'hybrid'}
+2026-01-05 15:40:21,662 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Snake Seraphim'}
+2026-01-05 15:40:23,046 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Snake adventure Jolene Partner Paris', 'mode': 'hybrid'}
+2026-01-05 15:40:27,419 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Jolene and her partner went for their 'snake adventure' in Paris."}
+2026-01-05 15:40:27,419 - Amadeus.Optimizer - INFO - GT: Unknown
+2026-01-05 15:40:27,419 - Amadeus.Optimizer - INFO - Pre: Jolene and her partner went for their 'snake adventure' in Paris.
+2026-01-05 15:40:30,312 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:40:30,312 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 16. Processing Buffer...
+2026-01-05 15:41:04,477 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:41:04,482 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Adopted a pet snake named Susie two years ago when feeling lonely and wanted company.--> Susie (Time: 2021-08-01)
+2026-01-05 15:41:04,482 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Encountered a setback with the project last week, feeling frustrated and depressed.--> Engineering Project (Time: 2023-07-31)
+2026-01-05 15:41:04,482 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Prioritizing self-care, yoga, and meditation to stay balanced and grounded.--> Current Focus (Time: 2023-08-01)
+2026-01-05 15:41:04,487 - Amadeus.Builder - INFO - ➕ NODE: Deborah
+2026-01-05 15:41:04,487 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Adopted a pet snake named Susie.--> Susie (Time: 2021-08-01)
+2026-01-05 15:41:04,503 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Shares a gentle flow yoga routine focused on breathing and grounding.--> Yoga Routine (Time: 2023-08-01)
+2026-01-05 15:41:04,540 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Sends a tutorial video with the poses of the yoga routine.--> Video (Time: 2023-08-01)
+2026-01-05 15:41:04,553 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Pets and video games provide comfort and distraction during tough times.--> Coping Mechanism (Time: 2023-08-01)
+2026-01-05 15:41:04,553 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Prioritizing self-care, yoga, and meditation to stay balanced and grounded.--> Supportive Mentality (Time: 2023-08-01)
+2026-01-05 15:41:04,554 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Working on a volunteer program in STEM education and managing Engineering Project.--> Current Focus (Time: 2023-08-01)
+2026-01-05 15:41:04,554 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Currently dealing with a heavy workload of Engineering assignments.--> Engineering Assignments (Time: 2023-08-01)
+2026-01-05 15:41:04,558 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Community cleanup and fundraising project.--> Project (Time: 2023-08-01)
+2026-01-05 15:41:04,649 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Shares a gentle flow yoga routine focused on breathing and grounding.--> Yoga Routine (Time: 2023-08-01)
+2026-01-05 15:41:04,649 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Sends a tutorial video with the poses of the yoga routine.--> Video (Time: 2023-08-01)
+2026-01-05 15:41:04,650 - Amadeus.Builder - INFO - ⏳ WAIT: Can't wait to try it out. Let'...
+2026-01-05 15:41:04,650 - Amadeus.Builder - INFO - ⏳ WAIT: Bye!...
+2026-01-05 15:41:04,799 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:41:04,800 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:41:14,558 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:41:14,558 - Amadeus.Answerer - INFO - ❓ Question: How does Jolene feel about her recent adoption of Susie?
+2026-01-05 15:41:19,733 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene recent adoption Susie feelings', 'mode': 'hybrid'}
+2026-01-05 15:41:25,030 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Susie'}
+2026-01-05 15:41:26,070 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:41:29,020 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Jolene adopted Susie two years ago when feeling lonely and wanted company. Since then, her pet snakes, specifically Susie, bring her comfort and help her cope with tough times.'}
+2026-01-05 15:41:29,028 - Amadeus.Optimizer - INFO - GT: Jolene feels that Susie has helped her cope with tough times and provides comfort.
+2026-01-05 15:41:29,028 - Amadeus.Optimizer - INFO - Pre: Jolene adopted Susie two years ago when feeling lonely and wanted company. Since then, her pet snakes, specifically Susie, bring her comfort and help her cope with tough times.
+2026-01-05 15:41:35,488 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:41:35,488 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture the current context and relationships more accurately by ensuring that temporal information and ongoing states are reflected in the graph. Specifically, the builder should focus on updating nodes to include more recent and relevant information about the subjects' current feelings and situations.
+2026-01-05 15:41:35,489 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jolene", "object": "Susie", "content": "Coping Mechanism"}, {"action": "UPDATE", "subject": "Jolene", "object": "Adopted a pet snake named Susie", "content": "Adopted a pet snake named Susie two years ago when feeling lonely and wanted company, and continues to find comfort in pets and video games."}]
+2026-01-05 15:41:44,260 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Coping Mechanism--> Susie (Time: 2023-08-01)
+2026-01-05 15:41:44,266 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Adopted a pet snake named Susie two years ago when feeling lonely and wanted company, and continues to find comfort in pets and video games.--> Adopted a pet snake named Susie (Time: 2023-08-01)
+2026-01-05 15:41:44,364 - Amadeus.Answerer - INFO - ❓ Question: When did Jolene adopt Susie?
+2026-01-05 15:41:47,184 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene adopt Susie', 'mode': 'hybrid'}
+2026-01-05 15:41:51,638 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Jolene adopted Susie, a pet snake, two years ago on August 1, 2021.'}
+2026-01-05 15:41:51,687 - Amadeus.Optimizer - INFO - GT: Jolene adopted Susie two years ago.
+2026-01-05 15:41:51,687 - Amadeus.Optimizer - INFO - Pre: Jolene adopted Susie, a pet snake, two years ago on August 1, 2021.
+2026-01-05 15:41:54,931 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:41:54,932 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it does not hallucinate or provide incorrect information even if the exact details are recently added to the graph. The Answerer should perform multi-hop reasoning to connect related nodes and verify the context before providing an answer.
+2026-01-05 15:41:54,933 - Amadeus.Answerer - INFO - ❓ Question: What technique does Deborah suggest to Jolene for finding balance?
+2026-01-05 15:42:26,883 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah suggests technique to Jolene balance', 'mode': 'hybrid'}
+2026-01-05 15:42:31,073 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "Deborah's Mom"}
+2026-01-05 15:42:32,329 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah suggests technique to Jolene balance amulet', 'mode': 'hybrid'}
+2026-01-05 15:42:35,647 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Deborah --Offered advice on work-life balance and yoga for stress relief. [Time: 2023-06-06]'}
+2026-01-05 15:42:39,273 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Deborah suggests technique to Jolene balance yoga', 'mode': 'hybrid'}
+2026-01-05 15:42:42,860 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'Deborah --Offered advice on work-life balance and yoga for stress relief. [Time: 2023-06-06]'}
+2026-01-05 15:42:45,903 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Deborah --Offered advice on work-life balance and yoga for stress relief. [Time: 2023-06-06]'}
+2026-01-05 15:42:49,712 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'Deborah --Offered advice on work-life balance and yoga for stress relief. [Time: 2023-06-06]'}
+2026-01-05 15:42:49,713 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:42:52,666 - Amadeus.Optimizer - INFO - GT: Deborah suggests a gentle yoga flow routine focused on breathing and grounding.
+2026-01-05 15:42:52,666 - Amadeus.Optimizer - INFO - Pre: Deborah suggests that Jolene use yoga as a technique to find balance and connect with others.
+2026-01-05 15:42:58,261 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:42:58,261 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it retrieves the exact suggestion made by Deborah, rather than providing a more general or related advice. The Answerer should be more precise in its response and consider multiple hops in the graph to find relevant connections.
+2026-01-05 15:42:58,261 - Experiment - INFO - [conv-48] 🔄 Flush Triggered at chunk 17. Processing Buffer...
+2026-01-05 15:43:24,718 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:43:24,729 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Made a meditation guide for the yoga retreat--> Meditation Guide (Time: 2023-08-12)
+2026-01-05 15:43:24,730 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Working on a prototype for aerial surveillance--> Current Focus (Time: 2023-08-12)
+2026-01-05 15:43:24,731 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Prototype for aerial surveillance--> Engineering Project (Time: 2023-08-12)
+2026-01-05 15:43:24,731 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Commitment to making a difference with the aerial surveillance project--> Current Focus (Time: 2023-08-12)
+2026-01-05 15:43:24,739 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Designed notebooks with elements like galaxies and circuitry--> Notebooks (Time: 2023-08-12)
+2026-01-05 15:43:24,765 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Working on a prototype for aerial surveillance--> Aerial Surveillance Prototype (Time: 2023-08-12)
+2026-01-05 15:43:24,815 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Uses meditation to keep calm and regain clarity--> Meditation Practice (Time: 2023-08-12)
+2026-01-05 15:43:24,830 - Amadeus.Builder - INFO - 🔗 LINK: Deborah --Supports Jolene in her projects and engineering endeavors--> Supportive Mentality (Time: 2023-08-12)
+2026-01-05 15:43:24,882 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Debora's support is appreciated--> Debora (Time: 2023-08-12)
+2026-01-05 15:43:24,894 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Design elements in her notebooks--> Galaxies and Circuitry (Time: 2023-08-12)
+2026-01-05 15:43:24,913 - Amadeus.Builder - INFO - 🔗 LINK: Jolene --Ambition to create a more productive and affordable aerial surveillance system--> Aiming to Make a Difference (Time: 2023-08-12)
+2026-01-05 15:43:24,987 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:43:24,987 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:43:31,349 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:43:31,349 - Amadeus.Answerer - INFO - ❓ Question: How does Jolene's passion for space and engines influence her approach to problem-solving?
+2026-01-05 15:43:32,635 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene passion for space and engines problem-solving', 'mode': 'hybrid'}
+2026-01-05 15:43:34,870 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Jolene'}
+2026-01-05 15:43:37,151 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'passionate about teaching yoga'}
+2026-01-05 15:43:38,319 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Jolene passion for space and engines impact on problem-solving', 'mode': 'hybrid'}

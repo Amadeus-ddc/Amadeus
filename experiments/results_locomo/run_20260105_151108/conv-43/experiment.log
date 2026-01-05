@@ -1,0 +1,971 @@
+2026-01-05 15:11:14,249 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-43
+========================================
+2026-01-05 15:11:15,869 - Experiment - INFO - [conv-43] 🧠 Phase 1: Building Memory (29 contextual sessions)...
+2026-01-05 15:11:15,869 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:11:31,041 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:11:31,079 - Amadeus.Builder - INFO - 🔗 LINK: John --Signed with the team; playing as a shooting guard; season opener next week; goal to improve shooting percentage--> Minnesota Wolves (Time: 2023-05-21)
+2026-01-05 15:11:31,086 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:11:31,091 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Visited a place in London a few years ago; went on a Harry Potter tour--> London (Time: 2023-05-21)
+2026-01-05 15:11:31,091 - Amadeus.Builder - INFO - ⏳ WAIT: Have been practicing hard; enc...
+2026-01-05 15:11:31,092 - Amadeus.Builder - INFO - ⏳ WAIT: Fan project with friend; discu...
+2026-01-05 15:11:31,099 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:11:31,100 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:11:36,532 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:11:36,542 - Amadeus.Answerer - INFO - ❓ Question: What is John's position on the Minnesota Wolves?
+2026-01-05 15:11:37,597 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John Minnesota Wolves position', 'mode': 'hybrid'}
+2026-01-05 15:11:38,663 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Minnesota Wolves'}
+2026-01-05 15:11:39,774 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "John's position on the Minnesota Wolves is playing as a shooting guard."}
+2026-01-05 15:11:39,775 - Amadeus.Optimizer - INFO - GT: He is a shooting guard.
+2026-01-05 15:11:39,775 - Amadeus.Optimizer - INFO - Pre: John's position on the Minnesota Wolves is playing as a shooting guard.
+2026-01-05 15:11:43,319 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:11:43,319 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the Builder's ability to extract and link specific attributes like positions to individuals. Ensure that when signing with a team, the Builder explicitly captures and links the player's position to their team affiliation.
+2026-01-05 15:11:43,319 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "position", "content": "shooting guard"}]
+2026-01-05 15:11:47,300 - Amadeus.Builder - INFO - 🔗 LINK: John --shooting guard--> position (Time: 2023-05-21)
+2026-01-05 15:11:47,303 - Amadeus.Answerer - INFO - ❓ Question: Why does Tim think it's great to talk to fans about his Harry Potter fan project?
+2026-01-05 15:11:49,128 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Tim thinks it's great to talk to fans about his Harry Potter fan project", 'mode': 'hybrid'}
+2026-01-05 15:11:49,930 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'London'}
+2026-01-05 15:11:51,370 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Tim Harry Potter fan project talking to fans', 'mode': 'hybrid'}
+2026-01-05 15:11:53,382 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Tim thinks it's great to talk to fans about his Harry Potter fan project because he visited a place in London a few years ago and went on a Harry Potter tour, which likely inspired and motivated him to engage with fans and share his passion for the Harry Potter universe."}
+2026-01-05 15:11:53,383 - Amadeus.Optimizer - INFO - GT: Because he loves seeing people passionate about their work.
+2026-01-05 15:11:53,383 - Amadeus.Optimizer - INFO - Pre: Tim thinks it's great to talk to fans about his Harry Potter fan project because he visited a place in London a few years ago and went on a Harry Potter tour, which likely inspired and motivated him to engage with fans and share his passion for the Harry Potter universe.
+2026-01-05 15:12:00,104 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:12:00,104 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to better capture the context of why individuals find it great to discuss their projects with fans. Include more specific attributes such as personal enjoyment or motivation.
+2026-01-05 15:12:00,105 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "Harry Potter fan project", "content": "enjoys discussing with fans"}]
+2026-01-05 15:12:05,262 - Amadeus.Builder - INFO - 🔗 LINK: Tim --enjoys discussing with fans--> Harry Potter fan project (Time: 2023-05-21)
+2026-01-05 15:12:05,266 - Amadeus.Answerer - INFO - ❓ Question: What did Tim and his friend discuss during their meeting for the Harry Potter fan project?
+2026-01-05 15:12:06,426 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim and Harry Potter fan project discussion', 'mode': 'hybrid'}
+2026-01-05 15:12:07,347 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Harry Potter fan project'}
+2026-01-05 15:12:08,368 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Tim Harry Potter fan project discussion details', 'mode': 'hybrid'}
+2026-01-05 15:12:09,658 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'During their meeting for the Harry Potter fan project, Tim and his friend John discussed various aspects of the Harry Potter universe.'}
+2026-01-05 15:12:09,658 - Amadeus.Optimizer - INFO - GT: They discussed various aspects of the Harry Potter universe, including characters, spells, and magical creatures.
+2026-01-05 15:12:09,658 - Amadeus.Optimizer - INFO - Pre: During their meeting for the Harry Potter fan project, Tim and his friend John discussed various aspects of the Harry Potter universe.
+2026-01-05 15:12:12,264 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:12:12,264 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent discussions rather than historical or long-term projects. Encourage more detailed and context-specific queries to avoid outdated information.
+2026-01-05 15:12:12,264 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:12:25,395 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:12:25,437 - Amadeus.Builder - INFO - 🔗 LINK: John --Joined and had a great talk about his favorite books--> fantasy literature forum (Time: 2023-06-15)
+2026-01-05 15:12:25,473 - Amadeus.Builder - INFO - 🔗 LINK: John --Exploring endorsement opportunities with brands like Nike and Under Armour--> sports brands (Time: 2023-06-15)
+2026-01-05 15:12:25,549 - Amadeus.Builder - INFO - ⏳ WAIT: Do those reminders help you es...
+2026-01-05 15:12:25,557 - Amadeus.Builder - INFO - ⏳ WAIT: That's awesome! Were you playi...
+2026-01-05 15:12:25,580 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:12:25,680 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:12:30,592 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:12:30,593 - Amadeus.Answerer - INFO - ❓ Question: Which brands is John considering for his endorsement opportunities?
+2026-01-05 15:12:34,385 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John endorsement opportunities brands', 'mode': 'hybrid'}
+2026-01-05 15:12:39,182 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John is considering Nike and Under Armour for his endorsement opportunities.'}
+2026-01-05 15:12:39,182 - Amadeus.Optimizer - INFO - GT: He is currently considering sports brands like Nike and Under Armour.
+2026-01-05 15:12:39,182 - Amadeus.Optimizer - INFO - Pre: John is considering Nike and Under Armour for his endorsement opportunities.
+2026-01-05 15:12:42,865 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:12:42,866 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and recent activities. Avoid asking about historical or distant future scenarios unless they directly relate to the context provided.
+2026-01-05 15:12:42,866 - Amadeus.Answerer - INFO - ❓ Question: What is Tim's recent activity related to his book collection mentioned in the conversation?
+2026-01-05 15:12:47,946 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Tim's recent activity book collection", 'mode': 'hybrid'}
+2026-01-05 15:12:49,667 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Tim's recent activity related to his book collection is working on a Harry Potter fan project and discussing various aspects of the Harry Potter universe."}
+2026-01-05 15:12:49,667 - Amadeus.Optimizer - INFO - GT: Tim shared a picture from MinaLima, which created props for the Harry Potter films.
+2026-01-05 15:12:49,667 - Amadeus.Optimizer - INFO - Pre: Tim's recent activity related to his book collection is working on a Harry Potter fan project and discussing various aspects of the Harry Potter universe.
+2026-01-05 15:12:54,205 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:12:54,205 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that any mentions of specific activities or projects related to a user's interests are captured, especially when those interests are discussed in the conversation. For example, add a rule to extract images or links shared by users and their relevance to their stated interests.
+2026-01-05 15:12:54,205 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "MinaLima", "content": "shared a picture from MinaLima, which created props for the Harry Potter films."}, {"action": "ADD", "object": "Harry Potter fan project", "content": "related to his book collection"}]
+2026-01-05 15:12:59,948 - Amadeus.Builder - INFO - 🔗 LINK: Tim --shared a picture from MinaLima, which created props for the Harry Potter films.--> MinaLima (Time: None)
+2026-01-05 15:12:59,948 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:12:59,953 - Amadeus.Answerer - INFO - ❓ Question: What game did John play recently according to the conversation?
+2026-01-05 15:13:01,272 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John recently played game', 'mode': 'hybrid'}
+2026-01-05 15:13:02,335 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Minnesota Wolves'}
+2026-01-05 15:13:04,690 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'The game John played recently is not mentioned in the given information. However, he is signed with the Minnesota Wolves and will be playing as a shooting guard in their season opener next week.'}
+2026-01-05 15:13:04,691 - Amadeus.Optimizer - INFO - GT: John played a game and was in it.
+2026-01-05 15:13:04,691 - Amadeus.Optimizer - INFO - Pre: The game John played recently is not mentioned in the given information. However, he is signed with the Minnesota Wolves and will be playing as a shooting guard in their season opener next week.
+2026-01-05 15:13:11,369 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:13:11,370 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to focus more on recent activities and interests rather than historical or less relevant information. Specifically, extract and prioritize nodes and relationships related to immediate past and present actions.
+2026-01-05 15:13:11,370 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "fantasy literature forum", "content": "Last night I joined and had a great talk about my favorite books."}, {"action": "REMOVE", "subject": "John", "object": "Minnesota Wolves", "content": "Signed with the team"}]
+2026-01-05 15:13:17,388 - Amadeus.Builder - INFO - 🔗 LINK: John --Last night I joined and had a great talk about my favorite books.--> fantasy literature forum (Time: 2023-06-15)
+2026-01-05 15:13:17,388 - Amadeus.Graph - INFO - ✂️ Edge Deleted: John -> Minnesota Wolves
+2026-01-05 15:13:17,393 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:13:37,211 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:13:37,225 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:13:37,367 - Amadeus.Builder - INFO - 🔗 LINK: John --Stoked for a game there next month; loves the energy, diversity, and awesome food of this city; fans' support is incredible--> Seattle (Time: 2023-07-16)
+2026-01-05 15:13:37,392 - Amadeus.Builder - INFO - 🔗 LINK: John --Signed up for a basketball shoe and gear deal--> Nike (Time: 2023-07-16)
+2026-01-05 15:13:37,396 - Amadeus.Builder - INFO - 🔗 LINK: John --In talks about a potential sponsorship--> Gatorade (Time: 2023-07-16)
+2026-01-05 15:13:37,447 - Amadeus.Builder - INFO - 🔗 LINK: John --Dreaming of working with Under Armour--> Under Armour (Time: 2023-07-16)
+2026-01-05 15:13:37,515 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:13:37,566 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:13:37,566 - Amadeus.Builder - INFO - ⏳ WAIT: Went on a Harry Potter tour in...
+2026-01-05 15:13:37,575 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:13:37,575 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:13:44,918 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:13:44,918 - Amadeus.Answerer - INFO - ❓ Question: How does John feel about his team's performance and the support they receive?
+2026-01-05 15:13:47,048 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John team performance support', 'mode': 'hybrid'}
+2026-01-05 15:13:47,974 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'position'}
+2026-01-05 15:13:48,968 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John team performance support shooting guard', 'mode': 'hybrid'}
+2026-01-05 15:13:49,892 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'position'}
+2026-01-05 15:13:51,636 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'John Minnesota Wolves team performance support shooting guard', 'mode': 'hybrid'}
+2026-01-05 15:13:53,968 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': "Based on the available information, John feels stoked about his team's performance and the support they receive, especially for the upcoming game in Seattle next month. He also seems excited about the endorsement opportunities with brands like Nike."}
+2026-01-05 15:13:53,968 - Amadeus.Optimizer - INFO - GT: John feels happy and appreciates the support from his teammates and the fans.
+2026-01-05 15:13:53,968 - Amadeus.Optimizer - INFO - Pre: Based on the available information, John feels stoked about his team's performance and the support they receive, especially for the upcoming game in Seattle next month. He also seems excited about the endorsement opportunities with brands like Nike.
+2026-01-05 15:13:57,342 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:13:57,343 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to capture and retain emotional states and support related to specific individuals or teams directly mentioned in conversations. Ensure that relationships and attributes involving teammates and their support are explicitly extracted and stored.
+2026-01-05 15:13:57,343 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "team's performance", "content": "feels happy and appreciates the support"}]
+2026-01-05 15:14:02,022 - Amadeus.Builder - INFO - 🔗 LINK: John --feels happy and appreciates the support--> team's performance (Time: None)
+2026-01-05 15:14:02,068 - Amadeus.Answerer - INFO - ❓ Question: When did John start surfing?
+2026-01-05 15:14:03,093 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John started surfing', 'mode': 'hybrid'}
+2026-01-05 15:14:04,177 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John started surfing five years ago.'}
+2026-01-05 15:14:04,178 - Amadeus.Optimizer - INFO - GT: He started surfing five years ago.
+2026-01-05 15:14:04,178 - Amadeus.Optimizer - INFO - Pre: John started surfing five years ago.
+2026-01-05 15:14:06,934 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:14:06,935 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture temporal information accurately by ensuring that past events and achievements are properly linked to the subject. For example, add explicit links indicating when specific events occurred.
+2026-01-05 15:14:06,935 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "started_surfing", "content": "five years ago"}]
+2026-01-05 15:14:10,106 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:14:10,155 - Amadeus.Answerer - INFO - ❓ Question: What brand did John mention he is in talks with besides Nike and Gatorade?
+2026-01-05 15:14:11,351 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John talks about brands besides Nike and Gatorade', 'mode': 'hybrid'}
+2026-01-05 15:14:12,493 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John mentioned he is in talks with Under Armour besides Nike and Gatorade.'}
+2026-01-05 15:14:12,494 - Amadeus.Optimizer - INFO - GT: John mentioned he is in talks with Gatorade.
+2026-01-05 15:14:12,494 - Amadeus.Optimizer - INFO - Pre: John mentioned he is in talks with Under Armour besides Nike and Gatorade.
+2026-01-05 15:14:18,379 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:14:18,379 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it does not hallucinate specific brands or entities without clear evidence in the context. The updated strategy should include a reminder to only provide information that is directly linked and supported by the nodes in the Global Memory Graph.
+2026-01-05 15:14:18,380 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 4. Processing Buffer...
+2026-01-05 15:14:32,793 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:14:32,794 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Found an opportunity to write about fantasy novels--> fantasy literature forum (Time: 2023-08-02)
+2026-01-05 15:14:32,794 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Enjoying discussing with fans and spreading love for fantasy--> Harry Potter fan project (Time: 2023-08-02)
+2026-01-05 15:14:32,800 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:14:32,804 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Participated in a Harry Potter trivia contest--> Anthony (Time: 2023-08-02)
+2026-01-05 15:14:32,807 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Encountered a super-nerd at a charity event who won a prize in a Harry Potter trivia contest--> super-nerd (Time: 2023-08-02)
+2026-01-05 15:14:32,874 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:14:32,913 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:14:32,914 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:14:39,091 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:14:39,092 - Amadeus.Answerer - INFO - ❓ Question: Where did Tim find the opportunity to write about fantasy novels?
+2026-01-05 15:14:41,412 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim writing fantasy novels opportunity', 'mode': 'hybrid'}
+2026-01-05 15:14:43,047 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Tim found the opportunity to write about fantasy novels at the fantasy literature forum on 2023-08-02.'}
+2026-01-05 15:14:43,047 - Amadeus.Optimizer - INFO - GT: He found it on a fantasy lit forum.
+2026-01-05 15:14:43,047 - Amadeus.Optimizer - INFO - Pre: Tim found the opportunity to write about fantasy novels at the fantasy literature forum on 2023-08-02.
+2026-01-05 15:14:44,831 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:14:44,832 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and opportunities rather than historical context. Avoid asking about past experiences or specific dates unless they directly relate to the current query.
+2026-01-05 15:14:44,832 - Amadeus.Answerer - INFO - ❓ Question: What is the relationship between Tim and John regarding their shared interest in Harry Potter?
+2026-01-05 15:14:45,942 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim John Harry Potter', 'mode': 'hybrid'}
+2026-01-05 15:14:46,947 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Harry Potter fan project'}
+2026-01-05 15:14:47,861 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'enjoys discussing with fans'}
+2026-01-05 15:14:48,856 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Tim John Harry Potter fans', 'mode': 'hybrid'}
+2026-01-05 15:14:51,204 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'Tim and John share a common interest in Harry Potter through their participation in a fantasy literature forum. Both Tim and John enjoy discussing their favorite books, and they have been involved in conversations related to fantasy literature.'}
+2026-01-05 15:14:51,205 - Amadeus.Optimizer - INFO - GT: They both share an interest in Harry Potter and have discussed it before.
+2026-01-05 15:14:51,205 - Amadeus.Optimizer - INFO - Pre: Tim and John share a common interest in Harry Potter through their participation in a fantasy literature forum. Both Tim and John enjoy discussing their favorite books, and they have been involved in conversations related to fantasy literature.
+2026-01-05 15:14:56,000 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:14:56,001 - Amadeus.Answerer - INFO - ❓ Question: What kind of book is John reading that reminds him to keep dreaming?
+2026-01-05 15:14:56,933 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John reading book dream', 'mode': 'hybrid'}
+2026-01-05 15:14:58,458 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John is reading an inspiring book that reminds him to keep dreaming.'}
+2026-01-05 15:14:58,458 - Amadeus.Optimizer - INFO - GT: It is an inspiring book.
+2026-01-05 15:14:58,458 - Amadeus.Optimizer - INFO - Pre: John is reading an inspiring book that reminds him to keep dreaming.
+2026-01-05 15:15:09,071 - Amadeus.Optimizer - ERROR - AST Parse Failed: invalid syntax (<unknown>, line 7) | Content: 
+{
+  "is_correct": false,
+  "blame": "QUESTIONER",
+
+  "meta_gradient": "Focus on implicit causality and avoid asking questions that assume outdated information. Encourage the questioner to focus on current events and recent interactions within the context provided."
+
+  "graph_patch": [],
+
+  "meta_gradient": "Focus on implicit causality and avoid asking questions that assume outdated information. Encourage the questioner to focus on current events and recent interactions within the context provided."
+}
+
+2026-01-05 15:15:11,856 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:15:11,856 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 5. Processing Buffer...
+2026-01-05 15:15:29,870 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:15:29,871 - Amadeus.Builder - INFO - 🔗 LINK: John --Discussed Harry Potter fan project and shared personal experiences--> fantasy literature forum (Time: 2023-08-09)
+2026-01-05 15:15:29,871 - Amadeus.Builder - INFO - 🔗 LINK: John --Won a tough game and felt the crowd support--> Seattle (Time: 2023-08-09)
+2026-01-05 15:15:29,890 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:15:29,894 - Amadeus.Builder - INFO - 🔗 LINK: John --Recommended a fantasy book by Patrick Rothfuss--> Patrick Rothfuss (Time: 2023-08-09)
+2026-01-05 15:15:29,922 - Amadeus.Builder - INFO - 🔗 LINK: John --Currently reading a fantasy book--> Fantasy book (Time: 2023-08-09)
+2026-01-05 15:15:29,926 - Amadeus.Builder - INFO - 🔗 LINK: John --Felt the crowd support after winning a game--> Crowd support (Time: 2023-08-09)
+2026-01-05 15:15:29,930 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:15:29,953 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Recommended a fantasy book by Patrick Rothfuss--> Patrick Rothfuss (Time: 2023-08-09)
+2026-01-05 15:15:29,953 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Currently reading a fantasy book--> Fantasy book (Time: 2023-08-09)
+2026-01-05 15:15:29,971 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:15:29,972 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:15:38,119 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:15:38,119 - Amadeus.Answerer - INFO - ❓ Question: What did Tim and John discuss about their recent experiences and how do these experiences relate to their personal lives?
+2026-01-05 15:15:39,207 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim and John recent experiences personal lives', 'mode': 'hybrid'}
+2026-01-05 15:15:41,222 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'fantasy literature forum'}
+2026-01-05 15:15:43,644 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'John and Tim discussed their favorite books and shared personal experiences related to fantasy literature, specifically mentioning a Harry Potter fan project.'}
+2026-01-05 15:15:43,644 - Amadeus.Optimizer - INFO - GT: Tim discussed reconnecting with a Harry Potter fan he met in California and John talked about a recent intense game where his team won. They both highlighted the importance of support and bonding, comparing it to family in their respective contexts.
+2026-01-05 15:15:43,650 - Amadeus.Optimizer - INFO - Pre: John and Tim discussed their favorite books and shared personal experiences related to fantasy literature, specifically mentioning a Harry Potter fan project.
+2026-01-05 15:15:50,658 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:15:50,658 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should be updated to ensure that it captures the specific context and relationships mentioned in the conversation. The Builder needs to focus on identifying and linking relevant details such as recent interactions and specific topics discussed. This can be achieved by enhancing the extraction rules to include more explicit mentions of recent activities and projects.
+2026-01-05 15:15:50,659 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Harry Potter fan project", "content": "Last week John had a skype call with a Harry Potter fan he met in California and they discussed potential collaborations."}, {"action": "ADD", "object": "Tim", "content": "Tim recently skyped with a Harry Potter fan he met in California and they talked about characters and potential collaborations."}]
+2026-01-05 15:15:59,054 - Amadeus.Builder - INFO - 🔗 LINK: John --Last week John had a skype call with a Harry Potter fan he met in California and they discussed potential collaborations.--> Harry Potter fan project (Time: 2023-08-11)
+2026-01-05 15:15:59,055 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:15:59,067 - Amadeus.Answerer - INFO - ❓ Question: How does Tim’s current fantasy book reading relate to his home life and hobbies according to the conversation?
+2026-01-05 15:16:00,265 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Tim's fantasy book reading home life hobbies conversation", 'mode': 'hybrid'}
+2026-01-05 15:16:01,176 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Tim'}
+2026-01-05 15:16:02,484 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Fantasy book'}
+2026-01-05 15:16:03,701 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Tim's home life and hobbies related to his fantasy book reading", 'mode': 'hybrid'}
+2026-01-05 15:16:05,931 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'According to the conversation, Tim is currently reading a fantasy book and enjoys discussing various aspects of the Harry Potter universe and writing articles about different fantasy novels. This indicates that his fantasy book reading is closely related to his home life and hobbies, particularly his interest in Harry Potter and fantasy literature.'}
+2026-01-05 15:16:05,932 - Amadeus.Optimizer - INFO - GT: Tim mentioned that reading fantasy books has helped him find his peace, which relates to his home life and hobbies.
+2026-01-05 15:16:05,932 - Amadeus.Optimizer - INFO - Pre: Tim is currently reading a fantasy book and enjoys discussing various aspects of the Harry Potter universe and writing articles about different fantasy novels. This indicates that his fantasy book reading is closely related to his home life and hobbies, particularly his interest in Harry Potter and fantasy literature.
+2026-01-05 15:16:09,179 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:16:09,179 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to capture statements directly linking Tim's activities to his home life and hobbies. Ensure that when Tim mentions an activity, its relation to his home life and hobbies is also recorded in the graph.
+2026-01-05 15:16:09,179 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "Fantasy book reading", "content": "helped him find his peace and is related to his home life and hobbies"}]
+2026-01-05 15:16:15,831 - Amadeus.Builder - INFO - 🔗 LINK: Tim --helped him find his peace and is related to his home life and hobbies--> Fantasy book reading (Time: None)
+2026-01-05 15:16:15,887 - Amadeus.Answerer - INFO - ❓ Question: Where did Tim meet the Harry Potter fan and what did they talk about during their Skype call?
+2026-01-05 15:16:17,002 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim meeting Harry Potter fan during Skype call', 'mode': 'hybrid'}
+2026-01-05 15:16:18,142 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Tim Skype call with Harry Potter fan', 'mode': 'hybrid'}
+2026-01-05 15:16:19,130 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'London'}
+2026-01-05 15:16:20,251 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Tim meeting Harry Potter fan in London during Skype call', 'mode': 'hybrid'}
+2026-01-05 15:16:22,580 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'Tim meeting Harry Potter fan in London during Skype call', 'mode': 'hybrid'}
+2026-01-05 15:16:24,107 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Tim Skype call with Harry Potter fan in London', 'mode': 'hybrid'}
+2026-01-05 15:16:26,214 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'Tim meeting Harry Potter fan in London during Skype call', 'mode': 'hybrid'}
+2026-01-05 15:16:28,438 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'London'}
+2026-01-05 15:16:28,439 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:16:29,302 - Amadeus.Optimizer - INFO - GT: Tim met the Harry Potter fan in California and they talked about characters and possibly collaborating.
+2026-01-05 15:16:29,303 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:16:37,536 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:16:37,537 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures explicit locations where meetings occur and to include more detailed context about conversations and activities. Specifically, the Builder should be instructed to extract and store information about the places where interactions happen and the topics discussed during those interactions.
+2026-01-05 15:16:37,537 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "California", "content": "met Harry Potter fan in California"}, {"action": "ADD", "object": "Harry Potter fan", "subject": "Tim", "content": "talked about characters and possibly collaborating with Tim during Skype call"}]
+2026-01-05 15:16:48,870 - Amadeus.Builder - INFO - 🔗 LINK: Tim --met Harry Potter fan in California--> California (Time: 2023-08-11)
+2026-01-05 15:16:48,874 - Amadeus.Builder - INFO - 🔗 LINK: Tim --talked about characters and possibly collaborating with Tim during Skype call--> Harry Potter fan (Time: 2023-08-11)
+2026-01-05 15:16:49,025 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 6. Processing Buffer...
+2026-01-05 15:17:21,531 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:17:21,552 - Amadeus.Builder - INFO - 🔗 LINK: John --Visited a new place - it's been amazing. Love the energy there.--> Chicago (Time: 2023-08-11)
+2026-01-05 15:17:21,653 - Amadeus.Builder - INFO - 🔗 LINK: John --These have been with me on my journey since the beginning. Symbolize resilience, determination, and a love for the game.--> basketball shoes (Time: 2023-08-11)
+2026-01-05 15:17:21,764 - Amadeus.Builder - INFO - 🔗 LINK: John --Recommended 'The Name of the Wind' by Patrick Rothfuss - a fantasy novel with a great magician and musician protagonist. World-building and character development are really good.--> fantasy book (Time: 2023-08-11)
+2026-01-05 15:17:21,869 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:17:21,932 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:17:21,938 - Amadeus.Builder - INFO - 🔗 LINK: John --Team up with a local organization that helps disadvantaged kids with sports and school.--> local organization (Time: 2023-08-11)
+2026-01-05 15:17:21,939 - Amadeus.Builder - INFO - ⏳ WAIT: Planning to kick off charity w...
+2026-01-05 15:17:21,940 - Amadeus.Builder - INFO - ⏳ WAIT: Supportive team bond and motiv...
+2026-01-05 15:17:21,977 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:17:21,978 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:17:33,178 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:17:33,179 - Amadeus.Answerer - INFO - ❓ Question: How does John feel about his basketball shoes and what do they represent to him?
+2026-01-05 15:17:35,863 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John basketball shoes feelings representation', 'mode': 'hybrid'}
+2026-01-05 15:17:38,488 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'basketball shoes'}
+2026-01-05 15:17:41,030 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'John feels that his basketball shoes symbolize resilience, determination, and a love for the game. They have been with him on his journey since the beginning.'}
+2026-01-05 15:17:41,030 - Amadeus.Optimizer - INFO - GT: John feels that his basketball shoes are more than just a pair of shoes; they symbolize resilience, determination, and a love for the game. He associates them with his journey, successes, failures, and friendships.
+2026-01-05 15:17:41,030 - Amadeus.Optimizer - INFO - Pre: John feels that his basketball shoes symbolize resilience, determination, and a love for the game. They have been with him on his journey since the beginning.
+2026-01-05 15:17:45,948 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:17:45,949 - Amadeus.Answerer - INFO - ❓ Question: What connection does John see between his basketball career and his desire to make a difference outside of sports?
+2026-01-05 15:17:46,976 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John basketball career desire make difference outside sports', 'mode': 'hybrid'}
+2026-01-05 15:17:48,296 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'basketball shoes'}
+2026-01-05 15:17:49,248 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John basketball career desire make difference', 'mode': 'hybrid'}
+2026-01-05 15:17:51,717 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'John sees a connection between his basketball career and his desire to make a difference outside of sports through the symbolism of his basketball shoes. These shoes represent resilience, determination, and his love for the game, which he aims to use as a platform for charity work or inspiring others.'}
+2026-01-05 15:17:51,717 - Amadeus.Optimizer - INFO - GT: John sees his basketball career as a platform to make a positive impact on the community through charity work and inspiring others.
+2026-01-05 15:17:51,717 - Amadeus.Optimizer - INFO - Pre: John sees a connection between his basketball career and his desire to make a difference outside of sports through the symbolism of his basketball shoes. These shoes represent resilience, determination, and his love for the game, which he aims to use as a platform for charity work or inspiring others.
+2026-01-05 15:17:55,279 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:17:55,279 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to trust the graph more explicitly and avoid hallucinating connections that are not directly supported by the context. The Answerer should focus on retrieving information within a single hop from the subject unless additional evidence supports a deeper connection.
+2026-01-05 15:17:55,279 - Amadeus.Answerer - INFO - ❓ Question: What does Tim imply about the influence of our passions on our lives based on John's story?
+2026-01-05 15:17:58,342 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Tim's implication on passions influencing lives through John's story", 'mode': 'hybrid'}
+2026-01-05 15:18:01,737 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "Tim's implication on passions influencing lives through John's story", 'mode': 'hybrid'}
+2026-01-05 15:18:02,948 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Tim's implication on passions influencing lives through John's story", 'mode': 'hybrid'}
+2026-01-05 15:18:05,038 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Tim's implication on passions influencing lives through John's story", 'mode': 'hybrid'}
+2026-01-05 15:18:06,371 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Tim's implication on passions influencing lives through John's story", 'mode': 'hybrid'}
+2026-01-05 15:18:07,936 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Tim's implication on passions influencing lives through John's story", 'mode': 'hybrid'}
+2026-01-05 15:18:09,763 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'fantasy literature forum'}
+2026-01-05 15:18:11,862 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Tim's implication on passions influencing lives through John's story in fantasy literature forum", 'mode': 'hybrid'}
+2026-01-05 15:18:11,898 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:18:12,326 - Amadeus.Optimizer - INFO - GT: Tim implies that our passions can shape our lives and lead us to significant achievements and personal growth, as evidenced by John's journey from watching NBA games with his dad to becoming a professional player and using his platform for charity.
+2026-01-05 15:18:12,331 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:18:14,524 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:18:14,525 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 7. Processing Buffer...
+2026-01-05 15:18:33,941 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:18:33,942 - Amadeus.Builder - INFO - 🔗 LINK: John --Feels comfortable and supported by teammates, motivated by their bond and friendship--> team's performance (Time: 2023-08-17)
+2026-01-05 15:18:33,947 - Amadeus.Builder - INFO - 🔗 LINK: John --Met back up with teammates on the 15th after trip--> teammates (Time: 2023-08-15)
+2026-01-05 15:18:33,951 - Amadeus.Builder - INFO - 🔗 LINK: John --Teammates gave him a sign to remind him of their bond and support--> sign (Time: 2023-08-17)
+2026-01-05 15:18:33,952 - Amadeus.Builder - INFO - ⏳ WAIT: No big events coming up, but h...
+2026-01-05 15:18:33,983 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:18:34,009 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:18:40,330 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:18:40,331 - Amadeus.Answerer - INFO - ❓ Question: What did John's teammates give him as a sign of their friendship?
+2026-01-05 15:18:41,583 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's teammates friendship sign", 'mode': 'hybrid'}
+2026-01-05 15:18:43,646 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "John's teammates gave him a sign to remind him of their bond and support."}
+2026-01-05 15:18:43,647 - Amadeus.Optimizer - INFO - GT: They gave him a basketball signed by the team to show their friendship and appreciation.
+2026-01-05 15:18:43,647 - Amadeus.Optimizer - INFO - Pre: John's teammates gave him a sign to remind him of their bond and support.
+2026-01-05 15:18:48,143 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:18:48,143 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the extraction rules to ensure that specific items mentioned in the conversation, such as a 'basketball signed by the team', are captured accurately. Also, improve the context understanding to recognize explicit mentions of gifts or tokens of friendship.
+2026-01-05 15:18:48,143 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "sign", "content": "signed basketball"}, {"action": "REMOVE", "subject": "sign", "object": "remind him of their bond and support", "content": "They gave him a sign to remind him of their bond and support"}]
+2026-01-05 15:18:56,325 - Amadeus.Builder - INFO - 🔗 LINK: John --signed basketball--> sign (Time: 2023-08-11)
+2026-01-05 15:18:56,357 - Amadeus.Answerer - INFO - ❓ Question: Why does John feel motivated by the basketball given by his teammates?
+2026-01-05 15:18:58,099 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John feels motivated by the basketball given by his teammates', 'mode': 'hybrid'}
+2026-01-05 15:19:04,063 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John feels motivated by the basketball given by his teammates because it symbolizes their bond and support. The teammates gave him a sign to remind him of their connection and motivation, which adds to his own motivation and enthusiasm for the game.'}
+2026-01-05 15:19:04,063 - Amadeus.Optimizer - INFO - GT: It motivates him because it reminds him of the bond and support from his teammates, which encourages him to never give up.
+2026-01-05 15:19:04,063 - Amadeus.Optimizer - INFO - Pre: John feels motivated by the basketball given by his teammates because it symbolizes their bond and support. The teammates gave him a sign to remind him of their connection and motivation, which adds to his own motivation and enthusiasm for the game.
+2026-01-05 15:19:08,505 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:19:08,505 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the extraction rules to ensure that specific items or gifts given by teammates are correctly linked to the emotional responses they evoke. For example, add a rule to capture mentions of gifts or tokens of appreciation and link them directly to the feelings or motivations they generate.
+2026-01-05 15:19:08,505 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "basketball", "content": "John --Received a basketball from teammates as a sign of bond and support--> feels motivated (Time: 2023-08-17)"}]
+2026-01-05 15:19:16,377 - Amadeus.Builder - INFO - 🔗 LINK: John --Received a basketball from teammates as a sign of bond and support--> basketball (Time: 2023-08-17)
+2026-01-05 15:19:16,493 - Amadeus.Answerer - INFO - ❓ Question: What event is Tim planning to attend next month, and what is its purpose?
+2026-01-05 15:19:17,755 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim planning to attend event next month', 'mode': 'hybrid'}
+2026-01-05 15:19:21,786 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Tim is planning to attend a Harry Potter fan project event next month. The purpose of the event is to discuss various aspects of the Harry Potter universe, write articles about different fantasy novels, and spread love for fantasy.'}
+2026-01-05 15:19:21,786 - Amadeus.Optimizer - INFO - GT: Tim is planning to attend a book conference next month where authors, publishers, and book lovers discuss favorite novels and new releases.
+2026-01-05 15:19:21,786 - Amadeus.Optimizer - INFO - Pre: Tim is planning to attend a Harry Potter fan project event next month. The purpose of the event is to discuss various aspects of the Harry Potter universe, write articles about different fantasy novels, and spread love for fantasy.
+2026-01-05 15:19:28,231 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:19:28,231 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 8. Processing Buffer...
+2026-01-05 15:19:55,138 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:19:55,144 - Amadeus.Builder - INFO - 🔗 LINK: John --Found a new gym to stay on his b-ball game; Staying fit is essential to surviving pro ball; Training there has been great but challenging--> gym (Time: 2023-08-21)
+2026-01-05 15:19:55,148 - Amadeus.Builder - INFO - 🔗 LINK: John --Incorporating strength training improved his shooting accuracy, agility, and speed; gave him confidence on the court--> strength training (Time: 2023-08-21)
+2026-01-05 15:19:55,152 - Amadeus.Builder - INFO - 🔗 LINK: John --Has a workout plan to balance basketball and strength training--> workout plan (Time: 2023-08-21)
+2026-01-05 15:19:55,229 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:19:55,264 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Learning to play the piano - it's a learning curve but very satisfying--> piano (Time: 2023-08-21)
+2026-01-05 15:19:55,265 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Visited a new place in California; discussed Harry Potter fan project with a fan--> California (Time: 2023-08-11)
+2026-01-05 15:19:55,265 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Met a Harry Potter fan in California; discussed potential collaborations--> Harry Potter fan (Time: 2023-08-11)
+2026-01-05 15:19:55,265 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Focused on Harry Potter fan project; enjoys discussing with fans--> Harry Potter fan project (Time: 2023-08-21)
+2026-01-05 15:19:55,306 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Family time is special and involves watching movies together during holidays--> family (Time: 2023-08-21)
+2026-01-05 15:19:55,377 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Thanksgiving traditions include prepping the feast and watching movies afterwards--> Thanksgiving (Time: 2023-08-21)
+2026-01-05 15:19:55,390 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Decorated a themed tree with a Harry Potter theme during the holidays--> tree (Time: 2023-08-21)
+2026-01-05 15:19:55,460 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:19:55,462 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:20:05,270 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:20:05,270 - Amadeus.Answerer - INFO - ❓ Question: How did John's new gym affect his basketball performance and confidence?
+2026-01-05 15:20:06,555 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's new gym and its impact on basketball performance and confidence", 'mode': 'hybrid'}
+2026-01-05 15:20:07,582 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'gym'}
+2026-01-05 15:20:09,608 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's new gym and its impact on basketball performance and confidence", 'mode': 'hybrid'}
+2026-01-05 15:20:11,836 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'gym'}
+2026-01-05 15:20:12,957 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "John's new gym impact on basketball performance and confidence", 'mode': 'hybrid'}
+2026-01-05 15:20:14,177 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'gym'}
+2026-01-05 15:20:15,278 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': "John's new gym impact on basketball performance and confidence", 'mode': 'hybrid'}
+2026-01-05 15:20:16,685 - Amadeus.Answerer - INFO - Step 8: WALK - {'tool': 'WALK', 'node': 'gym'}
+2026-01-05 15:20:16,685 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:20:18,092 - Amadeus.Optimizer - INFO - GT: Incorporating strength training into his routine improved his shooting accuracy, agility, and speed, giving him an edge over his opponents and boosting his confidence.
+2026-01-05 15:20:18,092 - Amadeus.Optimizer - INFO - Pre: John's new gym has positively affected his basketball performance by improving his shooting accuracy, agility, and speed. Additionally, the training has boosted his confidence on the court.
+2026-01-05 15:20:21,091 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:20:21,091 - Amadeus.Answerer - INFO - ❓ Question: What movie did Tim and his family watch together after Thanksgiving dinner, and why did it bring them joy?
+2026-01-05 15:20:22,114 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim and family movie after Thanksgiving', 'mode': 'hybrid'}
+2026-01-05 15:20:23,764 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Tim family movie after Thanksgiving', 'mode': 'hybrid'}
+2026-01-05 15:20:24,713 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'family'}
+2026-01-05 15:20:26,340 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Tim and his family watched a movie together after Thanksgiving dinner, and it brought them joy because they have a special tradition of watching movies as a family during holidays.'}
+2026-01-05 15:20:26,340 - Amadeus.Optimizer - INFO - GT: They watched 'Elf' during the holidays, which made them laugh and get into the festive spirit.
+2026-01-05 15:20:26,340 - Amadeus.Optimizer - INFO - Pre: Tim and his family watched a movie together after Thanksgiving dinner, and it brought them joy because they have a special tradition of watching movies as a family during holidays.
+2026-01-05 15:20:29,976 - Amadeus.Optimizer - ERROR - AST Parse Failed: invalid syntax (<unknown>, line 7) | Content: 
+{
+  "is_correct": false,
+  "blame": "QUESTIONER",
+
+  "meta_gradient": "Focus on current events and recent interactions. Avoid asking about historical or specific past events without providing context."
+
+  "graph_patch": [],
+
+  "builder_update": "Capture more recent interactions and current activities. Ensure that historical context is not the primary focus unless explicitly asked for."
+}
+
+2026-01-05 15:20:35,309 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:20:35,310 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture specific movie titles and their context within holiday traditions. Ensure that when adding relationships or attributes, the Builder includes relevant details such as movie titles and why certain activities bring joy to the family.
+2026-01-05 15:20:35,310 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "Elf", "content": "watched 'Elf' during the holidays, which made them laugh and get into the festive spirit"}, {"action": "ADD", "subject": "John", "object": "Tim", "content": "has a family tradition of watching 'Elf' together during the holidays"}]
+2026-01-05 15:20:42,458 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:20:42,458 - Amadeus.Builder - INFO - 🔗 LINK: John --has a family tradition of watching 'Elf' together during the holidays--> Tim (Time: 2023-08-21)
+2026-01-05 15:20:42,544 - Amadeus.Answerer - INFO - ❓ Question: Where did Tim get the tree for their home during the holidays?
+2026-01-05 15:20:43,691 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim get tree home holidays', 'mode': 'hybrid'}
+2026-01-05 15:20:45,546 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Tim decorated a themed tree with a Harry Potter theme during the holidays.'}
+2026-01-05 15:20:45,547 - Amadeus.Optimizer - INFO - GT: Tim decorated the tree himself, giving it a Harry Potter theme.
+2026-01-05 15:20:45,547 - Amadeus.Optimizer - INFO - Pre: Tim decorated a themed tree with a Harry Potter theme during the holidays.
+2026-01-05 15:20:47,540 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:20:47,540 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and context. Avoid asking about unrelated historical or specific details that are not present in the session buffer.
+2026-01-05 15:20:47,545 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 9. Processing Buffer...
+2026-01-05 15:21:16,903 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:21:16,916 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:21:16,946 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:21:16,953 - Amadeus.Builder - INFO - 🔗 LINK: Tim --I love sinking into different magical worlds. It's one of the reasons I love traveling to new places, to experience a different kind of magic.--> fantasy literature forum (Time: 2023-08-26)
+2026-01-05 15:21:16,957 - Amadeus.Builder - INFO - 🔗 LINK: John --Last week I visited home and caught up with my family and old friends in California.--> California (Time: 2023-08-26)
+2026-01-05 15:21:16,958 - Amadeus.Builder - INFO - 🔗 LINK: Tim --I love escaping to different magical worlds with a hobby. I recommended a fantasy book by Patrick Rothfuss.--> fantasy book (Time: 2023-08-26)
+2026-01-05 15:21:16,985 - Amadeus.Builder - INFO - 🔗 LINK: John --That group looks like a great squad. How long did you all play together?--> New York City (Time: 2023-08-26)
+2026-01-05 15:21:17,007 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:21:17,007 - Amadeus.Builder - INFO - 🔗 LINK: John --Thanks for the pic! That group looks like a great squad. How long did you all play together?--> basketball shoes (Time: 2023-08-26)
+2026-01-05 15:21:17,040 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:21:17,080 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:21:17,090 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:21:23,847 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:21:23,847 - Amadeus.Answerer - INFO - ❓ Question: How does John feel about his childhood memories?
+2026-01-05 15:21:24,943 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John childhood memories', 'mode': 'hybrid'}
+2026-01-05 15:21:29,005 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'California'}
+2026-01-05 15:21:30,101 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'John'}
+2026-01-05 15:21:31,819 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'John feels happy and appreciates the support from his family and old friends when they discuss their childhood memories.'}
+2026-01-05 15:21:31,819 - Amadeus.Optimizer - INFO - GT: He feels nostalgic about the good ol' times.
+2026-01-05 15:21:31,820 - Amadeus.Optimizer - INFO - Pre: John feels happy and appreciates the support from his family and old friends when they discuss their childhood memories.
+2026-01-05 15:21:35,975 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:21:35,975 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture more nuanced emotional states and specific topics discussed during interactions. For example, add nodes and links that capture feelings and conversations related to personal experiences and memories.
+2026-01-05 15:21:35,975 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "childhood memories", "content": "feels nostalgic about the good ol' times"}, {"action": "CONNECT", "subject": "John", "object": "visited home and caught up with family and old friends", "content": "had a great time discussing childhood"}]
+2026-01-05 15:21:49,541 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:21:49,546 - Amadeus.Builder - INFO - 🔗 LINK: John --had a great time discussing childhood--> visited home and caught up with family and old friends (Time: 2023-08-26)
+2026-01-05 15:21:49,644 - Amadeus.Answerer - INFO - ❓ Question: What kind of magic does Tim enjoy in his fantasy novels?
+2026-01-05 15:21:50,806 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim fantasy novels magic', 'mode': 'hybrid'}
+2026-01-05 15:21:53,891 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Tim enjoys sinking into different magical worlds, which is one of the reasons he loves traveling to new places. He also mentioned recommending a fantasy book by Patrick Rothfuss, suggesting he appreciates books involving magic and world-building.'}
+2026-01-05 15:21:53,892 - Amadeus.Optimizer - INFO - GT: The type of magic is not explicitly mentioned in the text.
+2026-01-05 15:21:53,892 - Amadeus.Optimizer - INFO - Pre: Tim enjoys sinking into different magical worlds, which is one of the reasons he loves traveling to new places. He also mentioned recommending a fantasy book by Patrick Rothfuss, suggesting he appreciates books involving magic and world-building.
+2026-01-05 15:21:58,129 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:21:58,130 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to capture more explicit mentions of hobbies and interests directly related to the context provided by the question. For example, ensure that nodes and links related to specific genres or types of activities are included in the extraction process.
+2026-01-05 15:21:58,130 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "fantasy magic", "content": "Tim enjoys reading fantasy novels that involve various forms of magic."}]
+2026-01-05 15:22:03,061 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:22:03,179 - Amadeus.Answerer - INFO - ❓ Question: Why is Tim interested in visiting New York City?
+2026-01-05 15:22:05,240 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim visiting New York City interests', 'mode': 'hybrid'}
+2026-01-05 15:22:08,225 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'visited home and caught up with family and old friends'}
+2026-01-05 15:22:09,530 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Tim interest in visiting New York City related to family and old friends', 'mode': 'hybrid'}
+2026-01-05 15:22:12,673 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Tim is interested in visiting New York City because it has a strong connection to his family traditions and the Harry Potter universe. He enjoys family time, especially during holidays when they watch movies together, such as 'Elf'. Additionally, New York City holds significance for Tim due to its role in the Harry Potter series, which he loves to explore through various activities including discussions with fans and writing articles about different fantasy novels."}
+2026-01-05 15:22:12,673 - Amadeus.Optimizer - INFO - GT: Tim is interested in visiting New York City because John described it as a place with lots of culture and food to explore.
+2026-01-05 15:22:12,673 - Amadeus.Optimizer - INFO - Pre: Tim is interested in visiting New York City because it has a strong connection to his family traditions and the Harry Potter universe. He enjoys family time, especially during holidays when they watch movies together, such as 'Elf'. Additionally, New York City holds significance for Tim due to its role in the Harry Potter series, which he loves to explore through various activities including discussions with fans and writing articles about different fantasy novels.
+2026-01-05 15:22:17,825 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:22:17,825 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that relevant information about Tim's interests and motivations are captured. Specifically, improve the rule to recognize and connect nodes related to Tim's hobbies and travel interests more accurately. For example, include rules to capture mentions of specific places Tim is interested in visiting and the reasons behind those interests.
+2026-01-05 15:22:17,825 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "New York City", "content": "Tim is interested in visiting New York City because of its strong connection to his family traditions and the Harry Potter universe."}, {"action": "REMOVE", "subject": "John", "object": "basketball shoes", "content": "This node is unrelated to Tim's interest in visiting New York City."}]
+2026-01-05 15:22:28,874 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim is interested in visiting New York City because of its strong connection to his family traditions and the Harry Potter universe.--> New York City (Time: 2023-08-26)
+2026-01-05 15:22:28,876 - Amadeus.Graph - INFO - ✂️ Edge Deleted: John -> basketball shoes
+2026-01-05 15:22:28,961 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 10. Processing Buffer...
+2026-01-05 15:22:47,020 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:22:47,143 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:22:47,163 - Amadeus.Builder - INFO - 🔗 LINK: John --Encouraged Tim about his job and presentation; shared a cooking experience with Tim--> Tim (Time: 2023-08-31)
+2026-01-05 15:22:47,217 - Amadeus.Builder - INFO - 🔗 LINK: Universal Studios --Planning a trip; excited about Harry Potter stuff--> Tim (Time: 2023-08-31)
+2026-01-05 15:22:47,223 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Gave a presentation in class; nervous but managed to deliver--> presentation (Time: 2023-08-31)
+2026-01-05 15:22:47,320 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Experimenting with spices in cooking; used sage in a soup--> spices (Time: 2023-08-31)
+2026-01-05 15:22:47,458 - Amadeus.Builder - INFO - 🔗 LINK: John --Trying out cooking recipes; made a tasty soup recently--> cooking (Time: 2023-08-31)
+2026-01-05 15:22:47,582 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:22:47,582 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:23:00,696 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:23:00,696 - Amadeus.Answerer - INFO - ❓ Question: What kind of help did John receive when he was initially having trouble with the subway, and how did it affect his trip in NYC?
+2026-01-05 15:23:01,789 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John subway trouble initial help NYC', 'mode': 'hybrid'}
+2026-01-05 15:23:04,655 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'John subway trouble initial help NYC', 'mode': 'hybrid'}
+2026-01-05 15:23:08,395 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'subway trouble John New York City', 'mode': 'hybrid'}
+2026-01-05 15:23:10,822 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'John subway trouble initial help NYC', 'mode': 'hybrid'}
+2026-01-05 15:23:12,945 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'subway trouble John New York City help', 'mode': 'hybrid'}
+2026-01-05 15:23:16,370 - Amadeus.Answerer - INFO - Step 6: WALK - {'tool': 'WALK', 'node': 'John'}
+2026-01-05 15:23:18,186 - Amadeus.Answerer - INFO - Step 7: SEARCH - {'tool': 'SEARCH', 'query': 'John subway trouble initial help NYC', 'mode': 'hybrid'}
+2026-01-05 15:23:20,931 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': 'subway trouble John New York City help', 'mode': 'hybrid'}
+2026-01-05 15:23:21,001 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:23:24,092 - Amadeus.Optimizer - INFO - GT: Someone helped explain the subway to John, making it easy for him after initial difficulties.
+2026-01-05 15:23:24,127 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:23:27,335 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:27,336 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures relationships involving assistance or help received, especially in scenarios related to travel or navigating unfamiliar environments.
+2026-01-05 15:23:27,336 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Subway Help", "content": "Received help explaining the subway system from an unknown person."}]
+2026-01-05 15:23:32,445 - Amadeus.Builder - INFO - 🔗 LINK: John --Received help explaining the subway system from an unknown person.--> Subway Help (Time: 2023-08-26)
+2026-01-05 15:23:32,524 - Amadeus.Answerer - INFO - ❓ Question: How did Tim's presentation in class yesterday relate to his summer plans and what he discussed with John?
+2026-01-05 15:23:34,033 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Tim's presentation class yesterday summer plans John", 'mode': 'hybrid'}
+2026-01-05 15:23:35,547 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Tim'}
+2026-01-05 15:23:37,521 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'presentation'}
+2026-01-05 15:23:39,131 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Tim's presentation class yesterday summer plans John", 'mode': 'hybrid'}
+2026-01-05 15:23:42,085 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "Tim's presentation in class yesterday was about his Harry Potter fan project, discussing various aspects of the Harry Potter universe. He also mentioned trying to juggle studying with his fantasy reading hobby. John encouraged Tim about his presentation and job, and they shared a cooking experience, where Tim made a tasty soup with sage."}
+2026-01-05 15:23:42,085 - Amadeus.Optimizer - INFO - GT: Tim's presentation in class was a small step towards overcoming challenges, similar to his discussion about staying positive despite not getting the summer job.
+2026-01-05 15:23:42,086 - Amadeus.Optimizer - INFO - Pre: Tim's presentation in class yesterday was about his Harry Potter fan project, discussing various aspects of the Harry Potter universe. He also mentioned trying to juggle studying with his fantasy reading hobby. John encouraged Tim about his presentation and job, and they shared a cooking experience, where Tim made a tasty soup with sage.
+2026-01-05 15:23:44,232 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:23:44,232 - Amadeus.Answerer - INFO - ❓ Question: What might be the reason for Tim's interest in spices and cooking, and how does it connect to John's recent attempt at cooking soup?
+2026-01-05 15:23:45,299 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim interest in spices and cooking, John cooking soup', 'mode': 'hybrid'}
+2026-01-05 15:23:47,085 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'cooking'}
+2026-01-05 15:23:48,217 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Tim interest in spices and cooking', 'mode': 'hybrid'}
+2026-01-05 15:23:50,529 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Tim's interest in spices and cooking is connected to John's recent attempt at cooking soup with sage. During their visit home and catching up with family and old friends, they likely discussed cooking experiences and Tim shared their interest in experimenting with spices, including sage, in their cooking."}
+2026-01-05 15:23:50,530 - Amadeus.Optimizer - INFO - GT: Tim enjoys experimenting with spices and cooking, as evidenced by his willingness to look up recipes and his interest in John's soup.
+2026-01-05 15:23:50,530 - Amadeus.Optimizer - INFO - Pre: Tim's interest in spices and cooking is connected to John's recent attempt at cooking soup with sage. During their visit home and catching up with family and old friends, they likely discussed cooking experiences and Tim shared their interest in experimenting with spices, including sage, in their cooking.
+2026-01-05 15:23:53,942 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:23:53,943 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture more detailed context and relationships between subjects. Ensure that when discussing hobbies or interests, include explicit connections and interactions. For example, add links showing how Tim and John interacted regarding cooking and spices.
+2026-01-05 15:23:53,943 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "spices", "content": "enjoys experimenting with"}, {"action": "ADD", "object": "John", "content": "recently discussed cooking with Tim"}]
+2026-01-05 15:24:03,657 - Amadeus.Builder - INFO - 🔗 LINK: Tim --enjoys experimenting with--> spices (Time: 2023-08-31)
+2026-01-05 15:24:03,665 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:24:03,789 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 11. Processing Buffer...
+2026-01-05 15:24:59,722 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:24:59,723 - Amadeus.Builder - INFO - 🔗 LINK: John --Tim: Great to hear from you. Been busy with things, how about you?--> Tim (Time: 2023-09-21)
+2026-01-05 15:24:59,723 - Amadeus.Builder - INFO - 🔗 LINK: John --Hey Tim, been a while! How ya been?--> Tim (Time: 2023-09-21)
+2026-01-05 15:24:59,728 - Amadeus.Builder - INFO - 🔗 LINK: John --Attended a local restaurant with some new teammates last week. They're great friends.--> new teammates (Time: 2023-09-21)
+2026-01-05 15:24:59,736 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:24:59,745 - Amadeus.Builder - INFO - 🔗 LINK: John --Any exciting plans with them?--> Tim (Time: 2023-09-21)
+2026-01-05 15:24:59,750 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim suggested Edinburgh, Scotland for a team trip. John thinks it's a great idea.--> Edinburgh (Time: 2023-09-21)
+2026-01-05 15:24:59,766 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:24:59,781 - Amadeus.Builder - INFO - 🔗 LINK: John --Snapped a photo during one of our practices. The sunset looked amazing on the court.--> pic (Time: 2023-09-21)
+2026-01-05 15:24:59,799 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:24:59,818 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:24:59,844 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:24:59,850 - Amadeus.Builder - INFO - 🔗 LINK: John --Suggested Edinburgh, Scotland as a destination for the team trip.--> Edinburgh (Time: 2023-09-21)
+2026-01-05 15:24:59,878 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim recommended a fantasy novel by Patrick Rothfuss for John's trip.--> fantasy novel by Patrick Rothfuss (Time: 2023-09-21)
+2026-01-05 15:24:59,883 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim showed a photo of his bookshelf. It includes 'The Alchemist' and other books.--> bookshelf (Time: 2023-09-21)
+2026-01-05 15:24:59,889 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:24:59,890 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim is interested in visiting Edinburgh because of its connection to the Harry Potter universe.--> Edinburgh (Time: 2023-09-21)
+2026-01-05 15:24:59,890 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim wants to use his platform to make a positive difference and inspire others after basketball.--> Edinburgh (Time: 2023-09-21)
+2026-01-05 15:24:59,891 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim suggested Edinburgh, Scotland as a destination for the team trip.--> Edinburgh (Time: 2023-09-21)
+2026-01-05 15:24:59,899 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:24:59,902 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim is currently reading a fantasy novel by Patrick Rothfuss.--> fantasy novel by Patrick Rothfuss (Time: 2023-09-21)
+2026-01-05 15:24:59,916 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:24:59,917 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim is interested in visiting Edinburgh due to its connection to Harry Potter and family traditions.--> Edinburgh (Time: 2023-09-21)
+2026-01-05 15:24:59,917 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim gave a presentation in class and is focused on Harry Potter fan projects.--> presentation (Time: 2023-09-21)
+2026-01-05 15:24:59,918 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim showed a photo of his bookshelf including 'The Alchemist'.--> bookshelf (Time: 2023-09-21)
+2026-01-05 15:24:59,918 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim found an opportunity to write about fantasy novels in the fantasy literature forum.--> fantasy literature forum (Time: 2023-09-21)
+2026-01-05 15:24:59,925 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:24:59,933 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim showed a photo of his bookshelf including 'The Alchemist'.--> bookshelf (Time: 2023-09-21)
+2026-01-05 15:24:59,933 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim enjoys experimenting with spices in cooking, specifically using sage in a soup.--> spices (Time: 2023-09-21)
+2026-01-05 15:24:59,999 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:25:00,000 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:25:06,678 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:25:06,678 - Amadeus.Answerer - INFO - ❓ Question: What activity did John and his teammates connect over besides basketball?
+2026-01-05 15:25:07,826 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John and his teammates activities besides basketball', 'mode': 'hybrid'}
+2026-01-05 15:25:09,304 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'teammates'}
+2026-01-05 15:25:10,618 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "activities of John's teammates after meeting on 2023-08-15", 'mode': 'hybrid'}
+2026-01-05 15:25:12,512 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Besides basketball, John and his teammates connected over attending a local restaurant with some new teammates last week.'}
+2026-01-05 15:25:12,512 - Amadeus.Optimizer - INFO - GT: They connected over their shared love for basketball and had a ton of fun.
+2026-01-05 15:25:12,512 - Amadeus.Optimizer - INFO - Pre: Besides basketball, John and his teammates connected over attending a local restaurant with some new teammates last week.
+2026-01-05 15:25:16,624 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:25:16,624 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it does not hallucinate or provide generic information when the exact details are available in the buffer. Specifically, the Answerer should focus on retrieving precise information from the buffer and avoid making assumptions based on general knowledge.
+2026-01-05 15:25:16,624 - Amadeus.Answerer - INFO - ❓ Question: How does John feel about the opportunity to use his platform for charity work?
+2026-01-05 15:25:18,606 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John charity work platform', 'mode': 'hybrid'}
+2026-01-05 15:25:24,567 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Tim'}
+2026-01-05 15:25:27,324 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'John encourages Tim and is supportive of his plans to use his platform for charity work after basketball.'}
+2026-01-05 15:25:27,324 - Amadeus.Optimizer - INFO - GT: He wants to use his platform to make a positive difference and inspire others, and he thinks it's important to make the most of the chances he gets and leave a meaningful legacy.
+2026-01-05 15:25:27,324 - Amadeus.Optimizer - INFO - Pre: John encourages Tim and is supportive of his plans to use his platform for charity work after basketball.
+2026-01-05 15:25:35,702 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:25:35,703 - Amadeus.Answerer - INFO - ❓ Question: Where did John attend the restaurant with his new teammates?
+2026-01-05 15:25:36,894 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John attended restaurant with new teammates', 'mode': 'hybrid'}
+2026-01-05 15:25:40,023 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John attended a local restaurant with his new teammates last week.'}
+2026-01-05 15:25:40,023 - Amadeus.Optimizer - INFO - GT: A local restaurant.
+2026-01-05 15:25:40,023 - Amadeus.Optimizer - INFO - Pre: John attended a local restaurant with his new teammates last week.
+2026-01-05 15:25:43,122 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:25:43,123 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 12. Processing Buffer...
+2026-01-05 15:26:02,227 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:26:02,235 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Congrats on your wedding! It was an amazing and emotional day with an intimate gathering in a greenhouse venue.--> Wedding (Time: 2023-10-03)
+2026-01-05 15:26:02,240 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim's bookshelf is filled with his favorite fantasy novels.--> Bookshelf (Time: 2023-09-21)
+2026-01-05 15:26:02,272 - Amadeus.Builder - INFO - 🔗 LINK: John --John and his girlfriend had a wedding ceremony last week.--> Girlfriend (Time: 2023-10-03)
+2026-01-05 15:26:02,304 - Amadeus.Builder - INFO - 🔗 LINK: John --John joined a hiking club and had friends come to his wedding.--> Hiking Club (Time: 2023-10-03)
+2026-01-05 15:26:02,337 - Amadeus.Builder - INFO - 🔗 LINK: John --Admires LeBron's work ethic and dedication to the game, finds him inspiring.--> LeBron (Time: 2023-10-03)
+2026-01-05 15:26:02,371 - Amadeus.Builder - INFO - 🔗 LINK: John --John's favorite basketball team is the Minnesota Wolves.--> LeBron's Team (Time: 2023-10-03)
+2026-01-05 15:26:02,453 - Amadeus.Builder - INFO - 🔗 LINK: John --John likes to collect jerseys, particularly those from his favorite team, the Minnesota Wolves.--> Jersey Collection (Time: 2023-10-03)
+2026-01-05 15:26:02,454 - Amadeus.Builder - INFO - ⏳ WAIT: Tim: Wow, a candlelit dance in...
+2026-01-05 15:26:02,454 - Amadeus.Builder - INFO - ⏳ WAIT: John: The energy was incredibl...
+2026-01-05 15:26:02,843 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:26:02,844 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:26:11,119 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:26:11,119 - Amadeus.Answerer - INFO - ❓ Question: How did John's hiking club friends contribute to his wedding ceremony?
+2026-01-05 15:26:12,432 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's hiking club friends contribution to his wedding ceremony", 'mode': 'hybrid'}
+2026-01-05 15:26:13,709 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Hiking Club'}
+2026-01-05 15:26:14,929 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "John's hiking club friends contributed to his wedding ceremony by joining him and attending his wedding."}
+2026-01-05 15:26:14,930 - Amadeus.Optimizer - INFO - GT: John mentioned that some of his hiking club friends came to the wedding despite him just joining the club.
+2026-01-05 15:26:14,930 - Amadeus.Optimizer - INFO - Pre: John's hiking club friends contributed to his wedding ceremony by joining him and attending his wedding.
+2026-01-05 15:26:20,894 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:26:20,894 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when a person joins a club or group, any related mentions of that club or group in subsequent conversations are linked to the individual's personal experiences. Specifically, add a rule to capture and link specific contributions or roles of individuals from clubs or groups they recently joined.
+2026-01-05 15:26:20,895 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Hiking Club Friends", "content": "some of John's hiking club friends came to his wedding despite him just joining the club."}]
+2026-01-05 15:26:28,390 - Amadeus.Builder - INFO - 🔗 LINK: John --some of John's hiking club friends came to his wedding despite him just joining the club.--> Hiking Club Friends (Time: 2023-10-03)
+2026-01-05 15:26:28,567 - Amadeus.Answerer - INFO - ❓ Question: What emotions did John feel during the wedding ceremony that made him choke up?
+2026-01-05 15:26:29,734 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John wedding ceremony emotions choke up', 'mode': 'hybrid'}
+2026-01-05 15:26:31,198 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Wedding'}
+2026-01-05 15:26:32,324 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "emotions during John's wedding ceremony", 'mode': 'hybrid'}
+2026-01-05 15:26:34,057 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'fantasy literature forum'}
+2026-01-05 15:26:36,646 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': "The exploration did not find any direct information about John's emotions during the wedding ceremony that made him choke up. The available information is related to John's participation in a fantasy literature forum."}
+2026-01-05 15:26:36,646 - Amadeus.Optimizer - INFO - GT: John felt such love and happiness that he got choked up when his girlfriend walked down the aisle.
+2026-01-05 15:26:36,646 - Amadeus.Optimizer - INFO - Pre: The exploration did not find any direct information about John's emotions during the wedding ceremony that made him choke up. The available information is related to John's participation in a fantasy literature forum.
+2026-01-05 15:26:41,839 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:26:41,839 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to capture explicit mentions of emotions during significant life events. Ensure that the Builder prioritizes direct statements about personal feelings and experiences.
+2026-01-05 15:26:41,839 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Emotions", "content": "felt such love and happiness that he got choked up when his girlfriend walked down the aisle."}, {"action": "ADD", "subject": "Wedding Ceremony", "object": "Emotions", "content": "included love and happiness."}]
+2026-01-05 15:27:08,848 - Amadeus.Builder - INFO - 🔗 LINK: John --felt such love and happiness that he got choked up when his girlfriend walked down the aisle.--> Emotions (Time: 2023-10-03)
+2026-01-05 15:27:08,854 - Amadeus.Builder - INFO - 🔗 LINK: Wedding Ceremony --included love and happiness.--> Emotions (Time: 2023-10-03)
+2026-01-05 15:27:08,974 - Amadeus.Answerer - INFO - ❓ Question: Where did John and his girlfriend have their first dance after the ceremony?
+2026-01-05 15:27:10,390 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John and his girlfriend first dance location', 'mode': 'hybrid'}
+2026-01-05 15:27:13,114 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'first dance after ceremony location', 'mode': 'hybrid'}
+2026-01-05 15:27:14,710 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'first dance location after wedding ceremony', 'mode': 'hybrid'}
+2026-01-05 15:27:16,256 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'Tim'}
+2026-01-05 15:27:18,883 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'John and his girlfriend first dance Universal Studios', 'mode': 'hybrid'}
+2026-01-05 15:27:21,936 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'John and his girlfriend had their first dance at Universal Studios.'}
+2026-01-05 15:27:21,937 - Amadeus.Optimizer - INFO - GT: They had their first dance at a cozy restaurant.
+2026-01-05 15:27:21,937 - Amadeus.Optimizer - INFO - Pre: John and his girlfriend had their first dance at Universal Studios.
+2026-01-05 15:27:25,109 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:27:25,109 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that all relevant details about the wedding, including where the first dance took place, are captured and stored in the graph. Specifically, add rules to identify and store locations mentioned in conversations related to the wedding ceremony.
+2026-01-05 15:27:25,109 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "First Dance Location", "content": "cozy restaurant"}]
+2026-01-05 15:27:31,144 - Amadeus.Builder - INFO - 🔗 LINK: John --cozy restaurant--> First Dance Location (Time: 2023-10-03)
+2026-01-05 15:27:31,296 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 13. Processing Buffer...
+2026-01-05 15:28:05,443 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:28:05,448 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Attended a Harry Potter conference in the UK--> Harry Potter conference (Time: 2023-10-06)
+2026-01-05 15:28:05,448 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Enjoys discussing with fans and spreading love for fantasy--> fantasy literature forum (Time: 2023-10-06)
+2026-01-05 15:28:05,448 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Recommended a fantasy novel by Patrick Rothfuss for John's trip--> fantasy literature forum (Time: 2023-10-06)
+2026-01-05 15:28:05,448 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Currently reading a fantasy novel by Patrick Rothfuss--> fantasy literature forum (Time: 2023-10-06)
+2026-01-05 15:28:05,448 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim's bookshelf is filled with his favorite fantasy novels--> fantasy literature forum (Time: 2023-10-06)
+2026-01-05 15:28:05,448 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim is supportive and encouraging towards John--> John (Time: 2023-10-06)
+2026-01-05 15:28:05,453 - Amadeus.Builder - INFO - ➕ NODE: Tim
+2026-01-05 15:28:05,454 - Amadeus.Builder - INFO - 🔗 LINK: John --Tim's encouragement and support boost John's motivation and belief--> Emotions (Time: 2023-10-06)
+2026-01-05 15:28:05,693 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:28:05,700 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:28:13,057 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:28:13,058 - Amadeus.Answerer - INFO - ❓ Question: What trophy did John's team win?
+2026-01-05 15:28:15,593 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's team trophy", 'mode': 'hybrid'}
+2026-01-05 15:28:18,395 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Won a tough game'}
+2026-01-05 15:28:34,704 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "John's team won a tough game."}
+2026-01-05 15:28:34,704 - Amadeus.Optimizer - INFO - GT: They won a trophy during the season.
+2026-01-05 15:28:34,704 - Amadeus.Optimizer - INFO - Pre: John's team won a tough game.
+2026-01-05 15:28:40,462 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:28:40,462 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it does not hallucinate answers when the exact information is present in the Buffer. The Answerer should be more cautious and rely on the Global Memory Graph only when there is no direct link to the required information.
+2026-01-05 15:28:40,462 - Amadeus.Answerer - INFO - ❓ Question: How does Tim feel about the new shoes John is getting?
+2026-01-05 15:28:41,600 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim feeling about new shoes John getting', 'mode': 'hybrid'}
+2026-01-05 15:28:44,353 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Tim'}
+2026-01-05 15:28:46,607 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Tim is supportive and encouraging towards John.'}
+2026-01-05 15:28:46,607 - Amadeus.Optimizer - INFO - GT: Tim thinks the shoes are super comfy and recommends them.
+2026-01-05 15:28:46,607 - Amadeus.Optimizer - INFO - Pre: Tim is supportive and encouraging towards John.
+2026-01-05 15:28:49,446 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:28:49,446 - Amadeus.Answerer - INFO - ❓ Question: What do Tim and John share a passion for, and how does it bring them closer together?
+2026-01-05 15:28:50,530 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim and John passion', 'mode': 'hybrid'}
+2026-01-05 15:28:53,098 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'visited home and caught up with family and old friends'}
+2026-01-05 15:28:55,262 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'had a great time discussing childhood John Tim', 'mode': 'hybrid'}
+2026-01-05 15:28:58,224 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Tim and John share a passion for basketball and discussing their childhood memories. This passion brings them closer together as they connected over their shared love for basketball during a visit home where they caught up with family and old friends.'}
+2026-01-05 15:28:58,225 - Amadeus.Optimizer - INFO - GT: Tim and John share a passion for fantasy and gaming, which connects them with others at conferences and through teamwork.
+2026-01-05 15:28:58,225 - Amadeus.Optimizer - INFO - Pre: Tim and John share a passion for basketball and discussing their childhood memories. This passion brings them closer together as they connected over their shared love for basketball during a visit home where they caught up with family and old friends.
+2026-01-05 15:29:15,439 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:29:15,440 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the System Prompt for the Builder to ensure it captures more specific and direct relationships when extracting information. For example, the Builder should be instructed to look for explicit mentions of shared interests and activities rather than inferring them based on broader themes.
+2026-01-05 15:29:15,440 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "Harry Potter conference", "content": "Last week Tim attended a Harry Potter conference in the UK."}, {"action": "ADD", "object": "John", "content": "John is interested in fantasy and gaming."}, {"action": "ADD", "subject": "Tim", "object": "John", "content": "Tim and John share a passion for fantasy and gaming."}, {"action": "ADD", "subject": "Harry Potter conference", "object": "fantasy and gaming", "content": "The Harry Potter conference in the UK included discussions on fantasy and gaming."}]
+2026-01-05 15:29:26,459 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Last week Tim attended a Harry Potter conference in the UK.--> Harry Potter conference (Time: 2023-10-06)
+2026-01-05 15:29:26,459 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:29:26,459 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim and John share a passion for fantasy and gaming.--> John (Time: 2023-10-06)
+2026-01-05 15:29:26,464 - Amadeus.Builder - INFO - 🔗 LINK: Harry Potter conference --The Harry Potter conference in the UK included discussions on fantasy and gaming.--> fantasy and gaming (Time: 2023-10-06)
+2026-01-05 15:29:26,557 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 14. Processing Buffer...
+2026-01-05 15:30:00,901 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:30:00,907 - Amadeus.Builder - INFO - 🔗 LINK: John --Mentoring the younger players on his team--> Younger Players (Time: 2023-10-17)
+2026-01-05 15:30:00,911 - Amadeus.Builder - INFO - 🔗 LINK: John --Mentoring is super rewarding and fulfilling--> Mentoring (Time: 2023-10-17)
+2026-01-05 15:30:00,915 - Amadeus.Builder - INFO - 🔗 LINK: John --Pic of John and some of the younger players at a recent practice--> Picture (Time: 2023-10-17)
+2026-01-05 15:30:00,940 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim appreciates John's mentorship and support--> Mentorship (Time: 2023-10-17)
+2026-01-05 15:30:00,991 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Captured a stunning pic during a trip to the Smoky Mountains last summer--> Smoky Mountains (Time: 2022-08-01)
+2026-01-05 15:30:00,995 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Currently reading a book and is totally hooked--> Reading (Time: 2023-10-17)
+2026-01-05 15:30:01,003 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Finding a good balance between studies and hobbies--> School Balance (Time: 2023-10-17)
+2026-01-05 15:30:01,003 - Amadeus.Builder - INFO - ⏳ WAIT: Where did you capture this? Na...
+2026-01-05 15:30:01,003 - Amadeus.Builder - INFO - ⏳ WAIT: I snapped that pic on my trip ...
+2026-01-05 15:30:01,034 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:30:01,035 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:30:08,535 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:30:08,535 - Amadeus.Answerer - INFO - ❓ Question: How does John feel about being a mentor to the younger players on his team?
+2026-01-05 15:30:09,637 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John mentor younger players', 'mode': 'hybrid'}
+2026-01-05 15:30:14,137 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Based on the information available, John feels that mentoring the younger players on his team is super rewarding and fulfilling.'}
+2026-01-05 15:30:14,138 - Amadeus.Optimizer - INFO - GT: He feels rewarding and fulfilling to see their growth and improvement.
+2026-01-05 15:30:14,138 - Amadeus.Optimizer - INFO - Pre: John feels that mentoring the younger players on his team is super rewarding and fulfilling.
+2026-01-05 15:30:17,697 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:30:17,697 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and activities. Avoid asking about historical feelings or experiences unless they are directly related to the most recent context provided.
+2026-01-05 15:30:17,697 - Amadeus.Answerer - INFO - ❓ Question: What kind of support does John provide to the younger players besides giving advice?
+2026-01-05 15:30:18,643 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John support younger players advice', 'mode': 'hybrid'}
+2026-01-05 15:30:22,335 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Besides giving advice, John provides mentorship and support to the younger players on his team.'}
+2026-01-05 15:30:22,336 - Amadeus.Optimizer - INFO - GT: He provides support both on and off the court.
+2026-01-05 15:30:22,336 - Amadeus.Optimizer - INFO - Pre: Besides giving advice, John provides mentorship and support to the younger players on his team.
+2026-01-05 15:30:32,853 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:30:32,854 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current activities and context rather than historical or past events. Encourage the Questioner to ask about recent developments and ongoing relationships.
+2026-01-05 15:30:32,854 - Amadeus.Answerer - INFO - ❓ Question: Why does Tim mention the Smoky Mountains in his conversation with John?
+2026-01-05 15:30:34,077 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim mentions Smoky Mountains conversation John', 'mode': 'hybrid'}
+2026-01-05 15:30:37,067 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Hiking Club Friends'}
+2026-01-05 15:30:38,668 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Tim mentions Smoky Mountains in conversation with John hiking club friends', 'mode': 'hybrid'}
+2026-01-05 15:30:41,528 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Tim mentions the Smoky Mountains in his conversation with John because he captured a stunning picture during a trip there last summer, which reminds him of good times and adds a personal touch to their discussion about catching up with family and old friends.'}
+2026-01-05 15:30:41,528 - Amadeus.Optimizer - INFO - GT: Tim mentions the Smoky Mountains because he took a picture there last summer and found it incredibly beautiful.
+2026-01-05 15:30:41,528 - Amadeus.Optimizer - INFO - Pre: Tim mentions the Smoky Mountains in his conversation with John because he captured a stunning picture during a trip there last summer, which reminds him of good times and adds a personal touch to their discussion about catching up with family and old friends.
+2026-01-05 15:30:43,779 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:30:43,780 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 15. Processing Buffer...
+2026-01-05 15:31:11,246 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:31:11,296 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Read an awesome book about castles in the UK--> Castle book (Time: 2023-10-21)
+2026-01-05 15:31:11,300 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Inspired by J.K. Rowling's work--> J.K. Rowling (Time: 2023-10-21)
+2026-01-05 15:31:11,403 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Keeps some motivational quotes on his desk to stay focused and motivated--> Motivational quotes (Time: 2023-10-21)
+2026-01-05 15:31:11,407 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Teammates provide strong support and encouragement--> Support network (Time: 2023-10-21)
+2026-01-05 15:31:11,527 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Family provides happiness and support--> Family (Time: 2023-10-21)
+2026-01-05 15:31:11,623 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Uses cooking as therapy and takes breaks from basketball--> Cooking (Time: 2023-10-21)
+2026-01-05 15:31:11,627 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Favorited honey garlic chicken recipe--> Recipe (Time: 2023-10-21)
+2026-01-05 15:31:11,714 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Shared a photo of cooking a meal--> Photo (Time: 2023-10-21)
+2026-01-05 15:31:12,068 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:31:12,068 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:31:18,827 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:31:18,828 - Amadeus.Answerer - INFO - ❓ Question: How does Tim feel about his writing process?
+2026-01-05 15:31:19,961 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim writing process', 'mode': 'hybrid'}
+2026-01-05 15:31:25,163 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'piano'}
+2026-01-05 15:31:26,197 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Tim feels that learning to play the piano is a learning curve but very satisfying.'}
+2026-01-05 15:31:26,197 - Amadeus.Optimizer - INFO - GT: Tim finds writing joyful and exciting, despite the nerves involved.
+2026-01-05 15:31:26,198 - Amadeus.Optimizer - INFO - Pre: Tim feels that learning to play the piano is a learning curve but very satisfying.
+2026-01-05 15:31:29,616 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:31:29,617 - Amadeus.Answerer - INFO - ❓ Question: What is the relationship between John and his teammates mentioned in the conversation?
+2026-01-05 15:31:30,766 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John and his teammates', 'mode': 'hybrid'}
+2026-01-05 15:31:33,286 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John feels supported and motivated by his teammates due to their bond and friendship. He received a sign from his teammates as a symbol of their support and connection.'}
+2026-01-05 15:31:33,286 - Amadeus.Optimizer - INFO - GT: John's teammates support him and encourage him to improve his skills, even when he makes mistakes.
+2026-01-05 15:31:33,286 - Amadeus.Optimizer - INFO - Pre: John feels supported and motivated by his teammates due to their bond and friendship. He received a sign from his teammates as a symbol of their support and connection.
+2026-01-05 15:31:37,030 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:31:37,030 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include a rule to extract and link specific relationships mentioned in the conversation. For example, the Builder should be instructed to identify and connect mentions of teammates, support networks, and other interpersonal dynamics directly related to the conversation context.
+2026-01-05 15:31:37,031 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Tim", "content": "teammates"}, {"action": "ADD", "object": "support", "subject": "Tim", "content": "John"}]
+2026-01-05 15:31:43,640 - Amadeus.Builder - INFO - 🔗 LINK: John --teammates--> Tim (Time: 2023-10-06)
+2026-01-05 15:31:43,658 - Amadeus.Builder - INFO - 🔗 LINK: Tim --John--> support (Time: 2023-10-06)
+2026-01-05 15:31:43,835 - Amadeus.Answerer - INFO - ❓ Question: Where did Tim mention he hopes to visit someday?
+2026-01-05 15:31:44,941 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim hopes to visit someday', 'mode': 'hybrid'}
+2026-01-05 15:31:47,441 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Tim mentioned he hopes to visit the Smoky Mountains someday.'}
+2026-01-05 15:31:47,441 - Amadeus.Optimizer - INFO - GT: He hopes to visit castles in the UK someday.
+2026-01-05 15:31:47,441 - Amadeus.Optimizer - INFO - Pre: Tim mentioned he hopes to visit the Smoky Mountains someday.
+2026-01-05 15:31:52,054 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:31:52,054 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's prompt to ensure it doesn't halt at the first piece of information it finds and to prioritize retrieving specific mentions from the context buffer over generalizations or assumptions. For example, the Answerer should be instructed to perform a more thorough search within the buffer before providing an answer.
+2026-01-05 15:31:52,055 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 16. Processing Buffer...
+2026-01-05 15:32:33,100 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:32:33,100 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Inspiration from LeBron's Finals block--> LeBron (Time: 2023-11-06)
+2026-01-05 15:32:33,107 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Prized possession serving as a reminder of hard work--> basketball signed by favorite player (Time: 2023-11-06)
+2026-01-05 15:32:33,111 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Wife accompanied on European vacation--> wife (Time: 2023-11-06)
+2026-01-05 15:32:33,115 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Vacation to Europe, short but sweet--> European vacation (Time: 2023-11-06)
+2026-01-05 15:32:33,140 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Epic block in '16 Finals game inspired Tim--> LeBron's Finals block (Time: 2023-11-06)
+2026-01-05 15:32:33,140 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Love watching LeBron play--> LeBron (Time: 2023-11-06)
+2026-01-05 15:32:33,179 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Interest in visiting castles during European vacation--> castle (Time: 2023-11-06)
+2026-01-05 15:32:33,179 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim and wife planning a short European vacation--> European vacation (Time: 2023-11-06)
+2026-01-05 15:32:33,180 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim and wife have a close relationship--> wife (Time: 2023-11-06)
+2026-01-05 15:32:33,180 - Amadeus.Builder - INFO - 🔗 LINK: John --John and wife are supporting each other--> wife (Time: 2023-11-06)
+2026-01-05 15:32:33,181 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Currently reading a fantasy book by Patrick Rothfuss--> fantasy book (Time: 2023-11-06)
+2026-01-05 15:32:33,181 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim's bookshelf is filled with his favorite fantasy novels--> bookshelf (Time: 2023-11-06)
+2026-01-05 15:32:33,186 - Amadeus.Builder - INFO - 🔗 LINK: John --Overcame a large deficit in a basketball game last year--> basketball game (Time: 2023-11-06)
+2026-01-05 15:32:33,186 - Amadeus.Builder - INFO - 🔗 LINK: John --John and wife are supporting each other--> wife (Time: 2023-11-06)
+2026-01-05 15:32:33,187 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim and wife planning a short European vacation--> European vacation (Time: 2023-11-06)
+2026-01-05 15:32:33,187 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim loves watching LeBron play and admires his determination--> LeBron (Time: 2023-11-06)
+2026-01-05 15:32:33,334 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:32:33,337 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:32:39,842 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:32:39,843 - Amadeus.Answerer - INFO - ❓ Question: What was Tim's favorite moment involving LeBron James?
+2026-01-05 15:32:41,052 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim favorite moment LeBron James', 'mode': 'hybrid'}
+2026-01-05 15:32:45,567 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': "LeBron's Finals block"}
+2026-01-05 15:32:47,410 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Tim's favorite moment involving LeBron James was during the 2016 Finals game when LeBron made an epic block, which inspired him."}
+2026-01-05 15:32:47,421 - Amadeus.Optimizer - INFO - GT: Tim loves a Finals game a few years back where LeBron made an epic block that changed the game and ended up winning it.
+2026-01-05 15:32:47,421 - Amadeus.Optimizer - INFO - Pre: Tim's favorite moment involving LeBron James was during the 2016 Finals game when LeBron made an epic block, which inspired him.
+2026-01-05 15:32:51,899 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:32:51,900 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when a subject expresses admiration or inspiration towards an object, the system captures specific moments or events related to that admiration. For example, add a rule to extract favorite moments or key inspirations directly linked to the object of admiration.
+2026-01-05 15:32:51,900 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "LeBron James", "content": "favorite moment involving"}, {"action": "ADD", "object": "2016 Finals game", "content": "epic block by LeBron James that changed the game and ended up winning it"}]
+2026-01-05 15:33:02,857 - Amadeus.Builder - INFO - 🔗 LINK: Tim --favorite moment involving--> LeBron James (Time: 2023-11-06)
+2026-01-05 15:33:02,859 - Amadeus.Builder - WARNING - Op 1 skipped: Missing subject.
+2026-01-05 15:33:03,136 - Amadeus.Answerer - INFO - ❓ Question: How does Tim feel about the struggles he faces in his writing process?
+2026-01-05 15:33:04,191 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim writing process struggles', 'mode': 'hybrid'}
+2026-01-05 15:33:07,984 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Tim'}
+2026-01-05 15:33:10,779 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Tim is supportive and encourages himself to find a way to juggle studying with his fantasy reading hobby. He is determined and not giving up despite the overwhelming assignments and exams.'}
+2026-01-05 15:33:10,779 - Amadeus.Optimizer - INFO - GT: Tim finds the struggle and then the satisfaction to be beautiful and motivating.
+2026-01-05 15:33:10,780 - Amadeus.Optimizer - INFO - Pre: Tim is supportive and encourages himself to find a way to juggle studying with his fantasy reading hobby. He is determined and not giving up despite the overwhelming assignments and exams.
+2026-01-05 15:33:16,045 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:33:16,045 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it retrieves more nuanced emotional responses from personal experiences and directly relevant statements. Specifically, instruct the Answerer to trust the graph more and avoid making assumptions based on unrelated or distant connections.
+2026-01-05 15:33:16,045 - Amadeus.Answerer - INFO - ❓ Question: Where are John and Tim's wives currently located?
+2026-01-05 15:33:17,118 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John and Tim's wives", 'mode': 'hybrid'}
+2026-01-05 15:33:24,436 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Based on the available information, John and Tim's wives are currently on a short European vacation."}
+2026-01-05 15:33:24,437 - Amadeus.Optimizer - INFO - GT: John and his wife are on a European vacation.
+2026-01-05 15:33:24,437 - Amadeus.Optimizer - INFO - Pre: Based on the available information, John and Tim's wives are currently on a short European vacation.
+2026-01-05 15:33:27,062 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:33:27,062 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and activities rather than historical context or past plans. Avoid asking about locations or details that are not explicitly mentioned in recent exchanges.
+2026-01-05 15:33:27,065 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 17. Processing Buffer...
+2026-01-05 15:34:04,106 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:34:04,107 - Amadeus.Builder - INFO - 🔗 LINK: John --Wife accompanied on European vacation; close relationship--> wife (Time: 2023-11-06)
+2026-01-05 15:34:04,113 - Amadeus.Builder - INFO - 🔗 LINK: John --Road tripping on the European coastline; witnessed beautiful nature scenes--> witnessed beautiful nature scenes (Time: 2023-11-06)
+2026-01-05 15:34:04,113 - Amadeus.Builder - INFO - 🔗 LINK: John --Amazing road trip; saw epic spots; beautiful nature scenes--> witnessed beautiful nature scenes (Time: 2023-11-06)
+2026-01-05 15:34:04,168 - Amadeus.Builder - INFO - 🔗 LINK: John --Finished an amazing fantasy series; author creates awesome storylines and characters--> fantasy series (Time: 2023-11-06)
+2026-01-05 15:34:04,181 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Reading and discussing with fans; enjoying fantasy literature; escaping to magical worlds--> fantasy literature forum (Time: 2023-11-06)
+2026-01-05 15:34:04,182 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Currently reading a fantasy book by Patrick Rothfuss; favorited honey garlic chicken recipe; shared a photo of cooking a meal--> fantasy book (Time: 2023-11-06)
+2026-01-05 15:34:04,238 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Supportive and encouraging towards John; sharing personal experiences and support--> support network (Time: 2023-11-06)
+2026-01-05 15:34:04,256 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Short but sweet European vacation; wife accompanied; planning a trip to Universal Studios--> European vacation (Time: 2023-11-06)
+2026-01-05 15:34:04,305 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Attended a Harry Potter conference in the UK; discussions on fantasy and gaming--> Harry Potter conference (Time: 2023-11-06)
+2026-01-05 15:34:04,305 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Short but sweet European vacation; wife accompanied; planning a trip to Universal Studios; interest in visiting castles--> European vacation (Time: 2023-11-06)
+2026-01-05 15:34:04,320 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Interest in visiting castles; love watching LeBron play; admiration for his work ethic and dedication--> interests (Time: 2023-11-06)
+2026-01-05 15:34:04,355 - Amadeus.Builder - INFO - 🔗 LINK: John --Finding the right balance between studies and hobbies; mental and physical well-being; importance of recharging--> balance between studies and hobbies (Time: 2023-11-06)
+2026-01-05 15:34:04,463 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Wife accompanied on European vacation; close relationship; planning a short European vacation--> wifey (Time: 2023-11-06)
+2026-01-05 15:34:04,609 - Amadeus.Builder - INFO - ➕ NODE: John
+2026-01-05 15:34:05,107 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:34:05,114 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:34:12,753 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:34:12,753 - Amadeus.Answerer - INFO - ❓ Question: How might John feel after his road trip with his wife?
+2026-01-05 15:34:14,393 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John road trip feelings', 'mode': 'hybrid'}
+2026-01-05 15:34:21,487 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "After his road trip with his wife, John might feel nostalgic and happy, appreciating the support and love from his family and old friends. This experience likely reinforced his close relationship with his wife and reminded him of the good ol' times, which could enhance his overall positive emotions."}
+2026-01-05 15:34:21,487 - Amadeus.Optimizer - INFO - GT: He would likely feel rejuvenated and closer to his wife after their trip.
+2026-01-05 15:34:21,487 - Amadeus.Optimizer - INFO - Pre: After his road trip with his wife, John might feel nostalgic and happy, appreciating the support and love from his family and old friends. This experience likely reinforced his close relationship with his wife and reminded him of the good ol' times, which could enhance his overall positive emotions.
+2026-01-05 15:34:25,881 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:34:25,881 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on implicit causality and ask questions that reflect recent events or current feelings. Avoid queries that rely heavily on historical context or past relationships that are not directly relevant to the current session context.
+2026-01-05 15:34:25,882 - Amadeus.Answerer - INFO - ❓ Question: What did John's wife do during their road trip?
+2026-01-05 15:34:27,002 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's wife road trip", 'mode': 'hybrid'}
+2026-01-05 15:34:28,574 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'wife'}
+2026-01-05 15:34:29,818 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'European vacation 2023-11-06 wife activities', 'mode': 'hybrid'}
+2026-01-05 15:34:33,926 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "During their road trip, John's wife visited home and caught up with her family and old friends."}
+2026-01-05 15:34:33,926 - Amadeus.Optimizer - INFO - GT: The text does not provide specific actions of John's wife during the trip.
+2026-01-05 15:34:33,926 - Amadeus.Optimizer - INFO - Pre: During their road trip, John's wife visited home and caught up with her family and old friends.
+2026-01-05 15:34:38,265 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:34:38,265 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer to ensure it does not hallucinate specific actions or details that are not explicitly mentioned in the context. The Answerer should focus on the relationships and activities described in the buffer and avoid making assumptions based on general contexts or historical patterns.
+2026-01-05 15:34:38,265 - Amadeus.Answerer - INFO - ❓ Question: Why does Tim think reading and watching fantasy can be refreshing?
+2026-01-05 15:34:39,424 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim thinks reading and watching fantasy can be refreshing', 'mode': 'hybrid'}
+2026-01-05 15:34:43,381 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Tim thinks reading and watching fantasy can be refreshing because it allows him to escape to different magical worlds, recharge, and find his peace. This activity helps him balance his studies and hobbies, providing a break from academic pressures.'}
+2026-01-05 15:34:43,382 - Amadeus.Optimizer - INFO - GT: Tim thinks it helps to take a break from reality and allows the mind to wander, which can give a mental break and a chance to recharge.
+2026-01-05 15:34:43,382 - Amadeus.Optimizer - INFO - Pre: Tim thinks reading and watching fantasy can be refreshing because it allows him to escape to different magical worlds, recharge, and find his peace. This activity helps him balance his studies and hobbies, providing a break from academic pressures.
+2026-01-05 15:34:46,906 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:34:46,906 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 18. Processing Buffer...
+2026-01-05 15:35:24,729 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:35:24,730 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim visited a castle during his trip to the UK last Friday--> castle (Time: 2023-11-10)
+2026-01-05 15:35:24,730 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim visited a castle during his trip to the UK last Friday; planning a short European vacation--> European vacation (Time: 2023-11-10)
+2026-01-05 15:35:24,730 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim's interest in visiting castles during European vacation--> interests (Time: 2023-11-10)
+2026-01-05 15:35:24,735 - Amadeus.Builder - INFO - 🔗 LINK: John --John is dealing with an injury and hopes it heals soon--> injury (Time: 2023-11-16)
+2026-01-05 15:35:24,739 - Amadeus.Builder - INFO - 🔗 LINK: John --John is working diligently on exam preparation and is feeling optimistic--> exam preparation (Time: 2023-11-16)
+2026-01-05 15:35:24,743 - Amadeus.Builder - INFO - 🔗 LINK: John --John uses the Pomodoro technique (25 minutes on, 5 minutes off for something fun)--> study tricks (Time: 2023-11-16)
+2026-01-05 15:35:24,747 - Amadeus.Builder - INFO - 🔗 LINK: John --Doctor said John's injury is not too serious and he is pushing on--> injury recovery (Time: 2023-11-16)
+2026-01-05 15:35:24,747 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim and John share support and encouragement during difficult times--> support network (Time: 2023-11-16)
+2026-01-05 15:35:24,789 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:35:24,789 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:35:34,492 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:35:34,493 - Amadeus.Answerer - INFO - ❓ Question: Where has Tim been swamped with exams?
+2026-01-05 15:35:36,183 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim swamped with exams', 'mode': 'hybrid'}
+2026-01-05 15:35:42,761 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Tim has been swamped with exams, as indicated in his conversation with John where he mentioned that assignments and exams are overwhelming.'}
+2026-01-05 15:35:42,761 - Amadeus.Optimizer - INFO - GT: This week.
+2026-01-05 15:35:42,762 - Amadeus.Optimizer - INFO - Pre: Tim has been swamped with exams, as indicated in his conversation with John where he mentioned that assignments and exams are overwhelming.
+2026-01-05 15:35:46,202 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:35:46,202 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to capture more contextually relevant information, such as timelines and specific mentions of current activities. Ensure that the builder connects recent discussions and mentions directly to the current session context.
+2026-01-05 15:35:46,203 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "exams", "content": "swamped with exams"}, {"action": "ADD", "subject": "exam preparation", "object": "this week", "content": "week"}]
+2026-01-05 15:35:53,953 - Amadeus.Builder - INFO - 🔗 LINK: Tim --swamped with exams--> exams (Time: None)
+2026-01-05 15:35:53,957 - Amadeus.Builder - INFO - 🔗 LINK: exam preparation --week--> this week (Time: None)
+2026-01-05 15:35:54,482 - Amadeus.Answerer - INFO - ❓ Question: How does Tim break up his studying to stay on track?
+2026-01-05 15:35:56,377 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim breaks up his studying', 'mode': 'hybrid'}
+2026-01-05 15:35:58,963 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Tim'}
+2026-01-05 15:36:01,202 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Fantasy book'}
+2026-01-05 15:36:02,343 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Tim's studying habits", 'mode': 'hybrid'}
+2026-01-05 15:36:05,315 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': 'how does Tim break up his studying with hobbies', 'mode': 'hybrid'}
+2026-01-05 15:36:10,647 - Amadeus.Answerer - INFO - Step 6: READ - {'tool': 'READ', 'answer': 'Tim breaks up his studying by engaging in his fantasy reading hobby and spending time with his family and old friends. He also uses cooking as a form of therapy and takes breaks from basketball.'}
+2026-01-05 15:36:10,648 - Amadeus.Optimizer - INFO - GT: He studies for 25 minutes and then takes a 5-minute break for something fun.
+2026-01-05 15:36:10,648 - Amadeus.Optimizer - INFO - Pre: Tim breaks up his studying by engaging in his fantasy reading hobby and spending time with his family and old friends. He also uses cooking as a form of therapy and takes breaks from basketball.
+2026-01-05 15:36:14,423 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:36:14,424 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should be more cautious and ensure that it does not rely solely on one-hop connections. It should trust the graph over priors and consider multiple hops to find relevant information. Additionally, the Answerer should prioritize verifying the context provided by the current session buffer before making assumptions.
+2026-01-05 15:36:14,424 - Amadeus.Answerer - INFO - ❓ Question: What does John visualize to help him stay motivated during study sessions?
+2026-01-05 15:36:15,995 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John visualization motivation study sessions', 'mode': 'hybrid'}
+2026-01-05 15:36:35,115 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Fantasy book'}
+2026-01-05 15:36:36,644 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'John motivation visualization study sessions', 'mode': 'hybrid'}
+2026-01-05 15:36:40,302 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'John visualizes reading an inspiring book that reminds him to keep dreaming to help him stay motivated during study sessions.'}
+2026-01-05 15:36:40,302 - Amadeus.Optimizer - INFO - GT: His goals and success.
+2026-01-05 15:36:40,302 - Amadeus.Optimizer - INFO - Pre: John visualizes reading an inspiring book that reminds him to keep dreaming to help him stay motivated during study sessions.
+2026-01-05 15:36:44,670 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:36:44,671 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it does not hallucinate specific details unless they are explicitly mentioned in the context. The Answerer should be encouraged to trust the information present in the Global Memory Graph more heavily and avoid introducing new elements without clear evidence.
+2026-01-05 15:36:44,675 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 19. Processing Buffer...
+2026-01-05 15:37:15,162 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:37:15,163 - Amadeus.Builder - INFO - 🔗 LINK: John --Staying focused on recovery and working hard to strengthen his body; realized the importance of patience and perseverance--> injury (Time: 2023-11-06)
+2026-01-05 15:37:15,184 - Amadeus.Builder - INFO - 🔗 LINK: John --Trying to improve storytelling by reflecting on what went wrong and finding ways to get better--> storytelling (Time: 2023-11-06)
+2026-01-05 15:37:15,184 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Trying to improve storytelling by reflecting on what went wrong and finding ways to get better--> storytelling (Time: 2023-11-06)
+2026-01-05 15:37:15,188 - Amadeus.Builder - INFO - 🔗 LINK: John --Feeling positive and determined to recover from injury--> emotional state (Time: 2023-11-16)
+2026-01-05 15:37:15,189 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Feeling motivated and hopeful after reading 'The Alchemist'--> emotional state (Time: 2023-11-06)
+2026-01-05 15:37:15,192 - Amadeus.Builder - INFO - 🔗 LINK: John --Reading and writing as hobbies; uses these to stay motivated and grow--> hobbies (Time: 2023-11-06)
+2026-01-05 15:37:15,193 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Reading and writing as hobbies; uses these to stay motivated and grow--> hobbies (Time: 2023-11-06)
+2026-01-05 15:37:15,193 - Amadeus.Builder - INFO - 🔗 LINK: John --Reflecting on mistakes and using them to drive improvement; grateful for support--> emotional state (Time: 2023-11-06)
+2026-01-05 15:37:15,193 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Inspired by John's resilience and determination; supportive and encouraging--> emotional state (Time: 2023-11-06)
+2026-01-05 15:37:15,194 - Amadeus.Builder - INFO - 🔗 LINK: John --Supportive and encouraging towards Tim; sharing personal experiences and support--> emotional state (Time: 2023-11-06)
+2026-01-05 15:37:15,194 - Amadeus.Builder - INFO - 🔗 LINK: John --Companions on growth journey--> Tim (Time: 2023-11-06)
+2026-01-05 15:37:15,194 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Companions on growth journey--> John (Time: 2023-11-06)
+2026-01-05 15:37:15,299 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:37:15,299 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:37:27,058 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:37:27,059 - Amadeus.Answerer - INFO - ❓ Question: What was John's major challenge last season?
+2026-01-05 15:37:28,418 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "John's major challenge last season", 'mode': 'hybrid'}
+2026-01-05 15:37:40,222 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Overcame a large deficit in a basketball game last year'}
+2026-01-05 15:37:43,702 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Overcame a large deficit in a basketball game last year'}
+2026-01-05 15:37:45,894 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "John's major challenge last season was overcoming a large deficit in a basketball game."}
+2026-01-05 15:37:45,895 - Amadeus.Optimizer - INFO - GT: He hurt his ankle, which required time off and physical therapy.
+2026-01-05 15:37:45,895 - Amadeus.Optimizer - INFO - Pre: John's major challenge last season was overcoming a large deficit in a basketball game.
+2026-01-05 15:37:50,762 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:37:50,762 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should include more detailed extraction rules to capture specific health-related information and the context of personal setbacks. The Builder should also focus on identifying and linking relevant attributes and relationships in the conversation to ensure that pertinent details are included in the graph.
+2026-01-05 15:37:50,762 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "injury", "content": "hurt his ankle, which required time off and physical therapy"}, {"action": "UPDATE", "subject": "Tim", "object": "storytelling setback", "content": "tried writing a story based on his experiences in the UK, but it didn't go the way he wanted"}]
+2026-01-05 15:37:59,050 - Amadeus.Builder - INFO - 🔗 LINK: John --hurt his ankle, which required time off and physical therapy--> injury (Time: 2023-11-16)
+2026-01-05 15:37:59,056 - Amadeus.Builder - INFO - 🔗 LINK: Tim --tried writing a story based on his experiences in the UK, but it didn't go the way he wanted--> storytelling setback (Time: 2023-11-06)
+2026-01-05 15:37:59,213 - Amadeus.Answerer - INFO - ❓ Question: How did John stay motivated during his recovery from the ankle injury?
+2026-01-05 15:38:00,735 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John recovery from ankle injury motivation', 'mode': 'hybrid'}
+2026-01-05 15:38:04,377 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'John'}
+2026-01-05 15:38:07,368 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'John stayed motivated during his recovery from the ankle injury by reflecting on his past experiences, such as overcoming a large deficit in a basketball game, and by the support and encouragement from his teammates. He also reads an inspiring book that reminds him to keep dreaming and feels positive and determined to recover.'}
+2026-01-05 15:38:07,368 - Amadeus.Optimizer - INFO - GT: He remembered why he loves basketball and kept growing and striving to be a strong player and teammate.
+2026-01-05 15:38:07,370 - Amadeus.Optimizer - INFO - Pre: John stayed motivated during his recovery from the ankle injury by reflecting on his past experiences, such as overcoming a large deficit in a basketball game, and by the support and encouragement from his teammates. He also reads an inspiring book that reminds him to keep dreaming and feels positive and determined to recover.
+2026-01-05 15:38:10,590 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:38:10,591 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that relevant motivations and personal interests are captured when building relationships or attributes. Specifically, include rules to identify and link personal hobbies or passions to their impact on motivation and recovery.
+2026-01-05 15:38:10,591 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "motivation", "content": "John remembered why he loves basketball and kept growing and striving to be a strong player and teammate."}]
+2026-01-05 15:38:19,216 - Amadeus.Builder - INFO - 🔗 LINK: John --John remembered why he loves basketball and kept growing and striving to be a strong player and teammate.--> motivation (Time: None)
+2026-01-05 15:38:19,714 - Amadeus.Answerer - INFO - ❓ Question: What type of books does John enjoy reading besides fantasy novels?
+2026-01-05 15:38:20,930 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John enjoys reading besides fantasy novels', 'mode': 'hybrid'}
+2026-01-05 15:38:23,324 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'fantasy literature forum'}
+2026-01-05 15:38:24,638 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's interests in the fantasy literature forum", 'mode': 'hybrid'}
+2026-01-05 15:38:26,811 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Based on the information available, John enjoys reading fantasy novels besides other types of books. Specifically, he has shown interest in fantasy novels such as 'The Name of the Wind' by Patrick Rothfuss."}
+2026-01-05 15:38:26,812 - Amadeus.Optimizer - INFO - GT: He enjoys reading non-fiction books about personal development and mindset.
+2026-01-05 15:38:26,812 - Amadeus.Optimizer - INFO - Pre: John enjoys reading fantasy novels besides other types of books. Specifically, he has shown interest in fantasy novels such as 'The Name of the Wind' by Patrick Rothfuss.
+2026-01-05 15:38:31,082 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:38:31,083 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to capture explicit mentions of book genres and preferences directly related to the context provided. Ensure that attributes and relationships are only added if they are explicitly stated in the session context.
+2026-01-05 15:38:31,083 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "non-fiction books", "content": "enjoys reading non-fiction books about personal development and mindset"}, {"action": "REMOVE", "subject": "John", "object": "fantasy novels", "content": "specifically, he has shown interest in fantasy novels such as 'The Name of the Wind'"}]
+2026-01-05 15:38:39,565 - Amadeus.Builder - INFO - 🔗 LINK: John --enjoys reading non-fiction books about personal development and mindset--> non-fiction books (Time: None)
+2026-01-05 15:38:39,648 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 20. Processing Buffer...
+2026-01-05 15:39:13,279 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Extract entities and their relationships. Step 3: Compare with existing Graph data. Step 4: Resolve conflicts and update relationships.
+2026-01-05 15:39:13,286 - Amadeus.Builder - INFO - 🔗 LINK: John --Yoga is helping with strength, flexibility, focus, and balance during workouts--> yoga (Time: 2023-12-01)
+2026-01-05 15:39:13,292 - Amadeus.Builder - INFO - 🔗 LINK: John --John enjoys the Warrior II pose for its strength-building benefits--> Warrior II pose (Time: 2023-12-01)
+2026-01-05 15:39:13,297 - Amadeus.Builder - INFO - 🔗 LINK: John --John's photo of himself in the Warrior II pose--> yoga photo (Time: 2023-12-01)
+2026-01-05 15:39:13,325 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim turned a tough exam into a learning experience and is now resilient and determined--> exam preparation (Time: 2023-12-01)
+2026-01-05 15:39:13,326 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim enjoys reading fantasy books and practicing yoga--> hobbies (Time: 2023-12-01)
+2026-01-05 15:39:13,326 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim has read another popular fantasy series--> fantasy series (Time: 2023-12-01)
+2026-01-05 15:39:13,327 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim reorganized his bookshelf and shared photos of his favorite books--> bookshelf (Time: 2023-12-01)
+2026-01-05 15:39:13,327 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim feels grateful for support and encouragement from John--> emotional state (Time: 2023-12-01)
+2026-01-05 15:39:13,327 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim and John support and encourage each other during challenging times--> support network (Time: 2023-12-01)
+2026-01-05 15:39:13,328 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim enjoys escaping to magical worlds through reading fantasy books and practicing yoga--> hobbies (Time: 2023-12-01)
+2026-01-05 15:39:13,340 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim enjoyed camping in the Rocky Mountains last year--> Rocky Mountains (Time: 2023-12-01)
+2026-01-05 15:39:13,341 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim appreciates the calming effects of nature and its beauty--> emotional state (Time: 2023-12-01)
+2026-01-05 15:39:13,349 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim admired the photo of the forest near John's hometown--> John's hometown forest (Time: 2023-12-01)
+2026-01-05 15:39:13,500 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:39:13,500 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:39:20,988 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:39:20,988 - Amadeus.Answerer - INFO - ❓ Question: What did Tim turn his tough exam experience into?
+2026-01-05 15:39:22,073 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim tough exam experience', 'mode': 'hybrid'}
+2026-01-05 15:39:26,969 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Tim turned a tough exam into a learning experience and is now resilient and determined.'}
+2026-01-05 15:39:26,969 - Amadeus.Optimizer - INFO - GT: He turned it into a learning experience and showed himself how resilient and determined he can be.
+2026-01-05 15:39:26,969 - Amadeus.Optimizer - INFO - Pre: Tim turned a tough exam into a learning experience and is now resilient and determined.
+2026-01-05 15:39:28,706 - Amadeus.Optimizer - INFO - ✅ DEFENDER SUCCEEDED. Optimizing Questioner...
+2026-01-05 15:39:28,706 - Amadeus.Agent - INFO - 📈 Guideline Updated for [GENERATE]: Focus on current events and experiences rather than historical or long-term outcomes. Encourage questions that seek immediate context and recent developments.
+2026-01-05 15:39:28,706 - Amadeus.Answerer - INFO - ❓ Question: How long does John typically hold the Warrior II pose?
+2026-01-05 15:39:29,813 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John Warrior II pose duration', 'mode': 'hybrid'}
+2026-01-05 15:39:33,597 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'The information provided does not specify how long John typically holds the Warrior II pose.'}
+2026-01-05 15:39:33,598 - Amadeus.Optimizer - INFO - GT: He holds it for 30-60 seconds.
+2026-01-05 15:39:33,598 - Amadeus.Optimizer - INFO - Pre: The information provided does not specify how long John typically holds the Warrior II pose.
+2026-01-05 15:39:36,620 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:39:36,620 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture specific durations and time-related attributes when describing pose benefits or practices in the context of yoga. Ensure that relevant details are extracted and linked correctly to avoid hallucination or lack of specificity in responses.
+2026-01-05 15:39:36,620 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Warrior II pose duration", "content": "John typically holds the Warrior II pose for 30-60 seconds."}]
+2026-01-05 15:39:43,387 - Amadeus.Builder - INFO - 🔗 LINK: John --John typically holds the Warrior II pose for 30-60 seconds.--> Warrior II pose duration (Time: 2023-12-01)
+2026-01-05 15:39:44,106 - Amadeus.Answerer - INFO - ❓ Question: What does John believe is the impact of spending time in nature on their relationship?
+2026-01-05 15:39:45,383 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John belief impact spending time in nature relationship', 'mode': 'hybrid'}
+2026-01-05 15:39:50,152 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'witnessed beautiful nature scenes'}
+2026-01-05 15:39:51,386 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "John's belief on impact of spending time in nature on relationship", 'mode': 'hybrid'}
+2026-01-05 15:39:55,485 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'John belief impact spending time in nature on relationship', 'mode': 'hybrid'}
+2026-01-05 15:40:02,304 - Amadeus.Answerer - INFO - Step 5: READ - {'tool': 'READ', 'answer': 'Based on the information available, John believes that spending time in nature has a positive impact on his relationship with his teammates, making him feel more motivated and grateful for his basketball career. This belief is reinforced by moments of nostalgia and emotional connections during visits to his hometown and the European vacation.'}
+2026-01-05 15:40:02,305 - Amadeus.Optimizer - INFO - GT: It makes them realize they are part of something bigger and highlights the beauty around them, which reminds them they are not alone.
+2026-01-05 15:40:02,305 - Amadeus.Optimizer - INFO - Pre: John believes that spending time in nature has a positive impact on his relationship with his teammates, making him feel more motivated and grateful for his basketball career. This belief is reinforced by moments of nostalgia and emotional connections during visits to his hometown and the European vacation.
+2026-01-05 15:40:08,198 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:40:08,198 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's strategy to ensure it does not hallucinate answers when the exact information is present in the Builder's activity log. The Answerer should focus on retrieving information within a local context first before considering global memory. Specifically, the Answerer should be cautious not to make assumptions based on unrelated activities or contexts.
+2026-01-05 15:40:08,199 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 21. Processing Buffer...
+2026-01-05 15:40:36,549 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify the absolute date from the context. Step 2: Identify entities and their relationships. Step 3: Compare with the existing Graph. Step 4: Resolve conflicts and update the knowledge graph accordingly.
+2026-01-05 15:40:36,557 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Joined a travel club and excited to meet new people and learn about different cultures.--> Travel club (Time: 2023-12-06)
+2026-01-05 15:40:36,568 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Started learning to play the violin, mostly into classical music but also jazz and film scores.--> Violin (Time: 2023-12-06)
+2026-01-05 15:40:36,590 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Interested in classical music, jazz, and film scores.--> Classical music (Time: 2023-12-06)
+2026-01-05 15:40:36,662 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Can give a pep talk before a game to motivate teammates.--> Pep talk (Time: 2023-12-06)
+2026-01-05 15:40:36,707 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Can create a constructive atmosphere by working hard and sharing personal experiences.--> Constructive atmosphere (Time: 2023-12-06)
+2026-01-05 15:40:36,758 - Amadeus.Builder - INFO - 🔗 LINK: John --Teammates come from all over and provide support and motivation.--> Teammates (Time: 2023-12-06)
+2026-01-05 15:40:36,797 - Amadeus.Builder - INFO - 🔗 LINK: John --Playing professionally for just under a year now; challenges, growth, and progress in various areas.--> Playing professionally (Time: 2023-12-06)
+2026-01-05 15:40:36,802 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Started learning to play the violin, mostly into classical music but also jazz and film scores.--> Instrument (Time: 2023-12-06)
+2026-01-05 15:40:36,868 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Played the piano for about four months now; enjoying the progress.--> Piano (Time: 2023-12-06)
+2026-01-05 15:40:36,898 - Amadeus.Builder - INFO - ⏳ WAIT: Specific strategies in mind fo...
+2026-01-05 15:40:36,904 - Amadeus.Builder - INFO - ⏳ WAIT: Specific strategies in mind fo...
+2026-01-05 15:40:37,280 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:40:37,281 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:40:43,046 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:40:43,046 - Amadeus.Answerer - INFO - ❓ Question: What instrument is Tim currently learning?
+2026-01-05 15:40:44,110 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim learning instrument', 'mode': 'hybrid'}
+2026-01-05 15:40:48,777 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Tim is currently learning to play the piano.'}
+2026-01-05 15:40:48,777 - Amadeus.Optimizer - INFO - GT: He is learning the violin.
+2026-01-05 15:40:48,777 - Amadeus.Optimizer - INFO - Pre: Tim is currently learning to play the piano.
+2026-01-05 15:40:52,076 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:40:52,076 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it does not rely solely on one-hop connections and to trust the Global Memory Graph more heavily. The Answerer should be encouraged to explore multiple relationships and attributes within the context provided by the Builder to generate more accurate responses.
+2026-01-05 15:40:52,077 - Amadeus.Answerer - INFO - ❓ Question: How does John feel about his professional journey as a basketball player?
+2026-01-05 15:40:53,218 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John professional journey basketball player', 'mode': 'hybrid'}
+2026-01-05 15:41:03,780 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'John feels nostalgic and grateful about his basketball career, especially with the support and motivation from his teammates.'}
+2026-01-05 15:41:03,781 - Amadeus.Optimizer - INFO - GT: It's been great, challenging, and full of growth.
+2026-01-05 15:41:03,781 - Amadeus.Optimizer - INFO - Pre: John feels nostalgic and grateful about his basketball career, especially with the support and motivation from his teammates.
+2026-01-05 15:41:07,080 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:41:07,080 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture explicit statements about a person's feelings towards their professional journey. Ensure that any sentiment or experience related to a professional role is accurately linked to the individual in question.
+2026-01-05 15:41:07,081 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "Professional journey in basketball", "content": "It's been great, challenging, and full of growth."}]
+2026-01-05 15:41:36,938 - Amadeus.Builder - INFO - 🔗 LINK: John --It's been great, challenging, and full of growth.--> Professional journey in basketball (Time: None)
+2026-01-05 15:41:37,238 - Amadeus.Answerer - INFO - ❓ Question: What strategies does Tim mention for motivating others on his team?
+2026-01-05 15:41:38,482 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim motivating strategies', 'mode': 'hybrid'}
+2026-01-05 15:41:42,030 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'motivation'}
+2026-01-05 15:41:43,530 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Tim motivating strategies', 'mode': 'hybrid'}
+2026-01-05 15:41:49,976 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': 'Tim motivation strategies', 'mode': 'hybrid'}
+2026-01-05 15:41:54,713 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'study tricks'}
+2026-01-05 15:41:55,941 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': 'Tim motivation strategies', 'mode': 'hybrid'}
+2026-01-05 15:42:00,729 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Tim'}
+2026-01-05 15:42:05,826 - Amadeus.Answerer - INFO - Step 8: READ - {'tool': 'READ', 'answer': "Tim mentions that his teammates provide strong support and encouragement, which motivates him. He also appreciates John's mentorship and support during difficult times."}
+2026-01-05 15:42:05,826 - Amadeus.Optimizer - INFO - GT: He mentions using personal stories to encourage others and setting an example by working hard.
+2026-01-05 15:42:05,827 - Amadeus.Optimizer - INFO - Pre: Tim mentions that his teammates provide strong support and encouragement, which motivates him. He also appreciates John's mentorship and support during difficult times.
+2026-01-05 15:42:09,592 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:42:09,592 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update extraction rules to ensure that when Tim discusses his own actions or strategies, they are accurately linked to his own nodes in the graph. Specifically, improve the rule to capture self-referential statements and link them correctly to the subject node.
+2026-01-05 15:42:09,592 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Tim", "object": "Motivational Strategies", "content": "Mentioned using personal stories to encourage others and setting an example by working hard."}]
+2026-01-05 15:42:25,082 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Mentioned using personal stories to encourage others and setting an example by working hard.--> Motivational Strategies (Time: 2023-11-06)
+2026-01-05 15:42:25,263 - Experiment - INFO - [conv-43] 🔄 Flush Triggered at chunk 22. Processing Buffer...
+2026-01-05 15:42:53,735 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:42:53,741 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Attended a Harry Potter party and met lots of awesome people who were into the same stuff as him.--> Harry Potter party (Time: 2023-12-08)
+2026-01-05 15:42:53,745 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Wore a Gryffindor scarf at the Harry Potter party.--> Gryffindor scarf (Time: 2023-12-08)
+2026-01-05 15:42:53,758 - Amadeus.Builder - INFO - 🔗 LINK: John --Tim asked about recent meet-ups with the basketball team, indicating John's team has had some tough but successful games recently.--> basketball team (Time: 2023-12-08)
+2026-01-05 15:42:53,839 - Amadeus.Builder - INFO - 🔗 LINK: John --Tim praised the camaraderie built both on and off the court, emphasizing the team's unity and support.--> camaraderie (Time: 2023-12-08)
+2026-01-05 15:42:53,981 - Amadeus.Builder - INFO - 🔗 LINK: John --Tim asked about the book John is currently reading, indicating John is reading 'Dune' by Frank Herbert.--> book (Time: 2023-12-08)
+2026-01-05 15:42:53,997 - Amadeus.Builder - INFO - 🔗 LINK: John --Tim recommended 'A Dance with Dragons' by George R. R. Martin to John.--> book (Time: 2023-12-08)
+2026-01-05 15:42:53,998 - Amadeus.Builder - INFO - 🔗 LINK: John --John is reading 'Dune' by Frank Herbert and 'A Dance with Dragons' by George R. R. Martin.--> book (Time: 2023-12-08)
+2026-01-05 15:42:53,998 - Amadeus.Builder - INFO - 🔗 LINK: Tim --Tim enjoys reading fantasy books and practicing yoga.--> hobbies (Time: 2023-12-08)
+2026-01-05 15:42:53,999 - Amadeus.Builder - INFO - 🔗 LINK: John --John enjoys reading fantasy books and practicing yoga.--> hobbies (Time: 2023-12-08)
+2026-01-05 15:42:54,607 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:42:54,608 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:43:11,159 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:43:11,159 - Amadeus.Answerer - INFO - ❓ Question: What book is John currently reading?
+2026-01-05 15:43:12,702 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'John currently reading book', 'mode': 'hybrid'}
+2026-01-05 15:43:15,427 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "John is currently reading 'Dune' by Frank Herbert and 'A Dance with Dragons' by George R. R. Martin."}
+2026-01-05 15:43:15,427 - Amadeus.Optimizer - INFO - GT: He is reading 'Dune' by Frank Herbert.
+2026-01-05 15:43:15,428 - Amadeus.Optimizer - INFO - Pre: John is currently reading 'Dune' by Frank Herbert and 'A Dance with Dragons' by George R. R. Martin.
+2026-01-05 15:43:20,022 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:43:20,022 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt needs to focus more on extracting specific, relevant information from the context. It should be designed to ensure that when a relationship or attribute is needed to answer a question, it must be explicitly linked within the log. Additionally, the Builder should prioritize updating the graph with the most recent and accurate information provided in the context.
+2026-01-05 15:43:20,022 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "John", "object": "CurrentlyReading", "content": "'Dune' by Frank Herbert"}, {"action": "REMOVE", "subject": "John", "object": "CurrentlyReading", "content": "'A Dance with Dragons' by George R. R. Martin"}]
+2026-01-05 15:43:28,958 - Amadeus.Builder - INFO - 🔗 LINK: John --'Dune' by Frank Herbert--> CurrentlyReading (Time: 2023-12-08)
+2026-01-05 15:43:28,977 - Amadeus.Graph - INFO - ✂️ Edge Deleted: John -> CurrentlyReading
+2026-01-05 15:43:29,972 - Amadeus.Answerer - INFO - ❓ Question: How does Tim feel about the power of friendship and loyalty in the series he is reading?
+2026-01-05 15:43:32,494 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Tim feeling about power of friendship and loyalty in series', 'mode': 'hybrid'}

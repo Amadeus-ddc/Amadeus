@@ -1,0 +1,99 @@
+2026-01-05 15:44:18,802 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-42
+========================================
+2026-01-05 15:44:20,179 - Experiment - INFO - [conv-42] 🧠 Phase 1: Building Memory (29 contextual sessions)...
+2026-01-05 15:44:20,180 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:44:39,466 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:44:39,488 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:44:39,497 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:44:39,501 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:44:39,559 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Played a team shooter game tournament and enjoyed it--> Counter-Strike: Global Offensive (Time: 2022-01-14)
+2026-01-05 15:44:39,765 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Recommended a romantic drama movie--> Romantic Drama Movie (Time: 2022-01-21)
+2026-01-05 15:44:39,780 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:44:39,802 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Watched the movie a few times and owns a physical copy--> Romantic Drama Movie (Time: 2019-01-21)
+2026-01-05 15:44:39,806 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:44:39,806 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:44:46,250 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:44:46,251 - Amadeus.Answerer - INFO - ❓ Question: How does Joanna feel about the movie she recommended?
+2026-01-05 15:44:47,994 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna movie recommendation feelings', 'mode': 'hybrid'}
+2026-01-05 15:44:49,314 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Joanna feels positively about the movie she recommended, as she has watched it a few times and owns a physical copy.'}
+2026-01-05 15:44:49,315 - Amadeus.Optimizer - INFO - GT: She loves the idea and the acting.
+2026-01-05 15:44:49,315 - Amadeus.Optimizer - INFO - Pre: Joanna feels positively about the movie she recommended, as she has watched it a few times and owns a physical copy.
+2026-01-05 15:44:54,097 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:44:54,097 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Update the Answerer's System Prompt to ensure it does not hallucinate responses based on outdated information. The Answerer should focus on retrieving the most recent and relevant data from the Global Memory Graph rather than relying on older facts that may no longer be applicable.
+2026-01-05 15:44:54,097 - Amadeus.Answerer - INFO - ❓ Question: What is the relationship between Nate and Joanna based on their conversation?
+2026-01-05 15:44:58,991 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate Joanna conversation relationship', 'mode': 'hybrid'}
+2026-01-05 15:45:00,060 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Romantic Drama Movie'}
+2026-01-05 15:45:01,210 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': 'Nate Joanna conversation relationship', 'mode': 'hybrid'}
+2026-01-05 15:45:12,092 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "Based on their conversation, Nate and Joanna have shown interest in each other through Joanna's recommendation of a romantic drama movie and her enjoyment of playing a team shooter game tournament, which suggests they might be developing a connection."}
+2026-01-05 15:45:12,092 - Amadeus.Optimizer - INFO - GT: They seem to be acquaintances who share some common interests but have different preferences in hobbies and genres.
+2026-01-05 15:45:12,093 - Amadeus.Optimizer - INFO - Pre: Based on their conversation, Nate and Joanna have shown interest in each other through Joanna's recommendation of a romantic drama movie and her enjoyment of playing a team shooter game tournament, which suggests they might be developing a connection.
+2026-01-05 15:45:16,747 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:16,747 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to infer relationships based on the context provided by the conversation. Specifically, the builder should focus on identifying explicit mentions of friendship or similar relationships between characters. Additionally, the builder should consider the overall tone and content of the dialogue to understand the nature of the relationship.
+2026-01-05 15:45:16,748 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Nate", "object": "Joanna", "content": "friend"}, {"action": "ADD", "object": "Nate", "subject": "Joanna", "content": "friend"}]
+2026-01-05 15:45:22,311 - Amadeus.Builder - INFO - 🔗 LINK: Nate --friend--> Joanna (Time: None)
+2026-01-05 15:45:22,311 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --friend--> Nate (Time: None)
+2026-01-05 15:45:22,315 - Amadeus.Answerer - INFO - ❓ Question: Why did Joanna get a physical copy of the movie?
+2026-01-05 15:45:23,598 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna physical copy movie', 'mode': 'hybrid'}
+2026-01-05 15:45:27,238 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Joanna got a physical copy of the romantic drama movie because she watched it a few times and owned it as of 2019-01-21.'}
+2026-01-05 15:45:27,238 - Amadeus.Optimizer - INFO - GT: She went out and got a physical copy because she really likes the movie.
+2026-01-05 15:45:27,238 - Amadeus.Optimizer - INFO - Pre: Joanna got a physical copy of the romantic drama movie because she watched it a few times and owned it as of 2019-01-21.
+2026-01-05 15:45:30,330 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:45:30,330 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: Trust the graph over priors when forming answers. Avoid making assumptions based on outdated information unless explicitly stated in the context.
+2026-01-05 15:45:30,330 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:45:45,355 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:45:45,361 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Finished first full screenplay and printed it--> Screenplay (Time: 2022-01-14)
+2026-01-05 15:45:45,361 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Now includes plans to submit screenplay to film festivals--> Romantic Drama Movie (Time: 2022-01-23)
+2026-01-05 15:45:45,364 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Has turtles as pets for 3 years--> Turtles (Time: 2022-01-23)
+2026-01-05 15:45:45,368 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:45:45,380 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Allergic to most reptiles and animals with fur--> Pets (Time: 2022-01-23)
+2026-01-05 15:45:45,383 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:45:45,421 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:45:45,421 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:45:51,996 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:45:51,996 - Amadeus.Answerer - INFO - ❓ Question: How does Nate feel about supporting his competitors even though they might be more focused on winning?
+2026-01-05 15:45:53,255 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Nate support for competitors', 'mode': 'hybrid'}
+2026-01-05 15:45:54,314 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Joanna'}
+2026-01-05 15:45:55,258 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Nate'}
+2026-01-05 15:45:56,453 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': 'Nate supports his friends in tournaments, even though his main hobbies are playing video games and watching movies.'}
+2026-01-05 15:45:56,453 - Amadeus.Optimizer - INFO - GT: He supports them because he likes playing for fun.
+2026-01-05 15:45:56,453 - Amadeus.Optimizer - INFO - Pre: Nate supports his friends in tournaments, even though his main hobbies are playing video games and watching movies.
+2026-01-05 15:45:59,173 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:45:59,174 - Amadeus.Answerer - INFO - ❓ Question: What specific type of joy does Joanna derive from writing besides expressing herself through stories?
+2026-01-05 15:46:00,192 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna joy writing', 'mode': 'hybrid'}
+2026-01-05 15:46:02,005 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': "Based on the available information, Joanna's specific type of joy from writing besides expressing herself through stories is derived from creating screenplays. She finished her first full screenplay and printed it in 2022."}
+2026-01-05 15:46:02,005 - Amadeus.Optimizer - INFO - GT: She creates wild worlds with awesome characters and can't imagine life without it.
+2026-01-05 15:46:02,005 - Amadeus.Optimizer - INFO - Pre: Based on the available information, Joanna's specific type of joy from writing besides expressing herself through stories is derived from creating screenplays. She finished her first full screenplay and printed it in 2022.
+2026-01-05 15:46:06,796 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:06,797 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should be updated to ensure that when extracting information about a person's joy or satisfaction from their activities, it captures more nuanced and personal details rather than just the completion of tasks. Specifically, the Builder should look for explicit statements of joy or satisfaction and add those to the graph.
+2026-01-05 15:46:06,797 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "joy", "content": "She creates wild worlds with awesome characters and can't imagine life without it."}, {"action": "REMOVE", "subject": "Screenplay", "object": "specific type of joy", "content": "derived from creating screenplays. She finished her first full screenplay and printed it in 2022."}]
+2026-01-05 15:46:13,595 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --She creates wild worlds with awesome characters and can't imagine life without it.--> joy (Time: 2022-01-23)
+2026-01-05 15:46:13,660 - Amadeus.Answerer - INFO - ❓ Question: When did Joanna finish her screenplay?
+2026-01-05 15:46:15,136 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna finished her screenplay', 'mode': 'hybrid'}
+2026-01-05 15:46:16,638 - Amadeus.Answerer - INFO - Step 2: READ - {'tool': 'READ', 'answer': 'Joanna finished her screenplay on 2022-01-14.'}
+2026-01-05 15:46:16,638 - Amadeus.Optimizer - INFO - GT: She finished it on 20 January, 2022.
+2026-01-05 15:46:16,638 - Amadeus.Optimizer - INFO - Pre: Joanna finished her screenplay on 2022-01-14.
+2026-01-05 15:46:21,773 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:21,773 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: The Builder's System Prompt should be updated to ensure that all relevant relationships and attributes are captured and linked correctly. Specifically, the Builder needs to pay more attention to the exact dates mentioned in the context when creating links. For example, the Builder should extract and link the completion date of Joanna's screenplay directly to the relevant node without adding incorrect or outdated information.
+2026-01-05 15:46:21,774 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Joanna", "object": "Screenplay Completion Date", "content": "2022-01-20"}, {"action": "REMOVE", "subject": "Joanna", "object": "Screenplay Completion Date", "content": "2022-01-14"}]
+2026-01-05 15:46:29,620 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --2022-01-20--> Screenplay Completion Date (Time: 2022-01-20)
+2026-01-05 15:46:29,633 - Experiment - INFO - [conv-42] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:46:47,352 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Extract the absolute date from the context. Step 2: Identify entities and relationships. Step 3: Compare with the existing graph and resolve conflicts.
+2026-01-05 15:46:47,353 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Finished first full screenplay and printed it--> Screenplay (Time: 2022-01-14)
+2026-01-05 15:46:47,353 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Put a lot of effort into screenplay and feeling mixed emotions--> joy (Time: 2022-02-07)
+2026-01-05 15:46:47,359 - Amadeus.Builder - INFO - ➕ NODE: Nate
+2026-01-05 15:46:47,363 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Made coconut milk ice cream--> coconut milk ice cream (Time: 2022-02-07)
+2026-01-05 15:46:47,366 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Made a dairy-free chocolate cake with berries--> chocolate cake with berries (Time: 2022-02-07)
+2026-01-05 15:46:47,397 - Amadeus.Builder - INFO - 🔗 LINK: Nate --Shared amazing cooking creations--> cooking skills (Time: 2022-02-07)
+2026-01-05 15:46:47,443 - Amadeus.Builder - INFO - ➕ NODE: Joanna
+2026-01-05 15:46:47,493 - Amadeus.Builder - INFO - 🔗 LINK: Joanna --Glad to share knowledge and recommendations--> joy (Time: 2022-02-07)
+2026-01-05 15:46:47,615 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:46:47,615 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:46:54,677 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:46:54,677 - Amadeus.Answerer - INFO - ❓ Question: How does Joanna feel about Nate's cooking abilities?
+2026-01-05 15:46:55,876 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Joanna Nate cooking abilities opinion', 'mode': 'hybrid'}
+2026-01-05 15:46:56,882 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'friend'}
+2026-01-05 15:46:58,304 - Amadeus.Answerer - INFO - Step 3: SEARCH - {'tool': 'SEARCH', 'query': "Joanna reaction to Nate's coconut milk ice cream", 'mode': 'hybrid'}
+2026-01-05 15:46:59,405 - Amadeus.Answerer - INFO - Step 4: WALK - {'tool': 'WALK', 'node': 'friend'}
+2026-01-05 15:47:00,537 - Amadeus.Answerer - INFO - Step 5: WALK - {'tool': 'WALK', 'node': 'friend'}

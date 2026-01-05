@@ -1,0 +1,107 @@
+2026-01-05 15:44:18,690 - Experiment - INFO - 
+========================================
+🚀 Running Sample: conv-30
+========================================
+2026-01-05 15:44:20,180 - Experiment - INFO - [conv-30] 🧠 Phase 1: Building Memory (19 contextual sessions)...
+2026-01-05 15:44:20,181 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 1. Processing Buffer...
+2026-01-05 15:44:38,816 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:44:38,823 - Amadeus.Builder - INFO - ➕ NODE: Jon
+2026-01-05 15:44:38,826 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Passionate about dancing, shares passion with others--> Dance Studio (Time: 2023-01-20)
+2026-01-05 15:44:38,830 - Amadeus.Builder - INFO - ➕ NODE: Gina
+2026-01-05 15:44:38,892 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Fav dance style, favorite memory was winning first place at a regionals competition at age fifteen--> Contemporary Dance (Time: 2023-01-20)
+2026-01-05 15:44:38,950 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Won first place at a regional competition with a contemporary piece called 'Finding Freedom'--> Team (Time: 2023-01-20)
+2026-01-05 15:44:38,981 - Amadeus.Builder - INFO - ➕ NODE: Jon's Dance Crew
+2026-01-05 15:44:39,034 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Rehearses with a small group of dancers after work, practices contemporary and hip-hop dances--> Dancers (Time: 2023-01-20)
+2026-01-05 15:44:39,057 - Amadeus.Builder - INFO - 🔗 LINK: Projects --Choreography for a performance at a nearby festival next month--> Nearby Festival (Time: 2023-02-xx)
+2026-01-05 15:44:39,065 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:44:39,066 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:44:45,337 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:44:45,337 - Amadeus.Answerer - INFO - ❓ Question: What is Jon's favorite type of dance?
+2026-01-05 15:44:46,514 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Jon's favorite type of dance", 'mode': 'hybrid'}
+2026-01-05 15:44:48,632 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dancers'}
+2026-01-05 15:44:49,731 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Jon's favorite types of dance are contemporary and hip-hop."}
+2026-01-05 15:44:49,731 - Amadeus.Optimizer - INFO - GT: Contemporary is Jon's top pick.
+2026-01-05 15:44:49,731 - Amadeus.Optimizer - INFO - Pre: Jon's favorite types of dance are contemporary and hip-hop.
+2026-01-05 15:44:53,160 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:44:53,161 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve extraction rules to ensure that when a person expresses a passion or is described as being passionate about something, their specific preferences or favorite types should be included in the graph. For example, add a rule that captures explicit mentions of 'favorite', 'top pick', or similar phrases.
+2026-01-05 15:44:53,161 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "favorite_type_of_dance", "content": "contemporary"}]
+2026-01-05 15:45:02,389 - Amadeus.Builder - INFO - 🔗 LINK: Jon --contemporary--> favorite_type_of_dance (Time: 2023-01-20)
+2026-01-05 15:45:02,401 - Amadeus.Answerer - INFO - ❓ Question: How does Gina feel about the idea of Jon starting a dance studio?
+2026-01-05 15:45:08,606 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': "Gina's feelings about Jon starting a dance studio", 'mode': 'hybrid'}
+2026-01-05 15:45:09,521 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-05 15:45:10,691 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': 'Passionate about dancing, shares passion with others'}
+2026-01-05 15:45:12,257 - Amadeus.Answerer - INFO - Step 4: SEARCH - {'tool': 'SEARCH', 'query': "Gina's feelings about Jon starting a dance studio", 'mode': 'hybrid'}
+2026-01-05 15:45:13,654 - Amadeus.Answerer - INFO - Step 5: SEARCH - {'tool': 'SEARCH', 'query': "Gina's feelings about Jon starting a dance studio", 'mode': 'hybrid'}
+2026-01-05 15:45:14,963 - Amadeus.Answerer - INFO - Step 6: SEARCH - {'tool': 'SEARCH', 'query': "Gina's feelings about Jon starting a dance studio", 'mode': 'hybrid'}
+2026-01-05 15:45:15,950 - Amadeus.Answerer - INFO - Step 7: WALK - {'tool': 'WALK', 'node': 'Dance Studio'}
+2026-01-05 15:45:17,452 - Amadeus.Answerer - INFO - Step 8: SEARCH - {'tool': 'SEARCH', 'query': "Gina's feelings about Jon starting a dance studio", 'mode': 'hybrid'}
+2026-01-05 15:45:17,459 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from history.
+2026-01-05 15:45:17,848 - Amadeus.Optimizer - INFO - GT: Gina thinks it sounds awesome!
+2026-01-05 15:45:17,848 - Amadeus.Optimizer - INFO - Pre: Unknown
+2026-01-05 15:45:22,027 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:22,027 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Capture explicit expressions of support or opinion in conversations. Ensure that when a subject expresses a clear sentiment about another's idea or action, it is linked directly to that idea or action.
+2026-01-05 15:45:22,027 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Gina", "object": "Jon's business idea", "content": "Gina --Supportive of Jon, thinks starting a dance studio is awesome --> Jon's Business Idea (Time: 2023-01-20)"}]
+2026-01-05 15:45:27,426 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Supportive of Jon, thinks starting a dance studio is awesome--> Jon's business idea (Time: 2023-01-20)
+2026-01-05 15:45:27,442 - Amadeus.Answerer - INFO - ❓ Question: What event inspired Jon to start his own dance studio?
+2026-01-05 15:45:28,603 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'event inspired Jon to start his own dance studio', 'mode': 'hybrid'}
+2026-01-05 15:45:29,954 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'Dancers'}
+2026-01-05 15:45:31,208 - Amadeus.Answerer - INFO - Step 3: WALK - {'tool': 'WALK', 'node': "Jon's Dance Crew"}
+2026-01-05 15:45:32,512 - Amadeus.Answerer - INFO - Step 4: READ - {'tool': 'READ', 'answer': "The local competition where Jon's Dance Crew took home first place last year inspired Jon to start his own dance studio."}
+2026-01-05 15:45:32,513 - Amadeus.Optimizer - INFO - GT: Inspired by his dance crew taking home first place in a local competition.
+2026-01-05 15:45:32,513 - Amadeus.Optimizer - INFO - Pre: The local competition where Jon's Dance Crew took home first place last year inspired Jon to start his own dance studio.
+2026-01-05 15:45:36,687 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:45:36,687 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Update the Builder's System Prompt to ensure it captures specific events that directly inspire individuals. For example, add rules to identify and link explicit inspiration points such as 'success in a competition', 'winning a prize', or 'specific achievements' to the individuals they relate to.
+2026-01-05 15:45:36,688 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "Dance Crew", "content": "Inspired by their success in a local competition"}, {"action": "ADD", "subject": "Dance Crew", "object": "Local Competition", "content": "Takes home first place"}]
+2026-01-05 15:45:42,992 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Inspired by their success in a local competition--> Dance Crew (Time: 2023-01-20)
+2026-01-05 15:45:43,004 - Amadeus.Builder - INFO - 🔗 LINK: Dance Crew --Takes home first place--> Local Competition (Time: 2023-01-20)
+2026-01-05 15:45:43,196 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 2. Processing Buffer...
+2026-01-05 15:45:58,694 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:45:58,699 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Launched an ad campaign for her clothing store--> Clothing Store (Time: 2023-01-29)
+2026-01-05 15:45:58,703 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Vision happening, winning first place at a regional competition at age fifteen--> favorite_memory (Time: 2023-01-20)
+2026-01-05 15:45:58,707 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Downtown area with great natural light--> dance_studio_location (Time: 2023-01-29)
+2026-01-05 15:45:58,746 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Needs a good dance floor with enough bounce for safety and ease of maintenance--> dance_studio_features (Time: 2023-01-29)
+2026-01-05 15:45:58,760 - Amadeus.Builder - INFO - ➕ NODE: Marley Flooring
+2026-01-05 15:45:58,764 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Supportive of Jon, thinks starting a dance studio is awesome--> support (Time: 2023-01-29)
+2026-01-05 15:45:58,764 - Amadeus.Builder - INFO - ⏳ WAIT: Visited Paris yesterday, found...
+2026-01-05 15:45:58,789 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:45:58,789 - Amadeus.Optimizer - INFO - --- Round 1 ---
+2026-01-05 15:46:06,038 - Amadeus.Optimizer - INFO - 🔥 Attack Batch: 3 questions
+2026-01-05 15:46:06,038 - Amadeus.Answerer - INFO - ❓ Question: Where is the potential dance studio location Jon is considering?
+2026-01-05 15:46:08,147 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'potential dance studio location Jon is considering', 'mode': 'hybrid'}
+2026-01-05 15:46:09,173 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'dance_studio_location'}
+2026-01-05 15:46:11,144 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Jon is considering a potential dance studio location in the Downtown area with great natural light.'}
+2026-01-05 15:46:11,144 - Amadeus.Optimizer - INFO - GT: It's downtown.
+2026-01-05 15:46:11,145 - Amadeus.Optimizer - INFO - Pre: Jon is considering a potential dance studio location in the Downtown area with great natural light.
+2026-01-05 15:46:15,449 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: BUILDER
+2026-01-05 15:46:15,450 - Amadeus.Agent - INFO - 📈 Guideline Updated for [UPDATE]: Improve the builder's ability to extract relevant information by focusing on direct statements rather than inferring details. Ensure that the builder captures explicit mentions of locations without adding unnecessary descriptive attributes.
+2026-01-05 15:46:15,451 - Amadeus.Builder - INFO - 🔧 FORCE UPDATE TRIGGERED: Apply these fixes: [{"action": "ADD", "subject": "Jon", "object": "potential_dance_studio_location", "content": "downtown"}, {"action": "REMOVE", "subject": "Jon", "object": "dance_studio_location", "content": "Downtown area with great natural light"}]
+2026-01-05 15:46:22,832 - Amadeus.Builder - INFO - 🔗 LINK: Jon --downtown--> potential_dance_studio_location (Time: 2023-01-29)
+2026-01-05 15:46:22,832 - Amadeus.Graph - INFO - ✂️ Edge Deleted: Jon -> dance_studio_location
+2026-01-05 15:46:22,876 - Amadeus.Answerer - INFO - ❓ Question: What does Gina mention about her previous visit to Paris?
+2026-01-05 15:46:24,078 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Gina previous visit Paris', 'mode': 'hybrid'}
+2026-01-05 15:46:25,157 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Gina previous visit Paris', 'mode': 'hybrid'}
+2026-01-05 15:46:26,488 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Gina mentions that she won first place at a regional competition with a contemporary piece called 'Finding Freedom' during her previous visit to Paris."}
+2026-01-05 15:46:26,488 - Amadeus.Optimizer - INFO - GT: She mentions that she never had a chance to visit it before and that she went to Paris yesterday.
+2026-01-05 15:46:26,488 - Amadeus.Optimizer - INFO - Pre: Gina mentions that she won first place at a regional competition with a contemporary piece called 'Finding Freedom' during her previous visit to Paris.
+2026-01-05 15:46:29,191 - Amadeus.Optimizer - INFO - ⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.
+2026-01-05 15:46:29,192 - Amadeus.Answerer - INFO - ❓ Question: Why is Marley flooring important for a dance studio according to Jon?
+2026-01-05 15:46:31,342 - Amadeus.Answerer - INFO - Step 1: SEARCH - {'tool': 'SEARCH', 'query': 'Marley flooring importance for dance studio according to Jon', 'mode': 'hybrid'}
+2026-01-05 15:46:32,194 - Amadeus.Answerer - INFO - Step 2: WALK - {'tool': 'WALK', 'node': 'dance_studio_features'}
+2026-01-05 15:46:33,466 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'According to Jon, Marley flooring is important for a dance studio because it needs to have enough bounce for safety and ease of maintenance.'}
+2026-01-05 15:46:33,467 - Amadeus.Optimizer - INFO - GT: Marley flooring is important because it's grippy but still lets you move, plus it's tough and easy to keep clean.
+2026-01-05 15:46:33,467 - Amadeus.Optimizer - INFO - Pre: Marley flooring is important for a dance studio because it needs to have enough bounce for safety and ease of maintenance.
+2026-01-05 15:46:37,027 - Amadeus.Optimizer - WARNING - ❌ DEFENDER FAILED. Blame: ANSWERER
+2026-01-05 15:46:37,056 - Amadeus.Agent - INFO - 📈 Guideline Updated for [SEARCH]: The Answerer should trust the graph more and avoid making assumptions based on limited information. Specifically, the Answerer should perform a deeper search within the graph to find relevant connections before providing an answer. Additionally, the Answerer should prioritize retrieving factual information over generating plausible but incorrect facts.
+2026-01-05 15:46:37,057 - Experiment - INFO - [conv-30] 🔄 Flush Triggered at chunk 3. Processing Buffer...
+2026-01-05 15:46:55,838 - Amadeus.Builder - INFO - 🤔 Builder CoT: Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.
+2026-01-05 15:46:55,844 - Amadeus.Builder - INFO - 🔗 LINK: Jon --Still searching for a place to open his dance studio--> dance_studio (Time: 2023-02-01)
+2026-01-05 15:46:55,852 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Found a wholesaler who replied positively--> wholesalers (Time: 2023-02-01)
+2026-01-05 15:46:55,856 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Expanding her clothing store--> clothing_store (Time: 2023-02-01)
+2026-01-05 15:46:55,861 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Chose furniture that looks great and is comfy--> furniture (Time: 2023-02-01)
+2026-01-05 15:46:55,865 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Chosen to match the store's style and add a nice glam feel--> decor (Time: 2023-02-01)
+2026-01-05 15:46:55,873 - Amadeus.Builder - INFO - 🔗 LINK: Gina's store --Added a chandelier for a nice glam feel--> chandelier (Time: 2023-02-01)
+2026-01-05 15:46:56,031 - Amadeus.Builder - INFO - 🔗 LINK: Gina's store --Wants to make customers feel like they're in a cool oasis--> customers (Time: 2023-02-01)
+2026-01-05 15:46:56,044 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Creating a special shopping experience for customers--> clothing_store (Time: 2023-02-01)
+2026-01-05 15:46:56,054 - Amadeus.Builder - INFO - 🔗 LINK: Gina --Expressed continued support for Jon's dance studio dream--> support (Time: 2023-02-01)
+2026-01-05 15:46:56,130 - Amadeus.Optimizer - INFO - ⚔️ Starting Self-Play (Mode: fixed, CoT: False)...
+2026-01-05 15:46:56,160 - Amadeus.Optimizer - INFO - --- Round 1 ---

@@ -1,5 +1,9 @@
 import logging
 import json
+import time
+import re
+import ast
+import concurrent.futures
 from typing import List, Dict, Any
 from openai import OpenAI
 from amadeus.agents.questioner import QuestionerAgent
@@ -60,7 +64,7 @@ class AdversarialOptimizer:
 
             logger.info(f"🔥 Attack Batch: {len(unique_questions)} questions")
 
-            # 3. 顺序攻防 (Sequential Defense) - Changed from Parallel to ensure logging consistency
+            # 3. 顺序攻防 (Sequential Defense)
             batch_results = []
             for q_item in unique_questions:
                 res = self._process_single_duel(q_item, buffer_content, action_log, use_cot)
@@ -131,23 +135,43 @@ Previous Attacks & Results:
 
 {output_format}
 """
-        try:
-            response = self.questioner.client.chat.completions.create(
-                model=self.questioner.model_name,
-                messages=[{"role": "user", "content": prompt}],
-                response_format={"type": "json_object"},
-                temperature=0.7 # 保持一定的创造性
-            )
-            res = json.loads(response.choices[0].message.content)
-            
-            # Only check stop_attack if NOT in fixed mode
-            if not fixed_count and res.get("stop_attack", False):
+        messages = [{"role": "user", "content": prompt}]
+        retries = 3
+        for attempt in range(retries):
+            try:
+                response = self.questioner.client.chat.completions.create(
+                    model=self.questioner.model_name,
+                    messages=messages,
+                    response_format={"type": "json_object"},
+                    temperature=0.7 # 保持一定的创造性
+                )
+                content = response.choices[0].message.content
+                if not content or not content.strip():
+                    raise ValueError("Empty response content")
+
+                res = self._parse_json_robust(content)
+                
+                # Only check stop_attack if NOT in fixed mode
+                if not fixed_count and res.get("stop_attack", False):
+                    return []
+                
+                return res.get("questions", [])
+            except Exception as e:
+                logger.warning(f"Attack Generation Failed (Attempt {attempt+1}/{retries}): {e}")
+                if attempt < retries - 1:
+                    # Feedback loop
+                    if 'content' in locals() and content:
+                        messages.append({"role": "assistant", "content": content})
+                        messages.append({"role": "user", "content": f"Your output was invalid JSON. Error: {e}. Please fix the syntax and output ONLY the valid JSON."})
+                    else:
+                        time.sleep(1)
+                    continue
+                
+                logger.error(f"Attack Generation Failed: {e}")
+                if 'content' in locals():
+                    logger.error(f"Failed Content: {content}")
                 return []
-            
-            return res.get("questions", [])
-        except Exception as e:
-            logger.error(f"Attack Generation Failed: {e}")
-            return []
+        return []
 
     def _process_single_duel(self, q_item, buffer_content, action_log, use_cot=False):
         question = q_item.get("question")
@@ -265,14 +289,84 @@ Output JSON: {{ "meta_gradient": "..." }}
             logger.error(f"[CoT] Error: {e}")
             return {}
 
+    def _parse_json_robust(self, content):
+        """Helper to clean and parse JSON from LLM output."""
+        if not content:
+            return None
+
+        # Clean markdown
+        if "```json" in content:
+            content = content.split("```json")[1].split("```")[0]
+        elif "```" in content:
+            content = content.split("```")[1].split("```")[0]
+        else:
+            # Fallback: find first { and last }
+            start = content.find('{')
+            end = content.rfind('}')
+            if start != -1 and end != -1:
+                content = content[start:end+1]
+
+        # Remove comments (lines starting with //)
+        content = re.sub(r'^\s*//.*$', '', content, flags=re.MULTILINE)
+
+        # Fix missing commas (naive approach for common cases)
+        # Case 1: String value followed by key
+        content = re.sub(r'("\s*)\n(\s*")', r'\1,\n\2', content)
+        # Case 2: Boolean/Null/Number followed by key
+        content = re.sub(r'(true|false|null|\d+)(\s*)\n(\s*")', r'\1,\2\n\3', content)
+        # Case 3: Object/Array followed by key
+        content = re.sub(r'([}\]])(\s*)\n(\s*")', r'\1,\2\n\3', content)
+
+        # Fix trailing commas
+        content = re.sub(r',\s*}', '}', content)
+        content = re.sub(r',\s*]', ']', content)
+
+        try:
+            return json.loads(content.strip())
+        except json.JSONDecodeError:
+            # Fallback: Try to parse as Python literal (handles single quotes)
+            try:
+                # ast.literal_eval is safer than eval, but still strict.
+                py_content = content.strip().replace("true", "True").replace("false", "False").replace("null", "None")
+                return ast.literal_eval(py_content)
+            except Exception as ast_e:
+                raise ValueError(f"JSON/AST Parse Failed: {ast_e}")
+
     def _call_llm(self, prompt):
-        response = self.client.chat.completions.create(
-            model=self.model_name,
-            messages=[{"role": "system", "content": prompt}],
-            response_format={"type": "json_object"},
-            temperature=0.0
-        )
-        return json.loads(response.choices[0].message.content)
+        messages = [{"role": "system", "content": prompt}]
+        retries = 3
+        
+        for attempt in range(retries):
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=messages,
+                    response_format={"type": "json_object"},
+                    temperature=0.0
+                )
+                content = response.choices[0].message.content
+                if not content or not content.strip():
+                    raise ValueError("Empty response content")
+                
+                return self._parse_json_robust(content)
+
+            except Exception as e:
+                logger.warning(f"Attempt {attempt+1}/{retries} Failed: {e}")
+                if attempt < retries - 1:
+                    # Feedback loop: Add error to history and ask for fix
+                    if 'content' in locals() and content:
+                        messages.append({"role": "assistant", "content": content})
+                        messages.append({"role": "user", "content": f"Your output was invalid JSON. Error: {e}. Please fix the syntax and output ONLY the valid JSON."})
+                    else:
+                        time.sleep(1)
+                    continue
+                
+                logger.error(f"Optimizer Error: {e}")
+                if 'content' in locals():
+                    logger.error(f"Failed Content: {content}")
+                logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+                return {}
+        return {}
 
     def _evaluate_and_update(self, q_item: Dict, prediction: str, buffer_content: str, action_log: List[str] = None):
         # Critic LLM
@@ -329,13 +423,7 @@ Analyze the [Builder Activity Log] and the [Question]:
 }}
 """
         try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[{"role": "system", "content": prompt}],
-                response_format={"type": "json_object"},
-                temperature=0.0
-            )
-            result = json.loads(response.choices[0].message.content)
+            result = self._call_llm(prompt)
             
             blame = result.get("blame")
             is_correct = result.get("is_correct")
@@ -343,7 +431,14 @@ Analyze the [Builder Activity Log] and the [Question]:
             graph_patch = result.get("graph_patch")
 
             if not is_correct:
-                logger.warning(f"❌ DEFENDER FAILED. Blame: {blame}")
+                # Edge Case: If Blame is QUESTIONER, it means the question was invalid/historical, 
+                # so the Defender didn't technically fail (they just answered from history).
+                # We treat this as a Defender WIN (or at least not a failure).
+                if blame == "QUESTIONER":
+                    is_correct = True
+                    logger.info(f"⚠️ Questioner Fault (Invalid/Historical). Treating as Defender Success.")
+                else:
+                    logger.warning(f"❌ DEFENDER FAILED. Blame: {blame}")
                 
                 # Apply Policy Update to Defender
                 if blame == "BUILDER":
