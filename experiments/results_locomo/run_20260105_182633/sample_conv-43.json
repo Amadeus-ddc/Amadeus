@@ -1,0 +1,1608 @@
+{
+  "sample_id": "conv-43",
+  "avg_score": 0.5561797752808989,
+  "qa_results": [
+    {
+      "question": "what are John's goals with regards to his basketball career?",
+      "category": 1,
+      "ground_truth": "improve shooting percentage, win a championship",
+      "prediction": "John's goals with regards to his basketball career include improving his shooting percentage, fitting into the new team's style of play during pre-season, exploring endorsement opportunities with sports brands like Nike and Under Armour, and mentoring younger players on his team. He has also expressed a desire to win a championship and make a difference through charity and inspiration.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What are John's goals for his career that are not related to his basketball skills?",
+      "category": 1,
+      "ground_truth": "get endorsements, build his brand, do charity work",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What items does John collect?",
+      "category": 1,
+      "ground_truth": "sneakers, fantasy movie DVDs, jerseys",
+      "prediction": "John has a book collection that includes items from MinaLima, as well as books such as 'The Alchemist' and 'Dune'.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Would Tim enjoy reading books by C. S. Lewis or John Greene?",
+      "category": 3,
+      "ground_truth": "C. S.Lewis",
+      "prediction": "Tim would likely enjoy reading books by C. S. Lewis, as he has discussed 'The Hobbit' and the impact of books on his life, indicating an interest in fantasy literature.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What books has Tim read?",
+      "category": 1,
+      "ground_truth": "Harry Potter, Game of Thrones, the Name of the Wind, The Alchemist, The Hobbit, A Dance with Dragons, and the Wheel of Time.",
+      "prediction": "Tim has read books from his personal bookshelf, specifically fantasy novels.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Based on Tim's collections, what is a shop that he would enjoy visiting in New York city?",
+      "category": 3,
+      "ground_truth": "House of MinaLima",
+      "prediction": "Based on Tim's collections and interests in Harry Potter, a shop that he would enjoy visiting in New York City is a Harry Potter merchandise shop. One such shop could be 'The Wizarding World of Harry Potter' located inside Universal Studios Hollywood, though it's in California. For New York City, a similar themed shop might be 'Madam Malkin’s Robes for All Occasions' or other specialty stores selling Harry Potter merchandise.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "In which month's game did John achieve a career-high score in points?",
+      "category": 2,
+      "ground_truth": "June 2023",
+      "prediction": "In December 2023, John achieved a career-high score in assists during a big game against a rival.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which geographical locations has Tim been to?",
+      "category": 1,
+      "ground_truth": "California, London, the Smoky Mountains",
+      "prediction": "Tim has been to the Smoky Mountains.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which outdoor gear company likely signed up John for an endorsement deal?",
+      "category": 3,
+      "ground_truth": "Under Armour",
+      "prediction": "The outdoor gear company likely signed up John for an endorsement deal.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which endorsement deals has John been offered?",
+      "category": 1,
+      "ground_truth": "basketball shoes and gear deal with Nike, potential sponsorship with Gatorade, Moxie a popular beverage company, outdoor gear company",
+      "prediction": "John has been offered endorsement deals with Nike and a renowned outdoor gear company.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When was John in Seattle for a game?",
+      "category": 2,
+      "ground_truth": "early August, 2023",
+      "prediction": "John is scheduled to visit Seattle next month for a game.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What sports does John like besides basketball?",
+      "category": 1,
+      "ground_truth": "surfing",
+      "prediction": "besides basketball, John also enjoys surfing and hiking. He started surfing five years ago and has fond memories of camping trips in the mountains.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What year did John start surfing?",
+      "category": 2,
+      "ground_truth": "2018",
+      "prediction": "John started surfing five years ago.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Tim do to escape reality?",
+      "category": 1,
+      "ground_truth": "Read fantasy books.",
+      "prediction": "Based on the available information, Tim escapes reality by reading books and watching movies.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of writing does Tim do?",
+      "category": 1,
+      "ground_truth": "comments on favorite books in a fantasy literature forum, articles on fantasy novels, studying characters, themes, and making book recommendations, writing a fantasy novel",
+      "prediction": "Tim is working on a Harry Potter fan project and has written articles about Harry Potter. He also enjoys writing a fantasy novel.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Who is Anthony?",
+      "category": 3,
+      "ground_truth": "likely John's friend, colleague or family",
+      "prediction": "The information provided does not contain any details about Anthony. The nodes related to LeBron James, Basketball, Patrick Rothfuss, Basketball Shoes, and Edinburgh do not mention Anthony.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "After how many weeks did Tim reconnect with the fellow Harry Potter fan from California?",
+      "category": 2,
+      "ground_truth": "three weeks",
+      "prediction": "Tim reconnected with the fellow Harry Potter fan from California via Skype on August 9, 2023. Since the question asks after how many weeks, we need to calculate the time difference between June 15, 2023, and August 9, 2023. The time difference is approximately 6 weeks.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How many games has John mentioned winning?",
+      "category": 1,
+      "ground_truth": "6",
+      "prediction": "John has mentioned winning 2 games.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What authors has Tim read books from?",
+      "category": 1,
+      "ground_truth": "J.K. Rowling, R.R. Martin, Patrick Rothfuss, Paulo Coelho, and J. R. R. Tolkien.",
+      "prediction": "Tim has read books from J.K. Rowling, Patrick Rothfuss, and George R. R. Martin.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is a prominent charity organization that John might want to work with and why?",
+      "category": 3,
+      "ground_truth": "Good Sports, because they work with Nike, Gatorade, and Under Armour and they aim toprovide youth sports opportunities for kids ages 3-18 in high-need communities.",
+      "prediction": "A prominent charity organization that John might want to work with is a local organization that partners with a local organization to help disadvantaged kids with sports and school. John has shown a commitment to community impact and has spoken at charity events, raised money for charity through a benefit game, and believes in the power of sports to unite people and create positive impact.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which city was John in before traveling to Chicago?",
+      "category": 2,
+      "ground_truth": "Seattle",
+      "prediction": "John visited Edinburgh before traveling to Chicago.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which US cities does John mention visiting to Tim?",
+      "category": 1,
+      "ground_truth": "Seattle, Chicago, New York",
+      "prediction": "John mentions visiting New York City and Chicago to Tim.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John meet with his teammates after returning from Chicago?",
+      "category": 2,
+      "ground_truth": "August 15, 2023",
+      "prediction": "John met with his teammates on August 15, 2023, and received a sign of friendship and appreciation from them on August 17, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When is Tim attending a book conference?",
+      "category": 2,
+      "ground_truth": "September 2023",
+      "prediction": "Tim is planning to attend a book conference next month on August 17, 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where was John between August 11 and August 15 2023?",
+      "category": 2,
+      "ground_truth": "Chicago",
+      "prediction": "Between August 11 and August 15, 2023, John visited Chicago and partnered with a local organization to help disadvantaged kids with sports and school.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What similar sports collectible do Tim and John own?",
+      "category": 1,
+      "ground_truth": "signed basketball",
+      "prediction": "Based on the provided context, both Tim and John own books from the Harry Potter series. Therefore, a similar sports collectible that Tim and John own is a book from the Harry Potter series.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which TV series does Tim mention watching?",
+      "category": 1,
+      "ground_truth": "That, Wheel of Time",
+      "prediction": "Tim mentions watching 'The Wheel of Time' TV series.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which popular time management technique does Tim use to prepare for exams?",
+      "category": 3,
+      "ground_truth": "Pomodoro technique",
+      "prediction": "Tim uses the Pomodoro Technique to prepare for exams, which involves breaking study sessions into smaller parts of 25 minutes on, followed by 5 minutes off.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which popular music composer's tunes does Tim enjoy playing on the piano?",
+      "category": 3,
+      "ground_truth": "John Williams",
+      "prediction": "Tim enjoys playing classical music and jazz and film scores on the piano.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What schools did John play basketball in and how many years was he with his team during high school?",
+      "category": 1,
+      "ground_truth": "Middle school, high school, and college and he was with his high school team for 4 years.",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which cities has John been to?",
+      "category": 1,
+      "ground_truth": "Seattle, Chicago, New York, and Paris.",
+      "prediction": "John has visited the Smoky Mountains, Edinburgh, and New York City.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What month did Tim plan on going to Universal Studios?",
+      "category": 2,
+      "ground_truth": "September, 2023",
+      "prediction": "Tim planned on going to Universal Studios next month in August 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which US states might Tim be in during September 2023 based on his plans of visiting Universal Studios?",
+      "category": 3,
+      "ground_truth": "California or Florida",
+      "prediction": "Based on Tim's plans to visit Universal Studios in September 2023, he might be in Florida during that time. Universal Studios is located in Orlando, Florida.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When does John plan on traveling with his team on a team trip?",
+      "category": 2,
+      "ground_truth": "October, 2023",
+      "prediction": "John is planning to go on a team trip next month.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What could John do after his basketball career?",
+      "category": 3,
+      "ground_truth": "become a basketball coach since he likes giving back and leadership",
+      "prediction": "After his basketball career, John could pursue goals such as winning a championship and making a difference through charity and inspiration.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What outdoor activities does John enjoy?",
+      "category": 1,
+      "ground_truth": "Hiking, surfing",
+      "prediction": "John enjoys outdoor activities such as hiking and surfing. He has been to the European coastline with his wife and has a love for the ocean and nature, indicating that he likely enjoys other outdoor activities like camping and spending time in natural settings.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Who is Tim and John's favorite basketball player?",
+      "category": 1,
+      "ground_truth": "LeBron James",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which week did Tim visit the UK for the Harry Potter Conference?",
+      "category": 2,
+      "ground_truth": "The week before October 13th, 2023.",
+      "prediction": "Tim visited the UK for the Harry Potter Conference in the week of October 7, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "which country has Tim visited most frequently in his travels?",
+      "category": 1,
+      "ground_truth": "UK",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What year did Tim go to the Smoky Mountains?",
+      "category": 2,
+      "ground_truth": "2022",
+      "prediction": "Tim visited the Smoky Mountains last summer at 2023-10-17.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Has Tim been to North Carolina and/or Tennesee states in the US?",
+      "category": 2,
+      "ground_truth": "Yes",
+      "prediction": "Yes Tim has been to North",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of fiction stories does Tim write?",
+      "category": 1,
+      "ground_truth": "Fantasy stories with plot twists",
+      "prediction": "Tim writes fantasy novels. He has been working on a fantasy novel and has discussed it with John. Additionally, Tim has shown interest in and appreciation for other fantasy books and series.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What has John cooked?",
+      "category": 1,
+      "ground_truth": "Soup, a slow cooker meal, and honey garlic chicken with roasted veg.",
+      "prediction": "John has cooked Honey Garlic Chicken.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does John like about Lebron James?",
+      "category": 1,
+      "ground_truth": "His heart, determination, skills, and leadership.",
+      "prediction": "John admires LeBron James for his work ethic and dedication to the game. John has met LeBron a few times and seen him play live, and he admires LeBron's determination and heart.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John and his wife go on a European vacation?",
+      "category": 2,
+      "ground_truth": "November, 2023.",
+      "prediction": "John and his wife went on a European vacation on November 11, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which country was Tim visiting in the second week of November?",
+      "category": 2,
+      "ground_truth": "UK",
+      "prediction": "Tim visited the UK in the second week of November.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where was Tim in the week before 16 November 2023?",
+      "category": 2,
+      "ground_truth": "UK",
+      "prediction": "Based on the available information, Tim was in the Smoky Mountains last summer, specifically on 2023-10-17. There is no direct information about his location in the week before 16 November 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John get married at a greenhouse?",
+      "category": 2,
+      "ground_truth": "last week of September 2023",
+      "prediction": "John got married at a greenhouse venue last week.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John get an ankle injury in 2023?",
+      "category": 1,
+      "ground_truth": "around November 16, 2023",
+      "prediction": "John got an ankle injury on November 11, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How many times has John injured his ankle?",
+      "category": 1,
+      "ground_truth": "two times",
+      "prediction": "John has experienced an ankle injury that required time off and physical therapy. However, the exact number of times he has injured his ankle is not specified.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which book was John reading during his recovery from an ankle injury?",
+      "category": 1,
+      "ground_truth": "The Alchemist",
+      "prediction": "During his recovery from an ankle injury, John was currently reading a fantasy book.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of yoga for building core strength might John benefit from?",
+      "category": 3,
+      "ground_truth": "Hatha Yoga",
+      "prediction": "John might benefit from practicing yoga poses like Warrior II for strength and a balance and stability pose for overall core strength. Yoga helps with strength, flexibility, focus, and balance, which can complement his strength training routine.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does John do to supplement his basketball training?",
+      "category": 1,
+      "ground_truth": "Yoga, strength training",
+      "prediction": "John supplements his basketball training with strength training to improve his basketball performance.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What other exercises can help John with his basketball performance?",
+      "category": 3,
+      "ground_truth": "Sprinting, long-distance running, and boxing.",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John take a trip to the Rocky Mountains?",
+      "category": 2,
+      "ground_truth": "2022",
+      "prediction": "John visited the Smoky Mountains last summer in 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John start playing professionally?",
+      "category": 2,
+      "ground_truth": "May, 2023",
+      "prediction": "John started playing professionally for nearly a year before the events described in the context. Since the context mentions that John won a tough game against a top team and played in a recent basketball game, we can infer that John began his professional career sometime around 2022 or early 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Tim start playing the violin?",
+      "category": 2,
+      "ground_truth": "August 2023",
+      "prediction": "Tim started learning to play the violin on December 6, 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What instruments does Tim play?",
+      "category": 1,
+      "ground_truth": "piano, violin",
+      "prediction": "Tim is learning to play the piano and the violin.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John attend the Harry Potter trivia?",
+      "category": 2,
+      "ground_truth": "August 2023.",
+      "prediction": "John attended the Harry Potter conference in the UK on 2023-10-07.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which career-high performances did John achieve in 2023?",
+      "category": 1,
+      "ground_truth": "highest point score, highest assist",
+      "prediction": "In 2023, John achieved a career-high in assists last Friday in a big game against a rival.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John achieve a career-high assist performance?",
+      "category": 2,
+      "ground_truth": "December 11, 2023",
+      "prediction": "John achieved a career-high assist performance last Friday in a big game against a rival.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What books has John read?",
+      "category": 1,
+      "ground_truth": "inpsiring book on dreaming big, The Alchemist, fantasy series, non-fiction books on personal development, Dune",
+      "prediction": "John has read 'The Alchemist' and is currently reading a fantasy book. He also recently finished rereading 'The Alchemist', inspired by its message.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does John do to share his knowledge?",
+      "category": 1,
+      "ground_truth": "gives seminars, mentors younger players.",
+      "prediction": "John shares his knowledge by practicing with younger players.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John organize a basketball camp for kids?",
+      "category": 2,
+      "ground_truth": "summer 2023",
+      "prediction": "John organized a basketball camp for kids in his hometown last summer.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which month was John in Italy?",
+      "category": 2,
+      "ground_truth": "December, 2023",
+      "prediction": "John visited Italy last month.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What fantasy movies does Tim like?",
+      "category": 1,
+      "ground_truth": "Lord of the Rings, Harry Potter, and Star Wars.",
+      "prediction": "Tim likes the Harry Potter movie series, The Hobbit, and another popular fantasy series. He also enjoys reading fantasy novels, specifically 'The Name of the Wind' by Patrick Rothfuss.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is a Star Wars book that Tim might enjoy?",
+      "category": 3,
+      "ground_truth": "Star Wars: Jedi Apprentice by Judy Blundell and David Farland. It is a highly rated and immersive series about his favorite movies.",
+      "prediction": "Based on Tim's interest in reorganizing his bookshelf with fantasy books and discussing 'The Hobbit', a Star Wars book that Tim might enjoy is 'Star Wars: The Phantom Menace' by various authors, as it is part of the Star Wars series and falls under the fantasy genre.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What would be a good hobby related to his travel dreams for Tim to pick up?",
+      "category": 3,
+      "ground_truth": "Writing a travel blog.",
+      "prediction": "A good hobby related to Tim's travel dreams could be hiking. Tim has shown interest in visiting Harry Potter locations and has a passion for fantasy literature, which often includes themes of adventure and exploration. Hiking aligns well with these interests and can be a fulfilling hobby that supports his travel aspirations.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What day did Tim get into his study abroad program?",
+      "category": 2,
+      "ground_truth": "Januarty 5, 2024",
+      "prediction": "Tim got accepted into a study abroad program in Ireland.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When will Tim leave for Ireland?",
+      "category": 2,
+      "ground_truth": "February, 2024",
+      "prediction": "Tim is staying in Galway for the semester until January 7, 2024.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which Star Wars-related locations would Tim enjoy during his visit to Ireland?",
+      "category": 3,
+      "ground_truth": "Skellig Michael, Malin Head, Loop Head, Ceann Sibéal, and Brow Head because they are Star Wars filming locations.",
+      "prediction": "Based on Tim's interest in Harry Potter and his love for fantasy literature, he would likely enjoy visiting the Star Wars attractions in Ireland, particularly the Star Wars: Galaxy's Edge at Disneyland Dublin, which is currently under development. Additionally, Tim might appreciate visiting the Cliffs of Moher, a stunning natural landmark that offers breathtaking views and a sense of adventure, aligning with his love for nature and fantasy themes.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which team did John sign with on 21 May, 2023?",
+      "category": 4,
+      "ground_truth": "The Minnesota Wolves",
+      "prediction": "On 21 May 2023, John signed with the Minnesota Wolves.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is John's position on the team he signed with?",
+      "category": 4,
+      "ground_truth": "shooting guard",
+      "prediction": "The information provided does not specify John's position on the team he signed with.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What challenge did John encounter during pre-season training?",
+      "category": 4,
+      "ground_truth": "fitting into the new team's style of play",
+      "prediction": "During pre-season training, John encountered a challenge when he hurt his ankle, which required time off and physical therapy.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What aspects of the Harry Potter universe will be discussed in John's fan project collaborations?",
+      "category": 4,
+      "ground_truth": "characters, spells, magical creatures",
+      "prediction": "John's fan project collaborations with Tim will likely discuss aspects of the Harry Potter universe such as the films, books, and conferences. John and Tim share a strong bond and frequently discuss their love for the Harry Potter series, with Tim working on a Harry Potter fan project. Therefore, it is reasonable to infer that John's fan project will cover themes like the magic world, characters, and memorable moments from the Harry Potter series.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What forum did Tim join recently?",
+      "category": 4,
+      "ground_truth": "fantasy literature forum",
+      "prediction": "Tim joined the Fantasy Literature Forum recently.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of picture did Tim share as part of their Harry Potter book collection?",
+      "category": 4,
+      "ground_truth": "MinaLima's creation from the Harry Potter films",
+      "prediction": "Tim shared a picture of a book from MinaLima as part of their Harry Potter book collection.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What was the highest number of points John scored in a game recently?",
+      "category": 4,
+      "ground_truth": "40 points",
+      "prediction": "The highest number of points John scored in a game recently was not explicitly mentioned. However, he had a career-high in assists last Friday in a big game against a rival.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John celebrate at a restaurant with teammates?",
+      "category": 4,
+      "ground_truth": "a tough win",
+      "prediction": "John celebrated at a local restaurant with new teammates.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of deals did John sign with Nike and Gatorade?",
+      "category": 4,
+      "ground_truth": "basketball shoe and gear deal with Nike, potential sponsorship deal with Gatorade",
+      "prediction": "John signed a basketball shoe and gear deal with Nike and is in talks for a potential sponsorship with Gatorade.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which city is John excited to have a game at?",
+      "category": 4,
+      "ground_truth": "Seattle",
+      "prediction": "John is excited to have a game at Seattle.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How long has John been surfing?",
+      "category": 4,
+      "ground_truth": "five years",
+      "prediction": "John has been surfing for five years.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does John feel while surfing?",
+      "category": 4,
+      "ground_truth": "super exciting and free-feeling",
+      "prediction": "John loves the ocean and nature, and he has been surfing for five years. While surfing, John likely feels energized and in a great mood due to his love for the ocean and nature.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of articles has Tim been writing about for the online magazine?",
+      "category": 4,
+      "ground_truth": "different fantasy novels, characters, themes, and book recommendations",
+      "prediction": "Tim has been writing articles about Harry Potter and fantasy novels for the online magazine.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which two fantasy novels does Tim particularly enjoy writing about?",
+      "category": 4,
+      "ground_truth": "Harry Potter and Game of Thrones",
+      "prediction": "Tim particularly enjoys writing about 'The Name of the Wind' by Patrick Rothfuss and 'The Hobbit'.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Anthony and John end up playing during the charity event?",
+      "category": 4,
+      "ground_truth": "an intense Harry Potter trivia contest",
+      "prediction": "During the charity event, Anthony and John ended up playing basketball.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John share with the person he skyped about?",
+      "category": 4,
+      "ground_truth": "Characters from Harry Potter",
+      "prediction": "John shared a picture from a game with the person he skyped about.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How did John describe the team bond?",
+      "category": 4,
+      "ground_truth": "Awesome",
+      "prediction": "John described the team bond as awesome and supportive. He also mentioned that the team has built camaraderie both on and off the court, and there has been significant growth in communication and bonding.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How did John get introduced to basketball?",
+      "category": 4,
+      "ground_truth": "Dad signed him up for a local league",
+      "prediction": "John got introduced to basketball at a young age, starting to play at the age of 10. He earned a college scholarship and was later drafted by a team. The specific moment or event that introduced him to basketball is not explicitly mentioned in the provided context, but it can be inferred that his journey began when he started playing the sport at a young age.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is John's number one goal in his basketball career?",
+      "category": 4,
+      "ground_truth": "Winning a championship",
+      "prediction": "Based on the available information, John's number one goal in his basketball career is not explicitly stated. However, he has achieved a career-high in assists, which indicates a significant milestone in his career. Given the context, it can be inferred that his primary goal might be related to improving his performance and making a difference through his skills.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What organization is John teaming up with for his charity work?",
+      "category": 4,
+      "ground_truth": "A local organization helping disadvantaged kids with sports and school",
+      "prediction": "John is teaming up with a local organization to help disadvantaged kids with sports and school for his charity work.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did John meet back up with his teammates after his trip in August 2023?",
+      "category": 4,
+      "ground_truth": "Aug 15th",
+      "prediction": "John met back up with his teammates on August 15, 2023, and the team planned a trip for September 21, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John's teammates give him when they met on Aug 15th?",
+      "category": 4,
+      "ground_truth": "a basketball with autographs on it",
+      "prediction": "On Aug 15th, John's teammates met with him and received a sign of friendship and appreciation from him.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did John's teammates sign the basketball they gave him?",
+      "category": 4,
+      "ground_truth": "to show their friendship and appreciation",
+      "prediction": "John's teammates signed the basketball as a sign of friendship and appreciation. This is evident from the context where it mentions that John received a sign of friendship and appreciation from his teammates after a game.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the main intention behind Tim wanting to attend the book conference?",
+      "category": 4,
+      "ground_truth": "to learn more about literature and create a stronger bond to it",
+      "prediction": "Tim wants to attend the book conference to plan and possibly contribute to his book collection, inspired by inspiring fantasy books.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What new activity has Tim started learning in August 2023?",
+      "category": 4,
+      "ground_truth": "play the piano",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which movie's theme is Tim's favorite to play on the piano?",
+      "category": 4,
+      "ground_truth": "\"Harry Potter and the Philosopher's Stone\"",
+      "prediction": "Tim's favorite movie theme to play on the piano is from the Harry Potter movies.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What special memory does \"Harry Potter and the Philosopher's Stone\" bring to Tim?",
+      "category": 4,
+      "ground_truth": "Watching it with his family",
+      "prediction": "The special memory that 'Harry Potter and the Philosopher's Stone' brings to Tim is watching the film with his family on 2023-08-21.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which movie does Tim mention they enjoy watching during Thanksgiving?",
+      "category": 4,
+      "ground_truth": "\"Home Alone\"",
+      "prediction": "Tim mentions watching 'The Lord of the Rings' as his favorite fantasy movie during Thanksgiving.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What tradition does Tim mention they love during Thanksgiving?",
+      "category": 4,
+      "ground_truth": "Prepping the feast and talking about what they're thankful for",
+      "prediction": "Tim does not mention a Thanksgiving tradition during his Harry Potter fan activities.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How long did John and his high school basketball teammates play together?",
+      "category": 4,
+      "ground_truth": "Four years",
+      "prediction": "John met up with his high school basketball teammates from August 15, 2023, to August 17, 2023, and they are planning a team trip for September 21, 2023. However, the exact duration of their high school playing period is not specified.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How was John's experience in New York City?",
+      "category": 4,
+      "ground_truth": "Amazing",
+      "prediction": "John's experience in New York City was positive, as he visited the city and took a picture of the skyline. He seemed to enjoy the experience and found it inspiring.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John say about NYC, enticing Tim to visit?",
+      "category": 4,
+      "ground_truth": "It's got so much to check out - the culture, food - you won't regret it.",
+      "prediction": "John encouraged Tim to visit New York City, saying it was an enthralling place with a beautiful skyline.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of soup did John make recently?",
+      "category": 4,
+      "ground_truth": "tasty soup with sage",
+      "prediction": "John made a tasty soup recently, and he used sage in it.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What spice did John add to the soup for flavor?",
+      "category": 4,
+      "ground_truth": "sage",
+      "prediction": "John added sage to the soup for flavor.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Tim excited to see at Universal Studios?",
+      "category": 4,
+      "ground_truth": "The Harry Potter stuff",
+      "prediction": "Tim is excited to see the Harry Potter stuff at Universal Studios.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where are John and his teammates planning to explore on a team trip?",
+      "category": 4,
+      "ground_truth": "a new city",
+      "prediction": "John and his teammates are planning to explore Edinburgh on their team trip.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What city did Tim suggest to John for the team trip next month?",
+      "category": 4,
+      "ground_truth": "Edinburgh, Scotland",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does John want to do after his basketball career?",
+      "category": 4,
+      "ground_truth": "positively influence and inspire others, potentially start a foundation and engage in charity work",
+      "prediction": "After his basketball career, John wants to make a difference through charity and inspiration.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What advice did Tim give John about picking endorsements?",
+      "category": 4,
+      "ground_truth": "Ensure they align with values and brand, look for companies that share the desire to make a change and help others, make sure the endorsement feels authentic",
+      "prediction": "Tim gave John advice on how to market himself and boost his brand through endorsement deals, encouraging him to explore opportunities with sports brands like Nike and Under Armour.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What book recommendation did Tim give to John for the trip?",
+      "category": 4,
+      "ground_truth": "A fantasy novel by Patrick Rothfuss",
+      "prediction": "Tim recommended 'The Name of the Wind' by Patrick Rothfuss to John for the trip.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of venue did John and his girlfriend choose for their wedding ceremony?",
+      "category": 4,
+      "ground_truth": "Greenhouse",
+      "prediction": "John and his girlfriend chose a Greenhouse Venue for their wedding ceremony.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What was the setting for John and his wife's first dance?",
+      "category": 4,
+      "ground_truth": "Cozy restaurant",
+      "prediction": "The setting for John and his wife's first dance was a cozy restaurant with music and candlelight on October 2, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which basketball team does Tim support?",
+      "category": 4,
+      "ground_truth": "The Wolves",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What passion does Tim mention connects him with people from all over the world?",
+      "category": 4,
+      "ground_truth": "passion for fantasy stuff",
+      "prediction": "Tim's passion for hiking connects him with people from all over the world. Hiking club friends attended his wedding, and he enjoys hiking trips that remind him of his younger days and nature.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How does John describe the game season for his team?",
+      "category": 4,
+      "ground_truth": "intense with tough losses and great wins",
+      "prediction": "John describes the game season for his team as challenging but rewarding, with highlights including a career-high in assists against a rival and improved shooting accuracy, agility, and speed due to strength training.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does John say his team handles tough opponents?",
+      "category": 4,
+      "ground_truth": "by backing each other up and not quitting",
+      "prediction": "Based on John's statements, his team handles tough opponents with a supportive and welcoming bond. They have built camaraderie both on and off the court and have shown growth in communication and bonding.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What motivates John's team to get better, according to John?",
+      "category": 4,
+      "ground_truth": "facing tough opponents",
+      "prediction": "the motivation strategies for his team include showing care, celebrating achievements, providing constructive feedback, and reminding of the bigger goal.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did John's team win at the end of the season?",
+      "category": 4,
+      "ground_truth": "a trophy",
+      "prediction": "John's team, the Minnesota Wolves, won a tough game last week.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where did Tim capture the photography of the sunset over the mountain range?",
+      "category": 4,
+      "ground_truth": "Smoky Mountains",
+      "prediction": "Tim captured the photography of the sunset over the mountain range in the Smoky Mountains.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does John feel about being seen as a mentor by some of the younger players?",
+      "category": 4,
+      "ground_truth": "It feels great",
+      "prediction": "John finds mentoring younger players to be a rewarding and fulfilling experience.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does John find rewarding about mentoring the younger players?",
+      "category": 4,
+      "ground_truth": "Seeing their growth, improvement, and confidence",
+      "prediction": "John finds mentoring younger players to be a rewarding and fulfilling experience. He values the opportunity to share his knowledge and strategies, which helps build camaraderie and support among the team.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What has John been able to help the younger players achieve?",
+      "category": 4,
+      "ground_truth": "reach their goals",
+      "prediction": "John has been able to help the younger players achieve career-high in assists and mentor them effectively. He organized a basketball camp for kids in his hometown last summer and supports youth sports programs, fighting for fair chances in sports for underserved communities.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What genre is the novel that Tim is writing?",
+      "category": 4,
+      "ground_truth": "Fantasy",
+      "prediction": "Tim is writing a fantasy novel.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Who is one of Tim's sources of inspiration for writing?",
+      "category": 4,
+      "ground_truth": "J.K. Rowling",
+      "prediction": "One of Tim's sources of inspiration for writing is his passion for Harry Potter and his involvement in a Harry Potter fan project.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What J.K. Rowling quote does Tim resonate with?",
+      "category": 4,
+      "ground_truth": "\"Turn on the light - happiness hides in the darkest of times.\"",
+      "prediction": "Tim resonates with the J.K. Rowling quote: 'Turn on the light - happiness hides in the darkest of times.'",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does John write on the whiteboard to help him stay motivated?",
+      "category": 4,
+      "ground_truth": "motivational quotes and strategies",
+      "prediction": "John writes motivational quotes and strategies on a whiteboard to help him stay motivated.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What hobby is a therapy for John when away from the court?",
+      "category": 4,
+      "ground_truth": "Cooking",
+      "prediction": "Physical Therapy is a therapy for John when away from the court.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of meal does John often cook using a slow cooker?",
+      "category": 4,
+      "ground_truth": "honey garlic chicken with roasted veg",
+      "prediction": "John often cooks Honey Garlic Chicken using a slow cooker.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How will John share the honey garlic chicken recipe with the other person?",
+      "category": 4,
+      "ground_truth": "write it down and mail it",
+      "prediction": "John will likely share the honey garlic chicken recipe with Tim by sending it to him or discussing it during their interaction, as they have a strong bond and frequently share interests and experiences.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was Tim's huge writing issue last week,as mentioned on November 6, 2023?",
+      "category": 4,
+      "ground_truth": "He got stuck on a plot twist",
+      "prediction": "Tim's huge writing issue last week, as mentioned on November 6, 2023, was related to a setback with a story he was writing based on his experiences in the UK.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Tim have that serves as a reminder of hard work and is his prized possession?",
+      "category": 4,
+      "ground_truth": "a basketball signed by his favorite player",
+      "prediction": "Tim has a photo that reminds him of his younger days practicing basketball, which serves as a reminder of hard work and is his prized possession.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Why do Tim and John find LeBron inspiring?",
+      "category": 4,
+      "ground_truth": "LeBron's determination and the epic block in Game 7 of the '16 Finals",
+      "prediction": "Tim and John find LeBron inspiring because John admires his work ethic and dedication to the game, as well as his determination and heart. Tim considers LeBron his favorite player, likely inspired by his epic block in Game 7 of the '16 Finals.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How did John describe the views during their road trip out on the European coastline?",
+      "category": 4,
+      "ground_truth": "Spectacular",
+      "prediction": "John described the views during their road trip out on the European coastline as epic spots with spectacular views.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is one of Tim's favorite fantasy TV shows, as mentioned on November 11, 2023?",
+      "category": 4,
+      "ground_truth": "\"That\"",
+      "prediction": "Tim's favorite fantasy TV show is not explicitly mentioned. However, Tim has shown interest in the fantasy novel 'The Name of the Wind' by Patrick Rothfuss.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Tim stay motivated during difficult study sessions?",
+      "category": 4,
+      "ground_truth": "Visualizing goals and success",
+      "prediction": "Tim stays motivated during difficult study sessions by breaking his study sessions into smaller parts (25 minutes on, 5 minutes off) and by having a passion for reading and writing fantasy literature. He finds inspiration in his love for books and the Harry Potter series, which helps him maintain a positive attitude and keep going.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Tim say about his injury on 16 November, 2023?",
+      "category": 4,
+      "ground_truth": "The doctor said it's not too serious",
+      "prediction": "On 16 November, 2023, Tim did not specifically mention anything about his injury. However, he experienced a setback with a story and was trying to get back on track.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was the setback Tim faced in his writing project on 21 November, 2023?",
+      "category": 4,
+      "ground_truth": "Story based on experiences in the UK didn't go as planned",
+      "prediction": "On 21 November 2023, Tim faced a setback with a story he was writing for his Harry Potter fan project.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How did John overcome his ankle injury from last season?",
+      "category": 4,
+      "ground_truth": "stayed focused on recovery and worked hard to strengthen his body",
+      "prediction": "John overcame his ankle injury from last season through a combination of physical therapy, visualization techniques, and working hard on rehabilitation. He was able to jog without pain and continued to stay positive throughout the recovery process.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What motivated Tim to keep pushing himself to get better in writing and reading?",
+      "category": 4,
+      "ground_truth": "Love for writing and reading",
+      "prediction": "Tim's motivation to keep pushing himself to get better in writing and reading is primarily driven by his passion for the Harry Potter series and his involvement in a Harry Potter fan project. His enthusiasm for the books and attending a Harry Potter conference in the UK, along with his active participation in writing articles and discussing the fan project, indicates a strong commitment to improving his skills in these areas.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How did John overcome a mistake he made during a big game in basketball?",
+      "category": 4,
+      "ground_truth": "Worked hard to get better and focused on growth",
+      "prediction": "John overcame a mistake he made during a big game in basketball by improving his shooting accuracy, agility, and speed through strength training. He also had a career-high in assists last Friday in a big game against a rival, showing his growth and resilience.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What book did John recently finish rereading that left him feeling inspired and hopeful about following dreams?",
+      "category": 4,
+      "ground_truth": "The Alchemist",
+      "prediction": "John recently finished rereading an inspiring book that left him feeling hopeful about following dreams, but the specific title of the book is unknown.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How did \"The Alchemist\" impact John's perspective on following dreams?",
+      "category": 4,
+      "ground_truth": "made him think again about following dreams and searching for personal legends",
+      "prediction": "The Alchemist impacted John's perspective on following dreams by inspiring him with its message. John recently finished rereading 'The Alchemist' and was inspired by its message, indicating a positive influence on his belief in pursuing dreams.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is John trying out to improve his strength and flexibility after recovery from ankle injury?",
+      "category": 4,
+      "ground_truth": "yoga",
+      "prediction": "John is trying out strength training to improve his strength and flexibility after recovery from an ankle injury.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How long does John usually hold the yoga pose he shared with Tim?",
+      "category": 4,
+      "ground_truth": "30-60 seconds",
+      "prediction": "John enjoys practicing yoga for strength and flexibility. However, there is no specific mention of the duration of the yoga poses he shared with Tim. Therefore, we cannot determine how long John usually holds the yoga pose he shared with Tim.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Where was the forest picture shared by John on December 1,2023 taken?",
+      "category": 4,
+      "ground_truth": "near his hometown",
+      "prediction": "The forest picture shared by John on December 1, 2023 was taken near his hometown.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Tim recently start learning in addition to being part of a travel club and working on studies?",
+      "category": 4,
+      "ground_truth": "an instrument",
+      "prediction": "Tim recently started working on studies and projects, but there is no specific mention of him starting to learn something new in addition to being part of a travel club and working on studies.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What instrument is Tim learning to play in December 2023?",
+      "category": 4,
+      "ground_truth": "violin",
+      "prediction": "Tim is learning to play the piano in December 2023.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How long has Tim been playing the piano for, as of December 2023?",
+      "category": 4,
+      "ground_truth": "about four months",
+      "prediction": "Tim started learning to play the piano in August 2023. Since the exact duration of his piano learning timeline is not specified, we cannot determine the exact length of time he has been playing the piano as of December 2023. However, it is clear that he began his piano lessons in August 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What book did Tim just finish reading on 8th December, 2023?",
+      "category": 4,
+      "ground_truth": "\"A Dance with Dragons\"",
+      "prediction": "On 8th December, 2023, Tim was currently reading a fantasy book.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which book did Tim recommend to John as a good story on 8th December, 2023?",
+      "category": 4,
+      "ground_truth": "\"A Dance with Dragons\"",
+      "prediction": "On 8th December, 2023, Tim recommended 'The Name of the Wind' by Patrick Rothfuss to John as a good story.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the topic of discussion between John and Tim on 11 December, 2023?",
+      "category": 4,
+      "ground_truth": "Academic achievements and sports successes",
+      "prediction": "The topic of discussion between John and Tim on 11 December, 2023 was not explicitly mentioned. However, the nodes 'Studies and Projects' and 'Communication and Bonding' suggest that they were likely discussing their academic and professional responsibilities, as well as the importance of team communication and bonding.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of game did John have a career-high in assists in?",
+      "category": 4,
+      "ground_truth": "basketball",
+      "prediction": "John had a career-high in assists last Friday in a big game against a rival.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What was John's way of dealing with doubts and stress when he was younger?",
+      "category": 4,
+      "ground_truth": "practicing basketball outside for hours",
+      "prediction": "John dealt with doubts and stress when he was younger by focusing on his passion for basketball and maintaining a strong work ethic. He practiced daily, improved his skills through strength training and visualization techniques, and stayed motivated by reflecting on his goals and setbacks. Additionally, spending time with friends and family, enjoying nature, and engaging in activities like surfing and cooking helped him maintain a balanced approach to dealing with stress.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How did John feel about the atmosphere during the big game against the rival team?",
+      "category": 4,
+      "ground_truth": "electric and intense",
+      "prediction": "John felt great making plays for his teammates during the big game against the rival team, and the atmosphere was electric. The intensity of playing against rivals added to the excitement of the game.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How did John feel after being able to jog without pain?",
+      "category": 4,
+      "ground_truth": "It was a huge success.",
+      "prediction": "After being able to jog without pain, John felt great and motivated.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of deal did John get in December?",
+      "category": 4,
+      "ground_truth": "Deal with a renowned outdoor gear company",
+      "prediction": "In December, John got an amazing deal with a renowned outdoor gear company.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where was the photoshoot done for John's gear deal?",
+      "category": 4,
+      "ground_truth": "In a gorgeous forest",
+      "prediction": "The photoshoot for John's gear deal was done in a gorgeous forest.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "In which area has John's team seen the most growth during training?",
+      "category": 4,
+      "ground_truth": "Communication and bonding",
+      "prediction": "The most growth in John's team during training has been in communication and bonding.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What type of seminars is John conducting?",
+      "category": 4,
+      "ground_truth": "Sports and marketing seminars",
+      "prediction": "John is conducting seminars on sports and marketing.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What activity did Tim do after reading the stories about the Himalayan trek?",
+      "category": 4,
+      "ground_truth": "visited a travel agency",
+      "prediction": "After reading the stories about the Himalayan trek, Tim went hiking in the Smoky Mountains.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is one cause that John supports with his influence and resources?",
+      "category": 4,
+      "ground_truth": "youth sports and fair chances in sports",
+      "prediction": "One cause that John supports with his influence and resources is raising money for charity through a benefit basketball game. On January 7, 2024, John organized a successful benefit basketball game that raised money for charity, demonstrating his commitment to using his platform to create positive impact in the community.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What new fantasy TV series is Tim excited about?",
+      "category": 4,
+      "ground_truth": "\"The Wheel of Time\"",
+      "prediction": "Tim is excited about the new fantasy TV series 'The Wheel of Time'.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which language is Tim learning?",
+      "category": 4,
+      "ground_truth": "German",
+      "prediction": "Tim is interested in classical music.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What language does Tim know besides German?",
+      "category": 4,
+      "ground_truth": "Spanish",
+      "prediction": "Tim knows Spanish besides German.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What book did Tim get in Italy that inspired him to cook?",
+      "category": 4,
+      "ground_truth": "a cooking book",
+      "prediction": "Tim got 'The Name of the Wind' by Patrick Rothfuss in Italy, which inspired him to cook.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is John's favorite book series?",
+      "category": 4,
+      "ground_truth": "Harry Potter",
+      "prediction": "John has a book collection that includes items from MinaLima and currently reads a fantasy book. While we do not have a specific title mentioned, it is likely that John's favorite book series is a fantasy series, possibly one from his book collection.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "According to John, who is his favorite character from Lord of the Rings?",
+      "category": 4,
+      "ground_truth": "Aragorn",
+      "prediction": "his favorite character from Lord of the Rings is Aragorn.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Why does John like Aragorn from Lord of the Rings?",
+      "category": 4,
+      "ground_truth": "brave, selfless, down-to-earth attitude",
+      "prediction": "John likes Aragorn from Lord of the Rings because Aragorn is an inspiring character. John expressed that Aragorn is an inspiring character at 2024-01-02.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of painting does John have in his room as a reminder?",
+      "category": 4,
+      "ground_truth": "a painting of Aragorn",
+      "prediction": "John has an epic photo from a photoshoot in his room as a reminder.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the painting of Aragorn a reminder for John to be in everything he does?",
+      "category": 4,
+      "ground_truth": "be a leader",
+      "prediction": "The painting of Aragorn is a reminder for John to be in everything he does because it symbolizes Aragorn's determination and heart, qualities that John admires and wants to embody in his own life and career. John has expressed admiration for LeBron James's work ethic and dedication, and similarly, Aragorn represents a figure of strength and purpose for John.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What map does Tim show to his friend John?",
+      "category": 4,
+      "ground_truth": "a map of Middle-earth from LOTR",
+      "prediction": "Tim showed John a map of Middle-earth.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where will Tim be going for a semester abroad?",
+      "category": 4,
+      "ground_truth": "Ireland",
+      "prediction": "Tim will be staying in Galway for a semester abroad.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which city in Ireland will Tim be staying in during his semester abroad?",
+      "category": 4,
+      "ground_truth": "Galway",
+      "prediction": "Tim will be staying in Galway for his semester abroad.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What charity event did John organize recently in 2024?",
+      "category": 4,
+      "ground_truth": "benefit basketball game",
+      "prediction": "John organized a successful benefit basketball game for charity in 2024.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What achievement did John share with Tim in January 2024?",
+      "category": 4,
+      "ground_truth": "endorsement with a popular beverage company",
+      "prediction": "In January 2024, John shared that he won a trophy at a Harry Potter conference with Tim.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What was Johns's reaction to sealing the deal with the beverage company?",
+      "category": 4,
+      "ground_truth": "crazy feeling, sense of accomplishment",
+      "prediction": "John's reaction to sealing the deal with the Popular Beverage Company was one of excitement and motivation. He shared a recent photo from a game and expressed his enthusiasm for the endorsement deal, indicating that he felt great about making plays for his teammates and the electric atmosphere of the game. This suggests that John was positively reacting to the deal, seeing it as a significant milestone in his career.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Which city did John recommend to Tim in January 2024?",
+      "category": 4,
+      "ground_truth": "Barcelona",
+      "prediction": "In January 2024, John recommended Edinburgh to Tim.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    }
+  ]
+}

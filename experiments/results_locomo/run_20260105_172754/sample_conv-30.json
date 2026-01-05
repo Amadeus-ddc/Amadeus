@@ -1,0 +1,735 @@
+{
+  "sample_id": "conv-30",
+  "avg_score": 0.6790123456790124,
+  "qa_results": [
+    {
+      "question": "When Jon has lost his job as a banker?",
+      "category": 2,
+      "ground_truth": "19 January, 2023",
+      "prediction": "Jon lost his job as a banker to pursue his passion for dance.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When Gina has lost her job at Door Dash?",
+      "category": 2,
+      "ground_truth": "January, 2023",
+      "prediction": "Gina lost her job at Door Dash.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How do Jon and Gina both like to destress?",
+      "category": 4,
+      "ground_truth": "by dancing",
+      "prediction": "Both Jon and Gina like to destress by supporting each other and sharing their challenges. They motivate each other through their struggles and celebrate their achievements together. For example, Gina encourages Jon to keep pushing forward with his dance studio, and Jon supports Gina in her fashion business.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What do Jon and Gina both have in common?",
+      "category": 1,
+      "ground_truth": "They lost their jobs and decided to start their own businesses.",
+      "prediction": "Both Jon and Gina share a passion for dance and entrepreneurship. They support each other in pursuing their dreams and face similar challenges in running their respective businesses.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did Jon decide to start his dance studio?",
+      "category": 4,
+      "ground_truth": "He lost his job and decided to start his own business to share his passion.",
+      "prediction": "Jon decided to start his dance studio because he has a passion for dancing and dreams of creating a place for people to dance and express themselves. He started the studio after losing his job as a banker.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What Jon thinks the ideal dance studio should look like?",
+      "category": 1,
+      "ground_truth": "By the water, with natural light and Marley flooring",
+      "prediction": "Jon dreams of creating a place for people to dance and express themselves. He is passionate about contemporary dance and wants to offer workshops and classes to local schools and centers. He is also expanding his social media presence and hosting a dance competition next month to showcase local talent and bring more attention to the studio.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When is Jon's group performing at a festival?",
+      "category": 2,
+      "ground_truth": "February, 2023",
+      "prediction": "Jon's group is performing at a nearby festival next month.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina launch an ad campaign for her store?",
+      "category": 2,
+      "ground_truth": "29 January, 2023",
+      "prediction": "Gina launched an ad campaign for her clothing store on January 29, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When was Jon in Paris?",
+      "category": 2,
+      "ground_truth": "28 January 2023",
+      "prediction": "Jon visited Paris yesterday and found a place with great natural light.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which city have both Jean and John visited?",
+      "category": 1,
+      "ground_truth": "Rome",
+      "prediction": "Both Jean and John have visited Paris.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina team up with a local artist for some cool designs?",
+      "category": 2,
+      "ground_truth": "February, 2023",
+      "prediction": "Gina team up with a local artist for cool designs on February 8, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina get her tattoo?",
+      "category": 2,
+      "ground_truth": "A few years ago",
+      "prediction": "Gina got a tattoo that stands for freedom, reminding herself to follow her passions and express herself.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Jon start to go to the gym?",
+      "category": 2,
+      "ground_truth": "March, 2023",
+      "prediction": "Jon started hitting the gym last week to stay on track with the venture.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina open her online clothing store?",
+      "category": 2,
+      "ground_truth": "16 March, 2023",
+      "prediction": "Gina opened her online clothing store on March 16, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Jon start expanding his studio's social media presence?",
+      "category": 2,
+      "ground_truth": "April, 2023",
+      "prediction": "Jon started expanding his studio's social media presence in April 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Jon host a dance competition?",
+      "category": 2,
+      "ground_truth": "May, 2023",
+      "prediction": "Jon hosted a dance competition next month to showcase local talent and bring more attention to his dance studio.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Jon go to a fair to get more exposure for his dance studio?",
+      "category": 2,
+      "ground_truth": "24 April, 2023",
+      "prediction": "The information provided does not mention Jon going to a fair to get more exposure for his dance studio. The nearest event mentioned is a dance competition next month.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did Gina decide to start her own clothing store?",
+      "category": 1,
+      "ground_truth": "She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.",
+      "prediction": "Gina decided to start her own clothing store after losing her job at Door Dash and combining her passion for fashion with her love for dance. She dreams of giving people a place to express themselves with dance through her clothing store.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Do Jon and Gina start businesses out of what they love?",
+      "category": 1,
+      "ground_truth": "Yes",
+      "prediction": "Yes Jon and Gina start businesses",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina interview for a design internship?",
+      "category": 2,
+      "ground_truth": "10 May, 2023",
+      "prediction": "Gina interviewed for a design internship recently on 2023-05-11.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina get accepted for the design internship?",
+      "category": 2,
+      "ground_truth": "27 May, 2023",
+      "prediction": "Gina got accepted for a fashion internship.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Jon start reading \"The Lean Startup\"?",
+      "category": 2,
+      "ground_truth": "May, 2023",
+      "prediction": "Jon started reading 'The Lean Startup' on 2023-05-27.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina develop a video presentation to teach how to style her fashion pieces? ",
+      "category": 2,
+      "ground_truth": "June, 2023",
+      "prediction": "Gina developed a video presentation to teach how to style her fashion pieces on June 13, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How did Gina promote her clothes store?",
+      "category": 1,
+      "ground_truth": "worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",
+      "prediction": "Gina promoted her clothes store by launching an ad campaign and working on unique, trendy designs. She also planned to work with fashion bloggers and influencers, and worked on building her customer base through various marketing strategies.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which events has Jon participated in to promote his business venture?",
+      "category": 1,
+      "ground_truth": "fair, networking events, dance competition",
+      "prediction": "Jon has participated in attending a fair to showcase his dance studio, which led to receiving some leads and learning about the challenges of running a business. He is also preparing for a dance competition near his location next month.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Jon's dance studio offer?",
+      "category": 1,
+      "ground_truth": "one-on-one metoring and training to dancers,  workshops and classes to local schools and centers",
+      "prediction": "Jon's dance studio offers workshops and classes to local schools and centers, and is expanding its social media presence. The studio is set to host a dance competition next month to showcase local talent and bring more attention to the studio.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Jon receive mentorship to promote his venture?",
+      "category": 2,
+      "ground_truth": "15 June, 2023",
+      "prediction": "Jon received mentorship to promote his venture when he got mentored by a business guy and felt inspired to chase his dreams.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Did Jon and Gina both participate in dance competitions?",
+      "category": 1,
+      "ground_truth": "Yes",
+      "prediction": "both Jon and Gina participated in dance competitions. Gina competed in dance competitions and won first place at a regional competition at age 15, and there is a dance competition near Jon's location next month where he plans to host an event to showcase local talent and bring more attention to his dance studio.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When was Jon in Rome?",
+      "category": 2,
+      "ground_truth": "June 2023",
+      "prediction": "The information provided does not specify when Jon was in Rome. The closest related node is 'dance comp', which mentions a dance competition near Jon's location next month, but there is no mention of Jon being in Rome.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Which cities has Jon visited?",
+      "category": 1,
+      "ground_truth": "Paris, Rome",
+      "prediction": "Jon has visited Paris.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When Jon is planning to open his dance studio?",
+      "category": 2,
+      "ground_truth": "20 June, 2023",
+      "prediction": "Jon is planning to open his dance studio, and the official opening night is tomorrow.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How long did it take for Jon to open his studio?",
+      "category": 1,
+      "ground_truth": "six months",
+      "prediction": "Jon started his dance studio after losing his job as a banker in early January 2023. The official opening night of the dance studio is scheduled for June 19, 2023. Therefore, it took Jon approximately 5 months to open his dance studio.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina design a limited collection of hoodies?",
+      "category": 2,
+      "ground_truth": "June 2023",
+      "prediction": "Gina designed a limited collection of hoodies on June 21, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Jon visit networking events for his store?",
+      "category": 2,
+      "ground_truth": "20 June, 2023",
+      "prediction": "Jon visited networking events on 2023-06-21.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina start being recognized by fashion editors?",
+      "category": 2,
+      "ground_truth": "July 2023",
+      "prediction": "Gina started being recognized by fashion editors in July 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Jon start learning marketing and analytics tools?",
+      "category": 2,
+      "ground_truth": "July, 2023",
+      "prediction": "Jon started learning marketing and analytics tools on July 9, 2023.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Jon and Gina decide to collaborate to create dance content?",
+      "category": 2,
+      "ground_truth": "21 July 2023",
+      "prediction": "Jon and Gina decided to collaborate to create dance content for the dance competition next month.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina mention Shia Labeouf?",
+      "category": 2,
+      "ground_truth": " 23 July, 2023",
+      "prediction": "Unknown",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "When did Gina go to a dance class with a group of friends?",
+      "category": 2,
+      "ground_truth": "21 July 2023",
+      "prediction": "The information provided does not specify when Gina went to a dance class with a group of friends. The closest related information is that Gina competed in dance competitions and won first place at a regional competition at age 15, but there is no mention of her going to a dance class with friends.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Gina's favorite style of dance?",
+      "category": 4,
+      "ground_truth": "Contemporary",
+      "prediction": "Gina's favorite style of dance is contemporary.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Jon's favorite style of dance?",
+      "category": 4,
+      "ground_truth": "Contemporary",
+      "prediction": "Jon's favorite style of dance is contemporary.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What was Gina's favorite dancing memory?",
+      "category": 4,
+      "ground_truth": "Winning first place at a regionals dance competition",
+      "prediction": "Gina's favorite dancing memory was competing in a dance competition and winning first place at a regional competition at age 15.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of dance piece did Gina's team perform to win first place?",
+      "category": 4,
+      "ground_truth": "\"Finding Freedom\"",
+      "prediction": "Gina's team performed a contemporary dance piece called 'Finding Freedom' to win first place in a competition.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What do the dancers in the photo represent?",
+      "category": 4,
+      "ground_truth": "They are performing at the festival",
+      "prediction": "The dancers in the photo likely represent a dance crew or a group of dancers preparing for a performance or competition. They are passionate about contemporary dance and may be rehearsing or performing to showcase local talent and bring more attention to their dance studio.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Gina say about the dancers in the photo?",
+      "category": 4,
+      "ground_truth": "They look graceful",
+      "prediction": "Gina says that the dancers in the photo are showing their skills and passion for contemporary dance.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Jon's attitude towards being part of the dance festival?",
+      "category": 4,
+      "ground_truth": "Glad",
+      "prediction": "Jon is enthusiastic and determined about being part of the dance festival. He told Gina about the dance performance at the festival and described it as awesome, indicating his positive attitude and excitement towards participating in the event.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of flooring is Jon looking for in his dance studio?",
+      "category": 4,
+      "ground_truth": "Marley flooring",
+      "prediction": "Jon is looking for Marley flooring for his dance studio because it provides good grip and is easy to maintain.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Gina find for her clothing store on 1 February, 2023?",
+      "category": 4,
+      "ground_truth": "The perfect spot for her store",
+      "prediction": "On 1 February, 2023, Gina found a perfect spot for her clothing store.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Gina design for her store?",
+      "category": 4,
+      "ground_truth": "the space, furniture, and decor",
+      "prediction": "Gina designed a cozy and inviting space for her clothing store.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Gina want her customers to feel in her store?",
+      "category": 4,
+      "ground_truth": "cozy and comfortable",
+      "prediction": "Gina wanted her customers to feel inspired and empowered to express themselves through dance and fashion.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Jon say about Gina's progress with her store?",
+      "category": 4,
+      "ground_truth": "hard work's paying off",
+      "prediction": "Jon said that Gina's progress with her store is great and she's excited about it.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What made Gina choose the furniture and decor for her store?",
+      "category": 4,
+      "ground_truth": "personal style and customer comfort",
+      "prediction": "Gina chose the furniture and decor for her store to create a cozy and inviting space that looks great and is comfy, along with adding a nice glam feel through a chandelier.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Jon say about creating a special experience for customers?",
+      "category": 4,
+      "ground_truth": "It's the key to making them feel welcome and coming back",
+      "prediction": "Jon said that he wants to create a special experience for customers by offering workshops and classes at his dance studio, which is located in the downtown area. He is also working on an online platform to showcase the studio's offerings.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Gina say about creating an experience for her customers?",
+      "category": 4,
+      "ground_truth": "making them want to come back",
+      "prediction": "Gina said that she dreams of giving people a place to express themselves with dance through her clothing store.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How is Gina's store doing?",
+      "category": 4,
+      "ground_truth": "The store is doing great.",
+      "prediction": "Gina's store is doing great and she's excited about it. She has launched an ad campaign, expanded her store, and opened an online store. She is planning to work with fashion bloggers and influencers and is growing her customer base.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Gina's tattoo symbolize?",
+      "category": 4,
+      "ground_truth": "Freedom and expressing herself through dance",
+      "prediction": "Gina's tattoo symbolizes freedom, reminding herself to follow her passions and express herself.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Jon and Gina compare their entrepreneurial journeys to?",
+      "category": 4,
+      "ground_truth": "dancing together and supporting each other",
+      "prediction": "Jon and Gina compared their entrepreneurial journeys to having a partner to dance with, which motivates them and helps them achieve success together.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What advice does Gina give to Jon about running a successful business?",
+      "category": 4,
+      "ground_truth": "build relationships with customers, create a strong brand image, stay positive",
+      "prediction": "Gina advises Jon to stay passionate, focused, and resilient. She reminds him that challenges will come but encourages him to believe in himself and keep going. Additionally, she suggests staying open to learning and improving.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did Jon shut down his bank account?",
+      "category": 4,
+      "ground_truth": "for his business",
+      "prediction": "Jon shut down his bank account to help his business grow.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Why did Gina combine her clothing business with dance?",
+      "category": 4,
+      "ground_truth": "she is passionate about dance and fashion",
+      "prediction": "Gina combined her clothing business with dance because she wanted to blend her love for dance and fashion. She stated, 'Combining my two interests into a store is super cool.' This shows her passion for both fashion and dance, leading her to create a business that incorporates elements of both.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Jon's dance make him?",
+      "category": 4,
+      "ground_truth": "happy",
+      "prediction": "Jon's dance makes him passionate, joyful, and fulfilled. He started a dance studio after losing his job as a banker to pursue his passion for dance, and it brings him joy and fulfillment. He dreams of creating a place for people to dance and express themselves.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Gina receive from a dance contest?",
+      "category": 4,
+      "ground_truth": "a trophy",
+      "prediction": "Gina received trophies from dance contests as reminders of hard work and dedication.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Gina stay confident in her business?",
+      "category": 4,
+      "ground_truth": "By reminding herself of her successes and progress, having a support system, and focusing on why she started",
+      "prediction": "Gina stays confident in her business by drawing inspiration from her passion for dance and fashion, as well as the support and encouragement from her friend Jon. She has launched an ad campaign for her clothing store and is excited about it, which helps boost her confidence. Additionally, she has a tattoo that stands for freedom, reminding her to follow her passions and express herself, further contributing to her confidence.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What kind of professional experience did Gina get accepted for on May 23, 2023?",
+      "category": 4,
+      "ground_truth": "fashion internship",
+      "prediction": "On May 23, 2023, Gina got accepted for a fashion internship.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "Where is Gina's fashion internship?",
+      "category": 4,
+      "ground_truth": "fashion department of an international company",
+      "prediction": "Gina's fashion internship is in the fashion department of an international company.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What book is Jon currently reading?",
+      "category": 4,
+      "ground_truth": "The Lean Startup",
+      "prediction": "Jon is currently reading 'The Lean Startup'.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Jon offering to the dancers at his dance studio?",
+      "category": 4,
+      "ground_truth": "One-on-one mentoring and training",
+      "prediction": "Jon is offering workshops and classes to local schools and centers, expanding the social media presence of his dance studio, and hosting a dance competition next month to showcase local talent and bring more attention to the studio.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Jon use the clipboard with a notepad attached to it?",
+      "category": 4,
+      "ground_truth": "To set goals, track achievements, and find areas for improvement",
+      "prediction": "Jon uses the clipboard with a notepad attached to it to stay organized and motivated. He created a visual tool on the whiteboard to track ideas and milestones, and he uses color-coding to track achievements and stay motivated.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Jon tell Gina he won't do?",
+      "category": 4,
+      "ground_truth": "quit",
+      "prediction": "Jon tells Gina he won't give up on his dance studio dream.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Jon take a trip to Rome for?",
+      "category": 4,
+      "ground_truth": "To clear his mind",
+      "prediction": "The information provided does not specify Jon's reason for taking a trip to Rome. The nodes found were related to a dance competition, but there is no direct connection to Jon's trip to Rome.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is Jon working on opening?",
+      "category": 4,
+      "ground_truth": "a dance studio",
+      "prediction": "Jon is working on opening a dance studio. He is currently still searching for the right spot and considering Marley flooring. The dance studio is set to open its doors tomorrow.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Gina describe the studio that Jon has opened?",
+      "category": 4,
+      "ground_truth": "amazing",
+      "prediction": "Gina describes Jon's studio as a place where students are already performing well and he is helping them express themselves through dance.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Jon feel about the opening night of his dance studio?",
+      "category": 4,
+      "ground_truth": "excited",
+      "prediction": "Jon is excited and determined for the opening night of his dance studio. He dreams of creating a place for people to dance and express themselves, and he is passionate about running his own business despite the challenges.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "How does Gina describe the feeling that dance brings?",
+      "category": 4,
+      "ground_truth": "magical",
+      "prediction": "Gina describes the feeling that dance brings as joyful and fulfilling. She mentions that her favorite dance style is contemporary and that it brings her joy and fulfillment.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Jon plan to do at the grand opening of his dance studio?",
+      "category": 4,
+      "ground_truth": "savor all the good vibes",
+      "prediction": "At the grand opening of his dance studio, Jon plans to host a dance competition next month to showcase local talent and bring more attention to the studio.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What does Gina say to Jon about the grand opening?",
+      "category": 4,
+      "ground_truth": "Let's live it up and make some great memories",
+      "prediction": "Gina says she is looking forward to making more memories at the dance studio during the grand opening.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What is the general sentiment about the upcoming grand opening?",
+      "category": 4,
+      "ground_truth": "excitement",
+      "prediction": "The general sentiment about the upcoming grand opening is positive and enthusiastic. Jon is determined and excited to open his dance studio, which he started due to his passion for dancing. He is working hard to expand the social media presence and host a dance competition to showcase local talent. Gina is also looking forward to supporting Jon's grand opening and making more memories at the dance studio.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What did Gina make a limited edition line of?",
+      "category": 4,
+      "ground_truth": "Hoodies",
+      "prediction": "Gina made a limited edition line of a hoodie.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "According to Gina, what makes Jon a perfect mentor and guide?",
+      "category": 4,
+      "ground_truth": "His positivity and determination",
+      "prediction": "Jon is a perfect mentor and guide because he offers one-on-one mentoring and training to help dancers reach their full potential, provides advice on staying motivated and confident in business, and supports his students with encouragement and motivation.",
+      "is_correct": false,
+      "score": 0.0,
+      "reason": ""
+    },
+    {
+      "question": "What plans does Jon have after receiving advice at the networking event?",
+      "category": 4,
+      "ground_truth": "Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.",
+      "prediction": "After receiving advice at the networking event, Jon plans to spruce up the business plan and tweak the pitch to investors.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    },
+    {
+      "question": "What offer does Gina make to Jon regarding social media?",
+      "category": 4,
+      "ground_truth": "Helping with making content and managing his social media accounts.",
+      "prediction": "Gina offers to help Jon with making content and managing social media accounts.",
+      "is_correct": true,
+      "score": 1.0,
+      "reason": ""
+    }
+  ]
+}

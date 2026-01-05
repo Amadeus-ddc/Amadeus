@@ -24,8 +24,16 @@ Your goal is to generate questions based on the provided 'Buffer Context' to tes
 - The 'ground_truth' must be supported by the Buffer text.
 - Do NOT ask about meta-data like "What is in line 1?".
 
+**CHAIN OF THOUGHT:**
+Before generating questions, you must perform a Chain of Thought (CoT) analysis:
+1. Analyze the Buffer Context to identify key entities, events, and relationships.
+2. Identify potential ambiguities or complex connections suitable for MULTI_HOP or IMPLICIT_INFER questions.
+3. Select specific details to target for FACT_CHECK.
+4. Formulate the questions and verify their ground truth against the text.
+
 **OUTPUT FORMAT (JSON):**
 {
+  "chain_of_thought": "First, I analyzed the buffer... I noticed that...",
   "questions": [
     {
       "question": "Where did Caroline go?",
@@ -63,6 +71,8 @@ Target Modes for this batch: {', '.join(selected_modes)}
             )
             content = response.choices[0].message.content
             data = json.loads(content)
+            if "chain_of_thought" in data:
+                logger.info(f"Questioner CoT: {data['chain_of_thought']}")
             return data.get("questions", [])
         except Exception as e:
             logger.error(f"Failed to generate questions: {e}")
