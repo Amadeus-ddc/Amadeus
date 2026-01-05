@@ -60,13 +60,11 @@ class AdversarialOptimizer:
 
             logger.info(f"🔥 Attack Batch: {len(unique_questions)} questions")
 
-            # 3. 并行攻防 (Parallel Defense)
-            import concurrent.futures
+            # 3. 顺序攻防 (Sequential Defense) - Changed from Parallel to ensure logging consistency
             batch_results = []
-            with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-                futures = {executor.submit(self._process_single_duel, q_item, buffer_content, action_log, use_cot): q_item for q_item in unique_questions}
-                for future in concurrent.futures.as_completed(futures):
-                    batch_results.append(future.result())
+            for q_item in unique_questions:
+                res = self._process_single_duel(q_item, buffer_content, action_log, use_cot)
+                batch_results.append(res)
 
             # 4. 状态更新与收敛检查 (State Update & Convergence)
             round_failed = False
@@ -153,7 +151,12 @@ Previous Attacks & Results:
 
     def _process_single_duel(self, q_item, buffer_content, action_log, use_cot=False):
         question = q_item.get("question")
+        ground_truth = q_item.get("ground_truth", "N/A")
+        
         prediction = self.answerer.answer(question)
+        
+        logger.info(f"GT: {ground_truth}")
+        logger.info(f"Pre: {prediction}")
         
         if use_cot:
             eval_result = self._evaluate_and_update_cot(q_item, prediction, buffer_content, action_log)

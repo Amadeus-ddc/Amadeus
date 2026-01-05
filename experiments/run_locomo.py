@@ -8,6 +8,7 @@ import datetime
 import shutil
 import numpy as np
 import torch
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from transformers import AutoTokenizer, AutoModel
 from dotenv import load_dotenv
@@ -48,6 +49,17 @@ class HuggingFaceEmbedder:
         except Exception as e:
             print(f"Embedding failed: {e}")
             return None
+
+class ThreadLogFilter(logging.Filter):
+    """
+    Filter log records to only include those from a specific thread.
+    """
+    def __init__(self, thread_id):
+        super().__init__()
+        self.thread_id = thread_id
+
+    def filter(self, record):
+        return record.thread == self.thread_id
 
 def setup_logging(log_path=None):
     handlers = [logging.StreamHandler(sys.stdout)]
@@ -183,7 +195,7 @@ Do NOT include both CORRECT and WRONG in your response, or it will break the eva
 Just return the label CORRECT or WRONG in a json format with the key as "label".
 """
 
-def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32b-instruct", api_base=None, api_key=None):
+def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32b-instruct", api_base=None, api_key=None, logger=logger):
     client = OpenAI(base_url=api_base, api_key=api_key)
     
     try:
@@ -228,174 +240,199 @@ def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32
 
 def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, run_output_dir):
     sample_id, chunks, questions = sample_data
-    logger.info(f"\n{'='*40}\n🚀 Running Sample: {sample_id}\n{'='*40}")
     
-    # 清理旧图
-    graph_path = f"data/graph_{sample_id}.json"
-    if os.path.exists(graph_path): os.remove(graph_path)
-        
-    graph = MemoryGraph(graph_path, embedder=embedder)
-    buffer = TimeWindowBuffer(trigger_threshold=1) # 每一个Session都是完整上下文，直接触发
-    builder = BuilderAgent(graph, model_name=args.model_name)
-    answerer = AnswererAgent(graph, model_name=args.model_name)
-    questioner = QuestionerAgent(model_name=args.model_name)
-    optimizer = AdversarialOptimizer(questioner, builder, answerer, model_name=args.model_name)
+    # Create sample directory
+    sample_dir = os.path.join(run_output_dir, sample_id)
+    os.makedirs(sample_dir, exist_ok=True)
 
-    logger.info(f"[{sample_id}] 🧠 Phase 1: Building Memory ({len(chunks)} contextual sessions)...")
+    # Setup thread-specific logging
+    log_file = os.path.join(sample_dir, "experiment.log")
+    file_handler = logging.FileHandler(log_file, mode='w', encoding='utf-8')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(formatter)
     
-    # Adaptive Buffer Logic
-    current_buffer = ""
+    # Filter for current thread
+    current_thread_id = threading.get_ident()
+    thread_filter = ThreadLogFilter(current_thread_id)
+    file_handler.addFilter(thread_filter)
     
-    # Ablation Settings
-    ablation_mode = args.ablation_mode
-    fixed_buffer_size = args.fixed_buffer_size
-    fixed_sp_count = args.fixed_sp_count
-    
-    # Determine Optimizer Mode
-    optimizer_mode = "adaptive"
-    optimizer_fixed_count = None
-    use_cot = False
-    
-    if ablation_mode == "adaptive_buffer_fixed_sp":
-        optimizer_mode = "fixed"
-        optimizer_fixed_count = fixed_sp_count
-    elif ablation_mode == "fixed_buffer_adaptive_sp":
-        optimizer_mode = "adaptive"
-    elif ablation_mode == "fixed_buffer_fixed_sp_cot":
-        optimizer_mode = "fixed"
-        optimizer_fixed_count = fixed_sp_count
-        use_cot = True
-    
-    # Re-implementing loop to match original logic structure but with ablation support
-    current_buffer = ""
-    chunks_since_flush = 0
-    
-    for i, chunk in enumerate(chunks):
-        if current_buffer == "":
-            current_buffer += chunk
-            chunks_since_flush = 1
-        else:
-            # Check flush condition
-            should_flush = False
-            if ablation_mode == "fixed_buffer_adaptive_sp" or ablation_mode == "fixed_buffer_fixed_sp_cot":
-                if chunks_since_flush >= fixed_buffer_size:
-                    should_flush = True
-            else:
-                should_flush = builder.check_flush_condition(current_buffer, chunk)
+    # Attach to Root Logger to capture ALL logs from this thread (including Amadeus.*)
+    root_logger = logging.getLogger()
+    root_logger.addHandler(file_handler)
+
+    try:
+        logger.info(f"\n{'='*40}\n🚀 Running Sample: {sample_id}\n{'='*40}")
+        
+        # 清理旧图
+        graph_path = f"data/graph_{sample_id}.json"
+        if os.path.exists(graph_path): os.remove(graph_path)
             
-            if should_flush:
-                logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
-                kept_items, action_log = builder.process_buffer(current_buffer)
-                
-                if graph.graph.number_of_nodes() > 0:
-                    try:
-                        optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
-                    except Exception as e:
-                        logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
-                
-                current_buffer = chunk
+        graph = MemoryGraph(graph_path, embedder=embedder)
+        buffer = TimeWindowBuffer(trigger_threshold=1) # 每一个Session都是完整上下文，直接触发
+        builder = BuilderAgent(graph, model_name=args.model_name)
+        answerer = AnswererAgent(graph, model_name=args.model_name)
+        questioner = QuestionerAgent(model_name=args.model_name)
+        optimizer = AdversarialOptimizer(questioner, builder, answerer, model_name=args.model_name)
+
+        logger.info(f"[{sample_id}] 🧠 Phase 1: Building Memory ({len(chunks)} contextual sessions)...")
+        
+        # Adaptive Buffer Logic
+        current_buffer = ""
+        
+        # Ablation Settings
+        ablation_mode = args.ablation_mode
+        fixed_buffer_size = args.fixed_buffer_size
+        fixed_sp_count = args.fixed_sp_count
+        
+        # Determine Optimizer Mode
+        optimizer_mode = "adaptive"
+        optimizer_fixed_count = None
+        use_cot = False
+        
+        if ablation_mode == "adaptive_buffer_fixed_sp":
+            optimizer_mode = "fixed"
+            optimizer_fixed_count = fixed_sp_count
+        elif ablation_mode == "fixed_buffer_adaptive_sp":
+            optimizer_mode = "adaptive"
+        elif ablation_mode == "fixed_buffer_fixed_sp_cot":
+            optimizer_mode = "fixed"
+            optimizer_fixed_count = fixed_sp_count
+            use_cot = True
+        
+        # Re-implementing loop to match original logic structure but with ablation support
+        current_buffer = ""
+        chunks_since_flush = 0
+        
+        for i, chunk in enumerate(chunks):
+            if current_buffer == "":
+                current_buffer += chunk
                 chunks_since_flush = 1
             else:
-                current_buffer += "\n" + chunk
-                chunks_since_flush += 1
-    
-    # 3. Final Flush for remaining content
-    if current_buffer:
-        logger.info(f"[{sample_id}] 🔄 Final Flush...")
-        kept_items, action_log = builder.process_buffer(current_buffer)
-        if graph.graph.number_of_nodes() > 0:
-            try:
-                optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
-            except Exception as e:
-                logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
-
-    logger.info(f"[{sample_id}] 📊 Graph Ready. Nodes: {graph.graph.number_of_nodes()}, Edges: {graph.graph.number_of_edges()}")
-
-    # Save graph to output dir
-    final_graph_path = os.path.join(run_output_dir, f"graph_{sample_id}.json")
-    try:
-        shutil.copy(graph_path, final_graph_path)
-        logger.info(f"[{sample_id}] 💾 Graph saved to: {final_graph_path}")
-    except Exception as e:
-        logger.error(f"[{sample_id}] Failed to save graph: {e}")
-
-    logger.info(f"[{sample_id}] 🔍 Phase 2: Evaluation...")
-    
-    sample_qa_results = []
-    sample_scores = []
-    
-    local_category_scores = {}
-    local_category_counts = {}
-    local_total_questions = 0
-
-    for q_item in questions:
-        q = q_item.get('question', 'Unknown')
-        category = q_item.get('category', 'Unknown')
+                # Check flush condition
+                should_flush = False
+                if ablation_mode == "fixed_buffer_adaptive_sp" or ablation_mode == "fixed_buffer_fixed_sp_cot":
+                    if chunks_since_flush >= fixed_buffer_size:
+                        should_flush = True
+                else:
+                    should_flush = builder.check_flush_condition(current_buffer, chunk)
+                
+                if should_flush:
+                    logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
+                    kept_items, action_log = builder.process_buffer(current_buffer)
+                    
+                    if graph.graph.number_of_nodes() > 0:
+                        try:
+                            optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
+                        except Exception as e:
+                            logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
+                    
+                    current_buffer = chunk
+                    chunks_since_flush = 1
+                else:
+                    current_buffer += "\n" + chunk
+                    chunks_since_flush += 1
         
-        # Skip Category 5 to match baseline
-        if category == 5:
-            continue
+        # 3. Final Flush for remaining content
+        if current_buffer:
+            logger.info(f"[{sample_id}] 🔄 Final Flush...")
+            kept_items, action_log = builder.process_buffer(current_buffer)
+            if graph.graph.number_of_nodes() > 0:
+                try:
+                    optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
+                except Exception as e:
+                    logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
 
-        # 优先使用 'answer'，如果没有则尝试 'adversarial_answer'，最后才是 'N/A'
-        gt = str(q_item.get('answer', q_item.get('adversarial_answer', 'N/A')))
-        
+        logger.info(f"[{sample_id}] 📊 Graph Ready. Nodes: {graph.graph.number_of_nodes()}, Edges: {graph.graph.number_of_edges()}")
+
+        # Save graph to output dir
+        final_graph_path = os.path.join(sample_dir, "graph.json")
         try:
-            pred = answerer.answer(q)
+            shutil.copy(graph_path, final_graph_path)
+            logger.info(f"[{sample_id}] 💾 Graph saved to: {final_graph_path}")
         except Exception as e:
-            logger.error(f"[{sample_id}] Answerer failed: {e}")
-            pred = "Error"
-        
-        is_correct, score, reason = evaluate_with_llm(
-            q, gt, pred, 
-            model_name=args.judge_model_name,
-            api_base=judge_api_base,
-            api_key=judge_api_key
-        )
-        
-        # Update stats
-        sample_scores.append(score)
-        local_total_questions += 1
-        
-        # Update category stats
-        if category not in local_category_scores:
-            local_category_scores[category] = []
-            local_category_counts[category] = 0
-        local_category_scores[category].append(score)
-        local_category_counts[category] += 1
-        
-        icon = "✅" if is_correct else "❌"
-        
-        logger.info(f"\n[{sample_id}] Q: {q}\nCategory: {category}\nGT: {gt}\nPred: {pred}\nResult: {icon} (Score: {score:.2f})\nReason: {reason}")
-        
-        sample_qa_results.append({
-            "question": q,
-            "category": category,
-            "ground_truth": gt,
-            "prediction": pred,
-            "is_correct": is_correct,
-            "score": score,
-            "reason": reason
-        })
+            logger.error(f"[{sample_id}] Failed to save graph: {e}")
 
-    sample_avg_score = np.mean(sample_scores) if sample_scores else 0.0
-    logger.info(f"\n🏆 Sample {sample_id} Score (Avg Score): {sample_avg_score * 100:.1f}%")
-    
-    # Save sample result
-    sample_result = {
-        "sample_id": sample_id,
-        "avg_score": float(sample_avg_score),
-        "qa_results": sample_qa_results
-    }
-    
-    with open(os.path.join(run_output_dir, f"sample_{sample_id}.json"), 'w', encoding='utf-8') as f:
-        json.dump(sample_result, f, ensure_ascii=False, indent=2)
+        logger.info(f"[{sample_id}] 🔍 Phase 2: Evaluation...")
         
-    return {
-        "sample_result": sample_result,
-        "category_scores": local_category_scores,
-        "category_counts": local_category_counts,
-        "total_questions": local_total_questions
-    }
+        sample_qa_results = []
+        sample_scores = []
+        
+        local_category_scores = {}
+        local_category_counts = {}
+        local_total_questions = 0
+
+        for q_item in questions:
+            q = q_item.get('question', 'Unknown')
+            category = q_item.get('category', 'Unknown')
+            
+            # Skip Category 5 to match baseline
+            if category == 5:
+                continue
+
+            # 优先使用 'answer'，如果没有则尝试 'adversarial_answer'，最后才是 'N/A'
+            gt = str(q_item.get('answer', q_item.get('adversarial_answer', 'N/A')))
+            
+            try:
+                pred = answerer.answer(q)
+            except Exception as e:
+                logger.error(f"[{sample_id}] Answerer failed: {e}")
+                pred = "Error"
+            
+            is_correct, score, reason = evaluate_with_llm(
+                q, gt, pred, 
+                model_name=args.judge_model_name,
+                api_base=judge_api_base,
+                api_key=judge_api_key,
+                logger=logger
+            )
+            
+            # Update stats
+            sample_scores.append(score)
+            local_total_questions += 1
+            
+            # Update category stats
+            if category not in local_category_scores:
+                local_category_scores[category] = []
+                local_category_counts[category] = 0
+            local_category_scores[category].append(score)
+            local_category_counts[category] += 1
+            
+            icon = "✅" if is_correct else "❌"
+            
+            logger.info(f"\n[{sample_id}] Q: {q}\nCategory: {category}\nGT: {gt}\nPred: {pred}\nResult: {icon} (Score: {score:.2f})\nReason: {reason}")
+            
+            sample_qa_results.append({
+                "question": q,
+                "category": category,
+                "ground_truth": gt,
+                "prediction": pred,
+                "is_correct": is_correct,
+                "score": score,
+                "reason": reason
+            })
+
+        sample_avg_score = np.mean(sample_scores) if sample_scores else 0.0
+        logger.info(f"\n🏆 Sample {sample_id} Score (Avg Score): {sample_avg_score * 100:.1f}%")
+        
+        # Save sample result
+        sample_result = {
+            "sample_id": sample_id,
+            "avg_score": float(sample_avg_score),
+            "qa_results": sample_qa_results
+        }
+        
+        with open(os.path.join(sample_dir, "result.json"), 'w', encoding='utf-8') as f:
+            json.dump(sample_result, f, ensure_ascii=False, indent=2)
+            
+        return {
+            "sample_result": sample_result,
+            "category_scores": local_category_scores,
+            "category_counts": local_category_counts,
+            "total_questions": local_total_questions
+        }
+    finally:
+        root_logger.removeHandler(file_handler)
+        file_handler.close()
 
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
