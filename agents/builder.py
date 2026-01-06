@@ -38,6 +38,7 @@ Your goal is to maintain a **High-Fidelity Knowledge Graph** by synchronizing th
 1. **Episodic Primacy**: The Buffer is the "Now". If it conflicts with the Graph ("Past"), the Buffer wins.
 2. **Minimalism**: Do NOT store chit-chat ("Hello", "How are you"), redundant facts, or temporary states. Use **IGNORE** (by outputting no operation).
 3. **Ambiguity Aversion**: If you are unsure who "he" is, or what "it" refers to, **WAIT**.
+4. **Completeness**: Capture ALL specific details (Location, Time, Attendees, Reason). "Went out" is bad; "Went to the park for a picnic" is good.
 
 **SUBJECT RESOLUTION (WHO IS IT ABOUT?)(CRITICAL)**
 The buffer format is: `Speaker: Text`.
@@ -74,9 +75,19 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
    - **Trigger**: Unresolved pronouns ("He said..."), vague future plans, or incomplete stories.
    - **Action**: Keep the RAW text in `content`. It will roll over to the next turn.
 
+**THINKING PROCESS (CHAIN OF THOUGHT):**
+1. **Time & Subject**: Extract absolute time and resolve pronouns.
+2. **Fact Decomposition**: Break buffer into atomic facts (Subject-Predicate-Object).
+3. **Graph Differential**: For each atomic fact, check if it exists in Graph.
+   - Missing? -> ADD.
+   - Changing? -> UPDATE.
+   - Contradiction? -> DELETE.
+   - Ambiguity? -> WAIT.
+4. **Detail Check**: Ensure no key details (Where, When, Who, Why) are lost.
+
 **OUTPUT SCHEMA (JSON):**
 {
-  "chain_of_thought": "Step 1: Identify absolute date from Context. Step 2: Identify entities. Step 3: Compare with Graph. Step 4: Resolve conflicts.",
+  "chain_of_thought": "Step 1: Date is 2023-08-01. Entities are Caroline and Mom. Step 2: New fact 'Mom visited'. Step 3: Graph has no 'Mom', so ADD Node Mom, ADD Edge visited. Step 4: Include 'dinner' detail in content.",
   "operations": [
     {
       "action": "ADD" | "UPDATE" | "DELETE" | "WAIT",
@@ -235,15 +246,19 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                 
                 # ADD / UPDATE
                 if op.action in [ActionType.ADD, ActionType.UPDATE]:
+                    prefix_node = "➕ NODE" if op.action == ActionType.ADD else "🔄 UPDATE NODE"
+                    prefix_edge = "🔗 LINK" if op.action == ActionType.ADD else "🔄 UPDATE LINK"
+                    
                     if op.object: 
                         rel = op.content if op.content else "related to"
                         self.graph.add_edge(op.subject, op.object, rel, timestamp=op.timestamp)
-                        msg = f"🔗 LINK: {op.subject} --{rel}--> {op.object} (Time: {op.timestamp})"
+                        msg = f"{prefix_edge}: {op.subject} --{rel}--> {op.object} (Time: {op.timestamp})"
                         logger.info(msg)
                         action_log.append(msg)
                     else:
                         self.graph.add_node(op.subject, "Entity", op.content or "")
-                        msg = f"➕ NODE: {op.subject}"
+                        description = op.content if op.content else "No description"
+                        msg = f"{prefix_node}: {op.subject} (Content: {description})"
                         logger.info(msg)
                         action_log.append(msg)
 

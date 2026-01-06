@@ -415,7 +415,7 @@ def main():
     # Default to the local path found in the workspace
     parser.add_argument("--embedding_model", type=str, default="/home/ubuntu/hzy/crl/Amadeus/amadeus/models/all-MiniLM-L6-v2")
     parser.add_argument("--output_dir", type=str, default="results_locomo")
-    parser.add_argument("--max_workers", type=int, default=10, help="Number of parallel workers")
+    parser.add_argument("--max_workers", type=int, default=1, help="Number of parallel workers")
     
     # Ablation Arguments
     parser.add_argument("--ablation_mode", type=str, default="none", 

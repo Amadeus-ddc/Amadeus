@@ -192,10 +192,22 @@ Builder Log: "{action_log_str}"
 - BUILDER: Info missing from Builder Log.
 - ANSWERER: Info exists in Log but Answerer missed it.
 
-Output JSON: {{ "is_correct": boolean, "blame": "BUILDER" | "ANSWERER" | "QUESTIONER" | "NONE", "reason": "..." }}
+**CHAIN OF THOUGHT:**
+Think step-by-step:
+1. Compare Prediction vs Ground Truth.
+2. IF Prediction is CORRECT:
+   - Blame QUESTIONER. Turn to Step 4.
+3. IF Prediction is WRONG:
+   - Check Builder Log.
+   - If Info missing -> Blame BUILDER.
+   - If Info exists -> Blame ANSWERER.
+4. Analyze WHY the failure happened and give high-level guidelines.
+Output JSON: {{ "chain_of_thought": "...", "is_correct": boolean, "blame": "BUILDER" | "ANSWERER" | "QUESTIONER" | "NONE", "reason": "..." }}
 """
         try:
             res1 = self._call_llm(prompt_1)
+            if "chain_of_thought" in res1:
+                logger.info(f"Optimizer (Judge) CoT: {res1['chain_of_thought']}")
             is_correct = res1.get("is_correct", False)
             blame = res1.get("blame", "NONE")
             
@@ -225,16 +237,22 @@ Output JSON: {{ "graph_patch": [ {{ "action": "ADD", "subject": "...", "object":
 The agent '{blame}' failed because: {res1.get('reason')}
 Question: "{q_item['question']}"
 
+Determine which operator needs improvement:
+- BUILDER: ADD, UPDATE, DELETE, WAIT
+- ANSWERER: SEARCH, WALK, READ
+- QUESTIONER: GENERATE
+
 Suggest a short, actionable instruction (Meta-Gradient) to update the agent's system prompt to prevent this.
-Output JSON: {{ "meta_gradient": "..." }}
+Output JSON: {{ "target_operator": "...", "meta_gradient": "..." }}
 """
                 res3 = self._call_llm(prompt_3)
                 meta_gradient = res3.get("meta_gradient", "")
+                target_operator = res3.get("target_operator")
                 
                 if blame == "BUILDER":
-                    self.builder.update_guideline("UPDATE", meta_gradient)
+                    self.builder.update_guideline(target_operator, meta_gradient)
                 elif blame == "ANSWERER":
-                    self.answerer.update_guideline("SEARCH", meta_gradient)
+                    self.answerer.update_guideline(target_operator, meta_gradient)
             
             else:
                 logger.info(f"✅ [CoT] DEFENDER SUCCEEDED. Optimizing Questioner...")
@@ -286,7 +304,7 @@ Your goal: arbitrate the adversarial game between the [Questioner] (Attacker) an
    - Generate a **Textual Gradient** to update the Agent's Prompt to prevent future errors.
 2. **Defenders Win (Prediction CORRECT)**:
    - The Questioner failed to trick the system.
-   - Generate a **Textual Gradient** to force the Questioner to ask harder/trickier questions next time.
+   - Generate a **Textual Gradient** to force the Questioner to ask trickier and more discriminative questions next time.
 
 **CRITICAL: GLOBAL vs LOCAL CONTEXT**
 - **Ground Truth (GT)** is derived ONLY from the current Buffer.
@@ -299,6 +317,15 @@ Analyze the [Builder Activity Log] and the [Question]:
 - **BLAME BUILDER IF**: The specific *relationship* or *attribute* needed to answer is ABSENT from the Log. (Creating a Node is not enough; the connection must exist).
 - **BLAME ANSWERER IF**: The exact answer DOES appear in the Log (meaning it was just added), but the Answerer still hallucinated or said "Unknown".
 
+**CHAIN OF THOUGHT:**
+Before generating the final JSON, you must perform a step-by-step analysis:
+1. **Compare Prediction vs Ground Truth**: Is it correct? Is it plausible?
+2. **IF Prediction is CORRECT**:
+   - Blame QUESTIONER. Turn to Step 4.
+3. **IF Prediction is WRONG**:
+   - **Analyze Causality**: Look at the Builder Log. Was the info captured? If yes, why did Answerer miss it? If no, why did Builder miss it?
+4. **Formulate Strategy**: Based on the blame, what high-level instruction (Gradient) would improve this in the future?
+
 **INPUT DATA:**
 - Text Buffer: "{buffer_snippet}..."
 - Question: "{q_item['question']}"
@@ -308,6 +335,7 @@ Analyze the [Builder Activity Log] and the [Question]:
 
 **OUTPUT FORMAT (JSON):**
 {{
+  "chain_of_thought": "Step 1: Comparing... Step 2/3: Blaming... Step 4: Strategy...",
   "is_correct": boolean,
   "blame": "BUILDER" | "ANSWERER" | "QUESTIONER",
   
@@ -318,10 +346,19 @@ Analyze the [Builder Activity Log] and the [Question]:
   ],
 
   // SECTION 2: PROMPT EVOLUTION (The Meta-Gradient)
+  // Determine which operator needs improvement:
+  // - BUILDER: ADD (if info missed), UPDATE (if info wrong), DELETE, WAIT
+  // - ANSWERER: SEARCH, WALK, READ
+  // - QUESTIONER: GENERATE
+  "target_operator": "The operator responsible. Valid values: ADD, UPDATE, DELETE, WAIT, SEARCH, WALK, READ, GENERATE",
+
   // Explain HOW the blamed agent's System Prompt should change to avoid this failure.
-  // If Blame=QUESTIONER: Suggest specific types of questions (e.g., "Focus on implicit causality", "Ask relative time").
-  // If Blame=BUILDER: Suggest extraction rules (e.g., "Capture adjectives", "Resolve 'he' to names").
-  // If Blame=ANSWERER: Suggest search strategies (e.g., "Don't stop at 1 hop", "Trust graph over priors").
+  // If Blame=QUESTIONER: Suggest how to ask trickier and more discriminative questions.
+  // If Blame=BUILDER: Suggest how to improve memory graph management.
+  // If Blame=ANSWERER: Suggest how to retrieve information more effectively and accurately, and construct the information to answer better.
+  // CRITICAL: Write this as a DIRECT INSTRUCTION or RULE for the Agent.
+  // BAD: "The Builder should ensure..."
+  // GOOD: "ALWAYS convert relative dates..."
   "meta_gradient": "string description of the prompt update strategy"
 }}
 """
@@ -334,29 +371,36 @@ Analyze the [Builder Activity Log] and the [Question]:
             )
             result = json.loads(response.choices[0].message.content)
             
+            if "chain_of_thought" in result:
+                logger.info(f"Optimizer CoT: {result['chain_of_thought']}")
+
             blame = result.get("blame")
             is_correct = result.get("is_correct")
             meta_gradient = result.get("meta_gradient")
             graph_patch = result.get("graph_patch")
+            target_operator = result.get("target_operator")
 
             if not is_correct:
                 logger.warning(f"❌ DEFENDER FAILED. Blame: {blame}")
                 
                 # Apply Policy Update to Defender
                 if blame == "BUILDER":
-                    self.builder.update_guideline("UPDATE", meta_gradient)
+                    op = target_operator
+                    self.builder.update_guideline(op, meta_gradient)
                     # Apply State Fix
                     if graph_patch:
                         patch_str = json.dumps(graph_patch)
                         self.builder.force_update(f"Apply these fixes: {patch_str}")
                         
                 elif blame == "ANSWERER":
-                    self.answerer.update_guideline("SEARCH", meta_gradient)
+                    op = target_operator
+                    self.answerer.update_guideline(op, meta_gradient)
             else:
                 logger.info(f"✅ DEFENDER SUCCEEDED. Optimizing Questioner...")
                 # Apply Policy Update to Attacker
                 if blame == "QUESTIONER":
-                     self.questioner.update_guideline("GENERATE", meta_gradient)
+                     op = "GENERATE"
+                     self.questioner.update_guideline(op, meta_gradient)
             
             return result
                 

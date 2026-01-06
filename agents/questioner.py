@@ -45,7 +45,7 @@ Before generating questions, you must perform a Chain of Thought (CoT) analysis:
 }
 """
         self.operator_guidelines = {
-            "GENERATE": ["Focus on high-value information.", "Avoid trivial details like background colors unless relevant."]
+            "GENERATE": []
         }
 
     def generate_questions(self, buffer_content: str, num_questions: int = 3) -> List[Dict[str, Any]]:
