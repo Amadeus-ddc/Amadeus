@@ -15,6 +15,9 @@ venv/
 
 # 实验数据 (太大，不要上传 Git，用云盘或 NAS 传)
 data/
-experiments/logs/
+experiments/LoCoMo/logs/
 *.pth
 *.pt
+
+# 本地模型
+models/
