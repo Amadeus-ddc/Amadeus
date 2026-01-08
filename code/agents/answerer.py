@@ -115,6 +115,11 @@ OR
         
         history = []
         current_nodes = []
+        visited_node_order = []
+        visited_node_content = {}
+        visited_edge_order = []
+        visited_edge_set = set()
+        visited_context_str = "None"
         
         for step in range(self.max_steps):
             # --- 1. Prepare Context ---
@@ -128,8 +133,32 @@ OR
                 neighbors_view = self.graph.primitive_get_neighbors(current_nodes)
                 # Read current nodes content
                 current_content = self.graph.primitive_read(current_nodes)
+                # Cache visited nodes and edges for later answering.
+                nx_graph = self.graph.graph
+                for name in current_nodes:
+                    if name not in visited_node_content:
+                        visited_node_content[name] = self.graph.primitive_read([name])
+                        visited_node_order.append(name)
+                    for _, target, data in nx_graph.out_edges(name, data=True):
+                        rel = data.get('relation', 'related')
+                        edge_ts = data.get('timestamp')
+                        edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
+                        edge_line = f"[{name}] --[{rel}{edge_ts_str}]--> [{target}]"
+                        if edge_line not in visited_edge_set:
+                            visited_edge_set.add(edge_line)
+                            visited_edge_order.append(edge_line)
                 status_str = f"Status: You are at nodes: {current_nodes}"
                 view_str = f"**Current Node Content**:\n{current_content}\n\n**Visible Neighbors**:\n{neighbors_view}"
+
+            if visited_node_order:
+                nodes_view = "\n".join(visited_node_content[n] for n in visited_node_order[-5:])
+            else:
+                nodes_view = "None"
+            if visited_edge_order:
+                edges_view = "\n".join(visited_edge_order[-5:])
+            else:
+                edges_view = "None"
+            visited_context_str = f"**Visited Nodes**:\n{nodes_view}\n\n**Visited Edges**:\n{edges_view}"
                 
             prompt = f"""
 {self.get_full_prompt()}
@@ -138,6 +167,9 @@ OR
 
 **Exploration History**:
 {history_str}
+
+**Visited Context**:
+{visited_context_str}
 
 **{status_str}**
 {view_str}
@@ -227,6 +259,9 @@ Only say "Unknown" if you have absolutely NO relevant information.
 
 **History**:
 {history_str}
+
+**Visited Context**:
+{visited_context_str}
 
 **Current Context**:
 {view_str}
