@@ -138,7 +138,7 @@ Previous Attacks & Results:
                 model=self.questioner.model_name,
                 messages=[{"role": "user", "content": prompt}],
                 response_format={"type": "json_object"},
-                temperature=0.7 # 保持一定的创造性
+                temperature=0.0 # 保持一定的创造性
             )
             res = json.loads(response.choices[0].message.content)
             

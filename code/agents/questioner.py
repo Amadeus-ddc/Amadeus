@@ -67,7 +67,7 @@ Target Modes for this batch: {', '.join(selected_modes)}
                 model=self.model_name,
                 messages=[{"role": "system", "content": prompt}],
                 response_format={"type": "json_object"},
-                temperature=0.7
+                temperature=0.0
             )
             content = response.choices[0].message.content
             data = json.loads(content)

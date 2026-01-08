@@ -31,7 +31,7 @@ ABLATION_MODE="${ABLATION_MODE:-adaptive_buffer_fixed_sp}"
 FIXED_SP_COUNT="${FIXED_SP_COUNT:-3}"
 
 # Unified output directory for all parallel jobs
-COMMON_OUT="results_locomo_parallel_${TS}"
+COMMON_OUT="results_locomo_parallel_temperature0${TS}"
 
 # Edit the SAMPLE_IDS/OUT/MAX_WORKERS/API_BASE/PORT per GPU if you want a different split.
 declare -a JOBS=(
