@@ -72,4 +72,14 @@ declare -a JOBS=(
     done
   done
 
-echo "All jobs dispatched. Use 'ps -ef | grep run_locomo.py' or 'tail -f results_locomo_gpu*/run_*/experiment.log' to monitor."
+echo "Waiting for all jobs to complete..."
+wait
+
+# Calculate Memory Graph Token Stats for each unique output directory
+echo "Calculating Memory Graph Token Stats..."
+for job in "${JOBS[@]}"; do
+    eval "$job"
+    "${PYTHON_BIN}" "${ROOT_DIR}/experiments/LoCoMo/analyze_memory_tokens.py" --run_dirs "${LOG_BASE_DIR}/${OUT}"
+done
+
+echo "All jobs completed. Use 'tail -f experiments/LoCoMo/logs/*/experiment.log' to monitor."

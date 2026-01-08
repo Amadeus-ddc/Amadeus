@@ -92,6 +92,10 @@ for ((i=1; i<=NUM_REPEATS; i++)); do
   RESULT_DIR="${LOG_BASE_DIR}/${OUT}"
   "${PYTHON_BIN}" "${ROOT_DIR}/experiments/LoCoMo/merge_results.py" "${RESULT_DIR}"
   
+  # Calculate Memory Graph Token Stats
+  echo "Calculating Memory Graph Token Stats for ${OUT}..."
+  "${PYTHON_BIN}" "${ROOT_DIR}/experiments/LoCoMo/analyze_memory_tokens.py" --run_dirs "${RESULT_DIR}"
+  
   echo "Iteration ${i} completed."
 done
 
