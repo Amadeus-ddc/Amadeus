@@ -30,12 +30,15 @@ JUDGE_API_KEY="${JUDGE_API_KEY:-sk-f418eb8b1eb941a7975419cceb23bc89}"
 ABLATION_MODE="${ABLATION_MODE:-adaptive_buffer_fixed_sp}"
 FIXED_SP_COUNT="${FIXED_SP_COUNT:-3}"
 
+# Unified output directory for all parallel jobs
+COMMON_OUT="results_locomo_parallel_tem0${TS}"
+
 # Edit the SAMPLE_IDS/OUT/MAX_WORKERS/API_BASE/PORT per GPU if you want a different split.
 declare -a JOBS=(
-  "GPU=0 SAMPLE_IDS=conv-26,conv-30,conv-41 OUT=gpu0-tem0-3 MAX_WORKERS=3 PORT=8000 MAIN_API_BASE=http://localhost:8000/v1 MAIN_API_KEY=local"
-  "GPU=1 SAMPLE_IDS=conv-42,conv-43,conv-44 OUT=gpu1-tem0-3 MAX_WORKERS=3 PORT=8001 MAIN_API_BASE=http://localhost:8001/v1 MAIN_API_KEY=local"
-  "GPU=2 SAMPLE_IDS=conv-47,conv-48 OUT=gpu2-tem0-3 MAX_WORKERS=2 PORT=8002 MAIN_API_BASE=http://localhost:8002/v1 MAIN_API_KEY=local"
-  "GPU=3 SAMPLE_IDS=conv-49,conv-50 OUT=gpu3-tem0-3 MAX_WORKERS=2 PORT=8003 MAIN_API_BASE=http://localhost:8003/v1 MAIN_API_KEY=local"
+  # "GPU=0 SAMPLE_IDS=conv-26,conv-30,conv-41 OUT=${COMMON_OUT} MAX_WORKERS=3 PORT=8000 MAIN_API_BASE=http://localhost:8000/v1 MAIN_API_KEY=local"
+  "GPU=1 SAMPLE_IDS=conv-42,conv-43,conv-44,conv-26 OUT=${COMMON_OUT} MAX_WORKERS=3 PORT=8001 MAIN_API_BASE=http://localhost:8001/v1 MAIN_API_KEY=local"
+  "GPU=2 SAMPLE_IDS=conv-47,conv-48,conv-30 OUT=${COMMON_OUT} MAX_WORKERS=3 PORT=8002 MAIN_API_BASE=http://localhost:8002/v1 MAIN_API_KEY=local"
+  "GPU=3 SAMPLE_IDS=conv-49,conv-50,conv-41 OUT=${COMMON_OUT} MAX_WORKERS=3 PORT=8003 MAIN_API_BASE=http://localhost:8003/v1 MAIN_API_KEY=local"
 )
 
   for job in "${JOBS[@]}"; do
@@ -74,6 +77,11 @@ declare -a JOBS=(
 
 echo "Waiting for all jobs to complete..."
 wait
+
+# Calculate Global Summary for this run
+echo "Generating Global Summary for ${OUT}..."
+RESULT_DIR="${LOG_BASE_DIR}/${OUT}"
+"${PYTHON_BIN}" "${ROOT_DIR}/experiments/LoCoMo/merge_results.py" "${RESULT_DIR}"
 
 # Calculate Memory Graph Token Stats for each unique output directory
 echo "Calculating Memory Graph Token Stats..."

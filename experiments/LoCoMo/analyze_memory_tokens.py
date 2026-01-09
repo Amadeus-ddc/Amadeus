@@ -74,94 +74,43 @@ def main():
                 logger.error("无法加载任何分词器，将回退到简单的单词计数（可能不准确）。")
                 tokenizer = None
 
-        # 3. 处理每个 conv 子目录
-        conv_subdirs = [d for d in os.listdir(run_dir) if d.startswith("conv-") and os.path.isdir(os.path.join(run_dir, d))]
-        conv_subdirs.sort() # 排序以保证输出一致性
+        # 3. 处理记忆图文件
+        # 兼容两种结构：
+        # A: run_dir/conv-XX/graphs/graph_conv-XX.json
+        # B: run_dir/graph_conv-XX.json (并行运行时的扁平结构)
         
-        if not conv_subdirs:
-            logger.error("在运行目录下未找到任何 conv-XX 文件夹。")
+        graph_files = []
+        
+        # 检查扁平结构
+        flat_graphs = [f for f in os.listdir(run_dir) if f.startswith("graph_conv-") and f.endswith(".json")]
+        if flat_graphs:
+            logger.info(f"检测到扁平结构，找到 {len(flat_graphs)} 个记忆图文件")
+            for f in flat_graphs:
+                conv_id = f.replace("graph_", "").replace(".json", "")
+                graph_files.append((conv_id, os.path.join(run_dir, f)))
+        else:
+            # 检查子目录结构
+            conv_subdirs = [d for d in os.listdir(run_dir) if d.startswith("conv-") and os.path.isdir(os.path.join(run_dir, d))]
+            if conv_subdirs:
+                logger.info(f"检测到子目录结构，找到 {len(conv_subdirs)} 个样本目录")
+                for conv_id in conv_subdirs:
+                    graph_path = os.path.join(run_dir, conv_id, "graphs", f"graph_{conv_id}.json")
+                    if os.path.exists(graph_path):
+                        graph_files.append((conv_id, graph_path))
+        
+        graph_files.sort() # 排序以保证输出一致性
+        
+        if not graph_files:
+            logger.error("在运行目录下未找到任何有效的记忆图文件或 conv-XX 文件夹。")
             continue
 
-        logger.info(f"找到 {len(conv_subdirs)} 个样本目录，开始计算...")
+        logger.info(f"开始计算 {len(graph_files)} 个样本的 Token 数...")
         
         stats_per_conv = {}
         total_tokens_sum = 0
         count = 0
         
-        for conv_id in conv_subdirs:
-            # 记忆图通常储存在 {sample_id}/graphs/graph_{sample_id}.json
-            graph_path = os.path.join(run_dir, conv_id, "graphs", f"graph_{conv_id}.json")
-            
-            if not os.path.exists(graph_path):
-                logger.warning(f"跳过 {conv_id}: 找不到记忆图文件 {graph_path}")
-                continue
-                
+        for conv_id, graph_path in graph_files:
             try:
                 with open(graph_path, 'r', encoding='utf-8') as f:
                     graph_data = json.load(f)
-                
-                # 使用与 MemoryGraph.get_full_state 兼容的文本表示（但不截断）
-                # 排除 embedding 字段，只统计文本信息
-                
-                # 统计节点
-                node_texts = []
-                for node in graph_data.get("nodes", []):
-                    node_id = node.get("id", "Unknown") # NetworkX 默认 id
-                    desc = node.get("description", "")
-                    node_texts.append(f"{node_id}: {desc}")
-                
-                # 统计边
-                edge_texts = []
-                # 支持 "links" 或 "edges" 键名
-                edges = graph_data.get("links", graph_data.get("edges", []))
-                for edge in edges:
-                    src = edge.get("source", "Unknown")
-                    tgt = edge.get("target", "Unknown")
-                    rel = edge.get("relation", "")
-                    ts = edge.get("timestamp")
-                    ts_str = f" [Time: {ts}]" if ts else ""
-                    edge_texts.append(f"{src} --{rel}{ts_str}--> {tgt}")
-                
-                # 构建用于 token 统计的完整文本
-                full_text = "Nodes:\n" + "\n".join(node_texts) + "\nEdges:\n" + "\n".join(edge_texts)
-                
-                if tokenizer:
-                    tokens = tokenizer.encode(full_text)
-                    token_count = len(tokens)
-                else:
-                    # 简单回退：按空格切分单词
-                    token_count = len(full_text.split())
-                
-                stats_per_conv[conv_id] = token_count
-                total_tokens_sum += token_count
-                count += 1
-                logger.info(f"Sample {conv_id}: {token_count} tokens")
-                
-            except Exception as e:
-                logger.error(f"处理 {conv_id} 时出错: {e}")
-
-        # 4. 计算平均值并输出结果
-        average_tokens = total_tokens_sum / count if count > 0 else 0
-        
-        output_result = {
-            "run_directory": latest_run,
-            "tokenizer_used": str(tokenizer.name_or_path) if tokenizer else "Simple Whitespace Split",
-            "sample_count": count,
-            "tokens_per_sample": stats_per_conv,
-            "average_tokens": round(average_tokens, 2)
-        }
-        
-        # 输出到 run 目录下的 json 文件
-        output_json_path = os.path.join(run_dir, "memory_token_stats.json")
-        with open(output_json_path, 'w', encoding='utf-8') as f:
-            json.dump(output_result, f, ensure_ascii=False, indent=2)
-            
-        logger.info(f"\n{'='*30}")
-        logger.info(f"分析完成: {latest_run}")
-        logger.info(f"处理样本数: {count}")
-        logger.info(f"平均 Token 数: {average_tokens:.2f}")
-        logger.info(f"结果已保存至: {output_json_path}")
-        logger.info(f"{'='*30}")
-
-if __name__ == "__main__":
-    main()

@@ -17,7 +17,6 @@ Your goal is to generate questions based on the provided 'Buffer Context' to tes
 1. **FACT_CHECK**: Ask about explicit facts (Who, What, When). Test if basic info is stored.
 2. **MULTI_HOP**: Ask questions requiring connecting two pieces of info. Test relation storage.
 3. **IMPLICIT_INFER**: Ask about implied details (e.g., feelings, unstated locations). Test deep understanding.
-4. **DISTRACTION**: Ask about irrelevant details that SHOULD be ignored. The answer should be "Unknown" or "Irrelevant".
 
 **RULES:**
 - Questions must be relevant to the main characters (e.g., Caroline, Melanie) if they appear.
