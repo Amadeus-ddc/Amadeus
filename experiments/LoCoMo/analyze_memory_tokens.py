@@ -114,3 +114,69 @@ def main():
             try:
                 with open(graph_path, 'r', encoding='utf-8') as f:
                     graph_data = json.load(f)
+                                    
+                # 使用与 MemoryGraph.get_full_state 兼容的文本表示（但不截断）
+                # 排除 embedding 字段，只统计文本信息
+                
+                # 统计节点
+                node_texts = []
+                for node in graph_data.get("nodes", []):
+                    node_id = node.get("id", "Unknown") # NetworkX 默认 id
+                    desc = node.get("description", "")
+                    node_texts.append(f"{node_id}: {desc}")
+                
+                # 统计边
+                edge_texts = []
+                # 支持 "links" 或 "edges" 键名
+                edges = graph_data.get("links", graph_data.get("edges", []))
+                for edge in edges:
+                    src = edge.get("source", "Unknown")
+                    tgt = edge.get("target", "Unknown")
+                    rel = edge.get("relation", "")
+                    ts = edge.get("timestamp")
+                    ts_str = f" [Time: {ts}]" if ts else ""
+                    edge_texts.append(f"{src} --{rel}{ts_str}--> {tgt}")
+                
+                # 构建用于 token 统计的完整文本
+                full_text = "Nodes:\n" + "\n".join(node_texts) + "\nEdges:\n" + "\n".join(edge_texts)
+                
+                if tokenizer:
+                    tokens = tokenizer.encode(full_text)
+                    token_count = len(tokens)
+                else:
+                    # 简单回退：按空格切分单词
+                    token_count = len(full_text.split())
+                
+                stats_per_conv[conv_id] = token_count
+                total_tokens_sum += token_count
+                count += 1
+                logger.info(f"Sample {conv_id}: {token_count} tokens")
+                
+            except Exception as e:
+                logger.error(f"处理 {conv_id} 时出错: {e}")
+
+        # 4. 计算平均值并输出结果
+        average_tokens = total_tokens_sum / count if count > 0 else 0
+        
+        output_result = {
+            "run_directory": latest_run,
+            "tokenizer_used": str(tokenizer.name_or_path) if tokenizer else "Simple Whitespace Split",
+            "sample_count": count,
+            "tokens_per_sample": stats_per_conv,
+            "average_tokens": round(average_tokens, 2)
+        }
+        
+        # 输出到 run 目录下的 json 文件
+        output_json_path = os.path.join(run_dir, "memory_token_stats.json")
+        with open(output_json_path, 'w', encoding='utf-8') as f:
+            json.dump(output_result, f, ensure_ascii=False, indent=2)
+            
+        logger.info(f"\n{'='*30}")
+        logger.info(f"分析完成: {latest_run}")
+        logger.info(f"处理样本数: {count}")
+        logger.info(f"平均 Token 数: {average_tokens:.2f}")
+        logger.info(f"结果已保存至: {output_json_path}")
+        logger.info(f"{'='*30}")
+
+if __name__ == "__main__":
+    main()
