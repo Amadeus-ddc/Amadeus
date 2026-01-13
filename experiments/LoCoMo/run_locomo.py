@@ -5,6 +5,7 @@ import re
 import logging
 import argparse
 import datetime
+import time
 import shutil
 import numpy as np
 import torch
@@ -186,46 +187,57 @@ Just return the label CORRECT or WRONG in a json format with the key as "label".
 
 def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32b-instruct", api_base=None, api_key=None):
     client = OpenAI(base_url=api_base, api_key=api_key)
-    
-    try:
-        response = client.chat.completions.create(
-            model=model_name,
-            messages=[
-                {
-                    "role": "user",
-                    "content": ACCURACY_PROMPT.format(
-                        question=question, gold_answer=ground_truth, generated_answer=prediction
-                    ),
-                }
-            ],
-            response_format={"type": "json_object"},
-            temperature=0.0,
-        )
-        content = response.choices[0].message.content
-        
-        def extract_json(text):
-            text = text.strip()
-            match = re.search(r"```(?:json)?\s*(.*?)\s*```", text, re.DOTALL)
-            if match:
-                json_str = match.group(1)
-            else:
-                json_str = text
-            return json_str
+    max_retries = 3
+    backoff_seconds = 2
+    last_err = None
 
-        json_str = extract_json(content)
-        result = json.loads(json_str)
-        label = result.get("label", "WRONG")
-        
-        # Try to capture reasoning if the model provides it in the JSON (though prompt is ambiguous)
-        reason = result.get("reason", result.get("reasoning", result.get("explanation", "")))
-        
-        is_correct = (label == "CORRECT")
-        score = 1.0 if is_correct else 0.0
-        
-        return is_correct, score, reason
-    except Exception as e:
-        logger.error(f"LLM Judge failed: {e}")
-        return False, 0.0, str(e)
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = client.chat.completions.create(
+                model=model_name,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": ACCURACY_PROMPT.format(
+                            question=question, gold_answer=ground_truth, generated_answer=prediction
+                        ),
+                    }
+                ],
+                response_format={"type": "json_object"},
+                temperature=0.0,
+            )
+            content = response.choices[0].message.content
+
+            def extract_json(text):
+                text = text.strip()
+                match = re.search(r"```(?:json)?\s*(.*?)\s*```", text, re.DOTALL)
+                if match:
+                    json_str = match.group(1)
+                else:
+                    json_str = text
+                return json_str
+
+            json_str = extract_json(content)
+            result = json.loads(json_str)
+            label = result.get("label", "WRONG")
+
+            # Try to capture reasoning if the model provides it in the JSON (though prompt is ambiguous)
+            reason = result.get("reason", result.get("reasoning", result.get("explanation", "")))
+
+            is_correct = (label == "CORRECT")
+            score = 1.0 if is_correct else 0.0
+
+            return is_correct, score, reason
+        except Exception as e:
+            last_err = e
+            logger.warning(f"LLM Judge failed (attempt {attempt}/{max_retries}): {e}")
+            if attempt < max_retries:
+                time.sleep(backoff_seconds * attempt)
+            else:
+                logger.error(f"LLM Judge failed after {max_retries} attempts: {e}")
+
+    return False, 0.0, str(last_err)
+
 
 def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, run_output_dir):
     sample_id, chunks, questions = sample_data

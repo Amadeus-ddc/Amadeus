@@ -241,6 +241,12 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                         if alt_key in normalized_op:
                             normalized_op["subject"] = normalized_op.pop(alt_key)
                             break
+
+                # Map legacy/invalid actions to supported ones.
+                action_val = normalized_op.get("action")
+                if isinstance(action_val, str) and action_val.upper() == "LINK":
+                    logger.warning("Received action LINK; mapping to ADD.")
+                    normalized_op["action"] = "ADD"
                 
                 op = MemoryOperation(**normalized_op)
                 
