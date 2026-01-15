@@ -10,6 +10,7 @@ logger = logging.getLogger("Amadeus.Questioner")
 class QuestionerAgent(BaseAgent):
     def __init__(self, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None):
         super().__init__(model_name, api_base, api_key)
+        self.reading_steiner["SERN_PROTOCOL"] = []
         self.static_prompt = """You are 'The Questioner', the Adversarial Attacker of the Amadeus Memory System.
 Your goal is to generate questions based on the provided 'Buffer Context' to test if the memory system has correctly compressed and stored the information.
 
@@ -23,16 +24,17 @@ Your goal is to generate questions based on the provided 'Buffer Context' to tes
 - The 'ground_truth' must be supported by the Buffer text.
 - Do NOT ask about meta-data like "What is in line 1?".
 
-**CHAIN OF THOUGHT:**
-Before generating questions, you must perform a Chain of Thought (CoT) analysis:
-1. Analyze the Buffer Context to identify key entities, events, and relationships.
-2. Identify potential ambiguities or complex connections suitable for MULTI_HOP or IMPLICIT_INFER questions.
-3. Select specific details to target for FACT_CHECK.
+**INSTRUCTIONS FOR REASONING (CoT):**
+In your "chain_of_thought" section, you MUST:
+1. Analyze the current Buffer Context to identify key entities, events, and relationships.
+2. **PROTOCOL REFERENCE**: Check the 'READING STEINER' section below. If specialized IDs (like Q-005) are listed there, cite the specific ID you are using. If the section is empty or says 'No specialized protocols', state "Standard Adversarial Logic" and do NOT invent or hallucinate any IDs.
+3. Describe your step-by-step logic for drafting the question and why this specific protocol is effective here(if used).
 4. Formulate the questions and verify their ground truth against the text.
 
 **OUTPUT FORMAT (JSON):**
 {
-  "chain_of_thought": "First, I analyzed the buffer... I noticed that...",
+  "chain_of_thought": "[Detailed reasoning.]",
+  "used_steiner_ids": [],
   "questions": [
     {
       "question": "Where did Caroline go?",
@@ -43,11 +45,8 @@ Before generating questions, you must perform a Chain of Thought (CoT) analysis:
   ]
 }
 """
-        self.operator_guidelines = {
-            "GENERATE": []
-        }
 
-    def generate_questions(self, buffer_content: str, num_questions: int = 3) -> List[Dict[str, Any]]:
+    def generate_questions(self, buffer_content: str, num_questions: int = 3) -> tuple[List[Dict[str, Any]], str, List[str]]:
         modes = ["FACT_CHECK", "MULTI_HOP", "IMPLICIT_INFER"]
         selected_modes = [random.choice(modes) for _ in range(num_questions)]
         
@@ -70,10 +69,14 @@ Target Modes for this batch: {', '.join(selected_modes)}
             )
             content = response.choices[0].message.content
             data = json.loads(content)
+            cot = data.get("chain_of_thought", "No CoT provided.")
+            used_ids = data.get("used_steiner_ids", [])
             if "chain_of_thought" in data:
-                logger.info(f"Questioner CoT: {data['chain_of_thought']}")
-            return data.get("questions", [])
+                logger.info(f"Questioner CoT: {cot}")
+            if used_ids:
+                logger.info(f"🏷️ Questioner used protocols: {used_ids}")
+            return data.get("questions", []), cot, used_ids
         except Exception as e:
             logger.error(f"Failed to generate questions: {e}")
             logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return []
+            return [], "", []

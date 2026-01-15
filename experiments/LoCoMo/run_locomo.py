@@ -265,7 +265,7 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     # Determine Optimizer Mode
     optimizer_mode = "adaptive"
     optimizer_fixed_count = None
-    use_cot = False
+    use_cot = True
     
     if ablation_mode == "adaptive_buffer_fixed_sp":
         optimizer_mode = "fixed"
@@ -296,11 +296,11 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
             
             if should_flush:
                 logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
-                kept_items, action_log = builder.process_buffer(current_buffer)
+                kept_items, action_log, b_cot, b_sids = builder.process_buffer(current_buffer)
                 
                 if graph.graph.number_of_nodes() > 0:
                     try:
-                        optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
+                        optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot, builder_cot=b_cot, builder_steiner_ids=b_sids)
                     except Exception as e:
                         logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
                 
@@ -313,10 +313,10 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     # 3. Final Flush for remaining content
     if current_buffer:
         logger.info(f"[{sample_id}] 🔄 Final Flush...")
-        kept_items, action_log = builder.process_buffer(current_buffer)
+        kept_items, action_log, b_cot, b_sids = builder.process_buffer(current_buffer)
         if graph.graph.number_of_nodes() > 0:
             try:
-                optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
+                optimizer.step(current_buffer, action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot, builder_cot=b_cot, builder_steiner_ids=b_sids)
             except Exception as e:
                 logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
 
@@ -405,6 +405,9 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     with open(result_file_path, 'w', encoding='utf-8') as f:
         json.dump(sample_result, f, ensure_ascii=False, indent=2)
         
+    # 处理完一个 sample 后重置策略，确保不影响下一个（虽然目前是局部变量，但显式重置更安全）
+    optimizer.reset_steiner()
+
     return {
         "sample_result": sample_result,
         "category_scores": local_category_scores,

@@ -2,16 +2,18 @@
 # 启动 vLLM 服务器
 # 模型: Qwen/Qwen2.5-7B-Instruct
 # 端口: 8000
-
+ID=1
 # 卡号
-export CUDA_VISIBLE_DEVICES=3
+export CUDA_VISIBLE_DEVICES=${ID}
+
 
 echo "Starting vLLM server with Qwen/Qwen2.5-7B-Instruct..."
+screen -r 7b-800${ID}
 python -m vllm.entrypoints.openai.api_server \
     --model Qwen/Qwen2.5-7B-Instruct \
     --served-model-name qwen2.5-7b-instruct \
     --trust-remote-code \
     --tensor-parallel-size 1 \
-    --port 8003 \
+    --port 800${ID} \
     --gpu-memory-utilization 0.8 
-echo "vLLM server started on port 8000."
+echo "vLLM server started on port 800${ID}."

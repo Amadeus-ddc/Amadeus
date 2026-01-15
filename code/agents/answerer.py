@@ -12,6 +12,7 @@ class AnswererAgent(BaseAgent):
     def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None):
         super().__init__(model_name, api_base, api_key)
         self.graph = graph
+        self.reading_steiner["SKULD_ORACLE"] = []
         self.max_steps = 8  # Increased steps for deeper exploration in granular graphs
         self.static_prompt = """You are an intelligent Graph RAG Agent.
 **Goal**: Answer the user's question by exploring the knowledge graph.
@@ -20,6 +21,13 @@ class AnswererAgent(BaseAgent):
 1. **SEARCH**: Start here! Use 'hybrid' mode to find multiple entry nodes using both keyword and semantic search.
 2. **WALK**: Explore the neighborhood of your current nodes to find relevant connections.
 3. **READ**: Once you have enough information, generate the final answer.
+
+**INSTRUCTIONS FOR REASONING (CoT):**
+In your "chain_of_thought" section, you MUST:
+1. Parse the Question to identify key entities for the SEARCH action.
+2. **PROTOCOL REFERENCE**: Check the 'READING STEINER' section below. If specialized IDs (like A-003) are listed there, cite the ID that dictates your navigation or inference strategy. If the section is empty, state "Standard Retrieval Logic" and do NOT invent IDs.
+3. Explain why you choose to WALK to a specific neighbor or why you decide to stop and READ.
+4. If multiple paths exist, explain how the Oracle helps you filter out noise or "harmful" memory paths.
 
 **AVAILABLE TOOLS**:
 
@@ -38,19 +46,25 @@ class AnswererAgent(BaseAgent):
 
 **RESPONSE FORMAT (JSON ONLY)**:
 {
+  "chain_of_thought": "...",
+  "used_steiner_ids": [],
   "tool": "SEARCH",
   "query": "...",
   "mode": "hybrid"
 }
 OR
 {
-  "tool": "WALK",
-  "node": "TargetNodeName"
+  "chain_of_thought": "...",
+  "used_steiner_ids": [],
+  "tool": "READ",
+  "answer": "..."
 }
 OR
 {
-  "tool": "READ",
-  "answer": "Final Answer Here"
+  "chain_of_thought": "...",
+  "used_steiner_ids": [],
+  "tool": "WALK",
+  "node": "..."
 }
 """
 
@@ -110,11 +124,13 @@ OR
         hits.sort(key=lambda x: x[1], reverse=True)
         return [h[0] for h in hits[:10]]
 
-    def answer(self, question: str) -> str:
+    def answer(self, question: str) -> tuple[str, str, List[str]]:
         logger.info(f"❓ Question: {question}")
         
         history = []
         current_nodes = []
+        full_cot = []
+        all_used_ids = set()
         
         for step in range(self.max_steps):
             # --- 1. Prepare Context ---
@@ -162,8 +178,20 @@ OR
                     content = content.split("```")[1].split("```")[0]
                 
                 decision = json.loads(content.strip())
+                
+                # Capture CoT and Used IDs
+                step_cot = decision.get("chain_of_thought", "No CoT provided.")
+                full_cot.append(f"Step {step+1}: {step_cot}")
+                
+                used_ids = decision.get("used_steiner_ids", [])
+                if isinstance(used_ids, list):
+                    for sid in used_ids:
+                        all_used_ids.add(sid)
+                
                 tool = decision.get("tool")
                 logger.info(f"Step {step+1}: {tool} - {decision}")
+                if used_ids:
+                    logger.info(f"🏷️ Answerer used protocols: {used_ids}")
 
                 # --- 3. Execute Tool ---
                 if tool == "SEARCH":
@@ -209,7 +237,7 @@ OR
 
                 elif tool == "READ":
                     ans = self._clean_answer(decision.get("answer"))
-                    return ans
+                    return ans, "\n".join(full_cot), list(all_used_ids)
                 
             except Exception as e:
                 logger.error(f"Step failed: {e}")
@@ -238,6 +266,6 @@ Return ONLY the answer text.
                 messages=[{"role": "user", "content": fallback_prompt}],
                 temperature=0.0
             )
-            return self._clean_answer(res.choices[0].message.content)
+            return self._clean_answer(res.choices[0].message.content), "\n".join(full_cot), list(all_used_ids)
         except Exception:
-            return "Unknown"
+            return "Unknown", "\n".join(full_cot), list(all_used_ids)

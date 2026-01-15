@@ -31,6 +31,7 @@ class BuilderAgent(BaseAgent):
     def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo"):
         super().__init__(model_name)
         self.graph = graph
+        self.reading_steiner["PHONEWAVE_LOGIC"] = []
         self.static_prompt = """You are 'The Builder', the state manager of the Amadeus Memory System.
 Your goal is to maintain a **High-Fidelity Knowledge Graph** by synchronizing the **Short-term Buffer** (New Reality) with the **Long-term Graph** (Past Memory).
 
@@ -46,6 +47,17 @@ The buffer format is: `Speaker: Text`.
 - If Caroline says: "Melanie, you serve amazing pottery", Subject = **Melanie**.
 - If Caroline says: "My mom visited", Subject = **Caroline's Mom** (create new entity).
 - **DO NOT** blindly assign the Speaker as the Subject. Analyze who the sentence describes!
+
+**INSTRUCTIONS FOR REASONING (CoT):**
+In your "chain_of_thought" section, you MUST follow these steps:
+1. **Time & Subject**: Extract absolute time and resolve pronouns.
+2. **Fact Decomposition**: Break buffer into atomic facts (Subject, relation, Object, `timestamp`).
+   -Example: "I love pizza and hiking last summer." ->
+     -Fact 1: (Caroline, loves, Pizza, "last summer")
+     -Fact 2: (Caroline, loves, Hiking, "last summer")
+3. **PROTOCOL REFERENCE**: Check the 'READING STEINER' section below. If specialized IDs (like B-005) are listed there, cite the specific ID that guides your decision. If the section is empty or says 'No specialized protocols', state "Standard Operating Procedure" and do NOT invent or hallucinate any IDs.
+4. **Graph Differential**: Explain how the Protocol (or SOP) helps you decide between ADD, UPDATE, DELETE, or WAIT.
+5. **Detail Check**: Ensure no key details (Where, When, Who, Why, How, etc...) are lost.
 
 **TEMPORAL NORMALIZATION RULE (CRITICAL):**
 The Buffer will start with a context line like "--- Session Context: [Date/Summary] ---".
@@ -75,19 +87,8 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
    - **Trigger**: Unresolved pronouns ("He said..."), vague future plans, or incomplete stories.
    - **Action**: Keep the RAW text in `content`. It will roll over to the next turn.
 
-**THINKING PROCESS (CHAIN OF THOUGHT):**
-1. **Time & Subject**: Extract absolute time and resolve pronouns.
-2. **Fact Decomposition**: Break buffer into atomic facts (Subject-Predicate-Object).
-3. **Graph Differential**: For each atomic fact, check if it exists in Graph.
-   - Missing? -> ADD.
-   - Changing? -> UPDATE.
-   - Contradiction? -> DELETE.
-   - Ambiguity? -> WAIT.
-4. **Detail Check**: Ensure no key details (Where, When, Who, Why) are lost.
-
 **OUTPUT SCHEMA (JSON):**
 {
-  "chain_of_thought": "Step 1: Date is 2023-08-01. Entities are Caroline and Mom. Step 2: New fact 'Mom visited'. Step 3: Graph has no 'Mom', so ADD Node Mom, ADD Edge visited. Step 4: Include 'dinner' detail in content.",
   "operations": [
     {
       "action": "ADD" | "UPDATE" | "DELETE" | "WAIT",
@@ -97,9 +98,58 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
       "timestamp": "YYYY-MM-DD" | "10 years ago" | "last summer",
       "reason": "Cite the specific diff between Buffer and Graph."
     }
-  ]
+  ],
+  "used_steiner_ids": [],
+  "chain_of_thought": "Step 1: ... "
 }
 """
+
+    def _safe_json_load(self, text: str) -> dict:
+        """Attempts to load JSON, and repairs simple truncation if possible."""
+        if not text: return {}
+        text = text.strip()
+        
+        # Pre-cleaning
+        if text.startswith("```json"):
+            text = text.replace("```json", "", 1).replace("```", "", -1).strip()
+        elif text.startswith("```"):
+            text = text.replace("```", "", 1).replace("```", "", -1).strip()
+
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            # Attempt to find the outermost JSON object
+            match = re.search(r'(\{.*\})', text, re.DOTALL)
+            if match:
+                try:
+                    return json.loads(match.group(1))
+                except:
+                    pass
+
+            logger.warning("Detected malformed JSON, attempting recovery...")
+            
+            # Robust Regex extract for operations array
+            try:
+                potential_objs = []
+                obj_matches = re.finditer(r'\{\s*"action":\s*"[^"]+"[^}]*\}', text)
+                for m in obj_matches:
+                    try:
+                        obj_data = m.group(0)
+                        if obj_data.count('{') > obj_data.count('}'):
+                            obj_data += '}'
+                        obj = json.loads(obj_data)
+                        if "action" in obj:
+                            potential_objs.append(obj)
+                    except:
+                        continue
+                
+                if potential_objs:
+                    logger.info(f"Successfully recovered {len(potential_objs)} operations via regex.")
+                    return {"operations": potential_objs, "chain_of_thought": "Recovered from malformed JSON via regex."}
+            except Exception as e:
+                logger.error(f"Regex recovery failed: {e}")
+
+            return {}
 
     def check_flush_condition(self, current_buffer: str, new_chunk: str) -> bool:
         """
@@ -144,7 +194,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
             logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return False # 默认继续积累
 
-    def process_buffer(self, buffer_content: str) -> tuple[List[str], List[str]]:
+    def process_buffer(self, buffer_content: str) -> tuple[List[str], List[str], str, List[str]]:
         context = self.graph.get_full_state()
         
         try:
@@ -160,22 +210,25 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
             
             raw_content = response.choices[0].message.content
             if not raw_content:
-                return [], []
+                return [], [], "", []
                 
-            data = json.loads(raw_content)
-            
-            # Log CoT
+            data = self._safe_json_load(raw_content)
+            cot = data.get("chain_of_thought", "No CoT provided.")
+            used_ids = data.get("used_steiner_ids", [])
+            # Log CoT and Used IDs
             if "chain_of_thought" in data:
-                logger.info(f"🤔 Builder CoT: {data['chain_of_thought']}")
+                logger.info(f"🤔 Builder CoT: {cot}")
+            if used_ids:
+                logger.info(f"🏷️ Builder used protocols: {used_ids}")
                 
             ops = data.get("operations", [])
-            return self._execute_operations(ops)
+            logs, patches = self._execute_operations(ops)
+            return logs, patches, cot, used_ids
             
         except Exception as e:
             logger.error(f"Builder Failed: {e}")
             logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return [], []
-            return [], []
+            return [], [], "", []
 
     def force_update(self, instruction: str) -> bool:
         """
@@ -183,6 +236,22 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
         This bypasses the normal buffer processing to fix specific graph errors.
         """
         logger.info(f"🔧 FORCE UPDATE TRIGGERED: {instruction}")
+        
+        # 1. Optimizer Bypass: Check if instruction is a JSON list of operations
+        try:
+            potential_ops = json.loads(instruction)
+            if isinstance(potential_ops, list) and len(potential_ops) > 0:
+                if isinstance(potential_ops[0], dict) and any(k in potential_ops[0] for k in ["action", "op", "subject"]):
+                    logger.info("Instruction detected as pre-formatted operations. Executing directly.")
+                    for op in potential_ops:
+                        if "reason" not in op: op["reason"] = "Optimizer Direct Fix"
+                        if "action" not in op and "op" in op: op["action"] = op.get("op")
+                    self._execute_operations(potential_ops)
+                    return True
+        except:
+            pass
+
+        # 2. LLM Translation if not pre-formatted
         context = self.graph.get_full_state()
         
         prompt = f"""
@@ -207,10 +276,18 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                 temperature=0.0
             )
             content = response.choices[0].message.content
-            data = json.loads(content)
+            data = self._safe_json_load(content)
+            
             ops = data.get("operations", [])
-            self._execute_operations(ops)
-            return True
+            if not ops and isinstance(data, list):
+                ops = data
+                
+            if ops:
+                self._execute_operations(ops)
+                return True
+            else:
+                logger.warning("Force Update: No operations generated.")
+                return False
         except Exception as e:
             logger.error(f"Force Update Failed: {e}")
             logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
