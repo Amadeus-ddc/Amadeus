@@ -21,26 +21,6 @@ class AnswererAgent(BaseAgent):
 2. **WALK**: Explore the neighborhood of your current nodes to find relevant connections.
 3. **READ**: Once you have enough information, generate the final answer.
 
-**QUESTION TYPE AND KEYWORD REFINEMENT:**
-1. Determine the question type: when, where, who, what, how, why, yes/no, negative, or temporal comparison.
-2. Keep all LLM-extracted keywords (3-8) as core keywords. Do NOT remove them.
-3. Add supplementary keywords using ONLY terms found in the question text or visited context.
-4. Add missing slots based on type (no new entities invented):
-   - when: add time words and event/action terms.
-   - where: add location words and event/action terms.
-   - who: add person/role words and related event/action.
-   - what: add entities and actions; include target objects if present.
-   - how/why: add event/action plus cause/process terms.
-   - yes/no: add the fact phrase being judged.
-
-**ANSWER DECISION RULES (Step-by-step):**
-Step 1: Analyze the question logic and intent (when/where/who/what/how/why/yes-no/negative).
-Step 2: Consolidate known information and check if the answer chain is complete.
-Step 3: If complete, produce an initial answer.
-Step 4: If incomplete, re-check known information; if still incomplete, infer a reasonable answer strictly from existing evidence and common sense (no unsupported new facts).
-Step 5: Verify the answer against the question to ensure it actually answers what was asked.
-Step 6: Output the final answer only.
-
 **AVAILABLE TOOLS**:
 
 1. **SEARCH**: Find entry nodes or jump to new nodes.
@@ -70,7 +50,6 @@ OR
 OR
 {
   "tool": "READ",
-  "steps": ["Step 1: ...", "Step 2: ...", "Step 3: ...", "Step 4: ...", "Step 5: ...", "Step 6: ..."],
   "answer": "Final Answer Here"
 }
 """
@@ -260,7 +239,6 @@ OR
         logger.info(f"❓ Question: {question}")
         
         history = []
-        current_nodes = []
         visited_node_order = []
         visited_node_content = {}
         visited_edge_order = []
@@ -270,38 +248,100 @@ OR
         max_cached_total = 8
         max_cached_per_node = 4
         cached_desc_limit = 80
-        
-        for step in range(self.max_steps):
-            # --- 1. Prepare Context ---
+        current_nodes = []
+        max_rounds = 4
+        nx_graph = self.graph.graph
+        scored_node_cache = {}
+        query_keywords = self._prepare_query_keywords(question)
+
+        def cache_nodes_and_edges(nodes: List[str]) -> None:
+            for name in nodes:
+                if name not in visited_node_content:
+                    visited_node_content[name] = self.graph.primitive_read([name])
+                    visited_node_order.append(name)
+                for _, target, data in nx_graph.out_edges(name, data=True):
+                    rel = data.get("relation", "related")
+                    edge_ts = data.get("timestamp")
+                    edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
+                    edge_line = f"[{name}] --[{rel}{edge_ts_str}]--> [{target}]"
+                    if edge_line not in visited_edge_set:
+                        visited_edge_set.add(edge_line)
+                        visited_edge_order.append(edge_line)
+
+        def update_cached_evidence(nodes: List[str]) -> None:
+            new_evidence = self._collect_neighbor_evidence(
+                nodes,
+                query_keywords,
+                max_cached_per_node,
+                cached_desc_limit
+            )
+            for score, line in new_evidence:
+                if line in cached_scores:
+                    if score > cached_scores[line]:
+                        cached_scores[line] = score
+                else:
+                    cached_scores[line] = score
+            if len(cached_scores) > max_cached_total:
+                trimmed = sorted(cached_scores.items(), key=lambda x: (-x[1], x[0]))[:max_cached_total]
+                cached_scores.clear()
+                cached_scores.update(trimmed)
+
+        def get_cached_score(
+            node: str,
+            source: str,
+            target: str,
+            relation: str,
+            timestamp: str,
+            desc: str
+        ) -> int:
+            if node in scored_node_cache:
+                return scored_node_cache[node]
+            score = self._score_neighbor_candidate(
+                query_keywords, source, target, relation, timestamp, desc
+            )
+            scored_node_cache[node] = score
+            return score
+
+        def compute_candidates(frontier: str, path: List[str]) -> List[tuple[int, str]]:
+            candidates = {}
+            for _, target, data in nx_graph.out_edges(frontier, data=True):
+                if target in path:
+                    continue
+                relation = data.get("relation", "related")
+                timestamp = data.get("timestamp")
+                desc = nx_graph.nodes[target].get("description", "")
+                score = get_cached_score(target, frontier, target, relation, timestamp, desc)
+                if target not in candidates or score > candidates[target]:
+                    candidates[target] = score
+            for source, _, data in nx_graph.in_edges(frontier, data=True):
+                if source in path:
+                    continue
+                relation = data.get("relation", "related")
+                timestamp = data.get("timestamp")
+                desc = nx_graph.nodes[source].get("description", "")
+                score = get_cached_score(source, source, frontier, relation, timestamp, desc)
+                if source not in candidates or score > candidates[source]:
+                    candidates[source] = score
+            return sorted(
+                [(score, node) for node, score in candidates.items()],
+                key=lambda x: (-x[0], x[1])
+            )
+
+        def build_prompt(nodes: List[str]) -> tuple[str, str, str, str]:
             history_str = "\n".join(history[-5:]) if history else "None"
-            
-            if not current_nodes:
+
+            if not nodes:
                 status_str = "Status: You are currently NOT at any node. You need to SEARCH to find entry points."
                 view_str = ""
             else:
-                # Get neighbors view
-                neighbors_view = self.graph.primitive_get_neighbors(current_nodes)
-                # Read current nodes content
-                current_content = self.graph.primitive_read(current_nodes)
-                # Cache visited nodes and edges for later answering.
-                nx_graph = self.graph.graph
-                for name in current_nodes:
-                    if name not in visited_node_content:
-                        visited_node_content[name] = self.graph.primitive_read([name])
-                        visited_node_order.append(name)
-                    for _, target, data in nx_graph.out_edges(name, data=True):
-                        rel = data.get('relation', 'related')
-                        edge_ts = data.get('timestamp')
-                        edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
-                        edge_line = f"[{name}] --[{rel}{edge_ts_str}]--> [{target}]"
-                        if edge_line not in visited_edge_set:
-                            visited_edge_set.add(edge_line)
-                            visited_edge_order.append(edge_line)
-                status_str = f"Status: You are at nodes: {current_nodes}"
+                neighbors_view = self.graph.primitive_get_neighbors(nodes)
+                current_content = self.graph.primitive_read(nodes)
+                cache_nodes_and_edges(nodes)
+                status_str = f"Status: You are at nodes: {nodes}"
                 view_str = f"**Current Node Content**:\n{current_content}\n\n**Visible Neighbors**:\n{neighbors_view}"
 
             if visited_node_order:
-                nodes_view = "\n".join(visited_node_content[n] for n in visited_node_order[-5:])
+                nodes_view = "\n".join(visited_node_content[n] for n in visited_node_order)
             else:
                 nodes_view = "None"
             if visited_edge_order:
@@ -313,12 +353,12 @@ OR
                 cached_evidence_view = "\n".join(line for line, _ in cached_sorted)
             else:
                 cached_evidence_view = "None"
-            visited_context_str = (
+            visited_str = (
                 f"**Visited Nodes**:\n{nodes_view}\n\n"
                 f"**Visited Edges**:\n{edges_view}\n\n"
                 f"**Cached Neighborhood Evidence**:\n{cached_evidence_view}"
             )
-                
+
             prompt = f"""
 {self.get_full_prompt()}
 
@@ -328,12 +368,48 @@ OR
 {history_str}
 
 **Visited Context**:
-{visited_context_str}
+{visited_str}
 
 **{status_str}**
 {view_str}
 """
-            # --- 2. LLM Decision ---
+            return prompt, view_str, visited_str, history_str
+
+        # Step 1: SEARCH (hybrid)
+        def do_keyword():
+            return self._keyword_search(question, keywords=query_keywords)
+
+        def do_semantic():
+            if hasattr(self.graph, "semantic_search"):
+                return self.graph.semantic_search(question)
+            return []
+
+        k_res = do_keyword()
+        s_res = do_semantic()
+        seen = set(k_res)
+        results = k_res + [x for x in s_res if x not in seen]
+
+        if results:
+            current_nodes = results[:5]
+            history.append(f"SEARCH(hybrid, '{question}') -> Found: {current_nodes}")
+            cache_nodes_and_edges(current_nodes)
+            update_cached_evidence(current_nodes)
+        else:
+            history.append(f"SEARCH(hybrid, '{question}') -> Found nothing.")
+            current_nodes = []
+
+        beams = []
+        for node in current_nodes:
+            beam = {"path": [node], "frontier": node, "candidates": []}
+            beam["candidates"] = compute_candidates(node, beam["path"])
+            beams.append(beam)
+
+        last_view_str = ""
+        last_history_str = "None"
+        last_visited_context_str = "None"
+
+        for round_idx in range(max_rounds):
+            prompt, last_view_str, last_visited_context_str, last_history_str = build_prompt(current_nodes)
             try:
                 res = self.client.chat.completions.create(
                     model=self.model_name,
@@ -345,83 +421,70 @@ OR
                     temperature=0.0
                 )
                 content = res.choices[0].message.content
-                
-                # Clean json string
+
                 if "```json" in content:
                     content = content.split("```json")[1].split("```")[0]
                 elif "```" in content:
                     content = content.split("```")[1].split("```")[0]
-                
+
                 decision = json.loads(content.strip())
                 tool = decision.get("tool")
-                logger.info(f"Step {step+1}: {tool} - {decision}")
+                logger.info(f"Step {round_idx+2}: {tool} - {decision}")
 
-                # --- 3. Execute Tool ---
-                if tool == "SEARCH":
-                    query = decision.get("query", question)
-                    mode = decision.get("mode", "hybrid")
-                    
-                    results = []
-                    query_keywords = self._prepare_query_keywords(query)
-                    
-                    def do_keyword():
-                        return self._keyword_search(query, keywords=query_keywords)
-                        
-                    def do_semantic():
-                        if hasattr(self.graph, "semantic_search"):
-                            return self.graph.semantic_search(query)
-                        return []
-
-                    if mode == "keyword":
-                        results = do_keyword()
-                    elif mode == "semantic":
-                        results = do_semantic()
-                    else: # hybrid
-                        k_res = do_keyword()
-                        s_res = do_semantic()
-                        # Combine: Keyword matches are often more precise for names, Semantic for concepts.
-                        # We'll prioritize keyword matches, then semantic.
-                        seen = set(k_res)
-                        results = k_res + [x for x in s_res if x not in seen]
-                            
-                    if results:
-                        # Keep top 5 to allow broader exploration
-                        current_nodes = results[:5]
-                        history.append(f"SEARCH({mode}, '{query}') -> Found: {current_nodes}")
-                        new_evidence = self._collect_neighbor_evidence(
-                            current_nodes,
-                            query_keywords,
-                            max_cached_per_node,
-                            cached_desc_limit
-                        )
-                        for score, line in new_evidence:
-                            if line in cached_scores:
-                                if score > cached_scores[line]:
-                                    cached_scores[line] = score
-                            else:
-                                cached_scores[line] = score
-                        if len(cached_scores) > max_cached_total:
-                            trimmed = sorted(cached_scores.items(), key=lambda x: (-x[1], x[0]))[:max_cached_total]
-                            cached_scores = dict(trimmed)
-                    else:
-                        history.append(f"SEARCH({mode}, '{query}') -> Found nothing.")
-                
-                elif tool == "WALK":
-                    target = decision.get("node")
-                    if self.graph.graph.has_node(target):
-                        current_nodes = [target]
-                        history.append(f"WALK -> Moved to {target}")
-                    else:
-                        history.append(f"WALK -> Failed. Node '{target}' does not exist.")
-
-                elif tool == "READ":
+                if tool == "READ":
                     ans = self._clean_answer(decision.get("answer"))
                     return ans
-                
             except Exception as e:
                 logger.error(f"Step failed: {e}")
                 history.append(f"Error: {str(e)}")
-        
+
+            if not beams:
+                break
+
+            beam_rankings = []
+            for idx, beam in enumerate(beams):
+                if not beam["candidates"]:
+                    continue
+                best_score, _ = beam["candidates"][0]
+                beam_rankings.append((best_score, idx))
+            beam_rankings.sort(key=lambda x: (-x[0], x[1]))
+
+            selected = []
+            used_nodes = set()
+            for _, idx in beam_rankings:
+                if len(selected) >= 2:
+                    break
+                candidate_list = beams[idx]["candidates"]
+                chosen_node = None
+                chosen_score = None
+                for score, node in candidate_list:
+                    if node in used_nodes:
+                        continue
+                    chosen_node = node
+                    chosen_score = score
+                    break
+                if chosen_node is None:
+                    continue
+                selected.append((idx, chosen_node, chosen_score))
+                used_nodes.add(chosen_node)
+
+            if not selected:
+                history.append("WALK (beam) -> No candidates.")
+                break
+
+            walked_nodes = []
+            for idx, node, score in selected:
+                beam = beams[idx]
+                prev = beam["frontier"]
+                beam["path"].append(node)
+                beam["frontier"] = node
+                beam["candidates"] = compute_candidates(node, beam["path"])
+                history.append(f"WALK (beam) -> Moved to {node} (from {prev}, score={score})")
+                walked_nodes.append(node)
+
+            update_cached_evidence(walked_nodes)
+            current_nodes = walked_nodes
+
         # Fallback: Try to answer with whatever history we have
         logger.warning("Max steps reached. Attempting to answer from history.")
         try:
@@ -432,13 +495,13 @@ If you found partial information, use it to infer the answer according to your c
 **Question**: "{question}"
 
 **History**:
-{history_str}
+{last_history_str}
 
 **Visited Context**:
-{visited_context_str}
+{last_visited_context_str}
 
 **Current Context**:
-{view_str}
+{last_view_str}
 
 Return ONLY the answer text.
 """
