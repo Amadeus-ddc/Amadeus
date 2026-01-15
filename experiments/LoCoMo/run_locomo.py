@@ -316,7 +316,12 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
                     except Exception as e:
                         logger.warning(f"[{sample_id}] Optimizer step failed (skipping): {e}")
                 
-                current_buffer = chunk
+                #current_buffer = chunk
+                # 把 WAIT 项（kept_items）带到下一段 buffer
+                carry = ""
+                if kept_items:
+                    carry = "\n".join(kept_items).strip() + "\n"
+                current_buffer = carry + chunk
                 chunks_since_flush = 1
             else:
                 current_buffer += "\n" + chunk

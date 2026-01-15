@@ -262,8 +262,28 @@ OR
                 for _, target, data in nx_graph.out_edges(name, data=True):
                     rel = data.get("relation", "related")
                     edge_ts = data.get("timestamp")
+                    desc = nx_graph.nodes[target].get("description", "")
+                    score = self._score_neighbor_candidate(
+                        query_keywords, name, target, rel, edge_ts, desc
+                    )
+                    if score <= 0:
+                        continue
                     edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
                     edge_line = f"[{name}] --[{rel}{edge_ts_str}]--> [{target}]"
+                    if edge_line not in visited_edge_set:
+                        visited_edge_set.add(edge_line)
+                        visited_edge_order.append(edge_line)
+                for source, _, data in nx_graph.in_edges(name, data=True):
+                    rel = data.get("relation", "related")
+                    edge_ts = data.get("timestamp")
+                    desc = nx_graph.nodes[source].get("description", "")
+                    score = self._score_neighbor_candidate(
+                        query_keywords, source, name, rel, edge_ts, desc
+                    )
+                    if score <= 0:
+                        continue
+                    edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
+                    edge_line = f"[{source}] --[{rel}{edge_ts_str}]--> [{name}]"
                     if edge_line not in visited_edge_set:
                         visited_edge_set.add(edge_line)
                         visited_edge_order.append(edge_line)
