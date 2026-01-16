@@ -1,7 +1,10 @@
 import json
 import logging
 import re
-from typing import List, Literal
+from datetime import datetime
+from typing import List, Literal, Optional
+
+import numpy as np
 from openai import OpenAI
 from amadeus.code.core.graph import MemoryGraph
 from amadeus.code.agents.base import BaseAgent
@@ -167,6 +170,129 @@ OR
             trimmed = trimmed[:desc_limit].rstrip() + "..."
         return f"[{source}] --[{rel}{ts_part}]--> [{target}] | desc: \"{trimmed}\""
 
+    def _edge_text(self, source: str, target: str, relation: str, timestamp: Optional[str]) -> str:
+        rel = relation or "related"
+        ts_part = f" @ {timestamp}" if timestamp else ""
+        return f"{source} --{rel}--> {target}{ts_part}"
+
+    def _parse_iso_date(self, timestamp: Optional[str]) -> Optional[datetime]:
+        if not timestamp:
+            return None
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", timestamp):
+            try:
+                return datetime.strptime(timestamp, "%Y-%m-%d")
+            except Exception:
+                return None
+        return None
+
+    def _score_edge_candidate(
+        self,
+        keywords: List[str],
+        source: str,
+        target: str,
+        relation: str,
+        timestamp: Optional[str]
+    ) -> int:
+        score = 0
+        src = source.lower()
+        tgt = target.lower()
+        rel = (relation or "").lower()
+        ts = (timestamp or "").lower()
+        for k in keywords:
+            if k in src or k in tgt:
+                score += 2
+            if k in rel:
+                score += 3
+            if k in ts:
+                score += 1
+        return score
+
+    def _dedupe_edge_candidates(self, candidates: List[dict]) -> List[dict]:
+        by_pair = {}
+        for cand in candidates:
+            key = (cand["source"], cand["target"])
+            prev = by_pair.get(key)
+            if prev is None:
+                by_pair[key] = cand
+                continue
+            prev_dt = prev.get("parsed_ts")
+            curr_dt = cand.get("parsed_ts")
+            if prev_dt and curr_dt:
+                if curr_dt > prev_dt or (curr_dt == prev_dt and cand["score"] > prev["score"]):
+                    by_pair[key] = cand
+                continue
+            if prev_dt or curr_dt:
+                if curr_dt and not prev_dt:
+                    by_pair[key] = cand
+                elif not curr_dt and not prev_dt and cand["score"] > prev["score"]:
+                    by_pair[key] = cand
+                continue
+            if cand["score"] > prev["score"]:
+                by_pair[key] = cand
+        return list(by_pair.values())
+
+    def _edge_semantic_search(self, query: str, top_k: int) -> List[dict]:
+        embedder = self.graph.embedder
+        if not embedder:
+            return []
+        query_vec = embedder.embed(query)
+        if query_vec is None:
+            return []
+        query_vec = np.array(query_vec)
+        nx_graph = self.graph.graph
+        candidates = []
+        for source, target, data in nx_graph.edges(data=True):
+            relation = data.get("relation", "related")
+            timestamp = data.get("timestamp")
+            edge_text = self._edge_text(source, target, relation, timestamp)
+            edge_vec = embedder.embed(edge_text)
+            if edge_vec is None:
+                continue
+            edge_vec = np.array(edge_vec)
+            denom = (np.linalg.norm(query_vec) * np.linalg.norm(edge_vec) + 1e-9)
+            score = float(np.dot(query_vec, edge_vec) / denom)
+            candidates.append({
+                "source": source,
+                "target": target,
+                "relation": relation,
+                "timestamp": timestamp,
+                "edge_text": edge_text,
+                "score": score,
+                "parsed_ts": self._parse_iso_date(timestamp),
+            })
+        if not candidates:
+            return []
+        deduped = self._dedupe_edge_candidates(candidates)
+        deduped.sort(key=lambda x: (-x["score"], x["edge_text"]))
+        return deduped[:top_k]
+
+    def _edge_keyword_search(self, keywords: List[str], top_k: int) -> List[dict]:
+        if not keywords:
+            return []
+        nx_graph = self.graph.graph
+        candidates = []
+        for source, target, data in nx_graph.edges(data=True):
+            relation = data.get("relation", "related")
+            timestamp = data.get("timestamp")
+            score = self._score_edge_candidate(keywords, source, target, relation, timestamp)
+            if score <= 0:
+                continue
+            edge_text = self._edge_text(source, target, relation, timestamp)
+            candidates.append({
+                "source": source,
+                "target": target,
+                "relation": relation,
+                "timestamp": timestamp,
+                "edge_text": edge_text,
+                "score": float(score),
+                "parsed_ts": self._parse_iso_date(timestamp),
+            })
+        if not candidates:
+            return []
+        deduped = self._dedupe_edge_candidates(candidates)
+        deduped.sort(key=lambda x: (-x["score"], x["edge_text"]))
+        return deduped[:top_k]
+
     def _collect_neighbor_evidence(
         self,
         nodes: List[str],
@@ -248,11 +374,14 @@ OR
         max_cached_total = 8
         max_cached_per_node = 4
         cached_desc_limit = 80
+        edge_top_k = 3
+        max_current_nodes = 6
         current_nodes = []
         max_rounds = 4
         nx_graph = self.graph.graph
         scored_node_cache = {}
         query_keywords = self._prepare_query_keywords(question)
+        edge_evidence_lines = []
 
         def cache_nodes_and_edges(nodes: List[str]) -> None:
             for name in nodes:
@@ -353,9 +482,13 @@ OR
             else:
                 nodes_view = "None"
             if visited_edge_order:
-                edges_view = "\n".join(visited_edge_order[-5:])
+                edges_view = "\n".join(visited_edge_order[-10:])
             else:
                 edges_view = "None"
+            if edge_evidence_lines:
+                edge_evidence_view = "\n".join(edge_evidence_lines)
+            else:
+                edge_evidence_view = "None"
             if cached_scores:
                 cached_sorted = sorted(cached_scores.items(), key=lambda x: (-x[1], x[0]))
                 cached_evidence_view = "\n".join(line for line, _ in cached_sorted)
@@ -364,6 +497,7 @@ OR
             visited_str = (
                 f"**Visited Nodes**:\n{nodes_view}\n\n"
                 f"**Visited Edges**:\n{edges_view}\n\n"
+                f"**Edge Evidence**:\n{edge_evidence_view}\n\n"
                 f"**Cached Neighborhood Evidence**:\n{cached_evidence_view}"
             )
 
@@ -392,13 +526,35 @@ OR
                 return self.graph.semantic_search(question)
             return []
 
+        edge_results = self._edge_semantic_search(question, edge_top_k)
+        edge_search_mode = "semantic"
+        if not edge_results:
+            edge_results = self._edge_keyword_search(query_keywords, edge_top_k)
+            edge_search_mode = "keyword"
+
+        if edge_results:
+            edge_evidence_lines = [e["edge_text"] for e in edge_results]
+            edge_brief = ", ".join(f"{e['source']}->{e['target']}" for e in edge_results)
+            history.append(f"EDGE_SEARCH({edge_search_mode}, '{question}') -> Found: {edge_brief}")
+        else:
+            history.append(f"EDGE_SEARCH({edge_search_mode}, '{question}') -> Found nothing.")
+
+        edge_seed_nodes = []
+        edge_seed_set = set()
+        for e in edge_results:
+            for node in (e["source"], e["target"]):
+                if node not in edge_seed_set:
+                    edge_seed_set.add(node)
+                    edge_seed_nodes.append(node)
+
         k_res = do_keyword()
         s_res = do_semantic()
         seen = set(k_res)
-        results = k_res + [x for x in s_res if x not in seen]
+        node_results = k_res + [x for x in s_res if x not in seen]
 
-        if results:
-            current_nodes = results[:5]
+        combined_nodes = edge_seed_nodes + [n for n in node_results if n not in edge_seed_set]
+        if combined_nodes:
+            current_nodes = combined_nodes[:max_current_nodes]
             history.append(f"SEARCH(hybrid, '{question}') -> Found: {current_nodes}")
             cache_nodes_and_edges(current_nodes)
             update_cached_evidence(current_nodes)
