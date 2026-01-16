@@ -160,6 +160,15 @@ class MemoryGraph:
                 t_desc = self.graph.nodes[target].get("description", "")
                 preview = t_desc[:50] + "..." if len(t_desc) > 50 else t_desc
                 view.append(f"   --[{rel}{edge_ts_str}]--> 🔭 Candidate: [{target}] ({preview})")
+            in_edges = self.graph.in_edges(name, data=True)
+            for source, _, data in in_edges:
+                rel = data.get('relation', 'related')
+                edge_ts = data.get('timestamp')
+                edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
+
+                s_desc = self.graph.nodes[source].get("description", "")
+                preview = s_desc[:50] + "..." if len(s_desc) > 50 else s_desc
+                view.append(f"   <-[{rel}{edge_ts_str}]-- 🔭 Candidate: [{source}] ({preview})")
         return "\n".join(view)
 
     def primitive_read(self, node_names: List[str]) -> str:

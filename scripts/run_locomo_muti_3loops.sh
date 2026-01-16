@@ -31,17 +31,17 @@ ABLATION_MODE="${ABLATION_MODE:-adaptive_buffer_fixed_sp}"
 FIXED_SP_COUNT="${FIXED_SP_COUNT:-3}"
 
 # Unified output directory for all parallel jobs
-COMMON_OUT="results_locomo_parallel_temperature0${TS}"
+COMMON_OUT="fix_wait_tool_nodepoint=2"
 
 # Edit the SAMPLE_IDS/OUT/MAX_WORKERS/API_BASE/PORT per GPU if you want a different split.
 declare -a JOBS=(
   "GPU=0 SAMPLE_IDS=conv-26,conv-30,conv-41 OUT=${COMMON_OUT} MAX_WORKERS=3 PORT=8000 MAIN_API_BASE=http://localhost:8000/v1 MAIN_API_KEY=local"
-  "GPU=1 SAMPLE_IDS=conv-42,conv-43,conv-44 OUT=${COMMON_OUT} MAX_WORKERS=3 PORT=8001 MAIN_API_BASE=http://localhost:8001/v1 MAIN_API_KEY=local"
-  "GPU=2 SAMPLE_IDS=conv-47,conv-48 OUT=${COMMON_OUT} MAX_WORKERS=2 PORT=8002 MAIN_API_BASE=http://localhost:8002/v1 MAIN_API_KEY=local"
-  "GPU=3 SAMPLE_IDS=conv-49,conv-50 OUT=${COMMON_OUT} MAX_WORKERS=2 PORT=8003 MAIN_API_BASE=http://localhost:8003/v1 MAIN_API_KEY=local"
+  "GPU=4 SAMPLE_IDS=conv-42,conv-43,conv-44 OUT=${COMMON_OUT} MAX_WORKERS=3 PORT=8004 MAIN_API_BASE=http://localhost:8004/v1 MAIN_API_KEY=local"
+  "GPU=7 SAMPLE_IDS=conv-47,conv-48,conv-49,conv-50 OUT=${COMMON_OUT} MAX_WORKERS=3 PORT=8007 MAIN_API_BASE=http://localhost:8007/v1 MAIN_API_KEY=local"
+  #"GPU=3 SAMPLE_IDS=conv-49,conv-50 OUT=${COMMON_OUT} MAX_WORKERS=2 PORT=8003 MAIN_API_BASE=http://localhost:8003/v1 MAIN_API_KEY=local"
 )
 
-NUM_REPEATS=3
+NUM_REPEATS=2
 
 for ((i=1; i<=NUM_REPEATS; i++)); do
   echo "========== Starting Iteration ${i} of ${NUM_REPEATS} =========="

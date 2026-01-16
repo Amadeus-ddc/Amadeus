@@ -267,6 +267,14 @@ OR
                     if edge_line not in visited_edge_set:
                         visited_edge_set.add(edge_line)
                         visited_edge_order.append(edge_line)
+                for source, _, data in nx_graph.in_edges(name, data=True):
+                    rel = data.get("relation", "related")
+                    edge_ts = data.get("timestamp")
+                    edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
+                    edge_line = f"[{source}] --[{rel}{edge_ts_str}]--> [{name}]"
+                    if edge_line not in visited_edge_set:
+                        visited_edge_set.add(edge_line)
+                        visited_edge_order.append(edge_line)
 
         def update_cached_evidence(nodes: List[str]) -> None:
             new_evidence = self._collect_neighbor_evidence(
