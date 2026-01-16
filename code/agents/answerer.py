@@ -117,7 +117,7 @@ OR
             content = f"{node} {data.get('description', '')}".lower()
             score = 0
             for k in keywords:
-                if k in node.lower(): score += 10
+                if k in node.lower(): score += 2
                 elif k in content: score += 1
             if score > 0:
                 hits.append((node, score))
