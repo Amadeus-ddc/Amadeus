@@ -67,9 +67,10 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
    - **Type A (Refinement)**: Old: "Likes pizza". New: "Loves pepperoni". -> UPDATE description.
    - **Type B (Overwriting)**: Old: "Lives in London". New: "Moved to Paris". -> UPDATE edge/attribute to the NEW truth.
 
-3. **DELETE(subject, object?)**
+3. **DELETE(subject, object?, content?, timestamp?)**
    - **Trigger**: Explicit contradiction or obsolescence.
    - **Rule**: If a relationship is physically impossible to co-exist (e.g., "Single" vs "Married"), DELETE the old one first.
+   - **Edge Targeting**: When deleting an edge, put the relation in `content` and the edge date in `timestamp` so the exact edge can be removed.
 
 4. **WAIT(subject, content)**
    - **Trigger**: Unresolved pronouns ("He said..."), vague future plans, or incomplete stories.
@@ -271,7 +272,7 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                 # DELETE
                 elif op.action == ActionType.DELETE:
                     if op.object:
-                        self.graph.delete_edge(op.subject, op.object)
+                        self.graph.delete_edge(op.subject, op.object, relation=op.content, timestamp=op.timestamp)
                         msg = f"❌ UNLINK: {op.subject} --x--> {op.object}"
                         action_log.append(msg)
                     else:

@@ -78,12 +78,27 @@ class MemoryGraph:
             self.graph.remove_node(name)
             logger.info(f"❌ Node Deleted: {name}")
 
-    def delete_edge(self, source: str, target: str):
+    def delete_edge(self, source: str, target: str, relation: str = None, timestamp: str = None):
         if self.graph.has_edge(source, target):
-            # Remove all edges between source and target
-            keys = list(self.graph[source][target].keys())
-            for k in keys:
-                self.graph.remove_edge(source, target, key=k)
+            # Remove a single edge between source and target. If relation/timestamp are set, match them.
+            if timestamp in ("None", "Unknown Date"):
+                timestamp = None
+            edges = self.graph[source][target]
+            matching_keys = []
+            for key, attrs in edges.items():
+                if relation is not None and attrs.get("relation") != relation:
+                    continue
+                if timestamp is not None:
+                    edge_ts = attrs.get("timestamp")
+                    if edge_ts in ("None", "Unknown Date"):
+                        edge_ts = None
+                    if edge_ts != timestamp:
+                        continue
+                matching_keys.append(key)
+            if not matching_keys:
+                return
+            key_to_remove = max(matching_keys)
+            self.graph.remove_edge(source, target, key=key_to_remove)
             logger.info(f"✂️ Edge Deleted: {source} -> {target}")
 
     def get_full_state(self) -> str:
