@@ -63,14 +63,15 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
    - *Example*: "I just adopted a cat." -> ADD("Caroline", "Cat", "ADOPTED", "2023-01-01")
 
 2. **UPDATE(subject, object?, content, timestamp?)**
-   - **Trigger**: The entity exists, but the state has changed or become more detailed.
-   - **Type A (Refinement)**: Old: "Likes pizza". New: "Loves pepperoni". -> UPDATE description.
-   - **Type B (Overwriting)**: Old: "Lives in London". New: "Moved to Paris". -> UPDATE edge/attribute to the NEW truth.
+   - **Trigger**: A state change where the old fact was true before (e.g., moved jobs, changed city).
+   - **Rule**: Keep history. UPDATE ends the previous active edge for the same relation and adds the new one.
+   - **Use For**: Single-valued, stateful relations ("lives in", "works at", "job title"). Use ADD for multi-valued facts.
+   - **Edge Targeting**: Put the relation in `content` and the new start date in `timestamp`.
 
 3. **DELETE(subject, object?, content?, timestamp?)**
-   - **Trigger**: Explicit contradiction or obsolescence.
-   - **Rule**: If a relationship is physically impossible to co-exist (e.g., "Single" vs "Married"), DELETE the old one first.
-   - **Edge Targeting**: When deleting an edge, put the relation in `content` and the edge date in `timestamp` so the exact edge can be removed.
+   - **Trigger**: Explicitly wrong or hallucinated information. Do NOT use DELETE for normal state changes.
+   - **Rule**: Retract bad facts so they are ignored in answers, but keep history of valid past states.
+   - **Edge Targeting**: When deleting an edge, put the relation in `content` and the edge date in `timestamp` so the exact edge can be retracted.
 
 4. **WAIT(subject, content)**
    - **Trigger**: Unresolved pronouns ("He said..."), vague future plans, or incomplete stories.
@@ -82,8 +83,9 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
 3. **Graph Differential**: For each atomic fact, check if it exists in Graph.
    - Missing? -> ADD.
    - Changing? -> UPDATE.
-   - Contradiction? -> DELETE.
+   - Wrong? -> DELETE.
    - Ambiguity? -> WAIT.
+   - If an edge shows "[Ended: ...]", treat it as historical, not current truth.
 4. **Detail Check**: Ensure no key details (Where, When, Who, Why) are lost.
 
 **OUTPUT SCHEMA (JSON):**
@@ -258,7 +260,10 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                     
                     if op.object: 
                         rel = op.content if op.content else "related to"
-                        self.graph.add_edge(op.subject, op.object, rel, timestamp=op.timestamp)
+                        if op.action == ActionType.UPDATE:
+                            self.graph.update_edge(op.subject, op.object, rel, timestamp=op.timestamp)
+                        else:
+                            self.graph.add_edge(op.subject, op.object, rel, timestamp=op.timestamp)
                         msg = f"{prefix_edge}: {op.subject} --{rel}--> {op.object} (Time: {op.timestamp})"
                         logger.info(msg)
                         action_log.append(msg)

@@ -24,6 +24,9 @@ class AnswererAgent(BaseAgent):
 2. **WALK**: Explore the neighborhood of your current nodes to find relevant connections.
 3. **READ**: Once you have enough information, generate the final answer.
 
+**TEMPORAL NOTE**:
+- Edges may include "(ended YYYY-MM-DD)". Use them only when the question is about past states.
+
 **AVAILABLE TOOLS**:
 
 1. **SEARCH**: Find entry nodes or jump to new nodes.
@@ -170,10 +173,27 @@ OR
             trimmed = trimmed[:desc_limit].rstrip() + "..."
         return f"[{source}] --[{rel}{ts_part}]--> [{target}] | desc: \"{trimmed}\""
 
-    def _edge_text(self, source: str, target: str, relation: str, timestamp: Optional[str]) -> str:
+    def _edge_status(self, data: dict) -> Optional[str]:
+        return data.get("status")
+
+    def _edge_is_retracted(self, data: dict) -> bool:
+        return self._edge_status(data) == "retracted"
+
+    def _edge_is_ended(self, data: dict) -> bool:
+        return self._edge_status(data) == "ended" or bool(data.get("ended_at"))
+
+    def _edge_text(
+        self,
+        source: str,
+        target: str,
+        relation: str,
+        timestamp: Optional[str],
+        ended_at: Optional[str] = None
+    ) -> str:
         rel = relation or "related"
         ts_part = f" @ {timestamp}" if timestamp else ""
-        return f"{source} --{rel}--> {target}{ts_part}"
+        ended_part = f" (ended {ended_at})" if ended_at else ""
+        return f"{source} --{rel}--> {target}{ts_part}{ended_part}"
 
     def _parse_iso_date(self, timestamp: Optional[str]) -> Optional[datetime]:
         if not timestamp:
@@ -184,6 +204,22 @@ OR
             except Exception:
                 return None
         return None
+
+    def _wants_history(self, question: str) -> bool:
+        if not question:
+            return False
+        if re.search(r"\b(19|20)\d{2}\b", question) or re.search(r"\d{4}-\d{2}-\d{2}", question):
+            return True
+        q = question.lower()
+        english_markers = [
+            "previous", "previously", "formerly", "used to", "before",
+            "in the past", "past", "earlier", "prior", "historical",
+            "back then", "at the time"
+        ]
+        if any(m in q for m in english_markers):
+            return True
+        chinese_markers = ["以前", "之前", "过去", "曾经", "那时", "当时", "曾", "早期", "历史", "原来"]
+        return any(m in question for m in chinese_markers)
 
     def _score_edge_candidate(
         self,
@@ -231,7 +267,7 @@ OR
                 by_pair[key] = cand
         return list(by_pair.values())
 
-    def _edge_semantic_search(self, query: str, top_k: int) -> List[dict]:
+    def _edge_semantic_search(self, query: str, top_k: int, include_ended: bool = True) -> List[dict]:
         embedder = self.graph.embedder
         if not embedder:
             return []
@@ -242,9 +278,14 @@ OR
         nx_graph = self.graph.graph
         candidates = []
         for source, target, data in nx_graph.edges(data=True):
+            if self._edge_is_retracted(data):
+                continue
+            if not include_ended and self._edge_is_ended(data):
+                continue
             relation = data.get("relation", "related")
             timestamp = data.get("timestamp")
-            edge_text = self._edge_text(source, target, relation, timestamp)
+            ended_at = data.get("ended_at")
+            edge_text = self._edge_text(source, target, relation, timestamp, ended_at=ended_at)
             edge_vec = embedder.embed(edge_text)
             if edge_vec is None:
                 continue
@@ -257,6 +298,7 @@ OR
                 "relation": relation,
                 "timestamp": timestamp,
                 "edge_text": edge_text,
+                "ended_at": ended_at,
                 "score": score,
                 "parsed_ts": self._parse_iso_date(timestamp),
             })
@@ -266,23 +308,29 @@ OR
         deduped.sort(key=lambda x: (-x["score"], x["edge_text"]))
         return deduped[:top_k]
 
-    def _edge_keyword_search(self, keywords: List[str], top_k: int) -> List[dict]:
+    def _edge_keyword_search(self, keywords: List[str], top_k: int, include_ended: bool = True) -> List[dict]:
         if not keywords:
             return []
         nx_graph = self.graph.graph
         candidates = []
         for source, target, data in nx_graph.edges(data=True):
+            if self._edge_is_retracted(data):
+                continue
+            if not include_ended and self._edge_is_ended(data):
+                continue
             relation = data.get("relation", "related")
             timestamp = data.get("timestamp")
+            ended_at = data.get("ended_at")
             score = self._score_edge_candidate(keywords, source, target, relation, timestamp)
             if score <= 0:
                 continue
-            edge_text = self._edge_text(source, target, relation, timestamp)
+            edge_text = self._edge_text(source, target, relation, timestamp, ended_at=ended_at)
             candidates.append({
                 "source": source,
                 "target": target,
                 "relation": relation,
                 "timestamp": timestamp,
+                "ended_at": ended_at,
                 "edge_text": edge_text,
                 "score": float(score),
                 "parsed_ts": self._parse_iso_date(timestamp),
@@ -298,7 +346,8 @@ OR
         nodes: List[str],
         keywords: List[str],
         per_node_limit: int,
-        desc_limit: int
+        desc_limit: int,
+        include_ended: bool = True
     ) -> List[tuple[int, str]]:
         if not nodes or not keywords:
             return []
@@ -307,6 +356,10 @@ OR
         for node in nodes:
             candidates = []
             for _, target, data in nx_graph.out_edges(node, data=True):
+                if self._edge_is_retracted(data):
+                    continue
+                if not include_ended and self._edge_is_ended(data):
+                    continue
                 relation = data.get("relation", "related")
                 timestamp = data.get("timestamp")
                 desc = nx_graph.nodes[target].get("description", "")
@@ -319,6 +372,10 @@ OR
                     )
                     candidates.append((score, line))
             for source, _, data in nx_graph.in_edges(node, data=True):
+                if self._edge_is_retracted(data):
+                    continue
+                if not include_ended and self._edge_is_ended(data):
+                    continue
                 relation = data.get("relation", "related")
                 timestamp = data.get("timestamp")
                 desc = nx_graph.nodes[source].get("description", "")
@@ -363,6 +420,14 @@ OR
 
     def answer(self, question: str) -> str:
         logger.info(f"❓ Question: {question}")
+        wants_history = self._wants_history(question)
+        
+        def edge_is_visible(data: dict) -> bool:
+            if self._edge_is_retracted(data):
+                return False
+            if not wants_history and self._edge_is_ended(data):
+                return False
+            return True
         
         history = []
         visited_node_order = []
@@ -386,21 +451,29 @@ OR
         def cache_nodes_and_edges(nodes: List[str]) -> None:
             for name in nodes:
                 if name not in visited_node_content:
-                    visited_node_content[name] = self.graph.primitive_read([name])
+                    visited_node_content[name] = self.graph.primitive_read([name], include_ended=wants_history)
                     visited_node_order.append(name)
                 for _, target, data in nx_graph.out_edges(name, data=True):
+                    if not edge_is_visible(data):
+                        continue
                     rel = data.get("relation", "related")
                     edge_ts = data.get("timestamp")
                     edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
-                    edge_line = f"[{name}] --[{rel}{edge_ts_str}]--> [{target}]"
+                    ended_at = data.get("ended_at")
+                    ended_str = f" [Ended: {ended_at}]" if ended_at else ""
+                    edge_line = f"[{name}] --[{rel}{edge_ts_str}{ended_str}]--> [{target}]"
                     if edge_line not in visited_edge_set:
                         visited_edge_set.add(edge_line)
                         visited_edge_order.append(edge_line)
                 for source, _, data in nx_graph.in_edges(name, data=True):
+                    if not edge_is_visible(data):
+                        continue
                     rel = data.get("relation", "related")
                     edge_ts = data.get("timestamp")
                     edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
-                    edge_line = f"[{source}] --[{rel}{edge_ts_str}]--> [{name}]"
+                    ended_at = data.get("ended_at")
+                    ended_str = f" [Ended: {ended_at}]" if ended_at else ""
+                    edge_line = f"[{source}] --[{rel}{edge_ts_str}{ended_str}]--> [{name}]"
                     if edge_line not in visited_edge_set:
                         visited_edge_set.add(edge_line)
                         visited_edge_order.append(edge_line)
@@ -410,7 +483,8 @@ OR
                 nodes,
                 query_keywords,
                 max_cached_per_node,
-                cached_desc_limit
+                cached_desc_limit,
+                include_ended=wants_history
             )
             for score, line in new_evidence:
                 if line in cached_scores:
@@ -442,6 +516,8 @@ OR
         def compute_candidates(frontier: str, path: List[str]) -> List[tuple[int, str]]:
             candidates = {}
             for _, target, data in nx_graph.out_edges(frontier, data=True):
+                if not edge_is_visible(data):
+                    continue
                 if target in path:
                     continue
                 relation = data.get("relation", "related")
@@ -451,6 +527,8 @@ OR
                 if target not in candidates or score > candidates[target]:
                     candidates[target] = score
             for source, _, data in nx_graph.in_edges(frontier, data=True):
+                if not edge_is_visible(data):
+                    continue
                 if source in path:
                     continue
                 relation = data.get("relation", "related")
@@ -471,8 +549,8 @@ OR
                 status_str = "Status: You are currently NOT at any node. You need to SEARCH to find entry points."
                 view_str = ""
             else:
-                neighbors_view = self.graph.primitive_get_neighbors(nodes)
-                current_content = self.graph.primitive_read(nodes)
+                neighbors_view = self.graph.primitive_get_neighbors(nodes, include_ended=wants_history)
+                current_content = self.graph.primitive_read(nodes, include_ended=wants_history)
                 cache_nodes_and_edges(nodes)
                 status_str = f"Status: You are at nodes: {nodes}"
                 view_str = f"**Current Node Content**:\n{current_content}\n\n**Visible Neighbors**:\n{neighbors_view}"
@@ -526,10 +604,10 @@ OR
                 return self.graph.semantic_search(question)
             return []
 
-        edge_results = self._edge_semantic_search(question, edge_top_k)
+        edge_results = self._edge_semantic_search(question, edge_top_k, include_ended=wants_history)
         edge_search_mode = "semantic"
         if not edge_results:
-            edge_results = self._edge_keyword_search(query_keywords, edge_top_k)
+            edge_results = self._edge_keyword_search(query_keywords, edge_top_k, include_ended=wants_history)
             edge_search_mode = "keyword"
 
         if edge_results:
