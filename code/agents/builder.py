@@ -21,7 +21,7 @@ class MemoryOperation(BaseModel):
     object: Optional[str] = Field(None, description="Target entity. If Present -> Edge Op. If Null -> Node Op.")
     content: Optional[str] = Field(None, description="Node description / Edge relation / Raw text for WAIT.")
     timestamp: Optional[str] = Field(None, description="Absolute date (YYYY-MM-DD) PREFERRED. If calculation fails, use relative time (e.g. '10 years ago').")
-    reason: str = Field(..., description="Reason for this operation (Conflict/New Fact/Ambiguity).")
+    reason: Optional[str] = Field(None, description="Reason for this operation (Conflict/New Fact/Ambiguity).")
 
 class BuilderOutput(BaseModel):
     chain_of_thought: str = Field(..., description="Step-by-step reasoning about Buffer vs Graph.")
@@ -88,6 +88,11 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
    - If an edge shows "[Ended: ...]", treat it as historical, not current truth.
 4. **Detail Check**: Ensure no key details (Where, When, Who, Why) are lost.
 
+**OUTPUT RULES:**
+- Return valid JSON only (no markdown/code fences).
+- Do not include trailing commas.
+- Escape newlines inside strings.
+
 **OUTPUT SCHEMA (JSON):**
 {
   "chain_of_thought": "Step 1: Date is 2023-08-01. Entities are Caroline and Mom. Step 2: New fact 'Mom visited'. Step 3: Graph has no 'Mom', so ADD Node Mom, ADD Edge visited. Step 4: Include 'dinner' detail in content.",
@@ -147,29 +152,98 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
             logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return False # 默认继续积累
 
+    def _extract_json_block(self, text: str) -> Optional[str]:
+        if not text:
+            return None
+        content = text.strip()
+        if "```" in content:
+            content = content.replace("```json", "").replace("```", "").strip()
+        start = content.find("{")
+        end = content.rfind("}")
+        if start == -1 or end == -1 or end <= start:
+            return None
+        return content[start:end + 1]
+
+    def _repair_json_response(self, raw_content: str) -> Optional[dict]:
+        snippet = (raw_content or "").strip()
+        if not snippet:
+            return None
+        if len(snippet) > 12000:
+            snippet = snippet[-12000:]
+        prompt = (
+            "Fix the following into a valid JSON object only. "
+            "No markdown, no code fences, no extra text. "
+            "Preserve all fields and values.\n\n"
+            f"RAW:\n{snippet}"
+        )
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[{"role": "user", "content": prompt}],
+                response_format={"type": "json_object"},
+                temperature=0.0
+            )
+            fixed = response.choices[0].message.content
+            return json.loads(fixed)
+        except Exception as e:
+            logger.warning(f"JSON repair failed: {e}")
+            return None
+
+    def _safe_parse_builder_output(self, raw_content: str) -> Optional[dict]:
+        if not raw_content:
+            return None
+        content = raw_content.strip()
+        extracted = self._extract_json_block(content)
+        for candidate in [content, extracted]:
+            if not candidate:
+                continue
+            try:
+                parsed = json.loads(candidate)
+                if isinstance(parsed, dict):
+                    return parsed
+            except json.JSONDecodeError:
+                continue
+        repaired = self._repair_json_response(extracted or content)
+        if repaired is not None:
+            return repaired
+        return None
+
     def process_buffer(self, buffer_content: str) -> tuple[List[str], List[str]]:
         context = self.graph.get_full_state()
         
         try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[
-                    {"role": "system", "content": self.get_full_prompt()},
-                    {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== NEW BUFFER ===\n{buffer_content}"}
-                ],
-                response_format={"type": "json_object"},
-                temperature=0.0
-            )
+            response = None
+            for attempt in range(2):
+                try:
+                    response = self.client.chat.completions.create(
+                        model=self.model_name,
+                        messages=[
+                            {"role": "system", "content": self.get_full_prompt()},
+                            {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== NEW BUFFER ===\n{buffer_content}"}
+                        ],
+                        response_format={"type": "json_object"},
+                        temperature=0.0
+                    )
+                    break
+                except Exception as e:
+                    if attempt == 0 and "timed out" in str(e).lower():
+                        logger.warning("Builder request timed out; retrying once.")
+                        continue
+                    raise
             
             raw_content = response.choices[0].message.content
             if not raw_content:
                 return [], []
                 
-            data = json.loads(raw_content)
+            data = self._safe_parse_builder_output(raw_content)
+            if data is None:
+                logger.error("Builder Failed: Invalid JSON response after repair attempts.")
+                logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+                return [], []
             
             # Log CoT
             if "chain_of_thought" in data:
-                logger.info(f"🤔 Builder CoT: {data['chain_of_thought']}")
+                logger.info(f"???? Builder CoT: {data['chain_of_thought']}")
                 
             ops = data.get("operations", [])
             return self._execute_operations(ops)
@@ -178,14 +252,13 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
             logger.error(f"Builder Failed: {e}")
             logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return [], []
-            return [], []
 
     def force_update(self, instruction: str) -> bool:
         """
         Directly apply a fix instruction from the Optimizer.
         This bypasses the normal buffer processing to fix specific graph errors.
         """
-        logger.info(f"🔧 FORCE UPDATE TRIGGERED: {instruction}")
+        logger.info(f"???? FORCE UPDATE TRIGGERED: {instruction}")
         context = self.graph.get_full_state()
         
         prompt = f"""
@@ -200,17 +273,30 @@ Generate the necessary operations (ADD/UPDATE/DELETE) to execute this instructio
 Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the Current Graph.
 """
         try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[
-                    {"role": "system", "content": prompt},
-                    {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== INSTRUCTION ===\n{instruction}"}
-                ],
-                response_format={"type": "json_object"},
-                temperature=0.0
-            )
+            response = None
+            for attempt in range(2):
+                try:
+                    response = self.client.chat.completions.create(
+                        model=self.model_name,
+                        messages=[
+                            {"role": "system", "content": prompt},
+                            {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== INSTRUCTION ===\n{instruction}"}
+                        ],
+                        response_format={"type": "json_object"},
+                        temperature=0.0
+                    )
+                    break
+                except Exception as e:
+                    if attempt == 0 and "timed out" in str(e).lower():
+                        logger.warning("Force update timed out; retrying once.")
+                        continue
+                    raise
             content = response.choices[0].message.content
-            data = json.loads(content)
+            data = self._safe_parse_builder_output(content)
+            if data is None:
+                logger.error("Force Update Failed: Invalid JSON response after repair attempts.")
+                logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+                return False
             ops = data.get("operations", [])
             self._execute_operations(ops)
             return True
@@ -278,11 +364,11 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                 elif op.action == ActionType.DELETE:
                     if op.object:
                         self.graph.delete_edge(op.subject, op.object, relation=op.content, timestamp=op.timestamp)
-                        msg = f"❌ UNLINK: {op.subject} --x--> {op.object}"
+                        msg = f"❌ UNLINK: {op.subject} --x--> {op.object} (Time: {op.timestamp})"
                         action_log.append(msg)
                     else:
                         self.graph.delete_node(op.subject)
-                        msg = f"❌ DELETE: {op.subject}"
+                        msg = f"❌ DELETE: {op.subject} (Time: {op.timestamp})"
                         action_log.append(msg)
 
                 # WAIT

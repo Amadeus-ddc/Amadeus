@@ -4,7 +4,7 @@
 # 端口: 8004
 
 # 卡号
-export CUDA_VISIBLE_DEVICES=7
+export CUDA_VISIBLE_DEVICES=2
 
 echo "Starting vLLM server with Qwen/Qwen2.5-7B-Instruct..."
 python -m vllm.entrypoints.openai.api_server \
@@ -12,6 +12,6 @@ python -m vllm.entrypoints.openai.api_server \
     --served-model-name qwen2.5-7b-instruct \
     --trust-remote-code \
     --tensor-parallel-size 1 \
-    --port 8007 \
+    --port 8002 \
     --gpu-memory-utilization 0.5 
 echo "vLLM server started on port 8004."
