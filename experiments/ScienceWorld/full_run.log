@@ -1,0 +1,661 @@
+2026-03-05 13:25:18,068 [INFO] Mode: Amadeus Memory (streaming)
+2026-03-05 13:25:18,068 [INFO] Model: /data/hzy/models/Qwen2.5-7B-Instruct
+2026-03-05 13:25:18,068 [INFO] Output: /data/hzy/Amadeus/amadeus/experiments/ScienceWorld/logs/run_amadeus_20260305_132518
+2026-03-05 13:25:18,069 [INFO] Loaded 90 tasks from /data/hzy/Amadeus/amadeus/experiments/ScienceWorld/data/test.jsonl
+2026-03-05 13:25:18,118 [INFO] Loading embedding model: /data/hzy/Amadeus/amadeus/models/all-MiniLM-L6-v2
+2026-03-05 13:25:19,309 [INFO] Amadeus memory initialized
+2026-03-05 13:25:19,579 [INFO] Callback Server Starting
+2026-03-05 13:25:19,580 [INFO] Socket listening on ('127.0.0.1', 45931)
+2026-03-05 13:25:20,902 [INFO] ScienceWorld server running on port 40889
+2026-03-05 13:25:20,903 [INFO] 
+============================================================
+2026-03-05 13:25:20,903 [INFO] [1/90] Task: lifespan-longest-lived, var=5, difficulty=easy
+2026-03-05 13:25:20,903 [INFO] Goal: Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the an
+2026-03-05 13:25:20,931 [INFO] Loading: lifespan-longest-lived (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:25:30,796 [INFO]   [x] SR=0, PR=0.00, GR=0.03, steps=30, running_SR=0.000, running_PR=0.000
+2026-03-05 13:25:31,056 [INFO] 
+============================================================
+2026-03-05 13:25:31,056 [INFO] [2/90] Task: lifespan-longest-lived, var=6, difficulty=easy
+2026-03-05 13:25:31,056 [INFO] Goal: Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the an
+2026-03-05 13:25:31,061 [INFO]   Retrieved 848 chars of experience
+2026-03-05 13:25:31,064 [INFO] Loading: lifespan-longest-lived (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:25:42,017 [INFO]   [x] SR=0, PR=0.50, GR=0.00, steps=30, running_SR=0.000, running_PR=0.250
+2026-03-05 13:25:42,025 [INFO] 
+============================================================
+2026-03-05 13:25:42,025 [INFO] [3/90] Task: lifespan-longest-lived, var=7, difficulty=easy
+2026-03-05 13:25:42,025 [INFO] Goal: Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the an
+2026-03-05 13:25:42,029 [INFO]   Retrieved 1747 chars of experience
+2026-03-05 13:25:42,032 [INFO] Loading: lifespan-longest-lived (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:25:50,195 [INFO]   [x] SR=0, PR=0.50, GR=0.00, steps=30, running_SR=0.000, running_PR=0.333
+2026-03-05 13:25:50,218 [INFO] 
+============================================================
+2026-03-05 13:25:50,218 [INFO] [4/90] Task: lifespan-longest-lived-then-shortest-lived, var=5, difficulty=easy
+2026-03-05 13:25:50,218 [INFO] Goal: Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the lo
+2026-03-05 13:25:50,227 [INFO]   Retrieved 2667 chars of experience
+2026-03-05 13:25:50,234 [INFO] Loading: lifespan-longest-lived-then-shortest-lived (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:25:58,065 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.250
+2026-03-05 13:25:58,079 [INFO] 
+============================================================
+2026-03-05 13:25:58,079 [INFO] [5/90] Task: lifespan-longest-lived-then-shortest-lived, var=6, difficulty=easy
+2026-03-05 13:25:58,079 [INFO] Goal: Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the lo
+2026-03-05 13:25:58,086 [INFO]   Retrieved 3618 chars of experience
+2026-03-05 13:25:58,089 [INFO] Loading: lifespan-longest-lived-then-shortest-lived (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:26:08,400 [INFO]   [x] SR=0, PR=0.33, GR=0.00, steps=30, running_SR=0.000, running_PR=0.267
+2026-03-05 13:26:08,424 [INFO] 
+============================================================
+2026-03-05 13:26:08,424 [INFO] [6/90] Task: lifespan-longest-lived-then-shortest-lived, var=7, difficulty=easy
+2026-03-05 13:26:08,424 [INFO] Goal: Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the lo
+2026-03-05 13:26:08,437 [INFO]   Retrieved 3734 chars of experience
+2026-03-05 13:26:08,440 [INFO] Loading: lifespan-longest-lived-then-shortest-lived (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:26:18,204 [INFO]   [x] SR=0, PR=0.67, GR=0.07, steps=30, running_SR=0.000, running_PR=0.333
+2026-03-05 13:26:18,233 [INFO] 
+============================================================
+2026-03-05 13:26:18,233 [INFO] [7/90] Task: lifespan-shortest-lived, var=5, difficulty=easy
+2026-03-05 13:26:18,233 [INFO] Goal: Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the a
+2026-03-05 13:26:18,237 [INFO]   Retrieved 3866 chars of experience
+2026-03-05 13:26:18,239 [INFO] Loading: lifespan-shortest-lived (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:26:26,326 [INFO]   [x] SR=0, PR=0.00, GR=0.03, steps=30, running_SR=0.000, running_PR=0.286
+2026-03-05 13:26:26,343 [INFO] 
+============================================================
+2026-03-05 13:26:26,343 [INFO] [8/90] Task: lifespan-shortest-lived, var=6, difficulty=easy
+2026-03-05 13:26:26,343 [INFO] Goal: Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the a
+2026-03-05 13:26:26,352 [INFO]   Retrieved 3805 chars of experience
+2026-03-05 13:26:26,356 [INFO] Loading: lifespan-shortest-lived (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:26:36,558 [INFO]   [x] SR=0, PR=0.50, GR=0.00, steps=30, running_SR=0.000, running_PR=0.312
+2026-03-05 13:26:36,572 [INFO] 
+============================================================
+2026-03-05 13:26:36,572 [INFO] [9/90] Task: lifespan-shortest-lived, var=7, difficulty=easy
+2026-03-05 13:26:36,572 [INFO] Goal: Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the a
+2026-03-05 13:26:36,578 [INFO]   Retrieved 3864 chars of experience
+2026-03-05 13:26:36,580 [INFO] Loading: lifespan-shortest-lived (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:26:47,537 [INFO]   [x] SR=0, PR=0.50, GR=0.10, steps=30, running_SR=0.000, running_PR=0.333
+2026-03-05 13:26:47,561 [INFO] 
+============================================================
+2026-03-05 13:26:47,561 [INFO] [10/90] Task: measure-melting-point-known-substance, var=5, difficulty=hard
+2026-03-05 13:26:47,561 [INFO] Goal: Your task is to measure the melting point of gallium, which is located around the kitchen. The objects you can use are t
+2026-03-05 13:26:47,575 [INFO]   Retrieved 3680 chars of experience
+2026-03-05 13:26:47,581 [INFO] Loading: measure-melting-point-known-substance (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:27:00,226 [INFO]   [x] SR=0, PR=0.14, GR=0.07, steps=30, running_SR=0.000, running_PR=0.314
+2026-03-05 13:27:00,246 [INFO] 
+============================================================
+2026-03-05 13:27:00,246 [INFO] [11/90] Task: measure-melting-point-known-substance, var=6, difficulty=hard
+2026-03-05 13:27:00,246 [INFO] Goal: Your task is to measure the melting point of gallium, which is located around the kitchen. The objects you can use are t
+2026-03-05 13:27:00,252 [INFO]   Retrieved 4062 chars of experience
+2026-03-05 13:27:00,255 [INFO] Loading: measure-melting-point-known-substance (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:27:08,560 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.286
+2026-03-05 13:27:08,582 [INFO] 
+============================================================
+2026-03-05 13:27:08,582 [INFO] [12/90] Task: measure-melting-point-known-substance, var=7, difficulty=hard
+2026-03-05 13:27:08,582 [INFO] Goal: Your task is to measure the melting point of gallium, which is located around the kitchen. The objects you can use are t
+2026-03-05 13:27:08,587 [INFO]   Retrieved 4359 chars of experience
+2026-03-05 13:27:08,589 [INFO] Loading: measure-melting-point-known-substance (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:27:19,788 [INFO]   [x] SR=0, PR=0.14, GR=0.00, steps=30, running_SR=0.000, running_PR=0.274
+2026-03-05 13:27:19,821 [INFO] 
+============================================================
+2026-03-05 13:27:19,821 [INFO] [13/90] Task: measure-melting-point-unknown-substance, var=5, difficulty=hard
+2026-03-05 13:27:19,821 [INFO] Goal: Your task is to measure the melting point of liquid unknown substance D in the kitchen. The objects you can use are ther
+2026-03-05 13:27:19,831 [INFO]   Retrieved 4695 chars of experience
+2026-03-05 13:27:19,835 [INFO] Loading: measure-melting-point-unknown-substance (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:27:29,115 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.253
+2026-03-05 13:27:29,133 [INFO] 
+============================================================
+2026-03-05 13:27:29,133 [INFO] [14/90] Task: measure-melting-point-unknown-substance, var=6, difficulty=hard
+2026-03-05 13:27:29,133 [INFO] Goal: Your task is to measure the melting point of solid unknown substance H in the kitchen. The objects you can use are therm
+2026-03-05 13:27:29,139 [INFO]   Retrieved 5186 chars of experience
+2026-03-05 13:27:29,141 [INFO] Loading: measure-melting-point-unknown-substance (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:27:39,305 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.235
+2026-03-05 13:27:39,336 [INFO] 
+============================================================
+2026-03-05 13:27:39,336 [INFO] [15/90] Task: measure-melting-point-unknown-substance, var=7, difficulty=hard
+2026-03-05 13:27:39,336 [INFO] Goal: Your task is to measure the melting point of solid unknown substance H in the kitchen. The objects you can use are therm
+2026-03-05 13:27:39,343 [INFO]   Retrieved 5319 chars of experience
+2026-03-05 13:27:39,345 [INFO] Loading: measure-melting-point-unknown-substance (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:27:53,434 [INFO]   [x] SR=0, PR=0.14, GR=0.00, steps=30, running_SR=0.000, running_PR=0.229
+2026-03-05 13:27:53,449 [INFO] 
+============================================================
+2026-03-05 13:27:53,449 [INFO] [16/90] Task: use-thermometer, var=5, difficulty=hard
+2026-03-05 13:27:53,449 [INFO] Goal: Your task is to measure the temperature of sodium chloride, which is located around the bathroom. You should pick up a t
+2026-03-05 13:27:53,455 [INFO]   Retrieved 5407 chars of experience
+2026-03-05 13:27:53,459 [INFO] Loading: use-thermometer (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:28:10,123 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.214
+2026-03-05 13:28:10,173 [INFO] 
+============================================================
+2026-03-05 13:28:10,173 [INFO] [17/90] Task: use-thermometer, var=6, difficulty=hard
+2026-03-05 13:28:10,173 [INFO] Goal: Your task is to measure the temperature of unknown substance B, which is located around the living room. You should pick
+2026-03-05 13:28:10,184 [INFO]   Retrieved 5407 chars of experience
+2026-03-05 13:28:10,190 [INFO] Loading: use-thermometer (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:28:18,798 [INFO]   [x] SR=0, PR=0.25, GR=0.03, steps=30, running_SR=0.000, running_PR=0.216
+2026-03-05 13:28:18,837 [INFO] 
+============================================================
+2026-03-05 13:28:18,837 [INFO] [18/90] Task: use-thermometer, var=7, difficulty=hard
+2026-03-05 13:28:18,837 [INFO] Goal: Your task is to measure the temperature of unknown substance B, which is located around the bedroom. You should pick up 
+2026-03-05 13:28:18,850 [INFO]   Retrieved 5110 chars of experience
+2026-03-05 13:28:18,856 [INFO] Loading: use-thermometer (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:28:31,344 [INFO]   [x] SR=0, PR=0.40, GR=0.03, steps=30, running_SR=0.000, running_PR=0.227
+2026-03-05 13:28:31,373 [INFO] 
+============================================================
+2026-03-05 13:28:31,373 [INFO] [19/90] Task: freeze, var=6, difficulty=hard
+2026-03-05 13:28:31,373 [INFO] Goal: Your task is to freeze orange juice in the kitchen. The objects you can use are a metal pot, a freezer, a thermometer, a
+2026-03-05 13:28:31,383 [INFO]   Retrieved 5407 chars of experience
+2026-03-05 13:28:31,390 [INFO] Loading: freeze (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:28:39,304 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.215
+2026-03-05 13:28:39,337 [INFO] 
+============================================================
+2026-03-05 13:28:39,337 [INFO] [20/90] Task: identify-life-stages-1, var=6, difficulty=hard
+2026-03-05 13:28:39,337 [INFO] Goal: Your task is to focus on the four life stages of the moth in the outside, starting from the earliest to the latest. You 
+2026-03-05 13:28:39,354 [INFO]   Retrieved 3598 chars of experience
+2026-03-05 13:28:39,356 [INFO] Loading: identify-life-stages-1 (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:28:47,265 [INFO]   [x] SR=0, PR=0.40, GR=0.07, steps=30, running_SR=0.000, running_PR=0.224
+2026-03-05 13:28:47,304 [INFO] 
+============================================================
+2026-03-05 13:28:47,304 [INFO] [21/90] Task: identify-life-stages-1, var=7, difficulty=hard
+2026-03-05 13:28:47,304 [INFO] Goal: Your task is to focus on the three life stages of the frog in the outside, starting from the earliest to the latest. You
+2026-03-05 13:28:47,318 [INFO]   Retrieved 3725 chars of experience
+2026-03-05 13:28:47,321 [INFO] Loading: identify-life-stages-1 (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:28:54,730 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.213
+2026-03-05 13:28:54,765 [INFO] 
+============================================================
+2026-03-05 13:28:54,765 [INFO] [22/90] Task: chemistry-mix-paint-tertiary-color, var=5, difficulty=hard
+2026-03-05 13:28:54,765 [INFO] Goal: Your task is to use chemistry to create green-blue paint. You should create green paint in a bowl in the workshop firstl
+2026-03-05 13:28:54,780 [INFO]   Retrieved 5440 chars of experience
+2026-03-05 13:28:54,786 [INFO] Loading: chemistry-mix-paint-tertiary-color (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:29:11,494 [INFO]   [x] SR=0, PR=0.20, GR=0.03, steps=30, running_SR=0.000, running_PR=0.213
+2026-03-05 13:29:11,526 [INFO] 
+============================================================
+2026-03-05 13:29:11,526 [INFO] [23/90] Task: chemistry-mix-paint-tertiary-color, var=6, difficulty=hard
+2026-03-05 13:29:11,526 [INFO] Goal: Your task is to use chemistry to create yellow-green paint. You should create green paint in a jug in the art studio fir
+2026-03-05 13:29:11,536 [INFO]   Retrieved 5247 chars of experience
+2026-03-05 13:29:11,540 [INFO] Loading: chemistry-mix-paint-tertiary-color (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:29:21,787 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.203
+2026-03-05 13:29:21,827 [INFO] 
+============================================================
+2026-03-05 13:29:21,828 [INFO] [24/90] Task: chemistry-mix-paint-tertiary-color, var=7, difficulty=hard
+2026-03-05 13:29:21,828 [INFO] Goal: Your task is to use chemistry to create yellow-green paint. You should create green paint in a jug in the art studio fir
+2026-03-05 13:29:21,836 [INFO]   Retrieved 4916 chars of experience
+2026-03-05 13:29:21,840 [INFO] Loading: chemistry-mix-paint-tertiary-color (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:29:32,699 [ERROR]   LLM call failed at step 16: Error code: 400 - {'error': {'message': "You passed 7937 input tokens and requested 256 output tokens. However, the model's context length is only 8192 tokens, resulting in a maximum input length of 7936 tokens. Please reduce the length of the input prompt. (parameter=input_tokens, value=7937)", 'type': 'BadRequestError', 'param': 'input_tokens', 'code': 400}}
+2026-03-05 13:29:32,699 [INFO]   [x] SR=0, PR=0.25, GR=0.00, steps=16, running_SR=0.000, running_PR=0.205
+2026-03-05 13:29:32,719 [INFO] 
+============================================================
+2026-03-05 13:29:32,719 [INFO] [25/90] Task: find-animal, var=5, difficulty=hard
+2026-03-05 13:29:32,719 [INFO] Goal: Your task is to find a blue jay egg in the outside. First, focus on it. Then, move it to the purple box in the kitchen.
+2026-03-05 13:29:32,725 [INFO]   Retrieved 3725 chars of experience
+2026-03-05 13:29:32,731 [INFO] Loading: find-animal (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:29:42,436 [INFO]   [x] SR=0, PR=0.40, GR=0.00, steps=30, running_SR=0.000, running_PR=0.213
+2026-03-05 13:29:42,472 [INFO] 
+============================================================
+2026-03-05 13:29:42,472 [INFO] [26/90] Task: find-animal, var=6, difficulty=hard
+2026-03-05 13:29:42,472 [INFO] Goal: Your task is to find a dove egg in the outside. First, focus on the thing. Then, move it to the red box in the bathroom.
+2026-03-05 13:29:42,485 [INFO]   Retrieved 3624 chars of experience
+2026-03-05 13:29:42,493 [INFO] Loading: find-animal (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:29:58,068 [INFO]   [x] SR=0, PR=0.40, GR=0.00, steps=30, running_SR=0.000, running_PR=0.220
+2026-03-05 13:29:58,108 [INFO] 
+============================================================
+2026-03-05 13:29:58,108 [INFO] [27/90] Task: find-animal, var=7, difficulty=hard
+2026-03-05 13:29:58,108 [INFO] Goal: Your task is to find a butterfly egg in the outside. First, focus on the thing. Then, move it to the green box in the ba
+2026-03-05 13:29:58,124 [INFO]   Retrieved 3706 chars of experience
+2026-03-05 13:29:58,137 [INFO] Loading: find-animal (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:30:06,063 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.212
+2026-03-05 13:30:06,100 [INFO] 
+============================================================
+2026-03-05 13:30:06,100 [INFO] [28/90] Task: find-living-thing, var=5, difficulty=hard
+2026-03-05 13:30:06,100 [INFO] Goal: Your task is to find a blue jay egg in the outside. First, focus on the thing. Then, move it to the purple box in the ki
+2026-03-05 13:30:06,117 [INFO]   Retrieved 3371 chars of experience
+2026-03-05 13:30:06,125 [INFO] Loading: find-living-thing (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:30:14,661 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.205
+2026-03-05 13:30:14,721 [INFO] 
+============================================================
+2026-03-05 13:30:14,722 [INFO] [29/90] Task: find-living-thing, var=6, difficulty=hard
+2026-03-05 13:30:14,722 [INFO] Goal: Your task is to find a dove egg in the outside. First, focus on the thing. Then, move it to the red box in the bathroom.
+2026-03-05 13:30:14,730 [INFO]   Retrieved 3434 chars of experience
+2026-03-05 13:30:14,733 [INFO] Loading: find-living-thing (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:30:28,199 [INFO]   [x] SR=0, PR=0.20, GR=0.00, steps=30, running_SR=0.000, running_PR=0.204
+2026-03-05 13:30:28,233 [INFO] 
+============================================================
+2026-03-05 13:30:28,234 [INFO] [30/90] Task: find-living-thing, var=7, difficulty=hard
+2026-03-05 13:30:28,234 [INFO] Goal: Your task is to find a butterfly egg in the outside. First, focus on the thing. Then, move it to the green box in the ba
+2026-03-05 13:30:28,245 [INFO]   Retrieved 3479 chars of experience
+2026-03-05 13:30:28,249 [INFO] Loading: find-living-thing (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:30:37,802 [INFO]   [x] SR=0, PR=0.20, GR=0.00, steps=30, running_SR=0.000, running_PR=0.204
+2026-03-05 13:30:37,850 [INFO] 
+============================================================
+2026-03-05 13:30:37,850 [INFO] [31/90] Task: find-non-living-thing, var=5, difficulty=easy
+2026-03-05 13:30:37,850 [INFO] Goal: Your task is to find a counter in the kitchen.. First, focus on the thing. Then, move it to the purple box in the kitche
+2026-03-05 13:30:37,857 [INFO]   Retrieved 3479 chars of experience
+2026-03-05 13:30:37,860 [INFO] Loading: find-non-living-thing (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:30:55,859 [INFO]   [x] SR=0, PR=0.67, GR=0.23, steps=30, running_SR=0.000, running_PR=0.219
+2026-03-05 13:30:55,890 [INFO] 
+============================================================
+2026-03-05 13:30:55,891 [INFO] [32/90] Task: find-non-living-thing, var=6, difficulty=easy
+2026-03-05 13:30:55,891 [INFO] Goal: Your task is to find a painting in the bathroom. First, focus on the thing. Then, move it to the red box in the bathroom
+2026-03-05 13:30:55,898 [INFO]   Retrieved 3479 chars of experience
+2026-03-05 13:30:55,901 [INFO] Loading: find-non-living-thing (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:31:09,196 [INFO]   [x] SR=0, PR=0.00, GR=0.10, steps=30, running_SR=0.000, running_PR=0.212
+2026-03-05 13:31:09,233 [INFO] 
+============================================================
+2026-03-05 13:31:09,233 [INFO] [33/90] Task: find-non-living-thing, var=7, difficulty=easy
+2026-03-05 13:31:09,233 [INFO] Goal: Your task is to find a picture in the bathroom. First, focus on the thing. Then, move it to the green box in the bathroo
+2026-03-05 13:31:09,244 [INFO]   Retrieved 3538 chars of experience
+2026-03-05 13:31:09,248 [INFO] Loading: find-non-living-thing (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:31:16,779 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.206
+2026-03-05 13:31:16,827 [INFO] 
+============================================================
+2026-03-05 13:31:16,827 [INFO] [34/90] Task: boil, var=5, difficulty=hard
+2026-03-05 13:31:16,827 [INFO] Goal: Your task is to boil ice to liquid. You should get ice in the kitchen and boil it in the foundry. The objects you can us
+2026-03-05 13:31:16,842 [INFO]   Retrieved 5407 chars of experience
+2026-03-05 13:31:16,847 [INFO] Loading: boil (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:31:29,544 [INFO]   [x] SR=0, PR=0.10, GR=0.10, steps=30, running_SR=0.000, running_PR=0.203
+2026-03-05 13:31:29,567 [INFO] 
+============================================================
+2026-03-05 13:31:29,567 [INFO] [35/90] Task: boil, var=6, difficulty=hard
+2026-03-05 13:31:29,567 [INFO] Goal: Your task is to boil orange juice until it reaches a gaseous state. You should get orange juice and boil it in the kitch
+2026-03-05 13:31:29,574 [INFO]   Retrieved 5221 chars of experience
+2026-03-05 13:31:29,576 [INFO] Loading: boil (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:31:39,005 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.197
+2026-03-05 13:31:39,050 [INFO] 
+============================================================
+2026-03-05 13:31:39,050 [INFO] [36/90] Task: boil, var=7, difficulty=hard
+2026-03-05 13:31:39,050 [INFO] Goal: Your task is to boil orange juice until it reaches a gaseous state. You should get  orange juice in the kitchen and boil
+2026-03-05 13:31:39,062 [INFO]   Retrieved 5280 chars of experience
+2026-03-05 13:31:39,065 [INFO] Loading: boil (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:31:50,262 [INFO]   [x] SR=0, PR=0.11, GR=0.00, steps=30, running_SR=0.000, running_PR=0.195
+2026-03-05 13:31:50,312 [INFO] 
+============================================================
+2026-03-05 13:31:50,312 [INFO] [37/90] Task: boil, var=8, difficulty=hard
+2026-03-05 13:31:50,313 [INFO] Goal: Your task is to boil apple juice until it reaches a gaseous state. You should get apple juice and boil it in the kitchen
+2026-03-05 13:31:50,323 [INFO]   Retrieved 5517 chars of experience
+2026-03-05 13:31:50,326 [INFO] Loading: boil (variation: 8) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:32:02,473 [INFO]   [x] SR=0, PR=0.12, GR=0.00, steps=30, running_SR=0.000, running_PR=0.193
+2026-03-05 13:32:02,550 [INFO] 
+============================================================
+2026-03-05 13:32:02,550 [INFO] [38/90] Task: change-the-state-of-matter-of, var=5, difficulty=hard
+2026-03-05 13:32:02,550 [INFO] Goal: Your task is to change to state of matter of ice to a liquid state. You should get ice in the kitchen and heat it in the
+2026-03-05 13:32:02,560 [INFO]   Retrieved 5314 chars of experience
+2026-03-05 13:32:02,562 [INFO] Loading: change-the-state-of-matter-of (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:32:14,512 [INFO]   [x] SR=0, PR=0.10, GR=0.03, steps=30, running_SR=0.000, running_PR=0.190
+2026-03-05 13:32:14,537 [INFO] 
+============================================================
+2026-03-05 13:32:14,537 [INFO] [39/90] Task: change-the-state-of-matter-of, var=6, difficulty=hard
+2026-03-05 13:32:14,537 [INFO] Goal: Your task is to change to state of matter of orange juice to a solid state. You should get orange juice and cool it in t
+2026-03-05 13:32:14,543 [INFO]   Retrieved 5088 chars of experience
+2026-03-05 13:32:14,545 [INFO] Loading: change-the-state-of-matter-of (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:32:24,119 [INFO]   [x] SR=0, PR=0.00, GR=0.03, steps=30, running_SR=0.000, running_PR=0.185
+2026-03-05 13:32:24,149 [INFO] 
+============================================================
+2026-03-05 13:32:24,149 [INFO] [40/90] Task: change-the-state-of-matter-of, var=7, difficulty=hard
+2026-03-05 13:32:24,150 [INFO] Goal: Your task is to change to state of matter of orange juice to a solid state. You should get orange juice and cool it in t
+2026-03-05 13:32:24,158 [INFO]   Retrieved 4988 chars of experience
+2026-03-05 13:32:24,162 [INFO] Loading: change-the-state-of-matter-of (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:32:34,647 [INFO]   [x] SR=0, PR=0.17, GR=0.00, steps=30, running_SR=0.000, running_PR=0.185
+2026-03-05 13:32:34,692 [INFO] 
+============================================================
+2026-03-05 13:32:34,692 [INFO] [41/90] Task: change-the-state-of-matter-of, var=8, difficulty=hard
+2026-03-05 13:32:34,692 [INFO] Goal: Your task is to change to state of matter of apple juice to a solid state. You should get apple juice and cool it in the
+2026-03-05 13:32:34,703 [INFO]   Retrieved 5267 chars of experience
+2026-03-05 13:32:34,706 [INFO] Loading: change-the-state-of-matter-of (variation: 8) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:32:44,085 [ERROR]   LLM call failed at step 13: Error code: 400 - {'error': {'message': "You passed 7937 input tokens and requested 256 output tokens. However, the model's context length is only 8192 tokens, resulting in a maximum input length of 7936 tokens. Please reduce the length of the input prompt. (parameter=input_tokens, value=7937)", 'type': 'BadRequestError', 'param': 'input_tokens', 'code': 400}}
+2026-03-05 13:32:44,085 [INFO]   [x] SR=0, PR=0.17, GR=0.00, steps=13, running_SR=0.000, running_PR=0.185
+2026-03-05 13:32:44,126 [INFO] 
+============================================================
+2026-03-05 13:32:44,126 [INFO] [42/90] Task: chemistry-mix, var=5, difficulty=hard
+2026-03-05 13:32:44,127 [INFO] Goal: Your task is to use chemistry to create the substance ''blue paper'' in a ceramic cup. The objects you can use are the a
+2026-03-05 13:32:44,138 [INFO]   Retrieved 4670 chars of experience
+2026-03-05 13:32:44,141 [INFO] Loading: chemistry-mix (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:32:59,665 [INFO]   [x] SR=0, PR=0.17, GR=0.10, steps=30, running_SR=0.000, running_PR=0.184
+2026-03-05 13:32:59,718 [INFO] 
+============================================================
+2026-03-05 13:32:59,718 [INFO] [43/90] Task: chemistry-mix, var=6, difficulty=hard
+2026-03-05 13:32:59,718 [INFO] Goal: Your task is to use chemistry to create the substance ''peanut butter sandwich'' in a glass cup. The objects you can use
+2026-03-05 13:32:59,727 [INFO]   Retrieved 5177 chars of experience
+2026-03-05 13:32:59,731 [INFO] Loading: chemistry-mix (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:33:14,889 [INFO]   [x] SR=0, PR=0.17, GR=0.07, steps=30, running_SR=0.000, running_PR=0.184
+2026-03-05 13:33:14,919 [INFO] 
+============================================================
+2026-03-05 13:33:14,919 [INFO] [44/90] Task: chemistry-mix, var=7, difficulty=hard
+2026-03-05 13:33:14,919 [INFO] Goal: Your task is to use chemistry to create the substance ''peanut butter with jam sandwich'' in a metal pot. The objects yo
+2026-03-05 13:33:14,926 [INFO]   Retrieved 5015 chars of experience
+2026-03-05 13:33:14,928 [INFO] Loading: chemistry-mix (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:33:25,976 [INFO]   [x] SR=0, PR=0.14, GR=0.00, steps=30, running_SR=0.000, running_PR=0.183
+2026-03-05 13:33:26,008 [INFO] 
+============================================================
+2026-03-05 13:33:26,009 [INFO] [45/90] Task: chemistry-mix-paint-secondary-color, var=5, difficulty=hard
+2026-03-05 13:33:26,009 [INFO] Goal: Your task is to use chemistry to create green paint in a glass cup in the workshop. The objects you can use are tin cups
+2026-03-05 13:33:26,016 [INFO]   Retrieved 4307 chars of experience
+2026-03-05 13:33:26,018 [INFO] Loading: chemistry-mix-paint-secondary-color (variation: 5) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:33:34,498 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.179
+2026-03-05 13:33:34,524 [INFO] 
+============================================================
+2026-03-05 13:33:34,524 [INFO] [46/90] Task: chemistry-mix-paint-secondary-color, var=6, difficulty=hard
+2026-03-05 13:33:34,524 [INFO] Goal: Your task is to use chemistry to create green paint in a jug in the art studio. The objects you can use are wood cups an
+2026-03-05 13:33:34,531 [INFO]   Retrieved 4240 chars of experience
+2026-03-05 13:33:34,532 [INFO] Loading: chemistry-mix-paint-secondary-color (variation: 6) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:33:42,441 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.175
+2026-03-05 13:33:42,544 [INFO] 
+============================================================
+2026-03-05 13:33:42,544 [INFO] [47/90] Task: chemistry-mix-paint-secondary-color, var=7, difficulty=hard
+2026-03-05 13:33:42,544 [INFO] Goal: Your task is to use chemistry to create green paint in a jug in the art studio. The objects you can use are wood cups an
+2026-03-05 13:33:42,561 [INFO]   Retrieved 4183 chars of experience
+2026-03-05 13:33:42,570 [INFO] Loading: chemistry-mix-paint-secondary-color (variation: 7) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:33:54,777 [INFO]   [x] SR=0, PR=0.20, GR=0.00, steps=30, running_SR=0.000, running_PR=0.175
+2026-03-05 13:33:54,817 [INFO] 
+============================================================
+2026-03-05 13:33:54,817 [INFO] [48/90] Task: use-thermometer, var=0, difficulty=hard
+2026-03-05 13:33:54,817 [INFO] Goal: Your task is to measure the temperature of unknown substance B, which is located around the living room. You can find th
+2026-03-05 13:33:54,825 [INFO]   Retrieved 4919 chars of experience
+2026-03-05 13:33:54,827 [INFO] Loading: use-thermometer (variation: 0) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:34:06,180 [INFO]   [x] SR=0, PR=0.14, GR=0.00, steps=30, running_SR=0.000, running_PR=0.175
+2026-03-05 13:34:06,232 [INFO] 
+============================================================
+2026-03-05 13:34:06,233 [INFO] [49/90] Task: use-thermometer, var=1, difficulty=hard
+2026-03-05 13:34:06,233 [INFO] Goal: Your task is to measure the temperature of unknown substance B, which is located around the living room. You can find th
+2026-03-05 13:34:06,242 [INFO]   Retrieved 5045 chars of experience
+2026-03-05 13:34:06,245 [INFO] Loading: use-thermometer (variation: 1) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:34:13,706 [INFO]   [x] SR=0, PR=0.17, GR=0.00, steps=30, running_SR=0.000, running_PR=0.174
+2026-03-05 13:34:13,773 [INFO] 
+============================================================
+2026-03-05 13:34:13,773 [INFO] [50/90] Task: use-thermometer, var=2, difficulty=hard
+2026-03-05 13:34:13,773 [INFO] Goal: Your task is to measure the temperature of unknown substance B, which is located around the living room. You can find th
+2026-03-05 13:34:13,781 [INFO]   Retrieved 4878 chars of experience
+2026-03-05 13:34:13,784 [INFO] Loading: use-thermometer (variation: 2) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:34:26,266 [INFO]   [x] SR=0, PR=0.17, GR=0.00, steps=30, running_SR=0.000, running_PR=0.174
+2026-03-05 13:34:26,332 [INFO] 
+============================================================
+2026-03-05 13:34:26,332 [INFO] [51/90] Task: lifespan-longest-lived, var=0, difficulty=easy
+2026-03-05 13:34:26,332 [INFO] Goal: Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the an
+2026-03-05 13:34:26,347 [INFO]   Retrieved 3734 chars of experience
+2026-03-05 13:34:26,353 [INFO] Loading: lifespan-longest-lived (variation: 0) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:34:34,001 [INFO]   [x] SR=0, PR=0.50, GR=0.00, steps=30, running_SR=0.000, running_PR=0.181
+2026-03-05 13:34:34,032 [INFO] 
+============================================================
+2026-03-05 13:34:34,032 [INFO] [52/90] Task: lifespan-longest-lived, var=1, difficulty=easy
+2026-03-05 13:34:34,033 [INFO] Goal: Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the an
+2026-03-05 13:34:34,040 [INFO]   Retrieved 3734 chars of experience
+2026-03-05 13:34:34,043 [INFO] Loading: lifespan-longest-lived (variation: 1) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:34:40,813 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.177
+2026-03-05 13:34:40,874 [INFO] 
+============================================================
+2026-03-05 13:34:40,875 [INFO] [53/90] Task: lifespan-longest-lived, var=2, difficulty=easy
+2026-03-05 13:34:40,875 [INFO] Goal: Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the an
+2026-03-05 13:34:40,890 [INFO]   Retrieved 3748 chars of experience
+2026-03-05 13:34:40,892 [INFO] Loading: lifespan-longest-lived (variation: 2) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:34:48,504 [INFO]   [x] SR=0, PR=0.50, GR=0.00, steps=30, running_SR=0.000, running_PR=0.183
+2026-03-05 13:34:48,567 [INFO] 
+============================================================
+2026-03-05 13:34:48,568 [INFO] [54/90] Task: lifespan-longest-lived-then-shortest-lived, var=0, difficulty=easy
+2026-03-05 13:34:48,568 [INFO] Goal: Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the lo
+2026-03-05 13:34:48,583 [INFO]   Retrieved 3866 chars of experience
+2026-03-05 13:34:48,590 [INFO] Loading: lifespan-longest-lived-then-shortest-lived (variation: 0) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:34:57,311 [INFO]   [x] SR=0, PR=0.33, GR=0.03, steps=30, running_SR=0.000, running_PR=0.186
+2026-03-05 13:34:57,348 [INFO] 
+============================================================
+2026-03-05 13:34:57,348 [INFO] [55/90] Task: lifespan-longest-lived-then-shortest-lived, var=1, difficulty=easy
+2026-03-05 13:34:57,348 [INFO] Goal: Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the lo
+2026-03-05 13:34:57,356 [INFO]   Retrieved 3982 chars of experience
+2026-03-05 13:34:57,359 [INFO] Loading: lifespan-longest-lived-then-shortest-lived (variation: 1) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:35:04,810 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.183
+2026-03-05 13:35:04,875 [INFO] 
+============================================================
+2026-03-05 13:35:04,875 [INFO] [56/90] Task: lifespan-longest-lived-then-shortest-lived, var=2, difficulty=easy
+2026-03-05 13:35:04,875 [INFO] Goal: Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the lo
+2026-03-05 13:35:04,893 [INFO]   Retrieved 3951 chars of experience
+2026-03-05 13:35:04,898 [INFO] Loading: lifespan-longest-lived-then-shortest-lived (variation: 2) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:35:14,291 [INFO]   [x] SR=0, PR=0.33, GR=0.03, steps=30, running_SR=0.000, running_PR=0.185
+2026-03-05 13:35:14,363 [INFO] 
+============================================================
+2026-03-05 13:35:14,363 [INFO] [57/90] Task: lifespan-shortest-lived, var=0, difficulty=easy
+2026-03-05 13:35:14,363 [INFO] Goal: Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the a
+2026-03-05 13:35:14,379 [INFO]   Retrieved 3951 chars of experience
+2026-03-05 13:35:14,386 [INFO] Loading: lifespan-shortest-lived (variation: 0) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:35:22,223 [INFO]   [x] SR=0, PR=0.50, GR=0.00, steps=30, running_SR=0.000, running_PR=0.191
+2026-03-05 13:35:22,255 [INFO] 
+============================================================
+2026-03-05 13:35:22,256 [INFO] [58/90] Task: lifespan-shortest-lived, var=1, difficulty=easy
+2026-03-05 13:35:22,256 [INFO] Goal: Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the a
+2026-03-05 13:35:22,264 [INFO]   Retrieved 3951 chars of experience
+2026-03-05 13:35:22,267 [INFO] Loading: lifespan-shortest-lived (variation: 1) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:35:29,893 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.188
+2026-03-05 13:35:29,929 [INFO] 
+============================================================
+2026-03-05 13:35:29,929 [INFO] [59/90] Task: lifespan-shortest-lived, var=2, difficulty=easy
+2026-03-05 13:35:29,930 [INFO] Goal: Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the a
+2026-03-05 13:35:29,938 [INFO]   Retrieved 3951 chars of experience
+2026-03-05 13:35:29,940 [INFO] Loading: lifespan-shortest-lived (variation: 2) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:35:38,600 [INFO]   [x] SR=0, PR=0.50, GR=0.03, steps=30, running_SR=0.000, running_PR=0.193
+2026-03-05 13:35:38,659 [INFO] 
+============================================================
+2026-03-05 13:35:38,659 [INFO] [60/90] Task: measure-melting-point-known-substance, var=0, difficulty=hard
+2026-03-05 13:35:38,659 [INFO] Goal: Your task is to measure the melting point of chocolate in the kitchen. The objects you can use are thermometer, fridge, 
+2026-03-05 13:35:38,670 [INFO]   Retrieved 5477 chars of experience
+2026-03-05 13:35:38,673 [INFO] Loading: measure-melting-point-known-substance (variation: 0) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:35:50,920 [INFO]   [x] SR=0, PR=0.25, GR=0.00, steps=30, running_SR=0.000, running_PR=0.194
+2026-03-05 13:35:50,960 [INFO] 
+============================================================
+2026-03-05 13:35:50,960 [INFO] [61/90] Task: measure-melting-point-known-substance, var=1, difficulty=hard
+2026-03-05 13:35:50,960 [INFO] Goal: Your task is to measure the melting point of lead. The objects you can use are thermometer, metal pot in the kitchen and
+2026-03-05 13:35:50,967 [INFO]   Retrieved 5448 chars of experience
+2026-03-05 13:35:50,970 [INFO] Loading: measure-melting-point-known-substance (variation: 1) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:36:02,761 [INFO]   [x] SR=0, PR=0.10, GR=0.03, steps=30, running_SR=0.000, running_PR=0.192
+2026-03-05 13:36:02,798 [INFO] 
+============================================================
+2026-03-05 13:36:02,798 [INFO] [62/90] Task: measure-melting-point-known-substance, var=2, difficulty=hard
+2026-03-05 13:36:02,798 [INFO] Goal: Your task is to measure the melting point of chocolate in the kitchen. The objects you can use are thermometer, fridge, 
+2026-03-05 13:36:02,806 [INFO]   Retrieved 5391 chars of experience
+2026-03-05 13:36:02,809 [INFO] Loading: measure-melting-point-known-substance (variation: 2) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:36:14,330 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.189
+2026-03-05 13:36:14,372 [INFO] 
+============================================================
+2026-03-05 13:36:14,372 [INFO] [63/90] Task: measure-melting-point-unknown-substance, var=0, difficulty=hard
+2026-03-05 13:36:14,372 [INFO] Goal: Your task is to measure the melting point of solid unknown substance C in the kitchen. The objects you can use are therm
+2026-03-05 13:36:14,381 [INFO]   Retrieved 5448 chars of experience
+2026-03-05 13:36:14,383 [INFO] Loading: measure-melting-point-unknown-substance (variation: 0) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:36:21,562 [ERROR]   LLM call failed at step 13: Error code: 400 - {'error': {'message': "You passed 7937 input tokens and requested 256 output tokens. However, the model's context length is only 8192 tokens, resulting in a maximum input length of 7936 tokens. Please reduce the length of the input prompt. (parameter=input_tokens, value=7937)", 'type': 'BadRequestError', 'param': 'input_tokens', 'code': 400}}
+2026-03-05 13:36:21,562 [INFO]   [x] SR=0, PR=0.14, GR=0.00, steps=13, running_SR=0.000, running_PR=0.189
+2026-03-05 13:36:21,629 [INFO] 
+============================================================
+2026-03-05 13:36:21,629 [INFO] [64/90] Task: measure-melting-point-unknown-substance, var=1, difficulty=hard
+2026-03-05 13:36:21,629 [INFO] Goal: Your task is to measure the melting point of liquid unknown substance J in the kitchen. The objects you can use are ther
+2026-03-05 13:36:21,640 [INFO]   Retrieved 5693 chars of experience
+2026-03-05 13:36:21,643 [INFO] Loading: measure-melting-point-unknown-substance (variation: 1) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:36:35,061 [INFO]   [x] SR=0, PR=0.33, GR=0.07, steps=30, running_SR=0.000, running_PR=0.191
+2026-03-05 13:36:35,100 [INFO] 
+============================================================
+2026-03-05 13:36:35,101 [INFO] [65/90] Task: measure-melting-point-unknown-substance, var=2, difficulty=easy
+2026-03-05 13:36:35,101 [INFO] Goal: Your task is to measure the melting point of liquid unknown substance J in the kitchen. The objects you can use are ther
+2026-03-05 13:36:35,109 [INFO]   Retrieved 5773 chars of experience
+2026-03-05 13:36:35,112 [INFO] Loading: measure-melting-point-unknown-substance (variation: 2) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:36:48,504 [INFO]   [x] SR=0, PR=0.33, GR=0.00, steps=30, running_SR=0.000, running_PR=0.193
+2026-03-05 13:36:48,548 [INFO] 
+============================================================
+2026-03-05 13:36:48,548 [INFO] [66/90] Task: identify-life-stages-1, var=0, difficulty=hard
+2026-03-05 13:36:48,549 [INFO] Goal: Your task is to focus on the four life stages of the turtle in the outside, starting from the earliest to the latest. Yo
+2026-03-05 13:36:48,559 [INFO]   Retrieved 3801 chars of experience
+2026-03-05 13:36:48,562 [INFO] Loading: identify-life-stages-1 (variation: 0) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:36:55,684 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.190
+2026-03-05 13:36:55,742 [INFO] 
+============================================================
+2026-03-05 13:36:55,742 [INFO] [67/90] Task: identify-life-stages-1, var=1, difficulty=hard
+2026-03-05 13:36:55,742 [INFO] Goal: Your task is to focus on the three life stages of the wolf in the outside, starting from the earliest to the latest. You
+2026-03-05 13:36:55,751 [INFO]   Retrieved 3909 chars of experience
+2026-03-05 13:36:55,754 [INFO] Loading: identify-life-stages-1 (variation: 1) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:37:03,450 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.187
+2026-03-05 13:37:03,487 [INFO] 
+============================================================
+2026-03-05 13:37:03,487 [INFO] [68/90] Task: identify-life-stages-1, var=2, difficulty=hard
+2026-03-05 13:37:03,488 [INFO] Goal: Your task is to focus on the four life stages of the crocodile in the outside, starting from the earliest to the latest.
+2026-03-05 13:37:03,497 [INFO]   Retrieved 3940 chars of experience
+2026-03-05 13:37:03,500 [INFO] Loading: identify-life-stages-1 (variation: 2) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:37:12,059 [INFO]   [x] SR=0, PR=0.20, GR=0.00, steps=30, running_SR=0.000, running_PR=0.187
+2026-03-05 13:37:12,126 [INFO] 
+============================================================
+2026-03-05 13:37:12,126 [INFO] [69/90] Task: find-animal, var=20, difficulty=hard
+2026-03-05 13:37:12,126 [INFO] Goal: Your task is to find a  blue jay in the outside. First, focus on the thing. Then, move it to the blue box in the bedroom
+2026-03-05 13:37:12,137 [INFO]   Retrieved 3434 chars of experience
+2026-03-05 13:37:12,140 [INFO] Loading: find-animal (variation: 20) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:37:27,483 [INFO]   [x] SR=0, PR=0.20, GR=0.07, steps=30, running_SR=0.000, running_PR=0.188
+2026-03-05 13:37:27,580 [INFO] 
+============================================================
+2026-03-05 13:37:27,580 [INFO] [70/90] Task: find-animal, var=21, difficulty=hard
+2026-03-05 13:37:27,580 [INFO] Goal: Your task is to find a  blue jay in the outside. First, focus on the thing. Then, move it to the orange box in the bedro
+2026-03-05 13:37:27,591 [INFO]   Retrieved 3506 chars of experience
+2026-03-05 13:37:27,593 [INFO] Loading: find-animal (variation: 21) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:37:37,872 [INFO]   [x] SR=0, PR=0.40, GR=0.03, steps=30, running_SR=0.000, running_PR=0.191
+2026-03-05 13:37:37,931 [INFO] 
+============================================================
+2026-03-05 13:37:37,931 [INFO] [71/90] Task: find-animal, var=22, difficulty=hard
+2026-03-05 13:37:37,931 [INFO] Goal: Your task is to find a(n) dove in the outside. First, focus on the thing. Then, move it to the yellow box in the bedroom
+2026-03-05 13:37:37,939 [INFO]   Retrieved 3569 chars of experience
+2026-03-05 13:37:37,942 [INFO] Loading: find-animal (variation: 22) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:37:46,281 [INFO]   [x] SR=0, PR=0.20, GR=0.00, steps=30, running_SR=0.000, running_PR=0.191
+2026-03-05 13:37:46,365 [INFO] 
+============================================================
+2026-03-05 13:37:46,365 [INFO] [72/90] Task: find-living-thing, var=20, difficulty=hard
+2026-03-05 13:37:46,365 [INFO] Goal: Your task is to find butterfly egg in the outside. First, focus on the thing. Then, move it to the blue box in the bedro
+2026-03-05 13:37:46,375 [INFO]   Retrieved 3433 chars of experience
+2026-03-05 13:37:46,378 [INFO] Loading: find-living-thing (variation: 20) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:37:55,054 [INFO]   [x] SR=0, PR=0.20, GR=0.00, steps=30, running_SR=0.000, running_PR=0.191
+2026-03-05 13:37:55,131 [INFO] 
+============================================================
+2026-03-05 13:37:55,136 [INFO] [73/90] Task: find-living-thing, var=21, difficulty=hard
+2026-03-05 13:37:55,136 [INFO] Goal: Your task is to find a(n) dove egg in the outside. First, focus on the thing. Then, move it to the orange box in the bed
+2026-03-05 13:37:55,149 [INFO]   Retrieved 3465 chars of experience
+2026-03-05 13:37:55,158 [INFO] Loading: find-living-thing (variation: 21) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:38:03,765 [INFO]   [x] SR=0, PR=0.40, GR=0.00, steps=30, running_SR=0.000, running_PR=0.194
+2026-03-05 13:38:03,835 [INFO] 
+============================================================
+2026-03-05 13:38:03,835 [INFO] [74/90] Task: find-living-thing, var=22, difficulty=hard
+2026-03-05 13:38:03,835 [INFO] Goal: Your task is to find a(n) butterfly egg in the outside. First, focus on the thing. Then, move it to the yellow box in th
+2026-03-05 13:38:03,846 [INFO]   Retrieved 3486 chars of experience
+2026-03-05 13:38:03,849 [INFO] Loading: find-living-thing (variation: 22) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:38:12,973 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.191
+2026-03-05 13:38:13,016 [INFO] 
+============================================================
+2026-03-05 13:38:13,016 [INFO] [75/90] Task: find-non-living-thing, var=20, difficulty=easy
+2026-03-05 13:38:13,016 [INFO] Goal: Your task is to find a(n) closet in the bedroom. First, focus on the thing. Then, move it to the blue box in the bedroom
+2026-03-05 13:38:13,025 [INFO]   Retrieved 3664 chars of experience
+2026-03-05 13:38:13,028 [INFO] Loading: find-non-living-thing (variation: 20) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:38:24,018 [INFO]   [x] SR=0, PR=0.67, GR=0.03, steps=30, running_SR=0.000, running_PR=0.197
+2026-03-05 13:38:24,061 [INFO] 
+============================================================
+2026-03-05 13:38:24,061 [INFO] [76/90] Task: find-non-living-thing, var=21, difficulty=easy
+2026-03-05 13:38:24,061 [INFO] Goal: Your task is to find a(n) painting in the bedroom. First, focus on the thing. Then, move it to the orange box in the bed
+2026-03-05 13:38:24,070 [INFO]   Retrieved 3761 chars of experience
+2026-03-05 13:38:24,072 [INFO] Loading: find-non-living-thing (variation: 21) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:38:31,725 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.195
+2026-03-05 13:38:31,769 [INFO] 
+============================================================
+2026-03-05 13:38:31,769 [INFO] [77/90] Task: find-non-living-thing, var=22, difficulty=easy
+2026-03-05 13:38:31,769 [INFO] Goal: Your task is to find a(n) book (sherlock holmes) in the bedroom. First, focus on the thing. Then, move it to the yellow 
+2026-03-05 13:38:31,779 [INFO]   Retrieved 3631 chars of experience
+2026-03-05 13:38:31,781 [INFO] Loading: find-non-living-thing (variation: 22) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:38:39,027 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.192
+2026-03-05 13:38:39,069 [INFO] 
+============================================================
+2026-03-05 13:38:39,069 [INFO] [78/90] Task: lifespan-longest-lived, var=20, difficulty=easy
+2026-03-05 13:38:39,069 [INFO] Goal: Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the an
+2026-03-05 13:38:39,078 [INFO]   Retrieved 3951 chars of experience
+2026-03-05 13:38:39,080 [INFO] Loading: lifespan-longest-lived (variation: 20) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:38:46,900 [INFO]   [x] SR=0, PR=0.50, GR=0.03, steps=30, running_SR=0.000, running_PR=0.196
+2026-03-05 13:38:46,974 [INFO] 
+============================================================
+2026-03-05 13:38:46,975 [INFO] [79/90] Task: lifespan-longest-lived, var=21, difficulty=easy
+2026-03-05 13:38:46,975 [INFO] Goal: Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the an
+2026-03-05 13:38:46,987 [INFO]   Retrieved 3951 chars of experience
+2026-03-05 13:38:46,990 [INFO] Loading: lifespan-longest-lived (variation: 21) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:38:54,965 [INFO]   [x] SR=0, PR=0.50, GR=0.00, steps=30, running_SR=0.000, running_PR=0.200
+2026-03-05 13:38:55,009 [INFO] 
+============================================================
+2026-03-05 13:38:55,009 [INFO] [80/90] Task: lifespan-longest-lived, var=22, difficulty=easy
+2026-03-05 13:38:55,009 [INFO] Goal: Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the an
+2026-03-05 13:38:55,020 [INFO]   Retrieved 3951 chars of experience
+2026-03-05 13:38:55,022 [INFO] Loading: lifespan-longest-lived (variation: 22) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:39:04,703 [INFO]   [x] SR=0, PR=0.50, GR=0.03, steps=30, running_SR=0.000, running_PR=0.204
+2026-03-05 13:39:04,772 [INFO] 
+============================================================
+2026-03-05 13:39:04,772 [INFO] [81/90] Task: lifespan-longest-lived-then-shortest-lived, var=20, difficulty=easy
+2026-03-05 13:39:04,772 [INFO] Goal: Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the lo
+2026-03-05 13:39:04,789 [INFO]   Retrieved 3951 chars of experience
+2026-03-05 13:39:04,793 [INFO] Loading: lifespan-longest-lived-then-shortest-lived (variation: 20) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:39:13,274 [INFO]   [x] SR=0, PR=0.33, GR=0.00, steps=30, running_SR=0.000, running_PR=0.205
+2026-03-05 13:39:13,348 [INFO] 
+============================================================
+2026-03-05 13:39:13,348 [INFO] [82/90] Task: lifespan-longest-lived-then-shortest-lived, var=21, difficulty=easy
+2026-03-05 13:39:13,348 [INFO] Goal: Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the lo
+2026-03-05 13:39:13,357 [INFO]   Retrieved 3951 chars of experience
+2026-03-05 13:39:13,359 [INFO] Loading: lifespan-longest-lived-then-shortest-lived (variation: 21) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:39:21,852 [INFO]   [x] SR=0, PR=0.33, GR=0.00, steps=30, running_SR=0.000, running_PR=0.207
+2026-03-05 13:39:21,917 [INFO] 
+============================================================
+2026-03-05 13:39:21,917 [INFO] [83/90] Task: lifespan-longest-lived-then-shortest-lived, var=22, difficulty=easy
+2026-03-05 13:39:21,917 [INFO] Goal: Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the lo
+2026-03-05 13:39:21,926 [INFO]   Retrieved 3913 chars of experience
+2026-03-05 13:39:21,928 [INFO] Loading: lifespan-longest-lived-then-shortest-lived (variation: 22) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:39:29,508 [INFO]   [x] SR=0, PR=0.33, GR=0.00, steps=30, running_SR=0.000, running_PR=0.209
+2026-03-05 13:39:29,604 [INFO] 
+============================================================
+2026-03-05 13:39:29,607 [INFO] [84/90] Task: lifespan-shortest-lived, var=20, difficulty=easy
+2026-03-05 13:39:29,607 [INFO] Goal: Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the a
+2026-03-05 13:39:29,630 [INFO]   Retrieved 3913 chars of experience
+2026-03-05 13:39:29,636 [INFO] Loading: lifespan-shortest-lived (variation: 20) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:39:37,405 [INFO]   [x] SR=0, PR=0.50, GR=0.00, steps=30, running_SR=0.000, running_PR=0.212
+2026-03-05 13:39:37,480 [INFO] 
+============================================================
+2026-03-05 13:39:37,480 [INFO] [85/90] Task: lifespan-shortest-lived, var=21, difficulty=easy
+2026-03-05 13:39:37,480 [INFO] Goal: Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the a
+2026-03-05 13:39:37,488 [INFO]   Retrieved 3913 chars of experience
+2026-03-05 13:39:37,491 [INFO] Loading: lifespan-shortest-lived (variation: 21) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:39:45,240 [INFO]   [x] SR=0, PR=0.50, GR=0.00, steps=30, running_SR=0.000, running_PR=0.215
+2026-03-05 13:39:45,291 [INFO] 
+============================================================
+2026-03-05 13:39:45,292 [INFO] [86/90] Task: lifespan-shortest-lived, var=22, difficulty=easy
+2026-03-05 13:39:45,292 [INFO] Goal: Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the a
+2026-03-05 13:39:45,301 [INFO]   Retrieved 3913 chars of experience
+2026-03-05 13:39:45,304 [INFO] Loading: lifespan-shortest-lived (variation: 22) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:39:52,806 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.213
+2026-03-05 13:39:52,900 [INFO] 
+============================================================
+2026-03-05 13:39:52,901 [INFO] [87/90] Task: measure-melting-point-known-substance, var=20, difficulty=hard
+2026-03-05 13:39:52,901 [INFO] Goal: Your task is to measure the melting point of gallium, which is located around the kitchen. The objects you can use are t
+2026-03-05 13:39:52,922 [INFO]   Retrieved 5259 chars of experience
+2026-03-05 13:39:52,928 [INFO] Loading: measure-melting-point-known-substance (variation: 20) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:40:04,351 [INFO]   [x] SR=0, PR=0.14, GR=0.03, steps=30, running_SR=0.000, running_PR=0.212
+2026-03-05 13:40:04,399 [INFO] 
+============================================================
+2026-03-05 13:40:04,399 [INFO] [88/90] Task: measure-melting-point-known-substance, var=21, difficulty=hard
+2026-03-05 13:40:04,399 [INFO] Goal: Your task is to measure the melting point of chocolate, which is located around the kitchen. The objects you can use are
+2026-03-05 13:40:04,408 [INFO]   Retrieved 5535 chars of experience
+2026-03-05 13:40:04,410 [INFO] Loading: measure-melting-point-known-substance (variation: 21) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:40:16,722 [INFO]   [x] SR=0, PR=0.14, GR=0.00, steps=30, running_SR=0.000, running_PR=0.211
+2026-03-05 13:40:16,821 [INFO] 
+============================================================
+2026-03-05 13:40:16,821 [INFO] [89/90] Task: use-thermometer, var=21, difficulty=hard
+2026-03-05 13:40:16,821 [INFO] Goal: Your task is to measure the temperature of metal fork, which is located around the bedroom. You can find the thermometer
+2026-03-05 13:40:16,839 [INFO]   Retrieved 4988 chars of experience
+2026-03-05 13:40:16,842 [INFO] Loading: use-thermometer (variation: 21) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:40:20,840 [ERROR]   LLM call failed at step 8: Error code: 400 - {'error': {'message': "You passed 7937 input tokens and requested 256 output tokens. However, the model's context length is only 8192 tokens, resulting in a maximum input length of 7936 tokens. Please reduce the length of the input prompt. (parameter=input_tokens, value=7937)", 'type': 'BadRequestError', 'param': 'input_tokens', 'code': 400}}
+2026-03-05 13:40:20,841 [INFO]   [x] SR=0, PR=0.17, GR=0.00, steps=8, running_SR=0.000, running_PR=0.211
+2026-03-05 13:40:20,925 [INFO] 
+============================================================
+2026-03-05 13:40:20,925 [INFO] [90/90] Task: use-thermometer, var=22, difficulty=hard
+2026-03-05 13:40:20,925 [INFO] Goal: Your task is to measure the temperature of metal fork, which is located around the bedroom. You can find the thermometer
+2026-03-05 13:40:20,933 [INFO]   Retrieved 4829 chars of experience
+2026-03-05 13:40:20,935 [INFO] Loading: use-thermometer (variation: 22) (simplifications: selfWateringFlowerPots,openContainers,openDoors,noElectricalAction)
+2026-03-05 13:40:28,688 [INFO]   [x] SR=0, PR=0.00, GR=0.00, steps=30, running_SR=0.000, running_PR=0.208
+2026-03-05 13:40:28,744 [INFO] 
+============================================================
+2026-03-05 13:40:28,744 [INFO] ScienceWorld Streaming Evaluation Complete
+2026-03-05 13:40:28,744 [INFO] ============================================================
+2026-03-05 13:40:28,744 [INFO] Model:              /data/hzy/models/Qwen2.5-7B-Instruct
+2026-03-05 13:40:28,744 [INFO] Mode:               Amadeus Memory
+2026-03-05 13:40:28,744 [INFO] Total tasks:        90
+2026-03-05 13:40:28,744 [INFO] Success Rate (S):   0.000
+2026-03-05 13:40:28,744 [INFO] Progress Rate (P):  0.208
+2026-03-05 13:40:28,745 [INFO] Grounding Acc:      0.017
+2026-03-05 13:40:28,745 [INFO] Easy SR/PR:         0.000 / 0.319
+2026-03-05 13:40:28,745 [INFO] Hard SR/PR:         0.000 / 0.142
+2026-03-05 13:40:28,745 [INFO] ============================================================
+2026-03-05 13:40:28,745 [INFO] Results saved to /data/hzy/Amadeus/amadeus/experiments/ScienceWorld/logs/run_amadeus_20260305_132518
+2026-03-05 13:40:28,751 [INFO] Callback Server Shutting Down
+/data/hzy/Amadeus/amadeus/experiments/ScienceWorld/run_sciworld_streaming.py:134: UserWarning: [91m You are using the camel case api. This feature is deprecated. Please migrate to the snake_case api. [00m
+  combos = self.env.getValidActionObjectCombinationsWithTemplates()
+
+

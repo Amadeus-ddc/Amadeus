@@ -1,0 +1,42 @@
+{
+  "paper_name": "EMPO2 - Exploratory Memory-Augmented LLM Agent",
+  "repo_path": "https://github.com/microsoft/agent-lightning",
+  "mode": "eval-only",
+  "conda_env": "sciworld",
+  "eval_script": "/data/hzy/Amadeus/amadeus/ScienceWorld/eval_sciworld.py",
+  "config_file": null,
+  "config_system": "yaml",
+  "framework": "agent-lightning",
+  "data_root": "/data/hzy/Amadeus/amadeus/ScienceWorld/agl-envs/task_data/scienceworld",
+  "gpu_ids": [7],
+  "paper_config": {
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "captioner_type": "naive",
+    "prompt_type": "single",
+    "max_history": 2,
+    "temperature": 0.4,
+    "max_steps": 30,
+    "simplification": "easy",
+    "use_success_rate": false,
+    "use_action_correction": false
+  },
+  "target_metrics": {
+    "average_return": -61.3
+  },
+  "reproduced_metrics": {
+    "avg_cumulative_reward": -61.99,
+    "avg_score": -59.43,
+    "avg_success_rate": 0.055,
+    "total_episodes": 144
+  },
+  "stages": {
+    "0_analysis": "done",
+    "1_env": "done",
+    "2_data": "done",
+    "3_config": "done",
+    "4_dryrun": "done",
+    "5_train": "skip",
+    "6_debug": "standby",
+    "7_results": "done"
+  }
+}

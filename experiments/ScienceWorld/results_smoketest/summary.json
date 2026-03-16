@@ -1,0 +1,22 @@
+{
+  "model": "qwen2.5-7b-instruct",
+  "temperature": 0.4,
+  "max_history": 2,
+  "mode": "naive",
+  "prompt_type": "single",
+  "use_success_rate": false,
+  "overall_avg_reward": -100.0,
+  "overall_avg_score": -100.0,
+  "overall_normalized_return": -200.0,
+  "overall_success_rate": 0.0,
+  "total_episodes": 1,
+  "per_task": {
+    "0": {
+      "task_name": "boil",
+      "avg_reward": -100.0,
+      "avg_score": -100.0,
+      "success_rate": 0.0,
+      "n_episodes": 1
+    }
+  }
+}

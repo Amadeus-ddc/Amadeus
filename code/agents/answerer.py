@@ -379,9 +379,19 @@ OR
         current_nodes = []
         max_rounds = 4
         nx_graph = self.graph.graph
-        scored_node_cache = {}
         query_keywords = self._prepare_query_keywords(question)
         edge_evidence_lines = []
+        embedder = self.graph.embedder
+        query_vec = None
+        query_norm = None
+        edge_embed_cache = {}
+        edge_score_cache = {}
+
+        if embedder:
+            query_vec = embedder.embed(question)
+            if query_vec is not None:
+                query_vec = np.array(query_vec)
+                query_norm = np.linalg.norm(query_vec) + 1e-9
 
         def cache_nodes_and_edges(nodes: List[str]) -> None:
             for name in nodes:
@@ -423,31 +433,37 @@ OR
                 cached_scores.clear()
                 cached_scores.update(trimmed)
 
-        def get_cached_score(
-            node: str,
-            source: str,
-            target: str,
-            relation: str,
-            timestamp: str,
-            desc: str
-        ) -> int:
-            if node in scored_node_cache:
-                return scored_node_cache[node]
-            score = self._score_neighbor_candidate(
-                query_keywords, source, target, relation, timestamp, desc
-            )
-            scored_node_cache[node] = score
+        def get_edge_similarity(edge_text: str) -> Optional[float]:
+            if query_vec is None or embedder is None or query_norm is None:
+                return None
+            if edge_text in edge_score_cache:
+                return edge_score_cache[edge_text]
+            edge_vec = edge_embed_cache.get(edge_text)
+            if edge_vec is None:
+                edge_vec = embedder.embed(edge_text)
+                if edge_vec is None:
+                    edge_score_cache[edge_text] = None
+                    return None
+                edge_vec = np.array(edge_vec)
+                edge_embed_cache[edge_text] = edge_vec
+            denom = (query_norm * (np.linalg.norm(edge_vec) + 1e-9))
+            score = float(np.dot(query_vec, edge_vec) / denom)
+            edge_score_cache[edge_text] = score
             return score
 
-        def compute_candidates(frontier: str, path: List[str]) -> List[tuple[int, str]]:
+        def compute_candidates(frontier: str, path: List[str]) -> List[tuple[float, str]]:
+            if query_vec is None or embedder is None:
+                return []
             candidates = {}
             for _, target, data in nx_graph.out_edges(frontier, data=True):
                 if target in path:
                     continue
                 relation = data.get("relation", "related")
                 timestamp = data.get("timestamp")
-                desc = nx_graph.nodes[target].get("description", "")
-                score = get_cached_score(target, frontier, target, relation, timestamp, desc)
+                edge_text = self._edge_text(frontier, target, relation, timestamp)
+                score = get_edge_similarity(edge_text)
+                if score is None:
+                    continue
                 if target not in candidates or score > candidates[target]:
                     candidates[target] = score
             for source, _, data in nx_graph.in_edges(frontier, data=True):
@@ -455,8 +471,10 @@ OR
                     continue
                 relation = data.get("relation", "related")
                 timestamp = data.get("timestamp")
-                desc = nx_graph.nodes[source].get("description", "")
-                score = get_cached_score(source, source, frontier, relation, timestamp, desc)
+                edge_text = self._edge_text(source, frontier, relation, timestamp)
+                score = get_edge_similarity(edge_text)
+                if score is None:
+                    continue
                 if source not in candidates or score > candidates[source]:
                     candidates[source] = score
             return sorted(

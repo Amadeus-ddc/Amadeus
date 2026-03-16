@@ -22,12 +22,12 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 if os.getenv("OPENAI_API_BASE") and not os.getenv("OPENAI_BASE_URL"):
     os.environ["OPENAI_BASE_URL"] = os.getenv("OPENAI_API_BASE")
 
-from amadeus.code.core.graph import MemoryGraph
-from amadeus.code.core.buffer import TimeWindowBuffer
-from amadeus.code.agents.builder import BuilderAgent
-from amadeus.code.agents.answerer import AnswererAgent
-from amadeus.code.agents.questioner import QuestionerAgent
-from amadeus.code.engine.optimizer import AdversarialOptimizer
+from amadeus_tzx.code.core.graph import MemoryGraph
+from amadeus_tzx.code.core.buffer import TimeWindowBuffer
+from amadeus_tzx.code.agents.builder import BuilderAgent
+from amadeus_tzx.code.agents.answerer import AnswererAgent
+from amadeus_tzx.code.agents.questioner import QuestionerAgent
+from amadeus_tzx.code.engine.optimizer import AdversarialOptimizer
 
 class HuggingFaceEmbedder:
     def __init__(self, model_path, device="cuda"):

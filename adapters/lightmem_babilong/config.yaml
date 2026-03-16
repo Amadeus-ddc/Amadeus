@@ -1,0 +1,67 @@
+# LightMemory Configuration for BABILong
+
+# Model configuration
+model_name: "lightmem_babilong"
+model_path: "${MODEL_PATH:/data/hzy/models/Qwen2.5-7B-Instruct}"
+embedding_model_path: "${EMBEDDING_MODEL_PATH:/data/hzy/Amadeus/amadeus/models/all-MiniLM-L6-v2}"
+device: "cuda:0"
+
+# LightMemory specific configuration
+lightmem:
+  pre_compress: false
+  topic_segment: false
+  metadata_generate: true
+  text_summary: true
+  extract_threshold: 0.1
+  index_strategy: "embedding"
+  retrieve_strategy: "embedding"
+  update: "offline"
+  logging:
+    level: "INFO"
+    file_enabled: false
+
+# BABILong specific configuration
+babilong:
+  dataset_name: "babilong"
+  max_context_length: 4000
+  splits:
+    - "1k"
+    - "4k"
+    - "16k"
+  tasks:
+    - "qa1"
+    - "qa2"
+    - "qa3"
+    - "qa4"
+    - "qa5"
+    - "qa6"
+    - "qa7"
+    - "qa8"
+    - "qa9"
+    - "qa10"
+    - "qa11"
+    - "qa12"
+    - "qa13"
+    - "qa14"
+    - "qa15"
+    - "qa16"
+    - "qa17"
+    - "qa18"
+    - "qa19"
+    - "qa20"
+
+# Storage configuration
+qdrant_dir: "${QDRANT_DIR:./qdrant_data}"
+results_dir: "./results"
+
+# LLM generation configuration
+generation:
+  max_new_tokens: 20
+  do_sample: false
+  temperature: null
+  top_p: null
+
+# Retrieval configuration
+retrieval:
+  limit: 10
+  threshold: 0.0

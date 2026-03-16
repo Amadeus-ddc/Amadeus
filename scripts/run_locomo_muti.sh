@@ -8,7 +8,7 @@ PYTHON_BIN="${PYTHON:-python}"
 
 # Correct paths relative to ROOT_DIR
 RUN_SCRIPT="${ROOT_DIR}/experiments/LoCoMo/run_locomo.py"
-DATA_FILE="${DATA_FILE:-${ROOT_DIR}/data/locomo10.json}"
+DATA_FILE="${DATA_FILE:-${ROOT_DIR}/dataset/LoCoMo/locomo10.json}"
 EMBED_MODEL="${EMBED_MODEL:-${ROOT_DIR}/models/all-MiniLM-L6-v2}"
 
 # Logs base directory
