@@ -6,8 +6,8 @@ from typing import List, Literal, Optional
 
 import numpy as np
 from openai import OpenAI
-from amadeus.code.core.graph import MemoryGraph
-from amadeus.code.agents.base import BaseAgent
+from amadeus_collab.core.graph import MemoryGraph
+from amadeus_collab.agents.base import BaseAgent
 
 logger = logging.getLogger("Amadeus.Answerer")
 

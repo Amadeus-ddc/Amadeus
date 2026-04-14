@@ -3,7 +3,7 @@ import logging
 import random
 from typing import List, Dict, Any
 from pydantic import BaseModel, Field
-from amadeus.code.agents.base import BaseAgent
+from amadeus_collab.agents.base import BaseAgent
 
 logger = logging.getLogger("Amadeus.Questioner")
 

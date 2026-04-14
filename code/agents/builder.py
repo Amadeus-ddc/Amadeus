@@ -4,8 +4,8 @@ import re
 from typing import List, Optional
 from enum import Enum
 from pydantic import BaseModel, Field
-from amadeus.code.core.graph import MemoryGraph
-from amadeus.code.agents.base import BaseAgent
+from amadeus_collab.core.graph import MemoryGraph
+from amadeus_collab.agents.base import BaseAgent
 
 logger = logging.getLogger("Amadeus.Builder")
 

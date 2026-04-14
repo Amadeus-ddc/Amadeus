@@ -16,18 +16,19 @@ from openai import OpenAI
 
 # Path setup
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.append(os.path.dirname(BASE_DIR))
+sys.path.insert(0, BASE_DIR)
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 if os.getenv("OPENAI_API_BASE") and not os.getenv("OPENAI_BASE_URL"):
     os.environ["OPENAI_BASE_URL"] = os.getenv("OPENAI_API_BASE")
 
-from amadeus_tzx.code.core.graph import MemoryGraph
-from amadeus_tzx.code.core.buffer import TimeWindowBuffer
-from amadeus_tzx.code.agents.builder import BuilderAgent
-from amadeus_tzx.code.agents.answerer import AnswererAgent
-from amadeus_tzx.code.agents.questioner import QuestionerAgent
-from amadeus_tzx.code.engine.optimizer import AdversarialOptimizer
+from amadeus_collab.core.graph import MemoryGraph
+from amadeus_collab.core.buffer import TimeWindowBuffer
+from amadeus_collab.agents.builder import BuilderAgent
+from amadeus_collab.agents.answerer import AnswererAgent
+from amadeus_collab.agents.questioner import QuestionerAgent
+from amadeus_collab.engine.optimizer import AdversarialOptimizer
+from amadeus_collab.engine.optimizer_old import AdversarialOptimizer as AdversarialOptimizerOld
 
 class HuggingFaceEmbedder:
     def __init__(self, model_path, device="cuda"):
@@ -262,7 +263,8 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     builder = BuilderAgent(graph, model_name=args.model_name)
     answerer = AnswererAgent(graph, model_name=args.model_name)
     questioner = QuestionerAgent(model_name=args.model_name)
-    optimizer = AdversarialOptimizer(questioner, builder, answerer, model_name=args.model_name)
+    OptimizerClass = AdversarialOptimizerOld if args.optimizer_version == "old" else AdversarialOptimizer
+    optimizer = OptimizerClass(questioner, builder, answerer, model_name=args.model_name)
 
     logger.info(f"[{sample_id}] 🧠 Phase 1: Building Memory ({len(chunks)} contextual sessions)...")
     
@@ -454,6 +456,8 @@ def main():
     parser.add_argument("--fixed_buffer_size", type=int, default=3, help="Number of chunks for fixed buffer size")
     parser.add_argument("--fixed_sp_count", type=int, default=3, help="Number of questions for fixed self-play")
     parser.add_argument("--run_name", type=str, default=None, help="Custom name for the run directory")
+    parser.add_argument("--optimizer_version", type=str, default="new", choices=["old", "new"],
+                        help="old=baseline(3题无重试), new=iterative-retry+meta-experience")
     
     args = parser.parse_args()
 

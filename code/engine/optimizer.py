@@ -2,285 +2,398 @@ import logging
 import json
 from typing import List, Dict, Any
 from openai import OpenAI
-from amadeus.code.agents.questioner import QuestionerAgent
-from amadeus.code.agents.builder import BuilderAgent
-from amadeus.code.agents.answerer import AnswererAgent
+from amadeus_collab.agents.questioner import QuestionerAgent
+from amadeus_collab.agents.builder import BuilderAgent
+from amadeus_collab.agents.answerer import AnswererAgent
 
 logger = logging.getLogger("Amadeus.Optimizer")
 
+
 class AdversarialOptimizer:
-    def __init__(self, questioner: QuestionerAgent, builder: BuilderAgent, answerer: AnswererAgent, model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None):
+    def __init__(self, questioner: QuestionerAgent, builder: BuilderAgent, answerer: AnswererAgent,
+                 model_name: str = "gpt-4-turbo", api_base: str = None, api_key: str = None):
         self.questioner = questioner
         self.builder = builder
         self.answerer = answerer
         self.client = OpenAI(base_url=api_base, api_key=api_key)
         self.model_name = model_name
+        self.experiences: List[Dict] = []  # 元优化经验: [{"trigger": ..., "measure": ..., "target_agent": ..., "target_operator": ...}, ...]
 
-    def step(self, buffer_content: str, action_log: List[str] = None, mode: str = "adaptive", fixed_loops: int = 3, use_cot: bool = False):
-        logger.info(f"⚔️ Starting Self-Play (Mode: {mode}, CoT: {use_cot})...")
-        
-        history = []
-        iteration = 0
-        # 熔断机制：防止无限烧钱，但上限设高一点
-        # 如果是 fixed 模式，只运行 1 轮，一次性生成指定数量的问题
-        HARD_LIMIT = 10 if mode == "adaptive" else 1
-        
-        # 初始状态：攻击者非常激进
-        consecutive_wins = 0
-        consecutive_useless_questions = 0
-        
-        while iteration < HARD_LIMIT:
-            iteration += 1
-            logger.info(f"--- Round {iteration} ---")
-
-            # 1. 动态生成攻击 (Attack Generation)
-            if mode == "adaptive":
-                questions = self._generate_adaptive_attack(buffer_content, history)
-            else:
-                # Fixed Mode: 一次性生成 fixed_loops 个问题
-                questions = self.questioner.generate_questions(buffer_content, num_questions=fixed_loops)
-            
-            if not questions:
-                logger.info("🏳️ Questioner surrendered: No more meaningful questions to ask.")
-                break
-
-            # 2. 过滤重复 (Deduplication)
-            existing_qs = {h['question'] for h in history}
-            unique_questions = [q for q in questions if q['question'] not in existing_qs]
-            
-            if not unique_questions:
-                consecutive_useless_questions += 1
-                logger.warning(f"⚠️ Questioner generated duplicates. Strike {consecutive_useless_questions}/3")
-                if consecutive_useless_questions >= 3:
-                    logger.info("🛑 Stopping: Questioner is stuck in a loop.")
-                    break
-                continue
-            else:
-                consecutive_useless_questions = 0 # 重置计数器
-
-            logger.info(f"🔥 Attack Batch: {len(unique_questions)} questions")
-
-            # 3. 并行攻防 (Parallel Defense)
-            import concurrent.futures
-            batch_results = []
-            with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-                futures = {executor.submit(self._process_single_duel, q_item, buffer_content, action_log, use_cot): q_item for q_item in unique_questions}
-                for future in concurrent.futures.as_completed(futures):
-                    batch_results.append(future.result())
-
-            # 4. 状态更新与收敛检查 (State Update & Convergence)
-            round_failed = False
-            for res in batch_results:
-                history.append(res)
-                if res['result'] == "FAIL":
-                    round_failed = True
-            
-            if mode == "adaptive":
-                if not round_failed:
-                    consecutive_wins += 1
-                    logger.info(f"🛡️ Defenders won this round. Streak: {consecutive_wins}")
-                    # 收敛条件：如果防御者连续赢了2轮（且每轮都有实质性问题），说明已经很稳了
-                    if consecutive_wins >= 2:
-                        logger.info("🏆 Convergence Reached: System is robust.")
-                        break
-                else:
-                    consecutive_wins = 0
-                    logger.info("💥 Defense breached! Continuing optimization...")
-
-    def _generate_adaptive_attack(self, buffer_content: str, history: List[Dict], fixed_count: int = None) -> List[Dict]:
+    # ------------------------------------------------------------------ #
+    #                          PUBLIC ENTRY POINT                         #
+    # ------------------------------------------------------------------ #
+    def step(self, buffer_content: str, action_log: List[str] = None,
+             mode: str = "fixed", fixed_loops: int = 3, use_cot: bool = False):
         """
-        让 Questioner 观察历史，决定是否继续攻击，以及攻击什么。
+        新自博弈逻辑:
+        1. 出 1 道题
+        2. Answerer 答题 → Judge 评判
+           若错 → Optimizer 生成策略更新 → 应用 → Builder 重建图 → 重试 (最多 MAX_RETRIES 次)
+        3. 记录全部尝试
+        4. 若同时出现 FAIL 和 PASS → CoT 对比总结经验
         """
-        # 简化的历史摘要
-        history_summary = "\n".join([f"Q: {h['question']} -> {'✅ PASS' if h['result']=='PASS' else '❌ FAIL'}" for h in history[-10:]])
-        
-        if fixed_count:
-            mission_prompt = f"""**YOUR MISSION:**
-Generate exactly {fixed_count} challenging questions based on the Target Memory Buffer.
-Do NOT stop. You must generate {fixed_count} questions.
-"""
-            output_format = """**OUTPUT FORMAT (JSON):**
-{
-    "questions": [
-        { "question": "...", "ground_truth": "...", "type": "detail/inference/negative" }
-    ]
-}
-"""
-        else:
-            mission_prompt = """**YOUR MISSION:**
-Determine if there are still unexplored vulnerabilities or missing details in the memory.
-- If the Defender failed recently: ATTACK HARDER on that specific topic.
-- If the Defender passed: Try a TRICKIER angle or a different detail.
-- If the buffer is fully covered and robust: STOP.
-"""
-            output_format = """**OUTPUT FORMAT (JSON):**
-{
-    "stop_attack": boolean, // Set true if no more valid questions exist
-    "reason": "...",
-    "questions": [ // Empty if stop_attack is true
-        { "question": "...", "ground_truth": "...", "type": "detail/inference/negative" }
-    ]
-}
-"""
+        MAX_RETRIES = 3
 
-        prompt = f"""You are the Red Team Leader (Attacker).
-Target Memory Buffer: "{buffer_content[:500]}..."
+        logger.info(f"⚔️ Self-Play Start | Mode: iterative-retry, MaxRetries: {MAX_RETRIES}")
 
-Previous Attacks & Results:
-{history_summary}
+        # ---------- 1. 生成 1 道题 ----------
+        questions = self.questioner.generate_questions(buffer_content, num_questions=1)
+        if not questions:
+            logger.info("🏳️ Questioner generated no questions, skipping self-play.")
+            return
 
-{mission_prompt}
+        q_item = questions[0]
+        question = q_item.get("question", "")
+        ground_truth = q_item.get("ground_truth", "")
+        logger.info(f"⚔️ Question: {question}")
+        logger.info(f"⚔️ Ground Truth: {ground_truth}")
 
-{output_format}
-"""
-        try:
-            response = self.questioner.client.chat.completions.create(
-                model=self.questioner.model_name,
-                messages=[{"role": "user", "content": prompt}],
-                response_format={"type": "json_object"},
-                temperature=0.0 # 保持一定的创造性
+        # ---------- 2. 迭代重试循环 ----------
+        attempts: List[Dict] = []
+
+        for attempt_idx in range(MAX_RETRIES):
+            logger.info(f"🔄 Attempt {attempt_idx + 1}/{MAX_RETRIES}")
+
+            # Answerer 答题
+            prediction = self.answerer.answer(question)
+            logger.info(f"🔄 Attempt {attempt_idx + 1} | Prediction: {prediction[:200]}")
+
+            # Judge 评判 + 策略建议
+            eval_result = self._evaluate_attempt(
+                q_item, prediction, buffer_content, action_log, attempt_idx, attempts
             )
-            res = json.loads(response.choices[0].message.content)
-            
-            # Only check stop_attack if NOT in fixed mode
-            if not fixed_count and res.get("stop_attack", False):
-                return []
-            
-            return res.get("questions", [])
-        except Exception as e:
-            logger.error(f"Attack Generation Failed: {e}")
-            return []
 
-    def _process_single_duel(self, q_item, buffer_content, action_log, use_cot=False):
-        question = q_item.get("question")
-        prediction = self.answerer.answer(question)
-        
-        if use_cot:
-            eval_result = self._evaluate_and_update_cot(q_item, prediction, buffer_content, action_log)
-        else:
-            eval_result = self._evaluate_and_update(q_item, prediction, buffer_content, action_log)
-        
-        return {
-            "question": question,
-            "result": "PASS" if eval_result and eval_result.get("is_correct") else "FAIL",
-            "blame": eval_result.get("blame") if eval_result else "UNKNOWN"
-        }
+            is_correct = eval_result.get("is_correct", False)
+            blame = eval_result.get("blame", "UNKNOWN")
+            error_category = eval_result.get("error_category", "")
+            reason = eval_result.get("reason", "")
 
-    def _evaluate_and_update_cot(self, q_item: Dict, prediction: str, buffer_content: str, action_log: List[str] = None):
-        """
-        Chain-of-Thought Evaluation: Split the complex task into 3 smaller steps.
-        """
-        action_log_str = "\n".join(action_log) if action_log else "No recent graph updates."
-        buffer_snippet = buffer_content[:500].replace("\n", " ")
-        
-        # Step 1: Judge & Blame
-        prompt_1 = f"""You are the Judge of the Amadeus Memory System.
-Goal: Determine if the Prediction matches the Ground Truth (derived from Buffer).
-
-Buffer: "{buffer_snippet}..."
-Question: "{q_item['question']}"
-Ground Truth: "{q_item['ground_truth']}"
-Prediction: "{prediction}"
-Builder Log: "{action_log_str}"
-
-**RULES:**
-1. If Prediction matches Ground Truth -> CORRECT.
-2. If Prediction is plausible but not in Buffer -> CORRECT (Blame Questioner).
-3. If Prediction contradicts Buffer -> WRONG.
-
-**BLAME (if WRONG):**
-- BUILDER: Info missing from Builder Log.
-- ANSWERER: Info exists in Log but Answerer missed it.
-
-**CHAIN OF THOUGHT:**
-Think step-by-step:
-1. Compare Prediction vs Ground Truth.
-2. IF Prediction is CORRECT:
-   - Blame QUESTIONER. Turn to Step 4.
-3. IF Prediction is WRONG:
-   - Check Builder Log.
-   - If Info missing -> Blame BUILDER.
-   - If Info exists -> Blame ANSWERER.
-4. Analyze WHY the failure happened and give high-level guidelines.
-Output JSON: {{ "chain_of_thought": "...", "is_correct": boolean, "blame": "BUILDER" | "ANSWERER" | "QUESTIONER" | "NONE", "reason": "..." }}
-"""
-        try:
-            res1 = self._call_llm(prompt_1)
-            if "chain_of_thought" in res1:
-                logger.info(f"Optimizer (Judge) CoT: {res1['chain_of_thought']}")
-            is_correct = res1.get("is_correct", False)
-            blame = res1.get("blame", "NONE")
-            
-            graph_patch = []
-            meta_gradient = ""
-
-            if not is_correct:
-                logger.warning(f"❌ [CoT] DEFENDER FAILED. Blame: {blame}")
-                
-                # Step 2: Patch (Only if Builder failed)
-                if blame == "BUILDER":
-                    prompt_2 = f"""You are the Data Repair Agent.
-The Builder failed to extract info for: "{q_item['question']}"
-Buffer: "{buffer_snippet}..."
-
-Generate a JSON Graph Patch to fix this.
-Output JSON: {{ "graph_patch": [ {{ "action": "ADD", "subject": "...", "object": "...", "content": "..." }} ] }}
-"""
-                    res2 = self._call_llm(prompt_2)
-                    graph_patch = res2.get("graph_patch", [])
-                    if graph_patch:
-                        patch_str = json.dumps(graph_patch)
-                        self.builder.force_update(f"Apply these fixes: {patch_str}")
-
-                # Step 3: Gradient (For the blamed agent)
-                prompt_3 = f"""You are the Optimization Coach.
-The agent '{blame}' failed because: {res1.get('reason')}
-Question: "{q_item['question']}"
-
-Determine which operator needs improvement:
-- BUILDER: ADD, UPDATE, DELETE, WAIT
-- ANSWERER: SEARCH, WALK, READ
-- QUESTIONER: GENERATE
-
-Suggest a short, actionable instruction (Meta-Gradient) to update the agent's system prompt to prevent this.
-Output JSON: {{ "target_operator": "...", "meta_gradient": "..." }}
-"""
-                res3 = self._call_llm(prompt_3)
-                meta_gradient = res3.get("meta_gradient", "")
-                target_operator = res3.get("target_operator")
-                
-                if blame == "BUILDER":
-                    self.builder.update_guideline(target_operator, meta_gradient)
-                elif blame == "ANSWERER":
-                    self.answerer.update_guideline(target_operator, meta_gradient)
-            
-            else:
-                logger.info(f"✅ [CoT] DEFENDER SUCCEEDED. Optimizing Questioner...")
-                # Step 3 (Alt): Gradient for Questioner
-                if blame == "QUESTIONER":
-                    prompt_3 = f"""You are the Red Team Coach.
-The Questioner failed to trick the system.
-Question: "{q_item['question']}"
-
-Suggest a strategy to generate harder/trickier questions.
-Output JSON: {{ "meta_gradient": "..." }}
-"""
-                    res3 = self._call_llm(prompt_3)
-                    meta_gradient = res3.get("meta_gradient", "")
-                    self.questioner.update_guideline("GENERATE", meta_gradient)
-
-            return {
+            # 构建本次记录
+            record = {
+                "attempt": attempt_idx + 1,
+                "question": question,
+                "ground_truth": ground_truth,
+                "prediction": prediction,
                 "is_correct": is_correct,
                 "blame": blame,
-                "graph_patch": graph_patch,
-                "meta_gradient": meta_gradient
+                "error_category": error_category,
+                "reason": reason,
+                "strategy_update": eval_result.get("strategy_update"),
+                "result": "PASS" if is_correct else "FAIL",
             }
+            attempts.append(record)
 
+            if is_correct:
+                logger.info(f"✅ Attempt {attempt_idx + 1} PASS | Blame: {blame}")
+                break
+
+            logger.warning(f"❌ Attempt {attempt_idx + 1} FAIL | Blame: {blame} | ErrorCat: {error_category} | Reason: {reason}")
+
+            # 如果还有重试机会，应用策略更新并重建图
+            if attempt_idx < MAX_RETRIES - 1:
+                strategy = eval_result.get("strategy_update")
+                if strategy:
+                    self._apply_strategy_update(strategy, blame)
+                    # Builder 用新策略重新处理 buffer，重建图
+                    logger.info("🔨 Builder re-processing buffer with updated strategy...")
+                    self.builder.process_buffer(buffer_content)
+
+        # ---------- 3. 检查是否提炼经验 ----------
+        has_fail = any(a["result"] == "FAIL" for a in attempts)
+        has_success = any(a["result"] == "PASS" for a in attempts)
+        final_result = attempts[-1]["result"]
+
+        if has_fail and has_success:
+            logger.info("🧠 Both FAIL and PASS detected — extracting experience...")
+            experience = self._extract_experience(attempts)
+            if experience:
+                self.experiences.append(experience)
+                logger.info(f"🧠 Experience Extracted!")
+                logger.info(f"🧠 TARGET: {experience.get('target_agent', '?')}.{experience.get('target_operator', '?')}")
+                logger.info(f"🧠 TRIGGER: {experience['trigger']}")
+                logger.info(f"🧠 MEASURE: {experience['measure']}")
+
+        logger.info(f"⚔️ Self-Play End | Attempts: {len(attempts)} | Final: {final_result} | Experiences Total: {len(self.experiences)}")
+
+    # ------------------------------------------------------------------ #
+    #                      EVALUATE A SINGLE ATTEMPT                      #
+    # ------------------------------------------------------------------ #
+    def _evaluate_attempt(self, q_item: Dict, prediction: str, buffer_content: str,
+                          action_log: List[str], attempt_idx: int,
+                          previous_attempts: List[Dict]) -> Dict:
+        """判断对错 + 归因 + 生成策略更新建议"""
+        MAX_RETRIES = 3
+        action_log_str = "\n".join(action_log) if action_log else "No recent graph updates."
+        buffer_snippet = buffer_content[:800].replace("\n", " ")
+
+        # 前几次尝试的上下文
+        prev_section = self._format_previous_attempts(previous_attempts)
+        # 已有经验
+        exp_section = self._format_experiences()
+
+        prompt = f"""You are the Judge and Strategy Advisor of the Amadeus Memory System.
+
+## Task
+1. Evaluate whether the Prediction correctly answers the Question.
+2. If incorrect, diagnose the root cause and propose a STRATEGY-LEVEL update.
+
+## Input
+- Buffer: "{buffer_snippet}..."
+- Question: "{q_item['question']}"
+- Ground Truth: "{q_item['ground_truth']}"
+- Prediction: "{prediction}"
+- Builder Activity Log: "{action_log_str}"
+- Attempt: {attempt_idx + 1} / {MAX_RETRIES}
+
+{prev_section}
+
+{exp_section}
+
+## Evaluation Rules
+1. Prediction semantically matches Ground Truth → CORRECT
+2. Prediction gives a plausible fact not contradicted by Buffer → CORRECT (Blame: QUESTIONER)
+3. Prediction contradicts or misses key info from Buffer → WRONG
+
+## Blame Logic (if WRONG)
+- BUILDER: The needed fact/relationship is ABSENT from Builder Log (info was never extracted)
+- ANSWERER: The fact EXISTS in Builder Log / Graph but Answerer failed to find or use it
+
+## Strategy Update Requirements (CRITICAL)
+Your strategy update (meta_gradient) must be a **procedural rule about HOW to process information**, not about specific facts.
+
+**BAD examples (too vague — NEVER write rules like these):**
+- "Be more careful when extracting information"
+- "Pay more attention to details"
+- "Improve retrieval accuracy"
+
+**BAD examples (too fact-specific — these are just memorizing answers):**
+- "Remember that Caroline moved to Paris"
+- "The answer to questions about Bob's job is engineer"
+- "Store the fact that the meeting was on Friday"
+
+**GOOD examples (procedural, reusable — aim for this level):**
+- "When a speaker mentions a change of state (moved, quit, started), always create a DELETE for the old state and ADD for the new state"
+- "When searching for temporal questions (when/what date), prioritize edges with timestamp fields over node descriptions"
+- "When the buffer contains third-person references (he/she/they), resolve the pronoun to an entity name BEFORE creating any edge"
+
+The rule must be: someone encountering a SIMILAR PATTERN in the future can follow this instruction alone to avoid the same class of error.
+
+## Chain of Thought
+1. Compare Prediction vs Ground Truth — is it correct?
+2. If WRONG: Examine Builder Log — was the info captured? → Assign blame
+3. What CATEGORY of processing error is this? (e.g., missing_temporal_link, unresolved_coreference, shallow_search, missing_causal_relation)
+4. What procedural rule would prevent this CATEGORY of errors?
+
+## Output (JSON)
+{{
+  "chain_of_thought": "Step 1: ... Step 2: ... Step 3: ... Step 4: ...",
+  "is_correct": boolean,
+  "blame": "BUILDER" | "ANSWERER" | "QUESTIONER",
+  "error_category": "a short snake_case label for the error type",
+  "reason": "one-sentence diagnosis",
+
+  "strategy_update": {{
+    "target_agent": "BUILDER" | "ANSWERER",
+    "target_operator": "ADD|UPDATE|DELETE|WAIT|SEARCH|WALK|READ",
+    "meta_gradient": "A procedural rule (see requirements above)",
+    "graph_patch": [
+      {{ "action": "ADD|UPDATE|DELETE", "subject": "...", "object": "...", "content": "..." }}
+    ]
+  }}
+}}
+
+Notes:
+- "strategy_update" is REQUIRED when is_correct == false.
+- "graph_patch" inside strategy_update is only needed when blame == BUILDER.
+- When is_correct == true, you may omit "strategy_update" or set it to null.
+"""
+        try:
+            result = self._call_llm(prompt)
+            if "chain_of_thought" in result:
+                logger.info(f"📋 Judge CoT: {result['chain_of_thought']}")
+            return result
         except Exception as e:
-            logger.error(f"[CoT] Error: {e}")
-            return {}
+            logger.error(f"Evaluate attempt failed: {e}")
+            return {"is_correct": False, "blame": "UNKNOWN", "error_category": "llm_error", "reason": str(e)}
 
-    def _call_llm(self, prompt):
+    # ------------------------------------------------------------------ #
+    #                      APPLY STRATEGY UPDATE                          #
+    # ------------------------------------------------------------------ #
+    def _apply_strategy_update(self, strategy: Dict, blame: str):
+        """将策略更新应用到对应的 agent，并记录日志"""
+        if not strategy:
+            return
+
+        target_agent = strategy.get("target_agent", blame)
+        target_operator = strategy.get("target_operator", "ADD")
+        meta_gradient = strategy.get("meta_gradient", "")
+        graph_patch = strategy.get("graph_patch")
+
+        if not meta_gradient:
+            return
+
+        logger.info(f"📈 Strategy Update | Agent: {target_agent} | Operator: {target_operator}")
+        logger.info(f"📈 Meta-Gradient: {meta_gradient}")
+
+        if blame == "BUILDER" or target_agent == "BUILDER":
+            self.builder.update_guideline(target_operator, meta_gradient)
+            if graph_patch:
+                logger.info(f"🔧 Graph Patch: {json.dumps(graph_patch, ensure_ascii=False)}")
+                self.builder.force_update(f"Apply these fixes: {json.dumps(graph_patch)}")
+        elif blame == "ANSWERER" or target_agent == "ANSWERER":
+            self.answerer.update_guideline(target_operator, meta_gradient)
+
+    # ------------------------------------------------------------------ #
+    #                      EXTRACT EXPERIENCE (CoT)                       #
+    # ------------------------------------------------------------------ #
+    def _extract_experience(self, attempts: List[Dict]) -> Dict:
+        """对比成功和失败的策略更新，CoT 提炼元优化经验（教 optimizer 怎么更新 builder/answerer）"""
+        formatted = self._format_attempts_for_experience(attempts)
+
+        prompt = f"""You are the Meta-Optimization Coach of the Amadeus Memory System.
+
+## Your Role
+You are NOT writing rules for Builder or Answerer to follow directly.
+You are writing rules for the **Optimizer** — teaching it HOW to diagnose errors and WHAT KIND of strategy updates to generate for Builder/Answerer in future self-play rounds.
+
+## Background: How the System Works
+- **Builder**: Processes conversation buffer → extracts entities and relationships → builds a memory graph (nodes + edges)
+- **Answerer**: Receives a question → searches/walks the graph → reads node content → generates an answer
+- **Optimizer** (you are teaching this): When Answerer gets a question wrong, the Optimizer must:
+  1. Diagnose the error type and assign blame (BUILDER or ANSWERER)
+  2. Generate a strategy update (meta_gradient) targeting the right agent and operator
+  3. Optionally generate a graph_patch to fix the immediate data gap
+- Your experience will be injected into the Optimizer's prompt in future rounds to help it generate BETTER strategy updates.
+
+## Attempt History
+{formatted}
+
+## Chain of Thought (Follow these steps strictly)
+
+Step 1 — **Locate the Turning Point**:
+Which strategy update turned failure into success? Quote the meta_gradient, its target_agent, and target_operator.
+
+Step 2 — **Diagnose Why Earlier Updates Failed**:
+Did earlier updates target the wrong agent? Wrong operator? Were they too vague to be actionable? Did they address symptoms instead of root cause?
+
+Step 3 — **What Made the Successful Update Work**:
+What did the winning update get right that the others missed? Focus on:
+- Was it targeting the correct agent (Builder vs Answerer)?
+- Was it targeting the correct operator (ADD vs SEARCH vs READ etc.)?
+- Was the meta_gradient specific enough to change behavior?
+
+Step 4 — **Generalize into an Optimizer Heuristic**:
+Abstract this into a rule that tells the Optimizer: "When you see error pattern X, you should update agent Y's operator Z with a meta_gradient that does W."
+Replace specific entities/facts with categories (e.g., "Caroline" → "a speaker", "2023-07-15" → "relative time expression").
+
+Step 5 — **Formulate the Experience**:
+Write the final experience with these fields:
+- trigger: The error pattern the Optimizer should recognize (based on error_category, blame, question type, or graph state)
+- measure: What the Optimizer should DO — which agent to target, which operator, and what kind of meta_gradient to write
+- target_agent: BUILDER or ANSWERER (who should the Optimizer update)
+- target_operator: The operator to focus the update on
+
+## CRITICAL: This is a Meta-Level Rule
+**BAD (operational rule for Builder/Answerer directly):**
+- trigger: "When temporal references appear in the buffer"
+- measure: "Anchor relative times to the conversation date"
+→ This tells Builder what to do. But the Optimizer already knows the task — it needs to know WHEN and HOW to generate such an update.
+
+**GOOD (meta-optimization rule for the Optimizer):**
+- trigger: "When error_category is 'missing_temporal_link' and blame is BUILDER, indicating the graph lacks temporal anchoring for relative time expressions"
+- measure: "Update Builder's ADD operator with a meta_gradient requiring conversion of relative temporal references (e.g., 'yesterday', 'last week') to absolute dates using the session date as anchor. Also generate a graph_patch that adds the correctly anchored temporal edge."
+- target_agent: "BUILDER"
+- target_operator: "ADD"
+
+## Output (JSON)
+{{
+  "chain_of_thought": "Step 1: ... Step 2: ... Step 3: ... Step 4: ... Step 5: ...",
+  "experience": {{
+    "trigger": "When the Optimizer observes [error pattern / blame / error_category]",
+    "measure": "The Optimizer should update [AGENT]'s [OPERATOR] operator with a meta_gradient that [specific type of procedural instruction to generate]",
+    "target_agent": "BUILDER" | "ANSWERER",
+    "target_operator": "ADD|UPDATE|DELETE|SEARCH|WALK|READ"
+  }}
+}}
+"""
+        try:
+            result = self._call_llm(prompt)
+            if "chain_of_thought" in result:
+                logger.info(f"🧠 Experience CoT: {result['chain_of_thought']}")
+            exp = result.get("experience")
+            if exp and exp.get("trigger") and exp.get("measure"):
+                exp.setdefault("target_agent", "UNKNOWN")
+                exp.setdefault("target_operator", "UNKNOWN")
+                return exp
+            return None
+        except Exception as e:
+            logger.error(f"Experience extraction failed: {e}")
+            return None
+
+    # ------------------------------------------------------------------ #
+    #                         FORMAT HELPERS                               #
+    # ------------------------------------------------------------------ #
+    def _format_previous_attempts(self, attempts: List[Dict]) -> str:
+        """格式化前几次尝试的上下文，注入到评判 prompt 中"""
+        if not attempts:
+            return ""
+
+        lines = ["## Previous Attempts (This Round)",
+                 "The system has already tried and failed. Learn from previous mistakes — do NOT repeat the same type of strategy update.\n"]
+        for a in attempts:
+            mg = ""
+            if a.get("strategy_update") and a["strategy_update"].get("meta_gradient"):
+                mg = a["strategy_update"]["meta_gradient"]
+            lines.append(
+                f"- Attempt {a['attempt']}: Prediction=\"{a['prediction'][:100]}\" | "
+                f"Result={a['result']} | Blame={a['blame']} | ErrorCat={a.get('error_category','')}\n"
+                f"  Strategy Update Applied: \"{mg}\"\n"
+                f"  Why insufficient: the next attempt still failed after this update"
+            )
+        return "\n".join(lines)
+
+    def _format_experiences(self) -> str:
+        """格式化已有元优化经验列表，注入到评判 prompt 中"""
+        if not self.experiences:
+            return ""
+
+        lines = ["## Accumulated Meta-Optimization Experiences",
+                 "These are proven heuristics from past self-play rounds. When you observe the trigger pattern, "
+                 "follow the measure to generate a better strategy update.\n"]
+        for i, exp in enumerate(self.experiences, 1):
+            target = f"{exp.get('target_agent', '?')}.{exp.get('target_operator', '?')}"
+            lines.append(f"- Experience {i} [Target: {target}]:")
+            lines.append(f"  RECOGNIZE: {exp['trigger']}")
+            lines.append(f"  THEN UPDATE: {exp['measure']}")
+        return "\n".join(lines)
+
+    def _format_attempts_for_experience(self, attempts: List[Dict]) -> str:
+        """格式化全部尝试记录，供经验提炼 prompt 使用"""
+        lines = []
+        for a in attempts:
+            mg = ""
+            target_agent = ""
+            target_op = ""
+            if a.get("strategy_update"):
+                su = a["strategy_update"]
+                mg = su.get("meta_gradient", "")
+                target_agent = su.get("target_agent", "")
+                target_op = su.get("target_operator", "")
+            lines.append(
+                f"Attempt {a['attempt']} [{a['result']}]:\n"
+                f"  Question: \"{a['question']}\"\n"
+                f"  Ground Truth: \"{a['ground_truth']}\"\n"
+                f"  Prediction: \"{a['prediction'][:200]}\"\n"
+                f"  Blame: {a['blame']} | Error Category: {a.get('error_category','')}\n"
+                f"  Strategy Update Target: {target_agent}.{target_op}\n"
+                f"  Strategy Update (meta_gradient): \"{mg}\""
+            )
+        return "\n\n".join(lines)
+
+    # ------------------------------------------------------------------ #
+    #                           LLM CALL                                   #
+    # ------------------------------------------------------------------ #
+    def _call_llm(self, prompt: str) -> Dict:
         response = self.client.chat.completions.create(
             model=self.model_name,
             messages=[{"role": "system", "content": prompt}],
@@ -288,123 +401,3 @@ Output JSON: {{ "meta_gradient": "..." }}
             temperature=0.0
         )
         return json.loads(response.choices[0].message.content)
-
-    def _evaluate_and_update(self, q_item: Dict, prediction: str, buffer_content: str, action_log: List[str] = None):
-        # Critic LLM
-        action_log_str = "\n".join(action_log) if action_log else "No recent graph updates."
-        buffer_snippet = buffer_content[:500].replace("\n", " ")
-        
-        prompt = f"""You are the 'Meta-Critic' and 'Gradient Descent Optimizer' of the Amadeus Memory System.
-Your goal: arbitrate the adversarial game between the [Questioner] (Attacker) and the [Builder/Answerer] (Defenders).
-
-**GAME RULES (Zero-Sum):**
-1. **Defenders Lose (Prediction WRONG)**: 
-   - Identify WHY. Was the info missing (Builder fault) or not retrieved (Answerer fault)?
-   - Generate a **Graph Patch** to fix the data immediately.
-   - Generate a **Textual Gradient** to update the Agent's Prompt to prevent future errors.
-2. **Defenders Win (Prediction CORRECT)**:
-   - The Questioner failed to trick the system.
-   - Generate a **Textual Gradient** to force the Questioner to ask trickier and more discriminative questions next time.
-
-**CRITICAL: GLOBAL vs LOCAL CONTEXT**
-- **Ground Truth (GT)** is derived ONLY from the current Buffer.
-- **Prediction** comes from the Global Memory Graph.
-- **RULE**: If GT says "Unknown/Not mentioned" BUT Prediction gives a specific, plausible fact (likely from history), judge it as **CORRECT**.
-  -> In this case, Blame QUESTIONER for asking about old history instead of current events.
-
-**BLAME LOGIC (Who failed?):**
-Analyze the [Builder Activity Log] and the [Question]:
-- **BLAME BUILDER IF**: The specific *relationship* or *attribute* needed to answer is ABSENT from the Log. (Creating a Node is not enough; the connection must exist).
-- **BLAME ANSWERER IF**: The exact answer DOES appear in the Log (meaning it was just added), but the Answerer still hallucinated or said "Unknown".
-
-**CHAIN OF THOUGHT:**
-Before generating the final JSON, you must perform a step-by-step analysis:
-1. **Compare Prediction vs Ground Truth**: Is it correct? Is it plausible?
-2. **IF Prediction is CORRECT**:
-   - Blame QUESTIONER. Turn to Step 4.
-3. **IF Prediction is WRONG**:
-   - **Analyze Causality**: Look at the Builder Log. Was the info captured? If yes, why did Answerer miss it? If no, why did Builder miss it?
-4. **Formulate Strategy**: Based on the blame, what high-level instruction (Gradient) would improve this in the future?
-
-**INPUT DATA:**
-- Text Buffer: "{buffer_snippet}..."
-- Question: "{q_item['question']}"
-- Ground Truth: "{q_item['ground_truth']}"
-- Prediction: "{prediction}"
-- Builder Log: "{action_log_str}"
-
-**OUTPUT FORMAT (JSON):**
-{{
-  "chain_of_thought": "Step 1: Comparing... Step 2/3: Blaming... Step 4: Strategy...",
-  "is_correct": boolean,
-  "blame": "BUILDER" | "ANSWERER" | "QUESTIONER",
-  
-  // SECTION 1: DATA REPAIR (Only if Prediction is WRONG and Blame is BUILDER)
-  // Generate concrete operations to fix the graph NOW.
-  "graph_patch": [
-      {{ "action": "ADD", "subject": "...", "object": "...", "content": "..." }}
-  ],
-
-  // SECTION 2: PROMPT EVOLUTION (The Meta-Gradient)
-  // Determine which operator needs improvement:
-  // - BUILDER: ADD (if info missed), UPDATE (if info wrong), DELETE, WAIT
-  // - ANSWERER: SEARCH, WALK, READ
-  // - QUESTIONER: GENERATE
-  "target_operator": "The operator responsible. Valid values: ADD, UPDATE, DELETE, WAIT, SEARCH, WALK, READ, GENERATE",
-
-  // Explain HOW the blamed agent's System Prompt should change to avoid this failure.
-  // If Blame=QUESTIONER: Suggest how to ask trickier and more discriminative questions.
-  // If Blame=BUILDER: Suggest how to improve memory graph management.
-  // If Blame=ANSWERER: Suggest how to retrieve information more effectively and accurately, and construct the information to answer better.
-  // CRITICAL: Write this as a DIRECT INSTRUCTION or RULE for the Agent.
-  // BAD: "The Builder should ensure..."
-  // GOOD: "ALWAYS convert relative dates..."
-  "meta_gradient": "string description of the prompt update strategy"
-}}
-"""
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[{"role": "system", "content": prompt}],
-                response_format={"type": "json_object"},
-                temperature=0.0
-            )
-            result = json.loads(response.choices[0].message.content)
-            
-            if "chain_of_thought" in result:
-                logger.info(f"Optimizer CoT: {result['chain_of_thought']}")
-
-            blame = result.get("blame")
-            is_correct = result.get("is_correct")
-            meta_gradient = result.get("meta_gradient")
-            graph_patch = result.get("graph_patch")
-            target_operator = result.get("target_operator")
-
-            if not is_correct:
-                logger.warning(f"❌ DEFENDER FAILED. Blame: {blame}")
-                
-                # Apply Policy Update to Defender
-                if blame == "BUILDER":
-                    op = target_operator
-                    self.builder.update_guideline(op, meta_gradient)
-                    # Apply State Fix
-                    if graph_patch:
-                        patch_str = json.dumps(graph_patch)
-                        self.builder.force_update(f"Apply these fixes: {patch_str}")
-                        
-                elif blame == "ANSWERER":
-                    op = target_operator
-                    self.answerer.update_guideline(op, meta_gradient)
-            else:
-                logger.info(f"✅ DEFENDER SUCCEEDED. Optimizing Questioner...")
-                # Apply Policy Update to Attacker
-                if blame == "QUESTIONER":
-                     op = "GENERATE"
-                     self.questioner.update_guideline(op, meta_gradient)
-            
-            return result
-                
-        except Exception as e:
-            logger.error(f"Optimizer Error: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return {}
