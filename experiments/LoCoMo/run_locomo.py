@@ -257,15 +257,19 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     # Use the graphs_dir for the working graph file directly
     graph_path = os.path.join(graphs_dir, f"graph_{sample_id}.json")
     if os.path.exists(graph_path): os.remove(graph_path)
-        
+
     graph = MemoryGraph(graph_path, embedder=embedder)
     buffer = TimeWindowBuffer(trigger_threshold=1) # 每一个Session都是完整上下文，直接触发
     builder = BuilderAgent(graph, model_name=args.model_name)
     answerer = AnswererAgent(graph, model_name=args.model_name)
     questioner = QuestionerAgent(model_name=args.model_name)
+    builder.operator_guidelines = {}
+    answerer.operator_guidelines = {}
+    questioner.operator_guidelines = {"GENERATE": []}
     OptimizerClass = AdversarialOptimizerOld if args.optimizer_version == "old" else AdversarialOptimizer
     optimizer = OptimizerClass(questioner, builder, answerer, model_name=args.model_name)
 
+    logger.info(f"[{sample_id}] ♻️ Reset graph and agent strategies for isolated conv run.")
     logger.info(f"[{sample_id}] 🧠 Phase 1: Building Memory ({len(chunks)} contextual sessions)...")
     
     # Adaptive Buffer Logic

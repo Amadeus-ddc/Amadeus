@@ -24,8 +24,8 @@ _AMADEUS_PATH_ADDED = False
 def _ensure_amadeus_path():
     global _AMADEUS_PATH_ADDED
     if not _AMADEUS_PATH_ADDED:
-        base_dir = Path(__file__).resolve().parent.parent.parent.parent  # amadeus/
-        sys.path.insert(0, str(base_dir.parent))  # Amadeus/
+        base_dir = Path(__file__).resolve().parent.parent.parent.parent  # repo root
+        sys.path.insert(0, str(base_dir))
         _AMADEUS_PATH_ADDED = True
 
 
@@ -83,11 +83,11 @@ class AmadeusMemory(MemoryModule):
             )
 
         _ensure_amadeus_path()
-        from amadeus_tzx.code.core.graph import MemoryGraph
-        from amadeus_tzx.code.agents.builder import BuilderAgent
-        from amadeus_tzx.code.agents.answerer import AnswererAgent
-        from amadeus_tzx.code.agents.questioner import QuestionerAgent
-        from amadeus_tzx.code.engine.optimizer import AdversarialOptimizer
+        from amadeus_collab.core.graph import MemoryGraph
+        from amadeus_collab.agents.builder import BuilderAgent
+        from amadeus_collab.agents.answerer import AnswererAgent
+        from amadeus_collab.agents.questioner import QuestionerAgent
+        from amadeus_collab.engine.optimizer import AdversarialOptimizer
 
         logger.info(f"Loading embedding model: {embedding_model}")
         embedder = HuggingFaceEmbedder(embedding_model)
@@ -95,10 +95,12 @@ class AmadeusMemory(MemoryModule):
         self.graph = MemoryGraph(graph_path, embedder=embedder)
 
         self.builder = BuilderAgent(self.graph, model_name=model_name)
-        self.answerer = AnswererAgent(self.graph, model_name=model_name,
-                                      api_base=api_base, api_key=api_key)
-        self.questioner = QuestionerAgent(model_name=model_name,
-                                          api_base=api_base, api_key=api_key)
+        self.answerer = AnswererAgent(
+            self.graph, model_name=model_name, api_base=api_base, api_key=api_key
+        )
+        self.questioner = QuestionerAgent(
+            model_name=model_name, api_base=api_base, api_key=api_key
+        )
         self.optimizer = AdversarialOptimizer(
             self.questioner, self.builder, self.answerer,
             model_name=model_name, api_base=api_base, api_key=api_key,

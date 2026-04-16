@@ -81,18 +81,31 @@ class TrackedOpenAI:
 # ---------------------------------------------------------------------------
 # Path setup
 # ---------------------------------------------------------------------------
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-AMADEUS_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))       # amadeus/
-WORKSPACE_ROOT = os.path.dirname(AMADEUS_ROOT)                     # /data/hzy/Amadeus
-sys.path.insert(0, WORKSPACE_ROOT)
+SCRIPT_DIR = Path(__file__).resolve().parent
 
-load_dotenv(os.path.join(AMADEUS_ROOT, "experiments", ".env"))
+
+def _find_workspace_root() -> Path:
+    for candidate in SCRIPT_DIR.parents:
+        if (candidate / "verl-agent").is_dir():
+            return candidate
+    raise FileNotFoundError(f"Could not locate workspace root from {SCRIPT_DIR}")
+
+
+WORKSPACE_ROOT = _find_workspace_root()
+AMADEUS_ROOT = WORKSPACE_ROOT / "amadeus-collab"
+if not AMADEUS_ROOT.is_dir():
+    AMADEUS_ROOT = SCRIPT_DIR.parents[1]
+
+sys.path.insert(0, str(WORKSPACE_ROOT))
+sys.path.insert(0, str(AMADEUS_ROOT))
+
+load_dotenv(AMADEUS_ROOT / "experiments" / ".env")
 if os.getenv("OPENAI_API_BASE") and not os.getenv("OPENAI_BASE_URL"):
     os.environ["OPENAI_BASE_URL"] = os.getenv("OPENAI_API_BASE")
 
 # verl-agent ALFWorld environment (reuse its env package directly)
-VERL_AGENT_ROOT = os.path.join(WORKSPACE_ROOT, "verl-agent")
-sys.path.insert(0, VERL_AGENT_ROOT)
+VERL_AGENT_ROOT = WORKSPACE_ROOT / "verl-agent"
+sys.path.insert(0, str(VERL_AGENT_ROOT))
 
 # Pre-register stub packages to avoid omegaconf dependency chain
 import types
