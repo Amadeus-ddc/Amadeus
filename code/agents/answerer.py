@@ -29,7 +29,9 @@ class AnswererAgent(BaseAgent):
 1. **SEARCH**: Find entry nodes or jump to new nodes.
    - `query`: The search text.
    - `mode`: "hybrid" (RECOMMENDED: combines keyword and semantic), "keyword", or "semantic".
-   - *Condition*: Use this if you are nowhere, lost, or need to find a specific entity.
+   - `entry_edge_ids`: Optional. Choose any relevant edge IDs from the provided candidate entry edges when you are selecting the best starting evidence.
+   - `entry_nodes`: Optional. Choose any relevant node names only from the provided candidate entry edges/nodes.
+   - *Condition*: Use this if you are nowhere, lost, or need to find a specific entity. At the first step, if candidate entry edges are shown, use SEARCH to select the best entry evidence.
 
 2. **WALK**: Move to a connected node.
    - `node`: The target node name from "Visible Neighbors".
@@ -43,7 +45,9 @@ class AnswererAgent(BaseAgent):
 {
   "tool": "SEARCH",
   "query": "...",
-  "mode": "hybrid"
+  "mode": "hybrid",
+  "entry_edge_ids": ["E1"],
+  "entry_nodes": ["TargetNodeName"]
 }
 OR
 {
@@ -374,8 +378,8 @@ OR
         max_cached_total = 8
         max_cached_per_node = 4
         cached_desc_limit = 80
-        edge_top_k = 3
-        max_current_nodes = 6
+        edge_top_k = 8
+        max_current_nodes = 16
         current_nodes = []
         max_rounds = 4
         nx_graph = self.graph.graph
@@ -482,12 +486,90 @@ OR
                 key=lambda x: (-x[0], x[1])
             )
 
+        def trim_text(text: str, limit: int = 100) -> str:
+            text = (text or "").strip()
+            if len(text) > limit:
+                return text[:limit].rstrip() + "..."
+            return text
+
+        def build_candidate_blocks(edge_candidates: List[dict], node_candidates: List[str]):
+            edge_lookup = {}
+            allowed_nodes = set(node_candidates)
+            edge_lines = []
+            for idx, edge in enumerate(edge_candidates, start=1):
+                edge_id = f"E{idx}"
+                edge_lookup[edge_id] = edge
+                allowed_nodes.add(edge["source"])
+                allowed_nodes.add(edge["target"])
+                source_desc = trim_text(nx_graph.nodes[edge["source"]].get("description", "")) if nx_graph.has_node(edge["source"]) else ""
+                target_desc = trim_text(nx_graph.nodes[edge["target"]].get("description", "")) if nx_graph.has_node(edge["target"]) else ""
+                ts = edge.get("timestamp") or "None"
+                edge_lines.append(
+                    f"[{edge_id}]\n"
+                    f"source: {edge['source']}\n"
+                    f"relation: {edge.get('relation', 'related')}\n"
+                    f"target: {edge['target']}\n"
+                    f"timestamp: {ts}\n"
+                    f"retrieval: score={edge.get('score', 0.0):.3f}\n"
+                    f"source_desc: {source_desc}\n"
+                    f"target_desc: {target_desc}"
+                )
+            node_lines = []
+            for idx, node in enumerate(node_candidates, start=1):
+                desc = trim_text(nx_graph.nodes[node].get("description", "")) if nx_graph.has_node(node) else ""
+                node_lines.append(f"[N{idx}] {node} — {desc}")
+            edge_block = "\n\n".join(edge_lines) if edge_lines else "None"
+            node_block = "\n".join(node_lines) if node_lines else "None"
+            return edge_block, node_block, edge_lookup, allowed_nodes
+
+        def run_rule_search(search_query: str, mode: str) -> List[str]:
+            mode = (mode or "hybrid").lower()
+            search_query = (search_query or question).strip() or question
+            search_keywords = self._prepare_query_keywords(search_query)
+
+            edge_hits = []
+            if mode in ("hybrid", "semantic"):
+                edge_hits.extend(self._edge_semantic_search(search_query, edge_top_k))
+            if mode in ("hybrid", "keyword"):
+                kw_edge_hits = self._edge_keyword_search(search_keywords, edge_top_k)
+                seen_edges = {
+                    (e["source"], e["target"], e.get("relation"), e.get("timestamp"))
+                    for e in edge_hits
+                }
+                for edge in kw_edge_hits:
+                    key = (edge["source"], edge["target"], edge.get("relation"), edge.get("timestamp"))
+                    if key not in seen_edges:
+                        seen_edges.add(key)
+                        edge_hits.append(edge)
+
+            edge_nodes = []
+            edge_node_set = set()
+            for edge in edge_hits:
+                for node in (edge["source"], edge["target"]):
+                    if node not in edge_node_set:
+                        edge_node_set.add(node)
+                        edge_nodes.append(node)
+
+            keyword_nodes = []
+            if mode in ("hybrid", "keyword"):
+                keyword_nodes = self._keyword_search(search_query, keywords=search_keywords)
+            semantic_nodes = []
+            if mode in ("hybrid", "semantic") and hasattr(self.graph, "semantic_search"):
+                semantic_nodes = self.graph.semantic_search(search_query)
+            seen_nodes = set(keyword_nodes)
+            node_hits = keyword_nodes + [x for x in semantic_nodes if x not in seen_nodes]
+            combined = edge_nodes + [n for n in node_hits if n not in edge_node_set]
+            return combined[:max_current_nodes]
+
         def build_prompt(nodes: List[str]) -> tuple[str, str, str, str]:
             history_str = "\n".join(history[-5:]) if history else "None"
 
             if not nodes:
                 status_str = "Status: You are currently NOT at any node. You need to SEARCH to find entry points."
-                view_str = ""
+                view_str = (
+                    f"**Candidate Entry Edges**:\n{candidate_edge_block}\n\n"
+                    f"**Candidate Entry Nodes**:\n{candidate_node_block}"
+                )
             else:
                 neighbors_view = self.graph.primitive_get_neighbors(nodes)
                 current_content = self.graph.primitive_read(nodes)
@@ -535,7 +617,7 @@ OR
 """
             return prompt, view_str, visited_str, history_str
 
-        # Step 1: SEARCH (hybrid)
+        # Step 1: SEARCH candidates
         def do_keyword():
             return self._keyword_search(question, keywords=query_keywords)
 
@@ -571,20 +653,14 @@ OR
         node_results = k_res + [x for x in s_res if x not in seen]
 
         combined_nodes = edge_seed_nodes + [n for n in node_results if n not in edge_seed_set]
-        if combined_nodes:
-            current_nodes = combined_nodes[:max_current_nodes]
-            history.append(f"SEARCH(hybrid, '{question}') -> Found: {current_nodes}")
-            cache_nodes_and_edges(current_nodes)
-            update_cached_evidence(current_nodes)
-        else:
-            history.append(f"SEARCH(hybrid, '{question}') -> Found nothing.")
-            current_nodes = []
+        fallback_nodes = combined_nodes[:max_current_nodes]
+        candidate_node_list = fallback_nodes[:max_current_nodes]
+        candidate_edge_block, candidate_node_block, candidate_edge_lookup, allowed_entry_nodes = build_candidate_blocks(
+            edge_results,
+            candidate_node_list,
+        )
 
         beams = []
-        for node in current_nodes:
-            beam = {"path": [node], "frontier": node, "candidates": []}
-            beam["candidates"] = compute_candidates(node, beam["path"])
-            beams.append(beam)
 
         last_view_str = ""
         last_history_str = "None"
@@ -612,6 +688,44 @@ OR
                 decision = json.loads(content.strip())
                 tool = decision.get("tool")
                 logger.info(f"Step {round_idx+2}: {tool} - {decision}")
+
+                if tool == "SEARCH":
+                    selected_nodes = []
+                    entry_edge_ids = decision.get("entry_edge_ids") or []
+                    if isinstance(entry_edge_ids, list):
+                        for edge_id in entry_edge_ids:
+                            edge = candidate_edge_lookup.get(str(edge_id))
+                            if not edge:
+                                continue
+                            for node in (edge["source"], edge["target"]):
+                                if node not in selected_nodes:
+                                    selected_nodes.append(node)
+                    entry_nodes = decision.get("entry_nodes") or []
+                    if isinstance(entry_nodes, list):
+                        for node in entry_nodes:
+                            node = str(node)
+                            if node in allowed_entry_nodes and node not in selected_nodes:
+                                selected_nodes.append(node)
+                    search_query = str(decision.get("query") or question)
+                    search_mode = str(decision.get("mode") or "hybrid")
+                    if not selected_nodes:
+                        selected_nodes = run_rule_search(search_query, search_mode)
+                        if selected_nodes:
+                            history.append(f"SEARCH({search_mode}, '{search_query}') -> Found: {selected_nodes}")
+                    else:
+                        history.append(f"SEARCH(select, '{search_query}') -> Found: {selected_nodes}")
+                    if not selected_nodes and fallback_nodes:
+                        selected_nodes = fallback_nodes
+                        history.append(f"SEARCH(fallback, '{question}') -> Found: {selected_nodes}")
+                    current_nodes = selected_nodes[:max_current_nodes]
+                    cache_nodes_and_edges(current_nodes)
+                    update_cached_evidence(current_nodes)
+                    beams = []
+                    for node in current_nodes:
+                        beam = {"path": [node], "frontier": node, "candidates": []}
+                        beam["candidates"] = compute_candidates(node, beam["path"])
+                        beams.append(beam)
+                    continue
 
                 if tool == "READ":
                     ans = self._clean_answer(decision.get("answer"))
