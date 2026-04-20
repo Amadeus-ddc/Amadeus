@@ -69,6 +69,7 @@ Target Modes for this batch: {', '.join(selected_modes)}
                 response_format={"type": "json_object"},
                 temperature=0.0
             )
+            self._record_usage(response)
             content = response.choices[0].message.content
             data = json.loads(content)
             if "chain_of_thought" in data:

@@ -10,11 +10,33 @@ class BaseAgent:
         # Priority: Explicit Args > Environment Variables > Default
         base_url = api_base or os.environ.get("OPENAI_BASE_URL")
         api_key = api_key or os.environ.get("OPENAI_API_KEY")
-        
+
         self.client = OpenAI(base_url=base_url, api_key=api_key)
         self.model_name = model_name
         self.static_prompt: str = ""
         self.operator_guidelines: Dict[str, List[str]] = {}
+        self.usage_stats = {
+            "api_calls": 0,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+        }
+
+    def _record_usage(self, response) -> None:
+        usage = getattr(response, "usage", None)
+        self.usage_stats["api_calls"] += 1
+        if not usage:
+            return
+
+        prompt_tokens = getattr(usage, "prompt_tokens", 0) or 0
+        completion_tokens = getattr(usage, "completion_tokens", 0) or 0
+        total_tokens = getattr(usage, "total_tokens", None)
+        if total_tokens is None:
+            total_tokens = prompt_tokens + completion_tokens
+
+        self.usage_stats["prompt_tokens"] += prompt_tokens
+        self.usage_stats["completion_tokens"] += completion_tokens
+        self.usage_stats["total_tokens"] += total_tokens
 
     def _format_guidelines(self) -> str:
         if not self.operator_guidelines:

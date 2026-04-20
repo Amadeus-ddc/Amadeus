@@ -207,6 +207,15 @@ def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32
                 response_format={"type": "json_object"},
                 temperature=0.0,
             )
+            usage = getattr(response, "usage", None)
+            usage_stats = {
+                "api_calls": 1,
+                "prompt_tokens": getattr(usage, "prompt_tokens", 0) or 0,
+                "completion_tokens": getattr(usage, "completion_tokens", 0) or 0,
+                "total_tokens": getattr(usage, "total_tokens", None),
+            }
+            if usage_stats["total_tokens"] is None:
+                usage_stats["total_tokens"] = usage_stats["prompt_tokens"] + usage_stats["completion_tokens"]
             content = response.choices[0].message.content
 
             def extract_json(text):
@@ -228,7 +237,7 @@ def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32
             is_correct = (label == "CORRECT")
             score = 1.0 if is_correct else 0.0
 
-            return is_correct, score, reason
+            return is_correct, score, reason, usage_stats
         except Exception as e:
             last_err = e
             logger.warning(f"LLM Judge failed (attempt {attempt}/{max_retries}): {e}")
@@ -237,7 +246,12 @@ def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32
             else:
                 logger.error(f"LLM Judge failed after {max_retries} attempts: {e}")
 
-    return False, 0.0, str(last_err)
+    return False, 0.0, str(last_err), {
+        "api_calls": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+    }
 
 
 def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, run_output_dir):
@@ -347,7 +361,17 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     
     sample_qa_results = []
     sample_scores = []
-    
+    sample_usage = {
+        "api_calls": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "judge_api_calls": 0,
+        "judge_prompt_tokens": 0,
+        "judge_completion_tokens": 0,
+        "judge_total_tokens": 0,
+    }
+
     local_category_scores = {}
     local_category_counts = {}
     local_total_questions = 0
@@ -369,8 +393,8 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
             logger.error(f"[{sample_id}] Answerer failed: {e}")
             pred = "Error"
         
-        is_correct, score, reason = evaluate_with_llm(
-            q, gt, pred, 
+        is_correct, score, reason, judge_usage = evaluate_with_llm(
+            q, gt, pred,
             model_name=args.judge_model_name,
             api_base=judge_api_base,
             api_key=judge_api_key
@@ -379,6 +403,10 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
         # Update stats
         sample_scores.append(score)
         local_total_questions += 1
+        sample_usage["judge_api_calls"] += judge_usage.get("api_calls", 0)
+        sample_usage["judge_prompt_tokens"] += judge_usage.get("prompt_tokens", 0)
+        sample_usage["judge_completion_tokens"] += judge_usage.get("completion_tokens", 0)
+        sample_usage["judge_total_tokens"] += judge_usage.get("total_tokens", 0)
         
         # Update category stats
         if category not in local_category_scores:
@@ -401,14 +429,45 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
             "reason": reason
         })
 
+    for agent in [builder, answerer, questioner, optimizer]:
+        agent_stats = getattr(agent, "usage_stats", None)
+        if not agent_stats:
+            continue
+        sample_usage["api_calls"] += agent_stats.get("api_calls", 0)
+        sample_usage["prompt_tokens"] += agent_stats.get("prompt_tokens", 0)
+        sample_usage["completion_tokens"] += agent_stats.get("completion_tokens", 0)
+        sample_usage["total_tokens"] += agent_stats.get("total_tokens", 0)
+
+    graph_stats = {
+        "nodes": graph.graph.number_of_nodes(),
+        "edges": graph.graph.number_of_edges(),
+    }
+
     sample_avg_score = np.mean(sample_scores) if sample_scores else 0.0
     logger.info(f"\n🏆 Sample {sample_id} Score (Avg Score): {sample_avg_score * 100:.1f}%")
-    
+    logger.info(
+        f"[{sample_id}] API Usage: {sample_usage['api_calls']} calls, "
+        f"{sample_usage['prompt_tokens']} prompt tokens, "
+        f"{sample_usage['completion_tokens']} completion tokens, "
+        f"{sample_usage['total_tokens']} total tokens"
+    )
+    logger.info(
+        f"[{sample_id}] Judge Usage: {sample_usage['judge_api_calls']} calls, "
+        f"{sample_usage['judge_prompt_tokens']} prompt tokens, "
+        f"{sample_usage['judge_completion_tokens']} completion tokens, "
+        f"{sample_usage['judge_total_tokens']} total tokens"
+    )
+    logger.info(
+        f"[{sample_id}] Graph Totals: {graph_stats['nodes']} nodes, {graph_stats['edges']} edges"
+    )
+
     # Save sample result to results_dir
     sample_result = {
         "sample_id": sample_id,
         "avg_score": float(sample_avg_score),
-        "qa_results": sample_qa_results
+        "qa_results": sample_qa_results,
+        "usage": sample_usage,
+        "graph_stats": graph_stats,
     }
     
     # results_dir was defined at start of function
@@ -510,12 +569,26 @@ def main():
     experiment_data = load_data_for_experiment(DATA_FILE, TARGET_ID if TARGET_ID != "all" else None)
     
     total_samples = len(experiment_data)
-    
+
     # Statistics containers
     all_sample_results = []
     category_scores = {}
     category_counts = {}
     total_questions = 0
+    total_usage = {
+        "api_calls": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "judge_api_calls": 0,
+        "judge_prompt_tokens": 0,
+        "judge_completion_tokens": 0,
+        "judge_total_tokens": 0,
+    }
+    total_graph_stats = {
+        "nodes": 0,
+        "edges": 0,
+    }
     
     logger.info(f"🚀 Starting parallel execution with {args.max_workers} workers for {total_samples} samples.")
     
@@ -532,7 +605,21 @@ def main():
                 # Aggregate results
                 all_sample_results.append(res["sample_result"])
                 total_questions += res["total_questions"]
-                
+
+                usage = res["sample_result"].get("usage", {})
+                total_usage["api_calls"] += usage.get("api_calls", 0)
+                total_usage["prompt_tokens"] += usage.get("prompt_tokens", 0)
+                total_usage["completion_tokens"] += usage.get("completion_tokens", 0)
+                total_usage["total_tokens"] += usage.get("total_tokens", 0)
+                total_usage["judge_api_calls"] += usage.get("judge_api_calls", 0)
+                total_usage["judge_prompt_tokens"] += usage.get("judge_prompt_tokens", 0)
+                total_usage["judge_completion_tokens"] += usage.get("judge_completion_tokens", 0)
+                total_usage["judge_total_tokens"] += usage.get("judge_total_tokens", 0)
+
+                graph_stats = res["sample_result"].get("graph_stats", {})
+                total_graph_stats["nodes"] += graph_stats.get("nodes", 0)
+                total_graph_stats["edges"] += graph_stats.get("edges", 0)
+
                 for cat, scores in res["category_scores"].items():
                     if cat not in category_scores:
                         category_scores[cat] = []
@@ -572,7 +659,9 @@ def main():
         "total_samples": total_samples,
         "total_questions": total_questions,
         "category_distribution": category_counts,
-        "aggregate_metrics": aggregate_results
+        "aggregate_metrics": aggregate_results,
+        "usage": total_usage,
+        "graph_totals": total_graph_stats,
     }
 
     with open(os.path.join(run_output_dir, "summary.json"), 'w', encoding='utf-8') as f:
@@ -586,7 +675,23 @@ def main():
         if cat.startswith("category_"):
             cat_name = cat.replace("category_", "")
             logger.info(f"  Category {cat_name}: {metrics['mean'] * 100:.1f}% (n={metrics['count']})")
-            
+
+    logger.info(
+        f"\nAPI Usage: {total_usage['api_calls']} calls, "
+        f"{total_usage['prompt_tokens']} prompt tokens, "
+        f"{total_usage['completion_tokens']} completion tokens, "
+        f"{total_usage['total_tokens']} total tokens"
+    )
+    logger.info(
+        f"Judge Usage: {total_usage['judge_api_calls']} calls, "
+        f"{total_usage['judge_prompt_tokens']} prompt tokens, "
+        f"{total_usage['judge_completion_tokens']} completion tokens, "
+        f"{total_usage['judge_total_tokens']} total tokens"
+    )
+    logger.info(
+        f"Graph Totals: {total_graph_stats['nodes']} nodes, {total_graph_stats['edges']} edges"
+    )
+
     logger.info(f"\nResults saved to: {run_output_dir}\n{'='*40}")
 
 if __name__ == "__main__":

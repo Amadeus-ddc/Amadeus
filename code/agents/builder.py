@@ -137,6 +137,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
                 response_format={"type": "json_object"},
                 temperature=0.0
             )
+            self._record_usage(response)
             result = json.loads(response.choices[0].message.content)
             return result.get("decision") == "FLUSH"
         except Exception as e:
@@ -146,7 +147,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
 
     def process_buffer(self, buffer_content: str) -> tuple[List[str], List[str]]:
         context = self.graph.get_full_state()
-        
+
         try:
             response = self.client.chat.completions.create(
                 model=self.model_name,
@@ -157,24 +158,23 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
                 response_format={"type": "json_object"},
                 temperature=0.0
             )
-            
+            self._record_usage(response)
+
             raw_content = response.choices[0].message.content
             if not raw_content:
                 return [], []
-                
+
             data = json.loads(raw_content)
-            
-            # Log CoT
+
             if "chain_of_thought" in data:
                 logger.info(f"🤔 Builder CoT: {data['chain_of_thought']}")
-                
+
             ops = data.get("operations", [])
             return self._execute_operations(ops)
-            
+
         except Exception as e:
             logger.error(f"Builder Failed: {e}")
             logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return [], []
             return [], []
 
     def force_update(self, instruction: str) -> bool:
@@ -206,6 +206,7 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                 response_format={"type": "json_object"},
                 temperature=0.0
             )
+            self._record_usage(response)
             content = response.choices[0].message.content
             data = json.loads(content)
             ops = data.get("operations", [])

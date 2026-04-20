@@ -18,6 +18,12 @@ class AdversarialOptimizer:
         self.client = OpenAI(base_url=api_base, api_key=api_key)
         self.model_name = model_name
         self.experiences: List[Dict] = []  # 元优化经验: [{"trigger": ..., "measure": ..., "target_agent": ..., "target_operator": ...}, ...]
+        self.usage_stats = {
+            "api_calls": 0,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+        }
 
     # ------------------------------------------------------------------ #
     #                          PUBLIC ENTRY POINT                         #
@@ -390,6 +396,22 @@ Write the final experience with these fields:
             )
         return "\n\n".join(lines)
 
+    def _record_usage(self, response) -> None:
+        usage = getattr(response, "usage", None)
+        self.usage_stats["api_calls"] += 1
+        if not usage:
+            return
+
+        prompt_tokens = getattr(usage, "prompt_tokens", 0) or 0
+        completion_tokens = getattr(usage, "completion_tokens", 0) or 0
+        total_tokens = getattr(usage, "total_tokens", None)
+        if total_tokens is None:
+            total_tokens = prompt_tokens + completion_tokens
+
+        self.usage_stats["prompt_tokens"] += prompt_tokens
+        self.usage_stats["completion_tokens"] += completion_tokens
+        self.usage_stats["total_tokens"] += total_tokens
+
     # ------------------------------------------------------------------ #
     #                           LLM CALL                                   #
     # ------------------------------------------------------------------ #
@@ -400,4 +422,5 @@ Write the final experience with these fields:
             response_format={"type": "json_object"},
             temperature=0.0
         )
+        self._record_usage(response)
         return json.loads(response.choices[0].message.content)
