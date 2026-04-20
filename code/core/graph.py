@@ -16,13 +16,25 @@ class MemoryGraph:
         self._ensure_storage()
         self.load()
 
+    @staticmethod
+    def _normalize_node_type(node_type: str) -> str:
+        cleaned = (node_type or "").strip()
+        return cleaned or "Entity"
+
+    @staticmethod
+    def _normalize_edge_type(edge_type: str) -> str:
+        cleaned = (edge_type or "").strip()
+        return cleaned or "RelationEdge"
+
     def _ensure_storage(self):
         os.makedirs(os.path.dirname(self.storage_path), exist_ok=True)
 
-    def add_node(self, name: str, type: str, description: str):
-        if not name: return
-        
-        # Helper to update embedding
+    def add_node(self, name: str, node_type: str, description: str):
+        if not name:
+            return
+
+        node_type = self._normalize_node_type(node_type)
+
         def update_embedding(n, desc):
             if self.embedder:
                 try:
@@ -35,43 +47,52 @@ class MemoryGraph:
 
         if self.graph.has_node(name):
             old_desc = self.graph.nodes[name].get("description", "")
-            
+            old_type = self.graph.nodes[name].get("node_type") or self.graph.nodes[name].get("type")
+            if not old_type:
+                self.graph.nodes[name]["node_type"] = node_type
+            elif old_type != node_type and old_type in {"Unknown", "Entity"}:
+                self.graph.nodes[name]["node_type"] = node_type
+
             if description and len(description) > 2 and description not in old_desc:
-                # 智能合并：简单的字符串拼接，实际可升级为 LLM 摘要
                 new_desc = f"{old_desc} | {description}".strip(" | ")
                 self.graph.nodes[name]["description"] = new_desc
                 update_embedding(name, new_desc)
         else:
-            self.graph.add_node(name, type=type, description=description)
+            self.graph.add_node(name, type=node_type, node_type=node_type, description=description)
             update_embedding(name, description)
 
-    def add_edge(self, source: str, target: str, relation: str, timestamp: str = None):
-        if not source or not target: return
-        if not self.graph.has_node(source): self.add_node(source, "Unknown", "Created by relation")
-        if not self.graph.has_node(target): self.add_node(target, "Unknown", "Created by relation")
-        
-        # Normalize timestamp
-        if timestamp == "None" or timestamp == "Unknown Date": timestamp = None
+    def add_edge(self, source: str, target: str, relation: str, timestamp: str = None, edge_type: str = None):
+        if not source or not target:
+            return
+        if not self.graph.has_node(source):
+            self.add_node(source, "Entity", "Created by relation")
+        if not self.graph.has_node(target):
+            self.add_node(target, "Entity", "Created by relation")
 
-        # Check for existing edges to update or deduplicate
+        edge_type = self._normalize_edge_type(edge_type)
+
+        if timestamp == "None" or timestamp == "Unknown Date":
+            timestamp = None
+
         if self.graph.has_edge(source, target):
             edges = self.graph[source][target]
             for key, attrs in edges.items():
                 if attrs.get('relation') == relation:
                     old_ts = attrs.get('timestamp')
-                    if old_ts == "None" or old_ts == "Unknown Date": old_ts = None
-                    
-                    # Update if refining date (Unknown -> Known)
+                    if old_ts == "None" or old_ts == "Unknown Date":
+                        old_ts = None
+
+                    if not attrs.get("edge_type"):
+                        self.graph[source][target][key]["edge_type"] = edge_type
+
                     if not old_ts and timestamp:
                         self.graph[source][target][key]['timestamp'] = timestamp
                         return
-                    
-                    # Deduplicate (Same relation, same date)
+
                     if old_ts == timestamp:
                         return
-        
-        # Add new edge (allow NetworkX to generate unique key)
-        self.graph.add_edge(source, target, relation=relation, timestamp=timestamp)
+
+        self.graph.add_edge(source, target, relation=relation, timestamp=timestamp, edge_type=edge_type)
 
     def delete_node(self, name: str):
         if self.graph.has_node(name):
@@ -87,19 +108,22 @@ class MemoryGraph:
             logger.info(f"✂️ Edge Deleted: {source} -> {target}")
 
     def get_full_state(self) -> str:
-        if self.graph.number_of_nodes() == 0: return "Graph is empty."
+        if self.graph.number_of_nodes() == 0:
+            return "Graph is empty."
         nodes = []
         for n, d in self.graph.nodes(data=True):
             desc = d.get('description', '')
-            nodes.append(f"{n}: {desc}")
-        
+            node_type = d.get('node_type') or d.get('type', 'Entity')
+            nodes.append(f"{n} [{node_type}]: {desc}")
+
         edges = []
         for u, v, d in self.graph.edges(data=True):
             rel = d.get('relation')
             ts = d.get('timestamp')
+            edge_type = d.get('edge_type', 'RelationEdge')
             ts_str = f" [Time: {ts}]" if ts else ""
-            edges.append(f"{u} --{rel}{ts_str}--> {v}")
-        
+            edges.append(f"{u} --{rel}<{edge_type}>{ts_str}--> {v}")
+
         return "Nodes:\n" + "\n".join(nodes[:500]) + "\nEdges:\n" + "\n".join(edges[:500])
 
     def primitive_search(self, query: str) -> List[str]:
@@ -146,29 +170,34 @@ class MemoryGraph:
     def primitive_get_neighbors(self, node_names: List[str]) -> str:
         view = []
         for name in node_names:
-            if not self.graph.has_node(name): continue
+            if not self.graph.has_node(name):
+                continue
             desc = self.graph.nodes[name].get("description", "")
-            
-            view.append(f"📍 At Node: [{name}] - {desc}")
+            node_type = self.graph.nodes[name].get("node_type") or self.graph.nodes[name].get("type", "Entity")
+
+            view.append(f"📍 At Node: [{name}]<{node_type}> - {desc}")
             neighbors = self.graph.out_edges(name, data=True)
             for _, target, data in neighbors:
                 rel = data.get('relation', 'related')
-                # Show Edge timestamp
+                edge_type = data.get('edge_type', 'RelationEdge')
                 edge_ts = data.get('timestamp')
                 edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
-                
+
                 t_desc = self.graph.nodes[target].get("description", "")
+                t_type = self.graph.nodes[target].get("node_type") or self.graph.nodes[target].get("type", "Entity")
                 preview = t_desc[:50] + "..." if len(t_desc) > 50 else t_desc
-                view.append(f"   --[{rel}{edge_ts_str}]--> 🔭 Candidate: [{target}] ({preview})")
+                view.append(f"   --[{rel}<{edge_type}>{edge_ts_str}]--> 🔭 Candidate: [{target}]<{t_type}> ({preview})")
             in_edges = self.graph.in_edges(name, data=True)
             for source, _, data in in_edges:
                 rel = data.get('relation', 'related')
+                edge_type = data.get('edge_type', 'RelationEdge')
                 edge_ts = data.get('timestamp')
                 edge_ts_str = f" [Time: {edge_ts}]" if edge_ts else ""
 
                 s_desc = self.graph.nodes[source].get("description", "")
+                s_type = self.graph.nodes[source].get("node_type") or self.graph.nodes[source].get("type", "Entity")
                 preview = s_desc[:50] + "..." if len(s_desc) > 50 else s_desc
-                view.append(f"   <-[{rel}{edge_ts_str}]-- 🔭 Candidate: [{source}] ({preview})")
+                view.append(f"   <-[{rel}<{edge_type}>{edge_ts_str}]-- 🔭 Candidate: [{source}]<{s_type}> ({preview})")
         return "\n".join(view)
 
     def primitive_read(self, node_names: List[str]) -> str:
@@ -176,19 +205,19 @@ class MemoryGraph:
         for name in node_names:
             if self.graph.has_node(name):
                 d = self.graph.nodes[name]
-                
-                # Collect temporal context from incoming edges
+
                 temporal_context = []
                 in_edges = self.graph.in_edges(name, data=True)
                 for u, _, data in in_edges:
                     ts = data.get('timestamp')
+                    rel = data.get('relation', 'related')
+                    edge_type = data.get('edge_type', 'RelationEdge')
                     if ts:
-                        rel = data.get('relation', 'related')
-                        temporal_context.append(f"   <-[{rel} at {ts}]-- {u}")
-                
+                        temporal_context.append(f"   <-[{rel}<{edge_type}> at {ts}]-- {u}")
+
                 temporal_str = "\n" + "\n".join(temporal_context) if temporal_context else ""
-                
-                content.append(f"Entity: {name} ({d.get('type','Unknown')})\nDesc: {d.get('description','')}{temporal_str}")
+                node_type = d.get('node_type') or d.get('type', 'Unknown')
+                content.append(f"Entity: {name} ({node_type})\nDesc: {d.get('description','')}{temporal_str}")
         return "\n".join(content)
 
     def save(self):

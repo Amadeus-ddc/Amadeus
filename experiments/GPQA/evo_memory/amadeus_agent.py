@@ -271,7 +271,7 @@ class AmadeusMemoryAgent(MemoryAgent):
         # ====== Step 1: Builder stores experiences into graph ======
         action_log = []
         try:
-            kept, action_log = self.builder.process_buffer(combined)
+            kept, action_log, _ = self.builder.process_buffer(combined)
             self._kept_items = kept if kept else []
             logger.info(
                 f"Q{self._question_idx} Buffer flush: {len(self._experience_buffer)} experiences, "

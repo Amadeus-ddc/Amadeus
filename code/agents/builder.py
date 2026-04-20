@@ -5,6 +5,14 @@ from typing import List, Optional
 from enum import Enum
 from pydantic import BaseModel, Field
 from amadeus_collab.core.graph import MemoryGraph
+from amadeus_collab.core.schema import (
+    EmergenceOutput,
+    EdgeTypeProposal,
+    NodeTypeProposal,
+    RuleProposal,
+    SchemaProposalBundle,
+    SchemaState,
+)
 from amadeus_collab.agents.base import BaseAgent
 
 logger = logging.getLogger("Amadeus.Builder")
@@ -22,10 +30,13 @@ class MemoryOperation(BaseModel):
     content: Optional[str] = Field(None, description="Node description / Edge relation / Raw text for WAIT.")
     timestamp: Optional[str] = Field(None, description="Absolute date (YYYY-MM-DD) PREFERRED. If calculation fails, use relative time (e.g. '10 years ago').")
     reason: str = Field(..., description="Reason for this operation (Conflict/New Fact/Ambiguity).")
+    node_type: Optional[str] = Field(None, description="Type for node operations.")
+    edge_type: Optional[str] = Field(None, description="Type for edge operations.")
 
 class BuilderOutput(BaseModel):
     chain_of_thought: str = Field(..., description="Step-by-step reasoning about Buffer vs Graph.")
     operations: List[MemoryOperation] = Field(..., description="Sequence of atomic operations.")
+    schema_proposals: Optional[dict] = Field(default=None, description="Optional schema proposals for node/edge types and rules.")
 
 class BuilderAgent(BaseAgent):
     def __init__(self, graph: MemoryGraph, model_name: str = "gpt-4-turbo"):
@@ -53,6 +64,13 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
 - Input: "Context: 2023-07-15... Input: I went hiking last Friday."
 - Action: Calculate the date (e.g., 2023-07-07) and store: ADD(Caroline, Hiking, "Went hiking"). Set "timestamp": "2023-07-07".
 - **Fallback**: If you CANNOT calculate the absolute date (e.g., context is missing year), you MAY store the relative expression (e.g., "10 years ago", "in childhood") in the "timestamp" field.
+
+**SCHEMA-AWARE BUILDING:**
+- You will be shown emerged node types, edge types, and builder rules.
+- Keep the original reasoning process, but additionally prefer reusing existing node types and edge types.
+- Only propose a new type when existing types are clearly insufficient.
+- New types must be reusable abstract categories, never sample-specific names, possessive labels, or one-off event titles.
+- ExperienceNode is only an example of a reusable high-level experience. Do not create it unless the buffer supports a truly reusable experience.
 
 **COGNITIVE PRIMITIVES:**
 
@@ -95,9 +113,38 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
       "object": "TargetName" or null,
       "content": "Description/Relation/RawText",
       "timestamp": "YYYY-MM-DD" | "10 years ago" | "last summer",
-      "reason": "Cite the specific diff between Buffer and Graph."
+      "reason": "Cite the specific diff between Buffer and Graph.",
+      "node_type": "OptionalNodeTypeName",
+      "edge_type": "OptionalEdgeTypeName"
     }
-  ]
+  ],
+  "schema_proposals": {
+    "node_types": [
+      {
+        "name": "AbstractNodeType",
+        "description": "...",
+        "when_to_create": "...",
+        "usage_scene": "...",
+        "examples": ["..."]
+      }
+    ],
+    "edge_types": [
+      {
+        "name": "AbstractEdgeType",
+        "description": "...",
+        "when_to_create": "...",
+        "usage_scene": "...",
+        "examples": ["..."]
+      }
+    ],
+    "rules": [
+      {
+        "name": "RuleName",
+        "rule_text": "...",
+        "examples": ["..."]
+      }
+    ]
+  }
 }
 """
 
@@ -145,15 +192,50 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
             logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return False # 默认继续积累
 
-    def process_buffer(self, buffer_content: str) -> tuple[List[str], List[str]]:
+    def _build_schema_context(self, schema_state: Optional[SchemaState]) -> str:
+        if not schema_state:
+            return "No schema artifact provided. Use broad defaults and only propose new abstract types when necessary."
+        return schema_state.to_prompt_context()
+
+    def _parse_schema_proposals(self, payload: Optional[dict]) -> SchemaProposalBundle:
+        if not isinstance(payload, dict):
+            return SchemaProposalBundle()
+        try:
+            return SchemaProposalBundle(
+                node_types=[NodeTypeProposal(**item) for item in payload.get("node_types", []) if isinstance(item, dict)],
+                edge_types=[EdgeTypeProposal(**item) for item in payload.get("edge_types", []) if isinstance(item, dict)],
+                rules=[RuleProposal(**item) for item in payload.get("rules", []) if isinstance(item, dict)],
+            )
+        except Exception as e:
+            logger.warning(f"Schema proposal parse failed: {e}")
+            return SchemaProposalBundle()
+
+    def process_buffer(
+        self,
+        buffer_content: str,
+        schema_state: Optional[SchemaState] = None,
+        buffer_index: Optional[int] = None,
+        replay_mode: bool = False,
+    ) -> tuple[List[str], List[str], SchemaProposalBundle]:
         context = self.graph.get_full_state()
+        schema_context = self._build_schema_context(schema_state)
+        buffer_meta = f"Buffer Index: {buffer_index}" if buffer_index is not None else "Buffer Index: Unknown"
+        replay_meta = "Replay Mode: ON" if replay_mode else "Replay Mode: OFF"
 
         try:
             response = self.client.chat.completions.create(
                 model=self.model_name,
                 messages=[
                     {"role": "system", "content": self.get_full_prompt()},
-                    {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== NEW BUFFER ===\n{buffer_content}"}
+                    {
+                        "role": "user",
+                        "content": (
+                            f"=== CURRENT GRAPH ===\n{context}\n\n"
+                            f"=== CURRENT SCHEMA ===\n{schema_context}\n\n"
+                            f"=== BUILD META ===\n{buffer_meta}\n{replay_meta}\n\n"
+                            f"=== NEW BUFFER ===\n{buffer_content}"
+                        ),
+                    },
                 ],
                 response_format={"type": "json_object"},
                 temperature=0.0
@@ -162,7 +244,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
 
             raw_content = response.choices[0].message.content
             if not raw_content:
-                return [], []
+                return [], [], SchemaProposalBundle()
 
             data = json.loads(raw_content)
 
@@ -170,21 +252,38 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
                 logger.info(f"🤔 Builder CoT: {data['chain_of_thought']}")
 
             ops = data.get("operations", [])
-            return self._execute_operations(ops)
+            kept_items, action_log = self._execute_operations(ops)
+            schema_proposals = self._parse_schema_proposals(data.get("schema_proposals"))
+            if schema_proposals.node_types or schema_proposals.edge_types or schema_proposals.rules:
+                logger.info(
+                    "🧩 Builder schema proposals | nodes=%s | edges=%s | rules=%s",
+                    [p.name for p in schema_proposals.node_types],
+                    [p.name for p in schema_proposals.edge_types],
+                    [p.name for p in schema_proposals.rules],
+                )
+            logger.info(
+                "🛠️ Builder execution summary | buffer_index=%s | replay=%s | ops=%d | waits=%d",
+                buffer_index,
+                replay_mode,
+                len(action_log),
+                len(kept_items),
+            )
+            return kept_items, action_log, schema_proposals
 
         except Exception as e:
             logger.error(f"Builder Failed: {e}")
             logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return [], []
+            return [], [], SchemaProposalBundle()
 
-    def force_update(self, instruction: str) -> bool:
+    def force_update(self, instruction: str, schema_state: Optional[SchemaState] = None) -> bool:
         """
         Directly apply a fix instruction from the Optimizer.
         This bypasses the normal buffer processing to fix specific graph errors.
         """
         logger.info(f"🔧 FORCE UPDATE TRIGGERED: {instruction}")
         context = self.graph.get_full_state()
-        
+        schema_context = self._build_schema_context(schema_state)
+
         prompt = f"""
 {self.get_full_prompt()}
 
@@ -201,7 +300,10 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                 model=self.model_name,
                 messages=[
                     {"role": "system", "content": prompt},
-                    {"role": "user", "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== INSTRUCTION ===\n{instruction}"}
+                    {
+                        "role": "user",
+                        "content": f"=== CURRENT GRAPH ===\n{context}\n\n=== CURRENT SCHEMA ===\n{schema_context}\n\n=== INSTRUCTION ===\n{instruction}",
+                    },
                 ],
                 response_format={"type": "json_object"},
                 temperature=0.0
@@ -256,16 +358,18 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
                     prefix_node = "➕ NODE" if op.action == ActionType.ADD else "🔄 UPDATE NODE"
                     prefix_edge = "🔗 LINK" if op.action == ActionType.ADD else "🔄 UPDATE LINK"
                     
-                    if op.object: 
+                    if op.object:
                         rel = op.content if op.content else "related to"
-                        self.graph.add_edge(op.subject, op.object, rel, timestamp=op.timestamp)
-                        msg = f"{prefix_edge}: {op.subject} --{rel}--> {op.object} (Time: {op.timestamp})"
+                        edge_type = op.edge_type or "RelationEdge"
+                        self.graph.add_edge(op.subject, op.object, rel, timestamp=op.timestamp, edge_type=edge_type)
+                        msg = f"{prefix_edge}: {op.subject} --{rel}<{edge_type}>--> {op.object} (Time: {op.timestamp})"
                         logger.info(msg)
                         action_log.append(msg)
                     else:
-                        self.graph.add_node(op.subject, "Entity", op.content or "")
+                        node_type = op.node_type or "Entity"
+                        self.graph.add_node(op.subject, node_type, op.content or "")
                         description = op.content if op.content else "No description"
-                        msg = f"{prefix_node}: {op.subject} (Content: {description})"
+                        msg = f"{prefix_node}: {op.subject} <{node_type}> (Content: {description})"
                         logger.info(msg)
                         action_log.append(msg)
 
@@ -291,3 +395,160 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
 
         self.graph.save()
         return kept_items, action_log
+
+    def emerge_schema(self, buffers: List[str], current_schema: Optional[SchemaState] = None) -> EmergenceOutput:
+        schema_context = self._build_schema_context(current_schema)
+        prompt = f"""
+You are deriving a reusable schema for graph building from the first few buffers of a sample.
+
+Requirements:
+- Propose reusable node types, edge types, and builder rules.
+- Keep node types and edge types separate.
+- Prefer a small, high-coverage schema.
+- Do not invent sample-specific names, possessive labels, or one-off event titles as types.
+- ExperienceNode is only an example of a reusable high-level experience. Do not force it when the evidence only supports a single event.
+- Decide whether the schema is stable enough to continue building, or whether more buffers are needed.
+- Output JSON only.
+
+Current schema:
+{schema_context}
+
+Buffers for emergence:
+{chr(10).join(f'--- Buffer {i+1} ---{chr(10)}{buf}' for i, buf in enumerate(buffers))}
+
+Return:
+{{
+  "analysis": "...",
+  "stable": true | false,
+  "reason": "...",
+  "proposals": {{
+    "node_types": [...],
+    "edge_types": [...],
+    "rules": [...]
+  }}
+}}
+"""
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[{"role": "user", "content": prompt}],
+                response_format={"type": "json_object"},
+                temperature=0.0,
+            )
+            self._record_usage(response)
+            data = json.loads(response.choices[0].message.content)
+            proposals = self._parse_schema_proposals(data.get("proposals"))
+            output = EmergenceOutput(
+                analysis=data.get("analysis", ""),
+                stable=bool(data.get("stable", False)),
+                reason=data.get("reason", ""),
+                proposals=proposals,
+            )
+            logger.info(
+                "🧠 Schema emergence | stable=%s | reason=%s | node_types=%s | edge_types=%s | rules=%s",
+                output.stable,
+                output.reason,
+                [p.name for p in output.proposals.node_types],
+                [p.name for p in output.proposals.edge_types],
+                [p.name for p in output.proposals.rules],
+            )
+            if output.analysis:
+                logger.info(f"🧠 Schema emergence analysis: {output.analysis}")
+            return output
+        except Exception as e:
+            logger.error(f"Schema emergence failed: {e}")
+            return EmergenceOutput()
+
+    def review_schema_proposals(
+        self,
+        proposals: SchemaProposalBundle,
+        current_schema: Optional[SchemaState] = None,
+    ) -> List[dict]:
+        schema_context = self._build_schema_context(current_schema)
+        proposal_payload = proposals.model_dump(mode="json")
+        prompt = f"""
+Review schema proposals for graph building.
+
+Rules:
+- Compare against existing active node types and edge types.
+- Reject or generalize sample-specific labels, possessive labels, and one-off event titles.
+- Merge aliases into existing abstract categories when possible.
+- Keep only reusable abstract categories.
+- Rules may be kept unless they are duplicates or sample-specific.
+- Output JSON only.
+
+Current schema:
+{schema_context}
+
+Proposals:
+{json.dumps(proposal_payload, ensure_ascii=False, indent=2)}
+
+Return:
+{{
+  "results": [
+    {{
+      "kind": "node" | "edge" | "rule",
+      "proposed_name": "...",
+      "action": "keep" | "merge" | "generalize" | "reject",
+      "canonical_name": "...",
+      "reason": "..."
+    }}
+  ]
+}}
+"""
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[{"role": "user", "content": prompt}],
+                response_format={"type": "json_object"},
+                temperature=0.0,
+            )
+            self._record_usage(response)
+            data = json.loads(response.choices[0].message.content)
+            results = data.get("results", [])
+            if isinstance(results, list):
+                cleaned = [item for item in results if isinstance(item, dict)]
+                if cleaned:
+                    logger.info(
+                        "🔍 Schema review results | %s",
+                        "; ".join(
+                            f"{item.get('kind')}:{item.get('proposed_name')}->{item.get('action')}({item.get('canonical_name')})"
+                            for item in cleaned
+                        ),
+                    )
+                return cleaned
+        except Exception as e:
+            logger.error(f"Schema review failed: {e}")
+
+        fallback = []
+        for item in proposals.node_types:
+            fallback.append(
+                {
+                    "kind": "node",
+                    "proposed_name": item.name,
+                    "action": "reject" if re.search(r"'s|\bof\b", item.name, re.IGNORECASE) else "keep",
+                    "canonical_name": None,
+                    "reason": "fallback review",
+                }
+            )
+        for item in proposals.edge_types:
+            fallback.append(
+                {
+                    "kind": "edge",
+                    "proposed_name": item.name,
+                    "action": "reject" if re.search(r"'s|\bof\b", item.name, re.IGNORECASE) else "keep",
+                    "canonical_name": None,
+                    "reason": "fallback review",
+                }
+            )
+        for item in proposals.rules:
+            fallback.append(
+                {
+                    "kind": "rule",
+                    "proposed_name": item.name,
+                    "action": "keep",
+                    "canonical_name": item.name,
+                    "reason": "fallback review",
+                }
+            )
+        return fallback

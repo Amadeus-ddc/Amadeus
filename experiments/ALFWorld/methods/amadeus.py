@@ -147,7 +147,7 @@ class AmadeusMemory(MemoryModule):
 
         logger.info(f"  [Amadeus] Builder processing episode {episode_idx}...")
         try:
-            kept_items, action_log = self.builder.process_buffer(buffer_content)
+            kept_items, action_log, _ = self.builder.process_buffer(buffer_content)
             logger.info(f"  [Amadeus] Builder completed: {len(action_log)} operations")
         except Exception as e:
             logger.error(f"  [Amadeus] Builder failed: {e}, falling back to direct add")

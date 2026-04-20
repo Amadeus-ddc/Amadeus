@@ -533,7 +533,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "brief reason"}}
             logger.info(f"[Env {self.env_id}] Builder triggered FLUSH at {step_label} "
                         f"(buffer len={len(self._pending_buffer)})")
             try:
-                kept_items, action_log = self.builder.process_buffer(self._pending_buffer)
+                kept_items, action_log, _ = self.builder.process_buffer(self._pending_buffer)
             except Exception as e:
                 logger.warning(f"[Env {self.env_id}] Builder process_buffer failed at flush: {e}")
 
@@ -561,7 +561,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "brief reason"}}
 
             # Still need to process the latest chunk into KG for immediate use
             try:
-                kept_items, action_log = self.builder.process_buffer(new_chunk)
+                kept_items, action_log, _ = self.builder.process_buffer(new_chunk)
             except Exception as e:
                 logger.warning(f"[Env {self.env_id}] Builder failed at {step_label}: {e}")
 
