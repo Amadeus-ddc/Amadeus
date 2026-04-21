@@ -20,7 +20,8 @@ Your goal is to generate questions based on the provided 'Buffer Context' to tes
 4. **DISTRACTION**: Ask about irrelevant details that SHOULD be ignored. The answer should be "Unknown" or "Irrelevant".
 
 **RULES:**
-- Questions must be relevant to the main characters (e.g., Caroline, Melanie) if they appear.
+- Questions must target salient entities, events, locations, times, and relations in the current buffer.
+- When multiple entities appear, prioritize the most central or recently mentioned ones.
 - The 'ground_truth' must be supported by the Buffer text.
 - Do NOT ask about meta-data like "What is in line 1?".
 
@@ -36,10 +37,10 @@ Before generating questions, you must perform a Chain of Thought (CoT) analysis:
   "chain_of_thought": "First, I analyzed the buffer... I noticed that...",
   "questions": [
     {
-      "question": "Where did Caroline go?",
-      "ground_truth": "She went to the kitchen.",
+      "question": "Where did the speaker go after leaving the office?",
+      "ground_truth": "The speaker went to the station.",
       "type": "FACT_CHECK",
-      "reasoning": "Explicitly stated in text."
+      "reasoning": "Explicitly stated in text and anchored to an action sequence."
     }
   ]
 }

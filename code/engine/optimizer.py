@@ -173,12 +173,12 @@ Your strategy update (meta_gradient) must be a **procedural rule about HOW to pr
 - "Improve retrieval accuracy"
 
 **BAD examples (too fact-specific — these are just memorizing answers):**
-- "Remember that Caroline moved to Paris"
-- "The answer to questions about Bob's job is engineer"
-- "Store the fact that the meeting was on Friday"
+- "Remember that the visitor arrived at the station"
+- "The answer to questions about the device status is offline"
+- "Store that the package was delivered on Tuesday"
 
 **GOOD examples (procedural, reusable — aim for this level):**
-- "When a speaker mentions a change of state (moved, quit, started), always create a DELETE for the old state and ADD for the new state"
+- "When an entity changes state or location, remove or overwrite the outdated state and keep the most recent one"
 - "When searching for temporal questions (when/what date), prioritize edges with timestamp fields over node descriptions"
 - "When the buffer contains third-person references (he/she/they), resolve the pronoun to an entity name BEFORE creating any edge"
 
@@ -290,7 +290,7 @@ What did the winning update get right that the others missed? Focus on:
 
 Step 4 — **Generalize into an Optimizer Heuristic**:
 Abstract this into a rule that tells the Optimizer: "When you see error pattern X, you should update agent Y's operator Z with a meta_gradient that does W."
-Replace specific entities/facts with categories (e.g., "Caroline" → "a speaker", "2023-07-15" → "relative time expression").
+Replace specific entities/facts with categories (e.g., "Taylor" → "a participant", "2024-03-02" → "an absolute date", "last Friday" → "a relative time expression", "station" → "a location entity").
 
 Step 5 — **Formulate the Experience**:
 Write the final experience with these fields:

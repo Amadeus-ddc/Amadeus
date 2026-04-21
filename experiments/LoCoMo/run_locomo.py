@@ -24,7 +24,7 @@ if os.getenv("OPENAI_API_BASE") and not os.getenv("OPENAI_BASE_URL"):
 
 from amadeus_collab.core.graph import MemoryGraph
 from amadeus_collab.core.buffer import TimeWindowBuffer
-from amadeus_collab.core.schema import SchemaReviewResult, SchemaState
+from amadeus_collab.core.schema import SchemaProposalBundle, SchemaReviewResult, SchemaState
 from amadeus_collab.agents.builder import BuilderAgent
 from amadeus_collab.agents.answerer import AnswererAgent
 from amadeus_collab.agents.questioner import QuestionerAgent
@@ -70,6 +70,7 @@ def setup_logging(log_path=None):
     logging.getLogger("httpx").setLevel(logging.WARNING)
 
 logger = logging.getLogger("Experiment")
+SCHEMA_EXPLORATION_BUFFER_LIMIT = 3
 
 def parse_sample_entry(target_data):
     """
@@ -254,8 +255,52 @@ def evaluate_with_llm(question, ground_truth, prediction, model_name="qwen2.5-32
     }
 
 
+def apply_schema_proposals(builder, schema_state, proposals, schema_path, *, buffers_seen, selected_n, sample_id=None, source="unknown"):
+    prefix = f"[{sample_id}] " if sample_id else ""
+
+    if not isinstance(proposals, SchemaProposalBundle):
+        logger.warning(f"{prefix}🧠 Invalid schema proposals from {source}; skipping apply.")
+        return schema_state, False
+
+    if not (proposals.node_types or proposals.edge_types or proposals.rules):
+        logger.info(f"{prefix}🧠 No schema proposals to apply from {source}.")
+        schema_state.buffers_seen = max(schema_state.buffers_seen, buffers_seen)
+        schema_state.n_selected = max(schema_state.n_selected, selected_n)
+        schema_state.save(schema_path)
+        return schema_state, False
+
+    review_raw = builder.review_schema_proposals(proposals, schema_state)
+    review_results = []
+    for item in review_raw:
+        try:
+            review_results.append(SchemaReviewResult(**item))
+        except Exception as e:
+            logger.warning(f"{prefix}Invalid schema review result skipped: {e}")
+
+    old_version = schema_state.version
+    changed = schema_state.apply_reviewed_proposals(
+        proposals,
+        review_results,
+        buffers_seen=buffers_seen,
+        selected_n=selected_n,
+    )
+    schema_state.save(schema_path)
+
+    logger.info(
+        f"{prefix}🧠 Schema state after {source} | changed=%s | version=%s->%s | n_selected=%s | active_node_types=%s | active_edge_types=%s | active_rules=%s",
+        changed,
+        old_version,
+        schema_state.version,
+        schema_state.n_selected,
+        [item.name for item in schema_state.node_types if item.status == 'active'],
+        [item.name for item in schema_state.edge_types if item.status == 'active'],
+        [item.name for item in schema_state.rules if item.status == 'active'],
+    )
+    return schema_state, changed
+
+
 def maybe_emerge_schema(builder, schema_state, flushed_buffers, schema_path, sample_id=None):
-    max_n = min(3, len(flushed_buffers))
+    max_n = min(SCHEMA_EXPLORATION_BUFFER_LIMIT, len(flushed_buffers))
     if max_n == 0:
         return schema_state, False
 
@@ -276,34 +321,16 @@ def maybe_emerge_schema(builder, schema_state, flushed_buffers, schema_path, sam
         logger.warning(f"{prefix}🧠 Emergence returned no output.")
         return schema_state, False
 
-    review_raw = builder.review_schema_proposals(last_output.proposals, schema_state)
-    review_results = []
-    for item in review_raw:
-        try:
-            review_results.append(SchemaReviewResult(**item))
-        except Exception as e:
-            logger.warning(f"{prefix}Invalid schema review result skipped: {e}")
-
-    old_version = schema_state.version
-    changed = schema_state.apply_reviewed_proposals(
+    return apply_schema_proposals(
+        builder,
+        schema_state,
         last_output.proposals,
-        review_results,
+        schema_path,
         buffers_seen=len(flushed_buffers),
         selected_n=selected_n,
+        sample_id=sample_id,
+        source="emergence",
     )
-    schema_state.save(schema_path)
-
-    logger.info(
-        f"{prefix}🧠 Schema state after emergence | changed=%s | version=%s->%s | n_selected=%s | active_node_types=%s | active_edge_types=%s | active_rules=%s",
-        changed,
-        old_version,
-        schema_state.version,
-        schema_state.n_selected,
-        [item.name for item in schema_state.node_types if item.status == 'active'],
-        [item.name for item in schema_state.edge_types if item.status == 'active'],
-        [item.name for item in schema_state.rules if item.status == 'active'],
-    )
-    return schema_state, changed
 
 
 def replay_graph(builder, graph, schema_state, flushed_buffers, sample_id=None):
@@ -339,7 +366,7 @@ def replay_graph(builder, graph, schema_state, flushed_buffers, sample_id=None):
 def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, run_output_dir):
     sample_id, chunks, questions = sample_data
     logger.info(f"\n{'='*40}\n🚀 Running Sample: {sample_id}\n{'='*40}")
-    
+
     # Define Sub-directories
     # Structure: experiments/LoCoMo/logs/run_xxx/{sample_id}/graphs/
     #            experiments/LoCoMo/logs/run_xxx/{sample_id}/results/
@@ -421,28 +448,50 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
             if should_flush:
                 logger.info(f"[{sample_id}] 🔄 Flush Triggered at chunk {i}. Processing Buffer...")
                 flushed_buffers.append(current_buffer)
-                schema_state, schema_changed = maybe_emerge_schema(builder, schema_state, flushed_buffers, schema_path, sample_id=sample_id)
-                if schema_changed:
-                    logger.info(f"[{sample_id}] 🧭 Schema updated to v{schema_state.version}; replaying from buffer 1.")
-                    pending_action_log = replay_graph(builder, graph, schema_state, flushed_buffers, sample_id=sample_id)
+                current_buffer_idx = len(flushed_buffers) - 1
+                in_schema_exploration = len(flushed_buffers) <= SCHEMA_EXPLORATION_BUFFER_LIMIT
+                schema_changed = False
+                if in_schema_exploration:
+                    schema_state, schema_changed = maybe_emerge_schema(builder, schema_state, flushed_buffers, schema_path, sample_id=sample_id)
+                    if schema_changed:
+                        logger.info(f"[{sample_id}] 🧭 Schema updated to v{schema_state.version}; rebuilding current buffer only.")
                 else:
-                    _, pending_action_log, schema_proposals = builder.process_buffer(
-                        current_buffer,
-                        schema_state=schema_state,
-                        buffer_index=len(flushed_buffers) - 1,
-                        replay_mode=False,
-                    )
+                    logger.info(f"[{sample_id}] 🧊 Schema exploration frozen after first {SCHEMA_EXPLORATION_BUFFER_LIMIT} flushed buffers; skipping emergence for buffer {len(flushed_buffers)}.")
+
+                _, pending_action_log, schema_proposals = builder.process_buffer(
+                    current_buffer,
+                    schema_state=schema_state,
+                    buffer_index=current_buffer_idx,
+                    replay_mode=False,
+                )
+                logger.info(
+                    f"[{sample_id}] 🛠️ Executed buffer {len(flushed_buffers)} under schema v{schema_state.version} | active_node_types={[item.name for item in schema_state.node_types if item.status == 'active']} | active_edge_types={[item.name for item in schema_state.edge_types if item.status == 'active']} | active_rules={[item.name for item in schema_state.rules if item.status == 'active']}"
+                )
+                if schema_proposals.node_types or schema_proposals.edge_types or schema_proposals.rules:
                     logger.info(
-                        f"[{sample_id}] 🛠️ Executed buffer {len(flushed_buffers)} under schema v{schema_state.version} | active_node_types={[item.name for item in schema_state.node_types if item.status == 'active']} | active_edge_types={[item.name for item in schema_state.edge_types if item.status == 'active']} | active_rules={[item.name for item in schema_state.rules if item.status == 'active']}"
+                        f"[{sample_id}] 🧩 Post-build schema proposals detected | node_types={[item.name for item in schema_proposals.node_types]} | edge_types={[item.name for item in schema_proposals.edge_types]} | rules={[item.name for item in schema_proposals.rules]}"
                     )
-                    if schema_proposals.node_types or schema_proposals.edge_types or schema_proposals.rules:
-                        logger.info(
-                            f"[{sample_id}] 🧩 Post-build schema proposals detected | node_types={[item.name for item in schema_proposals.node_types]} | edge_types={[item.name for item in schema_proposals.edge_types]} | rules={[item.name for item in schema_proposals.rules]}"
+                    if in_schema_exploration:
+                        schema_state, schema_changed = apply_schema_proposals(
+                            builder,
+                            schema_state,
+                            schema_proposals,
+                            schema_path,
+                            buffers_seen=len(flushed_buffers),
+                            selected_n=min(SCHEMA_EXPLORATION_BUFFER_LIMIT, len(flushed_buffers)),
+                            sample_id=sample_id,
+                            source=f"post-build buffer {len(flushed_buffers)}",
                         )
-                        schema_state, schema_changed = maybe_emerge_schema(builder, schema_state, flushed_buffers, schema_path, sample_id=sample_id)
                         if schema_changed:
-                            logger.info(f"[{sample_id}] 🧭 Schema refined after buffer {len(flushed_buffers)}; replaying from buffer 1.")
-                            pending_action_log = replay_graph(builder, graph, schema_state, flushed_buffers, sample_id=sample_id)
+                            logger.info(f"[{sample_id}] 🧭 Schema refined after buffer {len(flushed_buffers)}; rebuilding current buffer only.")
+                            _, pending_action_log, _ = builder.process_buffer(
+                                current_buffer,
+                                schema_state=schema_state,
+                                buffer_index=current_buffer_idx,
+                                replay_mode=False,
+                            )
+                    else:
+                        logger.info(f"[{sample_id}] 🧊 Ignoring post-build schema proposals after schema exploration window closed.")
                 pending_buffer_for_optimizer = current_buffer
 
                 if graph.graph.number_of_nodes() > 0:
@@ -461,28 +510,50 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     if current_buffer:
         logger.info(f"[{sample_id}] 🔄 Final Flush...")
         flushed_buffers.append(current_buffer)
-        schema_state, schema_changed = maybe_emerge_schema(builder, schema_state, flushed_buffers, schema_path, sample_id=sample_id)
-        if schema_changed:
-            logger.info(f"[{sample_id}] 🧭 Schema updated to v{schema_state.version}; replaying from buffer 1.")
-            pending_action_log = replay_graph(builder, graph, schema_state, flushed_buffers, sample_id=sample_id)
+        current_buffer_idx = len(flushed_buffers) - 1
+        in_schema_exploration = len(flushed_buffers) <= SCHEMA_EXPLORATION_BUFFER_LIMIT
+        schema_changed = False
+        if in_schema_exploration:
+            schema_state, schema_changed = maybe_emerge_schema(builder, schema_state, flushed_buffers, schema_path, sample_id=sample_id)
+            if schema_changed:
+                logger.info(f"[{sample_id}] 🧭 Schema updated to v{schema_state.version}; rebuilding current buffer only.")
         else:
-            _, pending_action_log, schema_proposals = builder.process_buffer(
-                current_buffer,
-                schema_state=schema_state,
-                buffer_index=len(flushed_buffers) - 1,
-                replay_mode=False,
-            )
+            logger.info(f"[{sample_id}] 🧊 Schema exploration frozen after first {SCHEMA_EXPLORATION_BUFFER_LIMIT} flushed buffers; skipping emergence for final buffer {len(flushed_buffers)}.")
+
+        _, pending_action_log, schema_proposals = builder.process_buffer(
+            current_buffer,
+            schema_state=schema_state,
+            buffer_index=current_buffer_idx,
+            replay_mode=False,
+        )
+        logger.info(
+            f"[{sample_id}] 🛠️ Executed final buffer {len(flushed_buffers)} under schema v{schema_state.version} | active_node_types={[item.name for item in schema_state.node_types if item.status == 'active']} | active_edge_types={[item.name for item in schema_state.edge_types if item.status == 'active']} | active_rules={[item.name for item in schema_state.rules if item.status == 'active']}"
+        )
+        if schema_proposals.node_types or schema_proposals.edge_types or schema_proposals.rules:
             logger.info(
-                f"[{sample_id}] 🛠️ Executed final buffer {len(flushed_buffers)} under schema v{schema_state.version} | active_node_types={[item.name for item in schema_state.node_types if item.status == 'active']} | active_edge_types={[item.name for item in schema_state.edge_types if item.status == 'active']} | active_rules={[item.name for item in schema_state.rules if item.status == 'active']}"
+                f"[{sample_id}] 🧩 Post-build schema proposals detected after final buffer | node_types={[item.name for item in schema_proposals.node_types]} | edge_types={[item.name for item in schema_proposals.edge_types]} | rules={[item.name for item in schema_proposals.rules]}"
             )
-            if schema_proposals.node_types or schema_proposals.edge_types or schema_proposals.rules:
-                logger.info(
-                    f"[{sample_id}] 🧩 Post-build schema proposals detected after final buffer | node_types={[item.name for item in schema_proposals.node_types]} | edge_types={[item.name for item in schema_proposals.edge_types]} | rules={[item.name for item in schema_proposals.rules]}"
+            if in_schema_exploration:
+                schema_state, schema_changed = apply_schema_proposals(
+                    builder,
+                    schema_state,
+                    schema_proposals,
+                    schema_path,
+                    buffers_seen=len(flushed_buffers),
+                    selected_n=min(SCHEMA_EXPLORATION_BUFFER_LIMIT, len(flushed_buffers)),
+                    sample_id=sample_id,
+                    source="post-build final buffer",
                 )
-                schema_state, schema_changed = maybe_emerge_schema(builder, schema_state, flushed_buffers, schema_path, sample_id=sample_id)
                 if schema_changed:
-                    logger.info(f"[{sample_id}] 🧭 Schema refined after final buffer; replaying from buffer 1.")
-                    pending_action_log = replay_graph(builder, graph, schema_state, flushed_buffers, sample_id=sample_id)
+                    logger.info(f"[{sample_id}] 🧭 Schema refined after final buffer; rebuilding current buffer only.")
+                    _, pending_action_log, _ = builder.process_buffer(
+                        current_buffer,
+                        schema_state=schema_state,
+                        buffer_index=current_buffer_idx,
+                        replay_mode=False,
+                    )
+            else:
+                logger.info(f"[{sample_id}] 🧊 Ignoring post-build schema proposals after schema exploration window closed.")
         pending_buffer_for_optimizer = current_buffer
         schema_state.save(schema_path)
         if graph.graph.number_of_nodes() > 0:
