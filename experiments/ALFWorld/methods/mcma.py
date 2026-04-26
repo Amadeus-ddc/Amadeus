@@ -36,7 +36,7 @@ _DEFAULT_TRAJ_FILE = os.path.join(
     os.path.dirname(_AMADEUS_ROOT), "MemP", "ProcedureMem", "Alfworld", "alfworld_format_traj.json"
 )
 _DEFAULT_STORE_DIR = os.path.join(
-    _AMADEUS_ROOT, "amadeus", "experiments", "ALFWorld", "logs", "mcma_store"
+    _AMADEUS_ROOT, "experiments", "ALFWorld", "logs", "mcma_store"
 )
 
 # Knowledge generation prompt (from MCMA run_alf/prompt/sum_knowledge.txt)

@@ -66,13 +66,16 @@ Target Modes for this batch: {', '.join(selected_modes)}
         try:
             response = self.client.chat.completions.create(
                 model=self.model_name,
-                messages=[{"role": "system", "content": prompt}],
+                messages=[
+                    {"role": "system", "content": self.get_full_prompt()},
+                    {"role": "user", "content": prompt},
+                ],
                 response_format={"type": "json_object"},
                 temperature=0.0
             )
             self._record_usage(response)
             content = response.choices[0].message.content
-            data = json.loads(content)
+            data = self._parse_json_content(content)
             if "chain_of_thought" in data:
                 logger.info(f"Questioner CoT: {data['chain_of_thought']}")
             return data.get("questions", [])

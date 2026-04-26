@@ -44,29 +44,39 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 # ---------------------------------------------------------------------------
-# Path setup  (amadeus repo root = two levels up from this file)
+# Path setup
 # ---------------------------------------------------------------------------
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-AMADEUS_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))       # amadeus/
-WORKSPACE_ROOT = os.path.dirname(AMADEUS_ROOT)                     # /data/hzy/Amadeus
+AMADEUS_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
+WORKSPACE_ROOT = os.path.dirname(AMADEUS_ROOT)
+sys.path.insert(0, AMADEUS_ROOT)
 sys.path.insert(0, WORKSPACE_ROOT)
 
+load_dotenv(os.path.join(AMADEUS_ROOT, ".env"))
 load_dotenv(os.path.join(AMADEUS_ROOT, "experiments", ".env"))
 if os.getenv("OPENAI_API_BASE") and not os.getenv("OPENAI_BASE_URL"):
     os.environ["OPENAI_BASE_URL"] = os.getenv("OPENAI_API_BASE")
 
-# Amadeus components  (run_locomo.py 同样从 amadeus_tzx 导入)
-from amadeus_tzx.code.core.graph import MemoryGraph
-from amadeus_tzx.code.core.buffer import TimeWindowBuffer
-from amadeus_tzx.code.agents.builder import BuilderAgent
-from amadeus_tzx.code.agents.answerer import AnswererAgent
-from amadeus_tzx.code.agents.questioner import QuestionerAgent
-from amadeus_tzx.code.engine.optimizer import AdversarialOptimizer
+from amadeus_collab.core.graph import MemoryGraph
+from amadeus_collab.core.buffer import TimeWindowBuffer
+from amadeus_collab.agents.builder import BuilderAgent
+from amadeus_collab.agents.answerer import AnswererAgent
+from amadeus_collab.agents.questioner import QuestionerAgent
+from amadeus_collab.engine.optimizer import AdversarialOptimizer
 
 # verl-agent ALFWorld environment  (reuse its env package directly)
 # 注意: 不能通过包路径导入，因为 agent_system.environments.__init__ 会拉入
 # env_manager → omegaconf 等不必要的依赖。这里预注册 stub 包绕过 __init__ 链。
-VERL_AGENT_ROOT = os.path.join(WORKSPACE_ROOT, "verl-agent")
+_VERL_CANDIDATES = [
+    os.environ.get("VERL_AGENT_ROOT"),
+    os.path.join(WORKSPACE_ROOT, "verl-agent"),
+    os.path.join(AMADEUS_ROOT, "verl-agent"),
+    os.path.join(os.path.dirname(AMADEUS_ROOT), "amadeus", "experiments", "verl-agent"),
+]
+VERL_AGENT_ROOT = next(
+    (os.path.abspath(path) for path in _VERL_CANDIDATES if path and os.path.isdir(os.path.join(path, "agent_system"))),
+    os.path.abspath(os.environ.get("VERL_AGENT_ROOT", os.path.join(WORKSPACE_ROOT, "verl-agent"))),
+)
 sys.path.insert(0, VERL_AGENT_ROOT)
 
 # Pre-register stub packages so that envs.py's internal imports
@@ -655,14 +665,17 @@ def run_evaluation(args):
 
     # Ensure ALFWORLD_DATA is set (needed for game files + PDDL logic)
     if not os.environ.get("ALFWORLD_DATA"):
-        # Try standard alfworld cache location
-        default_data = os.path.expanduser("~/.cache/alfworld")
-        if os.path.isdir(default_data):
+        data_candidates = [
+            os.path.join(AMADEUS_ROOT, "dataset", "ALFWorld"),
+            os.path.join(os.path.dirname(AMADEUS_ROOT), "amadeus", "dataset", "ALFWorld"),
+            os.path.expanduser("~/.cache/alfworld"),
+        ]
+        default_data = next((path for path in data_candidates if os.path.isdir(os.path.join(path, "json_2.1.1"))), None)
+        if default_data:
             os.environ["ALFWORLD_DATA"] = default_data
             logger.info(f"Auto-detected ALFWORLD_DATA: {default_data}")
         else:
-            logger.error("ALFWORLD_DATA env var not set and ~/.cache/alfworld not found. "
-                         "Run: alfworld-download to get the data.")
+            logger.error("ALFWORLD_DATA env var not set and no json_2.1.1 data found.")
             sys.exit(1)
     else:
         logger.info(f"ALFWORLD_DATA: {os.environ['ALFWORLD_DATA']}")

@@ -4,8 +4,8 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PYTHON="/data/hzy/miniconda3/envs/amadeus1/bin/python"
-MODEL_NAME="qwen2.5-32b-instruct"
+PYTHON="${PYTHON:-$(command -v /data/hzy/miniconda3/envs/amadeus1/bin/python 2>/dev/null || command -v python)}"
+MODEL_NAME="${MODEL_NAME:-qwen2.5-32b-instruct}"
 ALFWORLD_DATA="${HOME}/.cache/alfworld"
 
 export ALFWORLD_DATA="${ALFWORLD_DATA}"

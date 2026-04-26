@@ -1,0 +1,237 @@
+2026-04-26 20:55:07,682 - EvalExistingGraph - INFO - Using existing graph: /data/hzy/Amadeus/amadeus-collab/experiments/LoCoMo/logs/star_gpu0_last5_Qwen3-8B_mw5_fixedoptimizer_envjudge_20260426_174347/conv-47/graphs/graph_conv-47.json
+2026-04-26 20:55:07,682 - EvalExistingGraph - INFO - Using local embedding model: /data/hzy/Amadeus/amadeus-collab/models/all-MiniLM-L6-v2
+2026-04-26 20:55:10,536 - Experiment - INFO - ✅ 成功加载 1 个样本
+2026-04-26 20:55:10,537 - Amadeus.Answerer - INFO - ❓ Question: What are John's suspected health problems?
+2026-04-26 20:55:18,650 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "John's health problems", 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['John']}
+2026-04-26 20:55:18,650 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': "John's health problems", 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['John']}
+2026-04-26 20:55:19,909 - Amadeus.Answerer - INFO - evidence_pool_init=- Bottle Caps --FOUND--> John @ 2022-03-20
+2026-04-26 20:55:24,986 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "John's suspected health problems are not explicitly mentioned in the provided information. However, based on the activities and interests listed, there are no direct indications of health issues. The data focuses more on his hobbies, projects, and social activities rather than health-related details."}
+2026-04-26 20:55:24,986 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': "John's suspected health problems are not explicitly mentioned in the provided information. However, based on the activities and interests listed, there are no direct indications of health issues. The data focuses more on his hobbies, projects, and social activities rather than health-related details."}
+2026-04-26 20:55:24,986 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 20:55:25,614 - EvalExistingGraph - INFO - 
+[conv-47] Q: What are John's suspected health problems?
+Category: 3
+GT: Obesity
+Pred: John's suspected health problems are not explicitly mentioned in the provided information. However, based on the activities and interests listed, there are no direct indications of health issues. The data focuses more on his hobbies, projects, and social activities rather than health-related details.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 20:55:25,614 - Amadeus.Answerer - INFO - ❓ Question: Which recreational activity was James pursuing on March 16, 2022?
+2026-04-26 20:55:34,276 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Which recreational activity was James pursuing on March 16, 2022?', 'mode': 'hybrid', 'entry_edge_ids': ['E7'], 'entry_nodes': ['New Hobby']}
+2026-04-26 20:55:34,276 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'Which recreational activity was James pursuing on March 16, 2022?', 'mode': 'hybrid', 'entry_edge_ids': ['E7'], 'entry_nodes': ['New Hobby']}
+2026-04-26 20:55:35,820 - Amadeus.Answerer - INFO - evidence_pool_init=- James EXPERIENCED New Hobby on 2022-03-20
+2026-04-26 20:55:41,067 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "Based on the evidence, James experienced a new hobby on March 20, 2022. However, the specific recreational activity is not explicitly mentioned. The closest related activity is 'Dog Training,' which James engaged in on March 20, 2022."}
+2026-04-26 20:55:41,125 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': "Based on the evidence, James experienced a new hobby on March 20, 2022. However, the specific recreational activity is not explicitly mentioned. The closest related activity is 'Dog Training,' which James engaged in on March 20, 2022."}
+2026-04-26 20:55:41,125 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 20:55:41,723 - EvalExistingGraph - INFO - 
+[conv-47] Q: Which recreational activity was James pursuing on March 16, 2022?
+Category: 2
+GT: bowling
+Pred: Based on the evidence, James experienced a new hobby on March 20, 2022. However, the specific recreational activity is not explicitly mentioned. The closest related activity is 'Dog Training,' which James engaged in on March 20, 2022.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 20:55:41,724 - Amadeus.Answerer - INFO - ❓ Question: Which places or events have John and James planned to meet at?
+2026-04-26 20:55:49,771 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'John and James meet places', 'mode': 'hybrid', 'entry_edge_ids': ['E1', 'E2'], 'entry_nodes': ['Travel Together', 'John and James']}
+2026-04-26 20:55:49,771 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'John and James meet places', 'mode': 'hybrid', 'entry_edge_ids': ['E1', 'E2'], 'entry_nodes': ['Travel Together', 'John and James']}
+2026-04-26 20:55:50,491 - Amadeus.Answerer - INFO - evidence_pool_init=- John and James are planning to travel together next year.
+2026-04-26 20:55:52,146 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'John and James have planned to meet at Travel Together. Additionally, they visited an Animal Sanctuary and had a Road Trip, which might be considered as meeting places or events.'}
+2026-04-26 20:55:52,146 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': 'John and James have planned to meet at Travel Together. Additionally, they visited an Animal Sanctuary and had a Road Trip, which might be considered as meeting places or events.'}
+2026-04-26 20:55:52,146 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 20:55:52,698 - EvalExistingGraph - INFO - 
+[conv-47] Q: Which places or events have John and James planned to meet at?
+Category: 1
+GT: VR Club, McGee's, baseball game
+Pred: John and James have planned to meet at Travel Together. Additionally, they visited an Animal Sanctuary and had a Road Trip, which might be considered as meeting places or events.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 20:55:52,698 - Amadeus.Answerer - INFO - ❓ Question: Do both James and John have pets?
+2026-04-26 21:05:58,548 - openai._base_client - INFO - Retrying request to /chat/completions in 0.422523 seconds
+2026-04-26 21:15:59,050 - openai._base_client - INFO - Retrying request to /chat/completions in 0.935744 seconds
+2026-04-26 21:26:00,027 - Amadeus.Answerer - ERROR - Step failed: Request timed out.
+2026-04-26 21:26:00,027 - Amadeus.Answerer - WARNING - Max steps reached. Attempting to answer from compact evidence view.
+2026-04-26 21:26:04,786 - Amadeus.Answerer - INFO - read_triggered_by=max_rounds_fallback
+2026-04-26 21:26:05,410 - EvalExistingGraph - INFO - 
+[conv-47] Q: Do both James and John have pets?
+Category: 1
+GT: No
+Pred: The evidence pool contains no information about James or John having pets. Therefore, there is insufficient data to determine whether both have pets.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 21:26:05,410 - Amadeus.Answerer - INFO - ❓ Question: When did John resume playing drums in his adulthood?
+2026-04-26 21:26:13,644 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'When did John resume playing drums in his adulthood?', 'mode': 'hybrid', 'entry_edge_ids': ['E8'], 'entry_nodes': ['John', 'RPGs and Strategy Games']}
+2026-04-26 21:26:13,644 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'When did John resume playing drums in his adulthood?', 'mode': 'hybrid', 'entry_edge_ids': ['E8'], 'entry_nodes': ['John', 'RPGs and Strategy Games']}
+2026-04-26 21:26:14,831 - Amadeus.Answerer - INFO - evidence_pool_init=- John engaged in New RPG at 2022-04-12
+2026-04-26 21:26:18,070 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'John resumed playing drums in his adulthood on 2022-04-12.'}
+2026-04-26 21:26:18,070 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': 'John resumed playing drums in his adulthood on 2022-04-12.'}
+2026-04-26 21:26:18,070 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:26:18,746 - EvalExistingGraph - INFO - 
+[conv-47] Q: When did John resume playing drums in his adulthood?
+Category: 2
+GT: February 2022
+Pred: John resumed playing drums in his adulthood on 2022-04-12.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-04-26 21:26:18,746 - Amadeus.Answerer - INFO - ❓ Question: What are John and James' favorite games?
+2026-04-26 21:26:28,467 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "What are John and James' favorite games?", 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['John and James', 'Conversation', 'Mutual Support Between John and James', 'Team', 'James', 'Super Mario', 'Strategy Games', "James's First Game", 'Gaming Community', 'John', 'RPGs and Strategy Games', 'Witcher 3', 'New RPG', 'Adventure Book with Fantasy Novels and Cool Arts', 'Daisy Laying Down Next to James While Gaming', 'Board Games']}
+2026-04-26 21:26:28,468 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': "What are John and James' favorite games?", 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['John and James', 'Conversation', 'Mutual Support Between John and James', 'Team', 'James', 'Super Mario', 'Strategy Games', "James's First Game", 'Gaming Community', 'John', 'RPGs and Strategy Games', 'Witcher 3', 'New RPG', 'Adventure Book with Fantasy Novels and Cool Arts', 'Daisy Laying Down Next to James While Gaming', 'Board Games']}
+2026-04-26 21:26:30,311 - Amadeus.Answerer - INFO - evidence_pool_init=- John and James discussing gaming, adoption of Ned, and the New RPG at 2022-04-12
+2026-04-26 21:26:38,213 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "John and James' favorite games include RPGs and Strategy Games, Super Mario, The Witcher 3, and the New RPG. James also enjoys playing Civilization VI and Strategy Games, while John plays AC Valhalla and Impostor Game."}
+2026-04-26 21:26:38,214 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': "John and James' favorite games include RPGs and Strategy Games, Super Mario, The Witcher 3, and the New RPG. James also enjoys playing Civilization VI and Strategy Games, while John plays AC Valhalla and Impostor Game."}
+2026-04-26 21:26:38,214 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:26:38,891 - EvalExistingGraph - INFO - 
+[conv-47] Q: What are John and James' favorite games?
+Category: 1
+GT: John's favorite game is CS:GO, and James's is Apex Legends.
+Pred: John and James' favorite games include RPGs and Strategy Games, Super Mario, The Witcher 3, and the New RPG. James also enjoys playing Civilization VI and Strategy Games, while John plays AC Valhalla and Impostor Game.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 21:26:38,891 - Amadeus.Answerer - INFO - ❓ Question: Does James live in Connecticut?
+2026-04-26 21:26:46,782 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Does James live in Connecticut?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['James']}
+2026-04-26 21:26:46,782 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'Does James live in Connecticut?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['James']}
+2026-04-26 21:26:48,226 - Amadeus.Answerer - INFO - evidence_pool_init=- James rented an apartment near McGee's bar on 2022-10-31
+2026-04-26 21:26:53,358 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "The information provided does not explicitly state that James lives in Connecticut. While James rented an apartment near McGee's bar, there is no direct evidence linking this apartment to Connecticut. Additional information would be needed to confirm his residence."}
+2026-04-26 21:26:53,358 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': "The information provided does not explicitly state that James lives in Connecticut. While James rented an apartment near McGee's bar, there is no direct evidence linking this apartment to Connecticut. Additional information would be needed to confirm his residence."}
+2026-04-26 21:26:53,358 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:26:53,985 - EvalExistingGraph - INFO - 
+[conv-47] Q: Does James live in Connecticut?
+Category: 3
+GT: Likely yes
+Pred: The information provided does not explicitly state that James lives in Connecticut. While James rented an apartment near McGee's bar, there is no direct evidence linking this apartment to Connecticut. Additional information would be needed to confirm his residence.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 21:26:53,985 - Amadeus.Answerer - INFO - ❓ Question: In which state is the shelter from which James adopted the puppy?
+2026-04-26 21:27:02,472 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'In which state is the shelter from which James adopted the puppy?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['Puppy Clinic Visit']}
+2026-04-26 21:27:02,473 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'In which state is the shelter from which James adopted the puppy?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['Puppy Clinic Visit']}
+2026-04-26 21:27:07,403 - Amadeus.Answerer - INFO - evidence_pool_init=- James adopted the puppy on 2022-04-12
+- James adopted the puppy on 2022-06-19
+- James adopted Ned
+- James visited Italy on 2022-04-12
+- James visited Turkey on 2022-04-12
+- James visited Mexico on 2022-04-12
+- James took the puppy to clinic for routine examination and vaccination against seasonal canine disease on 2022-08-06
+2026-04-26 21:27:12,044 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'The shelter from which James adopted the puppy is in Mexico. James visited Mexico on 2022-04-12, which is the same date he adopted the puppy.'}
+2026-04-26 21:27:12,044 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': 'The shelter from which James adopted the puppy is in Mexico. James visited Mexico on 2022-04-12, which is the same date he adopted the puppy.'}
+2026-04-26 21:27:12,044 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:27:12,752 - EvalExistingGraph - INFO - 
+[conv-47] Q: In which state is the shelter from which James adopted the puppy?
+Category: 3
+GT: Connecticut.
+Pred: The shelter from which James adopted the puppy is in Mexico. James visited Mexico on 2022-04-12, which is the same date he adopted the puppy.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 21:27:12,753 - Amadeus.Answerer - INFO - ❓ Question: How many pets does James have?
+2026-04-26 21:27:20,529 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'How many pets does James have?', 'mode': 'hybrid', 'entry_edge_ids': ['E1', 'E4', 'E6'], 'entry_nodes': ['James', 'Daisy', 'Max']}
+2026-04-26 21:27:20,530 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'How many pets does James have?', 'mode': 'hybrid', 'entry_edge_ids': ['E1', 'E4', 'E6'], 'entry_nodes': ['James', 'Daisy', 'Max']}
+2026-04-26 21:27:24,180 - Amadeus.Answerer - INFO - evidence_pool_init=- James --DOG--> Daisy @ 2022-03-17
+- James --DOG--> Max @ 2022-06-16
+- James --ADOPTED_PUP--> Ned @ 2022-04-12
+- James --ADOPTED_PUP--> Ned @ 2022-06-19
+2026-04-26 21:27:28,385 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'James has three pets: Daisy, Max, and Ned.'}
+2026-04-26 21:27:28,385 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': 'James has three pets: Daisy, Max, and Ned.'}
+2026-04-26 21:27:28,385 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:27:29,048 - EvalExistingGraph - INFO - 
+[conv-47] Q: How many pets does James have?
+Category: 1
+GT: Three dogs.
+Pred: James has three pets: Daisy, Max, and Ned.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-04-26 21:27:29,048 - Amadeus.Answerer - INFO - ❓ Question: What are the names of James's dogs?
+2026-04-26 21:27:37,117 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': "What are the names of James's dogs?", 'mode': 'hybrid', 'entry_edge_ids': ['E1', 'E4', 'E5'], 'entry_nodes': ['James', 'Daisy', 'Max']}
+2026-04-26 21:27:37,117 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': "What are the names of James's dogs?", 'mode': 'hybrid', 'entry_edge_ids': ['E1', 'E4', 'E5'], 'entry_nodes': ['James', 'Daisy', 'Max']}
+2026-04-26 21:27:39,143 - Amadeus.Answerer - INFO - evidence_pool_init=- James --DOG--> Daisy @ 2022-03-17
+- James --DOG--> Max @ 2022-06-16
+2026-04-26 21:27:43,200 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "James's dogs are Daisy and Max."}
+2026-04-26 21:27:43,200 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': "James's dogs are Daisy and Max."}
+2026-04-26 21:27:43,200 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:27:43,848 - EvalExistingGraph - INFO - 
+[conv-47] Q: What are the names of James's dogs?
+Category: 1
+GT: Ned, Daisy, Max
+Pred: James's dogs are Daisy and Max.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 21:27:43,849 - Amadeus.Answerer - INFO - ❓ Question: When did James adopt Ned?
+2026-04-26 21:27:53,571 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'When did James adopt Ned?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['N1', 'N2', 'N3', 'N4', 'N5', 'N6', 'N7', 'N8', 'N9', 'N10', 'N11', 'N12', 'N13', 'N14', 'N15', 'N16']}
+2026-04-26 21:27:53,571 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'When did James adopt Ned?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['N1', 'N2', 'N3', 'N4', 'N5', 'N6', 'N7', 'N8', 'N9', 'N10', 'N11', 'N12', 'N13', 'N14', 'N15', 'N16']}
+2026-04-26 21:27:54,830 - Amadeus.Answerer - INFO - evidence_pool_init=- James adopted Ned on 2022-06-19
+2026-04-26 21:27:58,813 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'James adopted Ned on 2022-06-19.'}
+2026-04-26 21:27:58,813 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': 'James adopted Ned on 2022-06-19.'}
+2026-04-26 21:27:58,813 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:27:59,416 - EvalExistingGraph - INFO - 
+[conv-47] Q: When did James adopt Ned?
+Category: 2
+GT: first week of April 2022
+Pred: James adopted Ned on 2022-06-19.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 21:27:59,416 - Amadeus.Answerer - INFO - ❓ Question: How was John feeling on April 10, 2022?
+2026-04-26 21:28:08,024 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'How was John feeling on April 10, 2022?', 'mode': 'hybrid', 'entry_edge_ids': ['E2'], 'entry_nodes': ['John']}
+2026-04-26 21:28:08,024 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'How was John feeling on April 10, 2022?', 'mode': 'hybrid', 'entry_edge_ids': ['E2'], 'entry_nodes': ['John']}
+2026-04-26 21:28:09,234 - Amadeus.Answerer - INFO - evidence_pool_init=- John visited Japan on 2022-04-10
+2026-04-26 21:28:12,998 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': "The evidence does not provide specific information about John's feelings on April 10, 2022. However, it is known that John visited Japan on that date."}
+2026-04-26 21:28:12,998 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': "The evidence does not provide specific information about John's feelings on April 10, 2022. However, it is known that John visited Japan on that date."}
+2026-04-26 21:28:12,998 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:28:13,769 - EvalExistingGraph - INFO - 
+[conv-47] Q: How was John feeling on April 10, 2022?
+Category: 2
+GT: seeking solitude
+Pred: The evidence does not provide specific information about John's feelings on April 10, 2022. However, it is known that John visited Japan on that date.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 21:28:13,769 - Amadeus.Answerer - INFO - ❓ Question: Did James have a girlfriend during April 2022?
+2026-04-26 21:28:22,516 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'Did James have a girlfriend during April 2022?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['Samantha', 'James']}
+2026-04-26 21:28:22,516 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'Did James have a girlfriend during April 2022?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['Samantha', 'James']}
+2026-04-26 21:28:24,027 - Amadeus.Answerer - INFO - evidence_pool_init=- Samantha --Girlfriend--> James @ 2022-09-04
+2026-04-26 21:28:29,027 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'Based on the evidence, James had a girlfriend named Samantha starting from September 4, 2022. However, there is no specific information indicating whether they were in a relationship during April 2022.'}
+2026-04-26 21:28:29,027 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': 'Based on the evidence, James had a girlfriend named Samantha starting from September 4, 2022. However, there is no specific information indicating whether they were in a relationship during April 2022.'}
+2026-04-26 21:28:29,027 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:28:29,655 - EvalExistingGraph - INFO - 
+[conv-47] Q: Did James have a girlfriend during April 2022?
+Category: 3
+GT: Presumably not
+Pred: Based on the evidence, James had a girlfriend named Samantha starting from September 4, 2022. However, there is no specific information indicating whether they were in a relationship during April 2022.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 21:28:29,655 - Amadeus.Answerer - INFO - ❓ Question: When did James visit Italy?
+2026-04-26 21:28:37,377 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'When did James visit Italy?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['James', 'Italy']}
+2026-04-26 21:28:37,377 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'When did James visit Italy?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['James', 'Italy']}
+2026-04-26 21:28:38,639 - Amadeus.Answerer - INFO - evidence_pool_init=- James visited Italy on 2022-04-12
+2026-04-26 21:28:42,618 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'James visited Italy on 2022-04-12.'}
+2026-04-26 21:28:42,618 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': 'James visited Italy on 2022-04-12.'}
+2026-04-26 21:28:42,618 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:28:43,401 - EvalExistingGraph - INFO - 
+[conv-47] Q: When did James visit Italy?
+Category: 2
+GT: In 2021
+Pred: James visited Italy on 2022-04-12.
+Result: ❌ (Score: 0.00)
+Reason: 
+2026-04-26 21:28:43,402 - Amadeus.Answerer - INFO - ❓ Question: When did James buy himself a new adventure book?
+2026-04-26 21:28:51,182 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'When did James buy himself a new adventure book?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['James']}
+2026-04-26 21:28:51,183 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'When did James buy himself a new adventure book?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['James']}
+2026-04-26 21:28:52,677 - Amadeus.Answerer - INFO - evidence_pool_init=- James BOUGHT Adventure Book with Fantasy Novels and Cool Arts on 2022-04-26
+2026-04-26 21:28:56,666 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'James bought the adventure book on April 26, 2022.'}
+2026-04-26 21:28:56,666 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': 'James bought the adventure book on April 26, 2022.'}
+2026-04-26 21:28:56,666 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:28:57,378 - EvalExistingGraph - INFO - 
+[conv-47] Q: When did James buy himself a new adventure book?
+Category: 2
+GT: April 26, 2022
+Pred: James bought the adventure book on April 26, 2022.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-04-26 21:28:57,379 - Amadeus.Answerer - INFO - ❓ Question: When did James start playing Civilization VI?
+2026-04-26 21:29:04,785 - Amadeus.Answerer - INFO - Step 2: SEARCH - {'tool': 'SEARCH', 'query': 'When did James start playing Civilization VI?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['Civilization VI', 'James']}
+2026-04-26 21:29:04,785 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'SEARCH', 'query': 'When did James start playing Civilization VI?', 'mode': 'hybrid', 'entry_edge_ids': ['E1'], 'entry_nodes': ['Civilization VI', 'James']}
+2026-04-26 21:29:06,037 - Amadeus.Answerer - INFO - evidence_pool_init=- James played Civilization VI on 2022-04-29
+2026-04-26 21:29:10,019 - Amadeus.Answerer - INFO - Step 3: READ - {'tool': 'READ', 'answer': 'James started playing Civilization VI on 2022-04-29.'}
+2026-04-26 21:29:10,019 - Amadeus.Answerer - INFO - walk_decision_raw={'tool': 'READ', 'answer': 'James started playing Civilization VI on 2022-04-29.'}
+2026-04-26 21:29:10,019 - Amadeus.Answerer - INFO - read_triggered_by=llm_decision
+2026-04-26 21:29:10,684 - EvalExistingGraph - INFO - 
+[conv-47] Q: When did James start playing Civilization VI?
+Category: 2
+GT: March 2022
+Pred: James started playing Civilization VI on 2022-04-29.
+Result: ✅ (Score: 1.00)
+Reason: 
+2026-04-26 21:29:10,684 - Amadeus.Answerer - INFO - ❓ Question: What is the game with different colored cards that was John talking about with James?

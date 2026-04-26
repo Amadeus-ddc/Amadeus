@@ -8,7 +8,11 @@ PYTHON_BIN="${PYTHON:-python}"
 
 # Correct paths relative to ROOT_DIR
 RUN_SCRIPT="${ROOT_DIR}/experiments/LoCoMo/run_locomo.py"
-DATA_FILE="${DATA_FILE:-${ROOT_DIR}/dataset/LoCoMo/locomo10.json}"
+DEFAULT_DATA_FILE="${ROOT_DIR}/dataset/LoCoMo/locomo10.json"
+if [[ ! -f "${DEFAULT_DATA_FILE}" && -f "${ROOT_DIR}/../amadeus/dataset/LoCoMo/locomo10.json" ]]; then
+    DEFAULT_DATA_FILE="${ROOT_DIR}/../amadeus/dataset/LoCoMo/locomo10.json"
+fi
+DATA_FILE="${DATA_FILE:-${DEFAULT_DATA_FILE}}"
 EMBED_MODEL="${EMBED_MODEL:-${ROOT_DIR}/models/all-MiniLM-L6-v2}"
 
 # Logs base directory

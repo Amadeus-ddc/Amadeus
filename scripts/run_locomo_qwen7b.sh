@@ -9,10 +9,14 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-PYTHON_BIN="${PYTHON:-/data/hzy/miniconda3/envs/amadeus1/bin/python}"
+PYTHON_BIN="${PYTHON:-$(command -v /data/hzy/miniconda3/envs/amadeus1/bin/python 2>/dev/null || command -v python)}"
 
 RUN_SCRIPT="${ROOT_DIR}/experiments/LoCoMo/run_locomo.py"
-DATA_FILE="${DATA_FILE:-${ROOT_DIR}/dataset/LoCoMo/locomo10.json}"
+DEFAULT_DATA_FILE="${ROOT_DIR}/dataset/LoCoMo/locomo10.json"
+if [[ ! -f "${DEFAULT_DATA_FILE}" && -f "${ROOT_DIR}/../amadeus/dataset/LoCoMo/locomo10.json" ]]; then
+    DEFAULT_DATA_FILE="${ROOT_DIR}/../amadeus/dataset/LoCoMo/locomo10.json"
+fi
+DATA_FILE="${DATA_FILE:-${DEFAULT_DATA_FILE}}"
 EMBED_MODEL="${EMBED_MODEL:-${ROOT_DIR}/models/all-MiniLM-L6-v2}"
 
 LOG_BASE_DIR="${ROOT_DIR}/experiments/LoCoMo/logs"

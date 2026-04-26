@@ -85,6 +85,8 @@ OR
             r"^The graph indicates (that)?",
             r"^I found (that)?",
             r"^The answer is",
+            r"^Final Answer:?",
+            r"^Answer:?",
             r"^I can confirm (that)?",
             r"^It is mentioned (that)?",
         ]
@@ -375,7 +377,7 @@ OR
             cleaned = cleaned.split("```json", 1)[1].split("```", 1)[0]
         elif "```" in cleaned:
             cleaned = cleaned.split("```", 1)[1].split("```", 1)[0]
-        return json.loads(cleaned.strip())
+        return self._parse_json_content(cleaned.strip())
 
     def _normalize_fact(self, fact: str) -> str:
         normalized = re.sub(r"\s+", " ", (fact or "").strip())
@@ -1165,6 +1167,6 @@ Return ONLY the answer text.
             )
             self._record_usage(res)
             logger.info("read_triggered_by=max_rounds_fallback")
-            return self._clean_answer(res.choices[0].message.content)
+            return self._clean_answer(self._strip_visible_thinking(res.choices[0].message.content))
         except Exception:
             return "Unknown"

@@ -46,15 +46,19 @@ fi
 if [[ -z "${ALFWORLD_DATA:-}" ]]; then
     # 优先使用 dataset/ALFWorld/
     REPO_DATA="${ROOT_DIR}/dataset/ALFWorld"
+    LEGACY_DATA="${ROOT_DIR}/../amadeus/dataset/ALFWorld"
     CACHE_DATA="$HOME/.cache/alfworld"
     if [[ -d "${REPO_DATA}/json_2.1.1" ]]; then
         export ALFWORLD_DATA="${REPO_DATA}"
         echo "[INFO] Using ALFWORLD_DATA: ${ALFWORLD_DATA}"
-    elif [[ -d "${CACHE_DATA}" ]]; then
+    elif [[ -d "${LEGACY_DATA}/json_2.1.1" ]]; then
+        export ALFWORLD_DATA="${LEGACY_DATA}"
+        echo "[INFO] Fallback to legacy ALFWORLD_DATA: ${ALFWORLD_DATA}"
+    elif [[ -d "${CACHE_DATA}/json_2.1.1" ]]; then
         export ALFWORLD_DATA="${CACHE_DATA}"
         echo "[INFO] Fallback to ALFWORLD_DATA: ${ALFWORLD_DATA}"
     else
-        echo "[ERROR] ALFWORLD_DATA not set. No data at dataset/ALFWorld/ or ~/.cache/alfworld"
+        echo "[ERROR] ALFWORLD_DATA not set. No data at dataset/ALFWorld/, ../amadeus/dataset/ALFWorld/, or ~/.cache/alfworld"
         exit 1
     fi
 fi

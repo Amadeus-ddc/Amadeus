@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # ALFWorld Streaming — History (streaming baseline)
-# Run from: /data/hzy/Amadeus/amadeus/experiments/ALFWorld
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PYTHON="/data/hzy/miniconda3/envs/amadeus1/bin/python"
-MODEL="/data/hzy/models/Qwen2.5-7B-Instruct"
-MODEL_NAME="${MODEL}"
+ROOT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+PYTHON="${PYTHON:-$(command -v /data/hzy/miniconda3/envs/amadeus1/bin/python 2>/dev/null || command -v python)}"
+MODEL="${MODEL:-${ROOT_DIR}/models/Qwen2.5-7B-Instruct}"
+MODEL_NAME="${MODEL_NAME:-${MODEL}}"
 PORT=8100
 ALFWORLD_DATA="${HOME}/.cache/alfworld"
 

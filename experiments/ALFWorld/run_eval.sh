@@ -19,16 +19,18 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MODEL="/data/hzy/models/Qwen2.5-7B-Instruct"
-MODEL_NAME="qwen2.5-7b-instruct"
+ROOT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+MODEL="${MODEL:-${ROOT_DIR}/models/Qwen2.5-7B-Instruct}"
+MODEL_NAME="${MODEL_NAME:-qwen2.5-7b-instruct}"
 PORT="${API_PORT:-8000}"
 GPU_ID="${CUDA_VISIBLE_DEVICES:-0}"
-EMBEDDING_MODEL="/data/hzy/Amadeus/amadeus/models/all-MiniLM-L6-v2"
+EMBEDDING_MODEL="${EMBEDDING_MODEL:-${ROOT_DIR}/models/all-MiniLM-L6-v2}"
 METHOD="${METHOD:-none}"
+PYTHON="${PYTHON:-$(command -v /data/hzy/miniconda3/envs/amadeus1/bin/python 2>/dev/null || command -v python)}"
 
 serve() {
     echo "Starting vLLM server with model: ${MODEL} on GPU: ${GPU_ID}"
-    CUDA_VISIBLE_DEVICES=${GPU_ID} python -m vllm.entrypoints.openai.api_server \
+    CUDA_VISIBLE_DEVICES=${GPU_ID} "${PYTHON}" -m vllm.entrypoints.openai.api_server \
         --model "${MODEL}" \
         --port ${PORT} \
         --tensor-parallel-size 1 \
@@ -58,7 +60,7 @@ streaming() {
     echo "  Model:   ${MODEL_NAME}"
     echo "  API:     http://localhost:${PORT}/v1"
     echo "============================================"
-    python "${SCRIPT_DIR}/run_alfworld_streaming.py" \
+    "${PYTHON}" "${SCRIPT_DIR}/run_alfworld_streaming.py" \
         --method "${METHOD}" \
         --model_name "${MODEL_NAME}" \
         --api_base "http://localhost:${PORT}/v1" \
@@ -73,7 +75,7 @@ batch() {
     echo "  Model:   ${MODEL_NAME}"
     echo "  API:     http://localhost:${PORT}/v1"
     echo "============================================"
-    python "${SCRIPT_DIR}/run_alfworld_batch.py" \
+    "${PYTHON}" "${SCRIPT_DIR}/run_alfworld_batch.py" \
         --method "${METHOD}" \
         --model_name "${MODEL_NAME}" \
         --api_base "http://localhost:${PORT}/v1" \

@@ -3,8 +3,9 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PYTHON="/data/hzy/miniconda3/envs/amadeus1/bin/python"
-MODEL_NAME="/data/hzy/models/Qwen2.5-7B-Instruct"
+ROOT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+PYTHON="${PYTHON:-$(command -v /data/hzy/miniconda3/envs/amadeus1/bin/python 2>/dev/null || command -v python)}"
+MODEL_NAME="${MODEL_NAME:-${ROOT_DIR}/models/Qwen2.5-7B-Instruct}"
 ALFWORLD_DATA="${HOME}/.cache/alfworld"
 export ALFWORLD_DATA="${ALFWORLD_DATA}"
 
@@ -51,7 +52,7 @@ echo ""
 echo "=== 开始 ScienceWorld 7B ExpRAG+Prune: run2 & run3 并行 ==="
 date
 
-cd /data/hzy/Amadeus/amadeus/experiments/ScienceWorld
+cd "${ROOT_DIR}/experiments/ScienceWorld"
 
 ${PYTHON} run_sciworld_streaming.py \
     --method exprag \

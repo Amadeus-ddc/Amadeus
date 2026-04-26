@@ -76,13 +76,24 @@ class TrackedOpenAI:
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 AMADEUS_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
 WORKSPACE_ROOT = os.path.dirname(AMADEUS_ROOT)
+sys.path.insert(0, AMADEUS_ROOT)
 sys.path.insert(0, WORKSPACE_ROOT)
 
+load_dotenv(os.path.join(AMADEUS_ROOT, ".env"))
 load_dotenv(os.path.join(AMADEUS_ROOT, "experiments", ".env"))
 if os.getenv("OPENAI_API_BASE") and not os.getenv("OPENAI_BASE_URL"):
     os.environ["OPENAI_BASE_URL"] = os.getenv("OPENAI_API_BASE")
 
-VERL_AGENT_ROOT = os.path.join(WORKSPACE_ROOT, "verl-agent")
+_VERL_CANDIDATES = [
+    os.environ.get("VERL_AGENT_ROOT"),
+    os.path.join(WORKSPACE_ROOT, "verl-agent"),
+    os.path.join(AMADEUS_ROOT, "verl-agent"),
+    os.path.join(os.path.dirname(AMADEUS_ROOT), "amadeus", "experiments", "verl-agent"),
+]
+VERL_AGENT_ROOT = next(
+    (os.path.abspath(path) for path in _VERL_CANDIDATES if path and os.path.isdir(os.path.join(path, "agent_system"))),
+    os.path.abspath(os.environ.get("VERL_AGENT_ROOT", os.path.join(WORKSPACE_ROOT, "verl-agent"))),
+)
 sys.path.insert(0, VERL_AGENT_ROOT)
 
 import types
@@ -215,22 +226,12 @@ def extract_action(raw_response: str) -> Tuple[str, bool]:
     return (lines[-1] if lines else "look"), False
 
 
-def jaccard_similarity(a: str, b: str) -> float:
-    sa = set(a.lower().split())
-    sb = set(b.lower().split())
-    if not sa and not sb:
-        return 1.0
-    return len(sa & sb) / len(sa | sb)
+def is_valid_action(action: str, admissible: List[str]) -> bool:
+    return not admissible or action in admissible
 
 
-def fuzzy_match_action(action: str, admissible: List[str]) -> str:
-    if not admissible:
-        return action
-    if action in admissible:
-        return action
-    scored = [(jaccard_similarity(action, a), a) for a in admissible]
-    scored.sort(reverse=True)
-    return scored[0][1] if scored[0][0] > 0.3 else action
+def format_admissible_actions(admissible: List[str]) -> str:
+    return ", ".join(f"'{a}'" for a in admissible if a != "help")
 
 
 # ---------------------------------------------------------------------------
@@ -243,6 +244,7 @@ def run_single_episode(
     env_idx: int,
     initial_obs: str,
     experience_context: str,
+    gamefile: str = "",
     max_steps: int = 50,
     history_length: int = 10,
 ) -> Tuple[bool, str, List[Tuple[str, str]], str, float]:
@@ -251,6 +253,12 @@ def run_single_episode(
     marker = "Your task is to: "
     idx = initial_obs.find(marker)
     task_desc = initial_obs[idx + len(marker):].strip() if idx != -1 else ""
+
+    task_type = "unknown"
+    for t in TASKS:
+        if t in (gamefile or ""):
+            task_type = t
+            break
 
     # Build experience section for prompt
     if experience_context:
@@ -269,17 +277,12 @@ RELEVANT EXPERIENCE
 
     current_obs = initial_obs
     success = False
-    task_type = "unknown"
-    progress = 0.0
     max_progress = 0.0
+    current_admissible = list(envs.get_admissible_commands[env_idx] or [])
 
     for step in range(max_steps):
-        try:
-            admissible = ray.get(envs.workers[env_idx].get_admissible_commands.remote())
-        except Exception:
-            admissible = []
-
-        admissible_str = ", ".join(f"'{a}'" for a in admissible if a != "help")
+        admissible = current_admissible
+        admissible_str = format_admissible_actions(admissible)
         history_str = "\n".join(recent_history_lines[-history_length:]) if recent_history_lines else "(none)"
 
         prompt = ACTION_PROMPT_TEMPLATE.format(
@@ -291,62 +294,116 @@ RELEVANT EXPERIENCE
             admissible_actions=admissible_str,
         )
 
-        try:
-            resp = client.chat.completions.create(
-                model=model_name,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0.0,
-                max_tokens=512,
-            )
-            raw = resp.choices[0].message.content.strip()
-        except Exception as e:
-            logger.warning(f"    LLM error step {step}: {e}")
-            raw = "Action: look"
+        action_str = None
+        think_count = 0
+        messages = [{"role": "user", "content": prompt}]
 
-        # Handle Think-Prune
-        if raw.lower().startswith("think-prune:") and active_experiences:
-            prune_match = re.search(r"Pruned Experience IDs:\s*\[([^\]]*)\]", raw, re.IGNORECASE)
-            if prune_match:
-                ids_str = prune_match.group(1)
-                prune_ids = re.findall(r"#(\d+)", ids_str)
-                if prune_ids and active_experiences:
-                    lines = active_experiences.split("\n")
-                    for pid in sorted(prune_ids, reverse=True):
+        while action_str is None and think_count < 3:
+            try:
+                resp = client.chat.completions.create(
+                    model=model_name,
+                    messages=messages,
+                    temperature=0.0,
+                    max_tokens=512,
+                )
+                raw = resp.choices[0].message.content.strip()
+            except Exception as e:
+                logger.warning(f"    LLM error step {step}: {e}")
+                raw = "Action: look"
+
+            first_line = raw.strip().splitlines()[0].strip() if raw.strip() else ""
+            logger.info(f"    [env {env_idx} step {step} think {think_count}] LLM: {first_line[:220]}")
+            extracted_action, found_action = extract_action(raw)
+            if found_action:
+                action_str = extracted_action
+            elif first_line.lower().startswith("think-prune:") and active_experiences:
+                think_count += 1
+                prune_match = re.search(r"Pruned Experience IDs:\s*\[([^\]]*)\]", raw, re.IGNORECASE)
+                if prune_match:
+                    for pid in re.findall(r"#(\d+)", prune_match.group(1)):
                         active_experiences = re.sub(
                             rf"\[Experience #{pid}\].*?(?=\[Experience #|\Z)", "",
                             active_experiences, flags=re.DOTALL
                         ).strip()
-                    if active_experiences:
-                        experience_section = f"""
-==================================================
-RELEVANT EXPERIENCE
-==================================================
-{active_experiences}
-"""
-                    else:
-                        experience_section = "\n"
-            continue  # don't step env on prune turn
+                    experience_section = (
+                        f"\n==================================================\nRELEVANT EXPERIENCE\n"
+                        f"==================================================\n{active_experiences}\n"
+                        if active_experiences else "\n"
+                    )
+                messages.append({"role": "assistant", "content": raw})
+                messages.append({"role": "user", "content": "Now respond with Think or Action."})
+            else:
+                think_count += 1
+                think_text = raw[len("think:"):].strip() if raw.lower().startswith("think:") else raw
+                recent_history_lines.append(f"Think: {think_text}")
+                messages.append({"role": "assistant", "content": raw})
+                messages.append({"role": "user", "content": "Now execute an action. Respond with:\nAction: <exact action from admissible actions list>"})
 
-        # Handle Think
-        if raw.lower().startswith("think:"):
-            think_text = raw[len("think:"):].strip()
-            recent_history_lines.append(f"Think: {think_text}")
-            continue  # don't step env on think turn
+        if action_str is None:
+            action_str = "look"
 
-        # Handle Action
-        action_str, _ = extract_action(raw)
-        action_to_take = fuzzy_match_action(action_str, admissible)
+        action_to_take = action_str
+        retry_count = 0
+        while not is_valid_action(action_to_take, admissible) and retry_count < 2:
+            retry_count += 1
+            logger.info(
+                f"    [env {env_idx} step {step}] Invalid action rejected: {action_to_take!r} "
+                f"(retry {retry_count}/2)"
+            )
+            retry_prompt = (
+                "Your previous action was not in the admissible actions list and was NOT executed.\n"
+                "Choose exactly one action by copying it verbatim from this admissible actions list.\n"
+                f"Admissible actions: {format_admissible_actions(admissible)}\n"
+                "Respond with only:\nAction: <exact admissible action>"
+            )
+            try:
+                resp = client.chat.completions.create(
+                    model=model_name,
+                    messages=[
+                        {"role": "user", "content": prompt},
+                        {"role": "assistant", "content": f"Action: {action_to_take}"},
+                        {"role": "user", "content": retry_prompt},
+                    ],
+                    temperature=0.0,
+                    max_tokens=128,
+                )
+                retry_raw = resp.choices[0].message.content.strip()
+                retry_first = retry_raw.strip().splitlines()[0].strip() if retry_raw.strip() else ""
+                logger.info(f"    [env {env_idx} step {step}] Retry LLM: {retry_first[:220]}")
+                retry_action, found_retry = extract_action(retry_raw)
+                action_to_take = retry_action if found_retry else retry_raw.strip()
+            except Exception as e:
+                logger.warning(f"    LLM retry error step {step}: {e}")
+                break
+
+        if not is_valid_action(action_to_take, admissible):
+            logger.info(f"    [env {env_idx} step {step}] Falling back to 'look' after invalid action: {action_to_take!r}")
+            action_to_take = "look"
+
+        logger.info(f"    [env {env_idx} step {step}] Action: {action_to_take!r}")
 
         try:
             obs, scores, dones, info = ray.get(
                 envs.workers[env_idx].step.remote(action_to_take)
             )
-            obs = obs[0] if isinstance(obs, list) else obs
-            done = dones[0] if isinstance(dones, list) else dones
-            gcsr = info.get("score", None)
-            max_score = info.get("max_score", None)
-            if gcsr is not None and max_score and float(max_score) > 0:
-                max_progress = max(max_progress, float(gcsr) / float(max_score))
+            obs = obs[0] if isinstance(obs, (list, tuple)) else obs
+            done = dones[0] if isinstance(dones, (list, tuple)) else dones
+            for k in list(info.keys()):
+                if isinstance(info[k], (list, tuple)) and info[k]:
+                    info[k] = info[k][0]
+            new_adm = info.get("admissible_commands", None)
+            if new_adm is not None:
+                current_admissible = list(new_adm) if isinstance(new_adm, (list, tuple)) else [new_adm]
+            gcsr = info.get("extra.goal_condition_success_rate", None)
+            if gcsr is not None:
+                try:
+                    max_progress = max(max_progress, float(gcsr))
+                except (TypeError, ValueError):
+                    pass
+            logger.info(
+                f"    [env {env_idx} step {step}] done={bool(done)} won={bool(info.get('won', False))} "
+                f"progress={max_progress:.2f} obs={str(obs)[:220]!r}"
+            )
         except Exception as e:
             logger.warning(f"    Env step error: {e}")
             break
@@ -359,29 +416,63 @@ RELEVANT EXPERIENCE
             success = bool(info.get("won", False))
             if success:
                 max_progress = 1.0
-            gamefile = info.get("extra.gamefile", "")
-            for t in TASKS:
-                if t in gamefile:
-                    task_type = t
-                    break
             break
 
     return success, task_type, trajectory, task_desc, max_progress
 
 
 # ---------------------------------------------------------------------------
+# Checkpoint helpers
+# ---------------------------------------------------------------------------
+def load_checkpoint(output_dir: Path) -> dict:
+    ckpt_file = output_dir / "checkpoint.json"
+    if ckpt_file.exists():
+        try:
+            with open(ckpt_file) as f:
+                ckpt = json.load(f)
+            logger.info(f"[Checkpoint] Loaded: cold_start_traj={ckpt.get('cold_start_done', 0)}, "
+                        f"test_done={len(ckpt.get('completed_env_ids', []))}")
+            return ckpt
+        except Exception as e:
+            logger.warning(f"[Checkpoint] Load failed: {e}")
+    return {"cold_start_done": 0, "completed_env_ids": [], "phase": None}
+
+
+def save_checkpoint(output_dir: Path, cold_start_done: int, completed_env_ids: list, phase: str = None):
+    ckpt_file = output_dir / "checkpoint.json"
+    ckpt = {
+        "cold_start_done": cold_start_done,
+        "completed_env_ids": sorted(completed_env_ids),
+        "phase": phase,
+        "timestamp": datetime.datetime.now().strftime("%Y%m%d_%H%M%S"),
+    }
+    try:
+        with open(ckpt_file, "w") as f:
+            json.dump(ckpt, f, indent=2)
+        logger.info(f"[Checkpoint] Saved: cold_start_done={cold_start_done}, "
+                    f"test_done={len(completed_env_ids)}, phase={phase}, "
+                    f"ts={ckpt['timestamp']}")
+    except Exception as e:
+        logger.warning(f"[Checkpoint] Save failed: {e}")
+
+
+# ---------------------------------------------------------------------------
 # Phase 1: Cold-start from training trajectories
 # ---------------------------------------------------------------------------
-def cold_start_from_traj(memory, traj_file: str, max_traj: int = None):
+def cold_start_from_traj(memory, traj_file: str, max_traj: int = None,
+                          resume_from: int = 0, output_dir: Path = None):
     """Feed training trajectories into memory.evolve() without running envs."""
     logger.info(f"=== PHASE 1: Cold-start from {traj_file} ===")
     with open(traj_file) as f:
         traj_data = json.load(f)
     if max_traj:
         traj_data = traj_data[:max_traj]
-    logger.info(f"  Loaded {len(traj_data)} training trajectories")
+    total = len(traj_data)
+    logger.info(f"  Loaded {total} training trajectories, resuming from {resume_from}")
 
     for i, item in enumerate(traj_data):
+        if i < resume_from:
+            continue
         query = item.get("query", "").strip()
         raw_traj = item.get("trajectory", [])
 
@@ -424,10 +515,14 @@ def cold_start_from_traj(memory, traj_file: str, max_traj: int = None):
             episode_idx=i,
         )
 
-        if (i + 1) % 500 == 0:
-            logger.info(f"  Cold-start: {i+1}/{len(traj_data)} done")
+        if (i + 1) % 50 == 0:
+            logger.info(f"  Cold-start: {i+1}/{total} done")
+            if output_dir:
+                save_checkpoint(output_dir, i + 1, [], "cold_start")
 
-    logger.info(f"  Cold-start complete. Memory has {len(getattr(memory, '_memory', []))} entries.")
+    logger.info(f"  Cold-start complete. Graph has {memory.graph.graph.number_of_nodes()} nodes, "
+                f"{memory.graph.graph.number_of_edges()} edges.")
+    return total
 
 
 # ---------------------------------------------------------------------------
@@ -463,11 +558,17 @@ def main():
 
     setup_logging(str(output_dir / "experiment.log"))
 
+    checkpoint = load_checkpoint(output_dir)
+    cold_start_done = checkpoint.get("cold_start_done", 0)
+    completed_env_ids = checkpoint.get("completed_env_ids", [])
+    resume_phase = checkpoint.get("phase")
+
     logger.info(f"Mode: OFFLINE (cold-start → test)")
     logger.info(f"Method: {args.method}")
     logger.info(f"Model:  {args.model_name}")
     logger.info(f"Output: {output_dir}")
     logger.info(f"Traj file: {args.traj_file}")
+    logger.info(f"Checkpoint: cold_start_done={cold_start_done}, test_done={len(completed_env_ids)}, phase={resume_phase}")
 
     api_base = args.api_base or os.environ.get("OPENAI_BASE_URL", "http://localhost:8000/v1")
     api_key = args.api_key or os.environ.get("OPENAI_API_KEY", "token-abc123")
@@ -479,24 +580,40 @@ def main():
     memory = load_method(args.method, **method_kwargs)
 
     # Phase 1: cold-start
-    cold_start_from_traj(memory, args.traj_file, args.max_traj)
+    if resume_phase != "test":
+        cold_start_from_traj(memory, args.traj_file, args.max_traj,
+                             resume_from=cold_start_done, output_dir=output_dir)
+        cold_start_done = args.max_traj if args.max_traj else len(json.load(open(args.traj_file)))
+        save_checkpoint(output_dir, cold_start_done, [], "cold_start_done")
+    else:
+        logger.info(f"[Cold-start] Already completed (checkpoint: {cold_start_done}), skipping.")
 
     # Phase 2: test
     logger.info(f"\n=== PHASE 2: Test evaluation ===")
 
     if not os.environ.get("ALFWORLD_DATA"):
-        default_data = os.path.expanduser("~/.cache/alfworld")
-        if os.path.isdir(default_data):
+        data_candidates = [
+            os.path.join(AMADEUS_ROOT, "dataset", "ALFWorld"),
+            os.path.join(os.path.dirname(AMADEUS_ROOT), "amadeus", "dataset", "ALFWorld"),
+            os.path.expanduser("~/.cache/alfworld"),
+        ]
+        default_data = next((path for path in data_candidates if os.path.isdir(os.path.join(path, "json_2.1.1"))), None)
+        if default_data:
             os.environ["ALFWORLD_DATA"] = default_data
+            logger.info(f"Auto-detected ALFWORLD_DATA: {default_data}")
         else:
-            logger.error("ALFWORLD_DATA not set")
+            logger.error("ALFWORLD_DATA not set and no json_2.1.1 data found")
             sys.exit(1)
 
     if not ray.is_initialized():
+        alfworld_pythonpath = os.path.join(
+            VERL_AGENT_ROOT, "agent_system", "environments", "env_package", "alfworld"
+        )
+        ray_pythonpath = f"{alfworld_pythonpath}:{VERL_AGENT_ROOT}"
         ray.init(
             runtime_env={
                 "env_vars": {
-                    "PYTHONPATH": VERL_AGENT_ROOT,
+                    "PYTHONPATH": ray_pythonpath,
                     "ALFWORLD_DATA": os.environ["ALFWORLD_DATA"],
                 },
             },
@@ -524,15 +641,37 @@ def main():
     task_success = defaultdict(list)
     task_progress = defaultdict(list)
     results = []
+    results_file = output_dir / "results.jsonl"
+    if results_file.exists() and completed_env_ids:
+        logger.info(f"[Resume] Rebuilding stats from existing results.jsonl ...")
+        with open(results_file) as f:
+            for line in f:
+                try:
+                    r = json.loads(line.strip())
+                    if r["id"] in completed_env_ids:
+                        results.append(r)
+                        all_sr.append(1.0 if r["success"] else 0.0)
+                        all_pr.append(r["progress"])
+                        task_success[r["task_type"]].append(1.0 if r["success"] else 0.0)
+                        task_progress[r["task_type"]].append(r["progress"])
+                except Exception:
+                    continue
+        logger.info(f"[Resume] Rebuilt stats: {len(all_sr)} completed envs, running SR so far: {sum(all_sr)/max(len(all_sr),1):.3f}")
 
     total_envs = args.env_num
+    completed_env_ids_set = set(completed_env_ids)
     for env_idx in range(total_envs):
+        if env_idx in completed_env_ids_set:
+            logger.info(f"[{env_idx+1}/{total_envs}] SKIPPED (already completed)")
+            continue
         initial_obs = text_obs_list[env_idx]
         marker = "Your task is to: "
         idx = initial_obs.find(marker)
         task_desc = initial_obs[idx + len(marker):].strip() if idx != -1 else ""
 
-        gamefile = infos[env_idx].get("extra.gamefile", "")
+        gamefile = infos[env_idx].get("extra.gamefile", "") or ""
+        if isinstance(gamefile, list):
+            gamefile = gamefile[0] if gamefile else ""
         task_type = "unknown"
         for t in TASKS:
             if t in gamefile:
@@ -552,11 +691,13 @@ def main():
             success, detected_type, trajectory, detected_desc, progress = run_single_episode(
                 client, args.model_name, envs, env_idx,
                 initial_obs, experience_context,
+                gamefile=gamefile,
                 max_steps=args.max_steps,
                 history_length=args.history_length,
             )
         except Exception as e:
-            logger.error(f"  Episode failed: {e}")
+            import traceback
+            logger.error(f"  Episode failed: {e}\n{traceback.format_exc()}")
             success, detected_type, trajectory, detected_desc, progress = False, task_type, [], task_desc, 0.0
 
         all_sr.append(1.0 if success else 0.0)
@@ -576,11 +717,15 @@ def main():
             "success": success,
             "progress": progress,
             "num_steps": len(trajectory),
+            "actions": [action for _, action in trajectory],
         })
 
         # Save incrementally
         with open(output_dir / "results.jsonl", "a") as f:
             f.write(json.dumps(results[-1]) + "\n")
+
+        completed_env_ids_set.add(env_idx)
+        save_checkpoint(output_dir, cold_start_done, list(completed_env_ids_set), "test")
 
     # Summary
     overall_sr = sum(all_sr) / len(all_sr) if all_sr else 0.0

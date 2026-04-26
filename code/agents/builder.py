@@ -343,7 +343,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
         if raw_content is None:
             raise ValueError(f"{context}: empty response content")
 
-        text = raw_content.strip()
+        text = self._strip_visible_thinking(raw_content)
         if not text:
             raise ValueError(f"{context}: blank response content")
 
@@ -409,7 +409,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
                     temperature=temperature,
                 )
                 self._record_usage(response)
-                raw_content = response.choices[0].message.content
+                raw_content = self._strip_visible_thinking(response.choices[0].message.content)
 
                 try:
                     if generation_attempt > 0 or repair_attempt > 0:

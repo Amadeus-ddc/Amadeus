@@ -1,6 +1,7 @@
 import logging
 import json
-from typing import List, Dict, Any
+import re
+from typing import List, Dict, Any, Optional
 from openai import OpenAI
 from amadeus_collab.agents.questioner import QuestionerAgent
 from amadeus_collab.agents.builder import BuilderAgent
@@ -140,7 +141,7 @@ Previous Attacks & Results:
                 response_format={"type": "json_object"},
                 temperature=0.0 # 保持一定的创造性
             )
-            res = json.loads(response.choices[0].message.content)
+            res = self._parse_json_content(response.choices[0].message.content)
             
             # Only check stop_attack if NOT in fixed mode
             if not fixed_count and res.get("stop_attack", False):
@@ -280,14 +281,80 @@ Output JSON: {{ "meta_gradient": "..." }}
             logger.error(f"[CoT] Error: {e}")
             return {}
 
+    def _strip_visible_thinking(self, content: Optional[str]) -> str:
+        text = (content or "").strip()
+        if not text:
+            return ""
+
+        think_close = re.search(r"</think\s*>", text, re.IGNORECASE)
+        if think_close:
+            tail = text[think_close.end():].strip()
+            if tail:
+                return tail
+            return text
+
+        if text.startswith("Thinking Process:"):
+            markers = ["\n\n{", "\n\n[", "\n\nFinal Answer", "\n\nAnswer:"]
+            for marker in markers:
+                idx = text.find(marker)
+                if idx != -1:
+                    tail = text[idx + 2 :].strip()
+                    if tail:
+                        return tail
+
+        return text
+
+    def _extract_json_text(self, content: Optional[str]) -> str:
+        text = self._strip_visible_thinking(content)
+        if not text:
+            return ""
+
+        fenced = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", text, re.IGNORECASE)
+        if fenced:
+            text = fenced.group(1).strip()
+
+        start = text.find("{")
+        if start == -1:
+            start = text.find("[")
+        if start == -1:
+            return text.strip()
+
+        opener = text[start]
+        closer = "}" if opener == "{" else "]"
+        depth = 0
+        in_string = False
+        escaped = False
+        for idx in range(start, len(text)):
+            ch = text[idx]
+            if in_string:
+                if escaped:
+                    escaped = False
+                elif ch == "\\":
+                    escaped = True
+                elif ch == '"':
+                    in_string = False
+                continue
+            if ch == '"':
+                in_string = True
+            elif ch == opener:
+                depth += 1
+            elif ch == closer:
+                depth -= 1
+                if depth == 0:
+                    return text[start:idx + 1].strip()
+        return text[start:].strip()
+
+    def _parse_json_content(self, content: Optional[str]):
+        return json.loads(self._extract_json_text(content))
+
     def _call_llm(self, prompt):
         response = self.client.chat.completions.create(
             model=self.model_name,
-            messages=[{"role": "system", "content": prompt}],
+            messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"},
             temperature=0.0
         )
-        return json.loads(response.choices[0].message.content)
+        return self._parse_json_content(response.choices[0].message.content)
 
     def _evaluate_and_update(self, q_item: Dict, prediction: str, buffer_content: str, action_log: List[str] = None):
         # Critic LLM
@@ -365,11 +432,11 @@ Before generating the final JSON, you must perform a step-by-step analysis:
         try:
             response = self.client.chat.completions.create(
                 model=self.model_name,
-                messages=[{"role": "system", "content": prompt}],
+                messages=[{"role": "user", "content": prompt}],
                 response_format={"type": "json_object"},
                 temperature=0.0
             )
-            result = json.loads(response.choices[0].message.content)
+            result = self._parse_json_content(response.choices[0].message.content)
             
             if "chain_of_thought" in result:
                 logger.info(f"Optimizer CoT: {result['chain_of_thought']}")

@@ -85,26 +85,37 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 
 
 def _find_workspace_root() -> Path:
+    env_verl = os.environ.get("VERL_AGENT_ROOT")
+    if env_verl:
+        return Path(env_verl).expanduser().resolve().parent
     for candidate in SCRIPT_DIR.parents:
         if (candidate / "verl-agent").is_dir():
             return candidate
-    raise FileNotFoundError(f"Could not locate workspace root from {SCRIPT_DIR}")
+    return SCRIPT_DIR.parents[2]
 
 
+AMADEUS_ROOT = SCRIPT_DIR.parents[1]
 WORKSPACE_ROOT = _find_workspace_root()
-AMADEUS_ROOT = WORKSPACE_ROOT / "amadeus-collab"
-if not AMADEUS_ROOT.is_dir():
-    AMADEUS_ROOT = SCRIPT_DIR.parents[1]
 
-sys.path.insert(0, str(WORKSPACE_ROOT))
 sys.path.insert(0, str(AMADEUS_ROOT))
+sys.path.insert(0, str(WORKSPACE_ROOT))
 
+load_dotenv(AMADEUS_ROOT / ".env")
 load_dotenv(AMADEUS_ROOT / "experiments" / ".env")
 if os.getenv("OPENAI_API_BASE") and not os.getenv("OPENAI_BASE_URL"):
     os.environ["OPENAI_BASE_URL"] = os.getenv("OPENAI_API_BASE")
 
 # verl-agent ALFWorld environment (reuse its env package directly)
-VERL_AGENT_ROOT = WORKSPACE_ROOT / "verl-agent"
+_VERL_CANDIDATES = [
+    Path(os.environ["VERL_AGENT_ROOT"]).expanduser() if os.environ.get("VERL_AGENT_ROOT") else None,
+    WORKSPACE_ROOT / "verl-agent",
+    AMADEUS_ROOT / "verl-agent",
+    AMADEUS_ROOT.parent / "amadeus" / "experiments" / "verl-agent",
+]
+VERL_AGENT_ROOT = next(
+    (p.resolve() for p in _VERL_CANDIDATES if p and (p / "agent_system").is_dir()),
+    Path(os.environ.get("VERL_AGENT_ROOT", WORKSPACE_ROOT / "verl-agent")).expanduser().resolve(),
+)
 sys.path.insert(0, str(VERL_AGENT_ROOT))
 
 # Pre-register stub packages to avoid omegaconf dependency chain
@@ -516,11 +527,17 @@ To add a new method:
 
     # Ensure ALFWORLD_DATA is set
     if not os.environ.get("ALFWORLD_DATA"):
-        default_data = os.path.expanduser("~/.cache/alfworld")
-        if os.path.isdir(default_data):
-            os.environ["ALFWORLD_DATA"] = default_data
+        data_candidates = [
+            AMADEUS_ROOT / "dataset" / "ALFWorld",
+            AMADEUS_ROOT.parent / "amadeus" / "dataset" / "ALFWorld",
+            Path.home() / ".cache" / "alfworld",
+        ]
+        default_data = next((p for p in data_candidates if (p / "json_2.1.1").is_dir()), None)
+        if default_data:
+            os.environ["ALFWORLD_DATA"] = str(default_data)
+            logger.info(f"Auto-detected ALFWORLD_DATA: {default_data}")
         else:
-            logger.error("ALFWORLD_DATA env var not set and ~/.cache/alfworld not found.")
+            logger.error("ALFWORLD_DATA env var not set and no json_2.1.1 data found.")
             sys.exit(1)
 
     # Init Ray
@@ -528,7 +545,7 @@ To add a new method:
         ray.init(
             runtime_env={
                 "env_vars": {
-                    "PYTHONPATH": VERL_AGENT_ROOT,
+                    "PYTHONPATH": str(VERL_AGENT_ROOT),
                     "ALFWORLD_DATA": os.environ["ALFWORLD_DATA"],
                 },
             },

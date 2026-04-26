@@ -72,6 +72,14 @@ def setup_logging(log_path=None):
 logger = logging.getLogger("Experiment")
 SCHEMA_EXPLORATION_BUFFER_LIMIT = 3
 
+
+def first_existing_path(*paths):
+    for path in paths:
+        if path and os.path.exists(path):
+            return path
+    return paths[0]
+
+
 def parse_sample_entry(target_data):
     """
     解析单个样本数据，返回 chunks 和 qa_pairs
@@ -705,8 +713,14 @@ def main():
     # We want .../amadeus/experiments/LoCoMo/logs
     DEFAULT_LOG_BASE = os.path.join(BASE_DIR, "experiments", "LoCoMo", "logs")
 
+    default_data_file = first_existing_path(
+        os.path.join(BASE_DIR, "dataset", "LoCoMo", "locomo10.json"),
+        os.path.join(BASE_DIR, "data", "locomo10.json"),
+        os.path.join(os.path.dirname(BASE_DIR), "amadeus", "dataset", "LoCoMo", "locomo10.json"),
+    )
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_file", type=str, default=os.path.join(BASE_DIR, "data", "locomo10.json"))
+    parser.add_argument("--data_file", type=str, default=default_data_file)
     parser.add_argument("--sample_id", type=str, default="all", help="Target sample ID or 'all' for entire dataset")
     parser.add_argument("--model_name", type=str, default="qwen2.5-7b-instruct")
     parser.add_argument("--judge_model_name", type=str, default="qwen2.5-32b-instruct")

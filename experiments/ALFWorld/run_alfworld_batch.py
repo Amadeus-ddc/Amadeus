@@ -48,13 +48,24 @@ from methods import METHODS, load_method
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 AMADEUS_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
 WORKSPACE_ROOT = os.path.dirname(AMADEUS_ROOT)
+sys.path.insert(0, AMADEUS_ROOT)
 sys.path.insert(0, WORKSPACE_ROOT)
 
+load_dotenv(os.path.join(AMADEUS_ROOT, ".env"))
 load_dotenv(os.path.join(AMADEUS_ROOT, "experiments", ".env"))
 if os.getenv("OPENAI_API_BASE") and not os.getenv("OPENAI_BASE_URL"):
     os.environ["OPENAI_BASE_URL"] = os.getenv("OPENAI_API_BASE")
 
-VERL_AGENT_ROOT = os.path.join(WORKSPACE_ROOT, "verl-agent")
+_VERL_CANDIDATES = [
+    os.environ.get("VERL_AGENT_ROOT"),
+    os.path.join(WORKSPACE_ROOT, "verl-agent"),
+    os.path.join(AMADEUS_ROOT, "verl-agent"),
+    os.path.join(os.path.dirname(AMADEUS_ROOT), "amadeus", "experiments", "verl-agent"),
+]
+VERL_AGENT_ROOT = next(
+    (os.path.abspath(path) for path in _VERL_CANDIDATES if path and os.path.isdir(os.path.join(path, "agent_system"))),
+    os.path.abspath(os.environ.get("VERL_AGENT_ROOT", os.path.join(WORKSPACE_ROOT, "verl-agent"))),
+)
 sys.path.insert(0, VERL_AGENT_ROOT)
 
 import types
@@ -205,11 +216,17 @@ For streaming evaluation with cross-episode memory, use run_alfworld_streaming.p
 
     # Ensure ALFWORLD_DATA is set
     if not os.environ.get("ALFWORLD_DATA"):
-        default_data = os.path.expanduser("~/.cache/alfworld")
-        if os.path.isdir(default_data):
+        data_candidates = [
+            os.path.join(AMADEUS_ROOT, "dataset", "ALFWorld"),
+            os.path.join(os.path.dirname(AMADEUS_ROOT), "amadeus", "dataset", "ALFWorld"),
+            os.path.expanduser("~/.cache/alfworld"),
+        ]
+        default_data = next((path for path in data_candidates if os.path.isdir(os.path.join(path, "json_2.1.1"))), None)
+        if default_data:
             os.environ["ALFWORLD_DATA"] = default_data
+            logger.info(f"Auto-detected ALFWORLD_DATA: {default_data}")
         else:
-            logger.error("ALFWORLD_DATA env var not set.")
+            logger.error("ALFWORLD_DATA env var not set and no json_2.1.1 data found.")
             sys.exit(1)
 
     if not ray.is_initialized():

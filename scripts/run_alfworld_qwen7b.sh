@@ -8,7 +8,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-PYTHON_BIN="${PYTHON:-/data/hzy/miniconda3/envs/amadeus1/bin/python}"
+PYTHON_BIN="${PYTHON:-$(command -v /data/hzy/miniconda3/envs/amadeus1/bin/python 2>/dev/null || command -v python)}"
 
 RUN_SCRIPT="${ROOT_DIR}/experiments/ALFWorld/run_alfworld.py"
 
@@ -27,13 +27,16 @@ fi
 # ---- ALFWorld 数据 ----
 if [[ -z "${ALFWORLD_DATA:-}" ]]; then
     REPO_DATA="${ROOT_DIR}/dataset/ALFWorld"
+    LEGACY_DATA="${ROOT_DIR}/../amadeus/dataset/ALFWorld"
     CACHE_DATA="$HOME/.cache/alfworld"
     if [[ -d "${REPO_DATA}/json_2.1.1" ]]; then
         export ALFWORLD_DATA="${REPO_DATA}"
-    elif [[ -d "${CACHE_DATA}" ]]; then
+    elif [[ -d "${LEGACY_DATA}/json_2.1.1" ]]; then
+        export ALFWORLD_DATA="${LEGACY_DATA}"
+    elif [[ -d "${CACHE_DATA}/json_2.1.1" ]]; then
         export ALFWORLD_DATA="${CACHE_DATA}"
     else
-        echo "[ERROR] ALFWORLD_DATA not set. No data at dataset/ALFWorld/ or ~/.cache/alfworld"
+        echo "[ERROR] ALFWORLD_DATA not set. No data at dataset/ALFWorld/, ../amadeus/dataset/ALFWorld/, or ~/.cache/alfworld"
         exit 1
     fi
 fi
