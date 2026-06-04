@@ -1,32 +1,10 @@
 # Amadeus
 
-An evolving memory system for LLM agents. Amadeus converts experience streams into a structured **MemoryGraph**, then uses adversarial self-play to discover memory gaps and improve graph-building strategies over time.
+An evolving memory system for LLM agents. Amadeus converts experience streams into a structured **MemoryGraph**, then uses adversarial self-play to discover memory gaps and improve graph-building strategies.
 
 ## How It Works
 
-```text
-Experience Stream (dialogue / trajectory)
-  │
-  ▼
-┌──────────┐   schema    ┌─────────────┐
-│  Buffer   │──emergence──▶  SchemaState │
-│ Manager   │◀────────────│  (node/edge  │
-└────┬──────┘             │   types +    │
-     │                    │   rules)     │
-     ▼                    └─────────────┘
-┌──────────┐
-│  Builder  │── schema-aware ──▶ MemoryGraph (NetworkX)
-└──────────┘                         │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   Self-Play Optimizer  │
-                         │  Questioner → Answerer │
-                         │      → Judge           │
-                         └───────────────────────┘
-                                     │
-                              strategy updates
-                              fed back to Builder
-```
+![Amadeus Architecture](ebc19ff9e4fffaa25059825c064d0d22.png)
 
 1. **Buffer Manager** segments raw input into coherent chunks using LLM-based topic-shift detection.
 2. **Schema Emergence** (optional) inspects early buffers and proposes graph node types, edge types, and construction rules — no hand-written ontology needed.
