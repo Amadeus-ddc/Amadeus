@@ -51,10 +51,11 @@ code/
 
 experiments/
 ├── LoCoMo/run_locomo.py                 # LoCoMo memory QA benchmark
-└── ALFWorld/
-    ├── run_alfworld_streaming.py        # ALFWorld streaming evaluation
-    ├── run_alfworld_offline.py          # ALFWorld offline (cold-start) evaluation
-    └── methods/amadeus.py               # ALFWorld ↔ Amadeus adapter
+├── ALFWorld/
+│   ├── run_alfworld_streaming.py        # ALFWorld streaming evaluation
+│   ├── run_alfworld_offline.py          # ALFWorld offline (cold-start) evaluation
+│   └── methods/amadeus.py               # ALFWorld ↔ Amadeus adapter
+└── verl-agent/                          # Bundled ALFWorld env wrapper (Apache 2.0, from GiGPO/verl-agent)
 ```
 
 ## Setup
@@ -85,7 +86,7 @@ Key variables:
 | `OPENAI_API_KEY` | API key for the endpoint |
 | `JUDGE_API_BASE` | *(Optional)* Separate judge endpoint for LoCoMo |
 | `ALFWORLD_DATA` | Path to ALFWorld `json_2.1.1/` data directory |
-| `VERL_AGENT_ROOT` | Path to `verl-agent/` for ALFWorld environments |
+| `VERL_AGENT_ROOT` | ALFWorld env wrapper (bundled at `experiments/verl-agent/`) |
 
 ### Local Assets (not tracked by git)
 
@@ -93,8 +94,9 @@ Key variables:
 dataset/LoCoMo/locomo10.json        # LoCoMo dataset
 dataset/ALFWorld/json_2.1.1/         # ALFWorld game data
 models/all-MiniLM-L6-v2/            # Sentence embedding model
-experiments/verl-agent/              # ALFWorld environment wrapper
 ```
+
+The ALFWorld environment wrapper (`verl-agent/`) is bundled in the repo at `experiments/verl-agent/` — no extra setup needed.
 
 ## Start a Local Model Server
 
