@@ -4,13 +4,13 @@ ALFWorld offline evaluation — cold-start from training trajectories, then test
 
 Protocol:
   1. COLD-START: Read pre-collected training trajectories (alfworld_format_traj.json),
-     call memory.evolve() for each — exprag builds its embedding store from these.
+     call memory.evolve() for each — Amadeus builds its memory graph from these.
      No LLM inference, no environment interaction in this phase.
   2. TEST: Run test environments sequentially (streaming-style, one at a time),
      calling memory.search() before each episode. Memory does NOT update during test.
 
 Usage:
-  python run_alfworld_offline.py --method exprag --api_base http://localhost:8003/v1
+  python run_alfworld_offline.py --method amadeus --api_base http://localhost:8003/v1
 """
 
 import sys
@@ -88,7 +88,6 @@ _VERL_CANDIDATES = [
     os.environ.get("VERL_AGENT_ROOT"),
     os.path.join(WORKSPACE_ROOT, "verl-agent"),
     os.path.join(AMADEUS_ROOT, "verl-agent"),
-    os.path.join(os.path.dirname(AMADEUS_ROOT), "amadeus", "experiments", "verl-agent"),
 ]
 VERL_AGENT_ROOT = next(
     (os.path.abspath(path) for path in _VERL_CANDIDATES if path and os.path.isdir(os.path.join(path, "agent_system"))),
@@ -111,11 +110,18 @@ from agent_system.environments.env_package.alfworld.envs import (
 from agent_system.environments.env_package.alfworld.projection import alfworld_projection
 
 # ---------------------------------------------------------------------------
-# Default training trajectory file
+# Optional default training trajectory file for cold-start
 # ---------------------------------------------------------------------------
-DEFAULT_TRAJ_FILE = os.path.join(
-    WORKSPACE_ROOT, "MemP", "ProcedureMem", "Alfworld", "alfworld_format_traj.json"
-)
+def find_default_traj_file():
+    candidates = [
+        os.environ.get("ALFWORLD_TRAJ_FILE"),
+        os.path.join(AMADEUS_ROOT, "dataset", "ALFWorld", "alfworld_format_traj.json"),
+        os.path.join(AMADEUS_ROOT, "data", "ALFWorld", "alfworld_format_traj.json"),
+    ]
+    for path in candidates:
+        if path and os.path.exists(path):
+            return path
+    return None
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -511,7 +517,7 @@ def cold_start_from_traj(memory, traj_file: str, max_traj: int = None,
             task_type=task_type,
             task_description=query,
             trajectory=trajectory_pairs,
-            success=True,   # MemP traj file contains successful trajectories only
+            success=True,   # cold-start trajectory files are expected to contain successful trajectories
             episode_idx=i,
         )
 
@@ -532,7 +538,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="ALFWorld offline eval: cold-start from train trajs, then test",
     )
-    parser.add_argument("--method", type=str, default="exprag", choices=list(METHODS.keys()))
+    parser.add_argument("--method", type=str, default="amadeus", choices=list(METHODS.keys()))
     parser.add_argument("--model_name", type=str, default="qwen2.5-7b-instruct")
     parser.add_argument("--api_base", type=str, default=None)
     parser.add_argument("--api_key", type=str, default=None)
@@ -540,8 +546,8 @@ def main():
     parser.add_argument("--max_steps", type=int, default=50)
     parser.add_argument("--history_length", type=int, default=10)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--traj_file", type=str, default=DEFAULT_TRAJ_FILE,
-                        help="Training trajectory file for cold-start")
+    parser.add_argument("--traj_file", type=str, default=find_default_traj_file(),
+                        help="Training trajectory file for cold-start. Can also be set via ALFWORLD_TRAJ_FILE.")
     parser.add_argument("--max_traj", type=int, default=None,
                         help="Max training trajectories to use (default: all)")
     parser.add_argument("--output_dir", type=str, default=None)
@@ -570,10 +576,24 @@ def main():
     logger.info(f"Traj file: {args.traj_file}")
     logger.info(f"Checkpoint: cold_start_done={cold_start_done}, test_done={len(completed_env_ids)}, phase={resume_phase}")
 
-    api_base = args.api_base or os.environ.get("OPENAI_BASE_URL", "http://localhost:8000/v1")
-    api_key = args.api_key or os.environ.get("OPENAI_API_KEY", "token-abc123")
+    if not args.traj_file or not os.path.exists(args.traj_file):
+        logger.error(
+            "A valid ALFWorld cold-start trajectory file is required for offline mode. "
+            "Pass --traj_file or set ALFWORLD_TRAJ_FILE."
+        )
+        sys.exit(1)
+
+    api_base = args.api_base or os.environ.get("OPENAI_BASE_URL")
+    api_key = args.api_key or os.environ.get("OPENAI_API_KEY")
+    if not api_base:
+        logger.error("OPENAI_BASE_URL is required. Set it in .env or pass --api_base.")
+        sys.exit(1)
+    if not api_key:
+        logger.error("OPENAI_API_KEY is required. Set it in .env or pass --api_key.")
+        sys.exit(1)
 
     method_kwargs = vars(args).copy()
+    method_kwargs["output_dir"] = str(output_dir)
     method_kwargs["api_base"] = api_base
     method_kwargs["api_key"] = api_key
     method_kwargs["model_name"] = args.model_name
@@ -594,7 +614,6 @@ def main():
     if not os.environ.get("ALFWORLD_DATA"):
         data_candidates = [
             os.path.join(AMADEUS_ROOT, "dataset", "ALFWorld"),
-            os.path.join(os.path.dirname(AMADEUS_ROOT), "amadeus", "dataset", "ALFWorld"),
             os.path.expanduser("~/.cache/alfworld"),
         ]
         default_data = next((path for path in data_candidates if os.path.isdir(os.path.join(path, "json_2.1.1"))), None)

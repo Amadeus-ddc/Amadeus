@@ -18,6 +18,7 @@ from openai import OpenAI
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, BASE_DIR)
 load_dotenv(os.path.join(BASE_DIR, '.env'))
+load_dotenv(os.path.join(BASE_DIR, 'experiments', '.env'))
 
 if os.getenv("OPENAI_API_BASE") and not os.getenv("OPENAI_BASE_URL"):
     os.environ["OPENAI_BASE_URL"] = os.getenv("OPENAI_API_BASE")
@@ -29,7 +30,6 @@ from amadeus_collab.agents.builder import BuilderAgent
 from amadeus_collab.agents.answerer import AnswererAgent
 from amadeus_collab.agents.questioner import QuestionerAgent
 from amadeus_collab.engine.optimizer import AdversarialOptimizer
-from amadeus_collab.engine.optimizer_old import AdversarialOptimizer as AdversarialOptimizerOld
 
 class HuggingFaceEmbedder:
     def __init__(self, model_path, device="cuda"):
@@ -82,14 +82,14 @@ def first_existing_path(*paths):
 
 def parse_sample_entry(target_data):
     """
-    解析单个样本数据，返回 chunks 和 qa_pairs
+    Parse a single sample entry and return chunks and qa_pairs.
     """
     def natural_sort_key(s):
         return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', s)]
 
     chunks = []
     
-    # 1. 处理 Conversation Sessions (对话)
+    # 1. Process Conversation Sessions
     if 'conversation' in target_data:
         conv = target_data['conversation']
         session_keys = [k for k in conv.keys() if k.startswith('session_') and isinstance(conv[k], list)]
@@ -108,8 +108,8 @@ def parse_sample_entry(target_data):
                 if summary_key in conv and isinstance(conv[summary_key], str):
                     time_context = conv[summary_key][:150]
             
-            # 构造 Chunk: 上下文 + 对话内容
-            # 加上 Speaker 前缀解决实体混淆
+            # Build chunk: context + conversation content
+            # Add speaker prefix to disambiguate entities
             chunk_text = f"--- Session Context: {time_context} ---\n"
             for turn in conv[sk]:
                 speaker = turn.get('speaker', 'Unknown')
@@ -118,13 +118,13 @@ def parse_sample_entry(target_data):
             
             chunks.append(chunk_text)
     
-    # 2. 处理 Source Documents (D1, D2...) - 通常是日记或新闻
+    # 2. Process Source Documents (D1, D2...) - typically diaries or news
     exclude_keys = {'qa', 'sample_id', 'id', 'category', 'dataset', 'conversation'}
     other_keys = [k for k in target_data.keys() if k not in exclude_keys and isinstance(target_data[k], str)]
     other_keys.sort(key=natural_sort_key)
     
     for k in other_keys:
-        # 将 Key (如 "D1: 2023-05-01") 作为时间上下文
+        # Use the key (e.g. "D1: 2023-05-01") as time context
         chunk_text = f"--- Source/Date Context: {k} ---\n{target_data[k]}"
         chunks.append(chunk_text)
 
@@ -133,21 +133,21 @@ def parse_sample_entry(target_data):
 
 def load_data_for_experiment(path: str, target_id: str = None):
     """
-    加载实验数据。如果指定 target_id, 只返回该样本: 否则返回所有样本。
-    支持逗号分隔的多个ID，例如 "conv-26,conv-27"
-    返回: List of (sample_id, chunks, qa_pairs)
+    Load experiment data. If target_id is specified, return only that sample;
+    otherwise return all samples. Supports comma-separated IDs, e.g. "conv-26,conv-27".
+    Returns: List of (sample_id, chunks, qa_pairs)
     """
     try:
         with open(path, 'r', encoding='utf-8') as f:
             dataset = json.load(f)
     except FileNotFoundError:
-        logger.error(f"❌ 数据文件未找到: {path}")
+        logger.error(f"Data file not found: {path}")
         sys.exit(1)
     
     results = []
     found = False
     
-    # 解析 target_id 列表
+    # Parse target_id list
     target_ids = set()
     if target_id and target_id != "all":
         target_ids = {tid.strip() for tid in target_id.split(',')}
@@ -155,7 +155,7 @@ def load_data_for_experiment(path: str, target_id: str = None):
     for entry in dataset:
         sid = entry.get('sample_id')
         
-        # 过滤逻辑
+        # Filtering logic
         if target_ids and sid not in target_ids:
             continue
             
@@ -164,10 +164,10 @@ def load_data_for_experiment(path: str, target_id: str = None):
         results.append((sid, chunks, qa_pairs))
         
     if not found and target_id:
-        logger.error(f"❌ 未在数据集中找到 ID: {target_id}")
+        logger.error(f"ID not found in dataset: {target_id}")
         sys.exit(1)
         
-    logger.info(f"✅ 成功加载 {len(results)} 个样本")
+    logger.info(f"Successfully loaded {len(results)} sample(s)")
     return results
 
 ACCURACY_PROMPT = """
@@ -375,6 +375,13 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
     sample_id, chunks, questions = sample_data
     logger.info(f"\n{'='*40}\n🚀 Running Sample: {sample_id}\n{'='*40}")
 
+    if getattr(args, "max_chunks", None) and args.max_chunks > 0:
+        chunks = chunks[:args.max_chunks]
+        logger.info(f"[{sample_id}] Smoke/debug limit: using first {len(chunks)} chunks")
+    if getattr(args, "max_questions", None) and args.max_questions > 0:
+        questions = questions[:args.max_questions]
+        logger.info(f"[{sample_id}] Smoke/debug limit: using first {len(questions)} questions")
+
     # Define Sub-directories
     # Structure: experiments/LoCoMo/logs/run_xxx/{sample_id}/graphs/
     #            experiments/LoCoMo/logs/run_xxx/{sample_id}/results/
@@ -394,15 +401,14 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
 
     graph = MemoryGraph(graph_path, embedder=embedder)
     schema_state = SchemaState.load(schema_path)
-    buffer = TimeWindowBuffer(trigger_threshold=1) # 每一个Session都是完整上下文，直接触发
+    buffer = TimeWindowBuffer(trigger_threshold=1)  # Each session is a complete context, flush immediately
     builder = BuilderAgent(graph, model_name=args.model_name)
     answerer = AnswererAgent(graph, model_name=args.model_name)
     questioner = QuestionerAgent(model_name=args.model_name)
     builder.operator_guidelines = {}
     answerer.operator_guidelines = {}
     questioner.operator_guidelines = {"GENERATE": []}
-    OptimizerClass = AdversarialOptimizerOld if args.optimizer_version == "old" else AdversarialOptimizer
-    optimizer = OptimizerClass(questioner, builder, answerer, model_name=args.model_name)
+    optimizer = AdversarialOptimizer(questioner, builder, answerer, model_name=args.model_name)
 
     logger.info(f"[{sample_id}] ♻️ Reset graph and agent strategies for isolated conv run.")
     logger.info(f"[{sample_id}] 📁 Schema artifact path: {schema_path}")
@@ -502,7 +508,7 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
                         logger.info(f"[{sample_id}] 🧊 Ignoring post-build schema proposals after schema exploration window closed.")
                 pending_buffer_for_optimizer = current_buffer
 
-                if graph.graph.number_of_nodes() > 0:
+                if graph.graph.number_of_nodes() > 0 and not args.no_selfplay:
                     try:
                         optimizer.step(pending_buffer_for_optimizer, pending_action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
                     except Exception as e:
@@ -514,7 +520,7 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
                 current_buffer += "\n" + chunk
                 chunks_since_flush += 1
 
-    # 3. Final Flush for remaining content
+    # Final flush for remaining content
     if current_buffer:
         logger.info(f"[{sample_id}] 🔄 Final Flush...")
         flushed_buffers.append(current_buffer)
@@ -564,7 +570,7 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
                 logger.info(f"[{sample_id}] 🧊 Ignoring post-build schema proposals after schema exploration window closed.")
         pending_buffer_for_optimizer = current_buffer
         schema_state.save(schema_path)
-        if graph.graph.number_of_nodes() > 0:
+        if graph.graph.number_of_nodes() > 0 and not args.no_selfplay:
             try:
                 optimizer.step(pending_buffer_for_optimizer, pending_action_log, mode=optimizer_mode, fixed_loops=optimizer_fixed_count, use_cot=use_cot)
             except Exception as e:
@@ -602,7 +608,7 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
         if category == 5:
             continue
 
-        # 优先使用 'answer'，如果没有则尝试 'adversarial_answer'，最后才是 'N/A'
+        # Prefer 'answer'; fall back to 'adversarial_answer'; default to 'N/A'
         gt = str(q_item.get('answer', q_item.get('adversarial_answer', 'N/A')))
         
         try:
@@ -688,14 +694,6 @@ def process_sample(sample_data, args, embedder, judge_api_base, judge_api_key, r
         "graph_stats": graph_stats,
     }
     
-    # results_dir was defined at start of function
-    # Because we don't have access to results_dir variable here in this tool call block context if I assume stateless replacement
-    # But wait, python scope rules. results_dir IS available if defined in the same function scope.
-    # I need to make sure I access the variable 'results_dir' which I defined in previous step.
-    
-    # RE-DERIVING path just to be safe in case of scope confusion in user mind (but code is contiguous)
-    # Actually I edited the top of the function. results_dir is in scope.
-    
     result_file_path = os.path.join(run_output_dir, sample_id, "results", f"sample_{sample_id}.json")
     with open(result_file_path, 'w', encoding='utf-8') as f:
         json.dump(sample_result, f, ensure_ascii=False, indent=2)
@@ -714,9 +712,9 @@ def main():
     DEFAULT_LOG_BASE = os.path.join(BASE_DIR, "experiments", "LoCoMo", "logs")
 
     default_data_file = first_existing_path(
+        os.environ.get("LOCOMO_DATA_FILE"),
         os.path.join(BASE_DIR, "dataset", "LoCoMo", "locomo10.json"),
         os.path.join(BASE_DIR, "data", "locomo10.json"),
-        os.path.join(os.path.dirname(BASE_DIR), "amadeus", "dataset", "LoCoMo", "locomo10.json"),
     )
 
     parser = argparse.ArgumentParser()
@@ -735,7 +733,13 @@ def main():
     # Base output dir is now the logs dir
     parser.add_argument("--output_base_dir", type=str, default=DEFAULT_LOG_BASE, help="Base Directory for experiment logs and outputs")
     parser.add_argument("--max_workers", type=int, default=1, help="Number of parallel workers")
-    
+    parser.add_argument("--max_chunks", type=int, default=None,
+                        help="Limit contextual chunks per sample for quick smoke/debug runs")
+    parser.add_argument("--max_questions", type=int, default=None,
+                        help="Limit evaluation questions per sample for quick smoke/debug runs")
+    parser.add_argument("--no_selfplay", action="store_true", default=False,
+                        help="Disable optimizer self-play for quick smoke/debug runs")
+
     # Ablation Arguments
     parser.add_argument("--ablation_mode", type=str, default="none", 
                         choices=["none", "fixed_buffer_adaptive_sp", "adaptive_buffer_fixed_sp", "fixed_buffer_fixed_sp_cot"],
@@ -743,9 +747,7 @@ def main():
     parser.add_argument("--fixed_buffer_size", type=int, default=3, help="Number of chunks for fixed buffer size")
     parser.add_argument("--fixed_sp_count", type=int, default=3, help="Number of questions for fixed self-play")
     parser.add_argument("--run_name", type=str, default=None, help="Custom name for the run directory")
-    parser.add_argument("--optimizer_version", type=str, default="new", choices=["old", "new"],
-                        help="old=baseline(3题无重试), new=iterative-retry+meta-experience")
-    
+
     args = parser.parse_args()
 
     # Create run directory with timestamp: experiments/LoCoMo/logs/run_2026...
@@ -789,7 +791,7 @@ def main():
     DATA_FILE = args.data_file
     TARGET_ID = args.sample_id
     
-    # 加载数据 (支持单个或全部)
+    # Load data (supports single sample or all)
     experiment_data = load_data_for_experiment(DATA_FILE, TARGET_ID if TARGET_ID != "all" else None)
     
     total_samples = len(experiment_data)

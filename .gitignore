@@ -1,35 +1,94 @@
-# .gitignore
+# Python caches
 __pycache__/
 *.py[cod]
 *$py.class
 
-# 环境变量 (绝对不能上传!)
+# Environment / secrets (never commit)
 .env
-.venv
+.env.*
+!.env.example
+.venv/
 env/
 venv/
 
-# 你的本地 IDE 配置
+# Local IDE / Claude Code state
 .vscode/
 .idea/
+.claude/
 
-# 实验数据 (太大，不要上传 Git，用云盘或 NAS 传)
+# Local datasets and environments
 data/
-experiments/LoCoMo/logs/
-*.pth
-*.pt
-experiments/ALFWorld/logs/
-experiments/ALFWorld/logs_smoketest/
-experiments/babilong/logs/
-experiments/GPQA/logs/
-experiments/longmemeval/logs/
-experiments/MATH/logs/
-experiments/ScienceWorld/logs/
+dataset/
 experiments/verl-agent/
 experiments/Memory-R/
 amadeus1.tar.gz
 flash_attn-2.8.3.tar.gz
-dataset/
 
-# 本地模型
+# Local models and model artifacts
 models/
+*.pth
+*.pt
+*.bin
+*.safetensors
+*.onnx
+*.h5
+*.ot
+*.pkl
+
+# Runtime logs and generated experiment outputs
+*.log
+*.console.log
+*.vllm.log
+*.nohup.log
+*.jsonl
+**/logs/
+**/logs_smoketest/
+**/results/
+**/results_dryrun/
+**/results_smoketest/
+**/runs/
+**/checkpoints/
+**/checkpoint.json
+**/pipeline_state.json
+**/memory_graph.json
+
+# Papers / local reference copies
+*.pdf
+
+# This public repo keeps only LoCoMo and ALFWorld experiment code.
+# Other dataset-specific experiment code should stay local unless explicitly restored.
+experiments/GPQA/
+experiments/MATH/
+experiments/ScienceWorld/
+experiments/longmemeval/
+experiments/babilong/
+
+# Launcher scripts and auxiliary pipelines are local-only.
+# The public repo keeps Python entrypoints under experiments/LoCoMo and experiments/ALFWorld.
+scripts/
+
+# Local prompt dumps / generated notes
+code/PROMPTS.md
+
+# Local-only legacy/auxiliary code kept on disk but not published
+code/engine/optimizer_old.py
+experiments/LoCoMo/analyze_memory_tokens.py
+experiments/LoCoMo/eval_existing_graph.py
+experiments/LoCoMo/merge_results.py
+experiments/ALFWorld/diagnose_qwen3_actions.py
+experiments/ALFWorld/run_32b_comparison.sh
+experiments/ALFWorld/run_alfworld.py
+experiments/ALFWorld/run_alfworld_batch.py
+experiments/ALFWorld/run_baseline.sh
+experiments/ALFWorld/run_eval.sh
+experiments/ALFWorld/run_exprag*.sh
+experiments/ALFWorld/run_history.sh
+experiments/ALFWorld/methods/exprag.py
+experiments/ALFWorld/methods/history.py
+experiments/ALFWorld/methods/mcma.py
+experiments/ALFWorld/methods/memp.py
+experiments/ALFWorld/methods/no_memory.py
+
+# Misc local generated files
+experiments/run_remaining.log
+experiments/run_remaining_experiments.sh

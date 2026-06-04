@@ -12,16 +12,11 @@ The memory module is PLUGGABLE — controlled by --method flag.
 To add a new method, see methods/base.py for the interface.
 
 Usage:
-  # 1. Start vLLM server
-  CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server \
-      --model /data/hzy/models/Qwen2.5-7B-Instruct --port 8000 \
-      --max-model-len 8192 --gpu-memory-utilization 0.9 --trust-remote-code
+  # 1. Start an OpenAI-compatible local model server, then set OPENAI_BASE_URL.
+  #    Example: export OPENAI_BASE_URL=http://localhost:8000/v1
 
   # 2. Run with Amadeus memory (streaming)
   python run_alfworld_streaming.py --method amadeus
-
-  # 3. Run baseline (no memory)
-  python run_alfworld_streaming.py --method none
 """
 
 import sys
@@ -110,7 +105,6 @@ _VERL_CANDIDATES = [
     Path(os.environ["VERL_AGENT_ROOT"]).expanduser() if os.environ.get("VERL_AGENT_ROOT") else None,
     WORKSPACE_ROOT / "verl-agent",
     AMADEUS_ROOT / "verl-agent",
-    AMADEUS_ROOT.parent / "amadeus" / "experiments" / "verl-agent",
 ]
 VERL_AGENT_ROOT = next(
     (p.resolve() for p in _VERL_CANDIDATES if p and (p / "agent_system").is_dir()),
@@ -457,19 +451,13 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Available methods:
-  none      No memory (baseline)
   amadeus   Amadeus MemoryGraph (Builder + self-play)
-
-To add a new method:
-  1. Create methods/your_method.py implementing MemoryModule (see methods/base.py)
-  2. Register it in methods/__init__.py METHODS dict
-  3. Run: python run_alfworld_streaming.py --method your_method
         """,
     )
 
     # Harness arguments (method-agnostic)
-    parser.add_argument("--method", type=str, default="none", choices=list(METHODS.keys()),
-                        help="Memory method to use (default: none)")
+    parser.add_argument("--method", type=str, default="amadeus", choices=list(METHODS.keys()),
+                        help="Memory method to use (default: amadeus)")
     parser.add_argument("--model_name", type=str, default="qwen2.5-7b-instruct")
     parser.add_argument("--api_base", type=str, default=None)
     parser.add_argument("--api_key", type=str, default=None)
@@ -509,8 +497,14 @@ To add a new method:
     logger.info(f"Output: {output_dir}")
 
     # Set env vars
-    api_base = args.api_base or os.environ.get("OPENAI_BASE_URL", "http://localhost:8000/v1")
-    api_key = args.api_key or os.environ.get("OPENAI_API_KEY", "token-abc123")
+    api_base = args.api_base or os.environ.get("OPENAI_BASE_URL")
+    api_key = args.api_key or os.environ.get("OPENAI_API_KEY")
+    if not api_base:
+        logger.error("OPENAI_BASE_URL is required. Set it in .env or pass --api_base.")
+        sys.exit(1)
+    if not api_key:
+        logger.error("OPENAI_API_KEY is required. Set it in .env or pass --api_key.")
+        sys.exit(1)
     os.environ["OPENAI_BASE_URL"] = api_base
     os.environ["OPENAI_API_KEY"] = api_key
 
@@ -529,7 +523,6 @@ To add a new method:
     if not os.environ.get("ALFWORLD_DATA"):
         data_candidates = [
             AMADEUS_ROOT / "dataset" / "ALFWorld",
-            AMADEUS_ROOT.parent / "amadeus" / "dataset" / "ALFWorld",
             Path.home() / ".cache" / "alfworld",
         ]
         default_data = next((p for p in data_candidates if (p / "json_2.1.1").is_dir()), None)

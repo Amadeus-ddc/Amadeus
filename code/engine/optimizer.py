@@ -18,7 +18,7 @@ class AdversarialOptimizer:
         self.answerer = answerer
         self.client = OpenAI(base_url=api_base, api_key=api_key)
         self.model_name = model_name
-        self.experiences: List[Dict] = []  # 元优化经验: [{"trigger": ..., "measure": ..., "target_agent": ..., "target_operator": ...}, ...]
+        self.experiences: List[Dict] = []  # Meta-optimization experiences: [{"trigger": ..., "measure": ..., "target_agent": ..., "target_operator": ...}, ...]
         self.usage_stats = {
             "api_calls": 0,
             "prompt_tokens": 0,
@@ -32,18 +32,18 @@ class AdversarialOptimizer:
     def step(self, buffer_content: str, action_log: List[str] = None,
              mode: str = "fixed", fixed_loops: int = 3, use_cot: bool = False):
         """
-        新自博弈逻辑:
-        1. 出 1 道题
-        2. Answerer 答题 → Judge 评判
-           若错 → Optimizer 生成策略更新 → 应用 → Builder 重建图 → 重试 (最多 MAX_RETRIES 次)
-        3. 记录全部尝试
-        4. 若同时出现 FAIL 和 PASS → CoT 对比总结经验
+        Iterative self-play logic:
+        1. Generate 1 question
+        2. Answerer answers -> Judge evaluates
+           If wrong -> Optimizer generates strategy update -> apply -> Builder rebuilds graph -> retry (up to MAX_RETRIES)
+        3. Record all attempts
+        4. If both FAIL and PASS occur -> CoT comparison to extract experience
         """
         MAX_RETRIES = 3
 
         logger.info(f"⚔️ Self-Play Start | Mode: iterative-retry, MaxRetries: {MAX_RETRIES}")
 
-        # ---------- 1. 生成 1 道题 ----------
+        # ---------- 1. Generate 1 question ----------
         questions = self.questioner.generate_questions(buffer_content, num_questions=1)
         if not questions:
             logger.info("🏳️ Questioner generated no questions, skipping self-play.")
@@ -55,17 +55,17 @@ class AdversarialOptimizer:
         logger.info(f"⚔️ Question: {question}")
         logger.info(f"⚔️ Ground Truth: {ground_truth}")
 
-        # ---------- 2. 迭代重试循环 ----------
+        # ---------- 2. Iterative retry loop ----------
         attempts: List[Dict] = []
 
         for attempt_idx in range(MAX_RETRIES):
             logger.info(f"🔄 Attempt {attempt_idx + 1}/{MAX_RETRIES}")
 
-            # Answerer 答题
+            # Answerer answers the question
             prediction = self.answerer.answer(question)
             logger.info(f"🔄 Attempt {attempt_idx + 1} | Prediction: {prediction[:200]}")
 
-            # Judge 评判 + 策略建议
+            # Judge evaluation + strategy suggestion
             eval_result = self._evaluate_attempt(
                 q_item, prediction, buffer_content, action_log, attempt_idx, attempts
             )
@@ -75,7 +75,7 @@ class AdversarialOptimizer:
             error_category = eval_result.get("error_category", "")
             reason = eval_result.get("reason", "")
 
-            # 构建本次记录
+            # Build record for this attempt
             record = {
                 "attempt": attempt_idx + 1,
                 "question": question,
@@ -96,16 +96,16 @@ class AdversarialOptimizer:
 
             logger.warning(f"❌ Attempt {attempt_idx + 1} FAIL | Blame: {blame} | ErrorCat: {error_category} | Reason: {reason}")
 
-            # 如果还有重试机会，应用策略更新并重建图
+            # If retries remain, apply strategy update and rebuild graph
             if attempt_idx < MAX_RETRIES - 1:
                 strategy = eval_result.get("strategy_update")
                 if strategy:
                     self._apply_strategy_update(strategy, blame)
-                    # Builder 用新策略重新处理 buffer，重建图
+                    # Builder re-processes buffer with new strategy, rebuilds graph
                     logger.info("🔨 Builder re-processing buffer with updated strategy...")
                     self.builder.process_buffer(buffer_content)
 
-        # ---------- 3. 检查是否提炼经验 ----------
+        # ---------- 3. Check whether to extract experience ----------
         has_fail = any(a["result"] == "FAIL" for a in attempts)
         has_success = any(a["result"] == "PASS" for a in attempts)
         final_result = attempts[-1]["result"]
@@ -128,14 +128,14 @@ class AdversarialOptimizer:
     def _evaluate_attempt(self, q_item: Dict, prediction: str, buffer_content: str,
                           action_log: List[str], attempt_idx: int,
                           previous_attempts: List[Dict]) -> Dict:
-        """判断对错 + 归因 + 生成策略更新建议"""
+        """Evaluate correctness + assign blame + generate strategy update suggestion."""
         MAX_RETRIES = 3
         action_log_str = "\n".join(action_log) if action_log else "No recent graph updates."
         buffer_snippet = buffer_content[:800].replace("\n", " ")
 
-        # 前几次尝试的上下文
+        # Context from previous attempts
         prev_section = self._format_previous_attempts(previous_attempts)
-        # 已有经验
+        # Accumulated experiences
         exp_section = self._format_experiences()
 
         prompt = f"""You are the Judge and Strategy Advisor of the Amadeus Memory System.
@@ -227,7 +227,7 @@ Notes:
     #                      APPLY STRATEGY UPDATE                          #
     # ------------------------------------------------------------------ #
     def _apply_strategy_update(self, strategy: Dict, blame: str):
-        """将策略更新应用到对应的 agent，并记录日志"""
+        """Apply strategy update to the corresponding agent and log it."""
         if not strategy:
             return
 
@@ -254,7 +254,7 @@ Notes:
     #                      EXTRACT EXPERIENCE (CoT)                       #
     # ------------------------------------------------------------------ #
     def _extract_experience(self, attempts: List[Dict]) -> Dict:
-        """对比成功和失败的策略更新，CoT 提炼元优化经验（教 optimizer 怎么更新 builder/answerer）"""
+        """Compare successful and failed strategy updates, extract meta-optimization experience via CoT (teach the optimizer how to update builder/answerer)."""
         formatted = self._format_attempts_for_experience(attempts)
 
         prompt = f"""You are the Meta-Optimization Coach of the Amadeus Memory System.
@@ -341,7 +341,7 @@ Write the final experience with these fields:
     #                         FORMAT HELPERS                               #
     # ------------------------------------------------------------------ #
     def _format_previous_attempts(self, attempts: List[Dict]) -> str:
-        """格式化前几次尝试的上下文，注入到评判 prompt 中"""
+        """Format context from previous attempts for injection into the judge prompt."""
         if not attempts:
             return ""
 
@@ -360,7 +360,7 @@ Write the final experience with these fields:
         return "\n".join(lines)
 
     def _format_experiences(self) -> str:
-        """格式化已有元优化经验列表，注入到评判 prompt 中"""
+        """Format the accumulated meta-optimization experience list for injection into the judge prompt."""
         if not self.experiences:
             return ""
 
@@ -375,7 +375,7 @@ Write the final experience with these fields:
         return "\n".join(lines)
 
     def _format_attempts_for_experience(self, attempts: List[Dict]) -> str:
-        """格式化全部尝试记录，供经验提炼 prompt 使用"""
+        """Format all attempt records for use in the experience extraction prompt."""
         lines = []
         for a in attempts:
             mg = ""

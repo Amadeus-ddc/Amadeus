@@ -139,7 +139,7 @@ class MemoryGraph:
             content = f"{node} {data.get('description', '')}".lower()
             score = 0
             for k in keywords:
-                if k in node.lower(): score += 10 # 节点名匹配权重高
+                if k in node.lower(): score += 10 # Node name matches are weighted higher
                 elif k in content: score += 1
             if score > 0:
                 hits.append((node, score))
@@ -239,4 +239,5 @@ class MemoryGraph:
                     for _, node_data in self.graph.nodes(data=True):
                         if "embedding" in node_data:
                             node_data["embedding"] = np.array(node_data["embedding"])
-            except: pass
+            except Exception as e:
+                logger.warning("Failed to load graph: %s", e)

@@ -12,31 +12,31 @@ RuleSource = Literal["emergence", "optimizer"]
 
 
 class NodeTypeSpec(BaseModel):
-    name: str = Field(..., description="节点类型名")
-    description: str = Field("", description="节点类型描述")
-    when_to_create: str = Field("", description="什么时候建该节点类型")
-    usage_scene: str = Field("", description="适用场景")
-    examples: List[str] = Field(default_factory=list, description="自然语言示例")
-    status: SpecStatus = Field("active", description="当前状态")
-    canonical_name: Optional[str] = Field(None, description="review 后归并到的标准名称")
+    name: str = Field(..., description="Node type name")
+    description: str = Field("", description="Node type description")
+    when_to_create: str = Field("", description="When to create this node type")
+    usage_scene: str = Field("", description="Applicable scenario")
+    examples: List[str] = Field(default_factory=list, description="Natural language examples")
+    status: SpecStatus = Field("active", description="Current status")
+    canonical_name: Optional[str] = Field(None, description="Canonical name assigned after review merging")
 
 
 class EdgeTypeSpec(BaseModel):
-    name: str = Field(..., description="边类型名")
-    description: str = Field("", description="边类型描述")
-    when_to_create: str = Field("", description="什么时候建该边类型")
-    usage_scene: str = Field("", description="适用场景")
-    examples: List[str] = Field(default_factory=list, description="自然语言示例")
-    status: SpecStatus = Field("active", description="当前状态")
-    canonical_name: Optional[str] = Field(None, description="review 后归并到的标准名称")
+    name: str = Field(..., description="Edge type name")
+    description: str = Field("", description="Edge type description")
+    when_to_create: str = Field("", description="When to create this edge type")
+    usage_scene: str = Field("", description="Applicable scenario")
+    examples: List[str] = Field(default_factory=list, description="Natural language examples")
+    status: SpecStatus = Field("active", description="Current status")
+    canonical_name: Optional[str] = Field(None, description="Canonical name assigned after review merging")
 
 
 class BuilderRuleSpec(BaseModel):
-    name: str = Field(..., description="规则名称")
-    rule_text: str = Field(..., description="规则文本")
-    examples: List[str] = Field(default_factory=list, description="规则示例")
-    source: RuleSource = Field("emergence", description="规则来源")
-    status: SpecStatus = Field("active", description="当前状态")
+    name: str = Field(..., description="Rule name")
+    rule_text: str = Field(..., description="Rule text")
+    examples: List[str] = Field(default_factory=list, description="Rule examples")
+    source: RuleSource = Field("emergence", description="Rule source")
+    status: SpecStatus = Field("active", description="Current status")
 
 
 class NodeTypeProposal(BaseModel):

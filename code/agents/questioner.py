@@ -81,5 +81,5 @@ Target Modes for this batch: {', '.join(selected_modes)}
             return data.get("questions", [])
         except Exception as e:
             logger.error(f"Failed to generate questions: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+            logger.debug(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return []

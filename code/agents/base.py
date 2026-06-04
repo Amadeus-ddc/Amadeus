@@ -37,6 +37,7 @@ class BaseAgent:
             return text
 
         if text.startswith("Thinking Process:"):
+            # "最终答案" is a Chinese LLM output marker meaning "Final Answer"
             markers = ["\n\n{", "\n\n[", "\n\n最终答案", "\n\nFinal Answer", "\n\nAnswer:"]
             for marker in markers:
                 idx = text.find(marker)
@@ -48,6 +49,7 @@ class BaseAgent:
             lines = text.splitlines()
             for idx, line in enumerate(lines):
                 stripped = line.strip()
+                # "测试成功" is a Chinese LLM output marker meaning "Test Passed"
                 if stripped in {"测试成功", "OK"}:
                     tail = "\n".join(lines[idx:]).strip()
                     if tail:

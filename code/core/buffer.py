@@ -7,7 +7,7 @@ class TimeWindowBuffer:
     def __init__(self, trigger_threshold: int = 3):
         self.buffer_items: List[str] = []
         self.trigger_threshold = trigger_threshold
-        self.deferred_items: List[str] = [] # 存放 WAIT 的内容
+        self.deferred_items: List[str] = [] # Holds content marked as WAIT
 
     def add(self, text: str):
         if text:
@@ -17,12 +17,12 @@ class TimeWindowBuffer:
         return len(self.buffer_items) >= self.trigger_threshold
 
     def get_content(self) -> str:
-        # 将被推迟的信息放在最前面，保持上下文连贯性
+        # Place deferred items first to maintain context continuity
         combined = self.deferred_items + self.buffer_items
         return "\n".join([f"- {item}" for item in combined])
 
     def clear(self, keep_items: List[str] = None):
-        """清空当前 Buffer，但保留被 Builder 标记为 WAIT 的内容"""
+        """Clear the current Buffer, but retain items marked as WAIT by the Builder."""
         self.buffer_items = []
         self.deferred_items = keep_items if keep_items else []
         if self.deferred_items:

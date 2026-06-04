@@ -18,10 +18,10 @@ from amadeus_collab.agents.base import BaseAgent
 logger = logging.getLogger("Amadeus.Builder")
 
 class ActionType(str, Enum):
-    ADD = "ADD"       # 新增/合并信息
-    UPDATE = "UPDATE" # 修正信息
-    DELETE = "DELETE" # 删除错误信息
-    WAIT = "WAIT"     # 暂存模糊信息
+    ADD = "ADD"       # Add/merge information
+    UPDATE = "UPDATE" # Correct/update information
+    DELETE = "DELETE" # Delete erroneous information
+    WAIT = "WAIT"     # Hold ambiguous information
 
 class MemoryOperation(BaseModel):
     action: ActionType = Field(..., description="Cognitive primitive.")
@@ -153,18 +153,18 @@ You MUST use this context to resolve relative time expressions into ABSOLUTE DAT
 
     def check_flush_condition(self, current_buffer: str, new_chunk: str) -> bool:
         """
-        决定是否需要立即处理 Buffer（Flush）。
-        返回 True 表示需要 Flush，False 表示继续积累。
+        Decide whether the Buffer needs to be flushed (processed) immediately.
+        Returns True if a flush is needed, False to continue accumulating.
         """
-        # 1. 硬性限制：如果 Buffer 太长（例如超过 1500 字符），强制 Flush，防止上下文溢出
+        # 1. Hard limit: force flush if Buffer is too long (e.g. over 1500 chars) to prevent context overflow
         if len(current_buffer) > 1500:
             return True
             
-        # 2. 长度过滤：如果 Buffer 太短，不进行 LLM 判断，直接积累
+        # 2. Length filter: if Buffer is too short, skip LLM judgment and keep accumulating
         if len(current_buffer) < 200:
             return False
 
-        # 3. 语义判断：使用 LLM 判断话题是否断裂
+        # 3. Semantic check: use LLM to determine if the topic has shifted
         prompt = f"""You are a Memory Buffer Manager. Decide if the current memory buffer should be FLUSHED (processed) now.
 
 Current Buffer Context:
@@ -192,8 +192,8 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
             return result.get("decision") == "FLUSH"
         except Exception as e:
             logger.warning(f"Buffer check failed: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
-            return False # 默认继续积累
+            logger.debug(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+            return False  # Default: keep accumulating
 
     def _build_schema_context(self, schema_state: Optional[SchemaState]) -> str:
         if not schema_state:
@@ -511,7 +511,7 @@ Output JSON: {{"decision": "FLUSH" | "KEEP", "reason": "..."}}
 
         except Exception as e:
             logger.error(f"Builder Failed: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+            logger.debug(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return [], [], SchemaProposalBundle()
 
     def force_update(self, instruction: str, schema_state: Optional[SchemaState] = None) -> bool:
@@ -551,7 +551,7 @@ Ignore the 'Buffer' context for this turn, focus ONLY on the instruction and the
             return True
         except Exception as e:
             logger.error(f"Force Update Failed: {e}")
-            logger.error(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
+            logger.debug(f"Debug Info: Base URL: {self.client.base_url}, Model: {self.model_name}")
             return False
 
     def _execute_operations(self, ops_data: List[dict]) -> tuple[List[str], List[str]]:
