@@ -16,6 +16,9 @@ venv/
 .idea/
 .claude/
 
+# Local dev symlink (users should run `pip install -e .` instead)
+amadeus_collab
+
 # Local datasets and environments
 data/
 dataset/

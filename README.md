@@ -44,9 +44,9 @@ experiments/
 
 ```bash
 pip install -e .
-# Or without editable install:
-pip install -r requirements.txt
 ```
+
+This registers the `amadeus_collab` package (mapped to `code/`) so all internal imports work. You can also install dependencies only via `pip install -r requirements.txt`, but then you must run `pip install -e .` (or create a symlink `amadeus_collab -> code/`) for imports to resolve.
 
 ### Configure
 
