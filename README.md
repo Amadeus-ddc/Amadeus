@@ -13,7 +13,7 @@ An evolving memory system for LLM agents. Amadeus converts experience streams in
 
 ## How It Works
 
-![Amadeus Architecture](ebc19ff9e4fffaa25059825c064d0d22.png)
+![Amadeus Architecture](image)
 
 1. **Buffer Manager** segments raw input into coherent chunks using LLM-based topic-shift detection.
 2. **Schema Emergence** (optional) inspects early buffers and proposes graph node types, edge types, and construction rules — no hand-written ontology needed.
