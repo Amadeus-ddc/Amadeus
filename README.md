@@ -2,6 +2,15 @@
 
 An evolving memory system for LLM agents. Amadeus converts experience streams into a structured **MemoryGraph**, then uses adversarial self-play to discover memory gaps and improve graph-building strategies.
 
+## 🎯 Highlights
+
+| Benchmark | Amadeus | Previous SOTA | Improvement |
+|-----------|---------|---------------|-------------|
+| **LoCoMo (QA)** | **62.7%** | LightMem 58% | **+4.7%** |
+| **ALFWorld (Agent)** | **59.0%** | MCMA 57% | **+2.0%** |
+
+*Under Qwen2.5-7B-Instruct setting*
+
 ## How It Works
 
 ![Amadeus Architecture](ebc19ff9e4fffaa25059825c064d0d22.png)
@@ -46,7 +55,7 @@ experiments/
 pip install -e .
 ```
 
-This registers the `amadeus_collab` package (mapped to `code/`) so all internal imports work. You can also install dependencies only via `pip install -r requirements.txt`, but then you must run `pip install -e .` (or create a symlink `amadeus_collab -> code/`) for imports to resolve.
+This registers the `amadeus_collab` package (mapped to `code/`) so all internal imports work. You can also install dependencies only via `pip install -r requirements.txt`, but then you must run `pip install -e .` separately.
 
 ### Configure
 
